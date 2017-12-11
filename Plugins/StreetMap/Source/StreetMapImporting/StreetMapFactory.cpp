@@ -292,7 +292,7 @@ bool UStreetMapFactory::LoadFromOpenStreetMapXMLFile( UStreetMap* StreetMap, FSt
                 // Vinfamy added
                 if ( NewBuilding.BuildingLevels == 0 )
                 {
-                    NewBuilding.BuildingLevels = rand() % 5 + 1;
+                    NewBuilding.BuildingLevels = rand() % 10 + 3;
                 }
                 NewBuilding.Amenity = OSMWay.Amenity;
                 NewBuilding.Building = OSMWay.Building;
@@ -316,6 +316,207 @@ bool UStreetMapFactory::LoadFromOpenStreetMapXMLFile( UStreetMap* StreetMap, FSt
 
 		return false;
 	};
+    
+    
+    
+    // Adds a water to the street map using the OpenStreetMap data, flattening the road's coordinates into our map's space
+	auto AddWaterForWay = [ConvertLatLongToMetersRelative, OSMToCentimetersScaleFactor]( 
+		const FOSMFile& OSMFile, 
+		UStreetMap& StreetMapRef, 
+		const FOSMFile::FOSMWayInfo& OSMWay ) -> bool
+	{
+		if( OSMWay.WayType == FOSMFile::EOSMWayType::Water )
+		{
+			// Require at least three points so that we don't have degenerate polygon!
+			if( OSMWay.Nodes.Num() > 2 )
+			{
+				// Create a Water for this way
+				FStreetMapWater& NewWater = *new( StreetMapRef.Waters )FStreetMapWater();
+
+				FVector2D BoundsMin( TNumericLimits<float>::Max(), TNumericLimits<float>::Max() );
+				FVector2D BoundsMax( TNumericLimits<float>::Lowest(), TNumericLimits<float>::Lowest() );
+
+				NewWater.WaterPoints.AddUninitialized( OSMWay.Nodes.Num() );
+				int32 CurWaterPoint = 0;
+
+				for( const FOSMFile::FOSMNodeInfo* OSMNodePtr : OSMWay.Nodes )
+				{
+					const FOSMFile::FOSMNodeInfo& OSMNode = *OSMNodePtr;
+
+					// Transform all points relative to the center of the latitude/longitude bounds, so that
+					// we get as much precision as possible.
+					const double RelativeToLatitude = OSMFile.AverageLatitude;
+					const double RelativeToLongitude = OSMFile.AverageLongitude;
+					const FVector2D NodePos = ConvertLatLongToMetersRelative(
+						OSMNode.Latitude,
+						OSMNode.Longitude,
+						RelativeToLatitude,
+						RelativeToLongitude ) * OSMToCentimetersScaleFactor;
+
+					// Update bounding box
+					{
+						if( NodePos.X < BoundsMin.X )
+						{
+							BoundsMin.X = NodePos.X;
+						}
+						if( NodePos.Y < BoundsMin.Y )
+						{
+							BoundsMin.Y = NodePos.Y;
+						}
+						if( NodePos.X > BoundsMax.X )
+						{
+							BoundsMax.X = NodePos.X;
+						}
+						if( NodePos.Y > BoundsMax.Y )
+						{
+							BoundsMax.Y = NodePos.Y;
+						}
+					}
+
+					// Fill in the points
+					NewWater.WaterPoints[ CurWaterPoint++ ] = NodePos;
+				}
+
+				// Make sure the Water ended up with a closed polygon, then remove the final (redundant) point
+				const bool bIsClosed = NewWater.WaterPoints[ 0 ].Equals( NewWater.WaterPoints[ NewWater.WaterPoints.Num() - 1 ], KINDA_SMALL_NUMBER );
+				if( bIsClosed )
+				{
+					// Remove the final redundant point
+					NewWater.WaterPoints.Pop();
+				}
+				else
+				{
+					// Wasn't expecting to have an unclosed shape.  Our tolerances might be off, or the data was malformed.
+					// Either way, it shouldn't be a problem as we'll close the shape ourselves below.
+					// @todo: Log this for the user as an import warning
+				}
+
+				NewWater.WaterName = OSMWay.Name;
+				if( NewWater.WaterName.IsEmpty() )
+				{
+					NewWater.WaterName = OSMWay.Ref;
+				}
+
+				NewWater.BoundsMin = BoundsMin;
+				NewWater.BoundsMax = BoundsMax;
+
+				StreetMapRef.BoundsMin.X = FMath::Min( StreetMapRef.BoundsMin.X, BoundsMin.X );
+				StreetMapRef.BoundsMin.Y = FMath::Min( StreetMapRef.BoundsMin.Y, BoundsMin.Y );
+				StreetMapRef.BoundsMax.X = FMath::Max( StreetMapRef.BoundsMax.X, BoundsMax.X );
+				StreetMapRef.BoundsMax.Y = FMath::Max( StreetMapRef.BoundsMax.Y, BoundsMax.Y );
+
+				return true;
+			}
+			else
+			{
+				// NOTE: Skipped adding Water for way because it has less than 3 points
+				// @todo: Log this for the user as an import warning
+			}
+		}
+
+		return false;
+	};
+    
+    
+    // Adds a Park to the street map using the OpenStreetMap data, flattening the road's coordinates into our map's space
+	auto AddParkForWay = [ConvertLatLongToMetersRelative, OSMToCentimetersScaleFactor]( 
+		const FOSMFile& OSMFile, 
+		UStreetMap& StreetMapRef, 
+		const FOSMFile::FOSMWayInfo& OSMWay ) -> bool
+	{
+		if( OSMWay.WayType == FOSMFile::EOSMWayType::Park )
+		{
+			// Require at least three points so that we don't have degenerate polygon!
+			if( OSMWay.Nodes.Num() > 2 )
+			{
+				// Create a Park for this way
+				FStreetMapPark& NewPark = *new( StreetMapRef.Parks )FStreetMapPark();
+
+				FVector2D BoundsMin( TNumericLimits<float>::Max(), TNumericLimits<float>::Max() );
+				FVector2D BoundsMax( TNumericLimits<float>::Lowest(), TNumericLimits<float>::Lowest() );
+
+				NewPark.ParkPoints.AddUninitialized( OSMWay.Nodes.Num() );
+				int32 CurParkPoint = 0;
+
+				for( const FOSMFile::FOSMNodeInfo* OSMNodePtr : OSMWay.Nodes )
+				{
+					const FOSMFile::FOSMNodeInfo& OSMNode = *OSMNodePtr;
+
+					// Transform all points relative to the center of the latitude/longitude bounds, so that
+					// we get as much precision as possible.
+					const double RelativeToLatitude = OSMFile.AverageLatitude;
+					const double RelativeToLongitude = OSMFile.AverageLongitude;
+					const FVector2D NodePos = ConvertLatLongToMetersRelative(
+						OSMNode.Latitude,
+						OSMNode.Longitude,
+						RelativeToLatitude,
+						RelativeToLongitude ) * OSMToCentimetersScaleFactor;
+
+					// Update bounding box
+					{
+						if( NodePos.X < BoundsMin.X )
+						{
+							BoundsMin.X = NodePos.X;
+						}
+						if( NodePos.Y < BoundsMin.Y )
+						{
+							BoundsMin.Y = NodePos.Y;
+						}
+						if( NodePos.X > BoundsMax.X )
+						{
+							BoundsMax.X = NodePos.X;
+						}
+						if( NodePos.Y > BoundsMax.Y )
+						{
+							BoundsMax.Y = NodePos.Y;
+						}
+					}
+
+					// Fill in the points
+					NewPark.ParkPoints[ CurParkPoint++ ] = NodePos;
+				}
+
+				// Make sure the Park ended up with a closed polygon, then remove the final (redundant) point
+				const bool bIsClosed = NewPark.ParkPoints[ 0 ].Equals( NewPark.ParkPoints[ NewPark.ParkPoints.Num() - 1 ], KINDA_SMALL_NUMBER );
+				if( bIsClosed )
+				{
+					// Remove the final redundant point
+					NewPark.ParkPoints.Pop();
+				}
+				else
+				{
+					// Wasn't expecting to have an unclosed shape.  Our tolerances might be off, or the data was malformed.
+					// Either way, it shouldn't be a problem as we'll close the shape ourselves below.
+					// @todo: Log this for the user as an import warning
+				}
+
+				NewPark.ParkName = OSMWay.Name;
+				if( NewPark.ParkName.IsEmpty() )
+				{
+					NewPark.ParkName = OSMWay.Ref;
+				}
+
+				NewPark.BoundsMin = BoundsMin;
+				NewPark.BoundsMax = BoundsMax;
+
+				StreetMapRef.BoundsMin.X = FMath::Min( StreetMapRef.BoundsMin.X, BoundsMin.X );
+				StreetMapRef.BoundsMin.Y = FMath::Min( StreetMapRef.BoundsMin.Y, BoundsMin.Y );
+				StreetMapRef.BoundsMax.X = FMath::Max( StreetMapRef.BoundsMax.X, BoundsMax.X );
+				StreetMapRef.BoundsMax.Y = FMath::Max( StreetMapRef.BoundsMax.Y, BoundsMax.Y );
+
+				return true;
+			}
+			else
+			{
+				// NOTE: Skipped adding Park for way because it has less than 3 points
+				// @todo: Log this for the user as an import warning
+			}
+		}
+
+		return false;
+	};
+
+
 
 
 	// Load up the OSM file.  It's in XML format.
@@ -349,6 +550,26 @@ bool UStreetMapFactory::LoadFromOpenStreetMapXMLFile( UStreetMap* StreetMap, FSt
 				// ...
 			}
 		}
+        
+        
+        
+        else if( OSMWay->WayType == FOSMFile::EOSMWayType::Water )
+		{
+			if( AddWaterForWay( OSMFile, *StreetMap, *OSMWay ) )
+			{
+				// ...
+			}
+		}
+        
+        else if( OSMWay->WayType == FOSMFile::EOSMWayType::Park )
+		{
+			if( AddParkForWay( OSMFile, *StreetMap, *OSMWay ) )
+			{
+				// ...
+			}
+		}
+        
+        
 		else
 		{
 			int32 RoadIndex = INDEX_NONE;

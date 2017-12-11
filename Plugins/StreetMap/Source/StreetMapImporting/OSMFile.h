@@ -129,6 +129,12 @@ public:
 
 		/** Default type of building.  A general catch-all. */
 		Building,
+        
+        /** Default type of building.  A general catch-all. */
+		Water,
+        
+        /** Default type of building.  A general catch-all. */
+		Park,
 
 
 		///

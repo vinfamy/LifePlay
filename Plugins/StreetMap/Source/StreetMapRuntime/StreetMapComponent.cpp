@@ -232,6 +232,10 @@ void UStreetMapComponent::GenerateMesh()
 	const float BuildingBorderZ = MeshBuildSettings.BuildingBorderZ;
 	const FColor BuildingBorderColor( BuildingBorderLinearColor.ToFColor( false ) );
 	const FColor BuildingFillColor( FLinearColor( BuildingBorderLinearColor * 0.33f ).CopyWithNewOpacity( 1.0f ).ToFColor( false ) );
+    
+    const FColor WaterColor = MeshBuildSettings.WaterColor.ToFColor( false );
+	const FColor ParkColor = MeshBuildSettings.ParkColor.ToFColor( false );
+
 	/////////////////////////////////////////////////////////
 
 
@@ -247,6 +251,8 @@ void UStreetMapComponent::GenerateMesh()
 		const auto& Roads = StreetMap->GetRoads();
 		const auto& Nodes = StreetMap->GetNodes();
 		const auto& Buildings = StreetMap->GetBuildings();
+        const auto& Waters = StreetMap->GetWaters();
+        const auto& Parks = StreetMap->GetParks();
 
 		for( const auto& Road : Roads )
 		{
@@ -429,6 +435,99 @@ void UStreetMapComponent::GenerateMesh()
 						MeshBoundingBox );
 				}
 			}
+		}
+        
+        // Vinfamy added
+        
+        TArray< int32 > TempIndicesW;
+		TArray< int32 > TriangulatedVertexIndicesW;
+		TArray< FVector > TempPointsW;
+		for( int32 WaterIndex = 0; WaterIndex < Waters.Num(); ++WaterIndex )
+		{
+			const auto& Water = Waters[ WaterIndex ];
+
+			// Water mesh (or filled area, if the Water has no height)
+
+			// Triangulate this Water
+			// @todo: Performance: Triangulating lots of Water polygons is quite slow.  We could easily do this 
+			//        as part of the import process and store tessellated geometry instead of doing this at load time.
+			bool WindsClockwise;
+			if( FPolygonTools::TriangulatePolygon( Water.WaterPoints, TempIndicesW, /* Out */ TriangulatedVertexIndicesW, /* Out */ WindsClockwise ) )
+			{
+				// @todo: Performance: We could preprocess the Water shapes so that the points always wind
+				//        in a consistent direction, so we can skip determining the winding above.
+
+				const int32 FirstTopVertexIndex = this->Vertices.Num();
+
+				// calculate fill Z for Waters
+				// either use the defined height or extrapolate from Water level count
+				float WaterFillZ = 0.0f;	
+
+				// Top of Water
+				{
+					TempPointsW.SetNum( Water.WaterPoints.Num(), false );
+					for( int32 PointIndex = 0; PointIndex < Water.WaterPoints.Num(); ++PointIndex )
+					{
+						TempPointsW[ PointIndex ] = FVector( Water.WaterPoints[ ( Water.WaterPoints.Num() - PointIndex ) - 1 ], WaterFillZ );
+					}
+					AddTriangles( TempPointsW, TriangulatedVertexIndicesW, FVector::ForwardVector, FVector::UpVector, WaterColor, MeshBoundingBox );
+				}
+
+			}
+			else
+			{
+				// @todo: Triangulation failed for some reason, possibly due to degenerate polygons.  We can
+				//        probably improve the algorithm to avoid this happening.
+			}
+
+			// Water border
+		}
+        
+        
+        
+        
+        TArray< int32 > TempIndicesP;
+		TArray< int32 > TriangulatedVertexIndicesP;
+		TArray< FVector > TempPointsP;
+		for( int32 ParkIndex = 0; ParkIndex < Parks.Num(); ++ParkIndex )
+		{
+			const auto& Park = Parks[ ParkIndex ];
+
+			// Park mesh (or filled area, if the Park has no height)
+
+			// Triangulate this Park
+			// @todo: Performance: Triangulating lots of Park polygons is quite slow.  We could easily do this 
+			//        as part of the import process and store tessellated geometry instead of doing this at load time.
+			bool WindsClockwise;
+			if( FPolygonTools::TriangulatePolygon( Park.ParkPoints, TempIndicesP, /* Out */ TriangulatedVertexIndicesP, /* Out */ WindsClockwise ) )
+			{
+				// @todo: Performance: We could preprocess the Park shapes so that the points always wind
+				//        in a consistent direction, so we can skip determining the winding above.
+
+				const int32 FirstTopVertexIndex = this->Vertices.Num();
+
+				// calculate fill Z for Parks
+				// either use the defined height or extrapolate from Park level count
+				float ParkFillZ = 0.0f;	
+
+				// Top of Park
+				{
+					TempPointsP.SetNum( Park.ParkPoints.Num(), false );
+					for( int32 PointIndex = 0; PointIndex < Park.ParkPoints.Num(); ++PointIndex )
+					{
+						TempPointsP[ PointIndex ] = FVector( Park.ParkPoints[ ( Park.ParkPoints.Num() - PointIndex ) - 1 ], ParkFillZ );
+					}
+					AddTriangles( TempPointsP, TriangulatedVertexIndicesP, FVector::ForwardVector, FVector::UpVector, ParkColor, MeshBoundingBox );
+				}
+
+			}
+			else
+			{
+				// @todo: Triangulation failed for some reason, possibly due to degenerate polygons.  We can
+				//        probably improve the algorithm to avoid this happening.
+			}
+
+			// Park border
 		}
 
 		CachedLocalBounds = MeshBoundingBox;

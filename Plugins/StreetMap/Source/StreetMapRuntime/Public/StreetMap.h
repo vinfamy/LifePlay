@@ -99,20 +99,32 @@ public:
 	/** Buildings border vertical offset */
 	UPROPERTY(Category = StreetMap, EditAnywhere, meta = (ClampMin = "0", UIMin = "0"))
 		float BuildingBorderZ;
+        
+        
+    /** Water vertex color */
+	UPROPERTY(Category = StreetMap, EditAnywhere)
+		FLinearColor WaterColor;
+        
+    /** Park vertex color */
+	UPROPERTY(Category = StreetMap, EditAnywhere)
+		FLinearColor ParkColor;
 
+        
 	FStreetMapMeshBuildSettings() :
 		RoadOffesetZ(0.0f),
 		bWant3DBuildings(true),
 		bWantLitBuildings(true),
 		StreetThickness(800.0f),
-		StreetColor(0.05f, 0.75f, 0.05f),
+		StreetColor(0.93f, 0.90f, 0.87f),
 		MajorRoadThickness(1000.0f),
-		MajorRoadColor(0.15f, 0.85f, 0.15f),
+		MajorRoadColor(0.92f, 0.91f, 0.88f),
 		HighwayThickness(1400.0f),
-		HighwayColor(FLinearColor(0.25f, 0.95f, 0.25f)),
+		HighwayColor(FLinearColor(0.91f, 0.90f, 0.87f)),
 		BuildingBorderThickness(20.0f),
 		BuildingBorderLinearColor(0.85f, 0.85f, 0.85f),
-		BuildingBorderZ(10.0f)
+		BuildingBorderZ(10.0f),
+        ParkColor(0.00f, 0.55f, 0.27f),
+        WaterColor(0.26f, 0.75f, 0.98f)
 	{
 	}
 
@@ -312,6 +324,57 @@ struct STREETMAPRUNTIME_API FStreetMapBuilding
 };
 
 
+// Vinfamy added
+
+USTRUCT( BlueprintType )
+struct STREETMAPRUNTIME_API FStreetMapWater
+{
+	GENERATED_USTRUCT_BODY()
+
+	/** Name of the water */
+	UPROPERTY( Category=StreetMap, EditAnywhere)
+	FString WaterName;
+
+	/** Polygon points that define the perimeter of the water */
+	UPROPERTY( Category=StreetMap, EditAnywhere )
+	TArray<FVector2D> WaterPoints;
+
+	// @todo: Performance: Bounding information could be computed at load time if we want to avoid the memory cost of storing it
+
+	/** 2D bounds (min) of this water's points */
+	UPROPERTY( Category=StreetMap, EditAnywhere )
+	FVector2D BoundsMin;
+	
+	/** 2D bounds (max) of this water's points */
+	UPROPERTY( Category=StreetMap, EditAnywhere )
+	FVector2D BoundsMax;
+};
+
+USTRUCT( BlueprintType )
+struct STREETMAPRUNTIME_API FStreetMapPark
+{
+	GENERATED_USTRUCT_BODY()
+
+	/** Name of the park */
+	UPROPERTY( Category=StreetMap, EditAnywhere)
+	FString ParkName;
+
+	/** Polygon points that define the perimeter of the park */
+	UPROPERTY( Category=StreetMap, EditAnywhere )
+	TArray<FVector2D> ParkPoints;
+
+	// @todo: Performance: Bounding information could be computed at load time if we want to avoid the memory cost of storing it
+
+	/** 2D bounds (min) of this water's points */
+	UPROPERTY( Category=StreetMap, EditAnywhere )
+	FVector2D BoundsMin;
+	
+	/** 2D bounds (max) of this water's points */
+	UPROPERTY( Category=StreetMap, EditAnywhere )
+	FVector2D BoundsMax;
+};
+
+
 /** A loaded street map */
 UCLASS(Blueprintable, BlueprintType)
 class STREETMAPRUNTIME_API UStreetMap : public UObject
@@ -361,6 +424,32 @@ public:
 	{
 		return Buildings;
 	}
+    
+    /** vinfamy Gets all of the waters (read only) */
+	const TArray<FStreetMapWater>& GetWaters() const
+	{
+		return Waters;
+	}
+
+	/** Gets all of the waters */
+	TArray<FStreetMapWater>& GetWaters()
+	{
+		return Waters;
+	}
+    
+    
+    /** vinfamy Gets all of the parks (read only) */
+	const TArray<FStreetMapPark>& GetParks() const
+	{
+		return Parks;
+	}
+
+	/** Gets all of the parks */
+	TArray<FStreetMapPark>& GetParks()
+	{
+		return Parks;
+	}
+    
 
 	/** Gets the bounding box of the map */
 	FVector2D GetBoundsMin() const
@@ -397,6 +486,14 @@ protected:
 	/** List of nodes on this map.  Nodes describe interesting points along roads, usually where roads intersect or at the end of a dead-end street */
 	UPROPERTY( Category=StreetMap, VisibleAnywhere )
 	TArray<FStreetMapNode> Nodes;
+    
+    /** Vinfamy added - List of waters (natural = water) */
+	UPROPERTY( Category=StreetMap, VisibleAnywhere )
+	TArray<FStreetMapWater> Waters;
+    
+    /** List of parks (leisure = park) */
+	UPROPERTY( Category=StreetMap, VisibleAnywhere )
+	TArray<FStreetMapPark> Parks;
 
 	/** List of all buildings on the street map */
 	UPROPERTY( Category=StreetMap, EditAnywhere, BlueprintReadWrite)
