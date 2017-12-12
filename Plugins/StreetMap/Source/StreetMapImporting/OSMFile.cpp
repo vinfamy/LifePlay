@@ -393,6 +393,12 @@ bool FOSMFile::ProcessAttribute( const TCHAR* AttributeName, const TCHAR* Attrib
                     CurrentWayInfo->Amenity = AttributeValue;
 				}
                 
+                else if( !FCString::Stricmp( AttributeValue, TEXT( "sports_centre" ) ) )
+				{
+                    CurrentWayInfo->WayType = EOSMWayType::Building;
+                    CurrentWayInfo->Amenity = AttributeValue;
+				}
+                
 				else
 				{
 					// Other natural type that we don't recognize yet.  See http://wiki.openstreetmap.org/wiki/Key:building

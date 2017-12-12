@@ -77,6 +77,28 @@ bool FPolygonTools::IsPointInsidePolygon( const TArray<FVector2D>& Polygon, cons
 	return bIsInside;
 }
 
+/** Backup
+bool FPolygonTools::IsPointInsidePolygon( const TArray<FVector2D>& Polygon, const FVector2D Point )
+{
+	const int NumCorners = Polygon.Num();
+	int PreviousCornerIndex = NumCorners - 1;
+	bool bIsInside = false;
+
+	for( int CornerIndex = 0; CornerIndex < NumCorners; CornerIndex++ )
+	{
+		if( ( ( Polygon[ CornerIndex ].Y < Point.Y && Polygon[ PreviousCornerIndex ].Y >= Point.Y ) || ( Polygon[ PreviousCornerIndex ].Y < Point.Y && Polygon[ CornerIndex ].Y >= Point.Y ) ) && 
+			( Polygon[ CornerIndex ].X <= Point.X || Polygon[ PreviousCornerIndex ].X <= Point.X ) )
+		{
+			bIsInside ^= ( Polygon[ CornerIndex ].X + ( Point.Y - Polygon[ CornerIndex ].Y ) / ( Polygon[ PreviousCornerIndex ].Y - Polygon[ CornerIndex ].Y )*( Polygon[ PreviousCornerIndex ].X - Polygon[ CornerIndex ].X ) < Point.X );
+		}
+
+		PreviousCornerIndex = CornerIndex;
+	}
+
+	return bIsInside;
+}
+*/
+
 
 bool FPolygonTools::Snip( const TArray<FVector2D>& Polygon, const int32 U, const int32 V, const int32 W, const int32 PointCount, const int32* VertexIndices )
 {

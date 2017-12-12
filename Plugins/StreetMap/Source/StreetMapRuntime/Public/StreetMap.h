@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "PolygonTools.h"
 #include "StreetMap.generated.h"
 
 
@@ -463,20 +462,16 @@ public:
     
     /** Vinfamy added */
 	UFUNCTION(BlueprintCallable)
-	FStreetMapBuilding FindBuilding(const FVector2D Point)
-	{
-		FStreetMapBuilding emptyBuilding;
-		for (const auto &element : Buildings)
-		{
-			if (FPolygonTools::IsPointInsidePolygon(element.BuildingPoints, Point))
-			{
-				return element;
-			}
-		}
-		return emptyBuilding;
-	}
+	FStreetMapBuilding FindBuilding(const FVector2D Point);
+    
+    UFUNCTION(BlueprintCallable)
+    TArray<FStreetMapBuilding> SearchByBuildingName(FString SearchTerm, FString Amenity) const;
 
-
+    UFUNCTION(BlueprintCallable)
+    TArray<FStreetMapBuilding> SearchByAmenity(FString Amenity) const;
+    
+    TArray<FStreetMapBuilding> FilterByAmenity(FString Amenity, TArray<FStreetMapBuilding> SmallBuildings) const;
+    
 protected:
 	
 	/** List of roads */
