@@ -1,0 +1,25 @@
+Stats (0 - 100)
+From Red to Green
+
+Short-term
+1. Mood
+2. Energy
+3. Arousal
+
+Long-term (regular activity increases, if not, deteriorate)
+1. Attractiveness
+2. Fitness
+3. Intelligence
+4. Interpersonal Skills
+5. Perversion
+
+Inventory
+1. Money (in local currency)
+2. Apparel (buff to attractiveness, with tags for work, formal, casual, sports etc)
+3. All other items
+
+Effect:
+1. Hungry
+2. Ill
+3. Injured
+
