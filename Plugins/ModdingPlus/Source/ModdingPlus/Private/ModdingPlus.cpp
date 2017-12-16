@@ -27,7 +27,7 @@ bool UModdingPlus::GetAllFilesFromFolder(TArray<FString>& Files, FString RootFol
      
      IFileManager& FileManager = IFileManager::Get();
      
-     FString RelativePath = FPaths::GameDir();
+     FString RelativePath = FPaths::GameContentDir();
      FString FullPath = FileManager.ConvertToAbsolutePathForExternalAppForRead(*RelativePath);
      
      if(Ext == "") 
@@ -46,7 +46,7 @@ bool UModdingPlus::GetAllFilesFromFolder(TArray<FString>& Files, FString RootFol
  
  bool UModdingPlus::LoadTxt(FString FileNameA, FString& SaveTextA)
 {
-     return FFileHelper::LoadFileToString(SaveTextA, *(FPaths::GameDir() + FileNameA));
+     return FFileHelper::LoadFileToString(SaveTextA, *(FPaths::GameContentDir() + FileNameA));
 }
 
 #undef LOCTEXT_NAMESPACE

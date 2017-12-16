@@ -27,7 +27,11 @@ public class ModdingPlus : ModuleRules
 		PublicDependencyModuleNames.AddRange(
 			new string[]
 			{
+                "Engine",
 				"Core",
+                "CoreUObject",
+                "InputCore",
+                "Projects",
 				// ... add other public dependencies that you statically link with here ...
 			}
 			);
@@ -36,10 +40,7 @@ public class ModdingPlus : ModuleRules
 		PrivateDependencyModuleNames.AddRange(
 			new string[]
 			{
-				"CoreUObject",
-				"Engine",
-				"Slate",
-				"SlateCore",
+                "ModdingPlus",
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);
