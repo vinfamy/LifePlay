@@ -1,16 +1,17 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
+// Some copyright should be here...
 
 using UnrealBuildTool;
 
-public class ModdingPlus : ModuleRules
+public class ModdingExtra : ModuleRules
 {
-	public ModdingPlus(ReadOnlyTargetRules Target) : base(Target)
+	public ModdingExtra(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 		
 		PublicIncludePaths.AddRange(
 			new string[] {
-				"ModdingPlus/Public"
+				"ModdingExtra/Public"
+				
 				// ... add public include paths required here ...
 			}
 			);
@@ -18,7 +19,8 @@ public class ModdingPlus : ModuleRules
 		
 		PrivateIncludePaths.AddRange(
 			new string[] {
-				"ModdingPlus/Private",
+				"ModdingExtra/Private",
+				
 				// ... add other private include paths required here ...
 			}
 			);
@@ -27,11 +29,8 @@ public class ModdingPlus : ModuleRules
 		PublicDependencyModuleNames.AddRange(
 			new string[]
 			{
-                "Engine",
 				"Core",
-                "CoreUObject",
-                "InputCore",
-                "Projects",
+				
 				// ... add other public dependencies that you statically link with here ...
 			}
 			);
@@ -40,7 +39,11 @@ public class ModdingPlus : ModuleRules
 		PrivateDependencyModuleNames.AddRange(
 			new string[]
 			{
-                "ModdingPlus",
+				"CoreUObject",
+				"Engine",
+				"Slate",
+				"SlateCore",
+
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

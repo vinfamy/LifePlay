@@ -2,24 +2,22 @@
 	"FileVersion": 3,
 	"Version": 1,
 	"VersionName": "1.0",
-	"FriendlyName": "ModdingPlus",
-	"Description": "Expands UE4's modding capacity",
+	"FriendlyName": "ModdingExtra",
+	"Description": "Modding Extra",
 	"Category": "Other",
 	"CreatedBy": "Vinfamy",
 	"CreatedByURL": "",
 	"DocsURL": "",
 	"MarketplaceURL": "",
 	"SupportURL": "",
-    "EnabledByDefault" : true,
-	"CanContainContent" : true,
 	"CanContainContent": true,
 	"IsBetaVersion": false,
 	"Installed": false,
 	"Modules": [
 		{
-			"Name": "ModdingPlus",
-			"Type": "Developer",
-			"LoadingPhase": "Default"
+			"Name": "ModdingExtra",
+			"Type": "Runtime",
+			"LoadingPhase": "PreLoadingScreen"
 		}
 	]
 }
