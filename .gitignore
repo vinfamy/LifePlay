@@ -13,11 +13,9 @@ Saved
 *.xcodeproj
 *.xcworkspace
 
-Content/StreetMap/*
-Content/Characters/*
-Content/Backgrounds/*
+Content/Heavy/*
 Plugins/StreetMap/Binaries/*
 Plugins/StreetMap/Intermediate/*
-Content/StreetMap/CentralLondon.uasset
-Content/StreetMap/Static/CentralLondon0.uasset
+Plugins/ModdingExtra/Binaries/*
+Plugins/ModdingExtra/Intermediate/*
 *.png

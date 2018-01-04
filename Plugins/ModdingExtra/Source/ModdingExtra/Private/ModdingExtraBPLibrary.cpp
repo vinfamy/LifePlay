@@ -38,9 +38,29 @@ float UModdingExtraBPLibrary::ModdingExtraSampleFunction(float Param)
      }
      
      FString FinalPath = FullPath + "/" + RootFolderFullPath + "/" + Ext;
-     FileManager.FindFiles(Files, *FinalPath, true, false);
+     FString FinalPathWithoutExt = FullPath + "/" + RootFolderFullPath + "/";
+     
+     //FileManager.FindFiles(Files, *FinalPath, true, false);
+     FileManager.FindFilesRecursive(Files, *FinalPathWithoutExt, *Ext, true, false, false);
      return true;                  
  }
+ 
+ 
+  bool UModdingExtraBPLibrary::GetAllSubfolders(TArray<FString>& Folders, FString RootFolderFullPath)
+ {
+     if(RootFolderFullPath.Len() < 1) return false;
+     
+     IFileManager& FileManager = IFileManager::Get();
+     
+     FString RelativePath = FPaths::ProjectContentDir();
+     FString FullPath = FileManager.ConvertToAbsolutePathForExternalAppForRead(*RelativePath);
+     
+     FString FinalPath = FullPath + "/" + RootFolderFullPath + "/";
+     
+     FileManager.FindFiles(Folders, *FinalPath, false, true);
+     return true;                  
+ }
+ 
  
  bool UModdingExtraBPLibrary::LoadTxt(FString FileNameA, FString& SaveTextA)
 {

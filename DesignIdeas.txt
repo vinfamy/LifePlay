@@ -13,6 +13,11 @@ Long-term (regular activity increases, if not, deteriorate)
 4. Interpersonal Skills
 5. Perversion
 
+Relationship
+1. OpinionOfPlayer
+2. PlayerOpinion
+4. 
+
 Inventory
 1. Money (in local currency)
 2. Apparel (buff to attractiveness, with tags for work, formal, casual, sports etc)
@@ -23,3 +28,27 @@ Effect:
 2. Ill
 3. Injured
 
+
+
+Array of Structs as default variable in Person class:
+Stat (String) - Value (Float)
+
+BuildingVisited struct
+UID (int) - Building (StreetMapBuilding) - Persons (Person[])
+
+PlaceBuilding struct
+Place (String) - BuildingID (int) 
+
+RelationshipPersons struct
+Relationship (String) - Persons (Person ObjectReference[])
+
+Start game with a base person with invisible render
+Read data and populate this array in base person
+Dupicate base person - first dup is player - set him visible
+Add player only stats
+Duplicate base person again whenever there's a need to create a new NPC. Clear if not touched for a while.
+
+Base Person
+- StatValue array of structs (Mood: 69, Energy: 88, PlayerOpinion: 59, etc)
+- PlaceBuilding array of structs (Home: 7999, Office: 6899, etc)
+- RelationshipPersons array of structs ("Friends": Jack, John, Maria references)

@@ -38,4 +38,7 @@ class UModdingExtraBPLibrary : public UBlueprintFunctionLibrary
     
     UFUNCTION(BlueprintPure, Category = "ModdingExtra")
     static FString ContentDirectory();
+    
+    UFUNCTION(BlueprintPure, Category = "ModdingExtra")
+    static bool GetAllSubfolders(TArray<FString>& Folders, FString RootFolderFullPath);
 };

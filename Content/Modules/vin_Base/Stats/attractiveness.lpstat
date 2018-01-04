@@ -1,0 +1,7 @@
+STAT_ID: attractiveness
+STAT_NAME: Attractiveness
+PLAYER_ONLY: false
+HIGHER_BETTER: true
+STAT_MIN: 0
+STAT_MAX: 100
+DAILY_CHANGE: 0
