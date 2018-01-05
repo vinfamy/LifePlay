@@ -31,16 +31,16 @@ Effect:
 
 
 Array of Structs as default variable in Person class:
-Stat (String) - Value (Float)
+Stat (String) - Value (Float) - enabled (bool)
 
 BuildingVisited struct
 UID (int) - Building (StreetMapBuilding) - Persons (Person[])
 
 PlaceBuilding struct
-Place (String) - BuildingID (int) 
+Place (String) - Buildings (StreetMapBuilding[]) 
 
 RelationshipPersons struct
-Relationship (String) - Persons (Person ObjectReference[])
+Relationship (String) - Persons (Person ObjectReference[]) - enabled (bool)
 
 Start game with a base person with invisible render
 Read data and populate this array in base person
