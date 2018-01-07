@@ -1,0 +1,10 @@
+ACTION_UNIQUEID: have_a_snack
+ACTION_NAME: Have a snack
+WHERE: bar, restaurant, bakery, cafe, fast_food, ice_cream, pub, department_store, hotel, marketplace
+WHEN: 0 - 24
+MINUTES: 10 - 20
+TIMEOUT_MINUTES: 60
+ALSO_TIMEOUT: have_a_snack_in, have_a_meal, have_a_meal_in
+EFFECTS: money -3 (START), mood +1 (END), energy +5 (DURATION)
+CONDITIONS:
+MOVE_FIRST: true   

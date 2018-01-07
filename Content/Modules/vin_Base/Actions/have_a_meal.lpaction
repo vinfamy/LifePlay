@@ -1,0 +1,10 @@
+ACTION_UNIQUEID: have_a_meal
+ACTION_NAME: Have a meal
+WHERE: restaurant, cafe, fast_food, pub, hotel
+WHEN: 5.30 - 22.30
+MINUTES: 40 - 90
+TIMEOUT_MINUTES: 180
+ALSO_TIMEOUT: have_a_snack_in, have_a_snack, have_a_meal_in
+EFFECTS: money -9 (START), mood +3 (END), energy +15 (DURATION), mood -1 (INTERRUPTED)
+CONDITIONS:
+MOVE_FIRST: true   
