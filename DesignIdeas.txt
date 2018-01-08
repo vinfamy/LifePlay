@@ -52,3 +52,15 @@ Base Person
 - StatValue array of structs (Mood: 69, Energy: 88, PlayerOpinion: 59, etc)
 - PlaceBuilding array of structs (Home: 7999, Office: 6899, etc)
 - RelationshipPersons array of structs ("Friends": Jack, John, Maria references)
+
+LPCharacter: A character specification - look, requirement, relationship - find or generates based on condition
+- Max Characters Per Building (Landlord: 1, Colleagues: no max)
+- Once generated, they have AI
+- Age,and morph targets: base, variance up, variance down
+- Gender: % Male
+- % shemale if female
+
+LPScene:
+- Where:
+- Doing What: optional
+- First identify actor involved: name LPCharacter (GenerateNewEvenIfExist: 50%)

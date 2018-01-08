@@ -1,8 +1,9 @@
-STAT_ID: interpersonal
-STAT_NAME: Interpersonal Skills
+STAT_ID: perversion
+STAT_NAME: Perversion
 PLAYER_ONLY: false
 HIGHER_BETTER: true
 STAT_MIN: 0
 STAT_MAX: 100
 DAILY_CHANGE: -0.05
-DEFAULT_VALUE: 50
+DEFAULT_VALUE: 0
+NPC_ONLY: false
