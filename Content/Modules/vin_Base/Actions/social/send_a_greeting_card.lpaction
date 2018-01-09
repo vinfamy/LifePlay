@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: send_a_greeting_card
+ACTION_NAME: Send a greeting card
+WHERE: post_office
+WHEN: 0 - 24
+MINUTES: 5 - 20
+TIMEOUT_MINUTES: 1200
+ALSO_TIMEOUT: 
+EFFECTS: money -2 (START), mood +2 (END), interpersonal +0.05 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

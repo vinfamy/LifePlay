@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: buy_makeup_MULTIPLE
+ACTION_NAME: Buy makeup
+WHERE: cosmestics, supermarket, variety_store, department_store, convenience, beauty, chemist, pharmacy
+WHEN: 0 - 24
+MINUTES: 1 - 5
+TIMEOUT_MINUTES: 15
+ALSO_TIMEOUT: 
+EFFECTS:  money -50 (START), mood +0.05 (END), stock_makeup +1 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

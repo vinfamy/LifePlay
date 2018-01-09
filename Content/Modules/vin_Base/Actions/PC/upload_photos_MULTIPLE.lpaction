@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: upload_photos_MULTIPLE
+ACTION_NAME: Upload photos
+WHERE: PC
+WHEN: 0 - 24
+MINUTES: 2 - 5
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: intelligence +0.005 (END), interpersonal +0.0025 (END), mood +0.2 (DURATION), stock_photo -1 (START)
+CONDITIONS: stock_photo >= 1 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

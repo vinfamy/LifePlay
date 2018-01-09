@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: drink_coffee_in
+ACTION_NAME: Drink coffee
+WHERE: home, work
+WHEN: 0 - 24
+MINUTES: 5 - 20
+TIMEOUT_MINUTES: 120
+ALSO_TIMEOUT: drink_coffee, drink_tea, drink_tea_in
+EFFECTS:  stock_coffee -1 (START), mood +2 (END), energy +10 (DURATION)
+CONDITIONS: stock_coffee >= 0.8 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

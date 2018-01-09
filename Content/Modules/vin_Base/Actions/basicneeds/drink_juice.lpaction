@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: drink_juice
+ACTION_NAME: Drink juice
+WHERE: cafe, department_store, fast_food, hotel, restaurant
+WHEN: 0 - 24
+MINUTES: 1 - 5
+TIMEOUT_MINUTES: 20
+ALSO_TIMEOUT: drink_water, drink_soda, drink_water_in, drink_juice_in, drink_soda_in
+EFFECTS: money -2 (START), mood +0.8 (END), fitness +0.015 (END), energy +1 (DURATION)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

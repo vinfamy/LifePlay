@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: watch_sport
+ACTION_NAME: Watch sport
+WHERE: pub, community_centre
+WHEN: 12 - 21
+MINUTES: 60 - 120
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:  money -5 (START), mood +1 (END), energy +5 (END), fitness +0.01 (END), mood -2 (INTERRUPTED)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

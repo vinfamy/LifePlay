@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: learn_a_language
+ACTION_NAME: Learn a language
+WHERE: online, community_centre, library
+WHEN: 0 - 24
+MINUTES: 45 - 120
+TIMEOUT_MINUTES: 1000
+ALSO_TIMEOUT: 
+EFFECTS: mood +2 (DURATION), mood -1 (INTERRUPTED), intelligence +0.03 (DURATION), interpersonal +0.05 (DURATION)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

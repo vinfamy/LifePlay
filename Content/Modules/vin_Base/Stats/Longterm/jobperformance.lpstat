@@ -1,0 +1,9 @@
+STAT_ID: jobperformance
+STAT_NAME: Job performance
+PLAYER_ONLY: false
+HIGHER_BETTER: true
+STAT_MIN: 0
+STAT_MAX: 100
+DAILY_CHANGE: -1
+DEFAULT_VALUE: 0
+NPC_ONLY: false

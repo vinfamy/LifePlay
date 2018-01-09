@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: buy_tobacco_MULTIPLE
+ACTION_NAME: Buy tobacco
+WHERE: tobacco, supermarket, department_store, marketplace, convenience, variety_store
+WHEN: 0 - 24
+MINUTES: 1 - 5
+TIMEOUT_MINUTES: 30
+ALSO_TIMEOUT: 
+EFFECTS:  money -8 (START), mood +0.025 (END), stock_tobacco +20 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

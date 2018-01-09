@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: buy_supplements_MULTIPLE
+ACTION_NAME: Buy supplements
+WHERE: pharmacy, chemist, supermarket, variety_store, convenience
+WHEN: 0 - 24
+MINUTES: 1 - 2
+TIMEOUT_MINUTES: 15
+ALSO_TIMEOUT: 
+EFFECTS:  money -0.1 (START), mood +0.001 (END), stock_supplement +1 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

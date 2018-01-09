@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: cook_a_meal
+ACTION_NAME: Cook a meal
+WHERE: home
+WHEN: 0 - 24
+MINUTES: 20 - 60
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:  stock_ingredient -2 (START),  stock_meal +1 (END), cooking +0.2 (END), energy -2 (DURATION), mood +5 (DURATION), mood -1 (INTERRUPTED)
+CONDITIONS: stock_ingredient >= 1.8 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

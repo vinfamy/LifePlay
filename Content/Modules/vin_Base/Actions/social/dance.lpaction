@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: dance
+ACTION_NAME: Dance
+WHERE: nightclub
+WHEN: 0 - 24
+MINUTES: 15 - 30
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: energy -1 (DURATION), mood +1.5 (END), dance +0.05 (END), interpersonal +0.03 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

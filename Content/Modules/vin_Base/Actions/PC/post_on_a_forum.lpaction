@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: post_on_a_forum
+ACTION_NAME: Post on a forum
+WHERE: PC
+WHEN: 0 - 24
+MINUTES: 40 - 120
+TIMEOUT_MINUTES: 15
+ALSO_TIMEOUT: 
+EFFECTS: intelligence +0.2 (END), interpersonal +0.1 (END), mood +1 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: drink_coffee
+ACTION_NAME: Drink coffee
+WHERE: cafe, coffee, department_store, fast_food, hotel
+WHEN: 0 - 24
+MINUTES: 5 - 20
+TIMEOUT_MINUTES: 120
+ALSO_TIMEOUT: drink_coffee_in, drink_tea, drink_tea_in
+EFFECTS:  money -2 (START), mood +2 (END), energy +10 (DURATION)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

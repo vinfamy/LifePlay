@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: buy_pet_food_MULTIPLE
+ACTION_NAME: Buy pet food
+WHERE: pet, veterinary
+WHEN: 0 - 24
+MINUTES: 1 - 5
+TIMEOUT_MINUTES: 15
+ALSO_TIMEOUT: 
+EFFECTS:  money -2 (START), mood +0.015 (END), stock_petfood +1 (END)
+CONDITIONS: 
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

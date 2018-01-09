@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: drink_alcohol_in
+ACTION_NAME: Drink alcohol
+WHERE: home
+WHEN: 0 - 24
+MINUTES: 5 - 20
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: intoxication +15 (DURATION), mood -1 (INTERRUPTED), mood +2.5 (END), energy +0.5 (END)
+CONDITIONS: stock_alcohol >= 0.8 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: buy_ready_meals_MULTIPLE
+ACTION_NAME: Buy ready meals
+WHERE: supermarket, fast_food, variety_store, marketplace, cafe, department_store, convenience
+WHEN: 0 - 24
+MINUTES: 1 - 3
+TIMEOUT_MINUTES: 15
+ALSO_TIMEOUT: 
+EFFECTS:  money -7 (START), mood +0.25 (END), stock_meal +1 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

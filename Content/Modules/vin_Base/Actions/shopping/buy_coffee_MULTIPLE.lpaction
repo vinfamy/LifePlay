@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: buy_coffee_MULTIPLE
+ACTION_NAME: Buy coffee
+WHERE: beverages, supermarket, variety_store, department_store, convenience, coffee, cafe
+WHEN: 0 - 24
+MINUTES: 1 - 2
+TIMEOUT_MINUTES: 15
+ALSO_TIMEOUT: 
+EFFECTS:  money -2 (START), mood +0.05 (END), stock_coffee +1 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

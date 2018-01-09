@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: get_a_haircut
+ACTION_NAME: Get a haircut
+WHERE: beauty, hairdresser
+WHEN: 0 - 24
+MINUTES: 5 - 30
+TIMEOUT_MINUTES: 10000
+ALSO_TIMEOUT: 
+EFFECTS: money -20 (START), mood +5 (END), mood -3 (INTERRUPTED), attractiveness +5 (BUFF:10000)
+CONDITIONS: 
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

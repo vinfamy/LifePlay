@@ -1,0 +1,9 @@
+STAT_ID: stock_photo
+STAT_NAME: Unuploaded photos
+PLAYER_ONLY: false
+HIGHER_BETTER: true
+STAT_MIN: 0
+STAT_MAX:
+DAILY_CHANGE: 0
+DEFAULT_VALUE: 0
+NPC_ONLY: false

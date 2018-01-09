@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: make_a_cocktail
+ACTION_NAME: Make a cocktail
+WHERE: home
+WHEN: 0 - 24
+MINUTES: 2 - 10
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:  stock_alcohol -1 (START),  stock_alcohol +1.2 (END), mood +1 (DURATION)
+CONDITIONS: stock_alcohol >= 0.8 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

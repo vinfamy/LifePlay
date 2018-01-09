@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: take_supplements
+ACTION_NAME: Take supplements
+WHERE: home, work
+WHEN: 0 - 24
+MINUTES: 1 - 5
+TIMEOUT_MINUTES: 1440
+ALSO_TIMEOUT: 
+EFFECTS: stock_supplement -1 (START), fitness +0.02 (END), attractiveness +0.01 (END), intelligence +0.01 (END)
+CONDITIONS: stock_supplement >= 0.8 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

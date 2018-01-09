@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: play_a_team_sport
+ACTION_NAME: Play a team sport
+WHERE: sports_centre, community_centre
+WHEN: 8 - 21
+MINUTES: 60 - 120
+TIMEOUT_MINUTES: 1200
+ALSO_TIMEOUT: 
+EFFECTS: energy -20 (DURATION), fitness +0.03 (DURATION), mood +5 (END), interpersonal +0.05 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:  

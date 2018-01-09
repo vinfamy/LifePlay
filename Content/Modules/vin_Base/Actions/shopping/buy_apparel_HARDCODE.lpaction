@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: buy_apparel_HARDCODE
+ACTION_NAME: Buy apparel
+WHERE: clothes, department_store, jewellery, supermarket, marketplace, optician, outdoor, shoes, sports, variety_store
+WHEN: 0 - 24
+MINUTES: 1 - 5
+TIMEOUT_MINUTES: 15
+ALSO_TIMEOUT: 
+EFFECTS: mood +0.5 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

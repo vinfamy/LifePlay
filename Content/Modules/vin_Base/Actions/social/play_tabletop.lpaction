@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: play_tabletop
+ACTION_NAME: Play a tabletop game
+WHERE: community_centre, online
+WHEN: 0 - 24
+MINUTES: 60 - 180
+TIMEOUT_MINUTES: 1200
+ALSO_TIMEOUT: 
+EFFECTS: mood +1 (END), interpersonal +0.2 (END), intelligence +0.3 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

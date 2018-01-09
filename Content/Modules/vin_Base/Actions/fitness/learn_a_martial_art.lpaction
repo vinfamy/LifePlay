@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: learn_a_martial_art
+ACTION_NAME: Learn a martial art
+WHERE: sports_centre, community_centre
+WHEN: 8 - 21
+MINUTES: 45 - 90
+TIMEOUT_MINUTES: 1200
+ALSO_TIMEOUT: 
+EFFECTS: energy -20 (DURATION), martial +0.25 (DURATION), fitness +0.02 (DURATION), mood +2 (END), interpersonal +0.01 (END), attractiveness -0.01 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:  

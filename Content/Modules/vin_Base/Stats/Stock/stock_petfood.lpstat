@@ -1,0 +1,9 @@
+STAT_ID: stock_petfood
+STAT_NAME: Pet food
+PLAYER_ONLY: false
+HIGHER_BETTER: true
+STAT_MIN: 0
+STAT_MAX:
+DAILY_CHANGE: -1
+DEFAULT_VALUE: 0
+NPC_ONLY: false

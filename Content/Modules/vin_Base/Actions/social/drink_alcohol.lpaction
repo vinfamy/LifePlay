@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: drink_alcohol
+ACTION_NAME: Drink alcohol
+WHERE: nightclub, bar, pub, restaurant, cafe, hotel
+WHEN: 0 - 24
+MINUTES: 5 - 20
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: money -5 (START), intoxication +15 (DURATION), mood -1 (INTERRUPTED), mood +2.5 (END), energy +0.5 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: buy_juice_MULTIPLE
+ACTION_NAME: Buy juice
+WHERE: beverages, supermarket, variety_store, department_store, convenience, greengrocer
+WHEN: 0 - 24
+MINUTES: 1 - 2
+TIMEOUT_MINUTES: 15
+ALSO_TIMEOUT: 
+EFFECTS:  money -1.5 (START), mood +0.025 (END), stock_juice +1 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

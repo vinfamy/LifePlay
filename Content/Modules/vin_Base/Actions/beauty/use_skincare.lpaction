@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: use_skincare
+ACTION_NAME: Use skincare
+WHERE: home
+WHEN: 0 - 24
+MINUTES: 10 - 30
+TIMEOUT_MINUTES: 1200
+ALSO_TIMEOUT: 
+EFFECTS: stock_skincare -0.05 (START), attractiveness +0.025 (DURATION), mood +1 (END), mood -1 (INTERRUPTED)
+CONDITIONS: stock_skincare > 0 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

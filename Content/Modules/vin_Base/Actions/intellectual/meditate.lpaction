@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: meditate
+ACTION_NAME: Meditate
+WHERE: place_of_worship
+WHEN: 6 - 19
+MINUTES: 30 - 60 
+TIMEOUT_MINUTES: 500
+ALSO_TIMEOUT: 
+EFFECTS: perversion -0.15 (DURATION), arousal -15 (DURATION), perversion +0.05 (INTERRUPTED), mood +5 (END), energy +3 (END)
+CONDITIONS: perversion < 70 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

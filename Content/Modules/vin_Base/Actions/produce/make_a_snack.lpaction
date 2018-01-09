@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: make_a_snack
+ACTION_NAME: Make a snack
+WHERE: home
+WHEN: 0 - 24
+MINUTES: 5 - 20
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:  stock_ingredient -1 (START),  stock_snack +1 (END), cooking +0.1 (END), mood +2 (DURATION)
+CONDITIONS: stock_ingredient >= 0.8 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

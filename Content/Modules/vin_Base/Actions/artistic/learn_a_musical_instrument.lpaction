@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: learn_a_musical_instrument
+ACTION_NAME: Learn a musical instrument
+WHERE: home, community_centre
+WHEN: 0 - 24
+MINUTES: 30 - 60
+TIMEOUT_MINUTES: 60
+ALSO_TIMEOUT: 
+EFFECTS: mood +1 (END), music +0.02 (DURATION), mood -0.5 (INTERRUPTED)
+CONDITIONS: musical_instrument >= 1 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

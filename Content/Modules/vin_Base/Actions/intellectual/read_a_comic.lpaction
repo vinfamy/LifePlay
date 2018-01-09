@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: read_a_comic
+ACTION_NAME: Read a comic
+WHERE: home
+WHEN: 0 - 24
+MINUTES: 30 - 60
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: mood +3 (DURATION), mood -3 (INTERRUPTED), intelligence +0.03 (DURATION), stock_comic -1 (DURATION)
+CONDITIONS: stock_comic > 0.8 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

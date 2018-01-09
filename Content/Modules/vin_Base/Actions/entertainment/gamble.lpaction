@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: gamble
+ACTION_NAME: Gamble
+WHERE: pub, hotel, community_centre, online
+WHEN: 0 - 24
+MINUTES: 30 - 120
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: money -100 (START),  money +90 (DURATION), money -50 (INTERRUPTED), mood +2 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

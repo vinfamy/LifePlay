@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: buy_alcohol_MULTIPLE
+ACTION_NAME: Buy alcohol
+WHERE: alcohol, beverages, supermarket, variety_store, marketplace, department_store, convenience
+WHEN: 0 - 24
+MINUTES: 1 - 2
+TIMEOUT_MINUTES: 15
+ALSO_TIMEOUT: 
+EFFECTS:  money -3 (START), mood +0.05 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

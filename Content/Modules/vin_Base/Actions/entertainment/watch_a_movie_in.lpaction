@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: watch_a_movie_in
+ACTION_NAME: Watch a movie
+WHERE: home
+WHEN: 0 - 24
+MINUTES: 90 - 180
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: stock_movie -1 (START), mood +3 (END), intelligence +0.01 (END), mood -3 (INTERRUPTED)
+CONDITIONS: stock_movie >= 0.8 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

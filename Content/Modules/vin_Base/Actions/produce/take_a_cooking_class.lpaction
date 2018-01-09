@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: take_a_cooking_class
+ACTION_NAME: Take a cooking class
+WHERE: community_centre
+WHEN: 0 - 24
+MINUTES: 45 - 120
+TIMEOUT_MINUTES: 1200
+ALSO_TIMEOUT: 
+EFFECTS:  money -10 (START),  cooking +0.75 (END), mood +10 (DURATION), energy -5 (DURATION), mood -2 (INTERRUPTED)
+CONDITIONS: money >= 10 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

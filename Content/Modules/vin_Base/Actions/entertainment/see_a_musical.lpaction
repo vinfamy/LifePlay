@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: see_a_musical
+ACTION_NAME: See a musical
+WHERE: theatre
+WHEN: 15 - 20
+MINUTES: 120 - 180
+TIMEOUT_MINUTES: 1200
+ALSO_TIMEOUT: 
+EFFECTS:  money -75 (START), mood +5 (END), intelligence +0.01 (END), music +0.02 (END), mood -2 (INTERRUPTED)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

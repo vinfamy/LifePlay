@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: smoke
+ACTION_NAME: Smoke
+WHERE: home, work, alcohol, art, bag, bakery, bank, bar, beauty, beverages, bicycle, biergarten, books, butcher, cafe, car, chemist, cinema, clothes, coffee, community_centre, computer, confectionery, convenience, copyshop, cosmestics, deli, dentist, department_store, doctor, doityourself, electronics, fast_food, florist, furniture, garden_centre, gift, greengrocer, hairdresser, hospital, hotel, ice_cream, jewellery, laundry, library, marketplace, mobile_phone, motorcycle, musical_instrument, newsagent, nightclub, optician, outdoor, pet, pharmacy, photo, place_of_worship, post_office, pub, restaurant, seafood, shoes, sports, sports_centre, stationery, supermarket, tea, theatre, tobacco, toys, travel_agency, variety_store, veterinary
+WHEN: 0 - 24
+MINUTES: 3 - 15
+TIMEOUT_MINUTES: 30
+ALSO_TIMEOUT: 
+EFFECTS: stock_tobacco -1 (START), mood +2 (END), energy +1 (END), fitness -0.02 (END), attractiveness -0.01 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

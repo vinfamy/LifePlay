@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: take_photos_MULTIPLE
+ACTION_NAME: Take photos
+WHERE: home, art, biergarten, cafe, community_centre, department_store, florist, garden_centre, hotel, jewellery, library, marketplace, place_of_worship, prison, pub, restaurant, sports_centre, theatre, bar, nightclub
+WHEN: 0 - 24
+MINUTES: 1 - 5
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: mood +0.1 (END), stock_photo +1 (END) 
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

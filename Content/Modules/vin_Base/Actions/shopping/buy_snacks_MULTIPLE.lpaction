@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: buy_snacks_MULTIPLE
+ACTION_NAME: Buy snacks
+WHERE: supermarket, fast_food, variety_store, marketplace, cafe, department_store, bakery, deli, greengrocer, ice_cream, confectionery, convenience, newsagent
+WHEN: 0 - 24
+MINUTES: 1 - 2
+TIMEOUT_MINUTES: 15
+ALSO_TIMEOUT: 
+EFFECTS:  money -3 (START), mood +0.15 (END), stock_snack +1 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

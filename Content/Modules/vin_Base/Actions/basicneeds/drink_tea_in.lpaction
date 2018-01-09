@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: drink_tea_in
+ACTION_NAME: Drink tea
+WHERE: home, work
+WHEN: 0 - 24
+MINUTES: 5 - 20
+TIMEOUT_MINUTES: 90
+ALSO_TIMEOUT: drink_coffee_in, drink_coffee, drink_tea
+EFFECTS:  stock_tea -1 (START), mood +2 (END), energy +3 (DURATION)
+CONDITIONS: stock_tea >= 0.8 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

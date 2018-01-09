@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: windowshop
+ACTION_NAME: Window-shop
+WHERE: alcohol, beverages, supermarket, variety_store, department_store, convenience, tea, coffee, gift, pet, toys, tobacco, stationery, sports, shoes, photo, optician, musical_instrument, mobile_phone, marketplace, electronics, doityourself, cosmestics, confectionery, computer, clothes, chemist, bicycle, car, motorcycle, beauty, art, alcohol, books 
+WHEN: 0 - 24
+MINUTES: 30 - 60
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:  mood +1 (DURATION)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

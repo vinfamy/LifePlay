@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: play_chess
+ACTION_NAME: Play chess
+WHERE: community_centre, online
+WHEN: 0 - 24
+MINUTES: 30 - 60
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: mood +0.5 (END), interpersonal +0.05 (END), intelligence +0.2 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

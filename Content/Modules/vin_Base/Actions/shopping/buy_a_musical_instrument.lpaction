@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: buy_a_musical_instrument
+ACTION_NAME: Buy a musical instrument
+WHERE: musical_instrument, department_store, marketplace
+WHEN: 0 - 24
+MINUTES: 10 - 30
+TIMEOUT_MINUTES: 10000
+ALSO_TIMEOUT: 
+EFFECTS:  money -200 (START), mood +0.025 (END), stock_musicalinstrument +1 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

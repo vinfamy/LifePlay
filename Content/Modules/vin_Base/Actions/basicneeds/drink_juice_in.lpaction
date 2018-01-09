@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: drink_juice_in
+ACTION_NAME: Drink juice
+WHERE: home, work
+WHEN: 0 - 24
+MINUTES: 1 - 5
+TIMEOUT_MINUTES: 20
+ALSO_TIMEOUT: drink_water, drink_juice, drink_soda, drink_water_in, drink_soda_in
+EFFECTS: stock_juice -1 (START), mood +0.8 (END), fitness +0.015 (END), energy +1 (DURATION)
+CONDITIONS: stock_juice >= 0.8 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

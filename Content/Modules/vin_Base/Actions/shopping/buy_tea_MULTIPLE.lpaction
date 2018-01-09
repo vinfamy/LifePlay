@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: buy_tea_MULTIPLE
+ACTION_NAME: Buy tea
+WHERE: beverages, supermarket, variety_store, department_store, convenience, tea, cafe, coffee
+WHEN: 0 - 24
+MINUTES: 1 - 2
+TIMEOUT_MINUTES: 15
+ALSO_TIMEOUT: 
+EFFECTS:  money -1 (START), mood +0.025 (END), stock_tea +1 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

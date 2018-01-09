@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: watch_a_movie
+ACTION_NAME: Watch a movie
+WHERE: cinema, community_centre, department_store
+WHEN: 0 - 24
+MINUTES: 90 - 180
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:  money -10 (START), mood +3 (END), intelligence +0.01 (END), mood -3 (INTERRUPTED)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

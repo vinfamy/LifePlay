@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: give_flower
+ACTION_NAME: Give flowers
+WHERE: INTERACTION
+WHEN: 0 - 24
+MINUTES: 1 - 5
+TIMEOUT_MINUTES: 1200
+ALSO_TIMEOUT: 
+EFFECTS: stock_flower -1 (START), rapportwithplayer +0.5 (NPC), attractionwithplayer +1 (NPC), interpersonal +0.05 (END)
+CONDITIONS: stock_flower >= 0.8 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

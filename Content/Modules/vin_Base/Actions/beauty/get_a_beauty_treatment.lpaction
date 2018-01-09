@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: get_a_beauty_treatment
+ACTION_NAME: Get a beauty treatment
+WHERE: beauty
+WHEN: 0 - 24
+MINUTES: 60 - 180
+TIMEOUT_MINUTES: 1200
+ALSO_TIMEOUT: 
+EFFECTS: money -75 (START),  mood +20 (DURATION), attractiveness +0.05 (END), mood -5 (INTERRUPTED)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

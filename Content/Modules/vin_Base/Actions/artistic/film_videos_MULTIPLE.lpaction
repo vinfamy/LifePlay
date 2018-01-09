@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: film_videos_MULTIPLE
+ACTION_NAME: Film videos
+WHERE: home, art, biergarten, cafe, community_centre, department_store, florist, garden_centre, hotel, jewellery, library, marketplace, place_of_worship, prison, pub, restaurant, sports_centre, theatre, bar, nightclub
+WHEN: 0 - 24
+MINUTES: 10 - 30
+TIMEOUT_MINUTES: 30
+ALSO_TIMEOUT: 
+EFFECTS: mood +0.5 (END), stock_video +1 (END) 
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

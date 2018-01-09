@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: adopt_a_pet
+ACTION_NAME: Adopt a pet
+WHERE: pet, community_centre
+WHEN: 0 - 24
+MINUTES: 30 - 60
+TIMEOUT_MINUTES: 15
+ALSO_TIMEOUT: 
+EFFECTS:  money -500 (START), mood +20 (END), pet_health +100 (END)
+CONDITIONS: pet_health == 0 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

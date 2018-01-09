@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: participate_in_group_activities
+ACTION_NAME: Participate in group activities
+WHERE: community_centre
+WHEN: 0 - 24
+MINUTES: 60 - 120
+TIMEOUT_MINUTES: 1200
+ALSO_TIMEOUT: 
+EFFECTS: money -5 (START), energy -3 (DURATION), mood +5 (END), interpersonal +0.3 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

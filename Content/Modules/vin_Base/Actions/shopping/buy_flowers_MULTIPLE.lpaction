@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: buy_flowers_MULTIPLE
+ACTION_NAME: Buy flowers
+WHERE: florist, supermarket, department_store, marketplace
+WHEN: 0 - 24
+MINUTES: 1 - 5
+TIMEOUT_MINUTES: 30
+ALSO_TIMEOUT: 
+EFFECTS:  money -30 (START), mood +0.025 (END), stock_flower +1 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

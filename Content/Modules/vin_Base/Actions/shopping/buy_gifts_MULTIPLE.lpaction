@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: buy_gifts_MULTIPLE
+ACTION_NAME: Buy gifts
+WHERE: beverages, supermarket, variety_store, department_store, convenience, tea, coffee, gift, pet, toys, tobacco, stationery, sports, shoes, photo, optician, musical_instrument, mobile_phone, marketplace, electronics, doityourself, cosmestics, confectionery, computer, clothes, chemist, bicycle, car, motorcycle, beauty, art, alcohol, books 
+WHEN: 0 - 24
+MINUTES: 1 - 3
+TIMEOUT_MINUTES: 15
+ALSO_TIMEOUT: 
+EFFECTS:  money -20 (START), mood +0.05 (END), stock_gift +1 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

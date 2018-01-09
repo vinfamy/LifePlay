@@ -7,4 +7,6 @@ TIMEOUT_MINUTES: 60
 ALSO_TIMEOUT: have_a_snack_in, have_a_meal, have_a_meal_in
 EFFECTS: money -3 (START), mood +1 (END), energy +5 (DURATION)
 CONDITIONS:
-MOVE_FIRST: true   
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

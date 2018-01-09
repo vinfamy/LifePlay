@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: go_to_the_bathroom
+ACTION_NAME: Go to the bathroom
+WHERE: home, work, bar, biergarten, cafe, cinema, community_centre, department_store, doctor, fast_food, hospital, hotel, library, nightclub, place_of_worship, pub, restaurant, sports_centre, supermarket, theatre, toilets, veterinary
+WHEN: 0 - 24
+MINUTES: 3 - 15
+TIMEOUT_MINUTES: 120
+ALSO_TIMEOUT: 
+EFFECTS: mood +1 (END), mood -1 (INTERRUPTED)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: put_on_makeup
+ACTION_NAME: Put on makeup
+WHERE: home, work, nightclub, bar, restaurant, hotel, toilets
+WHEN: 0 - 24
+MINUTES: 5 - 30
+TIMEOUT_MINUTES: 300
+ALSO_TIMEOUT: 
+EFFECTS: stock_makeup -0.05 (START), mood +1 (END), mood -1 (INTERRUPTED), attractiveness +5 (BUFF:300)
+CONDITIONS: stock_makeup > 0 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

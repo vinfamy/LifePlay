@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: do_light_exercises
+ACTION_NAME: Do light exercises
+WHERE: sports_centre, home
+WHEN: 0 - 24
+MINUTES: 15 - 30
+TIMEOUT_MINUTES: 60
+ALSO_TIMEOUT: 
+EFFECTS: energy -3 (DURATION), fitness +0.01 (DURATION), mood +1 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:  
