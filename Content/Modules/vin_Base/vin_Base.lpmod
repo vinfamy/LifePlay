@@ -2,5 +2,5 @@ MODULE_UNIQUEID: vin_Base
 MODULE_NAME: Base Gameplay Module
 MODULE_AUTHOR: Vinfamy
 MODULE_LINK: www.loverslab.com
-MODULE_DESCRIPTION: Can't be disabled. Contains all the bare minimum, non-sexual gameplay content that other modules depend on.
+MODULE_DESCRIPTION: Can't be disabled and must always be top of the load order (overwritten by everything else). Contains all the bare minimum, non-sexual gameplay content that other modules depend and expand on.
 MODULE_REQUIREMENTS:
