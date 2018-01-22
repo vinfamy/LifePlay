@@ -15,5 +15,8 @@
 			"Name": "ModdingPlus",
 			"Enabled": false
 		}
+	],
+	"TargetPlatforms": [
+		"WindowsNoEditor"
 	]
 }
