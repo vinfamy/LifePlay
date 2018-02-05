@@ -1,8 +1,9 @@
 // Information
 INFO First_Name: 100% James
-INFO Middle_Name: 100% 
 INFO Last_Name: 100% Smith
-INFO Gender: 50% male, 50% female
+INFO Race: 100% Caucasian
+INFO Genital: 100% Penis
+INFO Is_Male: 50% true, 50% false
 INFO Interested_In_Men: 50% true, 50% false
 INFO Interested_In_Women: 50% true, 50% false
 INFO Interested_In_Transgender: 50% true, 50% false
@@ -509,5 +510,8 @@ MORPH Torso_BreastPosZ_min: 100% 0=>1
 
 // Starting Stats
 STAT Age: 100% 18 - 120
+
+// Hair
+HAIR Hairstyle: 100%
 
 

@@ -67,6 +67,11 @@ float UModdingExtraBPLibrary::ModdingExtraSampleFunction(float Param)
      return FFileHelper::LoadFileToString(SaveTextA, *(FPaths::ProjectContentDir() + FileNameA));
 }
 
+bool UModdingExtraBPLibrary::SaveTxt(FString SaveTextB, FString FileNameB)
+{
+     return FFileHelper::SaveStringToFile(SaveTextB, *(FPaths::ProjectContentDir() + FileNameB));
+}
+
  FString UModdingExtraBPLibrary::ContentDirectory()
 {
     FString RelativePath = FPaths::ProjectContentDir();

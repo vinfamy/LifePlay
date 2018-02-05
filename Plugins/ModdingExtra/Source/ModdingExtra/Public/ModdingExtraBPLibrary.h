@@ -36,6 +36,9 @@ class UModdingExtraBPLibrary : public UBlueprintFunctionLibrary
     UFUNCTION(BlueprintPure, Category = "ModdingExtra", meta = (Keywords = "LoadTxt"))
     static bool LoadTxt(FString FileNameA, FString& SaveTextA);
     
+    UFUNCTION(BlueprintCallable, Category = "ModdingExtra", meta = (Keywords = "SaveTxt"))
+    static bool SaveTxt(FString SaveTextB, FString FileNameB);    
+    
     UFUNCTION(BlueprintPure, Category = "ModdingExtra")
     static FString ContentDirectory();
     
