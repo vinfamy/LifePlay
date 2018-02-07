@@ -1,0 +1,19 @@
+// Info
+INFO Race: 100% Caucasian
+
+
+// Morphs
+MORPH Eyes_TypeAlmond_max: 100% 0.9=>1
+MORPH Face_Ellipsoid_max: 100% 0.56=>0.76
+MORPH Mouth_LowerlipSizeZ_min: 100% 0.14=>0.34
+MORPH Nose_TipPosZ_min: 100% 0.08=>0.28
+MORPH Pelvis_GluteusMass-GluteusTone_max-max: 100% 0.0=>0.18
+MORPH Pelvis_GluteusMass-GluteusTone_max-min: 100% 0.0=>0.18
+MORPH Pelvis_SizeX_max: 100% 0.14=>0.34
+
+
+// Skin
+SKIN Skin_Color_R: 100% 0.8
+SKIN Skin_Color_G: 100% 0.28
+SKIN Skin_Color_B: 100% 0.12
+SKIN Skin_Color_A: 100% 0.8

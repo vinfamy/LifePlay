@@ -1,0 +1,16 @@
+// Info
+INFO Race: 100% Asian
+
+
+// Morphs
+MORPH Face_Ellipsoid_min: 100% 0.32=>0.52
+MORPH Face_Parallelepiped_max: 100% 0.2=>0.4
+MORPH Head_Size_max: 100% 0.0=>0.12
+MORPH Head_SizeX_max: 100% 0.0=>0.12
+
+
+// Skin
+SKIN Skin_Color_R: 100% 0.32
+SKIN Skin_Color_G: 100% 0.11
+SKIN Skin_Color_B: 100% 0.05
+SKIN Skin_Color_A: 100% 0.8

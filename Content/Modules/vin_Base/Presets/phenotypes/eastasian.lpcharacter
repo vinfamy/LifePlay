@@ -1,0 +1,42 @@
+// Info
+INFO Race: 100% Asian
+
+
+// Morphs
+MORPH Chin_SizeZ_min: 100% 0.0=>0.12
+MORPH Eyelids_Crease_min: 100% 0.9=>0.1
+MORPH Eyes_OuterPosX_max: 100% 0.02=>0.22
+MORPH Eyes_SizeZ_min: 100% 0.32=>0.52
+MORPH Eyes_PosX_min: 100% 0.14=>0.34
+MORPH Eyes_OuterPosZ_max: 100% 0.06=>0.26
+MORPH Face_Triangle_max: 100% 0.0=>0.12
+MORPH Feet_Size_min: 100% 0.32=>0.52
+MORPH Forehead_Angle_min: 100% 0.44=>0.64
+MORPH Forehead_SizeZ_max: 100% 0.02=>0.22
+MORPH Head_Size_max: 100% 0.08=>0.28
+MORPH Head_CraniumDolichocephalic_max: 100% 0.8=>1
+MORPH Jaw_Angle_max: 100% 0.38=>0.58
+MORPH Jaw_Prominence_min: 100% 0.38=>0.58
+MORPH Mouth_LowerlipVolume_min: 100% 0.02=>0.22
+MORPH Mouth_PosZ_min: 100% 0.08=>0.28
+MORPH Mouth_LowerlipSizeZ_min: 100% 0.2=>0.4
+MORPH Mouth_SizeX_max: 100% 0.14=>0.34
+MORPH Nose_SeptumFlat_min: 100% 0.0=>0.12
+MORPH Nose_TipPosZ_min: 100% 0.14=>0.34
+MORPH Nose_NostrilSizeX_max: 100% 0.0=>0.2
+MORPH Nose_PosY_max: 100% 0.14=>0.34
+MORPH Nose_TipAngle_min: 100% 0.02=>0.22
+MORPH Nose_NostrilCrease_max: 100% 0.26=>0.46
+MORPH Nose_SizeY_max: 100% 0.0=>0.12
+MORPH Nose_NostrilSizeZ_max: 100% 0.0=>0.12
+MORPH Nose_NostrilSizeY_max: 100% 0.14=>0.34
+MORPH Nose_WingBump_max: 100% 0.14=>0.34
+MORPH Nose_BasePosZ_min: 100% 0.14=>0.34
+MORPH Nose_NostrilDiam_min: 100% 0.2=>0.4
+
+
+// Skin
+SKIN Skin_Color_R: 100% 0.8
+SKIN Skin_Color_G: 100% 0.28
+SKIN Skin_Color_B: 100% 0.12
+SKIN Skin_Color_A: 100% 0.8

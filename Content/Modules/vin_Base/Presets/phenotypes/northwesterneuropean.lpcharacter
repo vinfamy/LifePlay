@@ -1,0 +1,34 @@
+// Info
+INFO Race: 100% Caucasian
+
+
+// Morphs
+MORPH Chin_Prominence_max: 100% 0.32=>0.52
+MORPH Chin_SizeZ_max: 100% 0.02=>0.22
+MORPH Eyebrows_Angle_min: 100% 0.2=>0.4
+MORPH Eyes_Size_max: 100% 0.08=>0.28
+MORPH Eyes_PosX_max: 100% 0.02=>0.22
+MORPH Eyes_TypeHooded_min: 100% 0.9=>0.1
+MORPH Face_Ellipsoid_max: 100% 0.02=>0.22
+MORPH Forehead_SizeZ_max: 100% 0.02=>0.22
+MORPH Head_SizeZ_max: 100% 0.02=>0.22
+MORPH Head_CraniumDolichocephalic_max: 100% 0.38=>0.58
+MORPH Jaw_ScaleX_max: 100% 0.26=>0.46
+MORPH Mouth_PosZ_max: 100% 0.14=>0.34
+MORPH Neck_TrapeziousSize_max: 100% 0.0=>0.12
+MORPH Nose_SeptumFlat_max: 100% 0.56=>0.76
+MORPH Nose_NostrilSizeX_max: 100% 0.0=>0.12
+MORPH Nose_TipSize_min: 100% 0.14=>0.34
+MORPH Nose_BaseSizeX_min: 100% 0.44=>0.64
+MORPH Nose_Curve_max: 100% 0.08=>0.28
+MORPH Nose_WingBackFlat_max: 100% 0.32=>0.52
+MORPH Nose_WingAngle_min: 100% 0.08=>0.28
+MORPH Pelvis_SizeY_min: 100% 0.0=>0.2
+MORPH Torso_Vshape_min: 100% 0.08=>0.28
+
+
+// Skin
+SKIN Skin_Color_R: 100% 1.0
+SKIN Skin_Color_G: 100% 0.23
+SKIN Skin_Color_B: 100% 0.19
+SKIN Skin_Color_A: 100% 0.8

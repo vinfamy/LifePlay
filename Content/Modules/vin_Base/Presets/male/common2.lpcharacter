@@ -1,0 +1,13 @@
+// Info
+
+INFO Is_Male: 100% true
+INFO Genital: 100% Penis
+
+// Morphs
+MORPH Arms_UpperarmMass-UpperarmTone_max-min: 100% 0.10714285714285716=>0.21000000000000002
+MORPH Arms_UpperarmMass-UpperarmTone_min-min: 100% 0.10714285714285716=>0.21000000000000002
+MORPH Arms_ForearmSize_min: 100% 0.34285714285714286=>0.6719999999999999
+MORPH Arms_UpperarmSize_min: 100% 0.4714285714285714=>0.9239999999999998
+MORPH Legs_UpperlegsMass-UpperlegsTone_min-min: 100% 0.3857142857142858=>0.756
+MORPH Legs_LowerlegsMass-LowerlegsTone_min-min: 100% 0.4714285714285714=>0.9239999999999998
+MORPH Shoulders_Mass-Tone_min-min: 100% 0.37142857142857144=>0.728

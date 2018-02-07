@@ -1,0 +1,31 @@
+// Info
+INFO Race: 100% Asian
+
+
+// Morphs
+MORPH Cheeks_Mass-Tone_min-max: 100% 0.05=>0.25
+MORPH Cheeks_Mass-Tone_min-min: 100% 0.05=>0.25
+MORPH Cheeks_Zygom_max: 100% 0.26=>0.46
+MORPH Cheeks_ZygomPosZ_max: 100% 0.08=>0.28
+MORPH Eyelids_Crease_max: 100% 0.56=>0.76
+MORPH Eyes_PosZ_max: 100% 0.14=>0.34
+MORPH Eyes_PosX_min: 100% 0.32=>0.52
+MORPH Eyes_OuterPosZ_min: 100% 0.38=>0.58
+MORPH Forehead_Angle_min: 100% 0.9=>1
+MORPH Jaw_Angle_max: 100% 0.26=>0.46
+MORPH Jaw_Prominence_max: 100% 0.14=>0.34
+MORPH Mouth_UpperlipSizeZ_min: 100% 0.26=>0.46
+MORPH Mouth_LowerlipSizeZ_min: 100% 0.32=>0.52
+MORPH Nose_TipPosZ_min: 100% 0.08=>0.28
+MORPH Nose_NostrilSizeX_max: 100% 0.32=>0.52
+MORPH Nose_PosY_max: 100% 0.5=>0.7
+MORPH Nose_TipAngle_min: 100% 0.14=>0.34
+MORPH Nose_Curve_max: 100% 0.14=>0.34
+MORPH Nose_NostrilSizeY_min: 100% 0.00=>0.12
+
+
+// Skin
+SKIN Skin_Color_R: 100% 0.32
+SKIN Skin_Color_G: 100% 0.11
+SKIN Skin_Color_B: 100% 0.05
+SKIN Skin_Color_A: 100% 0.8
