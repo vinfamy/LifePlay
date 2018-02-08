@@ -1,0 +1,12 @@
+
+
+// Stats
+STAT age: 80% 18=>30, 20% 31=>60
+STAT attractiveness: 70% 0=>50, 30% 51=>100
+STAT cooking: 70% 0=>50, 30% 51=>100
+STAT dance: 70% 0=>50, 30% 51=>100
+STAT fitness: 70% 0=>50, 30% 51=>100
+STAT intelligence: 90% 80=>100, 10% 0=>79
+STAT interpersonal: 80% 0=>50, 20% 51=>100
+STAT martial: 70% 0=>50, 30% 51=>100
+STAT muscle: 80% 0=>50, 20% 51=>100
