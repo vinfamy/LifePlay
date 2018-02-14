@@ -7,6 +7,6 @@ TIMEOUT_MINUTES: 0
 ALSO_TIMEOUT: 
 EFFECTS: intelligence +0.005 (END), interpersonal +0.0025 (END), mood +0.2 (DURATION), stock_photo -1 (START)
 CONDITIONS: stock_photo >= 1 (STAT_COMPARE)
-MOVE_FIRST: true
+MOVE_FIRST: false
 SCENE_ALWAYS:
 ANIMATION:   

@@ -1,0 +1,93 @@
+WHAT: all, -pickpocket, -go_to_the_bathroom
+WHERE: all, -home, -PC
+WHEN: 0-24
+WHO: none
+OTHER: Random(0,1) < interpersonal/1 || [WHAT == socialize && Random(0,1) < interpersonal/200]
+
+
+New_Person = generatePerson()
+
+sceneStart()
+
+New_Person.dress()
+New_Person.show(2)
+
+If NewPerson.isInterestedIn(Player) && [ New_Person.isDominantSex(Player) || Random(0,1) < 0.2 ] && Random(0,100) < (New_Person.attractiontoplayer + New_Person.interpersonal)
+    Random
+        "I found myself engaged in a small conversation with someone I just met - <New_Person.name>. Before leaving <New_Person.he_or_she> asked for my number. Should I accept <New_Person.his_or_her> request?"
+        "<New_Person.name> approached me and introduced <New_Person.himself_or_herself>. After a small chat, <he_or_she> suggested that we exchange contacts. Shall I?"
+    endRandom
+        1: "Yes"
+        2: "No"
+        
+        If 1
+            exchangeContact(New_Person)
+            "I happily accepted. We exchanged numbers and went our separate ways."
+        Else
+            "I found an excuse not to give <New_Person.him_or_her> my number. Disappointed, <New_Person.he_or_she> left."
+        endIf
+
+Else
+    Random
+        "I came across someone interesting, who introduced <New_Person.himself_or_herself> as <New_Person.name>. Should I exchange contacts with <New_Person.him_or_her>?"
+        "Just by chance, I met <New_Person.name>, who seemed okay. Perhaps I should ask for <New_Person.his_or_her> number?"
+    endRandom
+
+        1: "Yes"
+        2: "No"
+
+        If 1
+            If New_Person.attractiontoplayer < 20 && New_Person.rapportwithplayer < 20
+                Random
+                    New_Person(smile): "Sorry, but I don't feel like I know you well enough to share such personal information just yet."
+                    New_Person(smile): "It's gonna be a no, I'm afraid. Another day perhaps."
+                    New_Person(cold): "Sorry, but I don't normally exchange numbers with someone I've just met."
+                endRandom      
+                    
+                    1: "I understand."
+                    2: "It's your loss!"
+                    
+                    If 1
+                        Random
+                            Player(smile): "That's okay. I understand. You've got to be careful with private information these days."
+                            Player(smile): "No worries. It's not a big deal."
+                            Player(laugh): "Did I scare you away? Haha! Don't worry. See you around, I guess."
+                        endRandom
+                            
+                        New_Person.rapportwithplayer += Random(1,5)
+                        
+                        If New_Person.isInterestedIn(Player)
+                            New_Person.attractiontoplayer += ( Random(1,10)*(50-New_Person.masochist)/100 )
+                    Else
+                        Random
+                            Player(angry): "Fine then. It's your loss being so precious!"
+                            Player(angry): "Get out of my sight then!"
+                            Player(annoyed): "Well, looks like someone has a overly high opinion of <New_Person.himself_or_herself> ..."
+                        endRandom
+                        
+                        New_Person.rapportwithplayer -= Random(1,10)
+                        
+                        If New_Person.isInterestedIn(Player)
+                            New_Person.attractiontoplayer -= ( Random(1,20)*(50-New_Person.masochist)/100 )
+                            
+                            If New_Person.attractiontoplayer > 20
+                                Random
+                                    New_Person(panic): "Well ... I .... I'm sorry if I came across as arrogant or something. Let's exchange numbers!"
+                                    New_Person(panic): "Sorry. I didn't mean any offence ... On second thought, here, you can have my number."
+                                endRandom
+                                
+                                exchangeContact(New_Person)
+                    endIf
+                        
+            Else
+                exchangeContact(New_Person)
+                "We exchanged numbers and parted ways."
+            endIf
+        Else
+            "I decided not to give <New_Person.him_or_her()> my number."
+        endIf
+endIf
+
+SceneEnd()
+            
+timeout({meet_new_person}, 60)

@@ -1,0 +1,28 @@
+// Info
+
+INFO Is_Male: 100% false
+INFO Genital: 100% Vagina
+
+// Morphs
+MORPH Head_Size_max: 100% 0.0857142857142858=>0.16800000000000015
+MORPH Legs_UpperlegsMass-UpperlegsTone_max-max: 100% 0.15=>0.29399999999999993
+MORPH Legs_UpperlegsMass-UpperlegsTone_min-max: 100% 0.15=>0.29399999999999993
+MORPH Legs_UpperlegSize_max: 100% 0.21428571428571433=>0.42000000000000004
+MORPH Pelvis_GluteusMass-GluteusTone_max-max: 100% 0.40800000000000003=>0.7996800000000001
+MORPH Pelvis_GluteusMass-GluteusTone_min-max: 100% 0.1920000000000001=>0.3763200000000001
+MORPH Pelvis_SizeX_max: 100% 0.0714285714285715=>0.14000000000000012
+MORPH Pelvis_GluteusSize_max: 100% 0.09999999999999994=>0.19599999999999984
+MORPH Shoulders_Mass-Tone_min-max: 100% 0.17142857142857143=>0.33599999999999997
+MORPH Shoulders_PosZ_max: 100% 0.12857142857142853=>0.2519999999999999
+MORPH Torso_BreastMass-BreastPosX_max-max: 100% 0.1928571428571429=>0.378
+MORPH Torso_BreastMass-BreastPosX_max-min: 100% 0.1928571428571429=>0.378
+MORPH Torso_BreastMass-BreastTone-Mass-Tone_max-max-max-max: 100% 0.09642857142857145=>0.189
+MORPH Torso_BreastMass-BreastTone-Mass-Tone_max-max-max-min: 100% 0.09642857142857145=>0.189
+MORPH Torso_BreastMass-BreastTone-Mass-Tone_max-max-min-max: 100% 0.09642857142857145=>0.189
+MORPH Torso_BreastMass-BreastTone-Mass-Tone_max-max-min-min: 100% 0.09642857142857145=>0.189
+MORPH Torso_Dorsi_max: 100% 0.42857142857142866=>0.8400000000000001
+MORPH Torso_BreastMass-AureolaSize_max-max: 100% 0.1928571428571429=>0.378
+MORPH Torso_BreastMass-AureolaSize_max-min: 100% 0.1928571428571429=>0.378
+MORPH Torso_BreastMass-BreastScaleY_max-max: 100% 0.1928571428571429=>0.378
+MORPH Torso_BreastMass-BreastScaleY_max-min: 100% 0.1928571428571429=>0.378
+MORPH Waist_Size_min: 100% 0.34285714285714286=>0.6719999999999999

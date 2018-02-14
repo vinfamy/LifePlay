@@ -7,6 +7,6 @@ TIMEOUT_MINUTES: 15
 ALSO_TIMEOUT: 
 EFFECTS: intelligence +0.2 (END), interpersonal +0.1 (END), mood +1 (END)
 CONDITIONS:
-MOVE_FIRST: true
+MOVE_FIRST: false
 SCENE_ALWAYS:
 ANIMATION:   
