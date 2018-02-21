@@ -1,7 +1,13 @@
 // Info
 
 INFO Is_Male: 100% true
+INFO Interested_In_Men: 70% false, 30% true
+INFO Interested_In_Women: 80% true, 20% false
+INFO Interested_In_Transgender: 65% false, 35% true
+INFO First_Name: 0% a
+INFO Last_Name: 0% a
 INFO Genital: 100% Penis
+
 
 
 // Morphs

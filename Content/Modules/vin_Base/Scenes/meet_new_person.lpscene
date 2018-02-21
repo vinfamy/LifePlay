@@ -12,10 +12,12 @@ sceneStart()
 New_Person.dress()
 New_Person.show(2)
 
-If NewPerson.isInterestedIn(Player) && [ New_Person.isDominantSex(Player) || Random(0,1) < 0.2 ] && Random(0,100) < (New_Person.attractiontoplayer + New_Person.interpersonal)
+
+// If New_Person.isInterestedIn(Player) && [ New_Person.isDominantSex(Player) || Random(0,1) < 0.2 ] && Random(0,1) < [New_Person.attractiontoplayer + New_Person.interpersonal]
+If Random(0,1) < (New_Person:attractiontoplayer + New_Person:interpersonal)
     Random
         "I found myself engaged in a small conversation with someone I just met - <New_Person.name>. Before leaving <New_Person.he_or_she> asked for my number. Should I accept <New_Person.his_or_her> request?"
-        "<New_Person.name> approached me and introduced <New_Person.himself_or_herself>. After a small chat, <he_or_she> suggested that we exchange contacts. Shall I?"
+        "<New_Person.name> approached me and introduced <New_Person.himself_or_herself>. After a small chat, <New_Person.he_or_she> suggested that we exchange contacts. Shall I?"
     endRandom
         1: "Yes"
         2: "No"
