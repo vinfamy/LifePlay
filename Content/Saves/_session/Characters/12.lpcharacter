@@ -1,0 +1,232 @@
+// Information
+INFO Is_Male: 100% true
+INFO Interested_In_Men: 100% false
+INFO Interested_In_Women: 100% true
+INFO Interested_In_Transgender: 100% false
+INFO First_Name: 100% Kevin
+INFO Last_Name: 100% Z.
+INFO Race: 100% Caucasian
+INFO Genital: 100% Penis
+
+// Morphs
+MORPH Arms_ForearmMass-ForearmTone_max-max: 100% 0.149771
+MORPH Arms_ForearmMass-ForearmTone_max-min: 100% 0.132994
+MORPH Arms_ForearmMass-ForearmTone_min-max: 100% 0.135844
+MORPH Arms_ForearmSize_min: 100% 0.305569
+MORPH Arms_UpperarmMass-UpperarmTone_max-min: 100% 0.201328
+MORPH Arms_UpperarmSize_min: 100% 0.363299
+MORPH Cheeks_CreaseExt_min: 100% 0.021376
+MORPH Cheeks_InfraVolume_min: 100% 0.236555
+MORPH Cheeks_Mass-Tone_min-max: 100% 0.04157
+MORPH Cheeks_SideCrease_max: 100% 0.097419
+MORPH Cheeks_Zygom_min: 100% 0.03078
+MORPH Chin_Cleft_max: 100% 0.176908
+MORPH Chin_SizeX_min: 100% 0.191986
+MORPH Chin_Tone_max: 100% 0.265795
+MORPH Ears_LocY_max: 100% 0.09237
+MORPH Ears_LocZ_max: 100% 0.001427
+MORPH Ears_RotX_max: 100% 0.013721
+MORPH Ears_SizeX_min: 100% 0.162273
+MORPH Ears_SizeY_min: 100% 0.072614
+MORPH Ears_SizeZ_max: 100% 0.113524
+MORPH Eyebrows_Angle_min: 100% 0.073317
+MORPH Eyebrows_Ridge_min: 100% 0.001833
+MORPH Eyebrows_SizeY_max: 100% 0.00514
+MORPH Eyebrows_Tone_max: 100% 0.070055
+MORPH Eyelids_Angle_min: 100% 0.091768
+MORPH Eyelids_Crease_min: 100% 0.212094
+MORPH Eyelids_InnerPosZ_min: 100% 0.079106
+MORPH Eyelids_LowerCurve_max: 100% 0.022599
+MORPH Eyelids_MiddlePosZ_min: 100% 0.028107
+MORPH Eyelids_OuterPosZ_min: 100% 0.463091
+MORPH Eyes_BagProminence_max: 100% 0.030855
+MORPH Eyes_BagSize_max: 100% 0.041105
+MORPH Eyes_Crosscalibration_min: 100% 0.136766
+MORPH Eyes_InnerPosX_min: 100% 0.013997
+MORPH Eyes_InnerPosZ_min: 100% 0.011255
+MORPH Eyes_IrisSize_max: 100% 0.135659
+MORPH Eyes_OuterPosX_max: 100% 0.082148
+MORPH Eyes_PosX_max: 100% 0.005252
+MORPH Eyes_SizeZ_max: 100% 0.01698
+MORPH Eyes_TypeAlmond_min: 100% 0.162039
+MORPH Eyes_TypeHooded_min: 100% 0.045646
+MORPH Eyes_innerSinus_min: 100% 0.179733
+MORPH Face_Parallelepiped_min: 100% 0.021289
+MORPH Face_Triangle_min: 100% 0.173554
+MORPH Forehead_Angle_min: 100% 0.074834
+MORPH Forehead_Curve_max: 100% 0.334497
+MORPH Forehead_SizeX_min: 100% 0.050921
+MORPH Forehead_SizeZ_max: 100% 0.268642
+MORPH Forehead_Temple_max: 100% 0.010412
+MORPH Hands_Lenght_max: 100% 0.079551
+MORPH Hands_Mass-Tone_min-max: 100% 0.061301
+MORPH Hands_Mass-Tone_min-min: 100% 0.093675
+MORPH Hands_Size_min: 100% 0.098144
+MORPH Head_CraniumDolichocephalic_min: 100% 0.00021
+MORPH Head_CraniumPlatycephalus_max: 100% 0.034017
+MORPH Head_Flat_min: 100% 0.304109
+MORPH Head_Nucha_min: 100% 0.013377
+MORPH Head_SizeX_max: 100% 0.028091
+MORPH Head_SizeZ_min: 100% 0.013499
+MORPH Head_Size_max: 100% 0.017374
+MORPH Jaw_Angle2_max: 100% 0.182636
+MORPH Jaw_Angle_min: 100% 0.063804
+MORPH Jaw_Prominence_min: 100% 0.027364
+MORPH Jaw_ScaleX_max: 100% 0.005023
+MORPH Legs_AnkleSize_max: 100% 0.038328
+MORPH Legs_KneeSize_max: 100% 0.273871
+MORPH Legs_LowerlegsMass-LowerlegsTone_max-min: 100% 0.011814
+MORPH Legs_LowerlegsMass-LowerlegsTone_min-min: 100% 0.062318
+MORPH Legs_UpperlegsMass-UpperlegsTone_max-min: 100% 0.075961
+MORPH Legs_UpperlegsMass-UpperlegsTone_min-max: 100% 0.672212
+MORPH Legs_UpperlegsMass-UpperlegsTone_min-min: 100% 0.125242
+MORPH Mouth_CornersPosZ_max: 100% 0.012919
+MORPH Mouth_LowerlipExt_min: 100% 0.000333
+MORPH Mouth_LowerlipSizeZ_min: 100% 0.002076
+MORPH Mouth_LowerlipVolume_max: 100% 0.031258
+MORPH Mouth_PhiltrumProminence_max: 100% 0.170159
+MORPH Mouth_PhiltrumSizeX_max: 100% 0.016995
+MORPH Mouth_PhiltrumSizeY_max: 100% 0.032696
+MORPH Mouth_PosY_max: 100% 0.002761
+MORPH Mouth_PosZ_max: 100% 0.02103
+MORPH Mouth_Protusion_min: 100% 0.016648
+MORPH Mouth_SideCrease_min: 100% 0.003001
+MORPH Mouth_SizeX_max: 100% 0.06333
+MORPH Mouth_UpperlipExt_max: 100% 0.161087
+MORPH Neck_Mass-Tone_max-min: 100% 0.106475
+MORPH Neck_Mass-Tone_min-min: 100% 0.070205
+MORPH Neck_Size_min: 100% 0.668734
+MORPH Nose_BallSizeX_max: 100% 0.006258
+MORPH Nose_BasePosZ_max: 100% 0.018345
+MORPH Nose_BaseShape_min: 100% 0.202698
+MORPH Nose_BaseSizeZ_min: 100% 0.114447
+MORPH Nose_BridgeSizeX_min: 100% 0.021935
+MORPH Nose_GlabellaPosZ_min: 100% 0.109051
+MORPH Nose_NostrilCrease_max: 100% 0.002564
+MORPH Nose_NostrilDiam_min: 100% 0.028921
+MORPH Nose_NostrilSizeX_max: 100% 0.010393
+MORPH Nose_NostrilSizeY_max: 100% 0.230119
+MORPH Nose_NostrilSizeZ_min: 100% 0.002593
+MORPH Nose_PosY_max: 100% 0.049618
+MORPH Nose_SeptumFlat_max: 100% 0.072195
+MORPH Nose_SeptumRolled_max: 100% 0.030298
+MORPH Nose_SizeY_min: 100% 0.000311
+MORPH Nose_TipPosY_max: 100% 0.0084
+MORPH Nose_TipPosZ_max: 100% 0.196354
+MORPH Nose_TipSize_max: 100% 0.034372
+MORPH Nose_WingAngle_max: 100% 0.042667
+MORPH Nose_WingBump_min: 100% 0.174086
+MORPH Pelvis_GluteusMass-GluteusTone_max-min: 100% 0.147737
+MORPH Pelvis_GluteusSize_max: 100% 0.138582
+MORPH Pelvis_SizeX_min: 100% 0.419209
+MORPH Shoulders_Mass-Tone_min-min: 100% 0.477007
+MORPH Shoulders_PosZ_min: 100% 0.418711
+MORPH Stomach_LocalFat_max: 100% 0.070752
+MORPH Stomach_Volume_max: 100% 0.067194
+MORPH Torso_BreastMass-Mass-Tone_min-max-min: 100% 0.179227
+MORPH Torso_BreastMass-Mass-Tone_min-min-min: 100% 0.052595
+MORPH Torso_Mass-Tone_max-min: 100% 0.152484
+MORPH Torso_Mass-Tone_min-min: 100% 0.023101
+MORPH Torso_ToracicCurve_max: 100% 0.406236
+MORPH Torso_Vshape_min: 100% 0.57149
+MORPH Waist_Size_max: 100% 0.320582
+MORPH Wrists_Size_max: 100% 0.112526
+PENIS Length_Min: 100% 0.494644
+PENIS Ball_Min: 100% 0.430891
+
+//Hair
+HAIR Hairstyle: 100% Hair_Short_M
+HAIR Hair_Thickness: 100% 0.887667
+HAIR Hair_Color_R: 100% 0.8
+HAIR Hair_Color_G: 100% 0.8
+HAIR Hair_Color_B: 100% 0.8
+HAIR Hair_Color_A: 100% 0.8
+
+HAIR Other: 100% Facial_QuarterBeard_M
+HAIR Hair_Thickness Facial_QuarterBeard_M: 100% 0.973247
+HAIR Hair_Color_R Facial_QuarterBeard_M: 100% 0.8
+HAIR Hair_Color_G Facial_QuarterBeard_M: 100% 0.8
+HAIR Hair_Color_B Facial_QuarterBeard_M: 100% 0.8
+HAIR Hair_Color_A Facial_QuarterBeard_M: 100% 0.8
+
+HAIR Other: 100% Suit_3
+HAIR Hair_Thickness Suit_3: 100% 1.0
+HAIR Hair_Color_R Suit_3: 100% 0.5
+HAIR Hair_Color_G Suit_3: 100% 0.5
+HAIR Hair_Color_B Suit_3: 100% 0.5
+HAIR Hair_Color_A Suit_3: 100% 1.0
+
+HAIR Other: 100% Martial-Arts-Shoes
+HAIR Hair_Thickness Martial-Arts-Shoes: 100% 1.902097
+HAIR Hair_Color_R Martial-Arts-Shoes: 100% 0.5
+HAIR Hair_Color_G Martial-Arts-Shoes: 100% 0.5
+HAIR Hair_Color_B Martial-Arts-Shoes: 100% 0.5
+HAIR Hair_Color_A Martial-Arts-Shoes: 100% 1.0
+
+HAIR Brow_Color_R: 100% 0.8
+HAIR Brow_Color_G: 100% 0.8
+HAIR Brow_Color_B: 100% 0.8
+HAIR Brow_Color_A: 100% 0.8
+
+// Skin
+SKIN Eye_Color_R: 100% 0.0
+SKIN Eye_Color_G: 100% 0.7
+SKIN Eye_Color_B: 100% 1.0
+SKIN Eye_Color_A: 100% 0.8
+SKIN Skin_Color_R: 100% 1.0
+SKIN Skin_Color_G: 100% 0.23
+SKIN Skin_Color_B: 100% 0.19
+SKIN Skin_Color_A: 100% 0.8
+SKIN Skin_Roughness: 100% 0.877194
+SKIN Skin_Oil: 100% 0.757073
+SKIN Skin_Fresnel: 100% 0.25135
+SKIN Skin_Age: 100% 0.503315
+SKIN Skin_Sagging: 100% 0.733665
+SKIN Muscle_Tone: 100% 0.064718
+
+// Stats
+STAT age: 100% 76.777245
+STAT money: 100% -8267159.0
+STAT attractiveness: 100% 98.690758
+STAT cooking: 100% 57.28019
+STAT dance: 100% 65.968811
+STAT fitness: 100% 25.135044
+STAT intelligence: 100% 28.078066
+STAT interpersonal: 100% 35.511337
+STAT jobperformance: 100% 77.611618
+STAT martial: 100% 68.568985
+STAT masochist: 100% 8.54213
+STAT muscle: 100% 6.277658
+STAT music: 100% 41.477707
+STAT perversion: 100% 56.483658
+STAT sneak: 100% 82.229073
+STAT arousal: 100% 44.99649
+STAT energy: 100% 29.804377
+STAT intoxication: 100% 26.709801
+STAT mood: 100% 20.0354
+STAT pet_health: 100% 23.822748
+STAT stock_alcohol: 100% 0.0
+STAT stock_book: 100% 0.0
+STAT stock_coffee: 100% 0.0
+STAT stock_flower: 100% 0.0
+STAT stock_gift: 100% 0.0
+STAT stock_haircare: 100% 0.0
+STAT stock_ingredient: 100% 0.0
+STAT stock_juice: 100% 0.0
+STAT stock_makeup: 100% 0.0
+STAT stock_meal: 100% 0.0
+STAT stock_movie: 100% 0.0
+STAT stock_musicalinstrument: 100% 0.0
+STAT stock_petfood: 100% 0.0
+STAT stock_photo: 100% 0.0
+STAT stock_skincare: 100% 0.0
+STAT stock_snack: 100% 0.0
+STAT stock_soda: 100% 0.0
+STAT stock_supplement: 100% 0.0
+STAT stock_tea: 100% 0.0
+STAT stock_tobacco: 100% 0.0
+STAT stock_video: 100% 0.0
+STAT playerattraction: 100% -92.999054
+STAT playerrapport: 100% -71.337013
+STAT attractiontoplayer: 100% -100.0
+STAT rapportwithplayer: 100% 93.825333
