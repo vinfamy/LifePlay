@@ -1,0 +1,50 @@
+WHAT: all, -pickpocket, -go_to_the_bathroom, -sleep, -nap
+WHERE: all, -home, -PC
+WHEN: 0-24
+WHO: New_Person = getPerson(true); If !New_Person.isDating()
+OTHER: Random(0,1) < interpersonal/1000*actionDuration
+
+
+sceneStart()
+New_Person.dress()
+New_Person.show(2)
+
+InterestedInPC = New_Person.isInterestedIn(Player)
+
+If InterestedInPC && [New_Person.IsDominantSex(Player) || New_Person:interpersonal > 90] && New_Person:attractiontoplayer > 30 && New_Person:interpersonal > 50 && !New_Person.isBoss()
+    Random
+        New_Person(Flirty):: "Hey there good-looking, fancy meeting you here!"
+        New_Person(Flirty):: "<Player.name>! Is that you, a sight to admire as always? How is it going?"
+        New_Person(Flirty):: "I knew it was you right away, hottie! How is life treating you?"
+    endRandom
+Else
+    Random
+        New_Person(Happy):: "Hey <Player.name>, fancy meeting you here!"
+        New_Person(Happy):: "<Player.name>! Is that you? How is it going?"
+        New_Person(Happy):: "I knew it was you, <Player.name>! How is life these days?"
+    endRandom
+endIf
+
+0:: "Stay and chat"
+1:: masochist < 50:: "Excuse myself"
+
+If 0
+    "I stayed and chat with <New_Person.name> for a while. I feel like our relationship has improved."
+
+    New_Person:rapportwithplayer += interpersonal/20*Random(0,1)
+    If InterestedInPC
+        New_Person:attractiontoplayer -= ( Random(1,10)*New_Person:masochist/200 )
+    endIf
+    passTime(0.1, 0.5)
+Else
+    "I mentioned I was busy and excused myself from any further conversation. <New_Person.name> seemed slightly offended."
+
+    New_Person:rapportwithplayer -= interpersonal/20*Random(0,1)
+    If InterestedInPC
+        New_Person:attractiontoplayer += ( Random(1,10)*New_Person:masochist/200 )
+    endIf
+    passTime(0.01, 0.15)
+endIf
+
+sceneEnd()
+timeout(2, meet_acquaintance)

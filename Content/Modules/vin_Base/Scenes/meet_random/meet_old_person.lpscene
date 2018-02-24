@@ -1,0 +1,106 @@
+WHAT: all, -pickpocket, -go_to_the_bathroom, -sleep, -nap
+WHERE: all, -home, -PC
+WHEN: 0-24
+WHO: New_Person = getPerson(false)
+OTHER: Random(0,1) < interpersonal/1000*actionDuration
+
+
+sceneStart()
+New_Person.dress()
+New_Person.show(2)
+
+InterestedInPC = New_Person.isInterestedIn(Player)
+DominantToPC = New_Person.isDominantSex(Player)
+
+New_Person:rapportwithplayer += interpersonal/10*Random(0,1)
+If InterestedInPC
+    New_Person:attractiontoplayer += attractiveness/10*Random(0,1)
+endIf
+
+If InterestedInPC && [DominantToPC || Random(0,1) < 0.2] && Random(0,100) < (New_Person:attractiontoplayer + New_Person:interpersonal)
+    Random
+        "I found myself engaged in a small conversation with <New_Person.name>, who I met before. Before leaving <New_Person.he_or_she> asked for my number, which we didn't do last time. Should I accept <New_Person.his_or_her> request?"
+        "<New_Person.name> approached me and mentioned that we had met before. After a small chat, <New_Person.he_or_she> suggested that we exchange contacts this time. Shall I?"
+    endRandom
+    
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            exchangeContact(New_Person)
+            "I happily accepted. We exchanged numbers and went our separate ways."
+        Else
+            "I found an excuse not to give <New_Person.him_or_her> my number. Disappointed, <New_Person.he_or_she> left."
+        endIf
+        
+Else
+    Random
+        "I came across <New_Person.name> again. Now that I've had a chance to get to know <New_Person.him_or_her> a bit more, should I exchange contacts with <New_Person.him_or_her>?"
+        "Just by chance, I met <New_Person.name> again. Perhaps I should ask for <New_Person.his_or_her> number this time?"
+    endRandom
+    
+        0:: interpersonal > 5:: "Yes"
+        1:: "No"
+            
+        If 0
+            If [New_Person:attractiontoplayer < 40 && InterestedInPC] || [!InterestedInPC && New_Person:rapportwithplayer < 0)]
+                Random
+                    New_Person(Happy):: "Sorry, but I still don't feel like I know you well enough to share such personal information just yet."
+                    New_Person(Happy):: "It's still gonna be a no, I'm afraid. Another day perhaps."
+                    New_Person(Irritated):: "Sorry, but I don't normally exchange numbers with someone I barely know."
+                endRandom      
+                
+                    0:: "I understand."
+                    1:: masochist < 50:: "It's your loss!"
+                    
+                    If 0
+                        Random
+                            Player(Happy):: "That's okay. I understand. You've got to be careful with private information these days."
+                            Player(Happy):: "No worries. Just like I said last time, it's not a big deal."
+                            Player(Wink):: "Did I scare you away again? Haha! Don't worry. See you around, I guess."
+                        endRandom
+                        
+                        New_Person:rapportwithplayer += Random(1,5)
+                        
+                        If InterestedInPC
+                            New_Person:attractiontoplayer -= ( Random(1,10)*New_Person:masochist/100 )
+                        endIf
+                        
+                    Else
+                        Random
+                            Player(Angry):: "Fine then. It's your loss being so precious yet again!"
+                            Player(Angry):: "Get out of my sight then!"
+                            Player(Sarcastic):: "Well, looks like someone still has a overly high opinion of <New_Person.himself_or_herself> ..."
+                        endRandom
+                        
+                        New_Person:rapportwithplayer -= Random(1,10)
+                        
+                        If InterestedInPC
+                            New_Person:attractiontoplayer += ( Random(1,20)*New_Person:masochist/100 )
+                            If New_Person:attractiontoplayer > 50
+                                Random
+                                    New_Person(Scared):: "Well ... I .... I'm sorry if I came across as arrogant or something. Let's exchange numbers!"
+                                    New_Person(Scared):: "Sorry. I didn't mean any offence ... On second thought, here, you can have my number."
+                                endRandom
+                                
+                                exchangeContact(New_Person)
+                            endif
+                            
+                        endif
+                        
+                    endIf
+                    
+            Else
+                exchangeContact(New_Person)
+                "We exchanged numbers and parted ways."
+            endIf
+            
+        Else
+            "I decided not to give <New_Person.him_or_her> my number."
+        endIf
+        
+endIf
+
+passTime(0.1, 0.5)
+sceneEnd()
+timeout(2, meet_new_person, meet_old_person)
