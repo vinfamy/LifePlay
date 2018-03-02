@@ -1,0 +1,158 @@
+WHAT: all
+WHERE: all
+WHEN: 23-6
+WHO: Companion = getCompanion()
+OTHER: none
+
+sceneStart()
+CurrentCompanion.show(2)
+WalkedHome = false
+MyHome = false
+
+"Time flies. I have enjoyed spending time with <CurrentCompanion.name> but it's time to part."
+If CurrentCompanion.IsDominantSex(Player)
+    If CurrentCompanion:interpersonal + CurrentCompanion:attractiontoplayer > Random(0, 100)
+        CurrentCompanion::"I'll be glad to walk you home safe. It's only my duty."
+        0:: "Be walked home"
+        1:: "Decline"
+    
+        If 0
+            "How can I decline such a nice offer? <CurrentCompanion.name> walked me back to my apartment."
+            setBackground(street)
+            passTime(0.1, 0.5)
+            "A while later ..."
+            CurrentCompanion(Happy)::"Here we are. I'll see you later then"
+            0:: "Invite <CurrentCompanion.him_or_her> inside"
+            1:: "Say goodbye"
+            
+            If 0
+                WalkedHome = true
+                MyHome = true
+                Player(Flirty):: "Wait ... Do you want to come inside and chill for a while? You were so kind in walking me all the way back after all."
+                CurrentCompanion:: "Of course, it'll be my pleasure."
+            Else
+                Player(Happy):: "Goodbye. I had a great time today. See you soon!"
+                "We went our separate ways."
+            Endif
+        Else
+            Player(Surprised)::"It's not neccessary! Thank you for the nice offer though."
+            "We went our separate ways."
+        Endif
+    Endif
+Else
+    "Should I offer to walk <CurrentCompanion.name> home?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        Player(Happy)::"Do you want me to walk you home? I just want to make sure you're safe."
+        If CurrentCompanion:attractiontoplayer > Random(0, 100) || CurrentCompanion:rapportwithplayer > Random(0, 100)
+            CurrentCompanion(Happy)::"Oh, thank you! That's very nice of you."
+            "I chivalrously walked with <CurrentCompanion.name> back to <CurrentCompanion.his_or_her> place."
+            setBackground(street)
+            passTime(0.1, 0.5)
+            "A while later ..."
+            Player:: "So here it is, we arrived. I guess I'll see you soon ..."
+            If CurrentCompanion:attractiontoplayer > Random(0, 100)
+                CurrentCompanion(Flirty)::"Wait, don't leave just yet. I feel guilty making you walk all the way here. Do you want to come in for tea or something?"
+                0:: "Yes"
+                1:: "No"
+                
+                If 0
+                    Player(Happy):: "Of course, I don't mind staying for a while."
+                    CurrentCompanion(Excited):: "Excellent! Hang on a minute. Let me just open the door."
+                    WalkedHome = true
+                Else
+                    CurrentCompanion:attractiontoplayer *= 1.05
+                    Player(Happy):: "That's okay. I'd better get going. See you!"
+                    "We went our separate ways."
+                Endif
+            Endif
+        Else
+            CurrentCompanion(Surprised)::"No, thank you. I wouldn't want to bother you. I'm happy to walk home myself."
+            "I couldn't really insist on it, so we waved goodbye and went our separate ways."
+        Endif
+    Else
+        "I decided not to offer to walk <CurrentCompanion.him_or_her> back. We said goodbye and parted ways."
+    Endif
+Endif
+
+If WalkedHome
+    setBackground(home)
+    "We're now inside the apartment."
+    choice = -1    
+    ate = false
+    hadSex = false
+        
+    While choice < 5
+        Kissed = false
+        "What should I suggest to <CurrentCompanion.name> that we do?"
+        0:: "Chat"
+        1:: !ate:: "Eat something together"
+        2:: "Watch a movie"
+        3:: "Drink alcohol"
+        4:: !hadSex:: "Kiss <CurrentCompanion.him_or_her>"
+        5:: MyHome:: "Politely ask <CurrentCompanion.him_or_her> to leave"
+        6:: !MyHome:: "Leave"
+        
+        If 5 || 6
+            "We said goodbye and went our ways."
+        Else
+            If 0
+                "We simply sat and chat for a while ..."
+                passTime(0.1, 0.2)
+            Elseif 1
+                "We made some quick snacks and enjoyed them together ..."
+                ate = true
+                passTime(0.2, 0.4)
+            Elseif 2
+                "We watched a movie together ..."
+                passTime(1, 2)
+            Elseif 3
+                "We had a drink together ..."
+                passTime(0.1, 0.2)
+                Player:intoxication += Random(0,10)
+                CurrentCompanion:intoxication += Random(0,10)
+            Elseif 4
+                Kissed = true
+            Endif
+
+            If Kissed || [!hadSex && CurrentCompanion:attractiontoplayer > Random(0, 200)]
+                Player(Kiss):: "..."
+                CurrentCompanion(Kiss):: "..."
+                "We had a kiss, an awkward one at first, but soon moving towards a more passionate direction."
+                0:: "Make out"
+                1:: "Stop"
+                
+                If 0
+                    If CurrentCompanion.IsDominantSex(Player) || CurrentCompanion:attractiontoplayer + CurrentCompanion:perversion > Random(0, 100) || CurrentCompanion:intoxication > 70
+                        "Our kiss got more and more steamy and soon we were making out, our hands all over each other."
+                        hadSex = true
+                        Player:perversion += Random(0, 1)
+                        Sex(Player, CurrentCompanion)
+                        CurrentCompanion.show(2)
+                        "The sex was amazing. We didn't even bother to put our clothes back on afterwards."
+                        passTime(0.2, 0.5)
+                    Else
+                        "Unfortunately for me, <CurrentCompanion.name> didn't seem interested in letting things escalate any further and pulled away."
+                    Endif
+                Else
+                    "I decided to stop it there and not go any further."
+                Endif
+            Elseif Random(0, 100) < 30
+                If MyHome
+                    CurrentCompanion(Happy):: "I've gotta go now. Thank you for inviting me in."
+                    Player(Happy):: "Alright. Thank you for staying. Goodbye!"
+                Else
+                    CurrentCompanion(Happy):: "It has been a great day, but I'm getting quite tired now. Do you mind ..."
+                    "Getting the message from <CurrentCompanion.name>, I said goodbye."
+                Endif
+                "We parted ways."
+                choice = 5
+            Endif        
+        Endif
+    Endwhile
+Endif
+
+sceneEnd()
+endDate()

@@ -2,12 +2,23 @@ WHAT: all, -pickpocket, -go_to_the_bathroom, -sleep, -nap
 WHERE: all, -home, -PC
 WHEN: 0-24
 WHO: none
-OTHER: Random(0,1) < interpersonal/1000*actionDuration || [WHAT == socialize && Random(0,1) < interpersonal/200]
+OTHER: Random(0,1) < interpersonal/1000*actionDuration || [WHAT == socialize && Random(0,1) < interpersonal/200] || [isWithCompanion() && Random(0,1) < CurrentCompanion:interpersonal/500*actionDuration]
 
 
 New_Person = generatePerson()
 sceneStart()
 New_Person.dress()
+
+CompanionIntroduced = isWithCompanion()
+
+If CompanionIntroduced
+    Random
+        CurrentCompanion(happy):: "Hey <Player.name>, meet <New_Person.name>! <New_Person.He_or_She> is my friend."
+        CurrentCompanion(happy):: "Here, let me introduce you two. <New_Person.name>, this is <Player.name>. <New_Person.name>, this is <Player.name>."
+        CurrentCompanion(happy):: "<New_Person.name>! Is that you? Come here, let me introduce you to <Player.name>."
+    endRandom
+Endif
+
 New_Person.show(2)
 
 InterestedInPC = New_Person.isInterestedIn(Player)
@@ -25,8 +36,17 @@ If InterestedInPC && [DominantToPC || Random(0,1) < 0.2] && Random(0,100) < (New
         If 0
             exchangeContact(New_Person)
             "I happily accepted. We exchanged numbers and went our separate ways."
+            If CompanionIntroduced
+                CurrentCompanion(Happy):: "<New_Person.name> is a great person. You made the right choice giving <New_Person.him_or_her> your number."
+                CurrentCompanion:rapportwithplayer += Random(0,1)
+            Endif
         Else
             "I found an excuse not to give <New_Person.him_or_her> my number. Disappointed, <New_Person.he_or_she> left."
+            If CompanionIntroduced
+                CurrentCompanion(Angry):: "You shouldn't have been so rude to my friend! Next time I won't introduce you to anyone else!"
+                CurrentCompanion:rapportwithplayer -= Random(0,2)
+            Endif
+
         endIf
         
 Else
@@ -45,47 +65,52 @@ Else
                     New_Person(Happy):: "It's gonna be a no, I'm afraid. Another day perhaps."
                     New_Person(Irritated):: "Sorry, but I don't normally exchange numbers with someone I've just met."
                 endRandom      
-                
-                    0:: "I understand."
-                    1:: masochist < 30:: "It's your loss!"
-                    
-                    If 0
-                        Random
-                            Player(Happy):: "That's okay. I understand. You've got to be careful with private information these days."
-                            Player(Happy):: "No worries. It's not a big deal."
-                            Player(Wink):: "Did I scare you away? Haha! Don't worry. See you around, I guess."
-                        endRandom
-                        
-                        New_Person:rapportwithplayer += Random(1,5)
-                        
-                        If InterestedInPC
-                            New_Person:attractiontoplayer -= ( Random(1,10)*New_Person:masochist/100 )
-                        endIf
-                        
+                    If CompanionIntroduced && [CurrentCompanion:rapportwithplayer > 30 || CurrentCompanion:attractiontoplayer > 30]
+                        CurrentCompanion(Irritated):: "Come on, <New_Person.name>. <Player.name> is a good person. You have nothing to worry about!"
+                        New_Person(Happy):: "Alright then, if you insist. Sorry for being too cautious!"
+                        exchangeContact(New_Person)
+                        "We exchanged numbers and parted ways."
                     Else
-                        Random
-                            Player(Angry):: "Fine then. It's your loss being so precious!"
-                            Player(Angry):: "Get out of my sight then!"
-                            Player(Sarcastic):: "Well, looks like someone has a overly high opinion of <New_Person.himself_or_herself> ..."
-                        endRandom
+                        0:: "I understand."
+                        1:: masochist < 30:: "It's your loss!"
                         
-                        New_Person:rapportwithplayer -= Random(1,10)
-                        
-                        If InterestedInPC
-                            New_Person:attractiontoplayer += ( Random(1,20)*New_Person:masochist/100 )
-                            If New_Person:attractiontoplayer > 50
-                                Random
-                                    New_Person(Scared):: "Well ... I .... I'm sorry if I came across as arrogant or something. Let's exchange numbers!"
-                                    New_Person(Scared):: "Sorry. I didn't mean any offence ... On second thought, here, you can have my number."
-                                endRandom
+                        If 0
+                            Random
+                                Player(Happy):: "That's okay. I understand. You've got to be careful with private information these days."
+                                Player(Happy):: "No worries. It's not a big deal."
+                                Player(Wink):: "Did I scare you away? Haha! Don't worry. See you around, I guess."
+                            endRandom
+                            
+                            New_Person:rapportwithplayer += Random(1,5)
+                            
+                            If InterestedInPC
+                                New_Person:attractiontoplayer -= ( Random(1,10)*New_Person:masochist/100 )
+                            endIf
+                            
+                        Else
+                            Random
+                                Player(Angry):: "Fine then. It's your loss being so precious!"
+                                Player(Angry):: "Get out of my sight then!"
+                                Player(Sarcastic):: "Well, looks like someone has a overly high opinion of <New_Person.himself_or_herself> ..."
+                            endRandom
+                            
+                            New_Person:rapportwithplayer -= Random(1,10)
+                            
+                            If InterestedInPC
+                                New_Person:attractiontoplayer += ( Random(1,20)*New_Person:masochist/100 )
+                                If New_Person:attractiontoplayer > 50
+                                    Random
+                                        New_Person(Scared):: "Well ... I .... I'm sorry if I came across as arrogant or something. Let's exchange numbers!"
+                                        New_Person(Scared):: "Sorry. I didn't mean any offence ... On second thought, here, you can have my number."
+                                    endRandom
+                                    
+                                    exchangeContact(New_Person)
+                                endif
                                 
-                                exchangeContact(New_Person)
                             endif
                             
-                        endif
-                        
-                    endIf
-                    
+                        endIf
+                    Endif
             Else
                 exchangeContact(New_Person)
                 "We exchanged numbers and parted ways."
@@ -99,4 +124,10 @@ endIf
 
 passTime(0.1, 0.5)
 sceneEnd()
-timeout(2, meet_new_person, meet_old_person)
+
+If CompanionIntroduced
+    timeout(1, meet_new_person)
+    timeout(2, meet_old_person)
+Else
+    timeout(2, meet_new_person, meet_old_person)
+Endif

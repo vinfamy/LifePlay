@@ -183,6 +183,7 @@ STAT dance: 100% 29.679251
 STAT fitness: 100% 92.297134
 STAT intelligence: 100% 78.142639
 STAT interpersonal: 100% 33.454391
+STAT jobexperience: 100% 10.0
 STAT jobperformance: 100% 77.153847
 STAT martial: 100% 22.574541
 STAT masochist: 100% 80.986969
@@ -218,5 +219,5 @@ STAT stock_tobacco: 100% 0.0
 STAT stock_video: 100% 0.0
 STAT playerattraction: 100% -3.042694
 STAT playerrapport: 100% 75.487534
-STAT attractiontoplayer: 100% -8.811554
-STAT rapportwithplayer: 100% -1.384549
+STAT attractiontoplayer: 100% -9.700376
+STAT rapportwithplayer: 100% 3.64541

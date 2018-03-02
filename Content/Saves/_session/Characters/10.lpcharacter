@@ -138,7 +138,10 @@ MORPH Torso_ToracicCurve_min: 100% 0.122193
 MORPH Torso_Vshape_max: 100% 0.311581
 MORPH Waist_Size_min: 100% 0.059829
 MORPH Wrists_Size_min: 100% 0.038901
+PENIS Length_Max: 100% 0.764751
 PENIS Length_Min: 100% 0.830866
+PENIS Girth_Max: 100% 0.004944
+PENIS Ball_Max: 100% 0.840266
 PENIS Ball_Min: 100% 0.309305
 
 //Hair
@@ -179,6 +182,7 @@ STAT dance: 100% 31.260109
 STAT fitness: 100% 19.150364
 STAT intelligence: 100% 30.460526
 STAT interpersonal: 100% 44.764549
+STAT jobexperience: 100% 10.0
 STAT jobperformance: 100% 87.575912
 STAT martial: 100% 60.725731
 STAT masochist: 100% -79.363388
@@ -214,5 +218,5 @@ STAT stock_tobacco: 100% 0.0
 STAT stock_video: 100% 0.0
 STAT playerattraction: 100% -6.741539
 STAT playerrapport: 100% 32.663971
-STAT attractiontoplayer: 100% -100.0
-STAT rapportwithplayer: 100% 24.396585
+STAT attractiontoplayer: 100% 94.471619
+STAT rapportwithplayer: 100% 95.909569

@@ -197,7 +197,8 @@ If 0
             0:: "Ask about the role"
             1:: "Ask about the team"
             2:: perversion > 20 && Flirt > 0:: "Offer my number"
-            3:: Porn && perversion > 40 && Flirt > 1:: "Offer sex"
+            // 3:: Porn && perversion > 40 && Flirt > 1:: "Offer sex"
+            3:: "Offer sex"
             
             If 2
                 Player(Wink):: "Please, call me. I would love to meet in a more casual setting ... for your wise 'career advices' and get to know you in a more 'personal' level."
@@ -274,7 +275,8 @@ If 0
                         "I started rubbing my hand on <Boss.name>'s inner thigh."
                         Player(Flirty):: "I want you to know that I'll do anything to get this job ... anything. Especially for such a good-looking hiring manager as yourself."
                         perversion_PC += 0.5
-                        If Interested && Flirt*(Boss.peversion + attractiveness) > Random(0, 400)
+                        // If Interested && Flirt*(Boss.peversion + attractiveness) > Random(0, 400)
+                        If 1 < 2
                             "Checking first that no-one else was around, <Boss.he_or_she> sneakily pulled down the window shades and locked the interview room's door. <Boss.He_or_She> then approached me full of lust in <Boss.his_or_her> eyes."
                             Performance += Random(0, 20)
                             HadSex = true
@@ -286,6 +288,7 @@ If 0
                     Else
                         "My questions didn't seem to impress <Boss.name> at all ..."
                         Performance -= Random(0, 2)
+                    Endif
                 Endif
             Endif
             
