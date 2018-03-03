@@ -190,9 +190,9 @@ STAT muscle: 100% 83.05307
 STAT music: 100% 64.308601
 STAT perversion: 100% 80.141602
 STAT sneak: 100% 29.969177
-STAT arousal: 100% 10.1413
+STAT arousal: 100% 0.0
 STAT energy: 100% 65.75518
-STAT intoxication: 100% 5.203406
+STAT intoxication: 100% 7.582934
 STAT mood: 100% 33.973206
 STAT pet_health: 100% 58.397167
 STAT stock_alcohol: 100% 0.0
@@ -218,5 +218,5 @@ STAT stock_tobacco: 100% 0.0
 STAT stock_video: 100% 0.0
 STAT playerattraction: 100% -6.741539
 STAT playerrapport: 100% 32.663971
-STAT attractiontoplayer: 100% 94.471619
-STAT rapportwithplayer: 100% 95.909569
+STAT attractiontoplayer: 100% 91.290268
+STAT rapportwithplayer: 100% 93.760574

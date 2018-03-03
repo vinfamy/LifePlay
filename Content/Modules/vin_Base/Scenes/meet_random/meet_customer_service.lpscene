@@ -1,0 +1,58 @@
+WHAT: all, -pickpocket, -go_to_the_bathroom, -socialize
+WHERE: all, -toilets, -laundry, -PC, -home, -office
+WHEN: 0-24
+WHO: none
+OTHER: Random(0, 1000) < interpersonal*actionDuration
+
+New_Person = generatePerson()
+If Player.IsInterestedIn(New_Person) 
+    sceneStart()
+    New_Person.dress()
+    New_Person.show(2)
+
+    Title = "shop assistant"
+    If WHERE == bank || WHERE == beauty || WHERE == hairdresser
+        Title = "cashier"
+    Elseif WHERE == bar || WHERE == nightclub
+        Title = "bartender"
+    Elseif WHERE == cafe || WHERE == coffee || WHERE == tea
+        Title = "barista"
+    Elseif WHERE == biergarten || WHERE == fast_food || WHERE == pub || WHERE == restaurant
+        Title = "<New_Person.waiter_or_waitress>"
+    Elseif WHERE == travel_agency || WHERE == car || WHERE == computer || WHERE == electronics || WHERE == mobile_phone || WHERE == motorcycle || WHERE == cinema || WHERE == theatre
+        Title = "<New_Person.salesman_or_saleswoman>"
+    Elseif WHERE == dentist || WHERE == doctor || WHERE == hospital || WHERE == hotel || WHERE == place_of_worship || WHERE == sports_centre || WHERE == veterinary || WHERE == art || WHERE == community_centre || WHERE == library
+        Title = "receptionist"
+    Endif
+    
+    "It's my lucky day. I found myself being served by a <New_Person.handsome_or_cute> <Title>. Maybe I should sneakily slip a piece of paper with my number on it to <New_Person.him_or_her>. If <New_Person.he_or_she> is interested, we could go on a date someday."
+    0:: interpersonal > 10:: "Offer your number sneakily"
+    1:: "Maybe not"
+    
+    If 0
+        "I carefully slipped a piece of paper into <New_Person.him_or_her> hand, which wrote 'Text me back' along with my number. <New_Person.He_or_She> was confused for a few seconds before understanding my intention. <New_Person.He_or_She> said nothing though and continued acting professional."
+        passTime(0.25, 1)
+        New_Person.hide()
+        "A while later ..."
+        setBackground(street)
+        If New_Person.IsInterestedIn(Player) && [New_Person.IsDominantSex(Player) || New_Person:attractiontoplayer > Random(0, 50) || New_Person:perversion > Random(0, 50)]
+            exchangeContact(New_Person)
+            "I received a text message from an unknown number. Hmm, let's read it ..."
+            "'Hey, it's me, <New_Person.name>, the <Title> you just gave your number to!' - the message said."
+            If Player.IsDominantSex(New_Person)
+                "Ah, so <New_Person.he_or_she> is interested! Now that we have each other's number, I should ask <New_Person.him_or_her> out soon."
+            Else
+                "It seems the <New_Person.handsome_or_cute> <Title> found me attractive too! Now that we have each other's number, I hope <New_Person.he_or_she> will ask me on a date soon."
+            Endif
+        Else
+            "Still no text back from the <Title> I met earlier. Oh well, I guess there are worse ways to get rejected!"
+        Endif
+    Else
+        "Well, I'd better not do that and cause <New_Person.him_or_her> troubles with <New_Person.him_or_her> boss."
+    Endif
+    
+    sceneEnd()
+    timeout(2, meet_customer_service)
+Else
+    New_Person.Delete()
+Endif

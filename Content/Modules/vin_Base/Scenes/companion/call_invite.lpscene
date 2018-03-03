@@ -1,0 +1,28 @@
+WHAT: all, -sleep, -nap
+WHERE: all
+WHEN: 0-24
+WHO: Friend = getPerson(true); Friend:rapportwithplayer > Random(0, 50) || [Friend.IsDominantSex(Player) && Friend:attractiontoplayer > Random(0, 25)]
+OTHER: Random(0, 1000) < interpersonal*actionDuration
+
+sceneStart()
+Friend.dress()
+
+"My phone rang ... It's <Friend.name> calling."
+Friend.show(2)
+Friend:: "Hey <Player.name>, it's <Friend.name>. Listen, do you want to hang out today?"
+0:: "Yes"
+1:: "No"
+
+If 0
+    Player:: "Of course. I'll see you in a bit!"
+    Friend:: "See you soon!"
+    passTime(0.25, 1)
+    Friend.StartDate()
+    timeout(12, call_invite)
+Else
+    Player:: "Sorry, I'm busy today. Maybe next time ..."
+    Friend:: "Oh? That's a shame. I'll see you around then."
+    timeout(2, call_invite)
+Endif
+
+sceneEnd()

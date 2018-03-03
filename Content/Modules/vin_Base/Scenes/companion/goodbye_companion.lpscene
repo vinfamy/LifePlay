@@ -82,7 +82,8 @@ If WalkedHome
     "We're now inside the apartment."
     choice = -1    
     ate = false
-    hadSex = false
+    hadSex = false    
+    Vanilla = IsModEnabled(vin_VanillaRealistic)
         
     While choice < 5
         Kissed = false
@@ -121,7 +122,7 @@ If WalkedHome
                 Player(Kiss):: "..."
                 CurrentCompanion(Kiss):: "..."
                 "We had a kiss, an awkward one at first, but soon moving towards a more passionate direction."
-                0:: "Make out"
+                0:: Vanilla:: "Make out"
                 1:: "Stop"
                 
                 If 0
@@ -131,7 +132,7 @@ If WalkedHome
                         Player:perversion += Random(0, 1)
                         Sex(Player, CurrentCompanion)
                         CurrentCompanion.show(2)
-                        "The sex was amazing. We didn't even bother to put our clothes back on afterwards."
+                        "The sex was amazing. We put our clothes back on afterwards and continued our date."
                         passTime(0.2, 0.5)
                     Else
                         "Unfortunately for me, <CurrentCompanion.name> didn't seem interested in letting things escalate any further and pulled away."
@@ -139,7 +140,7 @@ If WalkedHome
                 Else
                     "I decided to stop it there and not go any further."
                 Endif
-            Elseif Random(0, 100) < 30
+            Elseif Random(0, 100) < 20
                 If MyHome
                     CurrentCompanion(Happy):: "I've gotta go now. Thank you for inviting me in."
                     Player(Happy):: "Alright. Thank you for staying. Goodbye!"
