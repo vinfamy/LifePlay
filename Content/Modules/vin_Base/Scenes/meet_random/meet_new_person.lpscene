@@ -2,7 +2,7 @@ WHAT: all, -pickpocket, -go_to_the_bathroom, -sleep, -nap
 WHERE: all, -home, -PC
 WHEN: 0-24
 WHO: none
-OTHER: Random(0,1) < interpersonal/1000*actionDuration || [WHAT == socialize && Random(0,1) < interpersonal/200] || [isWithCompanion() && Random(0,1) < CurrentCompanion:interpersonal/500*actionDuration]
+OTHER: Random(0, 1) < interpersonal/1000*actionDuration || [WHAT == socialize && Random(0,1) < interpersonal/200] || [isWithCompanion() && Random(0,1) < CurrentCompanion:interpersonal/500*actionDuration]
 
 
 New_Person = generatePerson()
