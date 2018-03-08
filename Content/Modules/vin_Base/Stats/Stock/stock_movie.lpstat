@@ -1,6 +1,6 @@
 STAT_ID: stock_movie
 STAT_NAME: Unwatched movies
-PLAYER_ONLY: false
+PLAYER_ONLY: true
 HIGHER_BETTER: true
 STAT_MIN: 0
 STAT_MAX:

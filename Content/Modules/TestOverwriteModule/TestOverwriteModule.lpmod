@@ -1,6 +1,0 @@
-MODULE_UNIQUEID: TestOverwriteModule
-MODULE_NAME: Test Overwrite Module
-MODULE_AUTHOR: Vinfamy
-MODULE_LINK: www.loverslab.com
-MODULE_DESCRIPTION: Just to test load order and overwrites
-MODULE_REQUIREMENTS:

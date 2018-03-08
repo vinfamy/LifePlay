@@ -1,7 +1,7 @@
 WHAT: all, -go_to_the_bathroom
 WHERE: all, -toilets, -laundry, -PC, -office
 WHEN: 0-24
-WHO: Companion = getCompanion(); CurrentCompanion.IsInterestedIn(Player) && Player.IsInterestedIn(CurrentCompanion) && CurrentCompanion:attractiontoplayer > Random(40, 100)
+WHO: Companion = getCompanion(); If CurrentCompanion.IsInterestedIn(Player) && Player.IsInterestedIn(CurrentCompanion) && CurrentCompanion:attractiontoplayer > Random(40, 100)
 OTHER: !Player.isDating()
 
 SceneStart()

@@ -1,6 +1,6 @@
 STAT_ID: stock_juice
 STAT_NAME: Juice
-PLAYER_ONLY: false
+PLAYER_ONLY: true
 HIGHER_BETTER: true
 STAT_MIN: 0
 STAT_MAX:

@@ -1,8 +1,8 @@
 WHAT: all, -sleep, -nap
 WHERE: all
 WHEN: 0-24
-WHO: Friend = getPerson(true); Friend:rapportwithplayer > Random(0, 50) || [Friend.IsDominantSex(Player) && Friend:attractiontoplayer > Random(0, 25)]
-OTHER: Random(0, 1000) < interpersonal*actionDuration
+WHO: Friend = getPerson(true); If Friend:rapportwithplayer > Random(0, 50) || [Friend.IsDominantSex(Player) && Friend:attractiontoplayer > Random(0, 25)]
+OTHER: !IsWithCompanion() && Random(0, 1000) < interpersonal*actionDuration
 
 sceneStart()
 Friend.dress()
