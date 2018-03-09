@@ -1,5 +1,5 @@
-WHAT: all, -pickpocket, -go_to_the_bathroom, -socialize
-WHERE: all, -toilets, -laundry, -PC, -home, -office
+WHAT: all, -pickpocket, -go_to_the_bathroom, -socialize, -sleep, -nap
+WHERE: all, -toilets, -laundry, -PC, -home, -work
 WHEN: 0-24
 WHO: none
 OTHER: Random(0, 1000) < interpersonal*actionDuration

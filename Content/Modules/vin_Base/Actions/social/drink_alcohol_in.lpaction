@@ -5,7 +5,7 @@ WHEN: 0 - 24
 MINUTES: 5 - 20
 TIMEOUT_MINUTES: 0
 ALSO_TIMEOUT: 
-EFFECTS: intoxication +15 (DURATION), mood -1 (INTERRUPTED), mood +2.5 (END), energy +0.5 (END)
+EFFECTS: stock_alcohol -1 (START), intoxication +15 (DURATION), mood -1 (INTERRUPTED), mood +2.5 (END), energy +0.5 (END)
 CONDITIONS: stock_alcohol >= 0.8 (STAT_COMPARE)
 MOVE_FIRST: true
 SCENE_ALWAYS:

@@ -1,0 +1,118 @@
+WHAT: work
+WHERE: work
+WHEN: 9-17
+WHO: none
+OTHER: none
+
+Boss = getSpecific(Boss)
+SceneStart()
+setBackground(work)
+Boss.dress()
+Boss.show(2)
+
+Boss(Attentive):: "<Player.name>, could I see you in my office in 10 minutes please?"
+Player(Anxious):: "Of course, <Boss.Sir_or_Madam>. I will be with you shortly."
+"Well, this was all out of the blue ... Is this going to be good news or bad news? Should I be worrited?"
+passTime(0.05, 0.15)
+
+Boss(Happy):: "Here you are ... Come, take a seat!"
+"I took my seat, anxious about what <Boss.Mr_or_Ms> <Boss.name_last> was going to say next."
+Boss(Happy):: "The HR guys and I had a meeting recently about staff performances in our department. We reviewed your performance over the past few months ..."
+
+If jobperformance < Random(0, 40)
+    Boss(Angry):: "I'm afraid to say that your performance has not lived up to expectations ..."
+    Boss(Annoyed):: "Your services are thereby no longer required. Your employment contract will be terminated with immediate effect ..."
+    Fired = true
+    
+    "Oh no! This is the last thing I wanted to hear. I'm getting fired ..."
+    0:: "Accept your fate"
+    1:: "Ask for a final chance"
+    2:: "Plead"
+    
+    If 0
+        Player(Sad):: "I guess I have nothing more to say. I respect the company's decision. Thank you for the opportunity at least."
+    Elseif 1
+        Player(Scared):: "Please give me another chance. I will show you I have what it takes to succeed at this company!"
+        If intelligence + jobperformance + interpersonal + Boss:rapportwithplayer > Random(0, 300)
+            Fired = false
+            Boss(Irritated):: "Fine. I know you're not entirely incompetent. We're willing to give you one final chance. You'd better show us everything you've got or we won't be so tolerant next time!"
+            Player(Happy):: "Thank you, <Boss.Sir_or_Madam>. I swear I won't let you down this time!"
+        Else
+            Boss(Furious):: "I'm afraid we have already given you all the opportunities in the world, and quite frankly, you didn't take them."
+        Endif
+    Else
+        Player(Crying):: "Please don't fire me. This job is everything to me - I don't know where else I can go. Please, I'll do anything ..."
+        If Boss.IsInterestedIn(Player) && Boss:perversion + Boss:attractiontoplayer > Random(0, 100) 
+            Boss(Flirty):: "Anything? Are you sure about that?"
+            "The look on <Boss.his_or_her> face said it all. If I were to keep this job, I would have to do an awful lot more for <Boss.him_or_her> than pleading."
+            0:: "Offer sex" 
+            1:: "Turn <Boss.him_or_her> down"
+            
+            If 0
+                Player(Flirty):: "Yes, <Boss.Sir_or_Madam>. Anything ..."
+                Fired = false
+                If IsModEnabled(vin_VanillaPorn)
+                    Boss(Flirty):: "Let's get down to business then ..."
+                Else
+                    Boss(Flirty):: "Then I'll let you off the hook this time. But we shall meet outside the office after work today. And no-one will hear a word of this, are we clear?"
+                    passTime(2, 4)
+                    moveTo(Home)
+                    setBackground(home)
+                    "Later on ..."
+                    Boss(Flirty):: "Here we are. Nice apartment you've got. Now I understand why you were so desperate to keep that job! Shall we ... get to it then?"
+                Endif
+                
+                Sex(Boss, Player)
+                Boss:attractiontoplayer += Random (0, 2)
+                perversion += Random(0, 0.5)
+                Boss.show(2)
+                Boss(Flirty):: "That was good. You might not be any good at your job, but you do know a thing or two in bed. I guess I will talk to HR tomorrow and let you keep your job after all."
+                "I did it. I got to keep my job, by letting my boss fuck me. Let's hope I don't have to continue doing this every performance review ..."
+            Else
+                Player(Sad):: "I'm sorry ... I'm not willing to give you what I think you're suggesting!"
+                Boss(Furious):: "Then don't waste my time!"
+            Endif
+        Elseif interpersonal + Boss:rapportwithplayer > Random(0, 150)
+            Boss(Sad):: "Alright then. I don't want to put you or anyone in such a tight spot. You're a nice <Player.guy_or_gal> after all. Consider it a personal favour. But don't you take advantage of my kindness next time!"
+            Fired = false
+        Else
+            Boss(Irritated):: "Don't waste your words anymore. It's no use. A decision has already been made."
+        Endif
+    Endif
+    
+    If Fired
+        mood -= 100
+        Boss(Angry):: "This security staff will escort you to your desk. You shall then quickly pack up your belongings as per the company's rules and leave the building immediately. Your work number will also be disabled within the next hour."
+        LoseJob()
+    Endif
+        
+Elseif jobperformance < Random(60, 100)
+    Boss(Irritated):: "Your performance was painfully mediorce ... Not too good or too bad. I know you're capable of more. So try better next time!"
+    Boss(Happy):: "Alright, there's no need to look so anxious like that! You may go back to your desk."
+Else
+    Boss(Happy):: "Your performance was outstanding. We are very happy with your contributions the last few months. Congratulations!"
+    Player(Excited):: "Thank you, <Boss.Sir_or_Madam>. I'm glad I didn't disappoint you and the company."
+    
+    OldSalary = getSalary()
+    Salary = 1500+Random(0.25, 2)*jobexperience*100
+    
+    If Salary > 1.25*OldSalary
+        Salary.setSalary()
+        SalaryConverted = Salary.convertToLocalCurrency(true) 
+        Boss(Excited):: "Even more worthy of congratulating is the fact that we're now in a position to offer you a promotion. You should expect details about your new position in an email from HR soon."
+        Boss.hide()
+        passTime(0.5, 1)
+        "A while later ..."
+        "HR did indeed send me details about the promotion! My calculations show that the new title will also give me an increased salary of about <SalaryConverted> after taxes. Not bad ... not bad at all."
+    Elseif Salary > 1.05*OldSalary
+        Bonus = 2*(Salary - OldSalary)
+        BonusConverted = Bonus.convertToLocalCurrency(true)
+        Boss(Excited):: "To reward you for your performance, we would like to offer you a performance bonus of <BonusConverted>. May that motivate you to further achievements with the company in the future!"
+        money += Bonus
+        "Great news! Some cash boost is always good ..."
+    Endif
+Endif
+
+SceneEnd()
+timeout(5000, performance_review)
+

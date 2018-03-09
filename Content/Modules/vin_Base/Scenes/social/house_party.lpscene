@@ -1,0 +1,283 @@
+WHAT: all, -sleep
+WHERE: all
+WHEN: 18-22
+WHO: Host = GetPerson(true); If Host:rapportwithplayer > Random(0, 20)
+OTHER: !IsWithCompanion() && Random(0, 1) < interpersonal/1000*actionDuration
+
+
+PlayerHosting = ForcedTrigger()
+
+sceneStart()
+
+If PlayerHosting
+    "My preparations are all done. It's time to welcome the guests!"
+    Player(Happy):: "Come in, everyone! Don't be shy. Everything's ready."
+Else
+    "My phone rang! It's <Host.name>. I wonder what <Host.he_or_she> is calling me for?"
+    Host(Excited):: "Hey, <Player.name>. We're having a house party tonight. Do you want to come?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        Accepted = true
+        Player(Excited):: "Of course. Count me in! I can't wait for the party to start ..."
+        Host(Happy):: "Glad to hear. See you soon then!"
+        "A while later ..."
+        Player.dress()
+        Host(Happy):: "Come in, everyone! Don't be shy. Everything's ready."
+        Host.hide()
+    Else
+        Accepted = false
+        Player(Sad):: "I'm busy tonight I'm afraid. You guys have fun though ..."
+        Host(Sad):: "Oh, that's a shame. Maybe next time then."
+    Endif
+Endif
+
+If PlayerHosting || Accepted
+    setBackground(Home)
+    Random
+        Guest1 = getPerson()
+        Guest1 = generatePerson()
+    endRandom
+    If !Guest1.isValid()
+        Guest1 = generatePerson()
+    Endif
+    Guest1.dress()
+    "<Guest1.name> showed up."
+    Guest1.show(1)
+
+    Random
+        Guest2 = getPerson()
+        Guest2 = generatePerson()
+    endRandom
+    If !Guest2.isValid()
+        Guest2 = generatePerson()
+    Endif
+    Guest2.dress()
+    "<Guest2.name> came in."
+    Guest2.show(2)
+
+    Random
+        Guest3 = getPerson()
+        Guest3 = generatePerson()
+    endRandom
+    If !Guest3.isValid()
+        Guest3 = generatePerson()
+    Endif
+    Guest3.dress()
+    "<Guest3.name> arrived."
+    Guest3.show(3)
+
+    Random
+        Guest4 = getPerson()
+        Guest4 = generatePerson()
+    endRandom
+    If !Guest4.isValid()
+        Guest4 = generatePerson()
+    Endif
+    Guest4.dress()
+    "Another guest invited was <Guest4.name>."
+    Guest4.show(4)
+
+    Random
+        Guest5 = getPerson()
+        Guest5 = generatePerson()
+    endRandom
+    If !Guest5.isValid()
+        Guest5 = generatePerson()
+    Endif
+    Guest5.dress()
+    "<Guest5.name> was the final guest to arrive at the party."
+    Guest5.show(5)
+
+    "Everyone is here now. The party has started!"
+
+    Guest1.hide()
+    Guest2.hide()
+    Guest3.hide()
+    Guest4.hide()
+    Guest5.hide()
+    
+    PartyOngoing = true
+    While PartyOngoing
+        passTime(0.2, 0.6)
+        Drank = false
+        Guest1:intoxication += Random(0, 10)
+        Guest2:intoxication += Random(0, 10)
+        Guest3:intoxication += Random(0, 10)
+        Guest4:intoxication += Random(0, 10)
+        Guest5:intoxication += Random(0, 10)
+        If !PlayerHosting
+            Host:intoxication += Random(0, 10)
+        Endif
+        
+        "What should I do now?"
+        0:: "Drink alcohol"
+        1:: "Sit with <Guest1.name>"
+        2:: "Sit with <Guest2.name>"
+        3:: "Sit with <Guest3.name>"
+        4:: "Sit with <Guest4.name>"
+        5:: "Sit with <Guest5.name>"
+        6:: !PlayerHosting:: "Sit with the host"
+        7:: PlayerHosting && timePassed > 1:: "End the party"
+        
+        If 0
+            intoxication += Random(0, 15)
+            "I poured myself a drink and enjoyed it thoroughly."
+        Elseif 7
+            "As the host, I decided that the party had run its course and ended it. Everyone promptly left ..."
+            PartyOngoing = false
+        Else
+            If 1
+                SitWith = Guest1
+            Elseif 2
+                SitWith = Guest2
+            Elseif 3
+                SitWith = Guest3
+            Elseif 4
+                SitWith = Guest4
+            Elseif 5
+                SitWith = Guest5
+            Elseif 6
+                SitWith = Host
+            Endif
+            
+            SitWith.show(2)
+            "I spent some time chatting with <SitWith.name>"
+            If SitWith.IsInterestedIn(Player) && Random(0, 100) < attractiveness
+                SitWith:attractiontoplayer += Random(-1, 2)
+            Else
+                SitWith:rapportwithplayer += Random(-1, 2)
+            Endif
+            
+            If !SitWith.isContactExchanged()
+                If [SitWith.IsDominantSex(Player) || !SitWith.IsInterestedIn(Player)] && [SitWith:attractiontoplayer > Random(0, 30) || SitWith:rapportwithplayer > Random(0, 30)]
+                    SitWith(Happy):: "Hey, I just realized I didn't have your number. Do you mind ..."
+                    0:: "Exchange contacts"
+                    1:: "Sorry but no"
+                    
+                    If 0
+                        Player(Excited):: "Of course! Let's exchange numbers!"
+                        exchangeContact(SitWith)
+                        SitWith:rapportwithplayer += Random(0, 5)
+                    Else
+                        Player(Sad):: "I'm afraid I don't know you well enough yet for that."
+                        SitWith:rapportwithplayer -= Random(0, 3)
+                    Endif
+                Else
+                    "Should I ask <SitWith.name> for <SitWith.his_or_her> number?"
+                    0:: "Ask for <SitWith.his_or_her> number"
+                    1:: "Maybe not"
+                    
+                    If 0
+                        Player(Happy):: "You know what? Let's exchange numbers so that we can keep in touch after the party."
+                        If SitWith:attractiontoplayer > Random(0, 30) || SitWith:rapportwithplayer > Random(0, 30) || SitWith:intoxication > Random(50, 100)
+                            SitWith(Excited):: "Of course! Let's exchange numbers!"
+                            exchangeContact(SitWith)
+                        Else
+                            SitWith(Sad):: "I'm afraid I don't know you well enough yet for that. Maybe next time."
+                        Endif
+                    Else
+                        "Not yet. I want to get to know <SitWith.name> a bit better first ..."
+                    Endif
+                Endif
+            Endif
+            
+            If Random(0, 100) < SitWith:perversion + SitWith:attractiontoplayer + SitWith:rapportwithplayer
+                "<SitWith.name> offered me another drink. Shall I?"
+            Else
+                "Should I offer <SitWith.name> a drink?"
+            Endif         
+            "Have another drink?"
+            0:: "Yes"
+            1:: "No"
+                
+            If 0
+                intoxication += Random(0, 15)
+                SitWith:intoxication += Random(0, 15)
+            Endif
+            
+            If SitWith.IsInterestedIn(Player) && Player.IsInterestedIn(SitWith) && [SitWith:attractiontoplayer > 50 || intoxication > 70]
+                KissBack = false
+                
+                If SitWith.IsDominantSex(Player) && SitWith:perversion + SitWith:attractiontoplayer > Random(0, 200)
+                    "All of a sudden, <SitWith.name> grabbed me and leaned in for a kiss"
+                    SitWith(Kiss):: "..."
+                    0:: "Kiss back"
+                    1:: "Turn <SitWith.him_or_her> down"
+                    
+                    If 0
+                        KissBack = true
+                    Else
+                        "I pulled myself away from <SitWith.him_or_her>. <SitWith.He_or_She> was visibly embarassed."
+                        SitWith:attractiontoplayer -= Random(0, 1)
+                    Endif
+                Else
+                    "From the way <SitWith.name> was checking me out, I could tell that <SitWith.he_or_she> was totally into me. Should I make my move now and kiss <SitWith.him_or_her>?"
+                    
+                    0:: "Kiss <SitWith.name>"
+                    1:: "Maybe not"
+                    
+                    If 0
+                        Player(Kiss):: "..."
+                        If SitWith:intoxication > Random(50, 100) || [SitWith:attractiontoplayer > Random(0, 100) && SitWith:perversion > Random(0, 100)]
+                            SitWith(Kiss):: "..."
+                            "Wow, that's quite a pleasant surprise. <SitWith.name> was totally receptive to my advance. In fact, <SitWith.he_or_she> certainly showed that <SitWith.he_or_she> wanted something more ..."
+                        Else
+                            "<SitWith.name> pulled away from my advances. Embarassed, I retreated, pretending for the rest of the party as if nothing happened ..."
+                        Endif
+                    Else
+                        "Perhaps not ... It would be extremely embarassing to be rejected in front of everyone."
+                    Endif
+                Endif
+                
+                If KissBack
+                    Player(Kiss):: "..."
+                    "I responded in kind and we indulged ourselves in a passionate kiss."
+                    SitWith:attractiontoplayer += Random(0, 1)
+                    0:: arousal > 20 && [PlayerHosting || IsModEnabled(vin_VanillaPorn) || SitWith.IsSameAs(Host)] :: "Have sex right here"
+                    1:: !PlayerHosting && arousal > 20 && !SitWith.IsSameAs(Host):: "Invite <SitWith.him_or_her> home"
+                    2:: "Stop it there"
+                    
+                    If 0 
+                        "I needed to feel <SitWith.him_or_her> right here, right now."
+                        "We dragged each other to the bedroom and started making out intensely. Things were escalating quickly ..."
+                        perversion += Random(0, 0.2)
+                        Sex(SitWith, Player)
+                        SitWith.show(2)
+                        "The sex was amazing. We put our clothes back on and went back to rejoin the party. We must have made plenty of noises, the look on everyone else's faces suggested as much."
+                    Elseif 1
+                        "As much as I'd love to have <SitWith.him_or_her> right here. It was not my house and I didn't want to upset <Host.name>."
+                        Player(Flirty):: "Hey, not here. Let's go back to my place ..."
+                        SitWith(Excited):: "Of course, let's go!"
+                        "We excused ourselves from the party and started heading back to my apartment. Our feet were very eager indeed."
+                        setBackground(street)
+                        "A while later ..."
+                        passTime(0.2, 1)
+                        moveTo(Home)
+                        setBackground(home)
+                        "As soon as we were inside, our hands were all over each other and a passionate makeout started."
+                        perversion += Random(0, 0.2)
+                        Sex(SitWith, Player)
+                        SitWith.hide()
+                        "The sex was amazing. <SitWith.name> excused <SitWith.himself_or_herself> after we were done and I went to bed ... At least we didn't do it in front of everyone."
+                        PartyOngoing = false
+                    Else
+                        "I enjoyed the kiss but didn't feel like going any further ..."
+                    Endif
+                Endif
+            Endif
+            
+            SitWith.hide()
+        Endif
+    
+        If PartyOngoing && timePassed > Random(2.5, 5)
+            "It was getting very late. The party winded down and everyone left ..."
+            PartyOngoing = false
+        Endif
+    endWhile    
+    timeout(72, house_party)
+Else
+    timeout(24, house_party)
+Endif
+sceneEnd()

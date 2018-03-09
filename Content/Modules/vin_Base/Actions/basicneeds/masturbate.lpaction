@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: masturbate
+ACTION_NAME: Masturbate
+WHERE: home
+WHEN: 0 - 24
+MINUTES: 10 - 40
+TIMEOUT_MINUTES: 360
+ALSO_TIMEOUT:
+EFFECTS: mood +1 (END), arousal -25 (END), fitness +0.003 (END), perversion +0.01 (END), attractiveness +0.002 (END), energy -10 (DURATION), mood -2 (INTERRUPTED)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

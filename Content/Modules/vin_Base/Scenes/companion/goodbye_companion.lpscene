@@ -11,7 +11,7 @@ MyHome = false
 
 "Time flies. I have enjoyed spending time with <CurrentCompanion.name> but it's time to part."
 If CurrentCompanion.IsDominantSex(Player)
-    If CurrentCompanion:interpersonal + CurrentCompanion:attractiontoplayer > Random(0, 100)
+    If CurrentCompanion.IsDating() || CurrentCompanion:interpersonal + CurrentCompanion:attractiontoplayer > Random(0, 100)
         CurrentCompanion::"I'll be glad to walk you home safe. It's only my duty."
         0:: "Be walked home"
         1:: "Decline"
@@ -20,6 +20,7 @@ If CurrentCompanion.IsDominantSex(Player)
             "How can I decline such a nice offer? <CurrentCompanion.name> walked me back to my apartment."
             setBackground(street)
             passTime(0.1, 0.5)
+            moveTo(Home)
             "A while later ..."
             CurrentCompanion(Happy)::"Here we are. I'll see you later then"
             0:: "Invite <CurrentCompanion.him_or_her> inside"
@@ -46,9 +47,12 @@ Else
     
     If 0
         Player(Happy)::"Do you want me to walk you home? I just want to make sure you're safe."
-        If CurrentCompanion:attractiontoplayer > Random(0, 100) || CurrentCompanion:rapportwithplayer > Random(0, 100)
+        If CurrentCompanion.IsDating() || CurrentCompanion:attractiontoplayer > Random(0, 100) || CurrentCompanion:rapportwithplayer > Random(0, 100)
             CurrentCompanion(Happy)::"Oh, thank you! That's very nice of you."
             "I chivalrously walked with <CurrentCompanion.name> back to <CurrentCompanion.his_or_her> place."
+            If CurrentCompanion.IsDating()
+                MoveTo(Home_Dating)
+            Endif
             setBackground(street)
             passTime(0.1, 0.5)
             "A while later ..."

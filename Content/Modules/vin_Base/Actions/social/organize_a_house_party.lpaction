@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: organize_a_house_party
+ACTION_NAME: Organize a house party
+WHERE: home
+WHEN: 17 - 23
+MINUTES: 20 - 60
+TIMEOUT_MINUTES: 2880
+ALSO_TIMEOUT:
+EFFECTS: stock_alcohol -20 (START), money -100 (START), mood +20 (START), interpersonal +0.5 (START), energy -20 (START)
+CONDITIONS: stock_alcohol >= 20 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS: house_party
+ANIMATION:   

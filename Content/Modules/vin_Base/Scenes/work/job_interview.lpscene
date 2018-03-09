@@ -4,9 +4,6 @@ WHEN: 0-24
 WHO: none
 OTHER: none
 
-mood_PC = Player:mood
-energy_PC = Player:energy
-perversion_PC = Player:perversion
 HadSex = false
 
 setBackground(home)
@@ -113,7 +110,7 @@ If 0
                 Performance += Random(0, 2)
                 If 2
                     Flirt += 1
-                    perversion_PC += 0.01
+                    perversion += 0.01
                 endIf
             Else
                 "My answer didn't seem to impress <Boss.name> at all ..."
@@ -131,7 +128,7 @@ If 0
                 Performance += Random(0, 2)
                 If 2
                     Flirt += 1
-                    perversion_PC += 0.01
+                    perversion += 0.01
                 endIf
             Else
                 "My answer didn't seem to impress <Boss.name> at all ..."
@@ -149,7 +146,7 @@ If 0
                 Performance += Random(0, 2)
                 If 2
                     Flirt += 1
-                    perversion_PC += 0.01
+                    perversion += 0.01
                 endIf
             Else
                 "My answer didn't seem to impress <Boss.name> at all ..."
@@ -167,7 +164,7 @@ If 0
                 Performance += Random(0, 2)
                 If 2
                     Flirt += 1
-                    perversion_PC += 0.01
+                    perversion += 0.01
                 endIf
             Else
                 "My answer didn't seem to impress <Boss.name> at all ..."
@@ -185,7 +182,7 @@ If 0
                 Performance += Random(0, 2)
                 If 2
                     Flirt += 1
-                    perversion_PC += 0.01
+                    perversion += 0.01
                 endIf
             Else
                 "My answer didn't seem to impress <Boss.name> at all ..."
@@ -201,7 +198,7 @@ If 0
             
             If 2
                 Player(Wink):: "Please, call me. I would love to meet in a more casual setting ... for your wise 'career advices' and get to know you in a more 'personal' level."
-                perversion_PC += 0.05
+                perversion += 0.05
                 If Interested && Flirt*(Boss.peversion + attractiveness) > Random(0, 200)
                     "Making sure first that no-one else was around, <Boss.he_or_she> sneakily took my number."
                     exchangeContact(Boss)
@@ -253,9 +250,9 @@ If 0
                                 Player(Kiss):: "..."
                                 Boss(Kiss):: "..."
                                 "I leaned in for a kiss, which should make <Boss.name> think twice before picking anyone else for the job. Afterwards, we parted ways."
-                                perversion_PC += 0.05
+                                perversion += 0.05
                             Else
-                                perversion_PC += 0.2
+                                perversion += 0.2
                                 Performance += Random(0, 10)
                                 setBackground(home)
                                 "Let's not kid ourselves here! We both knew how this night was going to end up. As soon as we were inside, our hands were all over each other and we started a long and passionate makeout session."
@@ -273,7 +270,7 @@ If 0
                     If 3
                         "I started rubbing my hand on <Boss.name>'s inner thigh."
                         Player(Flirty):: "I want you to know that I'll do anything to get this job ... anything. Especially for such a good-looking hiring manager as yourself."
-                        perversion_PC += 0.5
+                        perversion += 0.5
                         If Interested && Flirt*(Boss.peversion + attractiveness) > Random(0, 400)
                             "Checking first that no-one else was around, <Boss.he_or_she> sneakily pulled down the window shades and locked the interview room's door. <Boss.He_or_She> then approached me full of lust in <Boss.his_or_her> eyes."
                             Performance += Random(0, 20)
@@ -304,11 +301,12 @@ If 0
                     moveJobs()
                     Salary.setSalary()
                     Boss.setBoss()
-                    mood_PC += Random(0, 50)
+                    mood += Random(0, 50)
+                    timeOut(5000, performance_review)
                 Else
                     Player(Anxious):: "No! No! Please let me explain. This is all a big misunderstanding ..."
                     "Oh no! Their reference check exposed the blatant lies on my application. I would not be signing any contract with them after all ... The best I can hope for is my dishonest reputation doesn't get to other employers."
-                    mood_PC -= Random(0, 40)
+                    mood -= Random(0, 40)
                 Endif
             Else
                 Player(Sad):: "Thank you for your consideration anyway. I'll be sure to stay updated about the firm's future positions."
@@ -316,7 +314,7 @@ If 0
                 If HadSex
                     "What a damn fucker that Managing Director is! I can't believe I got taken advantage of - slept with <Boss.him_or_her> and still didn't get the job."
                 Endif
-                mood_PC -= Random(0, 30)
+                mood -= Random(0, 30)
             Endif
         
     Else
@@ -325,7 +323,7 @@ If 0
         If !LieOnCV
             "On hindsight, maybe being so honest wasn't a good idea after all."
         endif
-        mood_PC -= Random(0, 10)
+        mood -= Random(0, 10)
     Endif
     
 Else
@@ -333,9 +331,6 @@ Else
 endif
 
 sceneEnd()
-mood => mood_PC
-energy => energy_PC
-perversion => perversion_PC
 If HadSex
     arousal => 5
 Endif
