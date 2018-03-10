@@ -19,7 +19,7 @@ Boss(Happy):: "Here you are ... Come, take a seat!"
 "I took my seat, anxious about what <Boss.Mr_or_Ms> <Boss.name_last> was going to say next."
 Boss(Happy):: "The HR guys and I had a meeting recently about staff performances in our department. We reviewed your performance over the past few months ..."
 
-If jobperformance < Random(0, 40)
+If jobperformance < Random(0, 40) && !Boss.IsDating()
     Boss(Angry):: "I'm afraid to say that your performance has not lived up to expectations ..."
     Boss(Annoyed):: "Your services are thereby no longer required. Your employment contract will be terminated with immediate effect ..."
     Fired = true

@@ -4,14 +4,26 @@ WHEN: 0-24
 WHO: none
 OTHER: Random(0, 300) < attractiveness
 
-atHome = isAtHome()
-If atHome
-    Peeping = getSpecific(Landlord)
-    Interested = Peeping.isInterestedIn(Player)
+
+If isAtHome()
+    Random
+        Peeping = getSpecific(Neighbour)
+        Peeping = getSpecific(Landlord)
+    EndRandom
+    If !Peeping.isValid()
+        Peeping = getSpecific(Landlord)
+    Endif    
 Else
-    Peeping = getSpecific(Dating)
-    Interested = true
+    Random
+        Peeping = getSpecific(Dating_Friend)
+        Peeping = getSpecific(Dating)
+    EndRandom
+    If !Peeping.isValid()
+        Peeping = getSpecific(Dating)
+    Endif
 Endif
+
+Interested = Peeping.isInterestedIn(Player)
 
 If Interested
     SceneStart()

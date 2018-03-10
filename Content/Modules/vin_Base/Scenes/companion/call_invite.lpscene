@@ -1,27 +1,46 @@
-WHAT: all, -sleep, -nap
+WHAT: all, -sleep, -sleep_hotel
 WHERE: all
-WHEN: 0-24
+WHEN: 9-20
 WHO: Friend = getPerson(true); If Friend:rapportwithplayer > Random(0, 50) || [Friend.IsDominantSex(Player) && Friend:attractiontoplayer > Random(0, 25)]
-OTHER: !IsWithCompanion() && Random(0, 1000) < interpersonal*actionDuration
+OTHER: !IsWithCompanion() && Random(0, 500) < interpersonal*actionDuration
 
 sceneStart()
 Friend.dress()
 
 "My phone rang ... It's <Friend.name> calling."
 Friend.show(2)
-Friend:: "Hey <Player.name>, it's <Friend.name>. Listen, do you want to hang out today?"
+Dating = Friend.IsDating()
+If Dating
+    Friend:: "Baby, let's spend time together today!"
+    Date = "Go on a date"
+Else
+    Friend:: "Hey <Player.name>, it's <Friend.name>. Listen, do you want to hang out today?"
+    Date = "Hang out"
+Endif
+"<Date> with <Friend.name>?"
 0:: "Yes"
 1:: "No"
 
 If 0
     Player:: "Of course. I'll see you in a bit!"
-    Friend:: "See you soon!"
+    If Dating
+        Friend:: "See you soon, darling!"
+    Else
+        Friend:: "See you soon!"
+    Endif
     passTime(0.25, 1)
     Friend.StartDate()
     timeout(12, call_invite)
 Else
-    Player:: "Sorry, I'm busy today. Maybe next time ..."
-    Friend:: "Oh? That's a shame. I'll see you around then."
+    If Dating
+        Player:: "Not today, love. Call me again soon though ..."
+        Friend:: "Okay, baby. I'll see you later then."
+        Friend:attractiontoplayer -= Random(0, 1)
+    Else
+        Player:: "Sorry, I'm busy today. Maybe next time ..."
+        Friend:: "Oh? That's a shame. I'll see you around then."
+    Endif
+    
     timeout(2, call_invite)
 Endif
 

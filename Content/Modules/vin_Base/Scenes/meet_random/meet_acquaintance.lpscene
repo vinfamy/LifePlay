@@ -1,4 +1,4 @@
-WHAT: all, -pickpocket, -go_to_the_bathroom, -sleep, -nap
+WHAT: all, -pickpocket, -go_to_the_bathroom, -sleep, -sleep_hotel, -nap, -nap_hotel
 WHERE: all, -home, -PC
 WHEN: 0-24
 WHO: New_Person = getPerson(true); If !New_Person.isDating()

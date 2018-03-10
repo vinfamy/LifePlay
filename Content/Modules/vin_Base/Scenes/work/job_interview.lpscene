@@ -42,8 +42,6 @@ If 0
     "A couple of weeks later ..."
     Player.dress()
     
-    passTime(300, 360)
-    
     If Dice*Difficulty < 0.005*(intelligence+interpersonal)
         Player(Happy):: "Thank you for your call. I'm looking forward to the upcoming interview." 
         "I received a call from the HR department, notifying me that my application was successful and inviting me for an interview. I must now prepare for the fateful day."
@@ -53,7 +51,6 @@ If 0
             
             setBackground(work)
             "The day of the interview ..."
-            passTime(50, 150)
             
             Player.Dress()
             Boss = generatePerson()
@@ -292,7 +289,6 @@ If 0
             setBackground(home)            
             "A few days later ..."
             Player.dress()
-            passTime(100, 200)
             
             If Performance > Random(0, 5)*Difficulty*GameDifficulty
                 Player(Excited):: "Thank you so much for your call. I'm looking forward to starting my first day at your firm."
@@ -301,7 +297,7 @@ If 0
                     moveJobs()
                     Salary.setSalary()
                     Boss.setBoss()
-                    mood += Random(0, 50)
+                    mood += 100
                     timeOut(5000, performance_review)
                 Else
                     Player(Anxious):: "No! No! Please let me explain. This is all a big misunderstanding ..."
@@ -331,6 +327,3 @@ Else
 endif
 
 sceneEnd()
-If HadSex
-    arousal => 5
-Endif

@@ -1,0 +1,83 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 6-22
+WHO: none
+OTHER: IsAtHome() && intelligence < Random(0, 1)*Random(0, 1)*Random(0, 1)*30*actionDuration
+
+SceneStart()
+Random
+    Equipment = "TV"
+    Equipment = "washing machine"
+    Equipment = "microwave"
+    Equipment = "dryer"
+    Equipment = "fridge"
+    Equipment = "dishwasher"
+    Equipment = "dishwasher"
+    Equipment = "oven"
+    Equipment = "stove"
+    Equipment = "heater"
+    Equipment = "air conditioner"
+    Equipment = "shower"
+endRandom
+
+setbackground(home)
+Player(Angry):: "Damn it! Why won't this work?"
+"Oh no, my <Equipment> is broken and I have no idea to fix it. I'm going to need to call a repairman."
+"An hour or so later ..."
+passTime(0.5, 1.5)
+Repairman = generatePerson()
+Random
+    Repairman.blendPreset(athletic)
+    Repairman.blendPreset(bodybuilder)
+    Repairman.blendPreset(stocky1)
+    Repairman.blendPreset(stocky2)
+endRandom
+Repairman.dress()
+Repairman.dress(Worksuit)
+Repairman.show(2)
+
+Repairman(Happy):: "Here you are. The <Equipment> is working again ..."
+Player(Excited):: "Great! Thank you so much. You're a true lifesaver."
+Fee = Random(30, 200)
+FeeConverted = Fee.convertToLocalCurrency(true)
+CanExchangeNumber = true
+Repairman(Happy):: "That would be <FeeConverted> in total, please."
+0:: "Pay"
+1:: perversion > 50 && Player.IsInterestedIn(Repairman) && IsModEnabled(vin_VanillaPorn):: "Offer sex instead"
+
+If 0
+    "I happily gave him the money for services well rendered."
+    money -= Fee
+Else
+    Player(Flirty):: "Actually, I can think of a much more pleasurable way to pay you for your efforts ..."
+    If Repairman.IsInterestedIn(Player) && Repairman:perversion + Repairman:attractiontoplayer > Random(0, 50)
+        Repairman(Flirty):: "How can I say no? An offer like that rarely comes by ..."
+        perversion += Random(0, 0.5)
+        Sex(Repairman, Player)
+        Repairman.show(2)
+        Player(Flirty):: "Wow, that was something else! You certainly know how to use your 'tools'."
+        Repairman(Flirty):: "You flattered me. I've never had a client 'paying' like you before."
+    Else
+        Repairman(Angry):: "I'm afraid I'm just a honest tradesman and 'pleasure' doesn't quite pay the bills ..."
+        Player(Angry):: "Fine, it's your loss. Take your money then!"
+        CanExchangeNumber = false
+        money -= Fee
+    Endif
+Endif
+
+If CanExchangeNumber
+    "Before he leaves, should I exchange contacts with him?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "We exchanged numbers and the repairman soon left."
+        exchangeContact(Repairman)
+    Else
+        "Why should I? I barely know the guy."
+        "Having received the reward for his services, the repairman soon left." 
+    Endif
+Endif
+
+timeout(200, repairman)
+SceneEnd()

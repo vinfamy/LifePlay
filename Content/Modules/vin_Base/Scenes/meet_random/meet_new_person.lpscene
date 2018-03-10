@@ -1,5 +1,5 @@
-WHAT: all, -pickpocket, -go_to_the_bathroom, -sleep, -nap
-WHERE: all, -home, -PC
+WHAT: all, -pickpocket, -go_to_the_bathroom, -sleep, -sleep_hotel, -nap, -nap_hotel
+WHERE: all, -PC
 WHEN: 0-24
 WHO: none
 OTHER: Random(0, 1) < interpersonal/1000*actionDuration || [WHAT == socialize && Random(0,1) < interpersonal/200] || [isWithCompanion() && Random(0,1) < CurrentCompanion:interpersonal/500*actionDuration]
@@ -8,6 +8,15 @@ OTHER: Random(0, 1) < interpersonal/1000*actionDuration || [WHAT == socialize &&
 New_Person = generatePerson()
 sceneStart()
 New_Person.dress()
+If WHERE == work
+    New_Person.addColleague()
+Elseif WHERE == home
+    If isAtHome()
+        New_Person.addNeighbour()
+    Else
+        New_Person.addDatingFriend()
+    Endif
+Endif
 
 CompanionIntroduced = isWithCompanion()
 
@@ -17,6 +26,9 @@ If CompanionIntroduced
         CurrentCompanion(happy):: "Here, let me introduce you two. <New_Person.name>, this is <Player.name>. <New_Person.name>, this is <Player.name>."
         CurrentCompanion(happy):: "<New_Person.name>! Is that you? Come here, let me introduce you to <Player.name>."
     endRandom
+    If CurrentCompanion.IsDating()
+        New_Person.addDatingFriend()
+    Endif
 Endif
 
 New_Person.show(2)

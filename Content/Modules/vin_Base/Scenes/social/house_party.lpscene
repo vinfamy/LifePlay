@@ -1,4 +1,4 @@
-WHAT: all, -sleep
+WHAT: all, -sleep, -sleep_hotel, -organize_a_house_party
 WHERE: all
 WHEN: 18-22
 WHO: Host = GetPerson(true); If Host:rapportwithplayer > Random(0, 20)
@@ -14,6 +14,8 @@ If PlayerHosting
     Player(Happy):: "Come in, everyone! Don't be shy. Everything's ready."
 Else
     "My phone rang! It's <Host.name>. I wonder what <Host.he_or_she> is calling me for?"
+    Host.dress()
+    Host.show(2)
     Host(Excited):: "Hey, <Player.name>. We're having a house party tonight. Do you want to come?"
     0:: "Yes"
     1:: "No"
@@ -223,6 +225,7 @@ If PlayerHosting || Accepted
                         If SitWith:intoxication > Random(50, 100) || [SitWith:attractiontoplayer > Random(0, 100) && SitWith:perversion > Random(0, 100)]
                             SitWith(Kiss):: "..."
                             "Wow, that's quite a pleasant surprise. <SitWith.name> was totally receptive to my advance. In fact, <SitWith.he_or_she> certainly showed that <SitWith.he_or_she> wanted something more ..."
+                            KissBack = true
                         Else
                             "<SitWith.name> pulled away from my advances. Embarassed, I retreated, pretending for the rest of the party as if nothing happened ..."
                         Endif
@@ -235,7 +238,7 @@ If PlayerHosting || Accepted
                     Player(Kiss):: "..."
                     "I responded in kind and we indulged ourselves in a passionate kiss."
                     SitWith:attractiontoplayer += Random(0, 1)
-                    0:: arousal > 20 && [PlayerHosting || IsModEnabled(vin_VanillaPorn) || SitWith.IsSameAs(Host)] :: "Have sex right here"
+                    0:: arousal > 20 && [PlayerHosting || SitWith.IsSameAs(Host) || IsModEnabled(vin_VanillaPorn)] :: "Have sex right here"
                     1:: !PlayerHosting && arousal > 20 && !SitWith.IsSameAs(Host):: "Invite <SitWith.him_or_her> home"
                     2:: "Stop it there"
                     
