@@ -1,0 +1,65 @@
+WHAT: work
+WHERE: work
+WHEN: 8-18
+WHO: none
+OTHER: Random(0, 100) < 100/intelligence
+
+SceneStart()
+setBackground(work)
+IT = generatePerson()
+IT.addColleague()
+
+Random
+    IT.blendPreset(average)
+    IT.blendPreset(common1)
+    IT.blendPreset(common2)
+    IT.blendPreset(common3)
+    IT.blendPreset(common4)
+    IT.blendPreset(common5)
+    IT.blendPreset(heavy)
+    IT.blendPreset(normal)
+    IT.blendPreset(underweight)
+endRandom
+IT.blendPreset(nerd)
+Repairman.randomizeFace()
+Repairman.randomizeHairs()
+IT.dress()
+
+Player(Angry):: "Damn it. What's wrong with my computer today? I can't get anything done with all these crashes."
+"My computer at work has been causing me all sorts of troubles today. I need to call IT ..."
+IT.show(2)
+IT(Happy):: "Hello, IT support."
+Player(Irritated):: "(Described the problem)"
+IT(Happy):: "Have you tried switching it off and on again?"
+If intelligence < Random(0, 50)
+    Player(Irritated):: "Let me try ..."
+    Player(Embarassed):: "You know what? That did the trick. I'm an idiot. Thanks for your time."
+    IT(Irritated):: "Glad to be of help ..."
+Else
+    Player(Irritated):: "Yes, I have. It didn't solve the problem."
+    IT(Surprised):: "Alright, I'll be with you in 10 minutes to take a look at your computer."
+    "A while later ..."
+    passTime(0.1, 0.2)
+    IT(Happy):: "There you go. Your computer should now be working as intended. Give us a call if it doesn't."
+    Player(Excited):: "Excellent. Thank you so much! You're a lifesaver."
+    "I like the guy. He's a bit awkward but nice and very smart. Maybe I should exchange contacts?"
+    If Player.isInterestedIn(IT)
+        "He's not someone most <Player.guys_or_girls> would go for, but a date or two with this guy might be something different."
+    Elseif intelligence < 50
+        "Being friends with a tech wiz isn't the worst idea in the world nowadays."
+    Else
+        "I'm quite interested in technology myself so we could be good friends outside of work."
+    Endif
+    0:: "Exchange contacts"
+    1:: "No"
+    
+    If 0
+        "He was a bit surprised at first at my request - it was obvious not many people who requested IT support cared about the person helping them. Eventually, we exchanged contacts. We can now meet outside of work."
+        exchangeContact(IT)
+    Else
+        "Perhaps not. He's kinda weird."
+    Endif
+Endif
+
+timeout(700, it_guy)
+SceneEnd()

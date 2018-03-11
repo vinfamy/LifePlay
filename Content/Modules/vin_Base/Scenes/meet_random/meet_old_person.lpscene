@@ -1,5 +1,5 @@
 WHAT: all, -pickpocket, -go_to_the_bathroom, -sleep, -sleep_hotel, -nap, -nap_hotel
-WHERE: all, -home, -PC
+WHERE: all, -home, -work, -PC
 WHEN: 0-24
 WHO: New_Person = getPerson(false)
 OTHER: Random(0,1) < interpersonal/1000*actionDuration

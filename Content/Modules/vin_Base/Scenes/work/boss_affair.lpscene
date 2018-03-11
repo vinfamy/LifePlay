@@ -1,0 +1,131 @@
+WHAT: all
+WHERE: work
+WHEN: 17-21
+WHO: Boss = getSpecific(Boss); Colleague = getSpecific(Colleague); If Boss.IsInterestedIn(Colleague) && Colleague.IsInterestedIn(Boss)
+OTHER: !Boss.isDating() && !Colleague.isDating() && (Boss:perversion - Boss:attractiontoplayer) + (Colleague:perversion - Colleague:attractiontoplayer) > Random(0, 1500)
+
+
+SceneStart()
+setBackground(work)
+Boss.dress()
+Colleague.dress()
+"It's been a long day ... It's time to get off work."
+setBackground(street)
+Player(Shocked):: "Wait ... is that ..."
+Boss.show(2)
+Colleague.show(3)
+"It's my boss and one of my colleagues walking together from the office. They seem a lot cozier with each other than you would expect from a professional relationship."
+0:: "Follow them"
+1:: "Leave them be"
+
+If 0
+    "Well, that certain piqued my curiousity. I had to follow them and investigate what's going on!"
+    If sneak > Random(0, 25)
+        setBackground(bar)
+        "I managed to follow them to a fancy bar downtown without getting detected. What on earth would my two married colleagues be doing together in a place like this at this time of the evening?"
+        "Later on ..."
+        "Here they are, moving yet again, still together and very much intimate. Should I continue to follow them?"
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            If sneak > Random(0, 50)
+                setBackground(hotel)
+                "What a shocker! They took each other to a hotel nearby. The conclusion is obvious: they are clearly having an affair."
+                "Not that such a tale of forbidden love is at all uncommon - people see their workmates more often than their spouses nowadays."
+                0:: "Take a photo"
+                1:: "Leave them be"
+                
+                If 0
+                    If sneak > Random(0, 50)
+                        "I managed to snap a shot of <Boss.name> and <Colleague.name> hand in hand walking inside the hotel's elevator. As soon as someone sees the picture, they'll know instantly what's going on."
+                        Boss.hide()
+                        Colleague.hide()
+                        timeout(1500, boss_affair)
+                        "The question now is: what am I going to do with this evidence of infidelity on both sides?"
+                        0:: "Delete it"
+                        1:: "Spread office gossip"
+                        2:: "Blackmail <Boss.name> into a pay rise"
+                        
+                        If 0
+                            "I didn't even know why I took the photo. It was none of my business. I decided to delete it before it can bring harm to anyone's career and family."
+                        Elseif 1
+                            "I'm not letting this sensational story get buried. Tomorrow, I'll make sure everyone in the office knows about it."
+                            Colleague:rapportwithplayer -= Random(0, 100)
+                            Boss:rapportwithplayer -= Random(0, 100)
+                            Colleague:attractiontoplayer -= Random(0, 100)
+                            Boss:attractiontoplayer -= Random(0, 100)
+                            "Of course I had no idea at the time how such gossip could spread like wildfire and humiliate everyone involved. They both soon found out who the source of the leak was and stopped talking to me unless it was completely necessary."
+                            "Besides, I don't think the company's higher-ups were too impressed with me and my loud mouth. They don't have any legitimate reasons to fire me yet, but I suspect they're looking for one."
+                            jobperformance -= Random(0, 20)
+                            
+                            setBackground(work)
+                            If Random(0, 100) < 50                               
+                                "One month after the news broke, <Colleague.name> resigned in embarassment. At the same time, <Colleague.he_or_she> was rumoured to be divorcing <Colleague.his_or_her> <Colleague.wife_or_husband>."
+                                Colleague.removeColleague()
+                            Endif
+                            
+                            If Random(0, 100) < 20
+                                "My boss didn't last long after that. <Boss.He_or_She> resigned soon afterwards and <Boss.his_or_her> marriage was also destroyed forever."
+                                New_Boss = generatePerson()
+                                If Random (0,1) < 0.7
+                                    Random
+                                        New_Boss.blendPreset(workaholic)
+                                        New_Boss.blendPreset(workhard_playhard)
+                                    endRandom
+                                endif
+
+                                If Random(0,1) < 0.95
+                                    Random
+                                        New_Boss.blendPreset(fourties)
+                                        New_Boss.blendPreset(fifties)
+                                        New_Boss.blendPreset(sixties)        
+                                    endRandom
+                                endif
+                                    
+                                New_Boss.randomizeFace()
+                                New_Boss.randomizeHairs()
+                                    
+                                New_Boss.dress()
+                                New_Boss.show(2)
+                                New_Boss(Excited):: "Hi everyone, I'm the new Managing Director. I will be taking over from <Boss.Mr_or_Ms> <Boss.name_last>. I'm looking forward to an excellent working relationship with the team."
+                                New_Boss.setBoss()
+                            Endif
+                        Else
+                            "An idea comes to mind immediately: What a perfect opportunity to get that raise I have been wanting for a while!"
+                            Colleague:rapportwithplayer -= Random(0, 100)
+                            Boss:rapportwithplayer -= Random(0, 100)
+                            Colleague:attractiontoplayer -= Random(0, 100)
+                            Boss:attractiontoplayer -= Random(0, 100)
+                            jobperformance -= Random(0, 20)
+                            setBackground(work)
+                            Boss.show(2)
+                            Boss(Angry):: "Fine! You got us. I'll give you what you want. Just keep your mouth shut!"
+                            Salary = getSalary()
+                            NewSalary = Salary*Random(1.1, 1.4)
+                            SalaryConverted = NewSalary.convertToLocalCurrency(true)
+                            "I received the raise I wanted at the very next opportunity. My take-home salary after taxes is now up to <SalaryConverted>!"
+                            NewSalary.setSalary()
+                        Endif
+                    Else
+                        "I tried to get my phone out of my pocket to take a picture but it was too late. The secret lovebirds already went up the elevator, no doubt to spend some very intimate time together."
+                        "No-one would believe what I've seen without some photo evidence - I would just sound like one of those tabloid reporters."
+                    Endif
+                Else
+                    "I decided to go home. It's not my place to meddle in my boss's private affairs."
+                Endif
+            Else
+                "Damn! They certainly got out of there fast and disappeared into the darkness. I lost track of where they were going ..."
+            Endif
+        Else
+            "Enough of being nosy. It's none of my business. I should just go home."
+        Endif
+    Else
+        "I tried to follow them, but I think <Boss.name> noticed me. Obviously suspicious of my intentions, <Boss.name> whispered something into <Colleague.name>'s ears and they soon went their separate ways."
+    Endif
+Else
+    "I shouldn't put my nose in other people's business, especially not that of my boss."
+Endif
+
+timeout(150, boss_affair)
+SceneEnd()

@@ -1,0 +1,84 @@
+WHAT: all
+WHERE: work
+WHEN: 9 - 14
+WHO: none
+OTHER: Random(0, 100) < 0.01*(jobexperience*ActionDuration)
+
+SceneStart()
+setBackground(work)
+"I'm scheduled to meet an important prospect over lunch today. If I can secure this business for the company, I would be one step further towards that long-awaited promotion."
+
+Client = generatePerson()
+If Random(0,1) < 0.8
+    Random
+        Client.blendPreset(thirties)
+        Client.blendPreset(fourties)
+        Client.blendPreset(fifties)       
+    endRandom
+endif
+    
+Client.randomizeFace()
+Client.randomizeHairs()
+    
+Client.dress()
+
+setBackground(restaurant)
+Client.show(2)
+Player(Happy):: "It's a pleasure to meet you finally in person, <Client.Mr_or_Ms> <Client.name_last>. Thank you for taking the time out of your busy schedule for this lunch."
+Client(Happy):: "The pleasure is all mine."
+"We ordered our food and soon went right into business ..."
+Client(Excited):: "So, <Player.name>, tell me all about what your company can offer us."
+Dominant = Client.IsDominantSex(Player)
+"I have my usual standard sales pitch, but it's basically the same salesmanship as all other companies. Choosing a right way to approach this would make or break the deal."
+0:: "Make use of your product knowledge"
+1:: "Show enthusiasm and build rapport"
+2:: perversion > 5:: "Seduce"
+
+If 2 && Client.IsInterestedIn(Player) && [Dominant && Client:perversion + Client:attractiontoplayer > Random(0, 100)] || [!Dominant && Client:perversion + Client:attractiontoplayer > Random(0, 150)]
+    "I didn't really say anything special. Rather I focused on looking as sexy as possible while talking, and the client seemed swayed by my good look."
+    Client(Flirty):: "Alright, I can't bring myself to disappoint a <Player.handsome_or_beautiful> <Player.man_or_woman> like you. How about this? I still need to talk to my team to decide, but I'll put your company on first priority."
+    jobperformance += Random(0, 2)
+    "I could go back to office now and consider this lunch meeting a success. Or maybe I should go in for the kill and make the client commit more?"
+    0:: "Conclude the meeting"
+    1:: "Give <Client.him_or_her> my personal number"
+    2:: perversion > 50 && isModEnabled(vin_VanillaPorn):: "Offer sex"
+    
+    If 0
+        "Let's just end it here. Don't want to get too ambitious and screw up what I already have!"
+    Elseif 1
+        Player(Flirty):: "I know there's not enough time in this lunch meeting to convince you to commit to our company right away. But please, call me later on my personal cell, and I'll be happy to do another 'presentation' in my personal time for you."
+        exchangeContact(Client)
+        jobperformance += Random(0, 3)
+        Client(Flirty):: "You know what? Now that I see your commitment to 'go the extra mile', I don't think I need to talk to my team still - I decided to give your company a chance right away with the first piece of business from us."
+        "That was without doubt a success and will certainly reflect well on me in the next appraisal."
+    Else
+        "I took <Client.his_or_her> hand and led <Client.him_or_her> straight into the restaurant's bathroom. We soon started making out inside one of the cubicles."
+        jobperformance += Random(0, 5)
+        perversion += Random(0, 2)
+        Sex(Client, Player)
+        Client.show(2)
+        Client(Flirty):: "That was amazing. I can't believe how far you were willing to go to secure the business. I shall reward you: a massive piece of business is coming your company's way this week."
+        "My bodily sacrifices for the company were worth it. This was a massive success, and that long overdue promotion is now very near indeed!"
+    Endif
+Elseif 0 && intelligence > Random(0, 120)
+    "<Client.He_or_She> seemed to be impressed by my deep knowledge."
+    Client(Happy):: "Well, if everyone at your company is as intelligent and well-spoken as you are, then I have full belief that your team can deliver the results that we require."
+    Client(Excited):: "You can be assured that we'll send a lot of business your way in the future."
+    "That was without doubt a success and will certainly reflect well on me in the next appraisal."
+    jobperformance += Random(0, 5)
+Elseif 1 && interpersonal > Random(0, 120)
+    "<Client.He_or_She> seemed to be impressed by my charisma."
+    Client(Happy):: "I'm quite good at judging people. And just from talking to you, I can feel that you guys can do a good job. Alright, we'll be sending over the first piece of business tomorrow - see how you can handle it."
+    "That was without doubt a success and will certainly reflect well on me in the next appraisal."
+    jobperformance += Random(0, 5)
+Elseif
+    "I spoke on and on but nothing seemed to impress the client. <Client.He_or_She> has heard it all before."
+    "Needless to say, I went back to office that afternoon without even a verbal commitment to do business from the client. This certainly reflected badly on my ability."
+    jobperformance -= Random(0, 3)
+Endif
+
+Client.hide()
+timeout(300, client_lunch)
+SceneEnd()
+
+ 

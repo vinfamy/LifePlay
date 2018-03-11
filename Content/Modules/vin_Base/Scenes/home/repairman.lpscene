@@ -32,6 +32,9 @@ Random
     Repairman.blendPreset(stocky1)
     Repairman.blendPreset(stocky2)
 endRandom
+
+Repairman.randomizeFace()
+Repairman.randomizeHairs()
 Repairman.dress()
 Repairman.dress(Worksuit)
 Repairman.show(2)

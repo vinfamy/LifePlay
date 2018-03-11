@@ -1,0 +1,140 @@
+WHAT: work
+WHERE: work
+WHEN: 8-12
+WHO: none
+OTHER: Random(0, 100) < 3 && jobexperience > 20
+
+SceneStart()
+setBackground(work)
+"The company I work for has an unpaid internship programme that occasionally puts an undergraduate or postgraduate student in our department for a couple of weeks at a tine, before they are rotated off to another department."
+Intern = generatePerson()
+"I was notified by email to expect a new intern, <Intern.name> <Intern.last>, to join the department today. I was asked to be <Intern.his_or_her> mentor for the duration of <Intern.his_or_her> rotation and write <Intern.him_or_her> a performance evaluation after the internship ends."  
+Intern.blendPreset(twenties)
+Repairman.randomizeFace()
+Repairman.randomizeHairs()
+Intern.dress()
+Intern.show(2)
+Intern(Happy):: "Hi, I'm <Intern.name>, the new intern. It's a pleasure to meet you."
+Player(Happy):: "Nice to meet you too, <Intern.name>. I have heard great things about you from HR."
+Interested = Intern.isInterestedIn(Player)
+
+"As <Intern.his_or_her> mentor, what sort of things should I get <Intern.name> to do during his internship?"
+0:: "Ignore <Intern.him_or_her> and focus on your own work"
+1:: "Give menial tasks like making coffee and grabbing lunch" 
+2:: "Throw <Intern.him_or_her> in at the deep end"
+3:: "Delegate important responsibilities and provide guidance"
+
+If 0
+    "I didn't care much for this internship programme. I'd rather just focus on keeping my own job and getting promotions."
+    Success = false
+    Intern:rapportwithplayer -= Random(0, 30)
+    If Interested
+        Intern:attractiontoplayer -= Random(0, 15)
+    Endif
+Elseif 1
+    "My own manager bosses around all the time so why should I be any nicer to my own subordinates? I made sure <Intern.he_or_she> knew I was the boss here and ordered <Intern.him_or_her> around running my errands."
+    Success = false
+    Intern:rapportwithplayer -= Random(0, 20)
+    If Interested
+        Intern:attractiontoplayer += Random(0, 30)*New_Person:masochist/100
+    Endif
+Elseif 2
+    "Well, <Intern.he_or_she> looks good on paper. Let's throw <Intern.him_or_her> in there without any support and see if <Intern.he_or_she> can swim! It's survival of the fittest in this business."
+    If Intern:intelligence + Intern:interpersonal > Random(0, 300)
+        "And <Intern.name> certainly rose up to the challenge and made some great contributions with almost no jobperformance += Random(0, 5)
+        Intern:rapportwithplayer += Random(0, 20)
+        If Interested
+            Intern:attractiontoplayer += Random(0, 10)
+        Endif
+        Success = true
+    Else
+        "Not that I should be too surprised but without proper mentorship, <Intern.name> failed miserably in virtually all tasks <Intern.he_or_she> was given. Well, it doesn't look like the <Intern.guy_or_girl> is going to make it in this business ..."
+        Intern:rapportwithplayer -= Random(0, 20)
+        If Interested
+            Intern:attractiontoplayer -= Random(0, 10)
+        Endif
+        Success = false        
+    Endif
+Elseif 3
+    "I remember being an intern myself back in college. I'm going to try my best to be a good mentor for the <Intern.boy_or_girl>."
+    "I assigned <Intern.name> plenty of responsibilities but also spent a lot of my own time giving <Intern.him_or_her> the knowledge needed to fulfil those. You can only do so many things at once so I did feel my own job performance suffered a bit as a result."
+    jobperformance -= Random(0, 5)
+    Intern:rapportwithplayer += Random(0, 30)
+    If Interested
+        Intern:attractiontoplayer += Random(0, 20)
+    Endif
+    
+    If Intern:intelligence + Intern:interpersonal > Random(0, 150)
+        "With my help, <Intern.name> managed to put in an impressive performance. What's more - <Intern.he_or_she> never failed to credit me for <Intern.his_or_her> success whenever praised by my colleagues."
+        jobperformance += Random(0, 5)
+        Success = true
+    Else
+        "Despite my best efforts, <Intern.name> turned out to be rather useless and still didn't manage to achieve anything noteworthy during <Intern.his_or_her> time at my department."
+        Success = false
+    Endif
+Endif
+
+Intern.hide()
+
+"<Intern.name>'s rotation period at my department is over. Now I just need to write <Intern.him_or_her> a performance review. This can be quite important for the intern's future career prospects."
+If Success
+    "Without a doubt, <Intern.name> truly impressed during his time here and everyone else noticed. It would be impossible to write a bad review of <Intern.his_or_her> performance."
+Else
+    "Truthfully, <Intern.name> didn't leave much of an impact at all while <Intern.he_or_she> was here."
+Endif
+"What sort of performance review should I write for <Intern.name>?"
+0:: "Good"
+1:: !Success:: "Bad"
+2:: !Success:: "Demand money for a good review"
+3:: !Success && Player.IsInterestedIn(Intern) && perversion > 30:: "Demand sex for a good review"
+
+If 0
+    "I decided to write a review full of praises for the young <Intern.lad_or_lass>."
+    Intern:rapportwithplayer += Random(0, 15)
+    If Interested
+        Intern:attractiontoplayer += Random(0, 5)
+    Endif
+Elseif 1
+    "No point sugar-coating <Intern.his_or_her> poor display. It is what it is. I wrote a review accordingly."
+    Intern:rapportwithplayer -= Random(0, 15)
+    If Interested
+        Intern:attractiontoplayer += Random(0, 10)*New_Person:masochist/100
+    Endif
+Elseif 2
+    "The poor intern decided to pay the bribe seeing how important this review is for his future career. From my point of view, some extra cash is always good!"
+    money += Random(100, 1000)
+    Intern:rapportwithplayer -= Random(0, 30)
+    If Interested
+        Intern:attractiontoplayer -= Random(0, 20)
+    Endif
+Elseif 3
+    Intern.show(2)
+    Dominant = Intern.IsDominantSex(Player)
+    Intern:rapportwithplayer -= Random(0, 30)
+    If Interested
+        Intern:attractiontoplayer -= Random(0, 20)
+    Endif
+    
+    If Interested && [[!Dominant && Intern:attractiontoplayer + Intern:perversion > Random(0, 200)] || [Dominant && Intern:attractiontoplayer + Intern:perversion > Random(0, 100)]]
+        Intern(Sad):: "I guess for the sake of my future, I have no other choice ..."
+        Player(Flirty):: "Meet me outside after work ..."
+        setBackground(home)
+        "Later that evening ..."
+        perversion += Random(0, 2)
+        Sex(Player, Intern)
+        Intern.hide()
+        "Having received what I want, I went ahead and wrote a positive review for the intern. <Intern.He_or_She> earned it!"
+    Else
+        Intern(Angry):: "I'm afraid I won't do that! That's despicable."
+        If Intern:intelligence > Random(0, 100)
+            Intern(Sarcastic):: "In fact, your attempt to blackmail me has just been recorded on my smartphone. I wonder how you're going to keep your job if this is to be sent to HR. Sexual harassment and all that ..."
+            Player(Shocked):: "What? You sneaky <Intern.bastard_or_bitch>! Fine, I know what you want. I'll write you a good review and you'll drop this, okay?"
+            Intern(Evil):: "That's the way it should be ..."
+        Else
+            Player(Evil):: "Fine then, your choice. I'll make sure to write you a terrible review."
+        Endif
+    Endif    
+Endif
+
+timeout(1500, intern)
+SceneEnd()
