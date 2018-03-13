@@ -1,0 +1,66 @@
+WHAT: all
+WHERE: work
+WHEN: 7 - 11
+WHO: Colleague1 = getSpecific(Colleague); Colleague2 = getSpecific(Colleague); If Colleague1:fitness > 70 && Colleague2:fitness > 70
+OTHER: fitness > 70 && Random(0, 100) < 0.01*fitness*ActionDuration
+
+SceneStart()
+setBackground(office)
+Colleague1.dress()
+Colleague2.dress()
+Colleague1.show(2)
+Colleague2.show(3)
+
+"There's a charity marathon organized by an industry association coming up soon. Two of my colleagues, <Colleague1.name> and <Colleague2.name> already signed up. I reckon I'm fit enough to run. Should I sign up?"
+0:: "Sign up"
+1:: "Maybe not"
+
+If 1
+    "I decided against signing up, work is more important."
+Else
+    "I can't just show up at the marathon and run if I want to put in a respectable showing. I would need to train pretty hard. <Colleague1.name> and <Colleague2.name> are already taking this very seriously and hitting the treadmill every day, sometimes even leaving work early to do so."
+    setBackground(sports_centre)
+    Colleague1.dress()
+    Colleague2.dress()
+    "Should I also train as hard for the marathon?"
+    0:: "Train properly"
+    1:: "Take it easy"
+    
+    If 0
+        Player.dress()
+        "I also took it seriously and went to the gym every day to prepare for the marathon - to the delight of my two competitive colleagues. As a result, my actual work performance suffered a bit."
+        jobperformance -= Random(0, 2)
+        Colleague1:rapportwithplayer += Random(0, 2)
+        Colleague2:rapportwithplayer += Random(0, 2)
+        fitness += Random(0, 2)
+    Else
+        Player.dress()
+        "I trained here and there, but didn't take the whole thing very seriously, to the disappointment of my two competitive colleagues. I was sure I made the right choice though, because unlike theirs, my job performance wasn't affected by my participation in the marathon at all."
+        Colleague1:rapportwithplayer -= Random(0, 2)
+        Colleague2:rapportwithplayer -= Random(0, 2)
+    Endif
+    
+    setBackground(street)
+    "The day of the marathon ..."
+    "I started the marathon well. However, within the first 15 minutes, I quickly realized there were essentially two groups of participants in the marathon: the competitive group who trained hard were putting in their absolute best efforts, mostly consisting of analysts and associates. The other group were taking it easy and just there for a fun experience, where most of the industry's senior executives were."
+    "Do I really need or even want to try my best at this marathon or should I take it easy also and even network a bit?"
+    0:: "Try my best"
+    1:: "Take it easy"
+    
+    If 0
+        "My competitive nature doesn't give me any other choice! I ran with all I had. Eventually, my colleagues and I all managed to finish the marathon in under four hours. We congratulated each other on our performance, ready to go back to work high in morale the next day."
+        Colleague1:rapportwithplayer += Random(0, 3)
+        Colleague2:rapportwithplayer += Random(0, 3)
+        mood += 100
+    Else
+        Colleague1.hide()
+        Colleague2.hide()
+        "I decided to take it easy and stay behind with the slower but better-connected executives. It ended up taking forever to finish the marathon - but that was hardly a bad thing, because I got plenty of chances to make new professional contacts. My more competitive colleagues were disappointed in me though - they both finished the marathon in under four hours."
+        Colleague1:rapportwithplayer -= Random(0, 3)
+        Colleague2:rapportwithplayer -= Random(0, 3)
+        jobexperience += Random(0, 2)
+    Endif
+Endif
+
+SceneEnd()
+timeout(1500, marathon)

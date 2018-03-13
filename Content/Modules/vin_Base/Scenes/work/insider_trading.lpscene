@@ -1,0 +1,41 @@
+WHAT: work
+WHERE: work
+WHEN: 8 - 20
+WHO: none
+OTHER: jobexperience > 30 && intelligence > 60 && Random(0, 100) < 0.002*intelligence*ActionDuration
+
+SceneStart()
+setBackground(office)
+"I was working on a project with a client whose company is publicly traded. As a result, I was given access to some sensitive private information about the company. I quickly realized that the company's financial results this quarter were well below market expectations. I could take advantage of this and buy a lot of short options on the company. This is a clear violation of my employment contract and also illegal though ..."
+0:: "Yes"
+1:: "No"
+
+If 0
+    "How can I turn down money? What's life without risks?"
+    "As predicted, as soon as this quarter's results came out, the investors panicked and the company in question suffered a record one-day drop. I made quite a bit of money from my illegal trading."
+    If intelligence > Random(0, 100)
+        money += Random(1000, 100000)
+        "I also covered my tracks well enough and got away with it."
+        sneak += Random(0, 10)
+    Else
+        Boss = getSpecific(Boss)
+        Boss.dress()
+        Boss.show(2)
+        Player(Happy):: "<Boss.Mr_or_Ms> <Boss.name_last>, you called for me? Are there any issues? You look ... angry."
+        Boss(Angry):: "I'll keep this short ... We know about your sneaky trading. You're fired!"
+        Boss(Furious):: "Also, there are a few agents waiting for you ..."
+        Boss.hide()
+        loseJob()
+        setBackground(street)
+        "The extent of my crime wasn't enough to send me to prison, but that was the only saving grace. Not only did I lose my job, I was ordered by the court to pay back all the money I earned illegally from the trade. I also lost a lot of money in legal fees, and my reputation in the industy was forever damaged. It's a lot harder to get a decent job now ..."
+        jobexperience -= Random(0, 50)
+        money -= Random(1000, 20000)
+        mood -= 100
+    Endif
+    timeout(30000, insider_trading)
+Else
+    "I think I like my job and my integrity too much for insider trading."
+    timeout(1500, insider_trading)
+Endif
+
+SceneEnd()

@@ -1,0 +1,85 @@
+WHAT: all
+WHERE: work
+WHEN: 7 - 11
+WHO: Colleague1 = getSpecific(Colleague); Colleague2 = getSpecific(Colleague); Colleague3 = getSpecific(Colleague); Colleague4 = getSpecific(Colleague); Colleague5 = getSpecific(Colleague)
+OTHER: fitness > 50 && Random(0, 100) < 0.01*fitness*ActionDuration
+
+SceneStart()
+setBackground(sports_centre)
+Colleague1.dress()
+Colleague2.dress()
+Colleague3.dress()
+Colleague4.dress()
+Colleague5.dress()
+Player.dress()
+setBackground(biergarten)
+Colleague1.show(1)
+Colleague2.show(2)
+Colleague3.show(3)
+Colleague4.show(4)
+Colleague5.show(5)
+
+"Today is another corporate teambuilding day. They run a lot cheesy exercises, hoping to improve relationships between staff. I guess the exercises could be classed as 'sport', although lots of office guys aren't that young or in good shape, so they are laughably easy for a relatively athletic person like me."
+"Should I take this opportunity to impress my colleagues with my athletic ability? I don't usually get a chance to do that sitting in the office all day."
+0:: "Yes"
+1:: "No"
+
+If 1
+    "I'd better not show off ... or risk coming across as a douchebag! Let's just be like everyone else."
+    Colleague1:rapportwithplayer += Random(0, 2)
+    Colleague2:rapportwithplayer += Random(0, 2)
+    Colleague3:rapportwithplayer += Random(0, 2)
+    Colleague4:rapportwithplayer += Random(0, 2)
+    Colleague5:rapportwithplayer += Random(0, 2)
+    "I spent the day barely breaking a sweat, but it was enjoyable and my relationship with co-workers seemed to have improved."
+Else
+    "Why not? I keep myself healthy for a reason!"
+    "I wasn't shy to show off my athletic prowess all day, making the older and less in-shape guys in the office look silly in comparison. I must admit I did come across as a bit of a douche, but the fellow sport nuts in the company seemed to be impressed."
+    If Colleague1:fitness > 50
+        Colleague1:rapportwithplayer += Random(0, 5)
+        If Colleague1.isInterestedIn(Player)
+            Colleague1:attractiontoplayer += Random(0, 5)
+        Endif
+    Else
+        Colleague1:rapportwithplayer -= Random(0, 2)
+    Endif
+    
+    If Colleague2:fitness > 50
+        Colleague2:rapportwithplayer += Random(0, 5)
+        If Colleague2.isInterestedIn(Player)
+            Colleague2:attractiontoplayer += Random(0, 5)
+        Endif
+    Else
+        Colleague2:rapportwithplayer -= Random(0, 2)
+    Endif
+    
+    If Colleague3:fitness > 50
+        Colleague3:rapportwithplayer += Random(0, 5)
+        If Colleague3.isInterestedIn(Player)
+            Colleague3:attractiontoplayer += Random(0, 5)
+        Endif
+    Else
+        Colleague3:rapportwithplayer -= Random(0, 2)
+    Endif
+    
+    If Colleague4:fitness > 50
+        Colleague4:rapportwithplayer += Random(0, 5)
+        If Colleague4.isInterestedIn(Player)
+            Colleague4:attractiontoplayer += Random(0, 5)
+        Endif
+    Else
+        Colleague4:rapportwithplayer -= Random(0, 2)
+    Endif
+    
+    If Colleague5:fitness > 50
+        Colleague5:rapportwithplayer += Random(0, 5)
+        If Colleague5.isInterestedIn(Player)
+            Colleague5:attractiontoplayer += Random(0, 5)
+        Endif
+    Else
+        Colleague5:rapportwithplayer -= Random(0, 2)
+    Endif
+Endif  
+
+SceneEnd()
+timeout(1500, teambuilding_day)

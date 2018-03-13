@@ -1,0 +1,38 @@
+WHAT: work
+WHERE: work
+WHEN: 8 - 20
+WHO: none
+OTHER: Random(0, 100) < 0.01*intelligence*ActionDuration
+
+SceneStart()
+setBackground(office)
+"My company has a procedure for claiming out-of-pocket expenses on business trips and client entertainments. It didn't take long for me to realize that there were plenty of holes to exploit in that procedure that I can take advantage of to make some quick cash. I suspect some of my colleagues are already doing it. Should I take this risk?"
+0:: "Yes"
+1:: "No"
+
+If 0
+    "How can I turn down money? What's life without risks?"
+    "My clever exploits earned me quite a bit of cash from all the expenses I claimed that were never actually incurred."
+    If intelligence > Random(0, 100)*Random(0, 1)
+        money += Random(200, 2000)
+        "However, I didn't go overboard in order to avoid suspicions and got away with it."
+        sneak += Random(0, 2)
+    Else
+        Boss = getSpecific(Boss)
+        Boss.dress()
+        Boss.show(2)
+        Player(Happy):: "<Boss.Mr_or_Ms> <Boss.name_last>, you called for me? Are there any issues? You look ... angry."
+        Boss(Angry):: "I'll keep this short ... You're a thief and you're fired!"
+        Boss.hide()
+        loseJob()
+        setBackground(street)
+        "Not only did I lose my job, my reputation as a thief was passed from one HR team to another. It's harder to get a decent job now ..."
+        jobexperience -= Random(0, 20)
+        mood -= 100
+    Endif
+Else
+    "I think I like my job and my integrity too much to steal."
+Endif
+
+timeout(750, steal_from_work)
+SceneEnd()

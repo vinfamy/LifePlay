@@ -1,0 +1,118 @@
+WHAT: work
+WHERE: work
+WHEN: 8 - 20
+WHO: Colleague1 = getSpecific(Colleague); Colleague2 = getSpecific(Colleague); Colleague3 = getSpecific(Colleague)
+OTHER: Random(0, 100) < 0.02*jobexperience
+
+SceneStart()
+setBackground(office)
+"There's a big project coming up at work that has yet to have a lead. Should I volunteer for the position?"
+0:: "Volunteer to lead"
+1:: "Maybe not"
+
+If 0
+    "I volunteered to lead this project and the boss allowed me to do it. This is my chance to show off my leadership capability."
+    "The colleagues who I will manage for this project are <Colleague1.name()>, <Colleague2.name()> and <Colleague3.name()>, along with a few contractors."
+    Colleague1.dress()
+    Colleague2.dress()
+    Colleague3.dress()
+    Colleague1.show(1)
+    Colleague2.show(2)
+    Colleague3.show(3)
+    
+    "It's time to assign tasks for everyone."
+    Score = 0
+    Colleague2.hide()
+    Colleague3.hide()
+    
+    Colleague1.show(2)    
+    "What should I ask <Colleague1.name> to do?"
+    0:: "Research"
+    1:: "Communicating with the client"
+    
+    If 0
+        Score += Colleague1:intelligence
+    Else
+        Score += Colleague1:interpersonal
+    Endif
+    Colleague1.hide()
+    
+    Colleague2.show(2)
+    "What should I ask <Colleague2.name> to do?"
+    0:: "Writing reports"
+    1:: "Coordinating the contractors"
+    
+    If 0
+        Score += Colleague2:intelligence
+    Else
+        Score += Colleague2:interpersonal
+    Endif
+    Colleague2.hide()
+
+    Colleague3.show(2)
+    "What should I ask <Colleague3.name> to do?"
+    0:: "Quality control"
+    1:: "Focus groups"
+    
+    If 0
+        Score += Colleague3:intelligence
+    Else
+        Score += Colleague3:interpersonal
+    Endif
+    Colleague3.hide()
+    
+    "Everything else will be left to the contractors ..."
+
+    "Which leadership style should I adopt?"
+    0:: "Lead from the front"
+    1:: "Delegate and supervise"
+    
+    If 0
+        Score += intelligence*2
+    Else
+        Score += interpersonal*1
+    Endif
+
+    "With everyone knowing their duties, we got on with the tasks at hand and worked hard on the project."
+    "A few weeks later ..."
+    If Score > Random(0, 500)
+        "The project was a success. The client was very satisfied with our work. My leadership skills impressed higher-ups immensely and I can expect further opportunities to lead to come my way soon."
+        "The colleagues that I managed during the project also earned plenty of respect for me."
+        Colleague1:rapportwithplayer += Random(0, 5)
+        If Colleague1.IsInterestedIn(Player)
+            Colleague1:attractiontoplayer += Random(0, 5)
+        Endif
+        Colleague2:rapportwithplayer += Random(0, 5)
+        If Colleague2.IsInterestedIn(Player)
+            Colleague2:attractiontoplayer += Random(0, 5)
+        Endif
+        Colleague3:rapportwithplayer += Random(0, 5)
+        If Colleague3.IsInterestedIn(Player)
+            Colleague3:attractiontoplayer += Random(0, 5)
+        Endif
+        jobperformance += Random(0, 15)
+        jobexperience += Random(0, 2)
+    Else
+        "The project was a failure. We made so many mistakes along the way and the client was extremely upset. My lousy leadership disappointed higher-ups immensely and I'm afraid further opportunities to lead may be more limited in the future."
+        "The colleagues that I managed during the project also lost some respect for me."
+        Colleague1:rapportwithplayer -= Random(0, 2)
+        If Colleague1.IsInterestedIn(Player)
+            Colleague1:attractiontoplayer -= Random(0, 2)
+        Endif
+        Colleague2:rapportwithplayer -= Random(0, 2)
+        If Colleague2.IsInterestedIn(Player)
+            Colleague2:attractiontoplayer -= Random(0, 2)
+        Endif
+        Colleague3:rapportwithplayer -= Random(0, 2)
+        If Colleague3.IsInterestedIn(Player)
+            Colleague3:attractiontoplayer -= Random(0, 2)
+        Endif
+        jobperformance -= Random(0, 5)  
+    Endif
+Else
+    "I'm not sure I'm the best person to lead this project. It's better to take a back seat and follow instructions for now."
+    masochist += Random(0, 1)
+Endif
+
+SceneEnd()
+timeout(500, big_project)

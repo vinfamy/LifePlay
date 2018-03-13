@@ -1,0 +1,48 @@
+WHAT: all
+WHERE: work
+WHEN: 7 - 11
+WHO: Colleague = getSpecific(Colleague); If Colleague:interpersonal > 70
+OTHER: Random(0, 100) < 0.005*(interpersonal+jobexperience+jobperformance)*ActionDuration
+
+SceneStart()
+setbackground(work)
+Boss = getSpecific(Boss)
+Boss.dress()
+Boss.show(2)
+"There's an industry conference going on tomorrow. As expected, my company is sending a delegate, mostly consisting of more senior guys than me. However, at the last minute, one of them dropped out."
+Boss(Happy):: "So, who among you wants to join us at the conference tomorrow?"
+Colleague.dress()
+Colleague.show(4)
+
+Colleague(Happy):: "I would love to do it!"
+0:: "Volunteer also"
+1:: "Stay silent"
+
+If 1
+    "If <Colleague.name> wants to go, I'll be nice enough to not stand in <Colleague.his_or_her> way."
+    Going = false
+Else
+    Player(Excited):: "I would really appreciate this opportunity!"
+    Colleague:rapportwithplayer -= Random(0, 5)
+    If interpersonal + intelligence - Colleague:interpersonal - Colleague:intelligence> Random(0, 20) || Boss:rapportwithplayer > Random(50, 100) || Boss.isDating()
+        Going = true
+        Boss(Happy):: "Alright, <Player.name>, you seem to be the most suitable person to go. <Colleague.name>, sorry, but next time we'll definitely consider you."
+    Else
+        Going = false
+        Boss(Sad):: "Sorry, <Player.name>, but we'll let <Colleague.name> go this time. Next time, we'll definitely consider you."
+    Endif
+Endif
+
+Boss.hide()
+Colleague.hide()
+
+If Going
+    "I might have upset <Colleague.name>, but in exchange, I ended up with a fantastic conference day making so many new contacts. The experience was a decent boost to my career."
+    jobexperience += Random(0, 5)
+    timeout(1500, industry_conference)
+Else
+    "<Colleague.name> went to the conference. When <Colleague.he_or_she> came back, <Colleague.he_or_she> spent the whole lunch hour namedropping the big guns <Colleague.he_or_she> met there. If true, that was quite an opportunity missed for me ..."
+    timeout(750, industry_conference)
+Endif
+
+SceneEnd()

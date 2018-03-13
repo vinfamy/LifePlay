@@ -1,0 +1,38 @@
+WHAT: all
+WHERE: work
+WHEN: 8 - 12
+WHO: none
+OTHER: Random(0, 100) < 0.005*(intelligence*ActionDuration)
+
+SceneStart()
+setbackground(Work)
+Boss = getSpecific(Boss)
+Boss.dress()
+Boss.show(2)
+
+"I'm at the weekly team meeting which is boring as usual. There's something on my mind today though: I came up with an idea last night which I thought could improve the team's productivity."
+Boss(Happy):: "I think that's everything from the meeting agenda. Before we wrap up, does anyone have any concerns or suggestions to put forward?"
+0:: "Stay quiet"
+1:: interpersonal > 10:: "Propose my idea"
+
+If 0
+    "I decided to not put forward my idea."
+Else
+    Player(Excited):: "Presented the idea"
+    If interpersonal < Random(0, 100)
+        Boss(Irritated):: "Sorry, but I don't quite get what you're getting at ..."
+        "I blew it, the idea itself might have been good but due to nerves, my presentation of it was barely comprehensible and the team was too confused about the whole thing to really consider its merits."
+        jobperformance -= Random(0, 1)
+    Elseif intelligence < Random(0, 100) || Boss:rapportwithplayer < 0
+        Boss(Irritated):: "I understand what you're suggesting ... but I'm afraid my experience in this business suggests that it would never work."
+        "My suggestion was rejected outright. Maybe the boss is right - maybe it's just a bad idea that I have become too obsessed with."
+        jobperformance -= Random(0, 1)        
+    Else
+        Boss(Happy):: "That does sound like a well-considered plan. Worth a try in my book."
+        "With that, <Boss.name> consults with the rest of the team, before deciding to go ahead with my idea. This contribution from me will surely not go unnoticed in the next performance review!"
+        jobperformance += Random(0, 3) 
+    Endif
+Endif
+
+SceneEnd()
+timeout(350, team_meeting)

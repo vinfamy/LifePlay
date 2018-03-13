@@ -1,0 +1,40 @@
+WHAT: all
+WHERE: work
+WHEN: 8 - 18
+WHO: Colleague = getSpecific(Colleague); If Colleague:interpersonal < interpersonal && Colleague:rapportwithplayer > 0
+OTHER: Random(0, 100) < 0.02*(interpersonal*ActionDuration)
+
+SceneStart()
+setbackground(Work)
+Colleague.dress()
+Colleague.show(2)
+
+Player(Curious):: "What's the matter, <Colleague.name>? You don't look too happy!"
+Colleague(Drained):: "I've got an important presentation tomorrow. I'm so nervous! You know I always freeze when it comes to public speaking."
+0:: "Wish <Colleague.him_or_her> luck"
+1:: "Offer help"
+
+If 0
+    Player(Sad):: "Oh yeah, presentations can bw nerve-wracking. Good luck anyways!"
+    Colleague(Sad):: "Yeah, I definitely need some luck to not make a fool of myself in front of everyone tomorrow."
+    Colleague:rapportwithplayer -= Random(0, 2)
+    If Colleague.isInterestedin(Player)
+        Colleague:attractiontoplayer += ( Random(0,3)*Colleague:masochist/100 )
+    Endif
+Else
+    Player(Happy):: "I actually don't have too much on my plates right now. I can help you rehearse for the presentation, if you want?"
+    Colleague(Excited):: "Oh thank you! I wouldn't mind having someone as my test audience and to give me feedbacks."
+    Colleague:rapportwithplayer += Random(0, 5)
+    If Colleague.isInterestedin(Player)
+        Colleague:attractiontoplayer -= ( Random(0,10)*Colleague:masochist/100 )
+    Endif
+    passTime(0.5, 2)
+    "Having practiced the presentation in front of me and received useful feedbacks on it, <Colleague.name> eventually managed to achieve an acceptable delivery. <Colleague.He_or_She> was very grateful."
+    If interpersonal < Random(0, 100)
+        Player:jobperformance -= Random(0, 1)
+        "Unfortunately, I spent too much time helping <Colleague.name> with the presentation that I forgot to do some of my own work."
+    Endif
+Endif
+
+SceneEnd()
+timeout(48, shy_colleague)

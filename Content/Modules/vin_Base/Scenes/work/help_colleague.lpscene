@@ -1,0 +1,40 @@
+WHAT: all
+WHERE: work
+WHEN: 8 - 18
+WHO: Colleague = getSpecific(Colleague); If Colleague:intelligence < intelligence && Colleague:rapportwithplayer > 0
+OTHER: Random(0, 100) < 0.02*(intelligence*ActionDuration)
+
+SceneStart()
+setbackground(Work)
+Colleague.dress()
+Colleague.show(2)
+
+Player(Curious):: "What's the matter, <Colleague.name>? You don't look too happy!"
+Colleague(Drained):: "I've got a deadline tomorrow. So much work left still. God, I'm so overwhelmed. It's going to be an all-nighter tonight."
+0:: "Wish <Colleague.him_or_her> luck"
+1:: "Offer help"
+
+If 0
+    Player(Sad):: "Oh that's horrible to hear. Good luck anyways!"
+    Colleague(Sad):: "Yeah, I definitely need some luck to finish this mountain of work."
+    Colleague:rapportwithplayer -= Random(0, 2)
+    If Colleague.isInterestedin(Player)
+        Colleague:attractiontoplayer += ( Random(0,3)*Colleague:masochist/100 )
+    Endif
+Else
+    Player(Happy):: "I actually don't have too much on my plates right now. I can help you, if you want?"
+    Colleague(Excited):: "Oh thank you! Yes, I'll need all the help I can get ... Here, come, I'll update you on the project."
+    Colleague:rapportwithplayer += Random(0, 5)
+    If Colleague.isInterestedin(Player)
+        Colleague:attractiontoplayer -= ( Random(0,10)*Colleague:masochist/100 )
+    Endif
+    passTime(0.5, 2)
+    "With my help, <Colleague.name> managed to meet the deadline. <Colleague.He_or_She> was very grateful."
+    If intelligence < Random(0, 100)
+        Player:jobperformance -= Random(0, 1)
+        "Unfortunately, I was too distracted by helping out <Colleague.name> that I forgot to do some of my own work."
+    Endif
+Endif
+
+SceneEnd()
+timeout(48, help_colleague)

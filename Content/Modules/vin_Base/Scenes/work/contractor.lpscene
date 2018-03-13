@@ -1,0 +1,7 @@
+WHAT: all
+WHERE: work
+WHEN: 9 - 14
+WHO: none
+OTHER: Random(0, 100) < 0.01*(jobexperience*ActionDuration)
+
+

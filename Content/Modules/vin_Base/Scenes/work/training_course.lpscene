@@ -1,0 +1,49 @@
+WHAT: all
+WHERE: work
+WHEN: 7 - 11
+WHO: Colleague = getSpecific(Colleague); If Colleague:intelligence > 70
+OTHER: Random(0, 100) < 0.01*(intelligence+jobexperience+jobperformance)*ActionDuration
+
+SceneStart()
+setbackground(work)
+Boss = getSpecific(Boss)
+Boss.dress()
+Boss.show(2)
+"There's a specialist training course being organized by HR tomorrow. Spaces are limited as those external trainers are expensive hire, so my department can only send one person."
+Boss(Happy):: "So, who wants to sign up for this training course tomorrow?"
+Colleague.dress()
+Colleague.show(4)
+
+Colleague(Happy):: "I would love to do it!"
+0:: "Sign up"
+1:: "Stay silent"
+
+If 1
+    "If <Colleague.name> wants to take the course, I'll be nice enough to not stand in <Colleague.his_or_her> way."
+    Going = false
+Else
+    Player(Excited):: "I would really appreciate this opportunity!"
+    Colleague:rapportwithplayer -= Random(0, 5)
+    If intelligence - Colleague:intelligence> Random(0, 20) || Boss:rapportwithplayer > Random(50, 100) || Boss.isDating()
+        Going = true
+        Boss(Happy):: "Alright, <Player.name>, I feel this course would benefit you the most. <Colleague.name>, sorry, but next time we'll definitely consider you."
+    Else
+        Going = false
+        Boss(Sad):: "Sorry, <Player.name>, but we'll let <Colleague.name> take the course this time. Next time, we'll definitely consider you."
+    Endif
+Endif
+
+Boss.hide()
+Colleague.hide()
+
+If Going
+    "I might have threated my relationship with <Colleague.name>, but in exchange, I was able to participate in a fantastic training course. The knowledge I acquired and the people I met there was quite a boost to my career."
+    jobexperience += Random(0, 2)
+    intelligence += Random(0, 1)
+    timeout(800, training_course)
+Else
+    "<Colleague.name> went to the training course. When <Colleague.he_or_she> came back, <Colleague.he_or_she> spent the whole lunch hour saying how great the course was and how much <Colleague.he_or_she> learned. If true, that was quite an opportunity missed for me ..."
+    timeout(400, training_course)
+Endif
+
+SceneEnd()

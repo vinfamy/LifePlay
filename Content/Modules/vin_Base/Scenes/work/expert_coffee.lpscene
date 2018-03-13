@@ -1,0 +1,68 @@
+WHAT: all
+WHERE: work
+WHEN: 8 - 18
+WHO: none
+OTHER: interpersonal > 40 && jobexperience < 75 && Random(0, 100) < 0.01*(interpersonal-jobexperience)*ActionDuration
+
+SceneStart()
+setbackground(Work)
+Expert = generatePerson()
+If Random (0,1) < 0.7
+    Random
+        Expert.blendPreset(workaholic)
+        Expert.blendPreset(workhard_playhard)
+    endRandom
+endif
+If Random(0,1) < 0.95
+    Random
+        Expert.blendPreset(fifties)
+        Expert.blendPreset(sixties)        
+    endRandom
+endif
+Expert.randomizeFace()
+Expert.randomizeHairs()
+Expert.dress()
+
+"Everyone knows that it's not what you know but who you know that makes the difference between success and failure in this business. Therefore, I try to take any opportunity to network with the big guns as much as possible."
+"I recently managed to get an introduction to <Expert.Mr_or_Ms> <Expert.name_last>, a C-level executive of another company who is a household name in the industry. Having <Expert.him_or_her> in my network would open many doors for my career."
+"We arranged for a quick coffee meeting so that I can introduce myself properly in person."
+setBackground(coffee)
+Expert.show(2)
+Player(Happy):: "<Expert.Mr_or_Ms> <Expert.name_last>, it is a pleasure to meet you finally in person. I'm such an admirer of your work."
+Expert(Happy):: "It's nice to put a face to the name too, <Player.name>."
+"I only have 15 minutes to make an impression on this industry titan. Let's not screw up!"
+0:: "Impress <Expert.him_or_her> with my knowledge and intelligence"
+1:: "Impress <Expert.him_or_her> with my personality"
+2:: "Flatter and seduce <Expert.him_or_her>"
+
+If 0 && intelligence > Random(50, 100)
+    "It might have been a risky move to try to impress the expert this way, but it actually worked!"
+    Expert(Happy):: "It never ceases to amaze me how intellectually curious some young <Player.guys_or_gals> like yourself are. You have learned so much from so little time in the industry. You are much more knowledgeable than I was at your age. Well done!"
+    Success = true
+Elseif 1 && interpersonal > Random(0, 100)
+    "No point trying to be a smartass here. Let's stay humble and focus on building rapport with the <Expert.guy_or_lady>."
+    Expert(Happy):: "You sure are one of the more interesting <Player.guys_or_girls> I've met recently. I was getting worried that the young generation have all become boring clones in suits."
+    Success = true
+Elseif 2 && Expert:attractiontoplayer + Expert:perversion > Random(50, 150)
+    "I spent the whole coffee meeting licking <Expert.his_or_her> ass (not literally though!), while trying to show <Expert.him_or_her> some skin."
+    Expert(Flirty):: "You know, maybe we should exchange our mobile numbers. Your company might not be too pleased after all with you exchanging e-mails with someone at another company for professional development purposes."
+    "As if 'professional development' is the only thing <Expert.he_or_she> will be calling me about! In any case, of course I gave <Expert.him_or_her> my number."
+    exchangeContact(Expert)
+    Success = true
+Else
+    "Nothing I said seemed to impress <Expert.name>. <Expert.He_or_She> ended up looking completely uninterested in the conversation. I probably came across as just another brown-noser wasting <Expert.his_or_her> time."
+    Success = false
+Endif
+
+passTime(0.1, 0.3)
+"After a while, <Expert.name> had to go back to <Expert.his_or_her> office so we said goodbye."
+Expert.hide()
+
+If Success
+    "This little coffee meeting was a success. The day after the meeting, <Expert.name> sent me a few interesting leads and I now have earned the right to namedrop this big gun as one of my professional contacts. This will surely prove useful down the road."
+    jobexperience += Random(0, 2)
+Endif
+    "I didn't leave much of an impression on <Expert.name>. <Expert.He_or_She> never bothers to reply to my e-mails again."
+Endif
+SceneEnd()
+timeout(700, expert_coffee)
