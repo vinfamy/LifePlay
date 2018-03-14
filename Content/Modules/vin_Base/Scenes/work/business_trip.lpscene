@@ -1,0 +1,46 @@
+WHAT: work
+WHERE: work
+WHEN: 7 - 11
+WHO: none
+OTHER: Random(0, 100) < 0.05*jobperformance
+
+
+SceneStart()
+setBackground(work)
+Boss = getSpecific(Boss)
+Boss.dress()
+Boss.show(2)
+"I'm going on a business trip out of town with my boss <Boss.name> for a few days. It's a good experience to have."
+jobexperience += Random(0, 0.5)
+"The last night of the trip ..."
+setBackground(hotel)
+"We're back in the local hotel after many exhausting meetings that day in town. I should go back to my room and rest, ready to head back home in the morning."
+setBackground(home)
+Boss.hide()
+If Boss.isDating() || [Boss.isInterestedIn(Player) && Boss:attractiontoplayer + Boss:perversion > Random(0, 100)]
+    "About to go to sleep, I heard a knock on my door ..."
+    Boss.show(2)
+    Boss(Flirty):: "<Player.name>, can I come in ... for tea?"
+    "It's obvious that <Boss.name> wants a hell lot more than tea. Should I invite <Boss.him_or_her> in though? Once <Boss.he_or_she> is inside, I can't really say no ..."
+    0:: "Invite <Boss.him_or_her> in"
+    1:: "Turn <Boss.him_or_her> down"
+    
+    If 0
+        "I invited <Boss.him_or_her> in. Needless to say, we ended up spending the night together."
+        Sex(Boss, Player)
+        perversion += Random(0, 0.5)
+        Boss:attractiontoplayer += Random(0, 3)
+    Else
+        Player(Irritated):: "I'm sorry, but I'm already about to go to bed. See you tomorrow morning though!"
+        Boss:attractiontoplayer -= Random(0, 3)
+    Endif
+Else
+    "Exhausted, I fell asleep quickly."
+Endif
+
+setBackground(work)
+Boss.show(2)
+"The next morning, we had breakfast at the hotel before traveling back to the office."
+
+SceneEnd()
+timeout(200, business_trip)

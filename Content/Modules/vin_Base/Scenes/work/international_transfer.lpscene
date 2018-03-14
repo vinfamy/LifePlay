@@ -1,0 +1,38 @@
+WHAT: work
+WHERE: work
+WHEN: 8 - 11
+WHO: none
+OTHER: Random(0, 100) < 2
+
+SceneStart()
+setBackground(work)
+
+Transfer = generatePerson()
+Transfer.addColleague()
+Transfer.dress()
+Transfer.show(2)
+
+"My company has offices in many countries and occasionally a staff member from one country is transferred to another. The latest case is <Transfer.name>, who is joining my department today."
+"How should I treat <Transfer.name>?"
+0:: "Like everyone else"
+1:: "Impress <Transfer.him_or_her> with my cultural awareness"
+
+If 0
+    "It's best to not try to be a smartass or risk embarassing myself."
+Elseif intelligence > Random(0, 100)
+    "I impressed <Transfer.name> with my knowledge of <Transfer.his_or_her> country and culture. As a result, I became <Transfer.name>'s closest friend in the office and <Transfer.he_or_she> even taught me a basic command of <Transfer.his_or_her> language."
+    exchangeContact(Transfer)
+    interpersonal += Random(0, 1)
+    intelligence += Random(0, 0.5)
+    Transfer:rapportwithplayer += Random(0, 30)
+    If Transfer.isInterestedIn(Player)
+        Transfer:attractiontoplayer += Random(0, 15)
+    Endif
+Else
+    "I tried very hard to impress but failed miserably. It turned out everything I knew about <Transfer.name>'s country were silly stereotypes hated by the locals. Instead of making friends with <Transfer.name>, I came across as ignorant and even slightly racist."
+    Transfer:rapportwithplayer -= Random(0, 10)
+    Transfer:attractiontoplayer -= Random(0, 5)
+Endif
+
+SceneEnd()
+timeout(1000, international_transfer)

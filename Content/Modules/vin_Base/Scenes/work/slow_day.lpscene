@@ -1,0 +1,23 @@
+WHAT: work
+WHERE: work
+WHEN: 8 - 20
+WHO: none
+OTHER: Random(0, 100) < 0.1*jobperformance
+
+SceneStart()
+"It's a slow day at the office today. I have very little to do all day."
+0:: "Do some menial tasks"
+1:: "Browse the web"
+
+If 0
+    "I endured the boredom and found some menial tasks to do."
+    mood -= Random(0, 10)
+    jobperformance += Random(0, 0.5)
+Else
+    "I entertained myself by browing the web and watching YouTube videos, before going home early."
+    mood += Random(0, 30)
+    jobperformance -= Random(0, 0.5)
+Endif
+
+SceneEnd()
+timeout(200, slow_day)

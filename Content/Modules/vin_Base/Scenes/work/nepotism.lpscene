@@ -1,0 +1,55 @@
+WHAT: work
+WHERE: work
+WHEN: 7 - 11
+WHO: Colleague1 = getSpecific(Colleague); Colleague2 = getSpecific(Colleague); Colleague3 = getSpecific(Colleague)
+OTHER: Random(0, 100) < 2
+
+SceneStart()
+setBackground(work)
+
+"Anyone who says their company is totally free from nepotism is simply naive. My company is no exception. In fact, today, one of the relatives of the CEO was joining my department, who seemed to be totally unqualified for the job."
+
+Relative = generatePerson()
+Relative:intelligence => Random(0, 40)
+Relative.dress()
+Relative.addColleague()
+Relative.show(2)
+
+Relative(Evil):: "Hey there, I'm new here but just so you know, I'm related to the CEO. Nice to meet you!"
+"What a cocky shameless <Relative.bastard_or_bitch>! And I'm not the only one annoyed by <Relative.name>'s arrogance either. <Colleague1.name>, <Colleague2.name> and <Colleague3.name> were standing nearby at the time and were visibly upset. How should I respond?"
+0:: "Lick <Relative.his_or_her> ass"
+1:: "Respond sarcastically"
+
+If 0
+    Player(Happy):: "Nice to meet you too, <Relative.name>. I heard all about your amazing talents and have been eagerly awaiting your arrival."
+    "My shameless flattery seemed to impress the crown <Relative.prince_or_princess>, whose connections could help my career immensely. However, it lost me the respect of my more upright colleagues."
+    Colleague1:rapportwithplayer -= Random(0, 10)
+    Colleague2:rapportwithplayer -= Random(0, 10)
+    Colleague3:rapportwithplayer -= Random(0, 10)
+    Colleague1:attractiontoplayer -= Random(0, 10)
+    Colleague2:attractiontoplayer -= Random(0, 10)
+    Colleague3:attractiontoplayer -= Random(0, 10)
+    Relative:rapportwithplayer += Random(0, 40)
+    jobperformance += Random(0, 5)
+Else
+    Player(Sarcastic):: "Oh? Looks like someone is honest upfront about their only qualification: coming out of a rich vagina!"
+    "The comment upset <Relative.name> but instantly made me a hero in front of my more upright colleagues."
+    Colleague1:rapportwithplayer += Random(0, 10)
+    Colleague2:rapportwithplayer += Random(0, 10)
+    Colleague3:rapportwithplayer += Random(0, 10)
+    If Colleague1.isInterestedIn(Player)
+        Colleague1:attractiontoplayer += Random(0, 5)
+    Endif
+    If Colleague2.isInterestedIn(Player)
+        Colleague2:attractiontoplayer += Random(0, 5)
+    Endif
+    If Colleague3.isInterestedIn(Player)
+        Colleague3:attractiontoplayer += Random(0, 5)
+    Endif
+
+    Relative:rapportwithplayer -= Random(0, 40)
+    jobperformance -= Random(0, 5)
+Endif
+
+SceneEnd()
+timeout(1000, nepotism)

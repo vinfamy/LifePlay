@@ -1,0 +1,33 @@
+WHAT: work
+WHERE: work
+WHEN: 8 - 18
+WHO: Colleague = getSpecific(Colleague)
+OTHER: Random(0, 100) < 0.02*intelligence
+
+SceneStart()
+setBackgroung(work)
+Colleague.dress()
+Colleague.show(2)
+
+"It's a common business practice to work in pair for a small project. Recently, I was in a project with <Colleague.name>. It was a success. However, in front of the higher-ups, how much credit should I take?"
+0:: masochist > -50:: "Give <Colleague.name> all the credits"
+1:: masochist < 50:: "Give myself all the credits"
+2:: "Split the credits equally"
+
+If 0
+    Colleague:rapportwithplayer += Random(0, 5)
+    "I gave <Colleague.name> all the credits. Our relationship seemed to have improved as a result."
+    masochist += Random(0, 1)
+Elseif 1
+    Colleague:rapportwithplayer -= Random(0, 5)
+    jobperformance += Random(0, 3)
+    "I gave myself all the credits, which no doubt upset <Colleague.name> quite a bit."
+    masochist -= Random(0, 1)
+Else
+    Colleague:rapportwithplayer += Random(0, 2)
+    jobperformance += Random(0, 1)
+    "I gave credits where they are due and both of us were praised by the bosses."
+Endif
+
+SceneEnd()
+timeout(96, work_in_pair)

@@ -1,0 +1,26 @@
+WHAT: work
+WHERE: work
+WHEN: 8 - 20
+WHO: Colleague = getSpecific(Colleague)
+OTHER: Random(0, 100) < 0.1*intelligence
+
+SceneStart()
+"Every company has red tapes and overly bureaucratic procedures. The question is: should I do everything by the book at all time or use my creativity whenever possible?"
+0:: "Follow the rules"
+1:: "Be creative"
+
+If 0
+    "It's better to be on a safe side and follow all rules, as frustrating as that can be sometimes."
+Else
+    "Whenever possible, I try to use my judgment to be more efficient. Sometimes, that means breaking a few rules here and there."
+    If intelligence > Random(0, 100)
+        "My good judgment and creativity in seeking out alternative ways to approach a problem allows me to improve my performance at work."
+        jobperformance += Random(0, 2)   
+    Else
+        "Unfortunately, my judgment wasn't always sound enough to decide which rule can be broken. As a result, I didn't really improve efficiency. Instead, I earned the irritation of auditors and higher-ups for not doing everything by the book."
+        jobperformance -= Random(0, 2)    
+    Endif
+Endif
+
+SceneEnd()
+timeout(200, red_tapes)

@@ -1,0 +1,36 @@
+WHAT: work
+WHERE: work
+WHEN: 8 - 20
+WHO: Colleague1 = getSpecific(Colleague); Colleague2 = getSpecific(Colleague); If Colleague1:rapportwithplayer > 0 && Colleague2:rapportwithplayer > 0
+OTHER: Random(0, 100) < 0.1*interpersonal
+
+SceneStart()
+
+setBackground(work)
+Colleague1.dress()
+Colleague2.dress()
+Colleague1.show(2)
+Colleague2.show(3)
+
+"Two of my colleagues, <Colleague1.name> and <Colleague2.name>, recently had a major argument over a project. As a result, they stopped talking to each other and are acting openly hostile to each other in the office."
+0:: "Try to mediate"
+1:: "Maybe not"
+
+If 0
+    "I decided to talk to both of them and be the middle <Player.man_or_woman> to resolve the conflict."
+    If Random(0, 200) < interpersonal + Colleague1:rapportwithplayer + Colleague2:rapportwithplayer 
+        "I managed to talk them into resolving the conflict. News of my successful effort greatly pleased the boss."
+        Colleague1:rapportwithplayer += Random(0, 3)
+        Colleague2:rapportwithplayer += Random(0, 3)
+        jobperformance += Random(0, 2)
+    Else
+        "My mediation effort did not go well at all ... Not only do they still hate each other, my relationship with each of them also suffered."
+        Colleague1:rapportwithplayer -= Random(0, 2)
+        Colleague2:rapportwithplayer -= Random(0, 2)
+    Endif
+Else
+    "I decided not to get involved. It's a problem to be resolved between the two of them."
+Endif
+
+SceneEnd()
+timeout(500, mediate_conflict)

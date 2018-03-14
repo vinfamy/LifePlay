@@ -1,0 +1,60 @@
+WHAT: all
+WHERE: work
+WHEN: 8 - 18
+WHO: Colleague = getSpecific(Colleague)
+OTHER: Random(0, 100) < 0.02*interpersonal
+
+SceneStart()
+setBackground(work)
+Colleague.dress()
+Colleague.show(2)
+
+Player(Curious):: "What's the matter, <Colleague.name>? You look sad ..."
+If interpersonal + Colleague:rapportwithplayer > Random(0, 150) || Colleague:attractiontoplayer > Random(0, 50)
+    Colleague(Crying):: "Me and my <Colleague.girlfriend_or_boyfriend> ... we broke up!"
+    0:: "Console"
+    1:: Player.IsInterestedIn(Colleague) && interpersonal > 10:: "Flirt"
+    
+    If 0
+        Player(Sad):: "Oh, that's horrible to hear. I'll be here if you need someone to talk to."
+        Colleague(Sad):: "Thank you, I'll remember that."
+        Colleague:rapportwithplayer += Random(0, 5)
+    Else
+        Player(Flirty):: "Don't be so sad. There are other fish in the ocean ... There might even be one waiting for you right here."
+        If Colleague:attractiontoplayer > Random(0, 30)
+            Colleague(Flirty):: "I bet you're right ... So I should just move then, hah?"
+            Colleague:attractiontoplayer += Random(0, 5)
+            "<Colleague.He_or_She> seemed receptive enough. Should I be more aggressive?"
+            0:: "Leave it there"
+            1:: !Colleague.isContactExchanged():: "Exchange numbers"
+            2:: perversion > 30:: "Offer sex"
+            
+            If 0
+                "That's enough. I should give <Colleague.name> some space to breath after the breakup before going for it."
+            Elseif 1
+                exchangeContact(Colleague)
+                "As if looking for a rebound from the breakup, <Colleague.name> immediately agreed to exchange numbers with me."
+            Elseif Colleague:perversion > Random(50, 100) || Colleague.isDominantSex(Player)
+                Colleague(Flirty):: "You know what? Let's do it tonight after work. I'll show my stupid ex what <Colleague.she_or_he> is missing out on!"
+                "That night ..."
+                setbackground(Home)
+                Sex(Colleague, Player)
+                Colleague.show(2)
+                Colleague(Flirty):: "That was so satisfying. Revenge sex is the best. I wished we filmed the whole thing and sent it to my ex."
+            Else
+                Colleague(Angry):: "What? You're a pervert, you know that? I'm not doing that. Who do you take me for?"
+                Colleague:rapportwithplayer -= Random(0, 10)
+            Endif
+        Else
+            Colleague(Irritated): "Come on! That's so cheesy and inappropriate. How could you be so insensitive?"
+            Colleague:rapportwithplayer -= Random(0, 5)
+        Endif
+    Endif
+Else
+    Colleague(Sad):: "It's nothing. Just some personal matters. Don't worry ..."
+    "There's no point pressing <Colleague.name> further. It's clear <Colleague.he_or_she> doesn't trust me enough to tell me."
+Endif
+
+
+timeout(500, colleague_breakup)
+SceneEnd()

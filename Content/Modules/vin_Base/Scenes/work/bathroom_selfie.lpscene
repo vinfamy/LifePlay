@@ -1,0 +1,55 @@
+WHAT: go_to_the_bathroom
+WHERE: work
+WHEN: 6 - 23
+WHO: none
+OTHER: perversion > 20 && Random(0, 100) < (perversion+arousal)*0.01
+
+SceneStart()
+setBackground(work)
+"I was taking a bathroom break at work when I came up with a crazy idea: taking a sexy selfie in the office bathroom."
+0:: "Take a selfie"
+1:: "I'd better not"
+
+If 0
+    "Why not? That's quite exciting and ... erotic!"
+    perversion += Random(0, 0.5)
+    Player(Pose):: "..."
+    isDating = Player.isDating()
+    If isDating
+        Dating = getSpecific(Dating)
+    Endif
+    "I've snapped a sexy selfie. Now, what do I do with it?
+    0:: isDating:: "Send it to my babe"
+    1:: perversion > 40:: "Post it on social media"
+    2:: "Just keep it"
+    
+    If 0
+        "I sent the selfie to my <Dating.boyfriend_or_girlfriend>. <Dating.He_or_She> replied back immediately."
+        Dating(Flirty):: "Wow baby. That was a nice surprise!"
+        Dating:attractiontoplayer += Random(0, 1)
+        perversion += Random(0, 0.5)
+    Elseif 1
+        "The world needs to see how much of a risk-taking exhibitionist I am!"
+        "The selfie didn't quite break the internet, but it did receive a large amount of likes."
+        interpersonal += Random(0, 1)
+        perversion += Random(0, 1)
+        Boss = getSpecific(Boss)
+
+        If !Boss.isDating() && intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)*Random(0, 1)*Random(0, 1)*Random(0, 1)
+            Boss.dress()
+            Boss.show(2)
+            Player(Crying):: "Please, <Boss.Sir_or_Madam>, it was a moment of stupidity. It will never happen again!"
+            Boss(Angry):: "You deserve this! You should have known better than posting things like that on social media and damaging the company's reputation! Your contract clearly stated this sort of stuffs wasn't tolerated."
+            "Oh no! Someone from HR found the sexy selfie on my social media profile and they fired me, citing the company's social media policy. Damn, this was a stupid way to lose my job."
+            mood -= 50
+            loseJob()
+        Endif
+    Else
+        "I'll just keep it myself as my naughty secret ..."
+    Endif
+Else
+    "That's crazy. What if someone caught me? I'll easily lose my job!"
+Endif
+
+SceneEnd()
+timeout(100, bathroom_selfie)

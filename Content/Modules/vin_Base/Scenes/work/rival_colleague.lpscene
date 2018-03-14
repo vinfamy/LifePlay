@@ -1,0 +1,42 @@
+WHAT: all
+WHERE: work
+WHEN: 8 - 18
+WHO: Colleague = getSpecific(Colleague); If Colleague:rapportwithplayer < -5
+OTHER: interpersonal < Random(0, 100)*Random(0, 1)*Random(0, 1)
+
+SceneStart()
+setBackground(work)
+Colleague.dress()
+Colleague.show(2)
+
+"It's no secret that <Colleague.name> doesn't like me very much. Should I do something about it?"
+0:: "Do nothing"
+1:: "Talk it out"
+2:: "Sabotage <Colleague.his_or_her> work"
+
+If 0
+    "<Colleague.name> has every rights to hate me, just like I have the right to not give a shit."
+    Colleague:rapportwithplayer -= Random(0, 2)
+Elseif 1
+    "It's not good to have a bad relationship with someone at work. It's best if I can sit down and talk to <Colleague.him_or_her> about it maturely."
+    If interpersonal > Random(0, 100)
+        "My reconciliation efforts paid off. Our relationship has improved somewhat since that chat."
+        Colleague:rapportwithplayer += Random(0, 5)
+    Else
+        "Our chat led nowhere though and we remained on bad terms."
+    Endif
+Else
+    "If you dare to cross me, you're going to suffer!"
+    "Whenever I can, I sneakily sabotaged <Colleague.his_or_her> work, making <Colleague.him_or_her> suffer from one setback and embarassment after another."
+    Colleague:rapportwithplayer -= Random(0, 10)
+    If Random(0, 100) < 0.05*intelligence
+        "Incredibly, one of my sabotages worked better than I could ever dream of. <Colleague.name> screwed up a big project causing the company lots of money. As a result, <Colleague.He_or_She> was fired! Good riddance."
+        Colleague.removeColleague()
+    Elseif intelligence < Random(0, 100)*Random(0, 1)
+        "Unfortunately, my boss caught wind of one of my sabotage attempts and issued me a warning. I'm sure they'll bring this up again in the next performance review."
+        jobperformance -= Random(0, 3)
+    Endif
+Endif
+
+SceneEnd()
+timeout(100, rival_colleague)

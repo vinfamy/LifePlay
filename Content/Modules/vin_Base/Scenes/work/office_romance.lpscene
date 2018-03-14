@@ -1,0 +1,44 @@
+WHAT: all
+WHERE: work
+WHEN: 8 - 18
+WHO: Colleague1 = getSpecific(Colleague); Colleague2 = getSpecific(Colleague); If !Colleague1.isDating() && !Colleague2.isDating() && Colleague1.isInterestedIn(Colleague2) && Colleague2.isInterestedIn(Colleague1) && Colleague1:rapportwithplayer > 0
+OTHER: Random(0, 100) < interpersonal*Random(0, 0.1)
+
+SceneStart()
+setBackground(work)
+Colleague1.dress()
+Colleague2.dress()
+Colleague1.show(2)
+Colleague2.show(3)
+
+"From the way <Colleague1.name> looks at <Colleague2.name> in the office, it's easy to tell that <Colleague1.he_or_she> has quite a crush on <Colleague2.name>. However, their romance haven't seemed to blossom at all."
+0:: "Do nothing"
+1:: "Encourage the romance"
+2:: "Discourage the romance"
+
+If 0
+    "Well, their romance is none of my business."
+Elseif 1
+    "Encouraging romance between co-workers won't win me any favor from higher-ups, but I think it's the right thing to do."
+    Player(Happy):: "You know maybe <Colleague2.name> is just waiting for you to be more 'assertive' ..."
+    Colleague1(Embarassed):: "I guess you're right. I shouldn't be so shy and actually confess my feelings for <Colleague2.him_or_her."
+    "It would take another month or so, but they eventually got together as a couple, all thanks to my matchmaking efforts."
+    Colleague1:rapportwithplayer += Random(0, 30)
+    Colleague2:rapportwithplayer += Random(0, 20)
+    jobperformance -= Random(0, 2)
+    If Colleague1:attractiontoplayer > 0
+        Colleague1:attractiontoplayer => 0
+    Endif
+    If Colleague2:attractiontoplayer > 0
+        Colleague2:attractiontoplayer => 0
+    Endif
+Else
+    "Office romance is a can of worms that most companies try but often fail to avoid. That doesn't mean I shouldn't even try. My success in discouraging this romance could impress the bosses."
+    Player(Sad):: "<Colleague1.name>, I really don't think it's a good idea. Your relationship will be the center of attention for the office gossipers - and what if you guys end up arguing or breaking up, wouldn't that be a very awkward day at work? An attractive <Colleague1.guy_or_girl> like you could surely look for someone elsewhere and avoid all the troubles."
+    Colleague1(Sad):: "I guess you're right. Pursuing this romance is more troubles than it's worth ..."
+    jobperformance += Random(0, 2)
+Endif
+
+SceneEnd()
+timeout(500, office_romance)
+

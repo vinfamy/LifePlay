@@ -1,0 +1,41 @@
+WHAT: work
+WHERE: work
+WHEN: 7 - 11
+WHO: none
+OTHER: jobexperience > 20 && Random(0, 100) < 0.01*(interpersonal+jobexperience)
+
+SceneStart()
+
+"I've been asked to represent the company at a career fair of a local university. Should I accept this opportunity?"
+0:: "Yes"
+1:: "No"
+
+If 0
+    "Why not? It's a good experience and a chance to meet the industry's next generation."
+    "I went and had a successful day, meeting and talking to students about the company. Some of them even printed and handed out their resumes. As they were just students, the contact numbers on these were just their personal mobile numbers, which I could use for professional purposes only ... or not!"
+    "Should I save their numbers in my personal phone before returning to the office with the resumes?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "Why not? There are a few interesting ones ... and a few cute ones too!"
+        Student = generatePerson()
+        Student.blendpreset(twenties)
+        exchangeContact(Student)
+        Student = generatePerson()
+        Student.blendpreset(twenties)
+        exchangeContact(Student)
+        Student = generatePerson()
+        Student.blendpreset(twenties)
+        exchangeContact(Student)
+    Else
+        "I shouldn't. It's very unprofessional."
+    Endif
+    interpersonal += Random(0, 0.5)
+    jobexperience += Random(0, 1)
+Else
+    "I made some excuses not to go. They picked one of my colleagues to represent the company instead."
+Endif
+
+SceneEnd()
+timeout(500, career_fair)

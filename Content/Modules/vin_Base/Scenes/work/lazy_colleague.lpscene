@@ -1,0 +1,52 @@
+WHAT: all
+WHERE: work
+WHEN: 8 - 18
+WHO: Colleague = getSpecific(Colleague); If Colleague:intelligence < Random(0, 50)
+OTHER: jobperformance > 50
+
+SceneStart()
+
+setbackground(work)
+Colleague.dress()
+Colleague.show(2)
+
+"It's no secret that <Colleague.name> is a lazy ass. <Colleague.He_or_She> is always the last one to arrive at the office and the first to leave, and spends whole days browsing the web."
+0:: "Just let <Colleague.him_or_her> slack off"
+1:: "Convince <Colleague.him_or_her> to change <Colleague.his_or_her> ways"
+2:: "Complain to my boss"
+
+If 0
+    "It's none of my business. I'll just leave <Colleague.him_or_her> be."
+Elseif 1
+    "I tried to convince <Colleague.name> to be more responsible and stop taking the mickey at work everyday."
+    If Colleague:rapportwithplayer + interpersonal > Random(0, 150)
+        Colleague(Happy):: "I guess you're right. I will lose my job sooner or later if I continue on like this."
+        Colleague:rapportwithplayer += Random(0, 2)
+        Colleague:intelligence => 51
+    Else
+        Colleague(Angry):: "Who told you I were slacking off? Frankly, I work harder than anyone else here!"
+        Colleague:rapportwithplayer -= Random(0, 2)
+    Endif
+Elseif 2
+    Colleague.hide()
+    
+    Boss = getSpecific(Boss)
+    Boss.dress()
+    Boss.show(2)
+    Boss(Happy):: "Thank you for telling me about this, <Player.name>. I will talk to the other staff and deal with <Colleague.name> accordingly."
+    Boss.hide()
+    If Colleague:intelligence - Boss:rapportwithplayer < Random(0, 50) || Boss.isDating()
+        "A few days later, I received an e-mail announcing that <Colleague.name> had been let go by the company. Was it too harsh or did <Colleague.he_or_she> deserve it?"
+        Colleague:rapportwithplayer -= Random(0, 50)
+        Colleague.removeColleague()
+    Else
+        "<Colleague.name> was issued a warning by the boss for <Colleague.his_or_her> behaviour. I hope that will be enough for <Colleague.him_or_her> to get off <Colleague.his_or_her> lazy ass."
+        Colleague:rapportwithplayer -= Random(0, 10)
+        If Random(0, 100) < 50
+            Colleague:intelligence => 51
+        Endif
+    Endif
+Endif
+
+timeout(200, lazy_colleague)
+SceneEnd()

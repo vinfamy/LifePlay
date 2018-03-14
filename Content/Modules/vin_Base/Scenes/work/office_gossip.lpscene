@@ -1,0 +1,23 @@
+WHAT: work
+WHERE: work
+WHEN: 8 - 20
+WHO: Colleague = getSpecific(Colleague)
+OTHER: Random(0, 100) < 0.1*interpersonal
+
+SceneStart()
+"Office gossip is commonplace everywhere and my company is no exception. The question is: should I engage in it?"
+0:: "Yes"
+1:: "No"
+
+If 0
+    "Why not? It's a fun distraction from all the hard work and I would be seen as a prude by my colleagues otherwise."
+    interpersonal += Random(0, 0.5)
+    jobperformance -= Random(0, 1)
+    Colleague:rapportwithplayer += Random(0, 5)
+Else
+    "I try my best to avoid gossiping and being gossiped about. I feel this is the best thing to do. I don't need such a distraction from actual work."
+    jobperformance += Random(0, 2)
+Endif
+
+SceneEnd()
+timeout(200, office_gossip)

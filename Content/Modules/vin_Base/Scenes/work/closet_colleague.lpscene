@@ -1,0 +1,41 @@
+WHAT: all
+WHERE: work
+WHEN: 8 - 18
+WHO: Colleague = getSpecific(Colleague); If Colleague:interpersonal < Random(0, 100)*Random(0, 1)*Random(0, 1)
+OTHER: none
+
+SceneStart()
+setBackground(work)
+Colleague.dress()
+Colleague.show(2)
+
+"There have been a lot of office gossips recently about <Colleague.name>'s sexual orientation. I feel these rumours are affecting <Colleague.his_or_her> performance."
+0:: "Ignore"
+1:: "Convince the gossipers to stop"
+2:: "Join in"
+
+If 0
+    "Who cares? I'm here to work. I don't have time for bullshit office gossip."
+Elseif 1
+    "Feeling sorry for <Colleague.name>, I decided to stand up for <Colleague.him_or_her> and explained to the gossipers that <Colleague.name> being gay or straight is none of their business and asked them to stop."
+    If interpersonal > Random(0, 100)
+        "Eventually, the gossipers promised to stop and agreed to respect <Colleague.name>'s personal life from now on."
+        Colleague:rapportwithplayer += Random(0, 10)
+        jobperformance += Random(0, 0.5)
+        If Colleague.isInterestedIn(Player)
+            Colleague:attractiontoplayer += Random(0, 5)
+        Endif
+        Colleague(Happy):: "Hey <Player.name>, I heard you were the one that put an end to the gossip. I just wanted to say thanks!"
+    Else
+        "My efforts were in vain however as the gossiping continued."
+    Endif
+Else
+    "I decided to join in and add my own speculations about <Colleague.name>'s sexual orientation. Gossiping is fun!"
+    interpersonal += Random(0, 0.5)
+    jobperformance -= Random(0, 0.5)
+    Colleague:rapportwithplayer -= Random(0, 10)
+    Colleague:attractiontoplayer -= Random(0, 5)   
+Endif
+
+SceneEnd()
+timeout(1000, closet_colleague)

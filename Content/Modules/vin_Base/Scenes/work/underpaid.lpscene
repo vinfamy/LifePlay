@@ -1,0 +1,29 @@
+WHAT: work
+WHERE: work
+WHEN: 8 - 20
+WHO: none
+OTHER: Random(0, 100) < 0.1*jobperformance
+
+SceneStart()
+"Salaries are supposed to be confidential, but often they are not. I recently found out that one of my colleagues, who has the same title and experience as me, is actually paid quite a bit more than myself."
+0:: "Demand a fair salary"
+1:: "Maybe not"
+
+If 0
+    "I decided to talk to my boss and raise my concern of being unfairly underpaid."
+    If Random(0, 500) < interpersonal + jobperformance
+        "I managed to convince my boss to match my salary with the colleague."
+        Salary = getSalary()
+        Salary *= Random(1.1, 1.3)
+        Salary.setSalary()
+        timeout(5000, underpaid)
+    Else
+        "The discussion did not go well at all ... Not only did my boss reject my request outright, he was visibly upset."
+        jobperformance -= Random(0, 5)
+    Endif
+Else
+    "That's not a good idea. Companies don't give in to staff demand for higher salaries that easily. All I would achieve is upsetting my boss."
+Endif
+
+SceneEnd()
+timeout(500, underpaid)
