@@ -1,0 +1,54 @@
+WHAT: work
+WHERE: work
+WHEN: 18 - 22
+WHO: Boss = getSpecific(Boss); If Boss:perversion + Boss:attractiontoplayer > Random(0, 100) && !Boss.isDating()
+OTHER: perversion > 20 && Random(0, 100) < 0.1*perversion
+
+
+SceneStart()
+setBackground(work)
+Boss.dress()
+Boss.show(2)
+SleepingWithBoss = SleepingWithBoss.getGlobal()
+
+If SleepingWithBoss == 0
+    "It's obvious from the way <Boss.name> looks at me that <Boss.he_or_she> fancies me quite a bit. I've heard tales about young ambitious <Player.guy_or_girl> sleeping with <Player.his_or_her> boss to gain a career advantage. But is this the road that I want to go down?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        perversion += Random(0, 2)
+        "It's a competitive job market, I'll do whatever it takes to get ahead."
+        "Late that evening, after everyone else has gone home ..."
+        Boss(Flirty):: "You have no idea how much I have been waiting for you to offer me that since the day you started here!"
+        Player(Flirty):: "I'm glad to be of service ..."
+        jobperformance += Random(0, 30)
+        Sex(Boss, Player)
+        Boss.show(2)
+        Boss(Flirty):: "That was amazing, babe. We must do it again soon, but we must wait until everyone else has left."
+        SleepingWithBoss.setGlobal(1)
+    Else
+        "No, I will achieve my ambitions based on merits alone."
+        Boss:attractiontoplayer -= Random(0, 20)
+        timeout(500, affair_with_boss)
+    Endif
+Else
+    "My boss is calling for me. It's very late in the evening and we're the the only two left in the office. It's obvious again what <Boss.he_or_she> wants tonight ..."
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "I can't risk jeopardizing my career by breaking our secret arrangement ... Of course, I'll give <Boss.him_or_her> what <Boss.he_or_she> wants again."
+        perversion += Random(0, 0.2)
+        jobperformance += Random(0, 4)
+        Sex(Boss, Player)
+        Boss.show(2)
+        "You were great, as usual. Keep doing what you've been doing and you'll be promoted in no time!"
+    Else
+        "I just don't feel like it today. I excused myself out of my indecent duty. The boss was visibly upset."
+        jobperformance -= Random(0, 2)
+    Endif
+Endif
+
+SceneEnd()
+// timeout(100, affair_with_boss)

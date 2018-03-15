@@ -1,7 +1,26 @@
-WHAT: all
+WHAT: work
 WHERE: work
-WHEN: 9 - 14
+WHEN: 8 - 20
 WHO: none
-OTHER: Random(0, 100) < 0.01*(jobexperience*ActionDuration)
+OTHER: Random(0, 100) < 0.05*jobexperience
 
 
+SceneStart()
+Contractor = generatePerson()
+Contractor.dress()
+Contractor.show(2)
+
+"Not everyone I work with is permanent staff. We have a lot of contractors on a short to medium term basis to help out with projects. One such contractor is <Contractor.name>. We got along quite well during <Contractor.his_or_her> time with us, but the contract is running out and <Contractor.he_or_she> is leaving soon."
+"Should I ask for <Contractor.name>'s contact number so that we can see each other again outside of work?"
+0:: "Ask for <Contractor.his_or_her> number"
+1:: "Maybe not"
+
+If 0
+    "We exchanged personal contacts before <Contractor.name>'s contract ran out. I can now meet <Contractor.him_or_her> outside of work."
+    exchangeContact(Contractor)
+Else
+    "I decided not to exchange numbers with <Contractor.name>."
+Endif
+
+SceneEnd()
+timeout(500, contractor)

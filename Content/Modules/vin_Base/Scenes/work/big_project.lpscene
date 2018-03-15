@@ -5,14 +5,14 @@ WHO: Colleague1 = getSpecific(Colleague); Colleague2 = getSpecific(Colleague); C
 OTHER: Random(0, 100) < 0.02*jobexperience
 
 SceneStart()
-setBackground(office)
+setBackground(work)
 "There's a big project coming up at work that has yet to have a lead. Should I volunteer for the position?"
 0:: "Volunteer to lead"
 1:: "Maybe not"
 
 If 0
     "I volunteered to lead this project and the boss allowed me to do it. This is my chance to show off my leadership capability."
-    "The colleagues who I will manage for this project are <Colleague1.name()>, <Colleague2.name()> and <Colleague3.name()>, along with a few contractors."
+    "The colleagues who I will manage for this project are <Colleague1.name>, <Colleague2.name> and <Colleague3.name>, along with a few contractors."
     Colleague1.dress()
     Colleague2.dress()
     Colleague3.dress()

@@ -12,14 +12,14 @@ Colleague2.dress()
 Colleague1.show(2)
 Colleague2.show(3)
 
-"Two of my colleagues, <Colleague1.name> and <Colleague2.name>, recently had a major argument over a project. As a result, they stopped talking to each other and are acting openly hostile to each other in the office."
+"Two of my colleagues, <Colleague1.name> and <Colleague2.name>, recently had a major argument over a project. As a result, they stopped talking and are acting openly hostile to each other in the office."
 0:: "Try to mediate"
 1:: "Maybe not"
 
 If 0
     "I decided to talk to both of them and be the middle <Player.man_or_woman> to resolve the conflict."
     If Random(0, 200) < interpersonal + Colleague1:rapportwithplayer + Colleague2:rapportwithplayer 
-        "I managed to talk them into resolving the conflict. News of my successful effort greatly pleased the boss."
+        "I managed to talk them into resolving the conflict and return to talking terms. News of my successful effort greatly pleased the boss."
         Colleague1:rapportwithplayer += Random(0, 3)
         Colleague2:rapportwithplayer += Random(0, 3)
         jobperformance += Random(0, 2)

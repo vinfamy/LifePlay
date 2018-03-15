@@ -1,15 +1,16 @@
 WHAT: all
 WHERE: work
 WHEN: 7 - 11
-WHO: Colleague = getSpecific(Colleague); If Colleague:intelligence > 70
+WHO: Colleague = getSpecific(Colleague); If Colleague:intelligence > 50
 OTHER: Random(0, 100) < 0.01*(intelligence+jobexperience+jobperformance)*ActionDuration
+
 
 SceneStart()
 setbackground(work)
 Boss = getSpecific(Boss)
 Boss.dress()
 Boss.show(2)
-"There's a specialist training course being organized by HR tomorrow. Spaces are limited as those external trainers are expensive hire, so my department can only send one person."
+"There's a specialist training course being organized by HR tomorrow. Spaces are limited as those external trainers are expensive to hire, so my department can only send one person."
 Boss(Happy):: "So, who wants to sign up for this training course tomorrow?"
 Colleague.dress()
 Colleague.show(4)

@@ -1,8 +1,9 @@
 WHAT: all
 WHERE: work
 WHEN: 7 - 11
-WHO: Colleague = getSpecific(Colleague); If Colleague:interpersonal > 70
+WHO: Colleague = getSpecific(Colleague); If Colleague:interpersonal > 50
 OTHER: Random(0, 100) < 0.005*(interpersonal+jobexperience+jobperformance)*ActionDuration
+
 
 SceneStart()
 setbackground(work)

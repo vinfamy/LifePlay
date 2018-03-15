@@ -4,6 +4,7 @@ WHEN: 7 - 11
 WHO: Colleague1 = getSpecific(Colleague); Colleague2 = getSpecific(Colleague); If Colleague1:fitness > 70 && Colleague2:fitness > 70
 OTHER: fitness > 70 && Random(0, 100) < 0.01*fitness*ActionDuration
 
+
 SceneStart()
 setBackground(office)
 Colleague1.dress()

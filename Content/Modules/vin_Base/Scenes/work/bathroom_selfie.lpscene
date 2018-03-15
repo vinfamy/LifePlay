@@ -4,6 +4,7 @@ WHEN: 6 - 23
 WHO: none
 OTHER: perversion > 20 && Random(0, 100) < (perversion+arousal)*0.01
 
+
 SceneStart()
 setBackground(work)
 "I was taking a bathroom break at work when I came up with a crazy idea: taking a sexy selfie in the office bathroom."

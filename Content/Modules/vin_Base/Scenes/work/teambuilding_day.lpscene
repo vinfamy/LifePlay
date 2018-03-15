@@ -4,6 +4,7 @@ WHEN: 7 - 11
 WHO: Colleague1 = getSpecific(Colleague); Colleague2 = getSpecific(Colleague); Colleague3 = getSpecific(Colleague); Colleague4 = getSpecific(Colleague); Colleague5 = getSpecific(Colleague)
 OTHER: fitness > 50 && Random(0, 100) < 0.01*fitness*ActionDuration
 
+
 SceneStart()
 setBackground(sports_centre)
 Colleague1.dress()

@@ -4,6 +4,7 @@ WHEN: 7 - 11
 WHO: none
 OTHER: jobexperience > 20 && Random(0, 100) < 0.01*(interpersonal+jobexperience)
 
+
 SceneStart()
 
 "I've been asked to represent the company at a career fair of a local university. Should I accept this opportunity?"
@@ -21,12 +22,15 @@ If 0
         "Why not? There are a few interesting ones ... and a few cute ones too!"
         Student = generatePerson()
         Student.blendpreset(twenties)
+        Student.randomizeHairs()
         exchangeContact(Student)
         Student = generatePerson()
         Student.blendpreset(twenties)
+        Student.randomizeHairs()
         exchangeContact(Student)
         Student = generatePerson()
         Student.blendpreset(twenties)
+        Student.randomizeHairs()
         exchangeContact(Student)
     Else
         "I shouldn't. It's very unprofessional."

@@ -1,0 +1,72 @@
+WHAT: work
+WHERE: work
+WHEN: 19 - 23
+WHO: Boss = getSpecific(Boss); Colleague = getSpecific(Colleague); If Boss:perversion > 60 && Boss.isInterestedIn(Colleague) && !Boss.isDating()
+OTHER: Random(0, 100) < 0.2*sneak
+
+SceneStart()
+setBackground(work)
+
+"It's already late in the evening, but the light in my boss's office is still on. This is rather unusual as <Boss.he_or_she> usually goes home at five. Should I sneak around to check out what's going on?"
+0:: "Peep on my boss"
+1:: "I'd rather not"
+
+If 0
+    Boss.dress()
+    Boss.show(2)
+    Colleague.dress()
+    Colleague.show(3)
+    Colleague(Sad):: "Alright, if that is what it takes to get that promotion, then I'll do it ..."
+    Boss(Flirty):: "Let's get you undressed then ..."
+    Player.hide()
+    Sex(Boss, Colleague)
+    
+    Boss.hide()
+    Colleague.hide()
+    Player.show(0)
+    "What a scandalous scene! <Colleague.name> is sleeping with my boss to gain a promotion. What should I do about this information?"
+    0:: "Report to HR"
+    1:: "Leave them be"
+    
+    If 0
+        "I wrote a detailed report of what I saw and sent it to HR."
+        Boss:rapportwithplayer -= Random(0, 100)
+        Colleague:rapportwithplayer -= Random(0, 100)
+        If interpersonal > Random(0, 100)
+            "As a result of my whistleblowing, both my boss and <Colleague.name> were fired, while I was praised by higher-ups for my courageous act!"
+            Colleague.removeColleague()
+            Boss = generatePerson()
+
+            If Random (0,1) < 0.7
+                Random
+                    Boss.blendPreset(workaholic)
+                    Boss.blendPreset(workhard_playhard)
+                endRandom
+            endif
+
+            If Random(0,1) < 0.95
+                Random
+                    Boss.blendPreset(fourties)
+                    Boss.blendPreset(fifties)
+                    Boss.blendPreset(sixties)        
+                endRandom
+            endif
+                
+            Boss.randomizeFace()
+            Boss.randomizeHairs()
+            
+            Boss.setBoss()
+            jobperformance += Random(0, 5)
+        Else
+            "HR conducted an investigation after I blew the whistle but found no evidence to prove my accusation! Worse still, my boss found out about the identity of me as the whistleblower and now seems to have a personal vendetta against me."
+            jobperformance -= Random(0, 10)
+        Endif
+    Else
+        "My boss and <Colleague.name> haven't treated me too badly. I shouldn't do something to jeopardize their careers."
+    Endif
+Else
+    "No, I shouldn't do that or risk pissing <Boss.him_or_her> off."
+Endif
+
+SceneEnd()
+timeout(2000, whistleblower)

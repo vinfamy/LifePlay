@@ -215,7 +215,7 @@ If 0
                     1:: "Turn <Boss.him_or_her> down"
                     
                     If 1
-                        Player(Concerned): "I'm afraid I'm busy tonight. Maybe next time ..."
+                        Player(Concerned):: "I'm afraid I'm busy tonight. Maybe next time ..."
                         Performance -= Random(0, 10)
                         "I'm not even sure why I did that. Why gave <Boss.him_or_her> my number only to turn <Boss.him_or_her> down now. This can't be good for my chance of getting the job ..."
                     Else
@@ -299,6 +299,7 @@ If 0
                     Boss.setBoss()
                     mood += 100
                     timeOut(5000, performance_review)
+                    SleepingWithBoss.setGlobal(0)
                 Else
                     Player(Anxious):: "No! No! Please let me explain. This is all a big misunderstanding ..."
                     "Oh no! Their reference check exposed the blatant lies on my application. I would not be signing any contract with them after all ... The best I can hope for is my dishonest reputation doesn't get to other employers."

@@ -19,6 +19,7 @@ If 0
     If Colleague:rapportwithplayer < Random(0, 100) && Colleague:attractiontoplayer < Random(0, 100)
         Colleague(Sad):: "I'm sorry but I also have plenty on my plates right now. Good luck anyways!"
         Player(Sad):: "Yeah, I definitely need some luck to finish this mountain of work."
+        energy -= Random(0, 20)
     Else
         Colleague(Happy):: "I actually don't have too much on my plates right now. I can help you, if you want?"
         Player(Excited):: "Oh thank you! Yes, I'll need all the help I can get ... Here, come, I'll update you on the project."

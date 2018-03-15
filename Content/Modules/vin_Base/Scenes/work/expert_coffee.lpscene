@@ -61,7 +61,7 @@ Expert.hide()
 If Success
     "This little coffee meeting was a success. The day after the meeting, <Expert.name> sent me a few interesting leads and I now have earned the right to namedrop this big gun as one of my professional contacts. This will surely prove useful down the road."
     jobexperience += Random(0, 2)
-Endif
+Else
     "I didn't leave much of an impression on <Expert.name>. <Expert.He_or_She> never bothers to reply to my e-mails again."
 Endif
 SceneEnd()

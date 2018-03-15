@@ -4,6 +4,7 @@ WHEN: 8 - 18
 WHO: Colleague = getSpecific(Colleague); If Colleague:rapportwithplayer < -5
 OTHER: interpersonal < Random(0, 100)*Random(0, 1)*Random(0, 1)
 
+
 SceneStart()
 setBackground(work)
 Colleague.dress()

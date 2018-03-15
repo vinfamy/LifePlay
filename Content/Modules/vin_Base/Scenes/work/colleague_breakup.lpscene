@@ -4,6 +4,7 @@ WHEN: 8 - 18
 WHO: Colleague = getSpecific(Colleague)
 OTHER: Random(0, 100) < 0.02*interpersonal
 
+
 SceneStart()
 setBackground(work)
 Colleague.dress()
@@ -46,7 +47,7 @@ If interpersonal + Colleague:rapportwithplayer > Random(0, 150) || Colleague:att
                 Colleague:rapportwithplayer -= Random(0, 10)
             Endif
         Else
-            Colleague(Irritated): "Come on! That's so cheesy and inappropriate. How could you be so insensitive?"
+            Colleague(Irritated):: "Come on! That's so cheesy and inappropriate. How could you be so insensitive?"
             Colleague:rapportwithplayer -= Random(0, 5)
         Endif
     Endif

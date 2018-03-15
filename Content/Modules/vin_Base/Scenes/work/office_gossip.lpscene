@@ -4,6 +4,7 @@ WHEN: 8 - 20
 WHO: Colleague = getSpecific(Colleague)
 OTHER: Random(0, 100) < 0.1*interpersonal
 
+
 SceneStart()
 "Office gossip is commonplace everywhere and my company is no exception. The question is: should I engage in it?"
 0:: "Yes"

@@ -4,6 +4,7 @@ WHEN: 7 - 11
 WHO: none
 OTHER: jobexperience > 20 && Random(0, 100) < 0.01*(interpersonal+jobexperience)
 
+
 SceneStart()
 setBackground(work)
 
@@ -16,6 +17,8 @@ If 0
     "Later on ..."
     Candidate = generatePerson()
     Candidate.blendPreset(twenties)
+    Candidate.dress()
+    Candidate.RandomizeHairs()
     Candidate.show(2)
     Candidate(Happy):: "It's a pleasure to meet you!"
     Player(Happy):: "The pleasure is all mine, <Candidate.name>. Shall we begin the interview?"

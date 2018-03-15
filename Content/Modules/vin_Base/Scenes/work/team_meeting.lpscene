@@ -4,6 +4,7 @@ WHEN: 8 - 12
 WHO: none
 OTHER: Random(0, 100) < 0.005*(intelligence*ActionDuration)
 
+
 SceneStart()
 setbackground(Work)
 Boss = getSpecific(Boss)
@@ -18,7 +19,7 @@ Boss(Happy):: "I think that's everything from the meeting agenda. Before we wrap
 If 0
     "I decided to not put forward my idea."
 Else
-    Player(Excited):: "Presented the idea"
+    Player(Excited):: "(Presented the idea)"
     If interpersonal < Random(0, 100)
         Boss(Irritated):: "Sorry, but I don't quite get what you're getting at ..."
         "I blew it, the idea itself might have been good but due to nerves, my presentation of it was barely comprehensible and the team was too confused about the whole thing to really consider its merits."
