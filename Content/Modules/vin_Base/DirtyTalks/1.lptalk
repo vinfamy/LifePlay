@@ -1,0 +1,59 @@
+!Tag(Aggressive)
+    Oh baby, you're the only <A1.man_or_woman> I want in my life right now.
+    ...
+##
+Tag(Aggressive)
+    ...
+    I don't want you to treat me as your <A2.prince_or_princess> tonight, baby. I want you to take me as a <A2.man_or_woman>.
+##
+Tag(NonSexual)
+    ...
+    Darling, I need you tonight more than ever.
+##
+[Tag(NonSexual) || Tag(Foreplay)] && ToCum < 50
+    ...
+    Make love to me, baby. Take me and fuck me till I can't feel the pain anymore.
+##
+[Tag(NonSexual) || Tag(Foreplay)] && ToCum < 50
+    ...
+    I need you, baby. I need you to make love to me. Now.
+##
+Tag(Penetration)
+    ...
+    Ouuuuuu, yessss baby, fuck me deep. Fuck your little <A2.prince_or_princess> the way <A2.he_or_she> likes it. Ouuuuuuuuuuuuuu, faster baby, harder.
+##
+*START* Tag(Blowjob)
+    And, I'm going to give you a taste of what you want.
+    ...
+##
+*END* Tag(Couple)
+    You liked it, didn't you? 
+    Yes, I did ...
+##
+Tag(Penetration)
+    You want more, don't you?
+    Yes!
+##
+Tag(Penetration) && toCum > 50
+    ...
+    Oh, my god, baby! Yes! I'm...I'm...I'm almost...there! "Oooooooo, deeper!"
+##
+Tag(Penetration) && toCum > 50
+    ...
+    Ooooo, fuck me, you glorious <A1.bastard_or_bitch> ... Aaaaaaaa, deeper... I'm cu...cumming!
+##
+Tag(Penetration, Aggressive)
+    Then, scream out, if you want.
+    You're...hurting me, <A1.name>!
+##
+Tag(Penetration)
+    ...
+    Fuck me, baby ... Punish your baby <A2.boy_or_girl> with that cock.
+##
+[Tag(Cowgirl) || Tag(ReverseCowgirl)] && toCum > 50
+    ...
+    Hold me on it, baby, I'm gonna cum... ...so good.
+##
+Tag(Penetration) && toCum > 50
+    ...
+    Ccc...cumming, <A1.name>! God, oooooooohh...! I'm cccccummmminngggg so good! 

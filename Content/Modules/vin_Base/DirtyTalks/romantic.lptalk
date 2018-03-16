@@ -1,0 +1,23 @@
+Tag(Penetration) && !Tag(Aggressive) && A1.isDating() && A2.isPlayer() && A1:attractiontoplayer > 70
+    I love you, baby!
+    I love you too, honey. Make love to me!
+##
+Tag(Penetration) && !Tag(Aggressive) && A2.isDating() && A1.isPlayer() && A2:attractiontoplayer > 70
+    I love you too, baby!
+    I love you, honey. Make love to me!
+##
+!Tag(Aggressive) && !Tag(NonSexual) && [[A1.isDating() && A2.isPlayer()] || [A2.isDating() && A1.isPlayer()]] && A1:attractiontoplayer > 70
+    Baby, does that feel good?
+    Yes babe! Keep doing what you're doing ...
+##
+!Tag(Aggressive) && !Tag(NonSexual) && [[A1.isDating() && A2.isPlayer()] || [A2.isDating() && A1.isPlayer()]] && A1:attractiontoplayer > 70
+    Baby, does that feel good?
+    Yes babe! Keep doing what you're doing ...
+##
+!Tag(Aggressive) && !Tag(NonSexual) && [[A1.isDating() && A2.isPlayer()] || [A2.isDating() && A1.isPlayer()]] && A1:attractiontoplayer > 70
+    Baby, I just want to hold you here forever ...
+    Me too, my love!    
+
+
+     
+ 
