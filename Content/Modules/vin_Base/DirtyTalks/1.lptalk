@@ -1,5 +1,5 @@
 !Tag(Aggressive)
-    Oh baby, you're the only <A1.man_or_woman> I want in my life right now.
+    Oh baby, you're the only <A2.man_or_woman> I want in my life right now.
     ...
 ##
 Tag(Aggressive)
@@ -57,3 +57,167 @@ Tag(Penetration)
 Tag(Penetration) && toCum > 50
     ...
     Ccc...cumming, <A1.name>! God, oooooooohh...! I'm cccccummmminngggg so good! 
+##
+*START* Tag(Licking)
+    ...
+    I like to be ... licked ... you know ... down there.
+##
+*START* Tag(Licking)
+    ...
+    Now taste me!
+##
+Tag(NonSexual) || Tag(Foreplay)
+    You're making me crazy, you know that, don't you? I'm dizzy with wanting you so bad!
+    ...
+##
+Tag(Licking)
+    ...
+    Pay attention to the road, <A1.mister_or_miss>.
+##
+Tag(Penetration) && toCum > 70
+    ...
+    Aaaahhhhhhhh, fuuuuucccckkk ... uhhhh ... uhhh!
+##
+Tag(Penetration, MF)
+    ...
+    Damn... that's good! Keep fucking me, baby... that's it... keep that cock fucking me hard!
+##
+Tag(Penetration)
+    Fuck... You feel so great, baby... you look so great! Fuck ...
+    ...
+##
+Tag(Penetration)
+    ...
+    Ohhh, baby... YES! That's it... give it to me baby!
+##
+Tag(Penetration)
+    ...
+    I LOVE it.... yes, baby... please...
+##
+Tag(Penetration)
+    ...
+    Yes, please don't stop.
+##
+*START* Tag(Penetration)
+    ...
+    It's time
+##
+Tag(Penetration)
+    ...
+    Oh yes, please, fuck me!
+##
+*END* !Tag(NonSexual)
+    ...
+    Yes, yes, cum for me baby, CUM FOR ME!
+##
+*START* Tag(Foreplay)
+    ...
+    Can we play now?
+##
+*START* Tag(Blowjob)
+    ...
+    <A1.name>, let me please you. All you have to do is enjoy this time. I will handle everything.
+##
+*START* !Tag(NonSexual)
+    ...
+    I'm going to please you and see to it that this night is a night you will never forget.
+##
+*START* !Tag(NonSexual)
+    ...
+    Let's see what I can do to satisfy that urge you have to get off that wagon
+##
+Tag(NonSexual)
+    Please let me touch you, let me taste you, let me feel myself deep within you while your lips hold tightly to my shaft.
+    ...
+##
+*END* !Tag(NonSexual)
+    <A2.name>, that was incredible. Never in my life have I felt this way before ...
+    ...
+##
+*START* Tag(Penetration)
+    Much obliged!
+    Oh <A1.name>, put that beautiful prick where it belongs... I want it in me.
+##
+Tag(Penetration) && toCum > 90
+    ...
+    OHhhhh..... I'm going to cum. OH GOD.... I'm cumming..... I'm cumming.
+##
+Tag(Penetration) || Tag(Blowjob)
+    ...
+    Oh God.... <A1.name>, how big is that thing?
+##
+Tag(Penetration)
+    Am I hurting you? Should I stop?
+    No... No, don't stop!
+##
+Tag(Penetration) || Tag(Licking) || Tag(Fingering)
+    ...
+    It feels too good. 
+##
+Tag(Penetration) && toCum > 50
+    ...
+    Don't stop. Fuck me .... fuck me anyway you want to ... make me cum. 
+##
+Tag(Penetration)
+    ...
+    Ohh ... that's it ... fuck me ... Fuck me hard. Oh <A1.name>, go deep ... all the way ... as fast ... as hard as you can.
+##
+Tag(Penetration) && toCum > 90
+    Me too, baby!
+    I can't hold it ... can't ... I'm going to cum.
+##
+Tag(Penetration) && toCum > 90
+    ...
+    OHhhhh GOD, OOhhh, I'm cummmiiinng ... cummminnng!!!
+##
+*END* Tag(Penetration)
+    Neither did I, honey ...
+    Oh <A1.name> ... <A1.name>, I always thought those stories ... stories about multiple orgasms were just that - stories. Christ ... I didn't know I could cum like that.
+##
+Tag(Penetration)
+    ...
+    Fuck, baby, fuck!
+##
+Tag(Penetration)
+    ...
+    Fuck!
+##
+Tag(Penetration)
+    ...
+    Unh, ahh, oh god, oh sweet prick!
+##
+Tag(Penetration) && toCum > 50
+    ...
+    Oh god, this is heaven! Oh, it's never been so good! 
+##
+Tag(Penetration) && toCum > 50
+    I know I am, baby.
+    Ahh, I never knew it could feel so good. Oh, you're so hard. You've filled me up, oh darling, you're the best!
+##
+*END* Tag(Penetration)
+    ...
+    Oh god, keep cuming! Give me all you've got. Fill me up with it!
+##
+Tag(Penetration)
+    ...
+    Oh god, so good
+##
+Tag(Penetration)
+    A pretty <A2.boy_or_woman> like you needs a good hot fucking every day.
+    God, I wouldn't know what to do if I got it every day.
+##
+*START* Tag(Blowjob)
+    Suck my cock, baby.
+    ...
+##
+Tag(Blowjob)
+    Oh yeah, suck it, baby. Suck my dick, suck every inch of it.
+    ...
+##
+*END* Tag(Penetration) || Tag(Blowjob)
+    ...
+    I couldn't believe you can cum this much.
+##
+*END* !Tag(Penetration)
+    ...
+    I wish that was inside me!
