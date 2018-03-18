@@ -122,7 +122,7 @@ Tag(Penetration)
     ...
     I'm going to please you and see to it that this night is a night you will never forget.
 ##
-*START* !Tag(NonSexual)
+*START* Tag(Blowjob)
     ...
     Let's see what I can do to satisfy that urge you have to get off that wagon
 ##
@@ -221,3 +221,48 @@ Tag(Blowjob)
 *END* !Tag(Penetration)
     ...
     I wish that was inside me!
+##
+*START* Tag(Penetration)
+    I’m going to fuck you.
+    ...
+##
+*START* Tag(Penetration)
+    ...
+    You’re going to fuck me now.
+##
+Tag(NonSexual) || Tag(Blowjob)
+    You have the most beautiful eyes.
+    ...
+##
+*START* Tag(Penetration)
+    Put me inside of you.
+    ...
+##
+Tag(Penetration)
+    ...
+    Fuck me faster!
+##
+Tag(Penetration)
+    ...
+    Fuck me harder! Deeper!
+##
+Tag(Vaginal) && toCum > 90
+    ...
+    My cunt! Oh fill me! Fuck me! Oh yes!
+##
+*START* Tag(Licking) || Tag(Fingering)
+    You know I do ...
+    Like what you see?
+##
+*START* Tag(Blowjob)
+    I think I would like to see what you are going to do with that
+    Is this what you had in mind?
+##
+*START* Tag(Penetration)
+    I want to bury myself inside you.
+    Please do!
+##
+*START* Tag(Penetration)
+    ...
+    <A1.name>, I'm ready now, I want you very much.
+##
