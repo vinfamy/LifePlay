@@ -1,0 +1,29 @@
+WHAT: all
+WHERE: all
+WHEN: 16 - 24
+WHO: Dating = getSpecific(Dating)
+OTHER: none
+
+SceneStart()
+
+"Today is the anniversary of me and <Dating.name>. We decided to go to a fancy restaurant together."
+setBackground(restaurant)
+Dating.dress()
+Dating.show(2)
+"The dinner was great and <Dating.name> also gave me an expensive gift, but it's obvious what <Dating.name> truly wants from me as an anniversary gift ..."
+0:: "Invite <Dating.him_or_her> home for sex"
+1:: "Say goodbye"
+
+If 0
+    Dating:attractiontoplayer += Random(0, 2)
+    setBackground(home)
+    Sex(Player, Dating)
+    Dating.show(2)
+    "Anniversary sex is the best! I feel like nothing can separate us right now. May our relationship continue forever ...."
+Else
+    "I just don't feel like it today. After the dinner, we went back to our respective homes instead. <Dating.name> was clearly disappointed."
+    Dating:attractiontoplayer -= Random(0, 10)
+Endif
+
+timeout(8760, anniversary)
+SceneEnd()

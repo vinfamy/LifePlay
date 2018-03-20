@@ -1,0 +1,81 @@
+WHAT: all
+WHERE: all, -home
+WHEN: 0 - 24
+WHO: none
+OTHER: isWithCompanion() && CurrentCompanion.isDating() && CurrentCompanion.isDominantSex(Player) && If Random(20, 1000) < CurrentCompanion:attractiontoplayer + attractiveness - CurrentCompanion:attractiveness
+
+SceneStart()
+"It was in a middle of a date with <CurrentCompanion.name> when someone approached me ..."
+Flirter = generatePerson()
+While !Flirter.isInterestedIn(Player)
+    Flirter = generatePerson()
+endWhile
+
+Flirter.dress()
+Flirter:attractiontoplayer += Random(0, 30)
+Flirter.show(2)
+
+Flirter(Flirty):: "Excuse me, but did you just fall from heaven? You totally took my breath away. Can I have your number?"
+CurrentCompanion(Angry):: "Watch yourself there, <Flirter.dickhead_or_bitch>. <Player.She_or_He> is taken!"
+Flirter(Sarcastic):: "By you? Come on, surely a <Player.handsome_or_beautiful> <Player.man_or_woman> like this could do better than you <CurrentCompanion.asshole_or_slut>!"
+CurrentCompanion(Furious):: "Say that one more time, you <Flirter.cunt_or_bitch>!"
+"This is getting very heated. What should I do?"
+0:: "Let them fight"
+1:: "Calm them down"
+
+If 0
+    CurrentCompanion(Furious):: "<Flirter.Cunt_or_Bitch>, take this!"
+    Flirter(Furious):: "You dare sucker-punch me? Take this!"
+    "Oh no, this is now totally out of control. They are going at each other."
+    
+    If CurrentCompanion:martial > Flirter:martial
+        Flirter.hide()
+        Flirter:attractiontoplayer -= Random(0, 100)
+        "<CurrentCompanion.name> beat the stranger thoroughly, the latter ending up running away for <Flirter.his_or_her> life."
+        0:: "Thank <CurrentCompanion.name>"
+        1:: "Tell <CurrentCompanion.name> off"
+        
+        If 0
+            Player(Happy):: "Baby, that was so brave of you, standing up to protect me like that!"
+            CurrentCompanion:attractiontoplayer += Random(0, 2)
+        Else
+            Player(Angry):: "<CurrentCompanion.name>! You acted like a thug. You ruined our date!"
+            CurrentCompanion:attractiontoplayer -= Random(0, 2)        
+        Endif
+    Else
+        CurrentCompanion.hide()
+        "Unfortunately, <CurrentCompanion.name> was completely beaten. The stranger was way too strong for <CurrentCompanion.him_or_her>."
+        Flirter(Flirty):: "Did you see that, baby? I told you that you deserved better than that pathetic scum"
+        0:: "Attend to <CurrentCompanion.name>'s injuries"
+        1:: "Exchange numbers with <Flirter.name>"
+        2:: isModEnabled(vin_VanillaPorn):: "Fuck <Flirter.name>"
+        
+        If 0
+            Player(Angry):: "Get the fuck away from me, you thug! Or I'll call the police."
+            Flirter.hide()
+            Player(Anxious):: "Baby, are you okay? Are you hurt?"
+            CurrentCompanion:attractiontoplayer += Random(0, 2)
+        Elseif 1
+            "I must admit: seeing <Flirter.name> teach my weak-ass <CurrentCompanion.boyfriend_or_girlfriend> a lesson was a huge turn-on."
+            "Without letting <CurrentCompanion.name> notice, I managed to slip my number to <Flirter.name>. <CurrentCompanion.name> would be furious if <CurrentCompanion.he_or_she> ever finds out ..."
+            Player(Anxious):: "Baby, are you okay? Are you hurt?"
+            "I then proceeded to pretend to be concerned about <CurrentCompanion.name>'s injuries ..."
+            exchangeContact(Flirter)
+        Else
+            "What a pathetic <CurrentCompanion.boyfriend_or_girlfriend> I have! I might as well humilate <CurrentCompanion.him_or_her>!"
+            Player(Flirty):: "Maybe you're right, I deserve someone stronger. Come here you, claim your prey!"
+            Flirter(Flirty):: "Much obliged, baby!"
+            
+            CurrentCompanion:attractiontoplayer -= Random(0, 100)
+            Sex(Flirter, Player)
+            Flirter.show(2)
+            Flirter(Flirty):: "That was amazing, baby. Listen, the next time you get bored of your pathetic <CurrentCompanion.boyfriend_or_girlfriend>, don't forget to call me!"
+            exchangeContact(Flirter)
+        Endif      
+    Endif
+Else
+    "I managed to calm them down. It can be flattering to see your <CurrentCompanion.boyfriend_or_girlfriend> being a bit possessive of you, but this was going too far."
+Endif
+
+timeout(200, dating_jealous)
+SceneEnd()

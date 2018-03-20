@@ -1,0 +1,5 @@
+WHAT: work
+WHERE: work
+WHEN: 19 - 23
+WHO: Boss = getSpecific(Boss); Colleague = getSpecific(Colleague); If Boss:perversion > 60 && Boss.isInterestedIn(Colleague) && !Boss.isDating()
+OTHER: Random(0, 100) < 0.2*sneak

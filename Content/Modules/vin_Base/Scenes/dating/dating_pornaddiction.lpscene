@@ -1,0 +1,31 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0 - 24
+WHO: Dating = getSpecific(Dating); If Dating:perversion > Random(50, 100)
+OTHER: !isWithCompanion() && !isAtHome() && Random(0, 1000) < intelligence
+
+SceneStart()
+
+"By accident, I came across <Dating.name>'s browser history, which was full of porn sites! In fact, I'm pretty sure watching porn is all <Dating.he_or_she> ever does when I'm not around. What should I do about this?"
+0:: "Nothing"
+1:: "Tell <Dating.him_or_her> off"
+2:: "Encourage <Dating.him_or_her> to seek professional help"
+
+If 0
+    "What's the big deal? Who doesn't watch porn from time to time? In fact, I probably should take note of what <Dating.he_or_she> is into so that we can have more fun in bed!"
+    perversion += Random(0, 0.5)
+Elseif 1
+    "I decided to take the moral high ground and be quite judgemental to <Dating.him_or_her> about his porn habits. I hope that being embarassed would stop <Dating.him_or_her> from watching so much porn all the time."
+    Dating:attractiontoplayer -= Random(0, 2)
+Else
+    "It's clear <Dating.name> has a bad porn addiction. <Dating.He_or_She> needs professional help!"
+    Dating.dress()
+    Dating.show(2)
+    Dating(Sad):: "Okay baby, I'm willing to give counseling a try."
+    "After a few sessions, <Dating.name>'s addiction seems to have reduced a bit and <Dating.he_or_she> thanked me for encouraging <Dating.him_or_her> to seek help in the first place."
+    Dating:perversion -= Random(0, 2)
+    Dating:attractiontoplayer += Random(0, 2)
+Endif
+
+timeout(200, dating_pornaddiction)
+SceneEnd()

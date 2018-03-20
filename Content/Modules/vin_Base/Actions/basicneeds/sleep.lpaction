@@ -5,7 +5,7 @@ WHEN: 0 - 24
 MINUTES: 360 - 600
 TIMEOUT_MINUTES: 1200
 ALSO_TIMEOUT: nap
-EFFECTS: mood +30 (END), fitness +0.02 (END), intelligence +0.01 (END), attractiveness +0.01 (END), energy +50 (DURATION), mood -10 (INTERRUPTED)
+EFFECTS: mood +30 (END), fitness +0.02 (END), intelligence +0.01 (END), attractiveness +0.01 (END), energy +100 (DURATION), mood -10 (INTERRUPTED)
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:

@@ -1,0 +1,24 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0 - 24
+WHO: Dating = getSpecific(Dating); If Dating:perversion > Random(70, 100)
+OTHER: !isWithCompanion() && !isAtHome() && Random(0, 1000) < intelligence
+
+SceneStart()
+
+"By accident, I found out that <Dating.name> has been paying for adult webcam shows online! In fact, I'm pretty sure it's one of <Dating.his_or_her> favorite pastimes when I'm not around. What should I do about this?"
+0:: "Nothing"
+1:: "Accuse <Dating.him_or_her> of cheating"
+
+If 0
+    "What's the big deal? <Dating.He_or_She> just has a healthy sex drive and needs to release when I'm not around. Watching a naked <Player.guy_or_girl> masturbating on webcam is harmless - It's not like <Dating.name> is actually fucking the webcam model!"
+    perversion += Random(0, 1)
+    masochist += Random(0, 0.5)
+Else
+    "I got very upset and quite frankly, I considered this 'cyber cheating'. I made it known to <Dating.name> that this is unacceptable and must stop immediately if <Dating.name> wants to stay in a relationship with me."
+    Dating:attractiontoplayer -= Random(0, 2)
+    Dating:peversion -= Random(0, 1)
+Endif
+
+timeout(200, dating_webcamshow)
+SceneEnd()

@@ -1,0 +1,30 @@
+WHAT: take_photos_MULTIPLE
+WHERE: all
+WHEN: 0 - 24
+WHO: none
+OTHER: isWithCompanion() && CurrentCompanion.isDating()
+
+SceneStart()
+
+"Me and my <CurrentCompanion.boyfriend_or_girlfriend> just took a cute photo together. Should I share this on social media?"
+0:: "Yes"
+1:: "No"
+
+If 0
+    "I decided to go ahead and share the photo on my social media accounts. This certainly pleases <CurrentCompanion.name> as it clearly reminds my other admirers that I'm taken."
+    Admirer = getPerson(true)
+    count = 0
+    While count < 20 && Admirer.isValid()
+        If !Admirer.isDating() && Admirer:attractiontoplayer > 0
+            Admirer:attractiontoplayer -= Random(0, 2)
+        Endif
+        Admirer = getPerson(true)
+        count += 1
+    Endwhile
+    CurrentCompanion:attractiontoplayer += Random(0, 3)
+Else
+    "I'm not a big fan of flaunting our relationship online really ..."
+Endif
+
+timeout(48, social_media_dating)
+SceneEnd()

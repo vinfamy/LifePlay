@@ -1,0 +1,28 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all, -work
+WHEN: 18 - 24
+WHO: Dating = getSpecific(Dating); If Random(50, 400) < Dating:perversion + Dating:attractiontoplayer
+OTHER: !isWithCompanion()
+
+SceneStart()
+
+"I just received a text message. It's from <Dating.name>."
+Dating.dress()
+Dating.show(2)
+Dating(Flirty):: "Baby, send me a sexy selfie!"
+0:: "Yes"
+1:: "No"
+
+If 0
+    "I found a private place to snap a sexy selfie for my <Dating.boyfriend_or_girlfriend>."
+    Dating(Flirty):: "Wow baby, that was quick ... and very nice indeed."
+    Player(Flirty):: "Only for you, love."
+    perversion += Random(0, 0.25)
+    Dating:attractiontoplayer += Random(0, 0.5)
+Else
+    "I ignored <Dating.name>'s peverted request and got on with my day."
+    Dating:attractiontoplayer -= Random(0, 0.5)
+Endif
+
+timeout(48, sexy_selfie_for_dating)
+SceneEnd()

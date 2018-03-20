@@ -180,7 +180,8 @@ If WalkedHome
             Elseif Random(0, 100) < 20
                 If Dating
                     "After a while, we were both exhausted and went to bed together for the night."
-                    passTime(6, 10)
+                    passTime(4, 8)
+                    energy += Random(50, 100)
                     "The next morning ..."
                     If MyHome
                         CurrentCompanion(Happy):: "I've gotta go now, honey. Thanks for letting me stay the night. I can't wait to see you again soon!"

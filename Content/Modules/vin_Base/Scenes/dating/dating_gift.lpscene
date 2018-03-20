@@ -1,0 +1,43 @@
+WHAT: all
+WHERE: all
+WHEN: 0 - 24
+WHO: none
+OTHER: isWithCompanion() && Random(0, 100) < CurrentCompanion:attractiontoplayer
+
+SceneStart()
+CurrentCompanion.show(2)
+
+"I was walking with <CurrentCompanion.name> when <CurrentCompanion.he_or_she> suddenly stops to say something to me."
+CurrentCompanion(Happy):: "Look, I got you a gift."
+0:: "Thank <CurrentCompanion.him_or_her>"
+1:: perversion > 50 || CurrentCompanion.isDating():: "Thank <CurrentCompanion.him_or_her> with sex"
+2:: "Refuse the gift"
+
+If 0
+    "I thanked <CurrentCompanion.name> for being so thoughtful and said I enjoyed the gift very much"
+    Player(Excited):: "Wow, you really do know what I like ..."
+    CurrentCompanion:attractiontoplayer += Random(0, 1)
+Elseif 1
+    Player(Flirty):: "Aw, that's so sweet of you. You know what? I think you deserve more than a normal thank-you, don't you agree?"
+    If CurrentCompanion.isDating() || Random(0, 100) < CurrentCompanion:perversion + CurrentCompanion:attractiontoplayer
+        CurrentCompanion(Flirty):: "Yes, I absolutely agree ..."
+        moveTo(home)
+        setbackground(Home)
+        "We went back to my place. As soon as we were there, I proceeded to give <CurrentCompanion.him_or_her> <CurrentCompanion.his_or_her> reward."
+        Sex(Player, CurrentCompanion)
+        CurrentCompanion.show(2)
+        CurrentCompanion(Flirty):: "You know what? I think I will give you even more gifts now every day. It's definitely worth it."
+        CurrentCompanion:attractiontoplayer += Random(0, 5)
+        perversion += Random(0, 0.25)
+    Else
+        CurrentCompanion(Irritated):: "No, that's not necessary. I was just trying to be nice, don't read too much into it. I'm not expecting anything from you."
+        "Oh well, I thought I would offer. It's <CurrentCompanion.his_or_her> loss being too much of a <CurrentCompanion.gentleman_or_lady>."
+        CurrentCompanion:attractiontoplayer -= Random(0, 1)
+    Endif
+Else
+    "I decided to refuse the gift. <CurrentCompanion.name> seemed quite offended."
+    CurrentCompanion:attractiontoplayer -= Random(0, 2)
+Endif
+
+timeout(24, dating_gift)
+SceneEnd()

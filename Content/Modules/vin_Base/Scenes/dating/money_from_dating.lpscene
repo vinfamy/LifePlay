@@ -1,0 +1,31 @@
+WHAT: all
+WHERE: all
+WHEN: 0 - 24
+WHO: Dating = getSpecific(Dating)
+OTHER: !isWithCompanion() && money < 0
+
+SceneStart()
+
+"I have been struggling financially recently. Maybe I should ask <Dating.name> for help?"
+0:: "Yes"
+1:: "No"
+
+If 0
+    Dating.dress()
+    Dating.show(2)
+    If Random(0, 200) < Dating:intelligence + Dating:interpersonal + Dating:attractiontoplayer
+        Dating(Happy):: "Of course, baby. Here, I'll transfer the money you need into your account right away. My money is your money!"
+        money += Random(500, 3000)
+    Else
+        Dating(Sad):: "I'm sorry, baby. I'd love to help you out, but I'm short on money myself ..."
+    Endif
+    
+    If Player.isDominantSex(Dating)
+        Dating:attractiontoplayer -= Random(0, 10)
+    Endif
+Else
+    "No, I can't do that. I'm an indepedent <Player.man_or_woman>. I shouldn't have to rely on my <Dating.boyfriend_or_girlfriend> to survive."
+Endif
+
+timeout(500, money_from_dating)
+SceneEnd()

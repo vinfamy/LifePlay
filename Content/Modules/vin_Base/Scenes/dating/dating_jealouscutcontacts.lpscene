@@ -1,0 +1,45 @@
+WHAT: all
+WHERE: home
+WHEN: 0 - 24
+WHO: Admirer = getPerson(true); If Admirer:attractiontoplayer > 10
+OTHER: isWithCompanion() && CurrentCompanion.isDating() && If Random(20, 400) < CurrentCompanion:attractiontoplayer + attractiveness - CurrentCompanion:attractiveness
+
+SceneStart()
+
+CurrentCompanion.show(2)
+CurrentCompanion(Angry):: "So, who's <Admirer.name> that keeps texting you? Your text exchanges seemed more than friendly."
+0:: masochist < 30:: "Tell <CurrentCompanion.him_or_her> off for invading my privacy"
+1:: "Say <Admirer.name> is just a friend"
+
+If 0
+    Player(Angry):: "<CurrentCompanion.name>, I don't have to respond to your questioning because I'm not your possession. You have no right to go through my text messages like that."
+    If Random(0, 200) < interpersonal + CurrentCompanion:masochist
+        CurrentCompanion(Surprised):: "Sorry baby, I shouldn't have been so jealous. It's my fault. I will never go through your phone again ..."
+    Else
+        CurrentCompanion(Angry):: "Oh? It sounds like <Admirer.name> is definitely a lot more than your friend then. It was a simple question, why did you get all defensive?"
+        CurrentCompanion:attractiontoplayer -= Random(0, 5)
+    Endif
+Else
+    Player(Irritated):: "<Admirer.name> is just my friend. <Admirer.He_or_She> just likes to flirt sometimes but it's harmless."
+    If CurrentCompanion:masochist > Random(0, 30)
+        CurrentCompanion(Sad):: "I guess you're right. Sorry I asked."
+    Else
+        CurrentCompanion(Angry):: "Oh yeah? And am I supposed to just put up with your 'friendly flirting'? I'm your <CurrentCompanion.boyfriend_or_girlfriend>."
+        CurrentCompanion(Angry):: "I'm only going to say this once: cut off all contacts with this <Admirer.name> immediately!"
+        0:: "Block <Admirer.name>"
+        1:: masochist < 50:: "Refuse"
+        
+        If 0
+            Player(Sad):: "I guess I have no other choice. Baby, you're more important to me than this friend could ever be."
+            blockContact(Admirer)
+            "It might have been totally unfair to <Admirer.name>, but I had to do it or risk damaging our relationship."
+        Else
+            Player(Angry):: "I'm afraid I'm not willing to do that. <Admirer.name> is my friend and has done nothing wrong ..."
+            "We then went on to have a massive argument. I'm not sure how long this relationship can survive with <CurrentCompanion.name> being so possessive."
+            CurrentCompanion:attrationtoplayer -= Random(0, 5)
+        Endif
+    Endif
+Endif
+
+timeout(200, dating_jealouscutcontacts)
+SceneEnd()

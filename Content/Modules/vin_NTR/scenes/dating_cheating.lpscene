@@ -1,0 +1,74 @@
+WHAT: all
+WHERE: home
+WHEN: 0 - 24
+WHO: Dating = getSpecific(Dating); If Random(0, 5000) < Dating:perversion - 2*Dating:attractiontoplayer
+OTHER: !isAtHome()
+
+SceneStart()
+
+"I'm paying a surprise visit to my <Dating.boyfriend_or_girlfriend> today. I'm sure <Dating.he_or_she> will be glad when <Dating.he_or_she> sees me."
+"Wait, what's that sound? Someone is ... moaning?"
+DatingAffair = generatePerson()
+While !Dating.isInterestedIn(DatingAffair) 
+    DatingAffair = generatePerson()
+Endwhile
+
+DatingAffair.dress()
+Dating.dress()
+DatingAffair.strip()
+Dating.strip()
+Sex(Dating, DatingAffair)
+Dating.show(2)
+DatingAffair.show(3)
+
+"Oh no! My <Dating.boyfriend_or_girlfriend) is cheating on me! I don't know how to feel about this ..."
+0:: "I'm heartbroken"
+1:: "I'm turned on"
+
+If 0
+    "That <Dating.bastard_or_bitch> betrayed my trust for <Dating.him_or_her> and it broke my heart."
+    cuckold = false
+    mood -= Random(50, 100)
+Else
+    "I felt strangely aroused by the image of my <Dating.boyfriend_or_girlfriend> being with another <DatingAffair.man_or_woman>."
+    perversion += Random(0, 0.5)
+    cuckold = true
+Endif
+
+"What should I do?"
+0:: "Stay silent"
+1:: "Catch <Dating.him_or_her> red-handed"
+
+If 0
+    "I decided to take no action. I quietly left and <Dating.name> never found out that I caught <Dating.him_or_her> in the act."
+Else
+    "I made my presence known to the pair of adulterers ..."
+    Dating(Shocked):: "<Player.name>? Oh no ... Please, let me explain. This isn't what it looks like ..."
+    "<Dating.name> went on to make plenty of excuses for the affair, none of which were particularly convincing."
+    0:: "Dump <Dating.his_or_her> ass"
+    1:: "Forgive <Dating.him_or_her>"
+    2:: cuckold:: "Admit I enjoyed watching"
+    
+    If 0
+        Player(Angry):: "Do you take me for a fool? Our relationship is over, you cheating <Dating.asshole_or_whore>. Bye!"
+        "And just like that, we broke up. A <Dating.boyfriend_or_girlfriend> like that was good riddance!"
+        loseDating()
+    Elseif 1
+        Player(Sad):: "I guess after everything we've been through, you deserve a final chance, but you must cut all contacts with <DatingAffair.him_or_her> ..."
+        "I decided to forgive <Dating.him_or_her> and tried to save this relationship. I don't know if this trust is misplaced or not ..."
+        Dating:attractiontoplayer += Random(0, 30)
+    Else
+        Player(Flirty):: "I must admit ... I kinda enjoyed watching that ..."
+        perversion += Random(0, 0.5)
+        Dating(Flirty):: "Oh, you did? You naughty <Player.boy_or_girl>! Come here, babe, I still have enough energy for another round!"
+        DatingAffair.hide()
+        Sex(Player, Dating)
+        Dating.show(2)
+        Player(Flirty):: "Wow, that was amazing, baby. I guess I could forgive you then if every night is like this ..."
+        Dating(Flirty):: "Oh baby, you're the best!"
+    Endif
+Endif
+
+timeout(500, dating_cheating)
+
+SceneEnd()

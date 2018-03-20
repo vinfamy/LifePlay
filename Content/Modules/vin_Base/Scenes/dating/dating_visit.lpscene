@@ -1,0 +1,38 @@
+WHAT: all
+WHERE: home
+WHEN: 18 - 22
+WHO: Dating = getSpecific(Dating); If Random(0, 200) < Dating:perversion + Dating:attractiontoplayer
+OTHER: !isWithCompanion() && IsAtHome()
+
+SceneStart()
+"I was at home when I heard a knock on the door."
+Dating.dress()
+Dating.show(2)
+Dating(Happy):: "Baby, it's me. Can I come in?"
+0:: "Invite <Dating.him_or_her> in"
+1:: "Excuse yourself"
+
+If 0
+    Player(Happy):: "Of course baby, you're welcome here anytime - my home is your home. I'm coming ..."
+    "I let <Dating.name> inside the apartment and we proceeded to spend the evening together. It's getting late now, however, and I need to decide my next move."
+    0:: "Invite <Dating.him_or_her> to bed"
+    1:: "Ask <Dating.him_or_her> to leave"
+    
+    If 0
+        Dating(Flirty):: "Of course, how can I turn down someone as sexy as you?"
+        Sex(Player, Dating)
+        Dating.show(2)
+        Dating:attractiontoplayer += Random(0, 2)
+        "After sex, we took a shower together and went to sleep, cozying up to each other all night."
+    Else
+        Player(Sad):: "Baby, it's been fun. But I'm really tired now and I need to get up early in the morning for work. Do you mind ..."
+        Dating(Happy):: "Of course not, baby. I was planning to head out soon anyway. Have a good night, sweet."
+    Endif
+Else
+    Player(Sad):: "Sorry babe, you caught me at a bad time. I'm heading out to something important in a minute or two. Come back tomorrow."
+    Dating(Sad):: "It's alright, I guess. I'll just come back another day."
+    Dating:attractiontoplayer -= Random(0, 2)
+Endif
+
+timeout(24, dating_visit)
+SceneEnd()

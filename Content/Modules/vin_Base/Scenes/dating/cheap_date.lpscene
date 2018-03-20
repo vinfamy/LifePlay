@@ -1,0 +1,24 @@
+WHAT: all
+WHERE: all
+WHEN: 17 - 21
+WHO: none
+OTHER: isWithCompanion() && CurrentCompanion.isDating() && CurrentCompanion.isDominantSex(Player) && CurrentCompanion:attractiontoplayer + CurrentCompanion:intelligence + CurrentCompanion:interpersonal < Random(0, 200)
+
+SceneStart()
+CurrentCompanion.show(2)
+setBackground(fast_food)
+
+"<CurrentCompanion.name> can be quite cheap sometimes - <CurrentCompanion.he_or_she> took me to a horrible fast food chain for dinner tonight. I didn't enjoy it at all."
+0:: "Thank <CurrentCompanion.him_or_her> anyway"
+1:: "Complain"
+
+If 1
+    "I'm no gold-digger. It doesn't matter how expensive the dates <CurrentCompanion.name> takes me on, what matters is the person. I thanked <CurrentCompanion.name> anyway for taking me out."
+    CurrentCompanion:attractiontoplayer += Random(0, 2)
+Else
+    "This was unacceptable. I called <CurrentCompanion.him_or_her> out for being cheap and <CurrentCompanion.he_or_she> seemed visibly embarassed."
+    CurrentCompanion:attractiontoplayer -= Random(0, 1)
+Endif
+
+timeout(500, cheap_date)
+SceneEnd()

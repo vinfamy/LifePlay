@@ -1,0 +1,24 @@
+WHAT: all
+WHERE: home
+WHEN: 0 - 24
+WHO: none
+OTHER: isAtHome() && isWithCompanion() && CurrentCompanion.isDating() && [[CurrentCompanion.isDominantSex(Player) && Dating:attractiontoplayer > 40] || CurrentCompanion:attractiontoplayer > 80]
+
+SceneStart()
+
+CurrentCompanion.show(2)
+CurrentCompanion(Happy):: "Baby, I was just thinking: Why don't you move in to live with me? I think our relationship is at the stage where we could move on to the next level by living together ..."
+0:: "Yes"
+1:: "No"
+
+If 0
+    "I accepted <CurrentCompanion.name>'s offer. It would be a good experience living together. Besides, I can save quite a bit of money on rent."
+    loseHome()
+    CurrentCompanion:attractiontoplayer += Random(0, 10)
+Else
+    "I turned down <CurrentCompanion.name>'s offer. It's too early in our relationship to think about moving in together."
+    CurrentCompanion:attractiontoplayer -= Random(0, 2)
+Endif
+
+timeout(1000, move_in_with_dating)
+SceneEnd()
