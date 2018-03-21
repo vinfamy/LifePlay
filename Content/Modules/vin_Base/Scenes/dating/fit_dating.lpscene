@@ -1,0 +1,28 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 0 - 24
+WHO: Dating = getSpecific(Dating); If Dating:fitness > 70
+OTHER: fitness < Random(0, 60)
+
+SceneStart()
+Dating.dress()
+Dating.show(2)
+"I must admit: my <Dating.boyfriend_or_girlfriend> <Dating.name> is far more athletic than me and lives a rather healthy lifestyle. I sometimes feel like the out-of-shape one in the relationship."
+0:: "Ask <Dating.name> for help"
+1:: "Do nothing"
+
+If 0
+    If Random(0, 50) < Dating:attractiontoplayer
+        "<Dating.name> agreed to help me become healthier. <Dating.He_or_She> took me to the gym with <Dating.him_or_her> and designed training and diet plans for me."
+        fitness += Random(0, 1)
+        Dating:attractiontoplayer += Random(0, 2)
+    Else
+        "Although <Dating.name> promised to help me, <Dating.he_or_she> ended up being too busy to really spend time as my personal trainer and nutritionist."
+    Endif
+Else
+    "It doesn't matter. I'm proud of who I am and <Dating.name> should be too."
+    Dating:attractiontoplayer -= Random(0, 1)
+Endif
+
+timeout(200, fit_dating)
+SceneEnd()

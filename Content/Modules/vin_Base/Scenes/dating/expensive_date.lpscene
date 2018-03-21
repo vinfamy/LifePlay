@@ -22,9 +22,9 @@ If 0
         setBackground(home)
         "I think <CurrentCompanion.name> deserves something more than a simple thank-you ... I invited <CurrentCompanion.him_or_her> home after dinner. <CurrentCompanion.He_or_She> knew exactly what I was offering ..."
         CurrentCompanion:attractiontoplayer += Random(0, 2)
-        Sex(Dating, Player)
-        Dating.show(2)
-        Dating(Flirty):: "Oh baby, I should take you out a lot more often if this is my reward!"
+        Sex(CurrentCompanion, Player)
+        CurrentCompanion.show(2)
+        CurrentCompanion(Flirty):: "Oh baby, I should take you out a lot more often if this is my reward!"
     Else
         "We finished the fancy dinner and continued our date."
     Endif

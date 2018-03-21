@@ -1,0 +1,28 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 0 - 24
+WHO: Dating = getSpecific(Dating); If Dating:attractiveness < Random(0, 60)
+OTHER: attractiveness > 70
+
+SceneStart()
+Dating.dress()
+Dating.show(2)
+"I must admit: my <Dating.boyfriend_or_girlfriend> <Dating.name> isn't the most attractive person in the world and is also rather clueless on fashion. Worse, <Dating.he_or_she> seems to make no attempts to dress better."
+0:: "Encourage <Dating.name> to be better-dressed"
+1:: "Do nothing"
+
+If 0
+    If Random(0, 150) < interpersonal + attractiveness 
+        "Motivated by my encouragements, <Dating.name> became a bit more fashionable and at least tries to look good in public."
+        Dating:attractiveness += Random(0, 2)
+    Else
+        "Unfortunately, despite my encouragements, <Dating.name> still refused to wear decent clothes. <Dating.He_or_She> even accused me of being shallow."
+        Dating:attractiontoplayer -= Random(0, 2)
+    Endif
+Else
+    "It doesn't matter. I like <Dating.name> just the way <Dating.he_or_she> is."
+    Dating:attractiontoplayer += Random(0, 1)
+Endif
+
+timeout(200, ugly_dating)
+SceneEnd()

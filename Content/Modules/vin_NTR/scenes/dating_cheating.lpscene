@@ -8,6 +8,7 @@ SceneStart()
 
 "I'm paying a surprise visit to my <Dating.boyfriend_or_girlfriend> today. I'm sure <Dating.he_or_she> will be glad when <Dating.he_or_she> sees me."
 "Wait, what's that sound? Someone is ... moaning?"
+Player.hide()
 DatingAffair = generatePerson()
 While !Dating.isInterestedIn(DatingAffair) 
     DatingAffair = generatePerson()
@@ -18,10 +19,11 @@ Dating.dress()
 DatingAffair.strip()
 Dating.strip()
 Sex(Dating, DatingAffair)
+Player.show(0)
 Dating.show(2)
 DatingAffair.show(3)
 
-"Oh no! My <Dating.boyfriend_or_girlfriend) is cheating on me! I don't know how to feel about this ..."
+"Oh no! My <Dating.boyfriend_or_girlfriend> is cheating on me! I don't know how to feel about this ..."
 0:: "I'm heartbroken"
 1:: "I'm turned on"
 

@@ -2,7 +2,7 @@ WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 0 - 24
 WHO: Dating = getSpecific(Dating); If Dating:attractiontoplayer < Random(0, 70)*Random(0, 1)*Random(0, 1)
-OTHER: !isAtHome()
+OTHER: !isAtHome() && !isWithCompanion()
 
 SceneStart()
 Dating.dress()

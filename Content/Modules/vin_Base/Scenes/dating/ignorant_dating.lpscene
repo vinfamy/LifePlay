@@ -1,0 +1,28 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 0 - 24
+WHO: Dating = getSpecific(Dating); If Dating:intelligence < Random(0, 60)
+OTHER: intelligence > 70
+
+SceneStart()
+Dating.dress()
+Dating.show(2)
+"I must admit: my <Dating.boyfriend_or_girlfriend> <Dating.name> isn't the most intelligent person in the world and is rather ignorant on many topics. Worse, <Dating.he_or_she> has very few intellectual pursuits."
+0:: "Encourage <Dating.name> to read more"
+1:: "Do nothing"
+
+If 0
+    If Random(0, 150) < interpersonal + intelligence 
+        "Motivated by my encouragements, <Dating.name> developed somewhat of a habit of reading and has become more knowledgeable on many subjects as a result."
+        Dating:intelligence += Random(0, 2)
+    Else
+        "Unfortunately, despite my encouragements, <Dating.name> still refused to improve <Dating.his_or_her> general knowledge. <Dating.He_or_She> even accused me of intellectual snobbery."
+        Dating:attractiontoplayer -= Random(0, 2)
+    Endif
+Else
+    "It doesn't matter. I like <Dating.name> just the way <Dating.he_or_she> is."
+    Dating:attractiontoplayer += Random(0, 1)
+Endif
+
+timeout(200, ignorant_dating)
+SceneEnd()

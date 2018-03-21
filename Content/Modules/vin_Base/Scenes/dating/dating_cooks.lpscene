@@ -1,0 +1,27 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 0 - 24
+WHO: Dating = getSpecific(Dating); If Dating:cooking > 70
+OTHER: cooking < Random(0, 60)
+
+SceneStart()
+Dating.dress()
+Dating.show(2)
+"I must admit: my <Dating.boyfriend_or_girlfriend> <Dating.name> is a much better cook than me. I'm a bit embarassed that <Dating.he_or_she> is always the one to cook for me in this relationship."
+0:: "Ask <Dating.name> for help"
+1:: "Do nothing"
+
+If 0
+    If Random(0, 50) < Dating:attractiontoplayer
+        "<Dating.name> agreed to help me become a better cook. <Dating.He_or_She> spent a lot of time with me trying out new recipes and cooking together."
+        cooking += Random(0, 1)
+        Dating:attractiontoplayer += Random(0, 1)
+    Else
+        "Although <Dating.name> promised to help me, <Dating.he_or_she> ended up being too busy to really spend time as my culinary instructor."
+    Endif
+Else
+    "It doesn't matter. I'm proud of who I am and <Dating.name> should be too."
+Endif
+
+timeout(200, dating_cooks)
+SceneEnd()

@@ -1,0 +1,41 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 0 - 24
+WHO: Dating = getSpecific(Dating); Ex = getSpecific(ExDating); If Ex.isContactExchanged() && Ex:attractiontoplayer > 40 && Dating:attractiontoplayer > 40
+OTHER: !isWithCompanion()
+
+SceneStart()
+Dating.dress()
+Ex.dress()
+
+Dating.show(2)
+Ex.show(3)
+
+"<Dating.name> and my colleague <Ex.name> clearly don't like each other. <Dating.name> has not stopped accusing <Ex.name> of still harboring romantic intention of getting back with me, while <Ex.name> couldn't believe I ended up with someone like <Dating.name> after <Ex.him_or_her>."
+0:: "Spend more time with <Dating.name>, my <Dating.boyfriend_or_girlfriend>"
+1:: "Be more flirtatous to <Ex.name>, my ex"
+2:: "Try to mediate"
+
+If 0
+    "I decided to be on <Dating.name>'s side on this and spent more time with <Dating.him_or_her>. <Dating.He_or_She> is my <Dating.boyfriend_or_girlfriend> after all! Of course, this also sent a message to <Ex.name>."
+    Dating:attractiontoplayer += Random(0, 5)
+    Ex:attractiontoplayer -= Random(0, 5)
+Elseif 1
+    "I decided to be on <Ex.name>'s side on this and openly flirted with <Ex.him_or_her> many times. Of course, my blatant betrayal clearly upset <Dating.name>."
+    Dating:attractiontoplayer -= Random(0, 5)
+    Ex:attractiontoplayer += Random(0, 5)
+Else
+    "I'd rather not have to choose. I tried instead to find a resolution to their conflict."
+    If Random(0, 200) < interpersonal
+        "My effort worked out, their relationship has improved somewhat. They still aren't thrilled to see each other but at least they have stopped going at each other all the time."
+        Dating:attractiontoplayer += Random(0, 2)
+        Ex:attractiontoplayer += Random(0, 2)
+    Else
+        "My effort failed miserably. Not only did their relationship not get any better, they were both annoyed that I tried to make them friends and refused to pick a side."
+        Dating:attractiontoplayer -= Random(0, 5)
+        Ex:attractiontoplayer -= Random(0, 5)
+    Endif
+Endif
+
+timeout(500, dating_and_ex)
+SceneEnd()

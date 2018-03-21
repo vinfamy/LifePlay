@@ -1,0 +1,30 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 0 - 24
+WHO: Dating = getSpecific(Dating); If Dating:perversion > 70
+OTHER: perversion < Random(0, 60)
+
+SceneStart()
+Dating.dress()
+Dating.show(2)
+"I must admit: my <Dating.boyfriend_or_girlfriend> <Dating.name> is far more experienced sexually than me and is rather adventurous in bed. I sometimes feel like the prude in the relationship."
+0:: "Ask <Dating.name> to 'train' me"
+1:: "Do nothing"
+
+If 0
+    If Random(0, 50) < Dating:attractiontoplayer
+        "<Dating.name> agreed to teach me a thing or two in bed. Practice makes perfect!"
+        perversion += Random(0, 1)
+        Dating:attractiontoplayer += Random(0, 2)
+        setBackground(home)
+        Sex(Dating, Player)
+    Else
+        "Although <Dating.name> promised to help me, <Dating.he_or_she> ended up being too busy to have sex with me more often."
+    Endif
+Else
+    "It doesn't matter. I'm proud of who I am and <Dating.name> should be too."
+    Dating:attractiontoplayer -= Random(0, 1)
+Endif
+
+timeout(200, perverted_dating)
+SceneEnd()

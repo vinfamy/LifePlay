@@ -13,7 +13,7 @@ Friend.show(3)
 
 "Unfortunately, sometimes two of the most important people in your life don't get along: <Dating.name> and <Friend.name> clearly don't like each other. <Dating.name> has not stopped accusing <Friend.name> of being a bad influence on me, while <Friend.name> thinks I can do much better than a <Dating.boyfriend_or_girlfriend> like <Dating.name>."
 0:: "Spend more time with <Dating.name>, my <Dating.boyfriend_or_girlfriend>"
-1:: "Spend more time with <Friend.name>, my close friendd"
+1:: "Spend more time with <Friend.name>, my close friend"
 2:: "Try to mediate"
 
 If 0
@@ -32,8 +32,8 @@ Else
         Friend:rapportwithplayer += Random(0, 2)
     Else
         "My effort failed miserably. Not only did their relationship not get any better, they were both annoyed that I tried to make them friends and refused to pick a side."
-        Dating:attractiontoplayer += Random(0, 5)
-        Friend:rapportwithplayer += Random(0, 5)
+        Dating:attractiontoplayer -= Random(0, 5)
+        Friend:rapportwithplayer -= Random(0, 5)
     Endif
 Endif
 

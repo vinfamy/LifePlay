@@ -23,7 +23,7 @@ Else
         DatingFriend = getSpecific(Dating_Friend)
         If DatingFriend.isValid()
             DatingFriend.dress()
-            Dating.show(2)
+            DatingFriend.show(2)
             "I reckon I can extract some answer from <Dating.name>."
             If Random(0, 200) < interpersonal + Dating:rapportwithplayer
                 DatingFriend(Sad):: "Alright, I guess you deserve to know and it's unfair that <Dating.name> has hidden everything from you so far. I'll tell you everything, just don't let <Dating.name> know it was me who spilled the beans."

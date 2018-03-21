@@ -1,0 +1,104 @@
+WHAT: all, -sleep_hotel, -nap_hotel
+WHERE: all, -home
+WHEN: 22 - 4
+WHO: none
+OTHER: isWithCompanion() && CurrentCompanion.isDating() && CurrentCompanion.isDominantSex(Player) && Random(0, 5000) < interpersonal + intelligence + CurrentCompanion:interpersonal + CurrentCompanion:intelligence
+
+SceneStart()
+setBackground(street)
+Thug = generatePerson()
+Thug.dress()
+Thug.show(2)
+"I was walking with <CurrentCompanion.name> at night when suddenly we were stopped by a shady figure. <Thug.He_or_She> was holding a knife and demanding us to hand over all our money ... We were being robbed!"
+If CurrentCompanion:intelligence > CurrentCompanion:martial
+    CurrentCompanion(Scared):: "Go easy there ... Don't hurt us. We're handing over the money right now ..."
+    "With my <CurrentCompanion.boyfriend_or_girlfriend> unable to protect us, we had no choice but to hand over all our cash."
+    money -= Random(20, 500)
+    mood -= Random(0, 50)
+    Thug(Evil):: "Good choice! Alright, off you go then. Don't you dare call the cops!"
+    Thug.hide()
+    "With the robber gone, how should I react to <CurrentCompanion.name>'s decision to hand over all the money?"
+    0:: "<CurrentCompanion.He_or_She> did the right thing"
+    1:: "<CurrentCompanion.He_or_She> was a coward!"
+    
+    If 0
+        "Money is cheap, our safety is more important. <CurrentCompanion.name> dealt with the situation calmly and I had to thank <CurrentCompanion.him_or_her> for that."
+        CurrentCompanion:attractiontoplayer += Random(0, 2)
+    Else    
+        "What kind of pathetic <CurrentCompanion.boyfriend_or_girlfriend> was <CurrentCompanion.he_or_she>? Why didn't <CurrentCompanion.he_or_she> dare to teach the robber a lesson? I blamed <CurrentCompanion.him_or_her> for losing us so much money."
+        CurrentCompanion:attractiontoplayer -= Random(0, 2)
+        0:: perversion > 70 && isModEnabled(vin_VanillaPorn):: "Offer my body to the robber"
+        1:: "Go home"
+        
+        If 0
+            "That robber put <CurrentCompanion.name> back in <CurrentCompanion.his_or_her> place and made my <CurrentCompanion.boyfriend_or_girlfriend> <Thug.his_or_her> bitch. I just couldn't resist such strength and dominance!"
+            "Leaving my pathetic <CurrentCompanion.boyfriend_or_girlfriend> behind, I ran after the robber."
+            CurrentCompanion.hide()
+            Thug.show(2)
+            Thug(Surprised):: "What? What are you doing here? Sweet, you reckon you can get your money back, with just you, alone?"
+            Player(Flirty):: "I'm not looking for my money back. In fact, I have something else to give you ..."
+            Sex(Thug, Player)
+            CurrentCompanion:attractiontoplayer -= Random(0, 50)
+            perversion += Random(0, 2)
+            masochist += Random(0, 1)
+        Else
+            "It's been a bad enough night. We should go home and try to calm ourselves down."
+            moveTo(Home)
+        Endif
+    Endif
+Else
+    CurrentCompanion(Furious):: "You think you can scare me, just like that? Take this!"
+    Thug(Furious):: "So you chose to fight? It's your last mistake!"
+    "<CurrentCompanion.name> bravely attacked the thug and a fight erupted."
+    If CurrentCompanion:martial > Thug:martial
+        "<CurrentCompanion.name> managed to disarm the robber and knock the thug down on the ground. We then called the cops, who promptly arrested the thug."
+        Thug.hide()
+        "How should I react to <CurrentCompanion.name>'s action?"
+        0:: "It was heroic"
+        1:: "It was foolish"
+        
+        If 0
+            "I showed my appreciation for my brave <CurrentCompanion.boyfriend_or_girlfriend>. I'm proud to have a partner that can protect us."
+            0:: "Reward my hero with sex"
+            1:: "Maybe not"
+            
+            If 0
+                "And there's only one way to reward my hero ..."
+                Sex(CurrentCompanion, Player)
+                CurrentCompanion:attractiontoplayer += Random(0, 2)
+            Endif
+        Else
+            "Although <CurrentCompanion.name> managed to win the fight, it was pure luck and we could have been seriously hurt. It was an act of a foolish brute!"
+            CurrentCompanion:attractiontoplayer -= Random(0, 2)
+        Endif
+    Else
+        "Unfortunately, despite <CurrentCompanion.name>'s best efforts, the knife gave the thug an unfair advantage that was easily capitalized on. <CurrentCompanion.name> was soon on the ground, stabbed several times and sent to a hospital. Of course, the robber didn't forget to take our money before disappearing into the darkness."
+        Thug.hide()
+        setBackground(hospital)
+        CurrentCompanion:attractiveness -= Random(0, 5)
+        CurrentCompanion:fitness -= Random(0, 5)
+        money -= Random(20, 500)
+        "After a while, <CurrentCompanion.name> regained consciousness. How should I react to <CurrentCompanion.his_or_her> action?"
+        0:: "It was heroic"
+        1:: "It was foolish"
+        
+        If 0
+            "I showed my appreciation for my brave <CurrentCompanion.boyfriend_or_girlfriend>. I'm proud to have a partner that will risk <CurrentCompanion.his_or_her> life to protect me."
+            0:: "Reward my hero with sex"
+            1:: "Maybe not"
+            
+            If 0
+                "And there's only one way to reward my fallen hero ..."
+                Sex(CurrentCompanion, Player)
+                CurrentCompanion:attractiontoplayer += Random(0, 2)
+            Endif
+        Else
+            "It was such a foolish act that could have killed both of us!"
+            CurrentCompanion:attractiontoplayer -= Random(0, 2)
+        Endif
+    Endif
+Endif
+
+SceneEnd()
+timeout(1000, dating_robbed)
+

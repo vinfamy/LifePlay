@@ -1,0 +1,29 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 0 - 24
+WHO: Dating = getSpecific(Dating); If Dating.isDominantSex(Player) && Dating:perversion > Random(50, 100) && Dating:masochist < -50 && Dating:interpersonal + Dating:intelligence > Random(100, 200)
+OTHER: attractiveness < Random(0, 80)
+
+SceneStart()
+Dating.dress()
+Dating.show(2)
+
+"<Dating.name> is that type of <Dating.boyfriend_or_girlfriend> that goes 'You would look really hot if ...' an awful lot. In fact, <Dating.He.or_She> has been trying to get me to get some plastic surgery which, to be fair, <Dating.he_or_she> offers to pay for."
+0:: "Accept"
+1:: "Decline"
+
+If 0
+    "Free silicone! Yay!"
+    attractiveness += Random(0, 5)
+    Dating:attractiontoplayer += Random(0, 10)
+    fitness -= Random(0, 2.5)
+    masochist += Random(0, 10)
+    "The surgery is done. Now that I look better, I hope that <Dating.name> will love me more."
+Else
+    "No way I'm doing that! <Dating.name> doesn't get to control how I look and what I do with my body."
+    Dating:attractiontoplayer -= Random(0, 3)
+    masochist -= Random(0, 2)
+Endif  
+
+timeout(2000, plasticsurgeryrequest)
+SceneEnd()

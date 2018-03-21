@@ -16,7 +16,7 @@ Flirter:attractiontoplayer += Random(0, 30)
 Flirter.show(2)
 
 Flirter(Flirty):: "Excuse me, but did you just fall from heaven? You totally took my breath away. Can I have your number?"
-CurrentCompanion(Angry):: "Watch yourself there, <Flirter.dickhead_or_bitch>. <Player.She_or_He> is taken!"
+CurrentCompanion(Angry):: "Watch yourself there, <Flirter.dickhead_or_bitch>. <Player.He_or_She> is taken!"
 Flirter(Sarcastic):: "By you? Come on, surely a <Player.handsome_or_beautiful> <Player.man_or_woman> like this could do better than you <CurrentCompanion.asshole_or_slut>!"
 CurrentCompanion(Furious):: "Say that one more time, you <Flirter.cunt_or_bitch>!"
 "This is getting very heated. What should I do?"

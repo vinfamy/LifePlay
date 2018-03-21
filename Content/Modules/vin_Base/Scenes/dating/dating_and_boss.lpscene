@@ -1,0 +1,42 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 0 - 24
+WHO: Dating = getSpecific(Dating); Boss = getSpecific(Boss); If Boss.isContactExchanged() && Boss:attractiontoplayer > 20 && Dating:attractiontoplayer > 40
+OTHER: !isWithCompanion()
+
+SceneStart()
+Dating.dress()
+Boss.dress()
+
+Dating.show(2)
+Boss.show(3)
+
+"<Dating.name> and my boss <Boss.name> clearly don't like each other. <Dating.name> has not stopped accusing <Boss.name> of harboring romantic intention on me, while <Boss.name> thinks my relationship with <Dating.name> is having a negative impact on my work performance."
+0:: "Spend more time with <Dating.name>, my <Dating.boyfriend_or_girlfriend>"
+1:: "Spend more time at work"
+2:: "Try to mediate"
+
+If 0
+    "I decided to be on <Dating.name>'s side on this and spent more time with <Dating.him_or_her>. <Dating.He_or_She> is my <Dating.boyfriend_or_girlfriend> after all! Of course, this also sent a message to <Boss.name>."
+    Dating:attractiontoplayer += Random(0, 5)
+    Boss:attractiontoplayer -= Random(0, 5)
+Elseif 1
+    "I decided to be on <Boss.name>'s side on this and spent more time at work. Of course, my blatant betrayal clearly upset <Dating.name>."
+    Dating:attractiontoplayer -= Random(0, 5)
+    Boss:attractiontoplayer += Random(0, 5)
+    jobperformance += Random(0, 2)
+Else
+    "I'd rather not have to choose. I tried instead to find a resolution to their conflict."
+    If Random(0, 100) < interpersonal
+        "My effort worked out, their relationship has improved somewhat. They still aren't thrilled to see each other but at least they have stopped going at each other all the time."
+        Dating:attractiontoplayer += Random(0, 2)
+        Boss:attractiontoplayer += Random(0, 2)
+    Else
+        "My effort failed miserably. Not only did their relationship not get any better, they were both annoyed that I tried to make them friends and refused to pick a side."
+        Dating:attractiontoplayer -= Random(0, 5)
+        Boss:attractiontoplayer -= Random(0, 5)
+    Endif
+Endif
+
+timeout(500, dating_and_boss)
+SceneEnd()
