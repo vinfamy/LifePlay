@@ -44,4 +44,7 @@ class UModdingExtraBPLibrary : public UBlueprintFunctionLibrary
     
     UFUNCTION(BlueprintPure, Category = "ModdingExtra")
     static bool GetAllSubfolders(TArray<FString>& Folders, FString RootFolderFullPath);
+    
+    UFUNCTION(BlueprintPure, Category = "ModdingExtra", meta = (Keywords = "IsPointInsidePolygon"))
+    static bool IsPointInsidePolygon(const TArray<FVector2D>& Polygon, const FVector2D Point);
 };

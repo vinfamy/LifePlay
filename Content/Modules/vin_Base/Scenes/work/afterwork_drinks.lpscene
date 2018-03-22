@@ -197,7 +197,7 @@ If 0
                     Player(Kiss):: "..."
                     "I responded in kind and we indulged ourselves in a passionate kiss."
                     SitWith:attractiontoplayer += Random(0, 1)
-                    0:: arousal > 20:: "Invite <SitWith.him_or_her> home"
+                    0:: "Invite <SitWith.him_or_her> home"
                     1:: "Stop it there"
                     
                     If 0 

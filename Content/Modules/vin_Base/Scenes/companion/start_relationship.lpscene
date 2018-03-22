@@ -32,7 +32,7 @@ If Player.IsDominantSex(CurrentCompanion) || interpersonal > Random(60, 100)
             CurrentCompanion(Surprised):: "<Player.name>! I ..."
             
             If CurrentCompanion:attractiontoplayer > Random(60, 100)
-                CurrentCompanion(Happy):: "I like you a lot too, <CurrentCompanion.name>. Of course I'll be your <CurrentCompanion.boyfriend_or_girlfriend>!"
+                CurrentCompanion(Happy):: "I like you a lot too, <Player.name>. Of course I'll be your <CurrentCompanion.boyfriend_or_girlfriend>!"
                 CurrentCompanion.setDating()
                 mood += 100
                 
@@ -52,7 +52,7 @@ If Player.IsDominantSex(CurrentCompanion) || interpersonal > Random(60, 100)
                 Endif
 
             Else
-                CurrentCompanion(Surprised):: "<CurrentCompanion.name> ... I like you too ... but just not that way. I only see you as a friend ..."
+                CurrentCompanion(Surprised):: "<Player.name> ... I like you too ... but just not that way. I only see you as a friend ..."
                 "And ... I've been rejected ... My heart is broken and I don't know how to feel about this ... <CurrentCompanion.name> doesn't seem to want to lose me as a friend, but doesn't want our relationship to go any further than that."
                 mood -= 100
                 0:: "Accept the friend zone"

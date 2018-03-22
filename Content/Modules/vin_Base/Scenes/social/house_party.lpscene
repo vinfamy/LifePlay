@@ -238,8 +238,8 @@ If PlayerHosting || Accepted
                     Player(Kiss):: "..."
                     "I responded in kind and we indulged ourselves in a passionate kiss."
                     SitWith:attractiontoplayer += Random(0, 1)
-                    0:: arousal > 20 && [PlayerHosting || SitWith.IsSameAs(Host) || IsModEnabled(vin_VanillaPorn)] :: "Have sex right here"
-                    1:: !PlayerHosting && arousal > 20 && !SitWith.IsSameAs(Host):: "Invite <SitWith.him_or_her> home"
+                    0:: [PlayerHosting || SitWith.IsSameAs(Host) || IsModEnabled(vin_VanillaPorn)] :: "Have sex right here"
+                    1:: !PlayerHosting && !SitWith.IsSameAs(Host):: "Invite <SitWith.him_or_her> home"
                     2:: "Stop it there"
                     
                     If 0 

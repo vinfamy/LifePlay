@@ -68,7 +68,7 @@ If 0
             Landlord(Flirty):: "Okay, just for a good-looking tenant like you, I can drop the rent to <RentConverted> a month. But that's the lowest I'm going to go today ..."
             Seduce = true
             If Landlord.IsDominantSex(Player) && Landlord:perversion > Random(30, 100)
-                Landlord(Flirty):: "... unless you want to use that sexy mouth of yours for something better than negoatiating"
+                Landlord(Flirty):: "... unless you want to use that sexy mouth of yours for something better than negotiating"
                 0:: "No"
                 1:: Vanilla && perversion > 20:: "Fuck <Landlord.him_or_her>"
                 

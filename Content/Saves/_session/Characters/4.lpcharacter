@@ -164,7 +164,7 @@ SKIN Skin_Color_G: 100% 0.23
 SKIN Skin_Color_B: 100% 0.19
 SKIN Skin_Color_A: 100% 0.8
 SKIN Skin_Roughness: 100% 0.996414
-SKIN Skin_Oil: 100% 0.5
+SKIN Skin_Oil: 100% 0.223487
 SKIN Skin_Fresnel: 100% 0.519181
 SKIN Skin_Age: 100% 0.110202
 SKIN Skin_Sagging: 100% 0.561663
@@ -189,7 +189,7 @@ STAT perversion: 100% 0.0
 STAT sneak: 100% 10.0
 STAT arousal: 100% 0.0
 STAT energy: 100% 100.0
-STAT intoxication: 100% 0.075948
+STAT intoxication: 100% 0.090988
 STAT mood: 100% 100.0
 STAT pet_health: 100% 0.0
 STAT stock_alcohol: 100% 0.0
@@ -213,5 +213,3 @@ STAT stock_supplement: 100% 0.0
 STAT stock_tea: 100% 0.0
 STAT stock_tobacco: 100% 0.0
 STAT stock_video: 100% 0.0
-STAT attractiontoplayer: 100% -71.862541
-STAT rapportwithplayer: 100% 56.070023

@@ -200,65 +200,65 @@ If 0
                     "Making sure first that no-one else was around, <Boss.he_or_she> sneakily took my number."
                     exchangeContact(Boss)
                     Performance += Random(0, 5)
-                Else
-                    Boss(Irritated):: "I'm afraid that's very unprofessional. I cannot do that!"
-                    Performance -= Random(0, 10)
-                endIf
-
-                If Random(0, 100) < Boss.peversion + attractiveness
-                    setBackground(home)
-                    "The next morning ..."
-                    Boss(Happy):: "Hi, it's me, <Boss.name>."
-                    Player(Happy):: "Of course, <Boss.Mr_or_Ms> <Boss.name_last>. I was expecting your call."
-                    Boss(Flirty):: "Please, just call me <Boss.name>. You know how you mentioned you wanted to meet outside of the office. I know this great bar downtown ..."
-                    0:: "Agree to go on a date"
-                    1:: "Turn <Boss.him_or_her> down"
                     
-                    If 1
-                        Player(Concerned):: "I'm afraid I'm busy tonight. Maybe next time ..."
-                        Performance -= Random(0, 10)
-                        "I'm not even sure why I did that. Why gave <Boss.him_or_her> my number only to turn <Boss.him_or_her> down now. This can't be good for my chance of getting the job ..."
-                    Else
-                        Player(Wink):: "Of course, I can't wait to see you there!"
-                        Performance += Random(0, 5)
+                    If Random(0, 100) < Boss:attractiontoplayer + Boss:perversion
+                        setBackground(home)
+                        "The next morning ..."
+                        Boss(Happy):: "Hi, it's me, <Boss.name>."
+                        Player(Happy):: "Of course, <Boss.Mr_or_Ms> <Boss.name_last>. I was expecting your call."
+                        Boss(Flirty):: "Please, just call me <Boss.name>. You know how you mentioned you wanted to meet outside of the office. I know this great bar downtown ..."
+                        0:: "Agree to go on a date"
+                        1:: "Turn <Boss.him_or_her> down"
                         
-                        setBackground(bar)
-                        Player.dress()
-                        Boss.dress()
-                        
-                        "That night ..."
-                        Boss:attractiontoplayer += 5
-                        Player(Flirty):: "This is a fancy place in fact. You have a great taste, <Boss.name>!"
-                        Boss(Flirty):: "You flatter me ... How time flies! It's already 2am. Would you mind if I drive you home?"
-                        Player(Flirty):: "That's very nice of you! Let's go."
-                        setBackground(street)
-                        "20 minutes later ..."
-                        Boss(Flirty):: "So here you are. This is a nice neighborhood to live."
-                        "And <Boss.name> kept the conversation going in the car. It was obvious that <Boss.he_or_she> was expecting something more ..."
-                        0:: "Say goodbye"
-                        1:: "Kiss <Boss.him_or_her>"
-                        2:: Vanilla:: "Invite <Boss.him_or_her> inside for 'tea'"
-                        
-                        If 0
-                            "<Boss.name> seemed disappointed but forced a smile to say farewell anyway. After all, I did go on a date with <Boss.him_or_her>, that should be enough to help my chances of getting the job."
-                            Performance -= Random(0, 5)
+                        If 1
+                            Player(Concerned):: "I'm afraid I'm busy tonight. Maybe next time ..."
+                            Performance -= Random(0, 10)
+                            "I'm not even sure why I did that. Why gave <Boss.him_or_her> my number only to turn <Boss.him_or_her> down now. This can't be good for my chance of getting the job ..."
                         Else
-                            If 1
-                                Player(Kiss):: "..."
-                                Boss(Kiss):: "..."
-                                "I leaned in for a kiss, which should make <Boss.name> think twice before picking anyone else for the job. Afterwards, we parted ways."
-                                perversion += 0.05
+                            Player(Wink):: "Of course, I can't wait to see you there!"
+                            Performance += Random(0, 5)
+                            
+                            setBackground(bar)
+                            Player.dress()
+                            Boss.dress()
+                            
+                            "That night ..."
+                            Boss:attractiontoplayer += 5
+                            Player(Flirty):: "This is a fancy place in fact. You have a great taste, <Boss.name>!"
+                            Boss(Flirty):: "You flatter me ... How time flies! It's already 2am. Would you mind if I drive you home?"
+                            Player(Flirty):: "That's very nice of you! Let's go."
+                            setBackground(street)
+                            "20 minutes later ..."
+                            Boss(Flirty):: "So here you are. This is a nice neighborhood to live."
+                            "And <Boss.name> kept the conversation going in the car. It was obvious that <Boss.he_or_she> was expecting something more ..."
+                            0:: "Say goodbye"
+                            1:: "Kiss <Boss.him_or_her>"
+                            2:: Vanilla:: "Invite <Boss.him_or_her> inside for 'tea'"
+                            
+                            If 0
+                                "<Boss.name> seemed disappointed but forced a smile to say farewell anyway. After all, I did go on a date with <Boss.him_or_her>, that should be enough to help my chances of getting the job."
+                                Performance -= Random(0, 5)
                             Else
-                                perversion += 0.2
-                                Performance += Random(0, 10)
-                                setBackground(home)
-                                "Let's not kid ourselves here! We both knew how this night was going to end up. As soon as we were inside, our hands were all over each other and we started a long and passionate makeout session."
-                                HadSex = true
-                                Sex(Boss, Player)
+                                If 1
+                                    Player(Kiss):: "..."
+                                    Boss(Kiss):: "..."
+                                    "I leaned in for a kiss, which should make <Boss.name> think twice before picking anyone else for the job. Afterwards, we parted ways."
+                                    perversion += 0.05
+                                Else
+                                    perversion += 0.2
+                                    Performance += Random(0, 10)
+                                    setBackground(home)
+                                    "Let's not kid ourselves here! We both knew how this night was going to end up. As soon as we were inside, our hands were all over each other and we started a long and passionate makeout session."
+                                    HadSex = true
+                                    Sex(Boss, Player)
+                                Endif
                             Endif
                         Endif
                     Endif
-                Endif
+                Else
+                    Boss(Irritated):: "I'm afraid that's very unprofessional. I cannot do that!"
+                    Performance -= Random(0, 10)
+                EndIf
             Else
                 If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)]
                     "<Boss.He_or_She> seemed impressed by my eager questions."
