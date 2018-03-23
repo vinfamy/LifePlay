@@ -2,7 +2,7 @@ WHAT: all
 WHERE: all
 WHEN: 0 - 24
 WHO: none
-OTHER: isWithCompanion() && Random(0, 100) < CurrentCompanion:attractiontoplayer
+OTHER: isWithCompanion() && Random(0, 500) < CurrentCompanion:attractiontoplayer
 
 SceneStart()
 CurrentCompanion.show(2)
@@ -39,5 +39,5 @@ Else
     CurrentCompanion:attractiontoplayer -= Random(0, 2)
 Endif
 
-timeout(24, dating_gift)
+timeout(72, dating_gift)
 SceneEnd()

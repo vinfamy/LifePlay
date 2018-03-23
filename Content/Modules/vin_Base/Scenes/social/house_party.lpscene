@@ -2,7 +2,7 @@ WHAT: all, -sleep, -sleep_hotel, -organize_a_house_party
 WHERE: all
 WHEN: 18-22
 WHO: Host = GetPerson(true); If Host:rapportwithplayer > Random(0, 20)
-OTHER: !IsWithCompanion() && Random(0, 1) < interpersonal/1000*actionDuration
+OTHER: !IsWithCompanion() && Random(0, 1) < interpersonal/500
 
 
 PlayerHosting = ForcedTrigger()

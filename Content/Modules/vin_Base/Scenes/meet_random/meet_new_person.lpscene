@@ -2,7 +2,7 @@ WHAT: all, -pickpocket, -go_to_the_bathroom, -sleep, -sleep_hotel, -nap, -nap_ho
 WHERE: all, -PC
 WHEN: 0-24
 WHO: none
-OTHER: Random(0, 1) < interpersonal/1000*actionDuration || [WHAT == socialize && Random(0,1) < interpersonal/200] || [isWithCompanion() && Random(0,1) < CurrentCompanion:interpersonal/500*actionDuration]
+OTHER: Random(0, 1) < interpersonal/400 || [ [WHAT == socialize || WHERE == nightclub] && Random(0, 1) < interpersonal/200] || [isWithCompanion() && Random(0, 1) < CurrentCompanion:interpersonal/200]
 
 
 New_Person = generatePerson()
@@ -138,8 +138,8 @@ passTime(0.1, 0.5)
 sceneEnd()
 
 If CompanionIntroduced
-    timeout(1, meet_new_person)
-    timeout(2, meet_old_person)
+    timeout(2, meet_new_person)
+    timeout(4, meet_old_person)
 Else
-    timeout(2, meet_new_person, meet_old_person)
+    timeout(4, meet_new_person, meet_old_person)
 Endif

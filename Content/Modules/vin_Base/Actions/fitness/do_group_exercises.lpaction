@@ -5,7 +5,7 @@ WHEN: 8 - 21
 MINUTES: 30 - 60
 TIMEOUT_MINUTES: 60
 ALSO_TIMEOUT: 
-EFFECTS: energy -10 (DURATION), fitness +0.02 (DURATION), mood +3 (END), interpersonal +0.02 (END)
+EFFECTS: energy -5 (DURATION), fitness +0.02 (DURATION), mood +3 (END), interpersonal +0.02 (END)
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:

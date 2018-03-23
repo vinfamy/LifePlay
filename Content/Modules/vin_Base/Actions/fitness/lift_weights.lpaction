@@ -5,7 +5,7 @@ WHEN: 0 - 24
 MINUTES: 30 - 60
 TIMEOUT_MINUTES: 1200
 ALSO_TIMEOUT: 
-EFFECTS: energy -15 (DURATION), fitness +0.03 (DURATION), muscle +0.03 (DURATION), mood +3 (END)
+EFFECTS: energy -7.5 (DURATION), fitness +0.02 (DURATION), attractiveness +0.01 (DURATION), muscle +0.03 (DURATION), mood +3 (END)
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
