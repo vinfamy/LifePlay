@@ -25,5 +25,5 @@ Else
     Dating:attractiontoplayer -= Random(0, 10)
 Endif
 
-timeout(8760, anniversary)
+timeoutprecise(8760, anniversary)
 SceneEnd()
