@@ -1,0 +1,92 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 8 - 20
+WHO: Neighbour = getSpecific(Neighbour); If Neighbour.isContactExchanged() && Neighbour:rapportwithplayer > 10
+OTHER: Random(0, 100) < 5
+
+    SceneStart()
+    setBackground(work)
+
+    Quit = true
+    Neighbour.dress()
+    Neighbour.show(2)
+
+    If Neighbour:rapportwithplayer > 40 && Neighbour.isContactExchanged() 
+        Neighbour(Sad):: "<Player.name>, can we have a private chat?"
+        Player(Happy):: "Yes, what's the matter, <Neighbour.name>?"
+        Neighbour(Sad):: "I haven't told anyone else about this ... but I found another place to live that is cheaper but newer. You know I like the people in this neighbourhood, but this new place is too good to turn down."
+        0:: "Congratulate <Neighbour.him_or_her>"
+        1:: "Convince <Neighbour.him_or_her> to stay"
+        
+        If 0
+            Player(Happy):: "That's great news! I'm so happy for you. By all means, go for it! Sounds like a fantastic place to live."
+            Neighbour(Happy):: "I'm glad that you understand. Thank you. We'll keep in touch even after I move out, okay?"
+        Else
+            Player(Happy):: "<Neighbour.name>, I understand the appeal but I really hope that you stay. Who knows whether you will suit the new environment or not? Plus didn't the landlord promise a refurbishment later this year?"
+            If interpersonal > Random(0, 100)
+                Quit = false
+                Neighbour(Surprised):: "I guess you're right. There are plenty of risks moving home and I already have it good here. I'll talk to my family about it and come up with a final decision"
+                "Eventually, my persuasion worked out and <Neighbour.name> decided to stay."
+            Else
+                Neighbour(Sad):: "I'm sorry but I don't think it would be a financially responsible decision to turn down such a good opportunity to save up on rent. I have other commitments to meet."
+            Endif
+        Endif
+    Endif
+
+    InvitedHome = false
+    If Quit
+        Neighbour.removeNeighbour()
+        "<Neighbour.name> is moving out, having found a cheaper place to live! I was invited to <Neighbour.his_or_her> farewell party with closest neighbours, organized in a few days."
+        "A few days later ..."
+        setBackground(bar)
+        "Of course I had to attend <Neighbour.name>'s farewell party. <Neighbour.He_or_She> is one of the most likable <Neighbour.guys_or_girls> in the apartment building. I'm feeling quite sad and downing a decent amount of booze to quell my sadness."
+        If Player.isInterestedIn(Neighbour)
+            "But is the sadness only the result of friendship with a neighbour?"
+            0:: "<Neighbour.name> is just a friend"
+            1:: "I have a crush on <Neighbour.him_or_her>"
+            
+            If 0
+                "The sadness is normal when your friend is no longer living near to you. Oh well, I'm sure we'll still hang out occassionally."
+            Else
+                "The truth is: I'm so sad to be losing <Neighbour.name> because I have quite a crush on <Neighbour.him_or_her>. Now that <Neighbour.he_or_she> is moving out, maybe this is the time to tipsily admit my feelings for <Neighbour.him_or_her>."
+                0:: "Admit your feelings"
+                1:: "Maybe not"
+                
+                If 0
+                    "Today is the day: I finally have the courage to admit my feelings for <Neighbour.name>."
+                    If Neighbour:attractiontoplayer > Random(0, 100)
+                        Neighbour(Flirty):: "I like you too, <Player.name>. Maybe now that we won't be neighbours anymore, we can be more than friends ..."
+                        Neighbour:attractiontoplayer += Random(0, 10)
+                        0:: "Invite <Neighbour.name> home"
+                        1:: "Another day"
+                        
+                        If 0
+                            "I need to have <Neighbour.him_or_her> tonight. We agreed to come back to my place, but after the farewell party concluded so that I wouldn't become the target of neighbourhood gossips tomorrow."
+                            InvitedHome = true
+                        Else
+                            "We agreed to go on dates soon."
+                        Endif                            
+                    Else
+                        Neighbour(Sad):: "I'm sorry but I only see you as a friend."
+                        "I was heartbroken but what could I do? I spent the rest of night drinking down my sorrows."
+                    Endif
+                Else
+                    "I'd better not play out some drama in front of a bunch of people I see around the neighbourhood everyday."
+                Endif
+            Endif
+        Endif
+        "Eventually, the farewell party concluded. Everyone said their goodbye to <Neighbour.name> and wished <Neighbour.him_or_her> luck."
+    Endif
+
+    If InvitedHome
+        "Little did the rest of my neighbours know, soon after they left, <Neighbour.name> and I walked back to my place."
+        moveTo(Home)
+        setBackground(home)
+        "As soon as we were inside, we started kissing and undressing each other."
+        Sex(Neighbour, Player)
+        Neighbour.show(2)
+        "After we had sex, we spent the night together. I might have lost <Neighbour.name> as a neighbour and won't get to see <Neighbour.him_or_her> around the apartment everyday anymore, but we are going to be so much more than neighbours now!"
+    Endif
+
+    SceneEnd()
+    timeout(500, neighbour_move_out)

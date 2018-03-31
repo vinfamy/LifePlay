@@ -1,0 +1,112 @@
+WHAT: do_cardio, lift_weight
+WHERE: sports_centre
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(10, 200) < muscle
+
+SceneStart()
+Random
+    Lifter = getPerson()
+    Lifter = generatePerson()
+endRandom
+
+If !Lifter.isValid()
+    Lifter = generatePerson()
+Endif
+
+Lifter.dress()
+Lifter.show(2)
+
+"I was in between exercises when I was approached by a friendly voice."
+Lifter(Happy):: "Hey <Player.bro_or_girl>, could you give me a spot?"
+0:: "Yes"
+1:: "No"
+
+If 0
+    performance = 0
+    Player(Happy):: "Of course!"
+    "We walked together to the bench and <Lifter.name> got in position for a bench press."
+    Lifter(Happy):: "I think I can do 6 reps!"
+    Player(Happy):: "Okay."
+    Lifter(Pain):: "Argh ..."
+    "<Lifter.name> managed the first four reps comfortably. Now it's the fifth rep and <Lifter.he_or_she> is already struggling a bit to push the barbell all the way up ..."
+    0:: "Do nothing"
+    1:: "Help <Lifter.him_or_her>"
+    
+    If 0
+        If Random(0, 75) < Lifter:muscle
+            performance += 1
+            "<Lifter.He_or_She> looked like <Lifter.he_or_she> could manage that small extra bit and <Lifter.he_or_she> did and pushed the bar up all the way before lowering it again."
+        Else
+            performance -= 1
+            "<Lifter.He_or_She> looked like <Lifter.he_or_she> could manage that small extra bit but <Lifter.he_or_she> couldn't quite and had to settle for a partial push up before lowering the bar again."
+        Endif
+    Else
+        "With my help, <Lifter.he_or_she> comfortably managed to get the bar all the way up before lowering it again."
+        If Random(0, 75) < Lifter:muscle
+            performance -= 1 
+        Else
+            performance += 1
+        Endif
+    Endif
+    
+    ContinuePress = true
+    "<Lifter.He_or_She> managed to lower the bar in a controlled motion, but now that it's all the way down, <Lifter.he_or_she> is really struggling to get the bar back up at all. <Lifter.His_or_Her> upper back is also starting to arch."
+    0:: "Help <Lifter.him_or_her> push up"
+    1:: "Get the bar all the way back on the rack"
+    
+    If 0
+        If Random(0, 100) < Lifter:muscle
+            performance += 1
+            "With my help, <Lifter.he_or_she> managed past the intial difficult portion of the press and achieved a respectable rep."
+        Else
+            performance -= 1
+            "Even with my help, <Lifter.he_or_she> struggled and only managed a tiny rep with really bad form before I was forced to rescue <Lifter.him_or_her> and put the bar back on the rack."
+            ContinuePress = false
+        Endif
+    Else
+        "This is getting dangerous. I decided to step in and lifted the bar back onto the rack."
+        ContinuePress = false
+    Endif
+    
+    If ContinuePress
+        "<Lifter.name> has now matched <Lifter.his_or_her> expectation of 6 reps. Should I encourage <Lifter.him_or_her> for an extra rep."
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            If Random(0, 100) < interpersonal
+                "Motivated by my words, <Lifter.name> went for that extra rep, which wasn't perfect or without my help, but respectable nonetheless."
+                performance += 1
+            Else
+                Lifter(Happy):: "No, it's enough."
+                "With my help, <Lifter.name> placed the bar back onto the rack and finished <Lifter.his_or_her> set as expected."                
+            Endif
+        Else
+            "With my help, <Lifter.name> placed the bar back onto the rack and finished <Lifter.his_or_her> set as expected."
+        Endif        
+    Endif
+    
+    Lifter:rapportwithplayer += Random(0, 1)*performance
+    If Lifter.isInterestedIn(Player)
+        Lifter:attractiontoplayer += Random(0, 1)*performance
+    Endif
+    
+    If !Lifter.isContactExchanged() && Random(0, 3) < performance
+        Lifter(Happy):: "You're a good spotter. Thanks! By the way, maybe we should exchange numbers and work out together again sometimes?"
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            "We exchanged numbers and went back to our respective workouts."
+            exchangeContact(Lifter)
+        Else
+            "I found an excuse not to exchange numbers with <Lifter.name> and we went back to our respective workouts."
+        Endif
+    Endif
+Else
+    Player(Sad):: "Sorry but I'm about to head out of the gym actually."
+Endif
+
+SceneEnd()
+timeout(24, spot_me_bro)

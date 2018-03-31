@@ -150,7 +150,7 @@ If WalkedHome
                 Kissed = true
             Endif
 
-            If Kissed || [!hadSex && CurrentCompanion:attractiontoplayer > Random(0, 200)]
+            If Kissed || [CurrentCompanion.isInterestedIn(Player) && !hadSex && CurrentCompanion:attractiontoplayer > Random(0, 200)]
                 Player(Kiss):: "..."
                 CurrentCompanion(Kiss):: "..."
                 If Dating
@@ -163,7 +163,7 @@ If WalkedHome
                 1:: "Stop"
                 
                 If 0
-                    If CurrentCompanion.IsDominantSex(Player) || CurrentCompanion:attractiontoplayer + CurrentCompanion:perversion > Random(0, 100) || CurrentCompanion:intoxication > 70
+                    If CurrentCompanion.isInterestedIn(Player) && [CurrentCompanion.IsDominantSex(Player) || CurrentCompanion:attractiontoplayer + CurrentCompanion:perversion > Random(50, 200) || CurrentCompanion:intoxication > 80]
                         "Our kiss got more and more steamy and soon we were making out, our hands all over each other."
                         hadSex = true
                         Player:perversion += Random(0, 1)

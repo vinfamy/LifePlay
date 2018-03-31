@@ -1,0 +1,66 @@
+WHAT: dance
+WHERE: nightclub
+WHEN: 0 - 24
+WHO: none
+OTHER: !isWithCompanion() && Random(20, 300) < attractiveness
+
+SceneStart()
+"I was in my own little world on the dance floor when I suddenly felt someone's hand feeling me up."
+0:: "Pull away"
+1:: "Keep dancing"
+
+    If 0
+        "This is so inappropriate. I immediately stopped dancing and moved to another spot on the dancefloor, hopefully free of perverts."
+    Else
+        peversion += Random(0, 0.25)
+        "Well, I won't lie: I'm kinda enjoying this. Ignoring the hand, I kept dancing like nothing was happening."
+        Random
+            Actor = getPerson()
+            Actor = generatePersonTemporary()
+        EndRandom
+        While !Actor.isValid() || !Actor.isIntereredIn(Player)
+            Actor = generatePersonTemporary()
+            Actor:perversion += 30
+        EndWhile
+        Actor.makePermanent()
+        Actor.dress()
+        Actor.show(2)
+        
+        "Encouraged by my apparent consent, the owner of the groping hand eventually showed <Actor.himself_or_herself>."
+        0:: perversion > 10:: "Grind against <Actor.him_or_her>"
+        1:: "Leave"
+        
+        If 0
+            "<Actor.He_or_She> isn't too bad-looking I guess. I happily danced with <Actor.him_or_her>, very intimately, our bodies were practically caressing against each other."
+            0:: "Fuck <Actor.him_or_her>"
+            1:: "Stop it there"
+            
+            If 0
+                "It looks like someone is going to get very lucky tonight ..."
+                "I led <Actor.him_or_her> by the hand to the bathroom. We soon started making out in one of the cubicles."
+                perversion += Random(0, 0.5)
+                Sex(Actor, Player)
+                Actor.show(2)
+                
+                If !Actor.isContactExchanged()
+                    "Should I exchange numbers with this stranger I just hooked up with?"
+                    0:: "Yes"
+                    1:: "No"
+                    
+                    If 0
+                        "We exchanged numbers and parted ways."
+                        exchangeContact(Actor)
+                    Else
+                        "Why would I? It was just a fun crazy hookup. I couldn't care less about seeing the <Actor.guy_or_girl> again."
+                    Endif
+                Endif
+            Else
+                "This is escalating a bit too quickly for my liking. I eventually moved away from <Actor.him_or_her>."
+            Endif
+        Else
+            "I think <Actor.he_or_she> has already got <Actor.his_or_her> fill tonight. I moved away."
+        Endif
+    Endif
+
+timeout(1, felt_up_during_dance)
+SceneEnd()

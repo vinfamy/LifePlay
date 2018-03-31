@@ -1,0 +1,87 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getSpecific(Neighbour); Actor2 = getSpecific(Neighbour); If Actor:martial - Actor:masochist > Random(100, 200) && Actor2:masochist - Actor2:martial > Random(50, 100) && Actor.isInterestedIn(Actor2) && Actor2.isInterestedIn(Actor)
+OTHER: isAtHome()
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor2.dress()
+    Actor2.show(3)
+
+    "I was walking towards my apartment when I saw my neighbours <Actor.name> and <Actor2.name>. <Actor.name> was hitting <Actor2.name> ..."
+    Actor(Furious):: "Die, bitch. How dare you text your ex?"
+    Actor2(Crying):: "Please stop. It hurts. You're going to kill me. I would never text my ex again ..."
+    "Surely I must do something!"   
+    0:: "Ignore"
+    1:: "Step in"
+    2:: "Call the cops"
+
+    If 0
+        "It's their business. Let's not risk getting caught in a crossfire."
+        masochist += Random(0, 0.5)
+    Else
+        If 1
+            masochist -= Random(0, 1)
+            Actor:rapportwithplayer -= Random(0, 5)
+            Actor:attractiontoplayer -= Random(0, 5)
+            Actor2:rapportwithplayer += Random(0, 10)
+            Actor2:attractiontoplayer += Random(0, 10)
+            
+            Player(Angry):: "<Actor.name>! Stop right there. This is domestic violence!"
+            Actor(Angry):: "It's none of your business. Fuck off or I'll kick your ass too."
+            Player(Angry):: "No way, if you want to harm <Actor2.name> anymore, you'll have to step over my dead body."
+            Actor(Furious):: "So be it! Take this!"
+            If martial > Actor:martial
+                "I dodged <Actor.name>'s punch easily and went in for a counter strike right on <Actor.his_or_her> face, which knocked <Actor.him_or_her> on the ground."           
+                masochist -= Random(0, 1)
+                martial += Random(0, 1)
+            Else
+                "Despite my best intention, <Actor.name> was more than a match in a fight and I eventually got knocked off my feet. Thankfully, at least I kept <Actor.him_or_her> busy long enough for others to arrive and eventually control the situation."
+                setBackground(hospital)
+                fitness -= Random(0, 2)
+                attractiveness -= Random(0, 2)
+                energy -= 100
+            Endif
+            
+            Actor.hide()
+            Actor2(Sad):: "That was so brave of you. I don't know how I could ever thank you for saving me."
+        Else
+            "I'm not so confident that I can stop <Actor.name> myself, but the least I could do is to call the cops."
+            
+            Actor:rapportwithplayer -= Random(0, 5)
+            Actor:attractiontoplayer -= Random(0, 5)
+            Actor2:rapportwithplayer += Random(0, 5)
+            Actor2:attractiontoplayer += Random(0, 5)
+            Actor2:attractiveness -= Random(0, 2)
+            Actor2:fitness -= Random(0, 2)
+            
+            "Eventually, the cops arrived and arrested <Actor.name>, but not before <Actor.he_or_she> already did some serious damage on <Actor2.name>."
+            Actor.hide()
+            Actor2(Sad):: "Thank you for calling the cops. It could have been a lot worse ..."
+        Endif
+        
+        "Should I advise <Actor2.name> to leave <Actor.name>?"
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            Player(Sad):: "You know, you don't have to live with all these abuses. Domestic violence cannot be tolerated. Leave <Actor2.name> as fast as you can!"
+            If Random(0, 100) < interpersonal && Actor2:masochist < Random(0, 100)
+                Actor2(Sad):: "You're right ... enough is enough. I need to stand up for myself and not let my life be destroyed by a violent <Actor.boyfriend_or_girlfriend>. I'm kicking <Actor.name> out for good and getting a restraining order."
+                Actor2:rapportwithplayer += Random(0, 5)
+                Actor2:attractiontoplayer += Random(0, 5)
+                Actor.removeNeighbour()
+            Else
+                Actor2(Sad):: "<Actor.name> isn't so bad. <Actor.He_or_She> just has a bad temper issue. I'm used to it by now ..."
+                "Oh well, at least I tried."
+            Endif
+        Else
+            "I'm no relationship counselor. Better not get involved in other people's business more than I already did."
+            masochist += Random(0, 0.5)
+        Endif
+    Endif
+       
+    timeout(500, neighbour_domestic_violence)
+    SceneEnd()

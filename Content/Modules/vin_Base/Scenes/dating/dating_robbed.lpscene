@@ -6,7 +6,7 @@ OTHER: isWithCompanion() && CurrentCompanion.isDating() && CurrentCompanion.isDo
 
 SceneStart()
 setBackground(street)
-Thug = generatePerson()
+Thug = generatePersonTemporary()
 Thug.dress()
 Thug.show(2)
 "I was walking with <CurrentCompanion.name> at night when suddenly we were stopped by a shady figure. <Thug.He_or_She> was holding a knife and demanding us to hand over all our money ... We were being robbed!"

@@ -1,0 +1,30 @@
+WHAT: go_to_the_bathroom
+WHERE: all, -home, -work
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 100) < 0.1 || [Random(0, 100) < 5 && WHERE == nightclub]
+
+SceneStart()
+
+"I was about to step into my cubicle when I noticed some moaning from the cubicle next to mine ... Some couple clearly couldn't wait until they get home."
+0:: "Ignore"
+1:: perversion > 20:: "Peep"
+    
+    If 0
+        "There's nothing to see here. I 'did the business' as fast as I could and got the hell out of the bathroom. The couple were too busy fucking to ever notice me coming in and out."
+    Else
+        perversion += Random(0, 0.5)
+        "Live pornography? Hell yeah, sign me up!"
+        "I stood up on top of the toilet seat cover and started peeping at them."
+        Guy = generatePerson()
+        Girl = generatePerson()
+        Sex(Guy, Girl)
+        Guy.hide()
+        Girl.hide()
+        arousal += Random(0, 30)
+        Player.show(0)
+        "Damn, that was hot. I'm so horny now ..."
+    Endif
+
+SceneEnd()
+timeout(24, peep_bathroom)

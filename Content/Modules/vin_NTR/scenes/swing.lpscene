@@ -6,10 +6,11 @@ OTHER: isAtHome() && Random(0, 1000) < perversion + DatingFriend:attractiontopla
 
 SceneStart()
 
-FriendSO = generatePerson()
+FriendSO = generatePersonTemporary()
 While !Dating.isInterestedIn(FriendSO) 
-    FriendSO = generatePerson()
+    FriendSO = generatePersonTemporary()
 Endwhile
+FriendSO.makePermanent()
 
 Dating.dress()
 DatingFriend.dress()

@@ -463,9 +463,15 @@ public:
     /** Vinfamy added */
 	UFUNCTION(BlueprintCallable)
 	FStreetMapBuilding FindBuilding(const FVector2D Point);
+       
+    UFUNCTION(BlueprintCallable)
+	FStreetMapBuilding FindBuildingFromArray(const FVector2D Point, TArray<FStreetMapBuilding> SmallBuildings);
     
     UFUNCTION(BlueprintCallable)
     TArray<FStreetMapBuilding> SearchByBuildingName(FString SearchTerm, FString Amenity) const;
+    
+    UFUNCTION(BlueprintCallable)
+    TArray<FStreetMapBuilding> SearchByBuildingNameFromArray(FString SearchTerm, FString Amenity, TArray<FStreetMapBuilding> SmallBuildings) const;
 
     UFUNCTION(BlueprintCallable)
     TArray<FStreetMapBuilding> SearchByAmenity(FString Amenity) const;

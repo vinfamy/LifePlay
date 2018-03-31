@@ -25,6 +25,7 @@ Else
         Player(Excited):: "Of course. Count me in! I can't wait for the party to start ..."
         Host(Happy):: "Glad to hear. See you soon then!"
         "A while later ..."
+        setBackground(Home)
         Player.dress()
         Host(Happy):: "Come in, everyone! Don't be shy. Everything's ready."
         Host.hide()
@@ -35,8 +36,7 @@ Else
     Endif
 Endif
 
-If PlayerHosting || Accepted
-    setBackground(Home)
+If PlayerHosting || Accepted  
     Random
         Guest1 = getPerson()
         Guest1 = generatePerson()

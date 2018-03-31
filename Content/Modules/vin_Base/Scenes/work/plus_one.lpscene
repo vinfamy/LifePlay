@@ -21,7 +21,7 @@ If 0
     setBackground(restaurant)
     "I decided to go alone, expecting plenty of attention from the singles from work."
     If Colleague1:attractiontoplayer > Random(0, 25) && !Colleague1.isContactExchanged() 
-        Colleague1.show()
+        Colleague1.show(2)
         "<Colleague1.name> was pleasantly surprised that I was alone and asked for my number?"
         0:: "Yes"
         1:: "No"
@@ -32,7 +32,7 @@ If 0
     Endif
     
     If Colleague2:attractiontoplayer > Random(0, 25) && !Colleague2.isContactExchanged() 
-        Colleague2.show()
+        Colleague2.show(2)
         "<Colleague2.name> was pleasantly surprised that I was alone and asked for my number?"
         0:: "Yes"
         1:: "No"
@@ -43,7 +43,7 @@ If 0
     Endif
     
     If Colleague3:attractiontoplayer > Random(0, 25) && !Colleague3.isContactExchanged() 
-        Colleague3.show()
+        Colleague3.show(2)
         "<Colleague3.name> was pleasantly surprised that I was alone and asked for my number?"
         0:: "Yes"
         1:: "No"
@@ -54,7 +54,7 @@ If 0
     Endif
 
     If Colleague4:attractiontoplayer > Random(0, 25) && !Colleague4.isContactExchanged() 
-        Colleague4.show()
+        Colleague4.show(2)
         "<Colleague4.name> was pleasantly surprised that I was alone and asked for my number?"
         0:: "Yes"
         1:: "No"
@@ -65,7 +65,7 @@ If 0
     Endif
 
     If Colleague5:attractiontoplayer > Random(0, 25) && !Colleague5.isContactExchanged() 
-        Colleague5.show()
+        Colleague5.show(2)
         "<Colleague5.name> was pleasantly surprised that I was alone and asked for my number?"
         0:: "Yes"
         1:: "No"

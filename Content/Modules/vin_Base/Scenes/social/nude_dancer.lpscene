@@ -1,0 +1,25 @@
+WHAT: all, -go_to_the_bathroom
+WHERE: nightclub
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 100) < 1
+
+SceneStart()
+Actor = generatePerson()
+Actor.show(2)
+
+"I'm in the club and I couldn't help but notice there's a completely naked <Actor.guy_or_girl> dancing shamelessly on the floor."
+0:: "Ignore"
+1:: "Scold <Actor.him_or_her>"
+
+If 0
+    "It's bemusing but none of my business. Some people are exhibitionists, supporting some causes or just don't care."
+    masochist += Random(0, 0.5)
+Else
+    Player(Angry):: "Have some decency, damn it. Put some clothes on!"
+    masochist -= Random(0, 0.5)
+    Actor:rapportwithplayer -= Random(0, 5)
+Endif
+
+SceneEnd()
+timeout(300, nude_dancer)

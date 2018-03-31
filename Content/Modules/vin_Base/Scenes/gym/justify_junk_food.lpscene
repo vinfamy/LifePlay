@@ -1,0 +1,23 @@
+WHAT: all
+WHERE: sports_centre
+WHEN: 0 - 24
+WHO: none
+OTHER: fitness < Random(0, 100)*Random(0, 1)*Random(0, 1)  
+
+SceneStart()
+"That was a good workout, but it left me starving and I had a sudden craving for some junk food right now. Have I earned it?"
+0:: "Yes"
+1:: "No"
+
+If 0
+    "I worked hard for this guilty pleasure of life. I deserved some sweet and fatty food once in a while!"
+    fitness -= Random(0, 0.5)
+    mood += Random(0, 50)
+Else
+    "No way, I must stay disciplined and not get complacent with my diet."
+    mood -= Random(0, 25)
+    fitness += Random(0, 0.5)
+Endif
+
+SceneEnd()
+timeout(150, justify_junk_food)

@@ -1,0 +1,34 @@
+WHAT: all
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getSpecific(Neighbour); If Random(50, 500) < Actor:perversion 
+OTHER: isAtHome()
+
+SceneStart()
+
+"What's that sound? If it is what I think it is, then my neighbour is getting very intimate with a lover. They are moaning very loudly."
+0:: "Ignore"
+1:: masochist < 50:: "Complain"
+2:: "Peep"
+
+If 0
+    "Good for <Actor.him_or_her> I guess. I can't ban my neighbours from sex!"
+Elseif 1
+    Player(Angry):: "For god sake, keep it down. Do you want the entire building to know what you're up to?"
+    Actor:rapportwithplayer -= Random(0, 5)
+    masochist -= Random(0, 1)
+Else
+    perversion += Random(0, 0.5)
+    "My curiousity got the better of me and I just had to see this ..."
+    If Random(0, 100) < sneak
+        "Luckily, my neighbour didn't quite close <Actor.his_or_her> door completely shut - probably too busy with fooling around with <Actor.his_or_her> partner to pay attention to the door. With my sneaking talent, I managed to get a pretty good view of what was going on ..."
+        Actor2 = generatePersonTemporary()
+        Sex(Actor, Actor2)
+        arousal += Random(0, 30)
+    Else
+        "Unfortunately for me, their doors were fully closed and all the curtains were pulled down. There's no way I can get a look in ..."
+    Endif
+Endif
+
+SceneEnd()
+timeout(48, neighbour_peep)

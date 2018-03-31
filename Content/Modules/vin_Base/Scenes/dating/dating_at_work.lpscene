@@ -1,0 +1,34 @@
+WHAT: all
+WHERE: work
+WHEN: 8 - 19
+WHO: Actor = getSpecific(Dating); If Actor.isColleague()
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    jobperformance -= Random(0, 2)
+    "Dating someone at work is not all that uncommon but still somewhat taboo. At the very least, a workplace relationship attracts plenty of gossip. I can feel that these gossips are affecting both <Actor.name>'s performance and mine."
+    "Perhaps for the sake of each other's career and of our relationship together, one of us should move jobs?"
+    0:: "Quit my job"
+    1:: "Ask <Actor.name> to quit"
+    2:: "Do nothing"
+    
+    If 0
+        "I'll make the sacrifice and be the one to look for somewhere else to work. It's best for both of us."
+        loseJob()
+        Actor:attractiontoplayer += Random(0, 5)
+    Elseif 1
+        If Random(50, 200) < interpersonal + Actor:attractiontoplayer
+            Actor(Sad):: "You're right ... One of us must move on for the sake of our relationship and our careers. And I'm happy to be the one to sacrifice."
+            Actor.removeColleague()
+        Else
+            Actor(Angry):: "What? How comes I'm the one that has to make the sacrifice? You're being very selfish, you know that?"
+            Actor:attractiontoplayer -= Random(0, 5)
+        Endif
+    Else
+        "What's the harm in a bit of office gossip? Yes, we're colleagues and yes, we're dating. People don't like it? That's their problem."
+    Endif
+
+    SceneEnd()
+    timeout(500, dating_at_work)

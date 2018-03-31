@@ -1,0 +1,26 @@
+WHAT: do_cardio, lift_weight
+WHERE: sports_centre
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 100) < 5
+
+SceneStart()
+Actor = generatePerson()
+Actor.dress()
+Actor.show(2)
+
+"I was getting on with my workout when a talkative <Actor.guy_or_girl> approached me to chat on and on and on ... It's getting pretty annoying now."
+0:: "Ignore"
+1:: "Scold <Actor.him_or_her>"
+
+If 0
+    "I pretended to listen and waited it out until <Actor.he_or_she> finished the 'conversation'."
+    masochist += Random(0, 0.5)
+Else
+    Player(Angry):: "<Actor.Dude_or_Girl>, I'm here to work out, not to chat."
+    masochist -= Random(0, 0.5)
+    Actor:rapportwithplayer -= Random(0, 5)
+Endif
+
+SceneEnd()
+timeout(24, talkative_at_gym)

@@ -1,0 +1,41 @@
+WHAT: do_cardio, lift_weight
+WHERE: sports_centre
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(30, 100) < attractiveness
+
+SceneStart()
+Actor = generatePersonTemporary()
+While !Actor.isInterestedIn(Player)
+    Actor = generatePersonTemporary()
+Endwhile
+Actor.makePermanent()
+Actor.dress()
+Actor.show(2)
+
+"I was getting on with my workout when I caught the sight of a stranger clearly checking me out."
+0:: "Show irritation"
+1:: "Show off"
+
+If 0
+    "I clearly expressed annoyance on my face. The stranger got the message and decided to leave me alone."
+    masochist -= Random(0, 0.5)
+    Actor:attractiontoplayer -= Random(0, 5)
+Else
+    "I tried to look my best and flirted with <Actor.him_or_her> with my eyes."
+    Actor:attractiontoplayer += Random(0, 5)
+    "Pretty soon, <Actor.he_or_she> approached me and started a conversation."
+    "Before <Actor.he_or_she> leaves, should we exchange numbers?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "We exchanged contacts and went back to our respective workouts."
+        exchangeContact(Actor)
+    Else
+        "I decided not to suggest that we exchange numbers."
+    Endif
+Endif
+
+SceneEnd()
+timeout(24, hit_on_at_the_gym)

@@ -1,0 +1,26 @@
+WHAT: lift_weight
+WHERE: sports_centre
+WHEN: 0 - 24
+WHO: none
+OTHER: muscle < Random(0, 100)*Random(0, 1) 
+
+SceneStart()
+Actor = generatePerson()
+Actor.dress()
+Actor.show(2)
+
+"I was getting on with my workout when a <Actor.guy_or_girl> approached me to point out my apparently poor form and give unsolicited advices. I'm pretty sure I'm doing fine though."
+0:: "Ignore"
+1:: "Tell <Actor.him_or_her> to fuck off"
+
+If 0
+    "I pretended to listen and waited it out until <Actor.he_or_she> finished giving me <Actor.his_or_her> 'wisdom'."
+    masochist += Random(0, 0.5)
+Else
+    Player(Angry):: "I know what I'm doing. Fuck off!"
+    masochist -= Random(0, 0.5)
+    Actor:rapportwithplayer -= Random(0, 5)
+Endif
+
+SceneEnd()
+timeout(24, unsolicited_advice)

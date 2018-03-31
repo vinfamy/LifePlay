@@ -50,10 +50,11 @@ If 0
         Friend.show(5)
         "We were having a pretty wild night out. With no significant others being there to stop us, we all got pretty shit-faced. I could barely walk now ..."
         Friend(Excited):: "I wasn't wrong, was I? It's so much more fun to go out without your <Dating.boyfriend_or_girlfriend>, right?"
-        Bird = generatePerson()
+        Bird = generatePersonTemporary()
         While !Player.isInterestedIn(Bird)
-            Bird = generatePerson()
+            Bird = generatePersonTemporary()
         Endwhile
+        Bird.makePermanent()
         Bird.dress()
         Bird.show(2)
         

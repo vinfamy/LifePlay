@@ -1,0 +1,148 @@
+WHAT: all, -dance, -go_to_the_bathroom
+WHERE: nightclub
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 500) < attractiveness + interpersonal
+
+SceneStart()
+Actor = getCompanion()
+    If !Actor.isValid()
+        Random
+            Actor = getPerson()
+            Actor = generatePerson()
+        EndRandom
+        Actor.dress()
+    Endif
+    If !Actor.isValid()
+        Actor = generatePerson()
+        Actor.dress()
+    Endif    
+Actor.show(2)
+    If Actor.isDominantSex(Player) && Random(0, 70) < Actor:interpersonal
+        "<Actor.name> invited me to the dancefloor. Should I?"
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            DanceAccepted = true
+        Else
+            DanceAccepted = false
+            "I decided to turn <Actor.name>'s offer down."
+        Endif
+    Else
+        If !isWithCompanion()
+            "I found <Actor.name> standing alone near the bar."
+        Endif
+        "Should I invite <Actor.name> to dance with me?"
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            Player(Happy):: "Would you like to join me on the dancefloor?"
+            If Actor:attractiontoplayer > Random(0, 20) || Actor:rapportwithplayer > Random(0, 20) || Random(0, 200) < interpersonal
+                Actor(Happy):: "Of course, I'd love to!"
+                DanceAccepted = true
+            Else
+                Actor(Sad):: "Sorry, I'm not too keen on dancing ..."
+                DanceAccepted = false
+            Endif
+        Else
+            "I decided not to ask <Actor.him_or_her> to dance."
+            DanceAccepted = false
+        Endif
+    Endif
+
+    If DanceAccepted
+        Actor.show(5)
+        "We walked towards the dancefloor and started dancing together."
+        If Actor.isInterestedIn(Player)
+            Actor:attractiontoplayer += dance*Random(0, 0.05)
+        Else
+            Actor:rapportwithplayer += dance*Random(0, 0.05)
+        Endif
+        
+        "Should I make my move?"
+        0:: "Just dance"
+        1:: "Kiss <Actor.name>"
+        
+        If 1
+            If Actor:attractiontoplayer > Random(0, 30) || Random(30, 100) < Actor:perversion
+                "<Actor.name> kissed me back and we soon indulged ourselves in a passionate makeout, right there in the middle of the dancefloor. Our hands were all over each other and it was getting very heated indeed!"
+                Kissed = true
+            Else
+                "<Actor.name> moved <Actor.his_or_her> head away to avoid my advance. Embarassed, I had no choice but to go back to dancing normally."
+                Kissed = false
+            Endif
+        Else
+            If Random(40, 200) < Actor:attractiontoplayer + Actor:perversion || [Actor.isDominantSex(Player) && Random(0, 70) < Actor:attractiontoplayer]
+                "All of a sudden, <Actor.name> leaned onto me for a kiss."
+                0:: "Kiss back"
+                1:: "Reject <Actor.him_or_her>"
+                
+                If 0
+                    "I kissed <Actor.him_or_her> back and we soon indulged ourselves in a passionate makeout, right there in the middle of the dancefloor. Our hands were all over each other and it was getting very heated indeed!"
+                    Kissed = true
+                Else
+                    "I moved my head away to avoid <Actor.his_or_her> advance. Embarassed, <Actor.he_or_she> had no choice but to go back to dancing normally."
+                    Kissed = false
+                Endif
+            Else
+                Kissed = false
+            Endif           
+        Endif
+        
+        If Kissed
+            "Should I try to go further?"
+            0:: "Stop it there"
+            1:: perversion > 40:: "Lead <Actor.name> to the bathroom"
+            2:: "Invite <Actor.name> home"
+            
+            If !Actor.isDominantSex(Player) && Actor:attractiontoplayer + Actor:perversion < Random(50, 200)
+                choice = 0
+                "I whispered into <Actor.name>'s ear, suggesting that we should get intimate, but <Actor.he_or_she> whispered back, saying it was not a good idea."
+            Endif
+        Else
+            choice = 0
+        Endif
+        
+        If 0
+            "We finished the rest of the dance without incidences."
+            If !isWithCompanion()
+                "Should I continue hanging out with <Actor.name>?"
+                0:: "Yes"
+                1:: "Dump <Actor.him_or_her>"
+                
+                If 0
+                    Actor.startDate()
+                Endif
+            Endif
+        Else
+            If 1
+                "I quickly led <Actor.name> by the hand to the nightclub's bathroom. We quickly got inside one of the cubicles and started making out again."
+            Else
+                "We promptly left the nightclub and went back to my place. Once we were inside my bedroom, <Actor.name> practically jumped at me."
+                moveTo(Home)
+                setBackground(home)
+            Endif
+            Sex(Player, Actor)
+            Actor:attractiontoplayer += Random(0, 5)
+            perversion += Random(0, 0.5)
+            Actor.show(2)
+            If !Actor.isContactExchanged()
+                perversion += Random(0, 0.5)
+                "I'm such a <Player.manwhore_or_slut> - I just slept with someone whose number I didn't even have! Should I at least ask for <Actor.name>'s number now though?"
+                0:: "Yes"
+                1:: "No"
+                
+                If 0
+                    "We exchanged numbers. Maybe this could become something more serious."
+                    exchangeContact(Actor)
+                Else
+                    "I decided not to. I don't want to give <Actor.name> any expectations that this will be anything more than a one-night stand."
+                Endif
+            Endif
+        Endif
+    Elseif isWithCompanion()
+        timeout(2, invite_to_dance)
+    Endif    
+SceneEnd()

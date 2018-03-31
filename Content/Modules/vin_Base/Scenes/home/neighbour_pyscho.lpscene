@@ -1,0 +1,41 @@
+WHAT: all
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getSpecific(Neighbour); If Actor:interpersonal < 10 && Actor:martial > 70 && Actor:rapportwithplayer < 5
+OTHER: isAtHome()
+
+    SceneStart()
+
+    "I'm starting to think that one of my neighbours, is a psychopath. <Actor.He_or_She> lives alone and doesn't socialize with anyone around. <Actor.He_or_She> would scream angrily like a maniac in the middle of the night and would smash the wall repeatedly if anyone around dares to make a noise. I swear to God: if there's a murder in the building, this <Actor.guy_or_girl> will be the first suspect on everyone's mind."
+    0:: "Ignore"
+    1:: "Complain to landlord"
+    2:: "It actually turns me on ..."
+
+    If 0
+        "Let's not risk pissing this maniac off and just bear <Actor.his_or_her> bullying. <Actor.He_or_She> could be dangerous."
+        masochist += Random(0, 0.5)
+        mood -= Random(0, 20)
+    Elseif 1
+        "I didn't pay so much rent to live here and be tortured mentally by a psychopath next door. I need to talk to the landlord about this."
+        Landlord = getSpecific(Landlord)
+        Landlord.dress()
+        Landlord.show(2)
+        Landlord(Sad):: "That's very disturbing. We take the peace of mind of our tenants seriously and will investigate this."
+        "A few days later ..."
+        If Random(0, 100) < interpersonal
+            Landlord(Happy):: "I've asked the other tenants, who all expressed the same concern. Therefore, we have asked <Actor.name> to vacate <Actor.his_or_her> apartment immediately and find somewhere else to live. You can rest easy now ..."
+            Actor.removeNeighbour()
+        Else
+            Landlord(Sad):: "Although there were other tenants who complained, we didn't find valid contractual reasons to evict <Actor.name> yet. I did talk to <Actor.him_or_her> though and <Actor.he_or_she> promised to stop this behaviour. Come to me again if it persists."
+        Endif
+        masochist -= Random(0, 1)
+        Actor:rapportwithplayer -= Random(0, 5)
+        Actor:attractiontoplayer -= Random(0, 5)
+    Else
+        "To tell the truth ... this psychopathic behaviour kinda turns me on somehow. I just can't resist being dominated, bullied and fucked with mentally."
+        masochist += Random(0, 2)
+        arousal += Random(0, 40)
+    Endif
+    
+    timeout(500, neighbour_psycho)
+    SceneEnd()

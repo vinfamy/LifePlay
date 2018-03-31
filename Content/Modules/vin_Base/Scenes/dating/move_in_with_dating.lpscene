@@ -2,7 +2,7 @@ WHAT: all
 WHERE: home
 WHEN: 0 - 24
 WHO: none
-OTHER: isAtHome() && isWithCompanion() && CurrentCompanion.isDating() && [[CurrentCompanion.isDominantSex(Player) && Dating:attractiontoplayer > 40] || CurrentCompanion:attractiontoplayer > 80]
+OTHER: isAtHome() && isWithCompanion() && CurrentCompanion.isDating() && [[CurrentCompanion.isDominantSex(Player) && CurrentCompanion:attractiontoplayer > 40] || CurrentCompanion:attractiontoplayer > 80]
 
 SceneStart()
 
@@ -20,5 +20,5 @@ Else
     CurrentCompanion:attractiontoplayer -= Random(0, 2)
 Endif
 
-timeout(1000, move_in_with_dating)
+timeout(1000, move_in_with_CurrentCompanion)
 SceneEnd()

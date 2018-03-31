@@ -1,0 +1,26 @@
+WHAT: do_cardio, lift_weight
+WHERE: sports_centre
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 100) < 5
+
+SceneStart()
+Actor = generatePerson()
+Actor.dress()
+Actor.show(2)
+
+"I couldn't help noticing a <Actor.guy_or_girl> spending all <Actor.his_or_her> time in the gym posing and taking selfies instead of actually working out."
+0:: "Ignore"
+1:: "Mock <Actor.him_or_her>"
+
+If 0
+    "It's none of my business. Besides, it's understandable considering the social media age we're living in."
+    masochist += Random(0, 0.5)
+Else
+    Player(Sarcastic):: "Did you know that each phone curl burns 100 calories?"
+    masochist -= Random(0, 0.5)
+    Actor:rapportwithplayer -= Random(0, 5)
+Endif
+
+SceneEnd()
+timeout(24, poser_workout)

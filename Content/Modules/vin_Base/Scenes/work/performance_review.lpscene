@@ -12,7 +12,7 @@ Boss.show(2)
 
 Boss(Attentive):: "<Player.name>, could I see you in my office in 10 minutes please?"
 Player(Anxious):: "Of course, <Boss.Sir_or_Madam>. I will be with you shortly."
-"Well, this was all out of the blue ... Is this going to be good news or bad news? Should I be worrited?"
+"Well, this was all out of the blue ... Is this going to be good news or bad news? Should I be worried?"
 passTime(0.05, 0.15)
 
 Boss(Happy):: "Here you are ... Come, take a seat!"

@@ -1,0 +1,109 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getSpecific(Neighbour); If Actor:intelligence < Random(0, 60) 
+OTHER: isAtHome() && intelligence > Random(0, 100)
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    
+    "I was walking back to my apartment when I found my neighbour <Actor.name> hurriedly walking in the opposite direction, looking a bit annoyed."
+    Player(Happy):: "<Actor.name>, what's the matter? You don't look too happy ..."
+    Actor(Sad):: "My laptop just stopped working all of a sudden. You know I'm hopeless with technology so I'm taking it to a repair shop. Last time I did that, they took ages to fix it so I'll probably have to live without my laptop for a while."
+    0:: "Wish <Actor.him_or_her> luck"
+    1:: "Offer help"
+    
+    If 0
+        Player(Sad):: "Oh, that sucks. Good luck with the laptop. Hopefully they won't take so long this time."
+        Actor(Sad):: "Thank you."
+    Else
+        Player(Happy):: "There's no need to take it to the repair shop. I know a thing or two about computers. I can have a look for you. Might be able to fix it right away."
+        Actor(Excited):: "Oh really? That would be awesome. Come in my apartment, I can show you what's wrong."
+        "<Actor.name> opened <Actor.his_or_her> apartment's door and invited me in to have a look at the laptop. <Actor.He_or_She> switched it on and showed me the issues."
+        If Random(0, 100) < intelligence
+            "It turned out to be an easy fix and I managed to return <Actor.name>'s laptop to working condition in no time at all."
+            Actor:rapportwithplayer += Random(0, 3)
+            Actor:attractiontoplayer += Random(0, 3)
+            Actor(Happy):: "Oh my god! You're a life saver. Please, would you stay for a drink or two? I don't know how else to thank you."
+            0:: "Stay"
+            1:: "Leave"
+            
+            If 0
+                Player(Excited):: "I'll be glad to stay for a drink."
+                choice = -1    
+                ate = false
+                hadSex = false
+                    
+                While choice < 5
+                    Kissed = false
+                    "What should I suggest to <Actor.name> that we do?"
+                    0:: "Chat"
+                    1:: !ate:: "Eat something together"
+                    2:: "Watch a movie"
+                    3:: "Drink alcohol"
+                    4:: !hadSex:: "Kiss <Actor.him_or_her>"
+                    5:: "Leave"
+                    
+                    If 5
+                        Player(Happy):: "Thank you for the drink, but I've got to go now."
+                        Actor(Happy):: "Alright, thank you again for the laptop."
+                        "We said goodbye and went our separate ways."
+                    Else
+                        Actor:rapportwithplayer += Random(0, 0.5)
+                        Actor:attractiontoplayer += Random(0, 0.5)
+                        If 0
+                            "We simply sat and chat for a while ..."
+                        Elseif 1
+                            "We made some quick snacks and enjoyed them together ..."
+                            ate = true
+                        Elseif 2
+                            "We watched a movie together ..."
+                        Elseif 3
+                            "We had a drink together ..."
+                            Player:intoxication += Random(0,10)
+                            Actor:intoxication += Random(0,10)
+                        Elseif 4
+                            Kissed = true
+                        Endif
+
+                        If Kissed || [!hadSex && Actor.isInterestedIn(Player) && Actor:attractiontoplayer > Random(30, 200)]
+                            Player(Kiss):: "..."
+                            Actor(Kiss):: "..."
+                            "We had a kiss, an awkward one at first, but soon moving towards a more passionate direction."
+                            "Should I let this escalate further?"
+                            0:: "Make out"
+                            1:: "Stop"
+                            
+                            If 0
+                                If Actor.isInterestedIn(Player) && [Actor.IsDominantSex(Player) || Actor:attractiontoplayer + Actor:perversion > Random(50, 200) || Actor:intoxication > 80]
+                                    "Our kiss got more and more steamy and soon we were making out, our hands all over each other."
+                                    hadSex = true
+                                    Player:perversion += Random(0, 1)
+                                    Sex(Player, Actor)
+                                    Actor.show(2)
+                                    "The sex was amazing. We put our clothes back on afterwards and continued our date."
+                                Else
+                                    "Unfortunately for me, <Actor.name> didn't seem interested in letting things escalate any further and pulled away."
+                                Endif
+                            Else
+                                "I decided to stop it there and not go any further."
+                            Endif
+                        Elseif Random(0, 100) < 20
+                            Actor(Happy):: "I've gotta go somewhere in a minute. Do you mind ..."
+                            Player(Happy):: "Oh, no problem. See you around!"
+                            "We parted ways."
+                            choice = 5            
+                        Endif        
+                    Endif
+                Endwhile
+            Else
+                Player(Happy):: "That's okay. I'm glad I was able to help. But I have some plans today that I'd better head to soon. Thanks for the offer though."
+            Endif
+        Else
+            "Unfortunately, I never managed to even figure out what the issue was and <Actor.name> had no choice but to take the laptop to a professional anyway."
+        Endif
+    Endif
+    
+    SceneEnd()
+    timeout(200, neighbour_fixes)

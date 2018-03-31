@@ -46,6 +46,19 @@ FStreetMapBuilding UStreetMap::FindBuilding(const FVector2D Point)
     return emptyBuilding;
 }
 
+FStreetMapBuilding UStreetMap::FindBuildingFromArray(const FVector2D Point, TArray<FStreetMapBuilding> SmallBuildings)
+{
+    FStreetMapBuilding emptyBuilding;
+    for (const auto &element : SmallBuildings)
+    {
+        if (FPolygonTools::IsPointInsidePolygon(element.BuildingPoints, Point))
+        {
+            return element;
+        }
+    }
+    return emptyBuilding;
+}
+
 TArray<FStreetMapBuilding> UStreetMap::SearchByBuildingName(FString SearchTerm, FString Amenity) const
 {
     TArray<FStreetMapBuilding> Results;
@@ -62,6 +75,32 @@ TArray<FStreetMapBuilding> UStreetMap::SearchByBuildingName(FString SearchTerm, 
     else
     {
         Results = Buildings;
+    }
+    
+    if (Amenity.Len() > 0)
+    {
+        Results = FilterByAmenity(Amenity, Results);
+    }
+  
+    return Results;
+}
+
+TArray<FStreetMapBuilding> UStreetMap::SearchByBuildingNameFromArray(FString SearchTerm, FString Amenity, TArray<FStreetMapBuilding> SmallBuildings) const
+{
+    TArray<FStreetMapBuilding> Results;
+    if (SearchTerm.Len() > 0)
+    {
+        for (const auto &element : SmallBuildings)
+        {
+            if (element.BuildingName.Contains(SearchTerm))
+            {
+                Results.Add(element);
+            }
+        }
+    }
+    else
+    {
+        Results = SmallBuildings;
     }
     
     if (Amenity.Len() > 0)

@@ -1,0 +1,72 @@
+WHAT: all
+WHERE: all
+WHEN: 19 - 24
+WHO: none
+OTHER: isWithCompanion() && CurrentCompanion.isDating() && perversion > 70 && CurrentCompanion:perversion > 70 && CurrentCompanion:attractiontoplayer > 30
+
+    SceneStart()
+    
+    "<CurrentCompanion.name> and I are very open sexually with each other. Should I suggest to <CurrentCompanion.him_or_her> that we arrange a special trip to a swinger club to add some spice to our relationship?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        CurrentCompanion(Flirty):: "Of course baby, that would be quite something different."
+        "So we agreed on some ground rules for the night, the most important of which is that we must both agree on which couple we would swing with."
+        "A few days later ..."
+        setBackground(nightclub)
+        
+        Player.strip()
+        CurrentCompanion.strip()
+        "We're at the swingers' club and it's full of good-looking nude couples. So many choices for us."
+        
+        HadSex = false
+        While !HadSex
+            MyFuck = generatePersonTemporary()
+            While !Player.isInterestedIn(MyFuck)
+                MyFuck = generatePersonTemporary()
+            Endwhile           
+            DatingFuck = generatePersonTemporary()
+            While !CurrentCompanion.isInterestedIn(DatingFuck)
+                DatingFuck = generatePersonTemporary()
+            Endwhile
+
+            "A couple approached us and introduced themselves as <MyFuck.name> and <DatingFuck.name>."
+            MyFuck.show(2)
+            DatingFuck.show(3)
+            "We spent some time chatting and sharing sexy stories. <MyFuck.name> clearly seemed to be into me. Should I suggest to <CurrentCompanion.name> that we swing with <MyFuck.name> and <DatingFuck.name>?"
+            0:: "Yes"
+            1:: "No"
+            2:: "End the night"
+            
+            If 0
+                "I whispered into my <CurrentCompanion.boyfriend_or_girlfriend>'s ear my approval of <MyFuck.name> and asking <CurrentCompanion.him_or_her> what <CurrentCompanion.he_or_she> thinks of <DatingFuck.name>."
+                CurrentCompanion(Flirty):: "Alright baby, let's do this."
+                "We discussed our intention with the other couple, setting out a bunch of ground rules. Pretty soon, we swapped partners and started kissing. <CurrentCompanion.name> and <DatingFuck.name> got it on in no time at all."
+                Sex(CurrentCompanion, DatingFuck)
+                CurrentCompanion.hide()
+                DatingFuck.hide()
+                "Wow, it was hot watching my <CurrentCompanion.boyfriend_or_girlfriend> fuck another <DatingFuck.man_or_woman>, but it's my turn now and <MyFuck.name> knows it."
+                Sex(Player, MyFuck)
+                MyFuck.hide()
+                CurrentCompanion.hide()
+                perversion += Random(0, 1)
+                "What an amazing night that was. What an experience! And what a way to add spice to our relationship."
+                CurrentCompanion:attractiontoplayer += Random(0, 5)
+                HadSex = true
+            Elseif 1
+                "I don't really find <MyFuck.name> attractive. Let's find another couple."
+            Else
+                "Unfortunately, we never found a suitable couple to swing with and went home disappointed and hornier than before."
+                HadSex = true
+            Endif
+            
+            MyFuck.hide()
+            DatingFuck.hide()
+        Endwhile
+    Else
+        "Maybe not, some fantasies should remain fantasies."
+    Endif
+    
+    SceneEnd()
+    timeout(200, swinger_club)

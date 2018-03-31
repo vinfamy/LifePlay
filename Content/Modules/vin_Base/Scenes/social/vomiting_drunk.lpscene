@@ -1,0 +1,26 @@
+WHAT: all
+WHERE: nightclub, bar
+WHEN: 23 - 4
+WHO: none
+OTHER: Random(0, 100) < 5
+
+SceneStart()
+Actor = generatePerson()
+Actor.dress()
+Actor.show(2)
+
+"I couldn't help but notice there's a completely hammered <Actor.guy_or_girl> vomiting on the floor. Someone clearly couldn't handle their alcohol!"
+0:: "Ignore"
+1:: "Scold <Actor.him_or_her>"
+
+If 0
+    "It's none of my business. Some people just drink too much. The staff will clean that up."
+    masochist += Random(0, 0.5)
+Else
+    Player(Angry):: "That's disgusting. If you can't handle alcohol, don't drink or you'll ruin everyone else's night!"
+    masochist -= Random(0, 0.5)
+    Actor:rapportwithplayer -= Random(0, 5)
+Endif
+
+SceneEnd()
+timeout(24, vomiting_drunk)

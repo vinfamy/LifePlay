@@ -1,0 +1,29 @@
+WHAT: all
+WHERE: sports_centre
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 100) < 5
+
+SceneStart()
+Actor = generatePersonTemporary()
+While !Actor.isSameGender(Player)
+    Actor = generatePersonTemporary()
+Endwhile
+Actor.makePermanent()
+Actor.show(2)
+
+"I'm in the gym locker room and there's a completely naked <Actor.guy_or_girl> standing in there shamelessly."
+0:: "Ignore"
+1:: "Scold <Actor.him_or_her>"
+
+If 0
+    "It's none of my business. Besides, some people are exhibitionists, or just don't care."
+    masochist += Random(0, 0.5)
+Else
+    Player(Angry):: "Put some towel on, damn it. Nobody needs to see that!"
+    masochist -= Random(0, 0.5)
+    Actor:rapportwithplayer -= Random(0, 5)
+Endif
+
+SceneEnd()
+timeout(24, naked_elder)

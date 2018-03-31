@@ -36,7 +36,7 @@ Endif
 InvitedHome = false
 If Quit
     Colleague.removeColleague()
-    "Today, I received an e-mail from the boss: <Colleague.name> is leaving for another job elsewhere! And <Colleauge.his_or_her> farewell party will be organized in a few days."
+    "Today, I received an e-mail from the boss: <Colleague.name> is leaving for another job elsewhere! And <Colleague.his_or_her> farewell party will be organized in a few days."
     "A few days later ..."
     setBackground(bar)
     If Colleague:rapportwithplayer < 0
@@ -79,9 +79,8 @@ If Quit
             Endif
         Endif
     Endif
+    "Eventually, the farewell party concluded. Everyone said their goodbye to <Colleague.name> and wished <Colleague.him_or_her> luck."
 Endif
-
-"Eventually, the farewell party concluded. Everyone said their goodbye to <Colleague.name> and wished <Colleague.him_or_her> luck."
 
 If InvitedHome
     "Little did the rest of my colleagues know, soon after they left, <Colleague.name> and I walked back to my place."

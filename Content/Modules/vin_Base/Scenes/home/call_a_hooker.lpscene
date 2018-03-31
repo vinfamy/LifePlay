@@ -1,0 +1,45 @@
+WHAT: all, -go_to_the_bathroom, -sleep, -nap
+WHERE: home
+WHEN: 18 - 24
+WHO: none
+OTHER: IsAtHome() && arousal > 50 && perversion > 30
+
+    SceneStart()    
+    "I'm so horny, damn it! Maybe I should just get a hooker and get my needs taken care of?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "I did some digging on the internet and found a hooker that does outcalls and is within my budget."
+        Actor = generatePersonTemporary()
+        While !Player.isInterestedIn(Actor)
+            Actor = generatePersonTemporary()       
+        Endwhile        
+        Random
+            Actor.blendPreset(twenties)
+            Actor.blendPreset(thirties)
+        EndRandom        
+        Actor.randomizeHairs()
+        Actor.randomizeFace()
+        
+        Actor.dress()
+        Actor.show(2)
+        
+        "Should I arrange to have sex with this hooker?"
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            "In no time at all, <Actor.name> arrived and we got it on immediately."
+            Sex(Player, Actor)
+            perversion += Random(0, 0.5)
+            money -= Random(100, 300)
+        Else
+            "Nah, <Actor.he_or_she> isn't my type."
+        Endif
+    Else
+        "No way. I'm not so desperate that I have to pay to get laid."
+    Endif
+    
+    SceneEnd()
+    timeout(96, call_a_hooker)

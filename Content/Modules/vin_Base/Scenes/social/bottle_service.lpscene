@@ -1,0 +1,31 @@
+WHAT: all, -go_to_the_bathroom
+WHERE: nightclub
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 1000) < intelligence + interpersonal && money > 5000
+
+SceneStart()
+"I do have some money to spare. Should I go for a VIP table and bottle service?"
+0:: "Yes"
+1:: "No"
+
+    If 0
+        "Why not? I'm rich and I want people to know it."
+        money -= Random(500, 4000)
+        "My lavish spending impressed my good-looking club-goers and promoters who came to my table to introduce themselves. I happily exchanged numbers with a few interesting ones."
+        Actor = generatePerson()
+        exchangeContact(Actor)
+        Actor = generatePerson()
+        exchangeContact(Actor)
+        Actor = generatePerson()
+        exchangeContact(Actor)
+        Actor = generatePerson()
+        exchangeContact(Actor)
+        Actor = generatePerson()
+        exchangeContact(Actor)        
+    Else
+        "I'd better not show off too much or risk making an pretentious idiot of myself."
+    Endif
+
+SceneEnd()
+timeout(24, bottle_service)

@@ -1,0 +1,107 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: home
+WHEN: 16 - 22
+WHO: none
+OTHER: !isWithCompanion() && jobexperience < 40
+
+    SceneStart()
+    SugarParent = SugarParent.getGlobal()    
+    If SugarParent > 0
+        Actor = getSpecific(SugarParent)
+        "My phone is ringing. It's my <Actor.sugardaddy_or_sugarmommy> <Actor.name>."
+        Actor.dress()
+        Actor.show(2)
+        Actor(Happy):: "Honey, I miss you. Let's meet tonight."
+        0:: "Yes"
+        1:: "No"
+        2:: "End arrangement"
+        
+        If 0
+            Player(Happy):: "I miss you too, <Actor.Daddy_or_Mommy>. Let's meet."
+            Random
+                setBackground(restaurant)
+                setBackground(bar)
+                setBackground(nightclub)
+            endRandom
+            "With that said, that evening, <Actor.Daddy_or_Mommy> took me to a nice expensive date and as usual, we ended up in luxury hotel suite afterwards."
+            setBackground(home)
+            Sex(Actor, Player)
+            Actor.show(2)
+            "With the deed done, we spent the night together and <Actor.Daddy_or_Mommy> left me a big fat envelope in the morning. Getting pampered and spoiled, having great sex AND getting paid - I can't say no to that, ever."
+            money += Random(100, 300)
+            perversion += Random(0, 0.25)
+        Elseif 1
+            Player(Sad):: "I'm sorry, <Actor.Daddy_or_Mommy>. I can't do it tonight, but I miss you too and can't wait to see you soon."
+        Else
+            "I don't know it was the right decision, but I felt like I was now in a stage of my life to move on from this pelicular arrangement. It's time to stand on my own two feet ... or find another <Actor.sugardaddy_or_sugarmommy>."
+            SugarParent.clearGlobal()
+            timeout(500, sugarbabe)
+        Endif    
+    Else
+        "To be honest, I'm not earning all that much and it's expensive to live here. After rent and basic expenses, I really don't have much left. Sometimes, looking at celebrities and executives, I wish I can afford some of same luxuries they get."
+        "I recently found a website that specialised in sugarparent-sugarbabe arrangements, basically wealthy older men and women pay for companionship and sex. Should I sign myself up?"
+        0:: perversion > 20:: "Yes"
+        1:: "No"
+        
+        If 0
+            "It's worth a try. It's not like they will force me to do anything just from signing up."
+            If Random(0, 100) < attractiveness                
+                Actor = generatePersonTemporary()
+                While !Actor.isInterestedIn(Player)
+                    Actor = generatePersonTemporary()
+                Endwhile
+                Random
+                    Actor.blendPreset(fourties)
+                    Actor.blendPreset(fifties)
+                    Actor.blendpreset(sixties)
+                endRandom
+                Actor.randomizeFace()
+                Actor.randomizeHairs()
+                
+                "Eventually, I got approached by a potential <Actor.sugardaddy_or_sugarmommy>, who invited me to a first date."
+                Actor.dress()
+                Actor.show(2)
+                "Should I agree to go on a date with <Actor.name>?"
+                0:: "Yes"
+                1:: "No"
+                
+                If 0
+                    "Why not? I'm sure <Actor.he_or_she> will be extra generous on the first date."
+                    setBackground(restaurant)
+                    Actor.dress()
+                    Player.dress()
+                    "<Actor.name> took me to a really fancy restaurant and wined and dined me like money was no object. Afterwards, <Actor.he_or_she> suggested that we went back to a suite <Actor.he_or_she> had booked at a 5-star hotel nearby."
+                    0:: "Yes"
+                    1:: "No"
+                    
+                    If 0
+                        setBackground(home)
+                        Actor.makePermanent()
+                        "Wow, this is a nice hotel suite! Must have cost a fortune. And I know very well what <Actor.name> is expecting from me for <Actor.his_or_her> generousity."
+                        Sex(Actor, Player)
+                        perversion += Random(0, 0.5)
+                        Actor.show(2)
+                        "The sex wasn't too bad. We spent the night together. The morning after, <Actor.name> paid for breakfast, and before heading off to work, told me that <Actor.he_or_she> will call me soon and left me a generous envelope. Needless to say, <Actor.name> is now my <Actor.sugardaddy_or_sugarmommy>."
+                        money += Random(100, 500)
+                        SugarParent = Actor.getID()
+                        SugarParent.setGlobal(SugarParent)
+                    Else
+                        "I turned down <Actor.name>'s offer to go back to the hotel. <Actor.He_or_She> was obviously disappointed and needless to say, never got in contact with me again."
+                        timeout(500, sugarbabe)
+                    Endif
+                Else
+                    "Ew, even for money, I can't sleep with someone that old and ugly."
+                    timeout(500, sugarbabe)
+                Endif
+            Else
+                "Unfortunately, I received no interest from any potential sugarparents. It seemed there simply was just too much competition and I was not ... attractive enough."
+                timeout(500, sugarbabe)
+            Endif
+        Else
+            "No way. There are more self-respecting ways to make money than that. It's basically glorified prositution."
+            timeout(1000, sugarbabe)
+        Endif
+    Endif
+    
+    SceneEnd()
+    timeout(96, sugarbabe)

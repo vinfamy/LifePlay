@@ -1,0 +1,26 @@
+WHAT: do_cardio, lift_weight
+WHERE: sports_centre
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 100) < 5
+
+SceneStart()
+Actor = generatePerson()
+Actor.dress()
+Actor.show(2)
+
+"Damn. I needed to use a machine and the <Actor.guy_or_girl> who used it before me was very sweaty and didn't bother to wipe the machine down."
+0:: "Ignore"
+1:: "Scold <Actor.him_or_her>"
+
+If 0
+    "I just quietly wiped the machine down myself before getting on with my workout."
+    masochist += Random(0, 0.5)
+Else
+    Player(Angry):: "<Actor.Dude_or_Girl>! This is disgusting. Wipe off your sweat for god's sake."
+    masochist -= Random(0, 0.5)
+    Actor:rapportwithplayer -= Random(0, 5)
+Endif
+
+SceneEnd()
+timeout(24, sweaty_on_machine)

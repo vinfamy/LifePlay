@@ -1,0 +1,31 @@
+WHAT: all
+WHERE: sports_centre
+WHEN: 0 - 24
+WHO: none
+OTHER: money > 1000 && Random(0, 500) < fitness 
+
+SceneStart()
+
+"There is so much information around about supplements and each source is saying a different thing. Should I try to do my own research and come up with my own supplement plan, or should I go for the easy but expensive option of all-in-one powders and pills?"
+0:: "Do my own research"
+1:: "Go for all-in-one solutions"
+
+If 0
+    money -= Random(100, 500)
+    If Random(0, 100) < intelligence
+        "My research allowed me to make and tailor a perfect supplement plan for my body, budget and goals. The results were very noticeable."
+        fitness *= Random(1, 1.1)
+        muscle *= Random(1, 1.1)
+        intelligence += Random(0, 1)
+    Else
+        "Unfortunately, I was soon overwhelmed by all the conflicting information sources and the supplements I bought didn't yield any noticeable results."
+    Endif
+Else
+    money -= Random(200, 1000)
+    "All these mainstream products really hurt my wallet but they did do a decent job."
+    fitness *= Random(1, 1.05)
+    muscle *= Random(1, 1.05)
+Endif
+
+SceneEnd()
+timeout(2000, workout_supplement)

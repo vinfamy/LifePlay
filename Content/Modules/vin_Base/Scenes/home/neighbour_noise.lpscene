@@ -1,0 +1,44 @@
+WHAT: sleep
+WHERE: home
+WHEN: 22 - 4
+WHO: Actor = getSpecific(Neighbour); If Random(50, 100) < Actor:music 
+OTHER: isAtHome()
+
+    SceneStart()
+
+    "<Actor.name>, my neighbour is playing music loudly again tonight. I can't sleep ..."
+    0:: "Ignore"
+    1:: "Complain"
+    2:: "Compliment"
+
+    If 0
+        "Let's not burn any bridges. I will just bear this and try to get to sleep."
+        masochist += Random(0, 0.5)
+        energy -= Random(0, 20)
+    Elseif 1
+        "This is unacceptable. Does <Actor.name> realize how late it is?"
+        Actor.dress()
+        Actor.show(2)
+        Player(Angry):: "Could you please tune down the music? I'm trying to get some sleep here."
+        Actor(Sad):: "Oh sorry, I'll adjust the volume right away."
+        masochist -= Random(0, 0.5)
+        Actor:rapportwithplayer -= Random(0, 5)
+        If Actor.isInterestedIn(Player)
+            Actor:attractiontoplayer -= Random(0, 5)
+        Endif
+    Else
+        energy -= Random(0, 20)
+        music += Random(0, 0.5)
+        "I'm actually quite enjoying the music. Who needs sleep anyway?"
+        Actor.dress()
+        Actor.show(2)
+        Player(Happy):: "You have great taste in music by the way!"
+        Actor(Happy):: "Oh, thank you!"
+        Actor:rapportwithplayer += Random(0, 5)
+        If Actor.isInterestedIn(Player)
+            Actor:attractiontoplayer += Random(0, 5)
+        Endif
+    Endif
+    
+    timeout(48, neighbour_noise)
+    SceneEnd()

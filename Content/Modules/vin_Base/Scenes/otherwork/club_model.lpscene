@@ -1,0 +1,36 @@
+WHAT: all, -go_to_the_bathroom
+WHERE: nightclub
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 1000) < attractiveness
+
+
+    SceneStart()
+    "I was in one of the fancier clubs in town where I notice a group of well-dressed guys having their own VIP table with bottle service and the finest alcohol in the house, their arms around girls that look like they could be models or B-movie stars. No doubt they are high-flying bankers, lawyers or management consultants trying to impress potential mates and feel superior to the rest by throwing their money around."
+    0:: "Join them"
+    1:: "Ignore"
+    
+    If 0
+        If Random(0, 100) < attractiveness
+            "As soon as I approached the table, one of the <Player.girls_or_guys> seemed smitten with me and invited me to sit down. I spent the night hanging out with the rich and beautiful, getting a few numbers and a lot of expensive alcohol for free as a result."
+            intoxication += Random(0, 50)
+            count = 0
+            While count < 5
+                Actor = generatePerson()
+                Actor:intelligence += 30
+                Actor:interpersonal += 50
+                exchangeContact(Actor)
+                count += 1
+            Endwhile
+
+            interpersonal += Random(0, 0.5)
+        Else
+            "I tried to hang out with them, but none of them paid any attention to me - some even smirked at me. Eventually, I got the message and left, embarassed. Maybe I didn't quite live up to their standards of attractiveness."
+            mood -= Random(0, 30)
+        Endif
+    Else
+        "VIP table? Bottle service? Expensive champagne? All far too pretentious for my taste."
+    Endif
+    
+    SceneEnd()
+    timeout(200, club_model)

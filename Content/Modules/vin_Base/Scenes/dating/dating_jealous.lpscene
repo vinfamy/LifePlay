@@ -6,10 +6,11 @@ OTHER: isWithCompanion() && CurrentCompanion.isDating() && CurrentCompanion.isDo
 
 SceneStart()
 "It was in a middle of a date with <CurrentCompanion.name> when someone approached me ..."
-Flirter = generatePerson()
+Flirter = generatePersonTemporary()
 While !Flirter.isInterestedIn(Player)
-    Flirter = generatePerson()
+    Flirter = generatePersonTemporary()
 endWhile
+Flirter.makePermanent()
 
 Flirter.dress()
 Flirter:attractiontoplayer += Random(0, 30)

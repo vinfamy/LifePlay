@@ -1,0 +1,110 @@
+WHAT: all
+WHERE: sports_centre
+WHEN: 7 - 20
+WHO: none
+OTHER: !isWithCompanion() && fitness < Random(0, 100)
+
+SceneStart()
+PT = getSpecific(PT)
+    If PT.isValid()
+        "Should I arrange a session with my personal trainer <PT.name> today?"
+        0:: "Yes"
+        1:: "No"
+        2:: "Fire <PT.name>"
+        
+        If 0
+            money -= Random(30, 150)
+            PT.dress()
+            PT.show(2)
+            "<PT.name> guided me through a number of exercises while explaining what they are for. How seriously should I take the workout though?"
+            0:: "Follow <PT.name>'s instructions"
+            1:: "Mess around and flirt with <PT.him_or_her>"
+            
+            If 0
+                PT:rapportwithplayer += Random(0, 2)
+                energy -= Random(0, 40)
+                fitness += Random(0, 0.5)
+                "I paid for this so might as well take it seriously and get some results!"
+            Else
+                "I couldn't care less about the workout, my attention was very clearly on my incredibly fit personal trainer, and I made it very clear to <PT.him_or_her>"
+                If PT.isInterestedIn(Player)
+                    PT:attractiontoplayer += Random(0, 2)
+                Else
+                    PT:rapportwithplayer -= Random(0, 2)
+                Endif
+            Endif
+            
+            "The workout is now over. Should I invite <PT.name> out for a drink?"
+            0:: "Yes"
+            1:: "No"
+            
+            If 0
+                If PT:attractiontoplayer > Random(10, 100)
+                    PT(Excited):: "Sure, I'd love to get to know my client better."
+                    setBackground(bar)
+                    "We drank and chat our way through the evening. It's getting pretty late now however. Should I invite <PT.him_or_her> home? It would make it very obvious to <PT.him_or_her> thay I would require a very different type of 'personal' training from <PT.him_or_her> then."
+                    0:: "Yes"
+                    1:: "No"
+                    
+                    If 0
+                        If PT:attractiontoplayer + PT:perversion > Random(60, 200) || PT.isDominantSex(Player)
+                            PT(Flirty):: "Of course, I'd love to."
+                            moveTo(Home)
+                            setBackground(home)
+                            "As soon as we were inside, we knew exactly what we wanted from each other ..."
+                            Sex(PT, Player)
+                            PT.show(2)
+                            PT:attractiontoplayer += Random(0, 5)
+                            "That was a productive 'personal training' session indeed!"
+                        Else
+                            PT(Irritated):: "Sorry, but I'd better be heading home."
+                        Endif
+                    Else
+                        "I decided not to try anything too obvious tonight."
+                    Endif
+                Else
+                    PT(Sarcastic):: "Already drinking so soon after the workout? Sorry, but I have a few sessions scheduled for the rest of the day."
+                Endif
+            Else
+                "Nah, I don't want to undo my hard work today with alcohol."
+            Endif
+        Elseif 1
+            "I can't afford <PT.him_or_her> that often. Besides, I'm not sure how effective these sessions actually are."
+        Else
+            "I decided to get rid of this personal trainer. I wasn't getting the results I wanted for the money I was paying."
+            losePT()
+            timeout(240, personal_trainer)
+        Endif   
+    Else
+        PT = generatePerson()
+        Random
+            PT.blendPreset(athletic)
+            PT.blendPreset(athletic_F)
+            PT.blendPreset(bodybuilder)
+            PT.blendPreset(bodybuilder_F)
+            PT.blendPreset(fitness_model_F)
+        endRandom
+        PT.randomizeFace()
+        PT.randomizeHairs()
+        PT:fitness += 50
+        PT:muscle += 50    
+        PT.dress()
+        PT.show(2)
+        
+        "<PT.name> approached me, introduced <PT.himself_or_herself> as a professional personal trainer and advertised <PT.his_or_her> service. Should I hire <PT.him_or_her>?"
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            "I decided to give it a try and accepted <PT.name> as my personal trainer. I can't afford <PT.him_or_her> every workout, but once every few workouts should be enough."
+            exchangeContact(PT)
+            PT.setPT()
+        Else
+            Player(Sad):: "Sorry, but I'm not interested ..."
+            PT(Sad):: "It's okay. Don't worry. Have a nice day!"
+            timeout(240, personal_trainer)
+        Endif
+    Endif
+
+SceneEnd()
+timeout(24, personal_trainer)

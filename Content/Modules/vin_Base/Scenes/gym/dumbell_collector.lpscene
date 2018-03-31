@@ -1,0 +1,26 @@
+WHAT: do_cardio, lift_weight
+WHERE: sports_centre
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 100) < 5
+
+SceneStart()
+Actor = generatePerson()
+Actor.dress()
+Actor.show(2)
+
+"I couldn't help noticing a <Actor.guy_or_girl> doing supersets and pilling up half of the gym's dumbbells around <Actor.him_or_her>, including the pair I need right now."
+0:: "Ignore"
+1:: "Mock <Actor.him_or_her>"
+
+If 0
+    "It's none of my business. I'll just do something else while waiting for <Actor.him_or_her> to finish."
+    masochist += Random(0, 0.5)
+Else
+    Player(Angry):: "You know that other people need to use them too, right?"
+    masochist -= Random(0, 0.5)
+    Actor:rapportwithplayer -= Random(0, 5)
+Endif
+
+SceneEnd()
+timeout(24, dumbell_collector)

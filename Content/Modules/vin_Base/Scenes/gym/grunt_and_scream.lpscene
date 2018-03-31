@@ -1,0 +1,27 @@
+WHAT: do_cardio, lift_weight
+WHERE: sports_centre
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 100) < 5
+
+SceneStart()
+Actor = generatePerson()
+Actor.dress()
+Actor.show(2)
+
+Actor(Furious):: "Argh!"
+"There's a <Actor.guy_or_girl> at the power rack who has been grunting and screaming for the last 10 minutes. <Actor.He_or_She> isn't even lifting that much!"
+0:: "Ignore"
+1:: "Mock <Actor.him_or_her>"
+
+If 0
+    "It's none of my business. Some people just like a bit of attention, I guess."
+    masochist += Random(0, 0.5)
+Else
+    Player(Sarcastic):: "Screaming doesn't help you lift more weights, you know?"
+    masochist -= Random(0, 0.5)
+    Actor:rapportwithplayer -= Random(0, 5)
+Endif
+
+SceneEnd()
+timeout(24, grunt_and_scream)

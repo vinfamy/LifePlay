@@ -1,7 +1,7 @@
 WHAT: all, -go_to_the_bathroom
-WHERE: all, -toilets, -laundry, -PC, -office
+WHERE: all, -toilets, -PC, -office
 WHEN: 0-24
-WHO: Companion = getCompanion(); If CurrentCompanion.IsInterestedIn(Player) && Player.IsInterestedIn(CurrentCompanion) && CurrentCompanion:attractiontoplayer > Random(40, 100)
+WHO: Companion = getCompanion(); If CurrentCompanion.IsInterestedIn(Player) && Player.IsInterestedIn(CurrentCompanion) && CurrentCompanion:attractiontoplayer > Random(10, 50)
 OTHER: !Player.isDating()
 
 SceneStart()
@@ -31,7 +31,7 @@ If Player.IsDominantSex(CurrentCompanion) || interpersonal > Random(60, 100)
             Player(Happy):: "If so, I would love nothing more than to take our relationship to the next level and be able to call you my <CurrentCompanion.boyfriend_or_girlfriend>."
             CurrentCompanion(Surprised):: "<Player.name>! I ..."
             
-            If CurrentCompanion:attractiontoplayer > Random(60, 100)
+            If CurrentCompanion:attractiontoplayer > Random(20, 60)
                 CurrentCompanion(Happy):: "I like you a lot too, <Player.name>. Of course I'll be your <CurrentCompanion.boyfriend_or_girlfriend>!"
                 CurrentCompanion.setDating()
                 mood += 100
@@ -140,4 +140,4 @@ Else
 Endif
 
 SceneEnd()
-timeout(120, start_relationship)
+timeout(48, start_relationship)

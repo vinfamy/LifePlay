@@ -1,0 +1,40 @@
+WHAT: dance
+WHERE: nightclub
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 1000) < dance
+
+SceneStart()
+"I do consider myself a good dancer. The DJ is playing my favorite song, should I try and show off some moves?"
+0:: "Yes"
+1:: "No"
+
+    If 0
+        "Why not? I'm proud of my dancing ability and it's time to shine!"
+        If Random(0, 100) < dance
+            "My effort paid off and the crowd cheered on as I became the center of attention, showing off my best moves on the dance floor."
+            dance += Random(0, 0.5)
+            Actor = generatePerson()
+            Actor.dress()
+            Actor.show(2)
+            Actor(Happy):: "Wow, you're a good dancer! I've got to give you that."
+            "Impressed by my dancing talent, <Actor.name> approached me and stroke up a conversation. <Actor.He_or_She> seemed okay, should I exchange contacts with <Actor.him_or_her>?"
+            0:: "Yes"
+            1:: "No"
+            
+            If 0
+                "I exchanged contacts with this new admirer of my dance moves."
+                exchangeContact(Actor)
+            Else
+                "No way. I literally just met the <Actor.guy_or_girl>."
+            Endif
+        Else
+            "My solo dance moves ended up impressing no-one and just looking a bit silly."
+            mood -= Random(0, 10)
+        Endif
+    Else
+        "I'd better not show off too much or risk making an idiot of myself."
+    Endif
+
+SceneEnd()
+timeout(1, show_off_dance)

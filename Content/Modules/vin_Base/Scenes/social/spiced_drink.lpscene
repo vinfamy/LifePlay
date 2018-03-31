@@ -1,0 +1,45 @@
+WHAT: all, -go_to_the_bathroom
+WHERE: nightclub, bar
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 100) < 1
+
+SceneStart()
+
+"I noticed a creepy guy pouring some suspicious powder into a pretty girl's drink."
+0:: "Ignore"
+1:: "Stop him"
+
+If 0
+    "It's none of my business. I don't want to get in trouble."
+    masochist += Random(0, 0.5)
+    "Thankfully, the girl didn't end up drinking it and no-one was harmed - I would feel very guilty otherwise."
+Else
+    Player(Furious):: "Hey! What the fuck do you think you're doing?"
+    masochist -= Random(0, 0.5)
+    "The guy ran away as soon as I shouted out and exposed his dirty trick - not fast enough for the security guards though ..."
+    Actor = generatePerson()
+    Actor.blendPreset(fashion_model_F)
+    Actor.randomizeFace()
+    Actor.randomizeHairs()
+    Actor.dress()
+    Actor.show(2)
+    Actor:rapportwithplayer += 40
+    If Actor.isInterestedIn(Player)
+        Actor:attractiontoplayer += Random(0, 50)
+    Endif
+    
+    Actor(Happy):: "Oh my god! You saved me from that creep. I don't know how to thank you ..."
+    0:: "Nothing"
+    1:: "Ask for her number"
+    
+    If 0
+        Player(Happy):: "Don't worry about it. It's only the right thing to do."
+    Else
+        "I suggested that we exchange numbers and hang out another day. Of course, <Actor.name> didn't hesitate to give her number to her savior."
+        exchangeContact(Actor)
+    Endif
+Endif
+
+SceneEnd()
+timeout(600, spiced_drink)

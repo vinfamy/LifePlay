@@ -1,0 +1,46 @@
+WHAT: do_group_exercises
+WHERE: sports_centre
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    Actor.dress()
+    Actor:fitness += 50
+    If Actor.isMale()
+        Random
+            Actor.blendPreset(athletic)
+            Actor.blendPreset(bodybuilder)
+        endRandom
+    Else
+        Random
+            Actor.blendPreset(athletic_F)
+            Actor.blendPreset(bodybuilder_F)
+            Actor.blendPreset(fitness_model_F)
+        endRandom    
+    Endif
+    Actor.show(2)
+
+    "Wow, that was an intensive group exercise session. Should I stay behind after class and chat with the instructor?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "I stayed behind after others left to start a friendly conversation with my instructor, who seemed like a nice <Actor.guy_or_girl>. Should I exchange contacts with <Actor.him_or_her> so that we can hang out later?"
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            "We exchanged numbers and parted our ways."
+            Actor.makePermanent()
+            exchangeContact(Actor)
+        Else
+            "I decided not to exchange contacts with the instructor."
+        Endif
+    Else
+        "No, I'm too exhausted to even socialize right now."
+    Endif
+    
+    SceneEnd()
+    timeout(200, class_instructor)

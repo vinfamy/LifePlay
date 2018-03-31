@@ -9,9 +9,9 @@ SceneStart()
 "I'm paying a surprise visit to my <Dating.boyfriend_or_girlfriend> today. I'm sure <Dating.he_or_she> will be glad when <Dating.he_or_she> sees me."
 "Wait, what's that sound? Someone is ... moaning?"
 Player.hide()
-DatingAffair = generatePerson()
+DatingAffair = generatePersonTemporary()
 While !Dating.isInterestedIn(DatingAffair) 
-    DatingAffair = generatePerson()
+    DatingAffair = generatePersonTemporary()
 Endwhile
 
 DatingAffair.dress()

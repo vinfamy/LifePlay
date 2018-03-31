@@ -1,0 +1,26 @@
+WHAT: do_cardio, lift_weight
+WHERE: sports_centre
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 100) < 5
+
+SceneStart()
+Actor = generatePerson()
+Actor.dress()
+Actor.show(2)
+
+"I couldn't help noticing a <Actor.guy_or_girl> working right off the dumbbell rack while admiring <Actor.himself_or_herself> in the mirror. It's blocking everyone else's access to the dumbells."
+0:: "Ignore"
+1:: "Scold <Actor.him_or_her>"
+
+If 0
+    "It's none of my business. Besides, it's understandable considering the social media age we're living in."
+    masochist += Random(0, 0.5)
+Else
+    Player(Angry):: "Step back, <Actor.dude_or_girl>! You're in everyone's way."
+    masochist -= Random(0, 0.5)
+    Actor:rapportwithplayer -= Random(0, 5)
+Endif
+
+SceneEnd()
+timeout(24, mirror_magnet)

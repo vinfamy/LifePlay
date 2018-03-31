@@ -1,0 +1,26 @@
+WHAT: do_cardio, lift_weight
+WHERE: sports_centre
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 100) < 5
+
+SceneStart()
+Actor = generatePerson()
+Actor.dress()
+Actor.show(2)
+
+"I couldn't help noticing a <Actor.guy_or_girl> pilling up way too much weight on <Actor.his_or_her> bar and then proceeding to barely do half-reps with terrible form."
+0:: "Ignore"
+1:: "Mock <Actor.him_or_her>"
+
+If 0
+    "It's none of my business. Besides, <Actor.he_or_she> just has a big ego and wants to stroke it a bit."
+    masochist += Random(0, 0.5)
+Else
+    Player(Angry):: "You're lifting way too heavy. Leave your ego at home!"
+    masochist -= Random(0, 0.5)
+    Actor:rapportwithplayer -= Random(0, 5)
+Endif
+
+SceneEnd()
+timeout(24, big_ego)
