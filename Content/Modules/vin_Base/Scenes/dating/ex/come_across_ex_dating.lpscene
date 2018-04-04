@@ -12,6 +12,8 @@ OTHER: none
     While !Actor.isInterestedIn(NewDating)
         NewDating = generatePersonTemporary()
     Endwhile
+    NewDating.dress()
+    NewDating.show(2)
     "It's my ex <Actor.name>! <Actor.He_or_She> recognized me right away. To rub salt into the injury, <Actor.he_or_she> suddenly leaned over and kissed the <NewDating.man_or_woman> <Actor.he_or_she> was with. It must be <Actor.his_or_her> new <NewDating.boyfriend_or_girlfriend>."
     0:: masochist < 50:: "Ignore"
     1:: "Cry"

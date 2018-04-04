@@ -1,0 +1,50 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all, -work
+WHEN: 17 - 22
+WHO: none
+OTHER: Random(80, 200) < intelligence
+    
+    SceneStart()
+    ChannelStarted = politics_channel.getGlobal()
+    
+    If ChannelStarted == 0
+        "I consider myself quite up-to-date with current affairs. I can be quite eloquent when debating hot-button political issues"
+        "I reckon I might just have some success starting a politics channel on YouTube. Should I?"
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            "Why not? It's certainly worth a shot. Might be a good way to supplement my income."
+            politics_channel.setGlobal(1)
+        Else
+            "No, I should stop daydreaming and focus on my real job."
+            timeout(500, politics_channel)
+        Endif
+    Else
+        "I've got some spare time. Should I make a new video for my politics channel?"
+        0:: "Yes"
+        1:: "No"
+        2:: "Close channel"
+        
+        If 0
+            "Yes, it's important to upload regularly to keep my audience growing."
+            intelligence += Random(0, 0.25)
+            If Random(0, 100) < intelligence
+                "The new video turned out to be a success, earning a decent amount of views and a bit of money for myself."
+                money += Random(0.5, 5)*intelligence
+                mood += 10
+            Else
+                "Unfortunately, the new video was a miss, not earning many views at all and even less money."
+                mood -= 10
+            Endif
+        Elseif 1
+            "I'm too busy right now to film. Let's do that another day."
+        Else
+            "This thing isn't working out. It's time to shut it down."
+            politics_channel.clearGlobal()
+            timeout(500, politics_channel)
+        Endif
+    Endif
+    
+    SceneEnd()
+    timeout(48, politics_channel)

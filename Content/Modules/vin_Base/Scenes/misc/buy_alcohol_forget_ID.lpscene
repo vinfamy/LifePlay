@@ -6,6 +6,8 @@ OTHER: Random(0, 100) < 20
 
     SceneStart()
     Actor = generatePersonTemporary()
+    Actor.dress()
+    Actor.show(2)
     Actor(Irritated):: "Hey, could you please do me a favour?"
     Player(Happy):: "Yes, what is it?"
     Actor(Angry):: "I was out to get a few packs of beers, but forgot my ID. Would you mind buying them for me? I have the money - I'll be waiting for you outside."

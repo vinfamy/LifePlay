@@ -38,6 +38,7 @@ OTHER: Random(0, 1000) < interpersonal
             Else
                 "Nah, <Actor.he_or_she> doesn't look like we would have much to talk about."
             Endif
+            Actor.hide()
             count += 1
         Endwhile
         "Eventually, the event winded down and everyone left. It had been a fun way to meet new people."

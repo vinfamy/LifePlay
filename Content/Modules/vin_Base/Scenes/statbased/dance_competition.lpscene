@@ -1,0 +1,30 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 17 - 20
+WHO: none
+OTHER: !isWithCompanion() && Random(50, 200) < dance
+
+    SceneStart()
+    "There's a amateur dance competition happening in a few days. Should I sign up?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "I decided to sign up and did quite a bit of practice before the competition."
+        If Random(50, 200) < dance*Random(0, 1)
+            "My efforts paid off. I was crowned the winner of the competition."
+            money += Random(500, 2000)
+            mood => 100
+        Elseif Random(50, 200) < dance
+            "My efforts paid off. I managed to secure the third place in the competition."
+            money += Random(250, 1000)
+            mood += 20
+        Else
+            "Despite my best efforts, there were far better dancers than I was, and I didn't get any prizes."
+            mood -= 10
+        Endif
+    Else
+        "I decided not to sign up for the competition."
+    Endif
+    SceneEnd()
+    timeout(500, dance_competition)

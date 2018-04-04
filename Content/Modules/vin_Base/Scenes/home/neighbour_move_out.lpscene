@@ -5,7 +5,6 @@ WHO: Neighbour = getSpecific(Neighbour); If Neighbour.isContactExchanged() && Ne
 OTHER: Random(0, 100) < 5
 
     SceneStart()
-    setBackground(work)
 
     Quit = true
     Neighbour.dress()
