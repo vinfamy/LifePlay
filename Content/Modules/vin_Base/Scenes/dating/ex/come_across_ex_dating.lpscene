@@ -1,0 +1,30 @@
+WHAT: all, -sleep_hotel, -nap_hotel, -go_to_the_bathroom
+WHERE: all, -home, -work
+WHEN: 0 - 24
+WHO: Actor = getSpecific(ExDating); If Actor:masochist < 0
+OTHER: none
+
+    SceneStart()
+    "I was just walking when I spotted a familiar figure hand in hand with someone else."
+    Actor.dress()
+    Actor.show(2)
+    NewDating = generatePersonTemporary()
+    While !Actor.isInterestedIn(NewDating)
+        NewDating = generatePersonTemporary()
+    Endwhile
+    "It's my ex <Actor.name>! <Actor.He_or_She> recognized me right away. To rub salt into the injury, <Actor.he_or_she> suddenly leaned over and kissed the <NewDating.man_or_woman> <Actor.he_or_she> was with. It must be <Actor.his_or_her> new <NewDating.boyfriend_or_girlfriend>."
+    0:: masochist < 50:: "Ignore"
+    1:: "Cry"
+    
+    If 0
+        "Who cares? The new <NewDating.guy_or_girl> is ugly as hell! <Actor.name> certainly has had to lower <Actor.his_or_her> standards after me."
+        "I ignored them and kept walking, as if I never recognized <Actor.name> at all."
+        masochist -= Random(0, 2)
+    Else
+        Player(Crying):: "..."
+        "I just couldn't hold back the tears. Seeing my ex with another <NewDating.man_or_woman> was too hurtful."
+        masochist += Random(0, 2)
+    Endif
+    
+    SceneEnd()
+    timeout(200, comes_across_ex_dating)

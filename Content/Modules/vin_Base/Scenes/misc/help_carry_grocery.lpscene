@@ -1,0 +1,35 @@
+WHAT: all, -go_to_the_bathroom
+WHERE: alcohol, beverages, convenience, greengrocer, marketplace, variety_store, supermarket, department_store
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 100) < 20
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    Actor.dress()
+    Actor.show(2)
+    "I saw someone really struggling to carry <Actor.his_or_her> shopping. Should I offer to help?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        Actor.makePermanent()
+        Player(Happy):: "Hey there, do you want some help carrying those bags? You looked like you were struggling."
+        Actor(Happy):: "Yes, please. Oh thank God. I bought way too much today."
+        "You helped the stranger carry <Actor.his_or_her> shopping back to <Actor.his_or_her> car."
+        Actor(Happy):: "Thank you again for your help. I don't know how I could have managed without you."
+        0:: "Exchange contacts"
+        1:: "Say goodbye"
+        
+        If 0
+            Player(Happy):: "No problem. Glad that I was able to help. By the way, would you mind giving me your number? You seem like a cool <Actor.guy_or_girl> - we should hang out sometimes."
+            "We exchanged numbers and parted ways."
+            exchangeContact(Actor)
+        Else
+            Player(Happy):: "No problem. Glad that I was able to help."
+        Endif
+    Else
+        "I haven't got the time for that ..."
+    Endif
+    SceneEnd()
+    timeout(24, help_carry_grocery)

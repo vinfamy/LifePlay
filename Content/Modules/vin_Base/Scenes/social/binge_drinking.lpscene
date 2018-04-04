@@ -1,0 +1,39 @@
+WHAT: all, -go_to_the_bathroom
+WHERE: bar, pub
+WHEN: 0-24
+WHO: none
+OTHER: intoxication < 90 && Random(0, 500) < intoxication
+
+    SceneStart()
+    Actor = generatePerson()
+    Actor.dress()
+    Actor.show(2)
+    
+    "<Actor.name> approached me and challenged me to a drinking duel."
+    0:: "Yes"
+    1:: "No"
+    
+    If 0    
+        Drunk = false
+        While !Drunk
+            "<Actor.name> downed <Actor.his_or_her> drink."
+            "I downed mine"
+            Actor:intoxication += Random(0, 15)
+            Player:intoxication += Random(0, 15)
+            
+            If Actor:intoxication >= 100
+                "<Actor.name> seemed out of it now. I won the duel!"
+                money += Random(50, 200)
+                Drunk = true
+            Elseif intoxication >= 100
+                "That's enough. I can't stomach another drink now. I lost the duel!"
+                money -= Random(50, 200)
+                Drunk = true
+            Endif
+        Endwhile
+    Else
+        "I'm a mature enough person to know better than engaging in drinking games like that."
+    Endif
+    
+    SceneEnd()
+    timeout(200, binge_drinking)

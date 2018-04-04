@@ -94,7 +94,7 @@ Else
     Player(Excited):: "Thank you, <Boss.Sir_or_Madam>. I'm glad I didn't disappoint you and the company."
     
     OldSalary = getSalary()
-    Salary = 1500+Random(0.25, 2)*jobexperience*100
+    Salary = 1500+Random(0.25, 2)*jobexperience*100*CostOfLiving
     
     If Salary > 1.25*OldSalary
         Salary.setSalary()

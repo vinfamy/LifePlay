@@ -1,0 +1,40 @@
+WHAT: all, -go_to_the_bathroom
+WHERE: bank
+WHEN: 0-24
+WHO: none
+OTHER: Random(0, 200) < intelligence
+
+    SceneStart()
+    Actor = generatePerson()
+    Actor.dress()
+    Actor.show(2)
+    "I was waiting in line at a bank. The person in front of me seems to be reading leaflets on saving accounts."
+    0:: "Ignore"
+    1:: "Give some banking advices"
+    
+    If 0
+        "It's none of my business. I'm sure a bank representative would be able to advise <Actor.him_or_her> depending on <Actor.his_or_her> needs and financial situation." 
+    Else
+        "I've been there, done that, so why not give <Actor.him_or_her> some of my experience? After all, the bank advisors are only after money at the end of the day, which don't neccessarily mean they'll give an advice most beneficial for the customer."
+        "I started explaining to <Actor.him_or_her> the different saving account options and sharing my own experiences, tips and things to avoid."
+        If Random(0, 100) < intelligence
+            Actor(Happy):: "Thank you so much for the advices. I would have no idea if you didn't share with me your experience. I would have just listened blindly to whatever the bank advisor suggested."
+            Actor(Happy):: "You know what? Let's exchange numbers. I owe you a drink for the free impartial financial advices. Besides, I wouldn't mind having someone so smart to pick <Player.his_or_her> brain about complicated issues like this."
+            0:: "Yes"
+            1:: "No"
+            
+            If 0
+                Player(Happy):: "Of course, I'd love to exchange numbers."
+                exchangeContact(Actor)
+            Else
+                Player(Sad):: "Sorry, but I don't normally exchange numbers with someone I just met. I was just trying to help, that's all."
+            Endif
+        Else
+            "Unfortunately, my knowledge of finances really wasn't deep enough to sound eloquent about it or inspire confidence. From <Actor.his_or_her> facial expression, I could tell that <Actor.he_or_she> thought I had no idea what I was talking about."
+            Actor:attractiontoplayer -= Random(0, 20)
+            Actor:rapportwithplayer -= Random(0, 20)
+        Endif
+    Endif
+    
+    SceneEnd()
+    timeout(200, financial_advice)

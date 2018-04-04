@@ -1,0 +1,69 @@
+WHAT: sleep, nap
+WHERE: home
+WHEN: 0 - 4
+WHO: none
+OTHER: isAtHome() && intelligence < Random(0, 100)
+
+    SceneStart()
+
+    "Wait, what's that sound?"
+    "I was awaken by the sound of steps. I slowly opened one of my eyes only to see a shadow - one of a burglar trying sneak past my bed! The thief hasn't noticed me yet."
+    0:: "Pretend to be asleep"
+    1:: "Ambush the thief"
+    2:: isModEnabled(vin_VanillaPorn) && perversion > 50:: "Start masturbating"
+
+    If 0
+        "The burglar is already inside and I don't want to risk being harmed. Let's just close my eyes and pretend to be asleep and let the thief take some of my properties - better them than my life."
+        masochist += Random(0, 0.5)
+        money -= Random(250, 3000)
+        mood -= 50
+    Else
+        Actor = generatePersonTemporary()
+        Actor.dress()
+        Actor.show(2)
+        masochist -= Random(0, 1)
+        If 1
+            Player(Furious):: "It's your unlucky day, thief!"
+            "I took the thief by surprise, jumped off my bed and tackled <Actor.him_or_her>. A wrestling match began."
+            If martial + 10 > Actor:martial
+                "After a brief struggle, I managed to overwhelm the burglar. I then called the cops, who quickly arrested the intruder."
+                martial += Random(0, 1)
+                mood += Random(0, 50)
+            Else
+                "Unfortunately, the burglar was too strong for me and soon overcame my initial advantage of surprise and beat me up, before escaping."
+                Actor.hide()
+                "Badly injured, I barely managed to reach for the phone to call an ambulance for myself."
+                setBackground(hospital)
+                mood -= 100
+                energy -= 100
+                fitness -= Random(0, 2)
+                martial -= Random(0, 5)
+                attractiveness -= Random(0, 2)
+                "The injuries weren't life-threatening or permanent thankfully, and I made a speedy recovery in hospital. Oh well, at least in <Actor.his_or_her> hurry to escape, <Actor.he_or_she> didn't take any stolen properties with <Actor.him_or_her>."
+            Endif
+        Else
+            perversion += Random(0, 0.5)
+            "Inspired by a recent porn I watched, I came up with a crazy idea: With my eyes still closed, I reached my hand down to my crotch and started masturbating."
+            If Actor.isInterestedIn(Player)
+                "The thief smirked at <Actor.his_or_her> horny victim. Thinking <Actor.he_or_she> could get away with it, <Actor.he_or_she> moved towards me and started touching me."
+                0:: "Ambush <Actor.him_or_her>"
+                1:: "Fuck <Actor.him_or_her>"
+                
+                If 0
+                    "This is my chance! Too occupied with feeling me up, the thief never saw my knee strike coming at <Actor.his_or_her> crotch, followed by a bedroom lamp smashed on <Actor.his_or_her> head, rendering <Actor.him_or_her> unconscious. I then called the cops, who quickly arrested the intruder."
+                    martial += Random(0, 1)
+                    mood += Random(0, 50)                        
+                Else
+                    "I think the thief is going to get a whole lot more than some stolen money tonight!"
+                    "Making it known that I was not asleep, just extremely horny, I reached up to kiss my intruder and the most cliche porn plot ever started playing out ..."
+                    Sex(Actor, Player)
+                    perversion += Random(0, 1)
+                Endif
+            Else
+                "Obviously confused and freaked out by what's going on and worried that I might wake up out of arousal, the thief made a speedy escape." 
+            Endif
+        Endif
+    Endif
+
+    SceneEnd()
+    timeout(500, burglar)

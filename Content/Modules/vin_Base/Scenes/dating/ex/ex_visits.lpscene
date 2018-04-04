@@ -1,0 +1,89 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getSpecific(ExDating); If Random(30, 300) < Actor:attractiontoplayer 
+OTHER: isAtHome()
+
+    SceneStart()
+    "I heard a knock on my door. I wonder who it might be."
+    Actor.dress()
+    Actor.show(2)
+    "It's my ex <Actor.name>!"
+    
+    Actor(Happy):: "Baby, I miss you. I can't get you out of my head. I still love you ..."
+    0:: "Slam the door"
+    1:: "Invite <Actor.him_or_her> in"
+    2:: "Get a restraining order"
+
+    If 0
+        "I really don't want to deal with <Actor.him_or_her> right now. I slammed the door shut, making clear my message."
+        Actor:attractiontoplayer -= Random(0, 3)
+    Elseif 1
+        Player(Irritated):: "Fine ... since you came all the way here, come in then ..."
+        choice = -1    
+        ate = false
+        hadSex = false
+            
+        While choice < 5
+            Kissed = false
+            "What should I suggest to <Actor.name> that we do?"
+            0:: "Chat"
+            1:: !ate:: "Eat something together"
+            2:: "Watch a movie"
+            3:: "Drink alcohol"
+            4:: !hadSex:: "Kiss <Actor.him_or_her>"
+            5:: "Politely ask <Actor.him_or_her> to leave"
+            
+            If 5
+                "We said goodbye and went our ways."
+            Else
+                Actor:rapportwithplayer += Random(0, 0.5)
+                Actor:attractiontoplayer += Random(0, 0.5)
+                If 0
+                    "We simply sat and chat for a while ..."
+                Elseif 1
+                    "We made some quick snacks and enjoyed them together ..."
+                    ate = true
+                Elseif 2
+                    "We watched a movie together ..."
+                Elseif 3
+                    "We had a drink together ..."
+                    Player:intoxication += Random(0,10)
+                    Actor:intoxication += Random(0,10)
+                Elseif 4
+                    Kissed = true
+                Endif
+
+                If Kissed || [!hadSex && Actor.isInterestedIn(Player) && Actor:attractiontoplayer > Random(30, 200)]
+                    Player(Kiss):: "..."
+                    Actor(Kiss):: "..."
+                    "We had a kiss, an awkward one at first, but soon moving towards a more passionate direction."
+                    "Should I let this escalate further?"
+                    0:: "Make out"
+                    1:: "Stop"
+                    
+                    If 0
+                        "Our kiss got more and more steamy and soon we were making out, our hands all over each other."
+                        hadSex = true
+                        Player:perversion += Random(0, 1)
+                        Sex(Player, Actor)
+                        Actor.show(2)
+                        "Why did I do that? I let the old flame spark again ..."
+                    Else
+                        "I decided to stop it there and not go any further."
+                    Endif
+                Elseif Random(0, 100) < 15
+                    Actor(Happy):: "I've gotta go now. Thank you for inviting me in."
+                    "We parted ways."
+                    choice = 5            
+                Endif        
+            Endif
+        Endwhile        
+    Else
+        "I've had enough of this. This is stalking. I slammed the door shut and immediately went about getting a restraining order."
+        Actor:attractiontoplayer -= 100
+        blockContact(Actor)
+    Endif
+    
+    SceneEnd()
+    timeout(96, ex_visits)

@@ -1,0 +1,41 @@
+WHAT: watch_a_movie
+WHERE: cinema
+WHEN: 0-24
+WHO: none
+OTHER: Random(0, 100) < 20
+
+    SceneStart()
+    
+    Actor = generatePersonTemporary()
+    Actor2 = generatePersonTemporary()
+    
+    Actor.dress()
+    Actor2.dress()
+    Actor.show(2)
+    Actor2.show(3)
+    
+    Actor(Kiss):: "..."
+    Actor2(Kiss):: "..."
+    
+    "I was trying to watch a movie but there was this couple sitting in front of me who had been feeling each other up and making out ever since the cinema lights were off."
+    0:: "Ignore"
+    1:: "Complain"
+    2:: isModEnabled(vin_VanillaPorn) && perversion > 5:: "Peep"
+
+    If 0
+        "Good for them, I guess. They seem so into it."
+        masochist += Random(0, 0.5)
+    Elseif 1
+        "This is unacceptable. Me and everyone else is trying to watch a movie here. We're not here to watch them making out."
+        Player(Angry):: "Could you please stop? Get a room already. Nobody wants to see all that PDA."
+        "The couple were visibly embarassed and soon made their way out of the cinema under the judgmental gazes of felllow cinema goers."
+        masochist -= Random(0, 0.5)
+    Else
+        "I'm actually quite enjoying the show ..."
+        "Soon enough, the couple's making out became more and more intense and it became increasingly clear that they had no shame to do it right here in the cinema."
+        perversion += Random(0, 0.5)
+        Sex(Actor, Actor2)
+    Endif
+    
+    timeout(48, cinema_couple)
+    SceneEnd()

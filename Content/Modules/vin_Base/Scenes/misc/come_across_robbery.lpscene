@@ -1,0 +1,76 @@
+WHAT: all, -sleep_hotel, -nap_hotel
+WHERE: all, -work, -home
+WHEN: 22-4
+WHO: none
+OTHER: Random(0, 100) < 5
+
+    SceneStart()
+    setBackground(street)
+    Actor = generatePersonTemporary()
+    Actor.dress()
+    Actor.show(2)
+    Victim = generatePersonTemporary()
+    Victim.dress()
+    Victim.show(3)
+    
+    Actor(Furious):: "Give me all your money now! Or I'll kill you."
+    Victim(Scared):: "Please, don't hurt me. Here, take my money."
+    "Someone is being robbed! What should I do?"   
+    0:: "Move away"
+    1:: "Attack the robber"
+    
+    If 0
+        "I'd better clear out of here before I become the next victim ..."
+        masochist += Random(0, 1)
+    Else
+        Victim.makePermanent()
+        Player(Furious):: "Hey, stop right there!"
+        masochist -= Random(0, 2)
+        "I tackled the robber and we began an intense struggle."
+        If martial > Actor:martial
+            "After a while, I managed to deliver the final blow to the robber. <Robber.He_or_She> couldn't take it anymore and fell unconscious."
+            Actor.hide()
+            "A few minutes later, the police arrived and arrested the badly injured robber."
+        Else
+            "Unfortunately for me, the robber was a far better fighter than I was. After a brief struggle, the robber managed to knock me off the ground and then proceeded to kick me mercilessly in the face."
+            Actor.hide()
+            "Thankfully, eventually the police arrived and the robber had to flee the scene before <Actor.he_or_she> caused me more damage. I was quickly taken to the hospital."
+            attractiveness -= Random(0, 5)
+            fitness -= Random(0, 10)
+            martial -= Random(0, 10)
+            mood -= 100
+            energy -= 100
+            setBackground(hospital)
+        Endif
+        
+        Victim.show(2)
+        Victim:attractiontoplayer += Random(0, 20)
+        Victim:rapportwithplayer += Random(0, 20)
+        Victim(Sad):: "Oh my god, you were so brave. I have no idea how I can thank you ..."
+        0:: "No need for reward"
+        1:: "Ask for <Victim.his_or_her> number"
+        2:: isModEnabled(vin_VanillaPorn) && perversion > 20:: "Ask for sex"
+        
+        If 0
+            Player(Happy):: "That's okay. I only did what was right, not for any rewards."
+            Victim:attractiontoplayer += Random(0, 5)
+            Victim:rapportwithplayer += Random(0, 5)
+        Elseif 1
+            Player(Happy):: "I would love nothing more than to get your number. I'd quite like to get to know you better."
+            Victim(Happy):: "Of course!"
+            exchangeContact(Victim)
+        Else
+            If Victim:perversion + Victim:attractiontoplayer > 100
+                Victim(Flirty):: "You mean ... right here? Oh well, if that's what you want. You're my savior after all."
+                Sex(Player, Victim)
+                perversion += Random(0, 0.5)
+            Else
+                Victim(Angry):: "No way! You might have saved me from a robber, but I'm not about to give my body away so easily."
+                Victim:attractiontoplayer -= Random(0, 15)
+                Victim:rapportwithplayer -= Random(0, 15)                
+            Endif
+        Endif
+    Endif
+    
+    SceneEnd()
+    timeout(500, come_across_robbery)

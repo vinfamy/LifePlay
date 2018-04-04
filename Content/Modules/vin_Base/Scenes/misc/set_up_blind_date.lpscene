@@ -1,0 +1,56 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 17 - 20
+WHO: Actor = getPerson(true); Actor2 = getPerson(true); If !Actor.isDating() && !Actor2.isDating() && Actor.isInterestedIn(Actor2) && Actor2.isInterestedIn(Actor) && Actor:rapportwithplayer > 20 && Actor2:rapportwithplayer > 20
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor2.dress()
+    Actor2.show(3)
+    
+    "<Actor.name> and <Actor2.name> are two of my good friends. They are both single however, and I think they might make a good match."
+    0:: "Set up a blind date"
+    1:: "Nevermind"
+    
+    If 0
+        If Random(0, 100) < interpersonal
+            "I managed to talk them into going on a blind date with each other, which went quite well. Who knows? This could be the start of something special."
+            Actor:rapportwithplayer += Random(0, 5)
+            Actor2:rapportwithplayer += Random(0, 5)           
+            Actor:attractiontoplayer -= 30
+            Actor2:attractiontoplayer -= 30
+            If Actor:perversion + Actor2:perversion > 75
+                Actor2.hide()
+                setBackground(coffee)
+                "A few days later, I was hanging out with <Actor.name> when <Actor.he_or_she> accidentally confessed that <Actor.he_or_she> had sex with <Actor2.name> on their first date! Wow, I know I'm a good matchmaker but this is certainly unexpected."
+                0:: "Press <Actor.him_or_her> for details"
+                1:: "Change the subject"
+                
+                If 0
+                    "Although <Actor2.he_or_she> is just a friend, I've always wondered what <Actor2.he_or_she> is like in bed."
+                    If Random(50, 200) < interpersonal + Actor1:perversion
+                        Actor(Embarassed):: "Alright, you got me. I guess you deserve to know everything, being the one to set up the date in the first place."
+                        "<Actor.name> started telling me all about that night, with every single little graphic details ..."
+                        setBackground(home)
+                        Sex(Actor, Actor2)
+                        arousal += Random(0, 20)
+                        perversion += Random(0, 0.25)
+                    Else
+                        Actor(Embarassed):: "No, no way I'm telling you. It's a secret between us two!"
+                    Endif
+                Else
+                    "That's already too much information. I didn't need to know that."
+                Endif
+            Endif
+        Else    
+            "Despite my best efforts, I couldn't quite get them to agree to a blind date."
+            mood -= 5
+        Endif
+    Else
+        "I'm not too keen on matchmaking and getting involved with other people's business."
+    Endif
+    
+    SceneEnd()
+    timeout(200, set_up_blind_date)

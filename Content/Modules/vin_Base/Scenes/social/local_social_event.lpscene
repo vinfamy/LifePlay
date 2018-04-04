@@ -1,0 +1,50 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 18 - 22
+WHO: none
+OTHER: Random(0, 1000) < interpersonal
+
+    SceneStart()
+    "I heard about a social event being organized tonight at a bar near here. It would be a good opportunity to meet new people. Should I come?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "Why not? I would never turn down an opportunity to socialize."
+        "Later that night ..."
+        setBackgroud(bar)
+        "I'm at the event. The attendance is decent. Plenty of cool-looking people here."
+        
+        count = 0
+        While count < interpersonal*Random(0.01, 0.1)
+            Actor = generatePerson()
+            Actor.dress()
+            Actor.show(2)
+            "A fellow event attendee smiles at me from far away."
+            0:: "Smile back"
+            1:: "Look away"
+            
+            If 0
+                "<Actor.He_or_She> approached me and introduced <Actor.himself_or_herself> as <Actor.name>. We went on to have a nice pleasant conversation. Before we part to mingle with other people, should I ask for <Actor.his_or_her> number?"
+                0:: "Yes"
+                1:: "No"
+                
+                If 0
+                    "We chat for a bit before exchanging contacts, hopefully to hang out with each other another day."
+                    exchangeContact(Actor)
+                Else
+                    "Not yet. I literally just met the <Actor.guy_or_girl>."
+                Endif
+            Else
+                "Nah, <Actor.he_or_she> doesn't look like we would have much to talk about."
+            Endif
+            count += 1
+        Endwhile
+        "Eventually, the event winded down and everyone left. It had been a fun way to meet new people."
+    Else
+        "I'm busy today. Maybe another day."
+        interpersonal -= Random(0, 0.25)
+    Endif
+    
+    SceneEnd()
+    timeout(500, local_social_event)

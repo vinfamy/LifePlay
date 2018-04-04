@@ -1,0 +1,43 @@
+WHAT: all
+WHERE: library
+WHEN: 0-24
+WHO: none
+OTHER: Random(0, 1000) < interpersonal*actionDuration
+
+    New_Person = generatePersonTemporary()
+    While !Player.IsInterestedIn(New_Person) 
+        New_Person = generatePersonTemporary()
+    Endwhile
+    New_Person.makePermanent()
+    
+    sceneStart()
+    New_Person.dress()
+    New_Person.show(2)
+    
+    "It's my lucky day. While spending time in the library, I found myself sitting opposite to a <New_Person.handsome_or_cute> <New_Person.guy_or_girl>. Out of courtesy to fellow library goers, I probably shouldn't start a loud conversation, but maybe I should sneakily slip a piece of paper with my number on it to <New_Person.him_or_her>. If <New_Person.he_or_she> is interested, we could go on a date someday."
+    0:: interpersonal > 5:: "Offer your number sneakily"
+    1:: "Maybe not"
+    
+    If 0
+        "I carefully slipped a piece of paper into <New_Person.him_or_her> hand, which wrote 'Text me back' along with my number. <New_Person.He_or_She> was confused for a few seconds before understanding my intention. <New_Person.He_or_She> said nothing though and continued being absorbed in <New_Person.his_or_her> books."
+        New_Person.hide()
+        "A while later ..."
+        setBackground(street)
+        If New_Person.IsInterestedIn(Player) && [New_Person.IsDominantSex(Player) || New_Person:attractiontoplayer > Random(0, 50) || New_Person:perversion > Random(0, 50)]
+            exchangeContact(New_Person)
+            "I received a text message from an unknown number. Hmm, let's read it ..."
+            New_Person:: "Hey, it's me, <New_Person.name>, the <New_Person.guy_or_girl> you just gave your number to in the library earlier!"
+            If Player.IsDominantSex(New_Person)
+                "Ah, so <New_Person.he_or_she> is interested! Now that we have each other's number, I should ask <New_Person.him_or_her> out soon."
+            Else
+                "It seems the <New_Person.handsome_or_cute> bookworm found me attractive too! Now that we have each other's number, I hope <New_Person.he_or_she> will ask me on a date soon."
+            Endif
+        Else
+            "Still no text back from the <New_Person.guy_or_girl> I met earlier in the library. Oh well, I guess there are worse ways to get rejected!"
+        Endif
+    Else
+        "Well, that would be kinda weird, I'd better not do that."
+    Endif
+    
+    sceneEnd()
+    timeout(12, library_approach)

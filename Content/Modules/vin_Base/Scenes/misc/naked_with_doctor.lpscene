@@ -1,0 +1,44 @@
+WHAT: get_a_health_checkup
+WHERE: all
+WHEN: 0 - 24
+WHO: none
+OTHER: !isWithCompanion()
+
+    SceneStart()
+    
+    Actor = generatePerson()
+    Actor.dress()
+    Actor.show(2)
+    "I decided to go for a health check-up. I was guided through the procedures by my doctor, <Actor.name>."
+    "Now comes the genital examination. I was asked to strip down."
+    Player.strip()
+            
+    If Actor:perversion + Actor:attractiontoplayer > Random(75, 125)
+        "The examination started professional, but <Actor.he_or_she> is now ligering there for much longer than I feel is needed. This doctor is clearly a pervert! Although maybe I do enjoy this a bit."
+        0:: "Storm out"
+        1:: "Give <Actor.him_or_her> my number"
+        2:: isModEnabled(vin_VanillaPorn) && perversion > 50:: "Enjoy my 'happy ending'"
+        
+        If 0
+            Player(Furious):: "Hey pervert, what the fuck do you think you're doing? This isn't a porno!"
+            "I stormed off and complained to the department head, threatening them with a rape lawsuit if <Actor.name> wasn't fired immediately."
+            Actor:rapportwithplayer -= 100
+            Actor:attractiontoplayer -= 100
+            masochist -= Random(0, 1)
+        Elseif 1
+            "I enjoyed <Actor.his_or_her> hands feeling me up but didn't want to do something too crazy right there."
+            "Instead, I waited it out until the end of this very sensual examination to give <Actor.name> my personal number. <Actor.He_or_She> was delighted to have it."
+            exchangeContact(Actor)
+            perversion += Random(0, 0.25)
+        Else
+            "It was obvious what the cute doctor really wanted. And I wanted it too, right here!"
+            "<Actor.His_or_Her> stimulating got more and more intense and soon enough, I got up and started making out with the lucky doctor."
+            Sex(Actor, Player)
+            perversion += Random(0, 1)
+        Endif
+    Else
+        "Despite me being completely naked without even a piece of cloth covering my body, <Actor.name> remained completely professional in <Actor.his_or_her> genital examination."
+    Endif
+    
+    SceneEnd()
+    timeout(500, naked_with_doctor)

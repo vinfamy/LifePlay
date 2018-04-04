@@ -1,0 +1,39 @@
+WHAT: all, -go_to_the_bathroom
+WHERE: place_of_worship
+WHEN: 0-24
+WHO: none
+OTHER: Random(0, 200) < intelligence
+
+    SceneStart()
+    Actor = generatePerson()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Excited):: "What do you think God would think about what society has become in the 21st century?"
+    0:: "Play it safe"
+    1:: "Show off my religious knowledge"
+    
+    If 0
+        Player(Happy):: "Well, God would still love us all, I'm sure."
+        "My knowledge of religions leaves a lot to be desired and I know it. No point trying to sound sophisticated here ..."
+    Else
+        "I tried my best to show off my knowledge of religious texts to engage in a sophisticated discussion with <Actor.name>."
+        If Random(0, 100) < intelligence
+            Actor(Happy):: "It's rare nowadays to meet someone with the same spiritual approach to life. Let's exchange numbers."
+            0:: "Yes"
+            1:: "No"
+            
+            If 0
+                Player(Happy):: "Of course, I'd love to exchange numbers."
+                exchangeContact(Actor)
+            Else
+                Player(Sad):: "Sorry, but I don't normally exchange numbers with someone I just met."
+            Endif
+        Else
+            "Unfortunately, my spiritual knowledge really wasn't deep enough to hold an intelligent conversation about it. From <Actor.his_or_her> facial expression, I could tell that <Actor.he_or_she> saw right through me as a blind worshipper."
+            Actor:attractiontoplayer -= Random(0, 20)
+            Actor:rapportwithplayer -= Random(0, 20)
+        Endif
+    Endif
+    
+    SceneEnd()
+    timeout(48, religious_discussion)

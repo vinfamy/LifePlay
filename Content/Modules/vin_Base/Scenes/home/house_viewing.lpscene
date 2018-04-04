@@ -6,7 +6,7 @@ OTHER: none
 
 Difficulty = Random(0.25, 2)
 Salary = getSalary()
-Rent = Random(800, 1500)+Difficulty*Salary*0.25
+Rent = Random(800, 1500)*CostOfLiving+Difficulty*Salary*0.25
 RentConverted = Rent.convertToLocalCurrency(true)
 
 sceneStart()

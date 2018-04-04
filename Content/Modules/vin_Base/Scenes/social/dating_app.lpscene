@@ -1,0 +1,50 @@
+WHAT: all
+WHERE: PC
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 2000) < perversion + intelligence
+
+    SceneStart()
+    "I've got some spare time. I could play around on a dating app ..."
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        count = 0
+        While count < attractiveness*Random(0.01, 0.1)
+            Actor = generatePerson()
+            Actor.dress()
+            Actor.show(2)
+            "What should I do?"
+            0:: "Swipe right"
+            1:: "Swipe left"
+            
+            If 0
+                "Let's hope <Actor.he_or_she> also swipes right."
+                "A while later ..."
+                If Random(0, 50) < Actor:attractiontoplayer
+                    "And ... it's a match. Should I exchange numbers with <Actor.him_or_her> so that we can go on a date?"
+                    0:: "Yes"
+                    1:: "No"
+                    
+                    If 0
+                        "We chat for a bit before exchanging contacts hopefully to meet each other offline."
+                        exchangeContact(Actor)
+                    Else
+                        "On second thought, <Actor.he_or_she> only looked good in that one photo."
+                    Endif
+                Else
+                    "Still nothing ... <Actor.he_or_she> didn't find me attractive then."
+                Endif
+            Else
+                "Nah, not my type."
+            Endif
+            count += 1
+        Endwhile
+        "That's enough mate surfing for today!"
+    Else
+        "Dating apps are a waste of time. I'd rather go on a date with someone I met in real life."
+    Endif   
+    
+    SceneEnd()
+    timeout(48, dating_app)

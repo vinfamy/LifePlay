@@ -1,0 +1,34 @@
+WHAT: all
+WHERE: alcohol, supermarket, beverages
+WHEN: 0-24
+WHO: none
+OTHER: Random(0, 100) < 20
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    Actor(Irritated):: "Hey, could you please do me a favour?"
+    Player(Happy):: "Yes, what is it?"
+    Actor(Angry):: "I was out to get a few packs of beers, but forgot my ID. Would you mind buying them for me? I have the money - I'll be waiting for you outside."
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        Player(Happy):: "I'd be glad to help. Silly regulations those are anyways. You're obviously old enough."
+        Actor.hide()
+        "I bought the beers as asked and just like we agreed, <Actor.he_or_she> handed me the money for them outside."
+        If Actor:age < 21
+            intelligence -= Random(0, 0.5)
+        Else
+            intelligence += Random(0, 0.5)
+        Endif
+    Else
+        Player(Angry):: "No sorry, I don't think you look old enough to be drinking ..."
+        If Actor:age < 21
+            intelligence += Random(0, 0.5)
+        Else
+            intelligence -= Random(0, 0.5)
+        Endif
+    Endif
+    
+    SceneEnd()
+    timeout(96, buy_alcohol_forget_ID)

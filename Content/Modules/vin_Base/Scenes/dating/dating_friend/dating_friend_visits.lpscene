@@ -1,5 +1,99 @@
-WHAT: work
-WHERE: work
-WHEN: 19 - 23
-WHO: Boss = getSpecific(Boss); Colleague = getSpecific(Colleague); If Boss:perversion > 60 && Boss.isInterestedIn(Colleague) && !Boss.isDating()
-OTHER: Random(0, 100) < 0.2*sneak
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 8 - 22
+WHO: Dating = getSpecific(Dating); Actor = getSpecific(Dating_Friend); If Random(0, 100) < Dating:interpersonal
+OTHER: !isAtHome()
+
+
+    SceneStart()
+    "I heard a knock on the door."
+    Player(Surprised):: "Coming!"
+    "It's <Actor.name>, a close friend of <Dating.name>."
+    Actor.dress()
+    Actor.show(2)
+    Actor(Happy):: "Oh hey, <Player.name>. Is <Dating.name> home?"
+    Player(Sad):: "<Dating.He_or_She> is away for the day, I'm afraid."
+    Actor(Irritated):: "Oh, that's a shame. No matter, I'll just come back tomorrow."
+    0:: "Invite <Actor.him_or_her> inside"
+    1:: "Say farewell"
+    
+    If 0
+        Player(Happy):: "Actually, do you want to come in for a drink? I'd like to get to know my <Dating.boyfriend_or_girlfriend>'s friend better anyway."
+        If Actor:attractiontoplayer > 10 || Actor:rapportwithplayer > 10
+            Actor(Wink):: "Of course, it wouldn't be too polite of me if I turn down a friendly offer from my close friend's <Player.boyfriend_or_girlfriend>, would it?"
+            
+            choice = -1    
+            ate = false
+            hadSex = false
+                
+            While choice < 5
+                Kissed = false
+                "What should I suggest to <Actor.name> that we do?"
+                0:: "Chat"
+                1:: !ate:: "Eat something together"
+                2:: "Watch a movie"
+                3:: "Drink alcohol"
+                4:: !hadSex:: "Kiss <Actor.him_or_her>"
+                5:: "Politely ask <Actor.him_or_her> to leave"
+                
+                If 5
+                    "We said goodbye and went our ways."
+                Else
+                    Actor:rapportwithplayer += Random(0, 0.5)
+                    Actor:attractiontoplayer += Random(0, 0.5)
+                    If 0
+                        "We simply sat and chat for a while ..."
+                    Elseif 1
+                        "We made some quick snacks and enjoyed them together ..."
+                        ate = true
+                    Elseif 2
+                        "We watched a movie together ..."
+                    Elseif 3
+                        "We had a drink together ..."
+                        Player:intoxication += Random(0,10)
+                        Actor:intoxication += Random(0,10)
+                    Elseif 4
+                        Kissed = true
+                    Endif
+
+                    If Kissed || [!hadSex && Actor.isInterestedIn(Player) && Actor:attractiontoplayer > Random(30, 200)]
+                        Player(Kiss):: "..."
+                        Actor(Kiss):: "..."
+                        "We had a kiss, an awkward one at first, but soon moving towards a more passionate direction."
+                        "Should I let this escalate further?"
+                        0:: "Make out"
+                        1:: "Stop"
+                        
+                        If 0
+                            If Actor.isInterestedIn(Player) && [Actor.IsDominantSex(Player) || Actor:attractiontoplayer + Actor:perversion > Random(75, 200) || Actor:intoxication > 90]
+                                "Our kiss got more and more steamy and soon we were making out, our hands all over each other."
+                                hadSex = true
+                                Player:perversion += Random(0, 1)
+                                Sex(Player, Actor)
+                                Actor.show(2)
+                                "The sex was amazing. However, <Actor.name> immediately realized what <Actor.he_or_she> had done: breaking the first rule of friendship, and was overcome with guilt. <Actor.He_or_She> left in a hurry."
+                                choice = 5
+                            Else
+                                "Unfortunately for me, <Actor.name> didn't seem interested in letting things escalate any further and pulled away."
+                                Actor(Anxious):: "<Player.name>, you know we really shouldn't have done that. What if <Dating.name> finds out? Sorry ... I've got to go now."
+                                choice = 5
+                            Endif
+                        Else
+                            "I decided to stop it there and not go any further."
+                        Endif
+                    Elseif Random(0, 100) < 20
+                        Actor(Happy):: "I've gotta go now. Thank you for inviting me in."
+                        "We parted ways."
+                        choice = 5            
+                    Endif        
+                Endif
+            Endwhile        
+        Else
+            Actor(Happy):: "That's okay. Don't worry. I've got to go."
+        Endif
+    Else
+        Player(Happy):: "I'll see you soon then!"
+    Endif
+        
+    SceneEnd()
+    timeout(72, dating_friend_visits)

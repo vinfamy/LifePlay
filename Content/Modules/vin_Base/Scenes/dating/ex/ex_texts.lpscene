@@ -1,0 +1,28 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 0 - 24
+WHO: Actor = getSpecific(ExDating); If Actor.isContactExchanged() && Random(0, 100) < Actor:attractiontoplayer 
+OTHER: none
+
+    SceneStart()
+    Actor:: "I miss you. I was a fool to lose you."
+    "It's my ex <Actor.name> texting me. <Actor.He_or_She> is probably drunk."
+    0:: "Ignore"
+    1:: "Respond"
+    2:: "Block"
+    
+    If 0
+        "Let's just ignore the text. I don't want to give <Actor.him_or_her> any wrong signal."
+        Actor:attractiontoplayer += Random(0, 1)
+    Elseif 1
+        "Well, for everything we had together, I can't be so emotionless. <Actor.He_or_She> reached out first."
+        "I decided to text back: 'Miss you too ...'"
+        Actor:attractiontoplayer += Random(0, 3)
+    Else
+        "I'd rather not have to deal with this emotional baggage anymore. I'll just block <Actor.him_or_her> and be done with it."
+        blockContact(Actor)
+        Actor:attractiontoplayer -= Random(0, 10)
+    Endif
+    
+    SceneEnd()
+    timeout(48, ex_texts)

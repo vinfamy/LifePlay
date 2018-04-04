@@ -11,7 +11,7 @@ setBackground(home)
 sceneStart()
 
 Difficulty = Random(0.25, 2)
-Salary = 1500+Difficulty*jobexperience*100
+Salary = 1500+Difficulty*jobexperience*100*CostOfLiving
 SalaryConverted = Salary.convertToLocalCurrency(true)
 
 "I discovered a open vacancy at this company for someone with my experience. I calculated that I could take home around <SalaryConverted> per month with this job."

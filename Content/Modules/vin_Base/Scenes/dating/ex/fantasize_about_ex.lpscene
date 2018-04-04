@@ -1,0 +1,20 @@
+WHAT: masturbate
+WHERE: all
+WHEN: 0 - 24
+WHO: Actor = getSpecific(ExDating)
+OTHER: Random(0, 100) < perversion
+
+    SceneStart()
+    "I was pleasuring myself when a thought about someone suddenly came to my head: my ex <Actor.name>."
+    0:: "Fantasize about us"
+    1:: "Force that thought away"
+    
+    If 0
+        "Fantasies don't hurt ..."
+        SexNoAffair(Player, Actor)
+    Else
+        "I've moved on from <Actor.him_or_her> now. I shouldn't fantasize about the past ..."
+    Endif
+    
+    SceneEnd()
+    timeout(48, fantasize_about_ex)

@@ -4,8 +4,11 @@ WHEN: 0-24
 WHO: none
 OTHER: Random(0, 1000) < interpersonal*actionDuration
 
-New_Person = generatePerson()
-If Player.IsInterestedIn(New_Person) 
+    New_Person = generatePersonTemporary()
+    While !Player.IsInterestedIn(New_Person) 
+        New_Person = generatePersonTemporary()
+    Endwhile
+    New_Person.makePermanent()
     sceneStart()
     New_Person.dress()
     New_Person.show(2)
@@ -52,7 +55,4 @@ If Player.IsInterestedIn(New_Person)
     Endif
     
     sceneEnd()
-    timeout(2, meet_customer_service)
-Else
-    New_Person.Delete()
-Endif
+    timeout(6, meet_customer_service)

@@ -1,0 +1,61 @@
+WHAT: get_a_massage
+WHERE: all
+WHEN: 0 - 24
+WHO: none
+OTHER: !isWithCompanion()
+
+    SceneStart()
+    
+    Actor = generatePerson()
+    Actor.dress()
+    Actor.show(2)
+    "I decided to go for a massage today to release some stress. I was greeted by my <Actor.masseur_or_masseuse>, <Actor.name>."
+    "I stripped down and lied on my stomach with a towel covering my ass and upper thighs."
+    Player.strip()
+    
+    If Actor:perversion + Actor:attractiontoplayer > Random(25, 75)
+        "The first portion of the massage went without incidents. However, after a while, <Actor.name> told me that <Actor.he_or_she> noticed how tense my lower body was and asked if <Actor.he_or_she> could pull off the towel to massage my bottom."
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            Player(Happy):: "No, I don't mind at all."
+            "<Actor.name> quickly took off my towel and started massaging my lower cheeks"
+            0:: "Spread my legs"
+            1:: "Stay still"
+            
+            If 0 || Actor:perversion + Actor:attractiontoplayer > Random(50, 100)
+                "All of a sudden, <Actor.he_or_she> reached down to massage my crotch!"
+                0:: "Storm out"
+                1:: "Give <Actor.him_or_her> my number"
+                2:: isModEnabled(vin_VanillaPorn) && perversion > 50:: "Enjoy my 'happy ending'"
+                
+                If 0
+                    Player(Furious):: "Hey pervert, what the fuck do you think you're doing? This isn't a porno!"
+                    "I stormed off and complained to the manager, threatening them with a rape lawsuit if <Actor.name> wasn't fired immediately."
+                    Actor:rapportwithplayer -= 100
+                    Actor:attractiontoplayer -= 100
+                    masochist -= Random(0, 1)
+                Elseif 1
+                    "I enjoyed <Actor.his_or_her> hands feeling me up but didn't want to do something too crazy right there."
+                    "Instead, I waited it out until the end of this very sensual massage to give <Actor.name> my personal number. <Actor.He_or_She> was delighted to have it."
+                    exchangeContact(Actor)
+                    perversion += Random(0, 0.25)
+                Else
+                    "It was obvious what the cute <Actor.masseur_or_masseuse> really wanted. And I wanted it too, right here!"
+                    "<Actor.His_or_Her> stimulating got more and more intense and soon enough, I got up and started making out with the lucky <Actor.masseur_or_masseuse>."
+                    Sex(Actor, Player)
+                    perversion += Random(0, 1)
+                Endif
+            Else
+                "Despite me being completely naked without even a piece of cloth covering my body, <Actor.name> remained completely professional and never tried anything funny for the rest of the massage."
+            Endif
+        Else
+            "I told <Actor.him_or_her> that it was not neccessary. <Actor.He_or_She> had no choice but went back to a regular massage with no more daring suggestions."
+        Endif
+    Else
+        "<Actor.name> was thoroughly professional and I enjoyed a very relaxing massage."
+    Endif
+    
+    SceneEnd()
+    timeout(48, sensual_massage)

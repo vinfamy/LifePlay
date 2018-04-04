@@ -1,5 +1,35 @@
-WHAT: work
-WHERE: work
-WHEN: 19 - 23
-WHO: Boss = getSpecific(Boss); Colleague = getSpecific(Colleague); If Boss:perversion > 60 && Boss.isInterestedIn(Colleague) && !Boss.isDating()
-OTHER: Random(0, 100) < 0.2*sneak
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 0 - 24
+WHO: Dating = getSpecific(Dating); Actor = getSpecific(Dating_Friend); If Actor.isInterestedIn(Player) && Actor:attractiontoplayer + Actor:perversion > Random(75, 500)
+OTHER: none
+
+    SceneStart()
+    "I received a text massasge, it's from <Actor.name>, my <Dating.boyfriend_or_girlfriend>'s friend. Hmm, what would <Actor.he_or_she> text me for? I barely know the <Actor.guy_or_girl>."
+    Actor:: "How are you, <Player.handsome_or_beautiful>. Thinking about you ..."
+    "What a shameless flirter! And a terrible friend ..."
+    0:: "Ignore"
+    1:: "Flirt back"
+    2:: "Tell <Dating.name>"
+    
+    If 0
+        "Whatever! I don't want to start any drama. I'll just ignore <Actor.him_or_her> ..."
+        masochist += Random(0, 1)
+        Actor:attractiontoplayer -= Random(0, 2)
+    Elseif 1
+        "I won't lie: I'm a bit flattered by the attention. A few flirty texts back won't hurt. It doesn't exactly count as cheating."
+        perversion += Random(0, 0.5)
+        Actor:attractiontoplayer += Random(0, 5)
+    Else
+        "What a shameless pervert! How could <Actor.he_or_she> flirt with <Actor.his_or_her> friend's <Player.man_or_woman>? I need to show <Dating.name> what a horrible 'friend' <Dating.he_or_she> has."
+        Dating.dress()
+        Dating.show(2)
+        Dating(Angry):: "Unbelievable! How blind was I to ever consider that <Actor.asshole_or_bitch> a friend! Don't worry, babe, that so-called friendship is now over for good."
+        Actor.removeDatingFriend()
+        Actor:rapportwithplayer -= 50
+        Actor:attractiontoplayer -= 50
+        Dating:attractiontoplayer += Random(0, 3)
+    Endif
+    
+    SceneEnd()
+    timeout(96, dating_friend_texts)

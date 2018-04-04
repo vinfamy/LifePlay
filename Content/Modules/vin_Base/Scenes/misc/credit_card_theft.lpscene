@@ -1,0 +1,41 @@
+WHAT: all
+WHERE: bank
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 100) < 1
+
+    SceneStart()
+
+    "I noticed a creepy guy clearly looking over the shoulders of an unsuspecting bank customer withdrawing money from an ATM."
+    0:: "Ignore"
+    1:: "Stop him"
+
+    If 0
+        "It's none of my business. I don't want to get in trouble."
+        masochist += Random(0, 0.5)
+    Else
+        Player(Furious):: "Hey! What the fuck do you think you're doing? Everyone, we have a credit card thief here!"
+        masochist -= Random(0, 0.5)
+        "The guy ran away as soon as I shouted out and exposed his dirty trick - not fast enough for the bank's security guards though ..."
+        Actor = generatePerson()
+        Actor.dress()
+        Actor.show(2)
+        Actor:rapportwithplayer += 20
+        If Actor.isInterestedIn(Player)
+            Actor:attractiontoplayer += Random(0, 25)
+        Endif
+        
+        Actor(Happy):: "Oh my god! You saved me from that thief. I don't know how to thank you ..."
+        0:: "Nothing"
+        1:: "Ask for <Actor.his_or_her> number"
+        
+        If 0
+            Player(Happy):: "Don't worry about it. It's only the right thing to do."
+        Else
+            "I suggested that we exchange numbers and hang out another day. Of course, <Actor.name> didn't hesitate to give <Actor.his_or_her> number to <Actor.his_or_her> savior."
+            exchangeContact(Actor)
+        Endif
+    Endif
+
+    SceneEnd()
+    timeout(600, credit_card_theft)

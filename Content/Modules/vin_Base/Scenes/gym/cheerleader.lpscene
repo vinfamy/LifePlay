@@ -1,0 +1,45 @@
+WHAT: play_a_team_sport
+WHERE: all
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 200) < fitness
+
+
+    SceneStart()
+    Actor = generatePerson()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Excited):: "Come on!"
+    "I was playing a team sport with a few others when I spotted a passerby watching us and cheering us all."
+    0:: "Try to impress"
+    1:: "Play on normally"
+    
+    If 0
+        "We have a cheerleader now? That's a perfect opportunity for me to show off my athletic talent."
+        If Random(0, 100) < fitness
+            "I pulled off some nice tricks, to the delight of our newest supporter."
+            "After the match ..."
+            Actor:rapportwithplayer += Random(0, 20)
+            Actor:attractiontoplayer += Random(0, 20)
+            Actor(Excited):: "Wow, you're a skillful player. I can't believe you're not a professional."
+            "Our 'cheerleader' came up to me and introduced <Actor.himself_or_herself> as <Actor.name>. Considering that <Actor.he_or_she> has become such a fan of me, I reckon I would have no problem asking for <Actor.his_or_her> number. Should I?"
+            0:: "Yes"
+            1:: "No"
+            
+            If 0
+                exchangeContact(Actor)
+                "We exchanged contacts and said farewell to each other."
+            Else
+                "Maybe not. <Actor.He_or_She> is just a random <Actor.guy_or_girl> that walked past me playing some sport."
+            Endif
+        Else
+            "Unfortunately, my attempts at a few tricks didn't come off at all and I just ended up looking like a fool in front of my teammates and our cheerleader."
+            Actor:rapportwithplayer -= Random(0, 20)
+            Actor:attractiontoplayer -= Random(0, 20)
+        Endif
+    Else
+        "Who cares? I should focus on the game. It makes no difference to me who's watching."
+    Endif
+    
+    SceneEnd()
+    timeout(96, cheerleader)

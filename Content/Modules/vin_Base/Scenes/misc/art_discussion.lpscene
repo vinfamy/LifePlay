@@ -1,0 +1,39 @@
+WHAT: all, -go_to_the_bathroom
+WHERE: art
+WHEN: 0-24
+WHO: none
+OTHER: Random(0, 200) < intelligence
+
+    SceneStart()
+    Actor = generatePerson()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Excited):: "It's beautiful, isn't it? Such a masterpiece ..."
+    0:: "Play it safe"
+    1:: "Show off my art knowledge"
+    
+    If 0
+        Player(Happy):: "Yes it is beautiful indeed ..."
+        "My knowledge of the arts leaves a lot to be desired and I know it. No point trying to sound sophisticated here ..."
+    Else
+        "I tried my best to show off my knowledge of the arts to engage in a sophisticated discussion with <Actor.name>."
+        If Random(0, 100) < intelligence
+            Actor(Happy):: "It's rare nowadays to meet someone with the same appreciation of the arts. Let's exchange numbers. I wouldn't mind keeping you company in your next museum or gallery visit."
+            0:: "Yes"
+            1:: "No"
+            
+            If 0
+                Player(Happy):: "Of course, I'd love to exchange numbers."
+                exchangeContact(Actor)
+            Else
+                Player(Sad):: "Sorry, but I don't normally exchange numbers with someone I just met."
+            Endif
+        Else
+            "Unfortunately, my knowledge of the arts really wasn't deep enough to hold an intelligent conversation about it. From <Actor.his_or_her> facial expression, I could tell that <Actor.he_or_she> saw right through me as a pretentious artistic illiterate."
+            Actor:attractiontoplayer -= Random(0, 20)
+            Actor:rapportwithplayer -= Random(0, 20)
+        Endif
+    Endif
+    
+    SceneEnd()
+    timeout(48, art_discussion)

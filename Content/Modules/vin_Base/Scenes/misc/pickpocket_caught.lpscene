@@ -1,0 +1,44 @@
+WHAT: pickpocket
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: sneak < Random(0, 100)*Random(0, 1)*Random(0, 1)*Random(0, 1)
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Angry):: "Hey! Stop it right there. What do you think you're doing? Thief!"
+    0:: "Run"
+    
+    If Random(0, 200) < fitness + sneak
+        "Thankfully, I managed to make my escape before <Actor.he_or_she> could stop me. That was a close call!"
+    Else
+        "Unfortunately for me, before I could make my escape, I was surrounded by other pedestrians."
+        Actor(Angry):: "I'll call the cops and let them deal with you."
+        0:: "Beg"
+        1:: perversion > 30:: "Offer sex"
+        2:: "Accept my fate"
+        
+        If 0 && Random(0, 100) < interpersonal
+            Player(Crying):: "Please, have mercy, I was desperate. My children were starving. I've never done anything like this before."
+            Actor(Sad):: "Alright, I guess there was no harm done after all. I'll let you off the hook this time ..."
+        Elseif 1 && Actor:perversion + Actor:attractiontoplayer > Random(20, 100)
+            Player(Flirty):: "Please, let's go somewhere private - I'll do anything ... anything."
+            Actor(Flirty):: "You will. Good, then follow me back to my place. And don't even think about running away or trying to steal anything else."
+            setBackground(home)
+            Sex(Actor, Player)
+        Else
+            "<Actor.name> ignored everything I said and called the cops, who swiftly arrived and took me back to the police station."
+            Actor.hide()
+            setBackground(police)
+            "I spent a few days in jail, was fined and given a criminal record. I would have a hard time explaining this to my future employers ..."
+            money -= Random(50, 500)
+            jobexperience -= Random(0, 10)
+            mood -= 100
+            energy -= 100
+        Endif
+    Endif
+    
+    SceneEnd()
+    timeout(48, pickpocket_caught)

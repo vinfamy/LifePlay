@@ -1,0 +1,36 @@
+WHAT: all, -go_to_the_bathroom
+WHERE: clothes, department_store, shoes, bag, cosmestics 
+WHEN: 0-24
+WHO: none
+OTHER: jobexperience < Random(0, 50) && attractiveness > Random(70, 100)
+
+    SceneStart()
+    
+    Player(Sad):: "Damn, that looks so good ... but it's too expensive."
+    "I won't lie: my salary isn't enough for me to afford much luxury in life and sometimes I have no choice but sigh at something so appealing, yet so unaffordable."
+    Actor = generatePersonTemporary()
+    While !Actor.isInterestedIn(Player)
+        Actor = generatePersonTemporary()
+    Endwhile
+    Actor.makePermanent()
+    Actor.dress()
+    Actor.show(2)
+    
+    Actor(Happy):: "Hey there, I'm sorry if I'm being too forward, but you looked like you wanted that so much. I could buy it for you, as an introduction gift."
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        Player(Excited):: "Really? You would do that for me? Why, though? I don't even know you."
+        Actor(Happy):: "That price tag is really not much money for me at all and I would love nothing more than to be able to spoil a <Player.handsome_or_beautiful> <Player.prince_or_princess> like you ..."
+        "And just like that, <Actor.he_or_she> went ahead to buy me what I wanted, seemingly unmoved by a mini fortune that thing cost. <Actor.He_or_She> then handed me <Actor.his_or_her> introduction gift, introduced <Actor.himself_or_herself> as <Actor.name>. We had a small chat before <Actor.he_or_she> asked for my number. Obviously, having received such an expensive gift, I had to say yes."
+        exchangeContact(Actor)
+        masochist += Random(0, 0.5)
+    Else
+        "Now that's really really weird. Something is fishy here, there's no free lunch after all."
+        "I decided to ignore the stranger's request and move on."
+        masochist -= Random(0, 0.5)
+    Endif
+    
+    SceneEnd()
+    timeout(200, expensive_shopping)
