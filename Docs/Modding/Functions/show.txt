@@ -1,0 +1,8 @@
+Actor.show(position_index)
+
+Show this actor on screen. The player's default position is 0. 1 - 6 is counted from right to left of the screen.
+
+EXAMPLE:
+    NewGuy = generatePerson()
+    NewGuy.dress()
+    NewGuy.show(2)

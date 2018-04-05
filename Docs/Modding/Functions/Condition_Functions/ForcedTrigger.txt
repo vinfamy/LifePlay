@@ -1,0 +1,3 @@
+ForcedTrigger() returns bool
+
+Whether a scene was force triggered. Currently only used for the house party event. Probably not useful for anything else.

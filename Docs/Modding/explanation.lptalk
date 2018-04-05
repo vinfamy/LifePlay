@@ -1,0 +1,32 @@
+Each lptalk file can contain as many dirty talks (these are the ones that show up on top of an actor's head) as you want.
+LPtalks are structured exactly the same as Lpdescs so do read explanation.lpdesc, except the second part, instead of there being just one line of description, a dirty talk contains the same number of lines of dirty talks as the number of actors involved in the sex position. Use '...' if you want an actor to stay silent.
+
+EXAMPLES:
+    *START* Tag(Licking)
+        ...
+        Now taste me!
+    ##
+    Tag(NonSexual) || Tag(Foreplay)
+        You're making me crazy, you know that, don't you? I'm dizzy with wanting you so bad!
+        ...
+    ##
+    Tag(Licking)
+        ...
+        Pay attention to the road, <A1.mister_or_miss>.
+    ##
+    Tag(Penetration) && toCum > 70
+        ...
+        Aaaahhhhhhhh, fuuuuucccckkk ... uhhhh ... uhhh!
+    ##
+    Tag(Penetration, MF)
+        ...
+        Damn... that's good! Keep fucking me, baby... that's it... keep that cock fucking me hard!
+    ##
+    Tag(Penetration)
+        ...
+        Oh yes, please, fuck me!
+    ##
+    *END* !Tag(NonSexual)
+        ...
+        Yes, yes, cum for me baby, CUM FOR ME!
+    ##

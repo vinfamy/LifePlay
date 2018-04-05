@@ -1,0 +1,7 @@
+Actor.addDatingFriend()
+
+Add this actor to the list of your significant other's friends.
+
+EXAMPLE:
+    John(Happy):: "Hi there, I'm your boyfriend's friend."
+    John.addDatingFriend()

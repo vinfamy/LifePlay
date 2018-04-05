@@ -1,0 +1,7 @@
+Actor.addColleague()
+
+Add this actor to the list of colleagues.
+
+EXAMPLE:
+    John(Happy):: "Hi there, I'm new here."
+    John.addColleage()

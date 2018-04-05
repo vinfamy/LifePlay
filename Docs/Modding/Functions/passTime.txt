@@ -1,0 +1,10 @@
+passTime(hours_min, hours_max)
+
+I initially intended this as a way to pass time during a scene, but it turned out too complicated due to stat depreciations. All it does now is add to the variable TimePassed, which can be useful for while loop I guess.
+
+EXAMPLE:
+    While TimePassed < 3
+        "The party continues ..."
+        passTime(0.25, 1)
+    Endwhile
+    "The party ends."

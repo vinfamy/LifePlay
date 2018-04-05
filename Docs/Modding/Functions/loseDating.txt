@@ -1,0 +1,7 @@
+loseDating()
+
+Break up with current boyfriend / girlfriend. All affairs and SO's friends are cleared and become acquaintances.
+
+EXAMPLE:
+    "It's over. He broke up with me!"
+    loseDating()

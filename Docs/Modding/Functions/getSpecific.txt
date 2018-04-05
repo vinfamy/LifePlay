@@ -1,0 +1,16 @@
+getSpecific(keyword) returns Actor
+getSpecific(float) returns Actor
+getSpecific(float variable) returns Actor
+
+Get a specific person in your current game.
+Keywords are Dating, Dating_Friend, Boss, Colleague, Neighbour, PT, ExDating
+Alternatively, you can input a number or a float variable to get specifically the actor with that ID
+
+EXAMPLE:
+    SO = getSpecific(Dating)  // get my boyfriend / girlfriend
+    Actor5 = getSpecific(5) // get the fifth generated actor in this current game
+    
+    ID = SugarDaddy.getGlobal()
+    If ID != 0
+        SugarDaddyActor = getSpecific(ID)  // get the sugar daddy via the float variable
+    Endif

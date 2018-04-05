@@ -1,0 +1,26 @@
+In no particular order, these are the authors of the original (most have been heavily modified by me though) meshes for various hair and clothing 3d meshes and textures. Most of these are under CC0 or similar permissive licenses, but please double-check before reusing:
+- Raistlin1
+- Elvaerwyn
+- punkduck
+- Mindfront
+- jushcomb68
+- Mayhem281
+- MargaretToigo
+- EWS
+- sonicteam998
+- RadicalToast
+- jujube
+- Aethelraed_Unraed
+- MistressSaeko
+- callharvey3d
+- Freehunter
+- DredNicolson
+- reizibarrientos
+- Marco_105
+- williamb
+- V0rT3X
+- scsouza
+- brkurt
+- o4saken
+- frankyaye
+- Joel Palmius

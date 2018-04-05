@@ -1,0 +1,7 @@
+Actor.setDating()
+
+Make this person your significant other. Current SO is no longer dating you and becomes acquaintance. Also clears out all dating friends and affairs, who all become acquaintances.
+
+EXAMPLE:
+    "I agreed to be his girlfriend"
+    John.setDating()

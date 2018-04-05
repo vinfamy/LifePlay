@@ -1,0 +1,7 @@
+Actor.startDate()
+
+Start hanging out with this person (make them your current companion)
+
+EXAMPLE:
+    "I decided to hang out with <John.name> today."
+    John.startDate()

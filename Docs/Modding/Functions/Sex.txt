@@ -1,0 +1,11 @@
+Sex(Actor1, Actor2, ..., ActorN)
+
+Start a sex scene involving these actors. If the player is involved, it will also check whether the player is cheating or not and add to the affair list accordingly.
+
+EXAMPLE:
+    Boss(Happy):: "Baby, let's fuck!"
+    Sex(Boss, Player)
+    
+    If Boss.isAffair()  // if you are in a relationship with someone else, this will return true after sex
+        "I cheated on my boyfriend with my boss."
+    Endif

@@ -78,6 +78,7 @@ If 0
                 Else
                     Player(Flirty):: "You'd better give me one hell of a deal for this ..."
                     Sex(Landlord, Player)
+                    Landlord.show(2)
                     perversion += Random(0, 1.5)
                     Rent /= 1.2
                     RentConverted = Rent.convertToLocalCurrency(true)

@@ -1,0 +1,8 @@
+isWithCompanion() returns bool
+
+Check if the player is currently hanging out with a companion.
+
+EXAMPLE:
+    If isWithCompanion()
+        "I'm currently with <CurrentCompanion.name>."
+    Endif

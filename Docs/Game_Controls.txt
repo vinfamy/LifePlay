@@ -1,0 +1,66 @@
+Controls can be modifed to the player's taste by editing {GameFolder}\LifePlay\Config\DefaultInput.ini
+The default controls are as follows:
+
+Left mouse click:
+- select most things, interact with buttons
+- open action menu when clicked on a building
+- open sex action menu when clicked during sex
+- move camera to player's position when clicked on portrait
+- proceed with current scene
+
+Right mouse click: 
+- close any menu currently opened
+- open favorite menu when clicked on portrait
+
+Middle mouse scroll:
+- zoom in and out the camera in map view
+- zoom in and out the camera in sex scene
+
+Move mouse while holding middle mouse button or Ctrl:
+- rotate camera both during map view and during sex
+
+Move mouse back and forth (or in circle) while holding right mouse button or Alt:
+- manually control sex movement speed
+
+SpaceBar:
+- Pause/ Resume game in map view
+- proceed in current scene (Enter also does this)
+- Change sex position in a sex scene
+
+Tab:
+- Swap roles in sex scene
+
+Page Up / Page Down:
+- Adjust penis rotation
+
+Num + or Num 6 / Num - or Num 4
+- speed up or slow down game in map view
+- speed up or slow down sex movement speed
+
+Ctrl + T:
+- Open stat menu
+
+Ctrl + E:
+- Open character generation menu
+
+Ctrl + M:
+- Open mod manager
+
+Ctrl + C:
+- Open city menu
+
+P:
+- Open contact menu
+
+I:
+- Open inventory menu
+
+Esc/ Home:
+- Open main menu
+
+Ctrl + F:
+- Toggle search bar (same effect as clicking on the magnifying glass)
+
+#:
+- Open a input textbox that allows you to enter the ID of a scene to force-test it without meeting all the conditions
+

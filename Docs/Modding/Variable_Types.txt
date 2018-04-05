@@ -1,0 +1,13 @@
+There are only four local variable types in LifePlay scripting language:
+
+- Actor: refers to a generated character, most often as the result of GeneratePerson(), GetSpecific() or GetPerson(). The special variables 'Player' and 'CurrentCompanion' are also actors. Not all actors in the current game are always present in memory, they need to be 'called' first using the functions above to become actors. Each actor has an ID which is a float, which can be saved as a global variable so that the actor can be called by using GetSpecific() on the global variable.
+
+- Float: a number, also used as Actor ID
+
+- String: anything textual, functions like convertToLocalCurrency() convert floats to readable strings.
+
+- Bool: true or false, very important for If and While, many functions are 'checking functions' that return a bool
+
+Global variables are like floats but need to be converted into float first before use: see getGlobal(), setGlobal() and clearGlobal()
+
+Currently, arrays and structs aren't available.

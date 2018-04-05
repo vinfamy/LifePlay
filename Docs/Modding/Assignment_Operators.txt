@@ -1,0 +1,18 @@
+Assignment operators are used to modify the values of float variables and stats. They are:
++= : add
+-= : deduct
+*= : multiply
+/= : divide
+= : set (for a float variable)
+=> : set (for a actor stat)
+
+Examples:
+    CurrentCompanion:attractiontoplayer += Random(0, 2)
+    count += 1
+    martial *= 2
+    Salary /= 2
+    jobperformance => 50 // use '=>' instead of just '=' because job performance is a actor stat
+    count = 0 // use '=' instead of '=>' because count is not an actor stat but a local float variable
+    count += 1
+    
+    

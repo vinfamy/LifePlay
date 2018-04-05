@@ -1,0 +1,11 @@
+Actor stats are referenced with {ActorVariable}:{StatID} like 'CurrentCompanion:interpersonal' or 'Player:intelligence'. The latter can simply be expressed as 'intelligence' (i.e. if no actor variable is specified, the player is assumed.)
+
+Random(min, max) is used to generate a random float between a min float and a max float for example:
+Random(0, 100) will generate a random value between 0 and 100
+
+EXAMPLE:
+    If Random(0, 100) < interpersonal
+        CurrentCompanion:rapportwithplayer += Random(0, 1)
+    Endif
+    
+    In the above example, the higher the player's interpersonal skill, the more likely the current companion's rapport with the player will increase. This increase is by a random amount between 0 and 1. 

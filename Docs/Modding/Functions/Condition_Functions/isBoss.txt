@@ -1,0 +1,8 @@
+Actor.isBoss() returns bool
+
+Check if the actor is the player's boss.
+
+EXAMPLE:
+    If John.isBoss()
+        John(Angry):: "You're fired!"
+    Endif

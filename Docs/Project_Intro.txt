@@ -1,0 +1,30 @@
+LifePlay is a life simulation RPG being developed on Unreal Engine 4.
+
+Features:
+- Play in real world cities with real world buildings, using OpenStreetMap geodata (32 cities and counting)
+- Extensive character customizations for the player and NPCs, catering to all body shapes
+- Non-grindy gameplay combining lifesim and RPG elements, with user-friendly UI and controls
+- Come across a diverse range of life situations, sexual or otherwise, realistic or fantasy (189 scenes and counting) where your choice matters
+- 3D sex scenes that allow player control without forcing it, enhanced by well-written erotica 
+- Completely free and open source
+- Highly customizable, editable and moddable
+
+|Base Game| |Content Updates| |Additional Maps| |Source Code| |Documents| 
+
+Although this is the first release, the game has actually been under development since the end of 2017, I just didn't want to release anything that wasn't worth people's time. Obviously more gameplay horus will come over time with more scenes, animations and models; however, all key features are already in there and the game itself feels quite 'complete'. You can already play and replay it for hours easily with different character builds in different cities.
+
+The game will always be free and open-source. All contents, with full sources, will always be publicly released to everyone as soon as they are ready. Nothing will ever be exclusive or put behind a paywall. You can support the game's development by spreading the word about it and by making mods for it. 
+
+Made by a modder himself, LifePlay is very moddable and even if you've never modded before, you could easily make a new scene, actor stat, action, sex description or dirty talk for it in a few minutes. Even in game, there are editors to generate character presets and map expansions. Check the Docs folder for instructions.
+
+The sexual content currently included in the base game is relatively vanilla (with the exception of some optional mild NTR). This is intentional because vanilla content is the common denominator for everyone. I will continue to focus on vanilla content for the next few months before going into more fetishes. Of course, nothing stops you from making mods featuring fetish content right now!
+
+The game isn't demanding in terms of PC specs, but if you do get low FPS, reduce the Post Process Quality in the Settings section of the main menu and there should be a dramatic improvement.
+
+Inspired by:
+- Games: The Sims series (my intial concept was 'A free, open-source and moddable The Sims with sex, dialogues and real world cities'), NewLife by SplendidOstrich, GirlLife by TFGSite
+- Mods: SexLab, OSex, Apropos, Schlongs of Skyrim, BodySlide, LooksMenu and Mod Organizer
+
+Special thanks to: the OpenStreetMap community, Manuel Bastioni and the MakeHuman community. Without their open-source projects, this game would not be possible.
+
+

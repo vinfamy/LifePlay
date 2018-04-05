@@ -1,0 +1,18 @@
+ACTION_UNIQUEID: have_a_meal_in
+ACTION_NAME: Have a meal
+WHERE: home, work
+WHEN: 5.30 - 22.30
+MINUTES: 40 - 90
+TIMEOUT_MINUTES: 180
+ALSO_TIMEOUT: have_a_snack_in, have_a_snack, have_a_meal_in
+EFFECTS: stock_meal -1 (START), mood +3 (END), energy +15 (DURATION), mood -1 (INTERRUPTED)
+CONDITIONS: stock_meal >= 0.8 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:
+
+Again, pretty self explanatory here. The last two lines are not used. The only thing that the above doesn't include is the BUFF effect that can be added to the EFFECTS lines, for example
+attractiveness +5 (BUFF:300)
+That will give you a temporary buff of 5 attractiveness for 300 minutes.
+
+Note also that the CONDITIONS line only allows (STAT_COMPARE) for now.

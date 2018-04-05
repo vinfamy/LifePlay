@@ -1,0 +1,8 @@
+Actor.isMale() returns bool
+
+Check if the actor is male. Will still return male if gay or into transgender only - only thing that matters is which base mesh the actor is using.
+
+EXAMPLE:
+    If John.isMale()
+        "<John.name> is a dude!"
+    Endif

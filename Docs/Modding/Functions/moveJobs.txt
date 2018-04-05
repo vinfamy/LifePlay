@@ -1,0 +1,10 @@
+moveJobs()
+
+Get hired at this current building and make it our new workplace. Remember to use setBoss() and SetSalary() separately.
+
+EXAMPLE:
+    "I signed the contract."
+    moveJobs()
+    Salary = 2000
+    Interviewer.setBoss()
+    Salary.setRent()

@@ -1,0 +1,10 @@
+moveHome()
+
+Move into the current building and make it our new home. Remember to use SetLandlord() and SetRent() separately.
+
+EXAMPLE:
+    "I signed the contract."
+    moveHome()
+    Rent = 1000
+    Landlord.setLandlord()
+    Rent.setRent()

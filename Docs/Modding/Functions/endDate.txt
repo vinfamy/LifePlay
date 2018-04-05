@@ -1,0 +1,7 @@
+endDate()
+
+End the current 'date', i.e. get rid of the current companion.
+
+EXAMPLE:
+    "We already hung out for the whole afternoon. It's time to separate."
+    endDate()

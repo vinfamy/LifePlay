@@ -1,0 +1,10 @@
+Actor.setLandlord()
+
+Make this person your landlord. Current landlord is no longer landlord and becomes acquaintance.
+
+EXAMPLE:
+    "I signed the contract."
+    moveHome()
+    Rent = 1000
+    Landlord.setLandlord()
+    Rent.setRent()

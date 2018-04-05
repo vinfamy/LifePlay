@@ -1,0 +1,8 @@
+Actor.isPlayer() returns bool
+
+Check if the actor is the player.
+
+EXAMPLE:
+    If John.isPlayer()
+        "Should have just use the variable Player!"
+    Endif

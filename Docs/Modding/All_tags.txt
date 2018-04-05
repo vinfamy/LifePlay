@@ -1,0 +1,74 @@
+These are used in the function Tag() in lpdesc and lptalk files:
+
+    Solo
+
+    Couple
+    MF
+    FF
+
+    Threesome
+    MM
+    MMF
+    MFF
+    FFF
+
+    Foursome
+    MMMM
+    MMMF
+    MMFF
+    MFFF
+    FFFF
+
+    Fivesome
+    MMMMM
+    MMMMF
+    MMMFF
+    MMFFF
+    MFFFF
+    FFFFF
+
+    Gay
+    Lesbian
+    Bisexual
+
+    Group
+    Gangbang
+    ReverseGangbang
+
+
+    Foreplay
+    Oral
+    Blowjob
+    Licking
+    Boobjob
+    LickingBoobs
+
+    MutualMasturbation
+    69
+
+    Fingering
+    Handjob
+    Fisting
+
+    NonSexual
+    Kissing
+    Hugging
+
+
+    Penetration
+
+    Vaginal
+    Anal
+
+    Standing
+    Sitting
+    Lying
+    Kneeling
+
+    Doggy
+    Missionary
+    Cowgirl
+    ReverseCowgirl
+    Sideways
+
+    Aggressive

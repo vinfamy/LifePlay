@@ -1,0 +1,16 @@
+Lpcharacter files are used to hold data about an actor: player or NPC. These data include their appearance (morphs, hairs, skin colors, muscle tone etc) and stat.
+
+The easiest way to generate a lpcharacter is via the character generation (Ctrl + E) > Save Preset button on the top left corner. However, the game actually generates a lpcharacter whenever a new character is introduced (saved first in Content\Saves\_session\Characters, then moved to the save slot's folder whenever the player saves the game) - it's the only way to store a character.
+
+Open one of those generated lpcharacters and you'll find a full list of the parameters, but each line follows the same rule:
+
+CATEGORY Parameter_Name: value1% value1, value2% value2, ..., valueN% valueN
+
+For bool and string parameters, valueN can only be a single value. However, for float parameters, valueN can be a range also, with the min and max values separated by a '=>'.
+
+EXAMPLES: the following lines are all valid:
+
+    INFO First_Name: 50% John, 50% Josh
+    MORPH Arms_ForearmMass-ForearmTone_max-max: 100% 0.128191=>0.89546 
+    INFO Genital: 80% Penis
+    HAIR Brow_Color_R: 10% 0.7=>0.9, 20% 0.2=>0.3, 30% 0.5=>0.8

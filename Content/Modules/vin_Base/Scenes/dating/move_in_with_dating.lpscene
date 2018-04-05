@@ -20,5 +20,5 @@ Else
     CurrentCompanion:attractiontoplayer -= Random(0, 2)
 Endif
 
-timeout(1000, move_in_with_CurrentCompanion)
+timeout(1000, move_in_with_dating)
 SceneEnd()

@@ -1,0 +1,10 @@
+Float.setRent()
+
+Set this as your current rent.
+
+EXAMPLE:
+    "I signed the contract."
+    moveHome()
+    Rent = 1000
+    Landlord.setLandlord()
+    Rent.setRent()

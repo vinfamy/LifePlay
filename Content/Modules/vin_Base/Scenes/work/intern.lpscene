@@ -10,8 +10,8 @@ setBackground(work)
 Intern = generatePerson()
 "I was notified by email to expect a new intern, <Intern.name> <Intern.last>, to join the department today. I was asked to be <Intern.his_or_her> mentor for the duration of <Intern.his_or_her> rotation and write <Intern.him_or_her> a performance evaluation after the internship ends."  
 Intern.blendPreset(twenties)
-Repairman.randomizeFace()
-Repairman.randomizeHairs()
+Intern.randomizeFace()
+Intern.randomizeHairs()
 Intern.dress()
 Intern.show(2)
 Intern(Happy):: "Hi, I'm <Intern.name>, the new intern. It's a pleasure to meet you."

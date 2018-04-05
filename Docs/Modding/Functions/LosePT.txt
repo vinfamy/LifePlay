@@ -1,0 +1,8 @@
+losePT()
+
+The player fires their current personal trainer.
+
+EXAMPLE:
+    Player(Angry):: "I've made no progress under your instructions. You're fired!"
+    losePT()
+    "I need to find a new personal trainer now."

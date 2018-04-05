@@ -1,0 +1,30 @@
+Sometimes, parts of your texts (dialogues, dialogue option, dirty talks, scene description) need to be dynamic as you don't know in advance the name or gender of the actor involved or whether they are the player or not. That's where interpolating comes in.
+
+You can interpolate by using the <> brackets in the following structure:
+<ActorVariable.keyword>
+
+For example: 
+"I'm hanging out with <CurrentCompanion.name>, who is very <CurrentCompanion.handsome_or_beautiful>. <CurrentCompanion.P> car is one of the finest looking cars I've seen recently."
+
+The keywords are as follow:
+    name: returns the actor's first name
+    name_last: returns the actor's last name
+    
+    P: short for Possessive adjective, returns My, His or Her
+    p: same as above, just not capitalized
+    
+    S: short for Subject pronoun, returns I, He or She
+    s: same as above, just not capitalized
+    
+    O: short for Object pronoun, returns Me, Him or Her
+    o: same as above, just not capitalized
+    
+    R: short for Reflexive pronoun, returns Myself, Himself or Herself
+    r: same as above, just not capitalized
+    
+    PP: short for Possessive Pronoun, return Mine, His or Hers
+    pp: same as above, just not capitalized
+    
+You can also use _or_ to make LifePlay select whatever on the left of the _or_ if the actor is male, or select whatever on the right of the _or_ if the actor is female. For example, the following are all valid:
+    "I consider myself a <Player.handsome_or_beautiful> <Player.man_or_woman>."
+    "My friend <CurrentCompanion.name> is one of those <CurrentCompanion.guys_or_girls> who spend their whole days playing video games."

@@ -1,0 +1,8 @@
+Actor.isAffair() returns bool
+
+Check if you have commited affair with this actor while with your current boyfriend / girlfriend.
+
+EXAMPLE:
+    If John.isAffair()
+        John(Flirty):: "Oh baby, your stupid boyfriend has no idea what we've done."
+    Endif

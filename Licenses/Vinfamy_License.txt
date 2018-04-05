@@ -1,0 +1,5 @@
+Everything else not having its own license document in this folder, including all codes (including the LifePlay scripting language) and assets created by me (Vinfamy), are under MIT.
+
+(I'd rather just have a 'Do whatever the fuck you want to do' license like CC0, but that's not compatible with Unreal's license unfortunately and MIT is probably the most permissive license allowed by Unreal)
+
+Note however that if you also include ManuelLab in your project, you have no choice but to adopt AGPL as the overall license for your project(although you can still license parts that you made yourself unrelated to ManuelLab separately). To be honest, I'm not a copy-left fan at all but I can understand and respect why Manuel adopts AGPL. If you use my code and assets only, without ManuelLab (i.e. making body meshes yourself or using other human body solutions), then your project could be under whatever license compatible with MIT and Unreal Engine.

@@ -1,0 +1,7 @@
+blockContact(Actor)
+
+Remove this person from your contact list.
+
+EXAMPLE:
+    "This guy is a stalker. This is enough."
+    blockContact(John)

@@ -1,0 +1,7 @@
+Actor.addNeighbour()
+
+Add this actor to the list of neighbours.
+
+EXAMPLE:
+    John(Happy):: "Hi there, I'm new here. Just moved in."
+    John.addNeighbour()

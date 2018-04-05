@@ -21,8 +21,8 @@ Random
     IT.blendPreset(underweight)
 endRandom
 IT.blendPreset(nerd)
-Repairman.randomizeFace()
-Repairman.randomizeHairs()
+IT.randomizeFace()
+IT.randomizeHairs()
 IT.dress()
 
 Player(Angry):: "Damn it. What's wrong with my computer today? I can't get anything done with all these crashes."

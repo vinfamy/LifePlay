@@ -1,0 +1,3 @@
+sceneStart()
+
+Start the scene and open the scene UI

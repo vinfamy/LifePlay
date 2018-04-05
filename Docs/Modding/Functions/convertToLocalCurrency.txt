@@ -1,0 +1,8 @@
+Float.convertToLocalCurrency() returns String
+
+Convert this dollar value to the local currency in string format.
+
+EXAMPLE:
+    Salary = 3000
+    SalaryConverted = Salary.convertToLocalCurrency()
+    "My salary is <SalaryConverted>."  // will show up as 'My salary is £ 2000.'
