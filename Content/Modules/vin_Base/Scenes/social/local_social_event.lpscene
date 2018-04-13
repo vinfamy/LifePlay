@@ -12,7 +12,7 @@ OTHER: Random(0, 1000) < interpersonal
     If 0
         "Why not? I would never turn down an opportunity to socialize."
         "Later that night ..."
-        setBackgroud(bar)
+        setBackground(bar)
         "I'm at the event. The attendance is decent. Plenty of cool-looking people here."
         
         count = 0

@@ -156,7 +156,7 @@ struct STREETMAPRUNTIME_API FStreetMapRoad
 	GENERATED_USTRUCT_BODY()
 
 	/** Name of the road */
-	UPROPERTY( Category=StreetMap, EditAnywhere )
+	UPROPERTY( Category=StreetMap, EditAnywhere, BlueprintReadWrite )
 	FString RoadName;
 	
 	/** Type of road */
@@ -168,7 +168,7 @@ struct STREETMAPRUNTIME_API FStreetMapRoad
 	TArray<int32> NodeIndices;
 
 	/** List of all of the points on this road, one for each node in the NodeIndices list */
-	UPROPERTY( Category=StreetMap, EditAnywhere )
+	UPROPERTY( Category=StreetMap, EditAnywhere, BlueprintReadWrite )
 	TArray<FVector2D> RoadPoints;
 	
 	// @todo: Performance: Bounding information could be computed at load time if we want to avoid the memory cost of storing it
@@ -463,6 +463,9 @@ public:
     /** Vinfamy added */
 	UFUNCTION(BlueprintCallable)
 	FStreetMapBuilding FindBuilding(const FVector2D Point);
+    
+    UFUNCTION(BlueprintCallable)
+	FStreetMapRoad FindRoad(const FVector2D Point);
        
     UFUNCTION(BlueprintCallable)
 	FStreetMapBuilding FindBuildingFromArray(const FVector2D Point, TArray<FStreetMapBuilding> SmallBuildings);
@@ -481,7 +484,7 @@ public:
 protected:
 	
 	/** List of roads */
-	UPROPERTY( Category=StreetMap, VisibleAnywhere )
+	UPROPERTY( Category=StreetMap, EditAnywhere, BlueprintReadWrite)
 	TArray<FStreetMapRoad> Roads;
 	
 	/** List of nodes on this map.  Nodes describe interesting points along roads, usually where roads intersect or at the end of a dead-end street */

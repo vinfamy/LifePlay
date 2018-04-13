@@ -39,6 +39,7 @@ OTHER: Random(0, 2000) < perversion + intelligence
             Else
                 "Nah, not my type."
             Endif
+            Actor.hide()
             count += 1
         Endwhile
         "That's enough mate surfing for today!"

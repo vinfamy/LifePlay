@@ -1,3 +1,5 @@
+LifePlay [v1.0] [Vinfamy]
+
 LifePlay is a life simulation RPG being developed on Unreal Engine 4.
 
 Features:

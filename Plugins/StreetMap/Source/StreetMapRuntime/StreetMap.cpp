@@ -46,6 +46,19 @@ FStreetMapBuilding UStreetMap::FindBuilding(const FVector2D Point)
     return emptyBuilding;
 }
 
+FStreetMapRoad UStreetMap::FindRoad(const FVector2D Point)
+{
+    FStreetMapRoad emptyRoad;
+    for (const auto &element : Roads)
+    {
+        if (FPolygonTools::IsPointInsidePolygon(element.RoadPoints, Point))
+        {
+            return element;
+        }
+    }
+    return emptyRoad;
+}
+
 FStreetMapBuilding UStreetMap::FindBuildingFromArray(const FVector2D Point, TArray<FStreetMapBuilding> SmallBuildings)
 {
     FStreetMapBuilding emptyBuilding;
