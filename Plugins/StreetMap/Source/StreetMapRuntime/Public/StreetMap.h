@@ -462,7 +462,7 @@ public:
     
     /** Vinfamy added */
 	UFUNCTION(BlueprintCallable)
-	FStreetMapBuilding FindBuilding(const FVector2D Point);
+	TArray<FStreetMapBuilding> FindBuilding(const FVector2D Point);
     
     UFUNCTION(BlueprintCallable)
 	FStreetMapRoad FindRoad(const FVector2D Point);

@@ -33,17 +33,17 @@ void UStreetMap::GetAssetRegistryTags( TArray<FAssetRegistryTag>& OutTags ) cons
 }
 
 
-FStreetMapBuilding UStreetMap::FindBuilding(const FVector2D Point)
+TArray<FStreetMapBuilding> UStreetMap::FindBuilding(const FVector2D Point)
 {
-    FStreetMapBuilding emptyBuilding;
+    TArray<FStreetMapBuilding> FoundBuildings;
     for (const auto &element : Buildings)
     {
         if (FPolygonTools::IsPointInsidePolygon(element.BuildingPoints, Point))
         {
-            return element;
+            FoundBuildings.Add(element);
         }
     }
-    return emptyBuilding;
+    return FoundBuildings;
 }
 
 FStreetMapRoad UStreetMap::FindRoad(const FVector2D Point)
@@ -51,7 +51,7 @@ FStreetMapRoad UStreetMap::FindRoad(const FVector2D Point)
     FStreetMapRoad emptyRoad;
     for (const auto &element : Roads)
     {
-        if (FPolygonTools::IsPointInsidePolygon(element.RoadPoints, Point))
+        if (FPolygonTools::IsPointInsidePolygon(element.RoadPoints, Point) && element.RoadName.Len() > 0)
         {
             return element;
         }
