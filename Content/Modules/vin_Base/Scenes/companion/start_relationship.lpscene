@@ -1,7 +1,7 @@
 WHAT: all, -go_to_the_bathroom
 WHERE: all, -toilets, -PC, -office
 WHEN: 0-24
-WHO: Companion = getCompanion(); If CurrentCompanion.IsInterestedIn(Player) && Player.IsInterestedIn(CurrentCompanion) && CurrentCompanion:attractiontoplayer > Random(10, 50)
+WHO: Companion = getCompanion(); If CurrentCompanion.IsInterestedIn(Player) && Player.IsInterestedIn(CurrentCompanion) && CurrentCompanion:attractiontoplayer > Random(30, 60)
 OTHER: !Player.isDating()
 
 SceneStart()
@@ -9,7 +9,7 @@ CurrentCompanion.show(2)
 
 passTime(0.2, 0.5)
 
-If Player.IsDominantSex(CurrentCompanion) || interpersonal > Random(60, 100)
+If Player.IsDominantSex(CurrentCompanion) || [interpersonal > Random(70, 100) && masochist < -30]
     "I have spent a decent amount of time to get to know <CurrentCompanion.name>. However, have I ever imagined <CurrentCompanion.him_or_her> as my <CurrentCompanion.boyfriend_or_girlfriend>?"
     0:: "Yes"
     1:: "No"
@@ -140,4 +140,4 @@ Else
 Endif
 
 SceneEnd()
-timeout(48, start_relationship)
+timeout(96, start_relationship)

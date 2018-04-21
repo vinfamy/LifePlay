@@ -1,0 +1,32 @@
+WHAT: work_hourly
+WHERE: all
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(30, 1000) < attractiveness
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    While !Actor.isInterestedIn(Player)
+        Actor = generatePersonTemporary()
+    Endwhile
+    Actor:attractiontoplayer += 10
+    Actor.dress()
+    Actor.show(2)
+    "A customer approached me and discreetly asked for my number ..."
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "I discreetly exchanged numbers with the customer before getting back to work."
+        Actor.makePermanent()
+        exchangeContact(Actor)
+        Actor.hide()
+        If Random(0, 100) > sneak
+            "Unfortunately for me, my boss caught me flirting with the customer and fined me a day's wage for breaking work policy."
+            money -= 70
+        Endif
+    Else
+        "This is unprofessional. I found some excuses to not give <Actor.him_or_her> my number."
+    Endif
+    SceneEnd()
+    timeout(24, customer_approaches)

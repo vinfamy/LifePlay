@@ -1,0 +1,12 @@
+WHAT: work_hourly
+WHERE: bar, pub, nightclub, restaurant, cafe, coffee, hotel
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 1000) < interpersonal
+
+    SceneStart()
+    "A guest left me a very generous tip. It's good people like this that makes this job bearable."
+    money += Random(5, 50)
+    mood += 20
+    SceneEnd()
+    timeout(24, generous_tip)

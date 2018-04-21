@@ -36,4 +36,4 @@ OTHER: Random(0, 200) < music
     Endif
     
     SceneEnd()
-    timeout(48, music_discussion)
+    timeout(96, music_discussion)

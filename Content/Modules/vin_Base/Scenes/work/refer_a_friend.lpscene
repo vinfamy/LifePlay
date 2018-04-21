@@ -2,7 +2,7 @@ WHAT: work
 WHERE: work
 WHEN: 8 - 19
 WHO: Actor = getPerson(true); If !Actor.isColleague() && !Actor.isBoss() && Actor:rapportwithplayer > 20 && Actor:intelligence > Random(50, 100)
-OTHER: none
+OTHER: Random(0, 1000) < jobexperience
 
     SceneStart()
     Actor.dress()

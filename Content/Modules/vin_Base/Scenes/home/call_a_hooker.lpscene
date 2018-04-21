@@ -34,6 +34,8 @@ OTHER: IsAtHome() && arousal > 50 && perversion > 30
             Sex(Player, Actor)
             perversion += Random(0, 0.5)
             money -= Random(100, 300)
+            Actor.show(2)
+            "I paid the hooker and we parted ways. Good service that was!"
         Else
             "Nah, <Actor.he_or_she> isn't my type."
         Endif

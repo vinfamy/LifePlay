@@ -1,0 +1,43 @@
+WHAT: work_hourly
+WHERE: hotel
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 1000) < sneak
+
+    SceneStart()
+    setBackground(home)
+    "I was cleaning a room when I spotted a wallet under the bed. The guest staying in this room must have forgotten it."
+    0:: "Steal some cash"
+    1:: "Leave it"
+    
+    If 0
+        "Most people don't remember how much cash they have left in their wallet. Taking some won't hurt ..."
+        If Random(0, 100) < sneak*2
+            sneak += Random(0, 0.5)
+            money += Random(0, 200)
+        Else
+            "Suddenly, the door opened. What rotten luck! The guest is back ..."
+            Actor = generatePersonTemporary()
+            Actor.dress()
+            Actor.show(2)
+            Actor(Angry):: "What on earth do you think you're doing? Thief!"
+            0:: "Make excuse"
+            1:: isModEnabled(vin_VanillaPorn) && perversion > 30:: "Offer sex"
+            
+            If 0 && Random(0, 100) < interpersonal
+                "I managed to bluff my way out of trouble in the end with my slick tongues. Phew, that was close ..."
+            Elseif 1 && Random(50, 100) < Actor:perversion + Actor:attractiontoplayer
+                Actor(Flirty):: "Oh well ... if that's on offer then I can consider not telling your manager all about this."
+                Sex(Player, Actor)
+                perversion += Random(0, 0.5)
+            Else
+                "None of what I was saying impressed the guest. <Actor.He_or_She> went straight to my manager. I was fined heavily and was lucky to not get fired over this incident."
+                money -= Random(50, 250)
+                mood -= Random(0, 50)
+            Endif
+        Endif
+    Else
+        "The hotel keeps records of who cleans which room on a given day. There's no way I can get away with theft."
+    Endif
+    SceneEnd()
+    timeout(72, maid_steals)

@@ -1,0 +1,18 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "Oh no, I'm going into labour ..."
+    0:: "Be taken to a hospital"
+    
+    setBackground(hospital)
+    Player.strip()
+    Player.endPregnancy()
+    "It was a painful experience, but thankfully, everything went smoothly in the end. Nothing beats the feeling of being a new mom."
+    energy -= 100
+    mood += 100
+    children += 1
+    SceneEnd()

@@ -1,0 +1,20 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: Actor = getSpecific(Impregnated)
+OTHER: none
+
+    SceneStart()
+    setBackground(home)
+    Actor.dress()
+    Actor.show(2)
+    "<Actor.name> is going into labour. As the father, I need to take her to the hospital ..."
+    0:: "Take <Actor.name> a hospital"
+    
+    setBackground(hospital)
+    Actor.strip()
+    Actor.endPregnancy()
+    "Those were among the tensest hours in my life, but thankfully, everything went smoothly in the end. Both <Actor.name> and our child were in good condition. Nothing beats the feeling of being a new father."
+    mood += 100
+    children += 1    
+    SceneEnd()

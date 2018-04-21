@@ -2,7 +2,7 @@ WHAT: sleep, nap
 WHERE: home
 WHEN: 0 - 4
 WHO: none
-OTHER: isAtHome() && intelligence < Random(0, 100)
+OTHER: isAtHome() && intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)*Random(0, 1)
 
     SceneStart()
 
@@ -66,4 +66,4 @@ OTHER: isAtHome() && intelligence < Random(0, 100)
     Endif
 
     SceneEnd()
-    timeout(500, burglar)
+    timeout(1000, burglar)

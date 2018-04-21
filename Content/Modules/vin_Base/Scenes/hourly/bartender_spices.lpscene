@@ -1,0 +1,55 @@
+WHAT: work_hourly
+WHERE: bar, pub, nightclub
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 10000) < 1
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Happy):: "Could I have a gin and tonic please?"
+    Player(Happy):: "Of course. One moment please ..."
+    Actor.hide()
+    "I was preparing the drink when I felt a tap on my shoulder."
+    Actor2 = generatePersonTemporary()
+    Actor2.dress()
+    Actor2.show(2)
+    Actor2(Evil):: "Listen ... I'll give you all this cash if you just put this into <Actor.his_or_her> cocktail."
+    "The shady <Actor2.man_or_woman> showed me a packet of some mysterious powder, and a whole lot of cash."
+    0:: "Take the money"
+    1:: "Decline"
+    2:: "Expose <Actor2.him_or_her>"
+    
+    If 0
+        "This might make me an accomplice in a horrible crime, but I can't turn down that much money ..."
+        money += Random(100, 1000)
+        "I mixed in the mysterious powder with the gin and tonic and gave it to the <Actor.guy_or_girl>. I tried not to think about the consequences of my action ..."
+    Elseif 1
+        Player(Sad):: "Sorry, I can't do that ..."
+        masochist += Random(0, 0.5)
+        "My conscience didn't allow me to do it, but I didn't quite have the courage to expose this shady <Actor2.guy_or_girl> either. For all I care, <Actor2.he_or_she> could be dangerous."
+        "I hope that another bartender won't be tempted by the money."
+    Else
+        Player(Furious):: "Everyone! We have a date rapist here! This <Actor2.guy_or_woman> tried to spike someone's drink."
+        masochist -= Random(0, 0.5)
+        "The crowd immediately surrounded the shady <Actor2.guy_or_girl>, before the cops arrived and arrested <Actor2.him_or_her>"
+        Actor2.hide()
+        Actor.show(2)
+        Actor(Happy):: "Oh my god! You saved me. I don't know how to thank you ..."
+        0:: "Ask for <Actor.his_or_her> number"
+        1:: "Say goodbye"
+        
+        If 0
+            Actor.makePermanent()
+            Actor:attractiontoplayer += 30
+            Actor:rapportwithplayer += 30
+            "<Actor.name> gladly gave <Actor.his_or_her> savior <Actor.his_or_her> number."
+            exchangeContact(Actor)
+        Else
+            Player(Happy):: "It's okay. It's only my duty to prevent harm to our customer."
+        Endif
+    Endif
+    
+    SceneEnd()
+    timeout(1000, bartender_spices)

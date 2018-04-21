@@ -1,0 +1,21 @@
+WHAT: work_hourly
+WHERE: all
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(30, 1000) < attractiveness
+
+    SceneStart()
+    "I attract quite a bit of attention at work. One of my coworkers is quite a pervert and has been getting touchy with me at every given opportunity recently."
+    0:: "Complain to the manager"
+    1:: "Ignore"
+    
+    If 0
+        masochist -= Random(0, 0.25)
+        "I told the boss all about my perverted coworker, accusing <Player.her_or_him> of sexual harassments. The <Player.girl_or_guy> didn't get fired but get a warning, enough to put <Player.her_or_him> off me, at least for the time being."
+    Else
+        "It's just some harmless workplace flirting. Besides, I kinda enjoy the attention."
+        masochist += Random(0, 0.25)
+        perversion += Random(0, 0.1)
+    Endif
+    SceneEnd()
+    timeout(100, workmate_harasses)

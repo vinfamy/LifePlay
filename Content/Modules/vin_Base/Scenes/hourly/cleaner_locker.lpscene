@@ -1,0 +1,39 @@
+WHAT: work_hourly
+WHERE: sports_centre
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 100) < 1
+
+    SceneStart()
+    "I was cleaning in what I thought was an empty locker room, when suddenly someone stepped out of the shower completely naked."
+    Actor = generatePersonTemporary()
+    Actor.show(2)
+    0:: perversion > 5:: "Check <Actor.him_or_her> out"
+    1:: "Look away"
+    
+    If 0
+        "A peek wouldn't hurt ... People who go to gyms probably enjoy others looking at their bodies anyway."
+        perversion += Rando(0, 0.25)
+        If Random(50, 125) < Actor:perversion + Actor:attractiontoplayer
+            Actor(Flirty):: "Getting an eyeful, aren't you? You know, there's no-one else here - you can do a lot more than watching."
+            0:: isModEnabled(vin_VanillaPorn) && perversion > 30:: "Have sex"
+            1:: "Turn <Actor.him_or_her> down."
+            
+            If 0
+                "It must be my lucky day!"
+                Sex(Player, Actor)
+                perversion += Random(0, 0.5)
+            Else
+                Player(Sad):: "Sorry, I'm flattered by the offer ... but I don't want to lose my job."
+            Endif
+        Else
+            Actor(Angry):: "Hey! Are you staring at me? Pervert, I'll tell your manager all about this."
+            Actor.hide()
+            "And just like that, I got a heavy fine and was lucky to keep my job."
+            money -= Random(50, 250)
+        Endif
+    Else
+        "I kept my head down and continued cleaning, trying to stay as professional as I could."
+    Endif
+    SceneEnd()
+    timeout(48, cleaner_locker)

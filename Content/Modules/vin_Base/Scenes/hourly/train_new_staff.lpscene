@@ -1,0 +1,24 @@
+WHAT: work_hourly
+WHERE: all
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(50, 1000) < interpersonal
+
+    SceneStart()
+    Actor = generatePerson()
+    Actor.dress()
+    Actor.show(2)
+    "<Actor.name> just joined the team. I have been asked to train <Actor.him_or_her> on the job."
+    0:: "Train <Actor.him_or_her> enthusiastically"
+    1:: "Focus on my own work"
+    
+    If 0
+        "I decided to be a good trainer, passing on my experience to the newcomer. <Actor.name> got on very well thanks to my efforts."
+        Actor:rapportwithplayer += 10
+        Actor:attractiontoplayer += 5
+    Else
+        "In this service industry, turnover rate is high and people come and go easily. Who cares? Why should I waste much time training someone who might quit next week."
+        Actor:rapportwithplayer -= 10
+    Endif
+    SceneEnd()
+    timeout(500, train_new_staff)

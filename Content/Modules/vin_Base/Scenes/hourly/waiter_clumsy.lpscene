@@ -1,0 +1,29 @@
+WHAT: work_hourly
+WHERE: restaurant, biergarten, pub, cafe
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 1000) < 1
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    Actor.dress()
+    Actor.show(2)
+    Player(Furious):: "Ah ...."
+    "I was carrying a tray of drinks when I tripped over a customer's leg and fell over. Some red wine was spilled all over the customer's clothes."
+    Actor(Angry):: "Clumsy idiot! Look what you've done! You ruined my clothes. I want to see the manager!"
+    mood -= Random(0, 30)
+    "How should I deal with the situation?"
+    0:: "Apologize"
+    1:: "Blame <Actor.him_or_her>"
+    
+    If 0
+        Player(Anxious):: "Oh my god, I'm no sorry. It was a horrible accident!"
+        masochist += Random(0, 0.5)
+    Else
+        Player(Angry):: "Maybe you shouldn't have left your leg hanging like that then ..."
+        "Customer is always right - my ass! I'm not getting shouted at for doing nothing wrong!"
+        "I argued back and made it clear to the entitled customer that I'm no pushover."
+        masochist -= Random(0, 0.5)
+    Endif
+    SceneEnd()
+    timeout(72, waiter_clumsy)

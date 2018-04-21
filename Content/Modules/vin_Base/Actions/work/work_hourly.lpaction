@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: work_hourly
+ACTION_NAME: Work for an hour
+WHERE: alcohol, bag, bakery, bar, beauty, beverages, bicycle, biergarten, books, cafe, chemist, cinema, clothes, coffee, community_centre, computer, confectionery, convenience, copyshop, cosmestics, deli, department_store, doityourself, electronics, fast_food, florist, furniture, gift, greengrocer, hotel, ice_cream, jewellery, library, mobile_phone, musical_instrument, newsagent, nightclub, outdoor, pet, photo, pub, restaurant, shoes, sports, stationery, supermarket, tea, theatre, tobacco, toys, variety_store, sports_centre
+WHEN: 0 - 24
+MINUTES: 60 - 60
+TIMEOUT_MINUTES: 
+ALSO_TIMEOUT: 
+EFFECTS: interpersonal +0.02 (END), jobexperience +0.01 (END), mood -0.2 (DURATION), energy -0.5 (DURATION), money +8 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

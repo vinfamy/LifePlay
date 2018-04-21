@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: buy_pill_MULTIPLE
+ACTION_NAME: Buy birth control pills
+WHERE: hospital, chemist, doctor, pharmacy
+WHEN: 0 - 24
+MINUTES: 1 - 2
+TIMEOUT_MINUTES: 30
+ALSO_TIMEOUT: 
+EFFECTS:  money -1 (START), stock_pill +1 (END)
+CONDITIONS: false (IS_MALE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

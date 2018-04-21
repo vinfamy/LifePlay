@@ -36,4 +36,4 @@ OTHER: Random(0, 200) < intelligence
     Endif
     
     SceneEnd()
-    timeout(48, news_discussion)
+    timeout(192, news_discussion)

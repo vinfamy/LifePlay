@@ -1,0 +1,20 @@
+WHAT: masturbate, sleep, sleep_hotel, nap, nap_hotel
+WHERE: all
+WHEN: 0 - 24
+WHO: Actor = getPerson(); If Player.isInterestedIn(Actor) && !Actor.isDating() && Actor:attractiveness > 90 && Actor:attractiontoplayer < 10
+OTHER: Random(0, 1000) < perversion
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    "I have a pretty big crush on <Actor.name> ... Unfortunately for me, <Actor.he_or_she> is out of my league and doesn't seem to pay any attention to me. It never hurts to fantasize a bit though ..."
+    0:: "Fantasize about sex with <Actor.name>"
+    1:: "Resist the urge"
+    
+    If 0
+        SexNoAffair(Player, Actor)
+        perversion += Random(0, 0.25)
+        arousal += 50
+    Endif
+    SceneEnd()
+    timeout(72, fantasize)

@@ -1,0 +1,23 @@
+WHAT: work_hourly
+WHERE: bar, pub, nightclub, restaurant, cafe, coffee, hotel
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 1000) < interpersonal
+
+    SceneStart()
+    "A guest left me no tip, despite receiving the best service I could deliver."
+    0:: "Show my annoyance"
+    1:: "Stay professional"
+    
+    If 0
+        "If every customer is like this, I would be broke. How am I expected to survive on my lousy wages alone?"
+        "Without saying anything rude, I clearly expressed my annoyance on my face. The customer seemed to get the message. He'd better tip well next time."
+        masochist -= Random(0, 0.1)
+        mood -= 20
+    Else
+        "Oh well, not everyone will tip I suppose. I have to stay professional nevertheless."
+        masochist += Random(0, 0.1)
+        mood -= 10
+    Endif
+    SceneEnd()
+    timeout(24, no_tip)

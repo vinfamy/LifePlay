@@ -1,0 +1,9 @@
+STAT_ID: stock_pill
+STAT_NAME: Birth control pills
+PLAYER_ONLY: true
+HIGHER_BETTER: no_difficulty_adjustment
+STAT_MIN: 0
+STAT_MAX:
+DAILY_CHANGE: 0
+DEFAULT_VALUE: 0
+NPC_ONLY: false

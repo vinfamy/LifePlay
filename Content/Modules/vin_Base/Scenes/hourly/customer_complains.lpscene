@@ -1,0 +1,27 @@
+WHAT: work_hourly
+WHERE: all
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 100)*Random(0, 1)*Random(0, 1) > interpersonal
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Angry):: "This is terrible customer service! I want to see the manager!"
+    "Damn it. Some customers are annoying <Actor.assholes_or_bitches> who complain about absolutely everything!"
+    mood -= Random(0, 30)
+    "How should I deal with the complaint?"
+    0:: "Apologize"
+    1:: "Hold my ground"
+    
+    If 0
+        Player(Anxious):: "Please accept my sincerest apologies. We were just very busy so we couldn't attend to your request within an acceptable timeframe."
+        masochist += Random(0, 0.5)
+    Else
+        "Customer is always right - my ass! I'm not getting shouted at for doing nothing wrong!"
+        "I argued back and made it clear to the entitled customer that I'm no pushover."
+        masochist -= Random(0, 0.5)
+    Endif
+    SceneEnd()
+    timeout(24, customer_complains)

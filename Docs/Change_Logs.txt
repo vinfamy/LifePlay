@@ -1,0 +1,17 @@
+Version 1.1:
+- Added pregnancy and contraceptions for both the player and NPCs
+- Added POV first person cameras for sex scenes
+- The map is now much more user-friendly with interactable dynamic markers and toggleable street names. Travel distance is also shown when selecting each building.
+- Added tutorial popups to introduce the basics of the game
+- Allow the player to work for hourly wages in hotels, bars, restaurants, etc - added a few scenes related to this
+- Improved NPC's facial randomization. Also allows the player to re-randomize each new NPC when first met.
+- Search results are now sorted by distance to the current view
+- Added Settings options: sex description display duration, no clothing changes during scenes, NPCs arespect player's sexual orientation, hide unknown buildings, 12/24 hour clock
+- The character now keeps a neutral face during character customization
+- Morphs can now be filtered by category
+- Fixed: Clothes in inventory randomly disappear or get replaced
+- Fixed: Player disappears after a NPC-NPC sex scene
+- Fixed: Actors pile on top of each other in the dating app
+- Fixed: Clicking on a search result shows a menu for the previous building
+- Fixed: The game tries to open SteamVR
+- Minor bugfixes and improvements

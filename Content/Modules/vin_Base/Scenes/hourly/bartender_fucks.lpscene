@@ -1,0 +1,60 @@
+WHAT: work_hourly
+WHERE: bar, nightclub, pub, biergarten
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 100) < 1
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    While !Actor.isInterestedIn(Player)
+        Actor = generatePersonTemporary()
+    Endwhile
+    Actor2 = generatePersonTemporary()
+    While !Actor.isInterestedIn(Actor2)
+        Actor2 = generatePersonTemporary()
+    Endwhile
+    Actor.dress()
+    Actor2.dress()
+    Actor.show(2)
+    Actor.show(3)
+    Actor(Furious):: "(Angry shouting)"
+    Actor2(Furious):: "(Angry shouting)"
+    "The couple I was serving at the bar was arguing the whole time. The alcohol clearly made it worse. They are causing quite a scene."
+    Actor.hide()
+    "One of them stormed off and ran towards the bathroom, obviously not being able to hold back <Actor.his_or_her> tears."
+    0:: "Check on <Actor.him_or_her>"
+    1:: "Ignore"
+    
+    If 0
+        Actor2.hide()
+        Actor.show(2)
+        Actor(Crying):: "..."
+        Player(Anxious):: "Excuse me, <Actor.Sir_or_Madam>. Are you okay?"
+        "I then consoled the customer and <Actor.he_or_she> seemed to feel better after a while."
+        Actor(Happy):: "Thank you ... You're a nice <Player.guy_or_girl>. Unlike my <Actor2.boyfriend_or_girlfriend>. I'm <Actor.name> by the way."
+        0:: "Exchange numbers"
+        1:: "Excuse myself"
+        2:: isModEnabled(vin_VanillaPorn) && perversion > 30:: "Offer sex"
+        
+        If 0
+            Actor.makePermanent()
+            Actor:attractiontoplayer += 10
+            "We chat for a while more before exchanging numbers. Seeing now that <Actor.name> will inevitably break up with <Actor.his_or_her> <Actor.boyfriend_or_girlfriend>, maybe there could be something between us."
+            exchangeContact(Actor)
+        Elseif 1
+            "I told <Actor.name> that I needed to get back to work and excused myself."
+        Else
+            Player(Flirty):: "You know ... I just thought of a perfect way for you to get revenge on your <Actor2.girlfriend_or_boyfriend>."
+            perversion += Random(0, 1)
+            If Random(0, 100) < Actor:perversion + Actor:attractiontoplayer
+                Actor(Flirty):: "I think I know what you're talking about ... You know what? Screw my <Actor2.boyfriend_or_girlfriend> - let's do it."
+                Sex(Player, Actor)
+            Else
+                Actor(Angry):: "Yet I thought for a moment there that you were a nice <Actor.guy_or_girl>. I'm pissed at my <Actor2.boyfriend_or_girlfriend>, but that doesn't mean you can take advantage of me!"
+            Endif
+        Endif
+    Else
+        "I'd better not get involved in all this drama."
+    Endif
+    SceneEnd()
+    timeout(200, bartender_fucks)

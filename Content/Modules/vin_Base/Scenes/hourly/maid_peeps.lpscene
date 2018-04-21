@@ -1,0 +1,28 @@
+WHAT: work_hourly
+WHERE: hotel
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 1000) < sneak
+
+    SceneStart()
+    Player(Happy):: "Housekeeper!"
+    "There's no answer and the door is slightly open ..."
+    setBackground(home)
+    Actor = generatePersonTemporary()
+    Actor2 = generatePersonTemporary()
+    Actor.show(2)
+    Actor2.show(3)
+    "Wait ... is that sound what I think it is? These guests seem to be having some intimate time."
+    0:: perversion > 5:: "Peep"
+    1:: "Leave"
+    
+    If 0
+        "My curiosity got the better of me. I couldn't help but stay there and get a sneaky eyeful of the action."
+        perversion += Random(0, 0.5)
+        sneak += Random(0, 0.5)
+        Sex(Actor, Actor2)
+    Else
+        "Oh well, I take that as a virtual 'Do not disturb' sign then ... I'll just move on to clean the next room."
+    Endif
+    SceneEnd()
+    timeout(48, maid_peeps)
