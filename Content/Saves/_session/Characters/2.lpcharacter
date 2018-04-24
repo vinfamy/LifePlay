@@ -125,10 +125,8 @@ MORPH Shoulders_Mass-Tone_min-max: 100% 0.067859
 MORPH Shoulders_PosZ_max: 100% 0.009189
 MORPH Stomach_LocalFat_max: 100% 0.067044
 MORPH Stomach_Volume_max: 100% 0.02716
-MORPH Torso_BreastMass-AureolaSize_max-max: 100% 1.0
 MORPH Torso_BreastMass-BreastScaleY_max-max: 100% 0.02911
 MORPH Torso_BreastMass-BreastScaleY_min-max: 100% 0.040177
-MORPH Torso_BreastMass-BreastTone-Mass-Tone_max-min-min-max: 100% 0.2
 MORPH Torso_BreastMass-BreastTone-Mass-Tone_min-min-max-max: 100% 0.46477
 MORPH Torso_BreastMass-BreastTone-Mass-Tone_min-min-min-max: 100% 0.090384
 MORPH Torso_BreastMass-BreastTone-Mass-Tone_min-min-min-min: 100% 0.061006
@@ -138,6 +136,7 @@ MORPH Torso_Mass-Tone_max-max: 100% 0.039277
 MORPH Torso_Mass-Tone_min-max: 100% 0.055436
 MORPH Torso_ToracicCurve_min: 100% 0.071441
 MORPH Torso_Vshape_max: 100% 0.794202
+MORPH Waist_Size_min: 100% 0.046793
 MORPH Wrists_Size_min: 100% 0.036263
 
 //Hair
@@ -183,7 +182,7 @@ STAT muscle: 100% 4.876858
 STAT music: 100% 67.375717
 STAT perversion: 100% 1.859524
 STAT sneak: 100% 13.843197
-STAT attractiontoplayer: 100% 100.0
-STAT rapportwithplayer: 100% 59.341808
-STAT arousal: 100% 1.467836
-STAT intoxication: 100% 0.023963
+STAT attractiontoplayer: 100% 99.930374
+STAT rapportwithplayer: 100% 59.783688
+STAT arousal: 100% 0.606997
+STAT intoxication: 100% 0.168975
