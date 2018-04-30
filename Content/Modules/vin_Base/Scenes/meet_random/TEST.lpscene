@@ -4,16 +4,14 @@ WHEN: 0-24
 WHO: none
 OTHER: none
 
-    sceneStart()
-    Actor = getPerson()
-    While !Actor.isMale()
-        Actor = getPerson()
-    Endwhile
-    exchangeContact(Actor)
-    Actor.dress()
-    Actor.show(2)
-    "Sex"
-    Sex(Player, Actor)
-    Actor.show(2)
-    "We put our clothes back"
-    sceneEnd()
+	SceneStart()
+	"Hello"
+	0:: "Yes"
+	1:: "No"
+	
+	If 0
+		"Yes"
+	Else
+		"No"
+	Endif
+	SceneEnd()
