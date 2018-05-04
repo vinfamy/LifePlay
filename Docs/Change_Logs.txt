@@ -1,3 +1,21 @@
+Version 1.2:
+- Added toon shading as an optional setting, giving the game that Borderlands/ faux-2d visual novel look.
+- 30 new maps. Keep your requests coming!
+- 8 brand-new MF and lesbian animations and 49 re-adjusted animations for lesbian, gay and shemale-on-male sex scenes
+- Added a RenPy-style skip button to scenes
+- Added a button to skip a sex scene
+- Added hover tooltips to show each action's duration, conditions and effects
+- Added text to clearly show a companion's reaction to your action
+- Added a Break up button in the Contacts menu
+- Added popup to warn of save loading failure and how to fix
+- Added the "wait n" console command to skip time instantly 
+- Fixed: Search filter sometimes shows the wrong type of buildings
+- Fixed: Freeze during the 'night out without boyfriend' scene 
+- Fixed: Moving cities mid-playthrough get you stuck with your old home
+- Fixed: Hard to click on the building the player's in
+- Minor bugfixes and improvements
+
+
 Version 1.1:
 - Added pregnancy and contraceptions for both the player and NPCs
 - Added POV first person cameras for sex scenes

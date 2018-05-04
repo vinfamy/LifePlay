@@ -23,7 +23,7 @@ If 0
     If Random(0, 200) < Dating:attractiontoplayer + attractiveness - Dating:attractiveness - Dating:masochist
         Dating(Sarcastic):: "So I'm specifically not invited? That sounds to me less like an innocent night out among friends and more an excuse to get yourself drunk and surrounded by horny <Dating.guys_or_girls> that are not me!"
         0:: "Stay at home with <Dating.name>"
-        1:: "Ignore <Dating.him_or_her"
+        1:: "Ignore <Dating.him_or_her>"
         
         If 0
             "If that's the way <Dating.name> thinks, then it's not a good idea to upset <Dating.him_or_her> by going to the party - <Dating.he_or_she> would end up feeling unease all night. I decided instead to stay at home with my <Dating.boyfriend_or_girlfriend>. Obviously, bailing at the last minute caused some damage to my friendship with <Friend.name> though."

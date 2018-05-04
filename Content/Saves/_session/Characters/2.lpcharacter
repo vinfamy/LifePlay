@@ -9,7 +9,6 @@ INFO Race: 100% Caucasian
 INFO Genital: 100% Vagina
 
 // Morphs
-MORPH Abdomen_Mass-Tone_max-min: 100% 0.571429
 MORPH Arms_ForearmMass-ForearmTone_max-max: 100% 0.12799
 MORPH Arms_UpperarmMass-UpperarmTone_max-max: 100% 0.035719
 MORPH Arms_UpperarmMass-UpperarmTone_min-max: 100% 0.008705
@@ -126,27 +125,23 @@ MORPH Shoulders_Mass-Tone_min-max: 100% 0.067859
 MORPH Shoulders_PosZ_max: 100% 0.009189
 MORPH Stomach_LocalFat_max: 100% 0.067044
 MORPH Stomach_Volume_max: 100% 0.02716
-MORPH Torso_BreastMass-AureolaSize_max-max: 100% 0.285714
 MORPH Torso_BreastMass-BreastScaleY_max-max: 100% 0.02911
 MORPH Torso_BreastMass-BreastScaleY_min-max: 100% 0.040177
-MORPH Torso_BreastMass-BreastTone-Mass-Tone_max-min-min-max: 100% 0.057143
 MORPH Torso_BreastMass-BreastTone-Mass-Tone_min-min-max-max: 100% 0.46477
 MORPH Torso_BreastMass-BreastTone-Mass-Tone_min-min-min-max: 100% 0.090384
 MORPH Torso_BreastMass-BreastTone-Mass-Tone_min-min-min-min: 100% 0.061006
 MORPH Torso_BreastNipple_min: 100% 0.158147
 MORPH Torso_BreastPosZ_min: 100% 0.221046
 MORPH Torso_Mass-Tone_max-max: 100% 0.039277
-MORPH Torso_Mass-Tone_max-min: 100% 0.057143
 MORPH Torso_Mass-Tone_min-max: 100% 0.055436
 MORPH Torso_ToracicCurve_min: 100% 0.071441
 MORPH Torso_Vshape_max: 100% 0.794202
-MORPH Waist_Size_max: 100% 0.285714
 MORPH Waist_Size_min: 100% 0.046793
 MORPH Wrists_Size_min: 100% 0.036263
 
 //Hair
 HAIR Hairstyle: 100% Hair_Braid3_F
-HAIR Hair_Thickness: 100% 1.0
+HAIR Hair_Thickness: 100% 1.646651
 HAIR Hair_Color_R: 100% 0.015
 HAIR Hair_Color_G: 100% 0.003
 HAIR Hair_Color_B: 100% 0.0
@@ -189,5 +184,5 @@ STAT perversion: 100% 1.859524
 STAT sneak: 100% 13.843197
 STAT attractiontoplayer: 100% 99.930374
 STAT rapportwithplayer: 100% 59.783688
-STAT arousal: 100% 0.493554
-STAT intoxication: 100% 0.054134
+STAT arousal: 100% 0.606997
+STAT intoxication: 100% 0.168975
