@@ -1,0 +1,26 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 17 - 21
+WHO: Actor = getRelative(Parent, StepParent, GrandParent); If Actor:rapportwithplayer > 20 && Random(0, 200) < Actor:interpersonal + Actor:intelligence
+OTHER: isAtHome() && Random(60, 500) < jobexperience
+
+    SceneStart()
+    "I was at a family dinner when the topic of careers came up."
+    Actor.dress()
+    Actor.show(2)
+    Actor(Happy):: "Everyone, <Player.name> recently got a promotion ... again! The <Actor.boy_or_girl> is flying high. Definitely making <Player.his_or_her> <Actor.relationship> proud!"
+    0:: "Boast"
+    1:: "Be modest"
+    
+    If 0
+        Player(Happy):: "Actually I was looking into starting my own business. I think after a few years of work experience, I am ready to be my own boss and show my old managers a thing or two."
+        Actor:rapportwithplayer += Random(0, 2)
+        masochist -= Random(0, 0.25)
+        interpersonal -= Random(0, 0.1)
+    Else
+        Player(Embarassed):: "Please, you're flattering me too much. It's only a baby step. I have a long way to go in this career."
+        masochist += Random(0, 0.25)
+        interpersonal += Random(0, 0.1)
+    Endif
+    SceneEnd()
+    timeout(200, family_praises_career)

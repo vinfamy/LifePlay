@@ -1,0 +1,28 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 17 - 20
+WHO: Actor = getRelative(); If Random(70, 500) < Actor:dance
+OTHER: !isWithCompanion() && Random(50, 200) < dance
+
+    SceneStart()
+    "My <Actor.relationship> is participating in an amateur dance competition happening in a few days. As I'm a decent dancer myself, <Actor.he_or_she> is asking me to help <Actor.him_or_her> practice."
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "I decided to help <Actor.him_or_her> practice before the competition."
+        If Random(50, 200) < dance*Random(0, 1)
+            "Our efforts paid off. My <Actor.relationship> was crowned the winner of the competition."
+            Actor:rapportwithplayer += Random(0, 5)
+        Elseif Random(50, 200) < dance
+            "Our efforts paid off. My <Actor.relationship> managed to secure the third place in the competition."
+            Actor:rapportwithplayer += Random(0, 3)
+        Else
+            "Despite our best efforts, there were far better martial artists than my <Actor.relationship> was, and <Actor.he_or_she> didn't get any prizes."
+        Endif
+    Else
+        "I am too busy to do that."
+        Actor:rapportwithplayer -= Random(0, 1)
+    Endif
+    SceneEnd()
+    timeout(1000, family_dance_competition)

@@ -1,0 +1,22 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all, -work
+WHEN: 17 - 22
+WHO: Actor = getRelative(); If Random(80, 500) < Actor:fitness 
+OTHER: Random(80, 200) < fitness
+    
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    "My <Actor.relationship> has a YouTube channel for fitness and nutrition. As I am also a fitness nut, <Actor.he_or_she> is asking me to make a guest appearance on <Actor.his_or_her> latest video."
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        Actor:rapportwithplauer += Random(0, 1)
+        "I agreed to appear on my <Actor.relationship>'s video. It was a fun experience."
+    Else
+        "I'd rather not get involved in this whole thing."
+        Actor:rapportwithplayer -= Random(0, 0.5)
+    Endif
+    
+    timeout(200, family_fitness_channel)

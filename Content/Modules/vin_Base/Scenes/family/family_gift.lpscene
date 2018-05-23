@@ -1,0 +1,27 @@
+WHAT: all
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getRelative(); If Random(5, 1000) < Actor:rapportwithplayer
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+
+    "I was spending some time with my <Actor.relationship> when <Actor.he_or_she> suddenly stops to say something to me."
+    Actor(Happy):: "Look, I got you a gift."
+    0:: "Thank <Actor.him_or_her>"
+    1:: "Refuse the gift"
+
+    If 0
+        "I thanked <Actor.name> for being so thoughtful and said I enjoyed the gift very much"
+        Player(Excited):: "Wow, you really do know what I like ..."
+        Actor:rapportwithplayer += Random(0, 1)
+        mood += Random(0, 5)
+    Else
+        "I decided to refuse the gift. <Actor.name> seemed quite offended."
+        Actor:rapportwithplayer -= Random(0, 2)
+    Endif
+
+    timeout(72, family_gift)
+    SceneEnd()

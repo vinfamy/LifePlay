@@ -1,0 +1,28 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 0 - 24
+WHO: Dating = getRelative(); If Dating:rapportwithplayer > 0 && Dating:interpersonal > 70
+OTHER: interpersonal < Random(0, 60)
+
+    SceneStart()
+    Dating.dress()
+    Dating.show(2)
+    "My <Dating.relationship> is far better-spoken and more outgoing than me and is rather comfortable in social situations. I sometimes feel like the socially awkward one in the family."
+    0:: "Ask <Dating.name> for help"
+    1:: "Do nothing"
+
+    If 0
+        If Random(0, 50) < Dating:rapportwithplayer
+            "<Dating.name> agreed to help me become more confident socially. <Dating.He_or_She> took me with <Dating.him_or_her> to many social events and taught me many party tricks."
+            interpersonal += Random(0, 1)
+            Dating:rapportwithplayer += Random(0, 2)
+        Else
+            "Although <Dating.name> promised to help me, <Dating.he_or_she> ended up being too busy to really spend time as my social mentor."
+        Endif
+    Else
+        "It doesn't matter. I'm proud of who I am and my family should be too."
+        Dating:rapportwithplayer -= Random(0, 1)
+    Endif
+
+    timeout(200, sociable_family)
+    SceneEnd()

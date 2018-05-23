@@ -1,0 +1,29 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0-24
+WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Random(50, 200) < Actor:music
+OTHER: isAtHome() && Random(0, 200) < music
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Excited):: "This song is beautiful, isn't it? Such a masterpiece ..."
+    0:: "Play it safe"
+    1:: "Show off my musical knowledge"
+    
+    If 0
+        Player(Happy):: "Yes it is beautiful indeed ..."
+        "My knowledge of music leaves a lot to be desired and I know it. No point trying to sound sophisticated here ..."
+    Else
+        "I tried my best to show off my musical knowledge to engage in a sophisticated discussion with my <Actor.relationship>."
+        If Random(0, 100) < music
+            Actor(Happy):: "I'm glad we share the same appreciation of music."
+            Actor:rapportwithplayer += Random(0, 2)
+        Else
+            "Unfortunately, my knowledge of music really wasn't deep enough to hold an intelligent conversation about it. From <Actor.his_or_her> facial expression, I could tell that <Actor.he_or_she> saw right through me as a pretentious musical illiterate."
+            Actor:rapportwithplayer -= Random(0, 1)
+        Endif
+    Endif
+    
+    SceneEnd()
+    timeout(500, music_discussion_family)

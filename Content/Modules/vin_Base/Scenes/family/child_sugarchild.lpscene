@@ -1,0 +1,35 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0-24
+WHO: Actor = getRelative(Child, StepChild); If Actor.livesWithPlayer() && Actor:rapportwithplayer < 80 && Actor:peversion < 50
+OTHER: isAtHome()
+
+    SugarBabe = SugarBabe.getGlobal()    
+    If SugarBabe > 0
+        SceneStart()
+        Actor2 = getSpecific(SugarBabe) 
+        Actor.dress()
+        Actor.show(2)
+        
+        Actor(Sad):: "<Actor.Callplayer>, there's something on my mind that I don't know if I should tell you ..."
+        Player(Surprised):: "You're acting strange ... What is it? Tell me!"
+        Actor(Sad):: "I saw you with <Actor2.name> ... From your body language, I can tell what you two have been up to. Come on, <Player.name>! The <Actor2.guy_or_girl> is like my age, <Actor2.he_or_she> is way too young for you. I could be wrong here but ... is this one of those sugarbabe things that I keep hearing about? You realize these gold-diggers are only with you for the money, right?"
+        0:: "End the arrangement"
+        1:: "Tell my <Actor.relationship> to fuck off"
+        
+        If 0
+            Player(Crying):: "I know ... I have been feeling so guilty lately. It was a mistake made out of loneliness and depression. I'm going to end this immoral arrangement for good."
+            Actor:rapportwithplayer += Random(0, 2)
+            Actor(Sad):: "It's okay. Everyone makes mistakes. I'm sure you can find a respectable <Player.woman_or_man> your age who actually cares for you. You don't need those young gold-diggers."
+            SugarBabe.clearGlobal()
+        Else
+            Player(Angry):: "Why are you getting your nose in my personal life? You don't know anything. I think I have the right to pay for companionship without you judging me."
+            Actor:rapportwithplayer -= Random(0, 20)
+            Actor(Sad):: "Little did I know my <Actor.callplayer> was so shallow and desperate ... Fine then, whatever floats your boat."
+        Endif
+        
+        SceneEnd()
+        timeout(1000, family_sugarchild, child_sugarchild)        
+    Endif
+    
+

@@ -1,0 +1,33 @@
+WHAT: all, -sleep, -nap, -masturbate
+WHERE: home
+WHEN: 16 - 20
+WHO: Actor = getRelative(); Actor2 = getRelative(); Actor3 = getRelative()
+OTHER: isAtHome()
+
+    SceneStart()
+    "It's been a while since we last had a family gathering. Should I organize a family dinner this evening?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "I went ahead and bought some food and wine before inviting my relatives for dinner at my place."
+        money -= Random(30, 100)
+        Actor.dress()
+        Actor2.dress()
+        Actor3.dress()
+        Actor.show(1)
+        Actor2.show(2)
+        Actor3.show(3)
+        Actor(Happy):: "That was lovely. Thank you for organizing everything."
+        Actor2(Happy):: "You're a good cook. The food was delicious."
+        Actor3(Happy):: "We should do this more often. Everyone is so busy with their own lives nowadays - family gatherings are few and far between."
+        Actor:rapportwithplayer += Random(0, 5)
+        Actor2:rapportwithplayer += Random(0, 5)
+        Actor3:rapportwithplayer += Random(0, 5)
+        interpersonal += Random(0, 0.5)
+    Else
+        "I'm too busy to do that today. Besides, it would cost me quite a bit of money."
+    Endif
+    
+    SceneEnd()
+    timeout(500, family_dinner)

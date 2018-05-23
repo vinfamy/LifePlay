@@ -1,0 +1,24 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 17 - 21
+WHO: Actor = getRelative(Parent, StepParent, GrandParent); If Actor:rapportwithplayer < 70 && Random(0, 200) < Actor:interpersonal + Actor:intelligence
+OTHER: isAtHome() && jobexperience < Random(0, 40)*Random(0, 1)*Random(0, 1)
+
+    SceneStart()
+    "I was at a family dinner when the topic of careers came up."
+    Actor.dress()
+    Actor.show(2)
+    Actor(Sad):: "<Player.name>, are you still at that job with the terrible pay and no prospects? When are you going to get your life in order? I read on the news yesterday about someone your age becoming a billionaire. Why can't you be like that?"
+    0:: "Be defensive"
+    1:: "Be polite"
+    
+    If 0
+        Player(Angry):: "There's nothing wrong with my job. I enjoy it. You know there are goals in life other than money, right?"
+        Actor:rapportwithplayer -= Random(0, 2)
+        masochist -= Random(0, 0.25)
+    Else
+        Player(Sad):: "I know, it's just a temporary job. I haven't stopped looking for a better one. I'm trying my best ..."
+        masochist += Random(0, 0.25)
+    Endif
+    SceneEnd()
+    timeout(200, family_criticizes_career)

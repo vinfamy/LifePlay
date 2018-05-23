@@ -1,0 +1,25 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 8 - 17
+WHO: Actor = getRelative(); If !Actor.livesWithPlayer() && Actor:intelligence + Actor:interpersonal < Random(0, 100)*Random(0, 1)*Random(0, 1)
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Sad):: "So that's my current financial situation. It's tough really ... If it keeps going on like this, I'm afraid I won't be able to afford the rent on my current home anymore."
+    "My <Actor.relationship> has lost <Actor.his_or_her> job and fallen on hard times. <Actor.He_or_She> is expecting to get evicted from <Actor.his_or_her> place anytime now ... My apartment still has a small spare bedroom, perhaps I can be generous enough to offer a place for <Actor.him_or_her>."
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        Actor:rapportwithplayer += Random(0, 20)
+        Player(Happy):: "There's nothing to worry about. I still have a spare bedroom in my apartment. Come and live with me until you get back on your feet."
+        Actor(Surprised):: "You're being honest? Wow, that's a generous offer. I'm so glad I still have such a wonderful <Actor.callplayer> behind me during these difficult times."
+        Actor.setLivingWithPlayer(true)
+    Else
+        Player(Sad):: "That's horrible to hear. But don't give up. Maybe you should look for a cheaper place while you're looking for a new job."
+        Actor:rapportwithplayer -= Random(0, 2)
+    Endif
+    SceneEnd()
+    timeout(2000, family_move_in, family_move_out)

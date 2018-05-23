@@ -1,0 +1,30 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 16 - 21
+WHO: Actor = getSpecific(Dating); Actor2 = getRelative(); If Random(20, 500) < Actor:attractiontoplayer && Actor2:rapportwithplayer > -10
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    "I have been going out with <Actor.name> for a while and so far it looks like we might have a future together. Maybe I should start gradually introducing <Actor.him_or_her> to my family. We're having a family dinner soon, perhaps I should take <Actor.name> with me?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "This is a perfect opportunity to show how commited I am to the relationship."
+        setBackground(restaurant)
+        "Later on ..."
+        Actor2.dress()
+        Actor2.show(3)        
+        Player(Embarassed):: "<Actor2.Relationship>, this is my <Actor.boyfriend_or_girlfriend>, <Actor.name>."
+        Actor(Happy):: "Nice to meet you finally in person. <Player.name> has never stopped going on about how amazing <Player.his_or_her> <Actor2.relationship> is."
+        Actor2(Happy):: "Nice to meet you too, <Actor.name>. You guys sure are a cute couple."
+        Actor:attractiontoplayer += Random(0, 3)
+        Actor2:rapportwithplayer += Random(0, 2)
+    Else
+        "No, it's too early in the relationship to do that. We could break up anytime. How would I explain that to my family then?"
+        Actor:attractiontoplayer -= Random(0, 1)
+    Endif
+    SceneEnd()
+    timeout(1000, dating_family_dinner)

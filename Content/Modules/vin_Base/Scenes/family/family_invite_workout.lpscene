@@ -1,0 +1,34 @@
+WHAT: all, -sleep, -sleep_hotel
+WHERE: all, -work
+WHEN: 9-20
+WHO: Friend = getRelative(Sibling, StepSibling, Cousin); If Actor:rapportwithplayer > 20 && Friend:fitness > 60
+OTHER: !IsWithCompanion() && Random(0, 100) < fitness
+
+    sceneStart()
+    Friend.dress()
+
+    "My phone rang ... It's my <Friend.relationship>, <Friend.name>, calling."
+    Friend.show(2)
+    Friend(Happy):: "Hey <Player.name>, do you want to hit the gym today?"
+    "Go to the gym with <Friend.name>?"
+    0:: "Yes"
+    1:: "No"
+
+    If 0
+        Player(Happy):: "Of course. I'll see you in a bit!"
+        Friend(Happy):: "See you soon!"
+        setBackground(sports_centre)
+        Friend.dress()
+        Player.dress()
+        "We headed to the gym together and had a good workout."
+        Friend:rapportwithplayer += Random(0, 2)
+        fitness += Random(0, 0.25)
+        energy -= Random(0, 25)
+        mood += Random(0, 10)
+    Else
+        Player(Sad):: "Sorry, I'm busy today. Maybe next time ..."
+        Friend(Sad):: "Oh? That's a shame. I'll see you around then."
+    Endif
+
+    sceneEnd()
+    timeout(48, family_invite_workout)

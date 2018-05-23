@@ -1,0 +1,31 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 17 - 20
+WHO: Actor = getRelative(Sibling, Cousin, StepSibling); Actor2 = getPerson(true); If !Actor2.isDating() && Actor.isInterestedIn(Actor2) && Actor2.isInterestedIn(Actor) && Actor:rapportwithplayer > 20 && Actor2:rapportwithplayer > 20
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor2.dress()
+    Actor2.show(3)
+    
+    "My <Actor.relationship> <Actor.name> is single. I reckon my friend <Actor2.name> would be a good match for <Actor.him_or_her>."
+    0:: "Set up a blind date"
+    1:: "Nevermind"
+    
+    If 0
+        If Random(0, 100) < interpersonal
+            "I managed to talk them into going on a blind date with each other, which apparently went quite well. Who knows? This could be the start of something special."
+            Actor:rapportwithplayer += Random(0, 5)
+            Actor2:rapportwithplayer += Random(0, 5)           
+        Else    
+            "Despite my best efforts, I couldn't quite get them to agree to a blind date."
+            mood -= 5
+        Endif
+    Else
+        "I'm not too keen on matchmaking and getting involved with other people's personal lives."
+    Endif
+    
+    SceneEnd()
+    timeout(200, set_up_blind_date_family)

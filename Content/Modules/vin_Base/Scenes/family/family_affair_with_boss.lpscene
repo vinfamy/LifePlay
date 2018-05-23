@@ -1,0 +1,37 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 9 - 22
+WHO: Actor = getRelative(Parent, StepParent); If Actor:rapportwithplayer > 20 && Actor:perversion < Random(0, 50)*Random(0, 1) && Actor.livesWithPlayer()
+OTHER: isAtHome()
+
+
+    SleepingWithBoss = SleepingWithBoss.getGlobal()    
+    If SleepingWithBoss > 0
+        SceneStart()
+        Actor2 = getSpecific(Boss) 
+        Actor.dress()
+        Actor.show(2)
+        
+        Actor(Sad):: "<Player.name>, there's something on my mind that I don't know if I should tell you ..."
+        Player(Surprised):: "You're acting strange ... What is it? Tell me!"
+        Actor(Sad):: "I saw you with <Actor2.name> ... From your body language, I can tell what you two have been up to. Isn't <Actor.he_or_she> your boss? You're doing this for the promotions, aren't you? Is our family that desperate that you have to trade in your body to advance your career?"
+        0:: "End the affair"
+        1:: "Tell my <Actor.relationship> to fuck off"
+        
+        If 0
+            Player(Crying):: "I know ... I have been feeling so guilty lately. It was a mistake made in desperation to get ahead. I'm going to end this immoral arrangement for good, even if it costs me my job."
+            Actor:rapportwithplayer += Random(0, 2)
+            Actor(Sad):: "It's okay. Everyone makes mistakes. If you're ever short on money, our family isn't rich but I'll try to find a way. Just don't degrade yourself and disgrace our family for a few promotions like that."
+            SleepingWithBoss.clearGlobal()
+            jobperformance -= Random(0, 30)
+        Else
+            Player(Angry):: "Why are you getting your nose in my life? You don't know what the business world works nowadays. I think I have the right to sleep with anyone to get ahead without you judging me."
+            Actor:rapportwithplayer -= Random(0, 20)
+            Actor(Sad):: "Little did I know my <Actor.callplayer> was such a opportunistic <Player.gigolo_or_whore> ... Fine then, whatever floats your boat."
+        Endif
+        
+        SceneEnd()
+        timeout(1000, family_affair_with_boss)        
+    Endif
+    
+

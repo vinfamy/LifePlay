@@ -1,0 +1,55 @@
+WHAT: all, -sleep, -nap
+WHERE: all
+WHEN: 17 - 20
+WHO: Actor = getRelative(); If Random(30, 300) < Actor:interpersonal && Actor:rapportwithplayer > 20 && Actor:incest == 0
+OTHER: !Player.isDating() && !isWithCompanion()
+
+    SceneStart()
+    "My phone is ringing. It's my <Actor.relationship>. I wonder what <Actor.he_or_she> is calling me for ..."
+    Actor.dress()  
+    Actor.show(2)
+    Date = generatePersonTemporary()
+    While !Date.isInterestedIn(Player) || !Player.isInterestedIn(Date)
+        Date = generatePersonTemporary()
+    Endwhile
+    
+    Actor(Happy):: "Listen, have you gotten tired of the single life yet? My colleague has a <Date.son_or_daughter> your age who I think is your type. I was thinking about setting up a blind date for you two ..."
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        Actor:rapportwithplayer += Random(0, 2)
+        Date.makePermanent()
+        Player(Embarassed):: "<Actor.Relationship>! You're trying to be a matchmaker? Oh well, I guess I'll give it a shot. But if it turns out to be the worst date in my life, I'm blaming you!"
+        Actor.hide()
+        "Later on ..."
+        Date.dress()
+        Date.show(2)
+        setBackground(restaurant)
+        "My blind date introduced <Date.himself_or_herself> as <Date.name> and my <Actor.relationship> set us up to meet each other at a restaurant nearby. <Date.He_or_She> seemed alright at first, although without knowing much about the <Date.guy_or_girl>, I didn't feel any instant connection either."
+        "Now that we've finished dinner, should I exchange contacts with <Date.name>?"
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            "We exchanged contacts so that we can go on future dates."
+            "Should I continue to hang out with <Date.name> after the dinner?"
+            0:: "Yes"
+            1:: "No"
+            
+            If 0
+                "Why not? I'm quite interested in getting to know my blind date better. Dinner didn't give me enough time to learn anything about the <Date.guy_or_girl>."
+                Date.StartDate()
+            Else
+                "No, that's enough for the first date. <Date.He_or_She> has my number now so we could always go on another date some other day."
+            Endif
+        Else
+            "I don't really like the <Date.guy_or_girl>. I'll probably never want to go on a date with <Date.him_or_her> again, so what's the point in giving <Date.him_or_her> my number?"
+        Endif
+    Else
+        Player(Sarcastic):: "Please, <Actor.relationship>. Stop trying to be a matchmaker. You're embarassing me. The single life is great. Wouldn't swap it for anything else!"
+        Actor:rapportwithplayer -= Random(0, 1)
+    Endif
+        
+    SceneEnd()
+    timeout(200, family_blind_date)

@@ -1,0 +1,57 @@
+WHAT: masturbate
+WHERE: home
+WHEN: 0-24
+WHO: Peeping = getRelativeExcept(); If Peeping.isInterestedIn(Player) && Peeping.livesWithPlayer() && Random(40, 500) < Peeping:perversion
+OTHER: isAtHome()
+
+
+    SceneStart()
+    Player.strip()    
+    setBackground(home)
+    Player(Pain):: "God damn it! This feels so good ..."
+    Player(Embarassed):: "What? Who's there?"
+    "I was enjoying a bit of alone time when suddenly I heard a noise. I thought someone might be peeping on me!"
+    0:: "Get dressed"
+    1:: "Continue pleasuring myself"
+    
+    If 0 
+        Player.dress()
+        "I quickly put some clothes on and went looking around but couldn't find anyone. Whoever the peeping Tom was must have some quick feet."
+    Else
+        perversion += Random(0, 0.1)
+        Peeping:attractiontoplayer += Random(0, 0.5)
+        
+        "I won't lie: The thought of someone watching me turned me on even further ... I might as well give my peeping Tom a show to remember"
+        Peeping:incest += Random(0, 1)
+        
+        If Peeping:incest > 75
+            "My bedroom door slowly crept open and behind it revealed my not-so-secret admirer. It was no other than my <Peeping.relationship>!"
+            Peeping.dress()
+            Peeping.show(2)
+            Peeping(Flirty):: "You look like you could do with a hand ..."
+            0:: "Invite <Peeping.him_or_her> into bed with you"
+            1:: "Turn <Peeping.him_or_her> down"
+            
+            If 0
+                Player(Flirty):: "This is so wrong ... but I think you could be of help indeed ... Family should always help each other out in times of need, right?"
+                perversion += Random(0, 0.2)
+                Peeping:incest += Random(0, 5)
+                Sex(Peeping, Player)
+                Peeping.show(2)
+                "Well, that was a much better release than I expected!"
+            Else
+                "I quickly grabbed the blanket to cover myself."
+                Player(Embarassed):: "Hey! Get out! What the fuck? You're my <Peeping.relationship>! Remember to knock next time, you perv!"
+                Peeping:incest -= Random(0, 10)
+                Peeping.hide()
+                Player.dress()
+                "Disappointed, my <Peeping.relationship> retreated, while I put on my clothes."
+            Endif
+        Else
+            "A while later ..."
+            Player(Pain):: "Yes! Yes! Yes!"
+            "I came. I must have given my peeping Tom one hell of a show!"
+        Endif
+    
+    timeout(family_catches_masturbating, 24)
+    SceneEnd()

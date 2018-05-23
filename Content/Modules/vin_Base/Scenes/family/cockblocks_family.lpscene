@@ -1,0 +1,27 @@
+WHAT: all, -go_to_the_bathroom
+WHERE: nightclub, bar
+WHEN: 21 - 3
+WHO: Actor = getRelative(Sibling, StepSibling, Cousin, Child, StepChild); If Random(50, 500) < Actor:interpersonal
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+
+    "There's a couple making out passionately a few steps away from me. Someone clearly couldn't wait until they get to the bedroom!"
+    "Oh wait ... it's my <Actor.relationship>! What the hell ..."
+    0:: "Ignore"
+    1:: "Cockblock <Actor.him_or_her>"
+
+    If 0
+        "I'll just look the other way then and let <Actor.him_or_her> enjoy <Actor.himself_or_herself>."
+        masochist += Random(0, 0.1)
+    Elseif 1
+        "I will not allow my <Actor.relationship> to go home with some random <Actor.girl_or_guy> right in front of me!"
+        "I decided to crash their passionate makeout and started a very inappropriately timed conversation with my <Actor.relationship>. Of course, having <Actor.his_or_her> <Actor.callplayer> show up suddenly makes things extremely awkward for them and kills off their mood to go any further that night." 
+        masochist -= Random(0, 0.5)
+        Actor:rapportwithplayer -= Random(0, 5)
+    Endif
+    
+    SceneEnd()
+    timeout(500, cockblocks_family)

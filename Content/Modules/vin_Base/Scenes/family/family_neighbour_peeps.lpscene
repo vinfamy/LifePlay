@@ -1,0 +1,27 @@
+WHAT: all
+WHERE: home
+WHEN: 9 - 23
+WHO: Actor = getSpecific(Neighbour); Actor2 = getRelative(); If Actor2:age < 50 && Actor.isDominantSex(Actor2) && Actor.isInterestedIn(Actor2) && Actor2.livesWithPlayer() && Random(40, 300) < Actor2:attractiveness && Random(40, 300) < Actor:perversion
+OTHER: isAtHome()
+
+    SceneStart()
+    Actor.hide()
+    Actor.show(2)
+    "I arrive back at my door just to find my neighbour <Actor.name> sneaking around the window peeping into my <Actor2.relationship>'s bedroom. No surprise that pervert is here really - my <Actor2.relationship> usually gets changed to go out at this time of the day."
+    0:: "Confront <Actor.name>"
+    1:: "Ignore"
+    
+    If 0
+        Player(Angry):: "Hey pervert, what the fuck do you think you're doing? You peep on my <Actor2.relationship> one more time, and I'll call the cops to arrest your perverted ass."
+        Actor(Embarassed):: "Easy there. I wasn't sneaking around, I swear ... I was just walking past your apartment. I'll be on my way then."
+        Actor2:rapportwithplayer += Random(0, 3)
+        Actor:rapportwihplayer -= Random(0, 3)
+        Actor:peversion -= Random(0, 1)
+        masochist -= Random(0, 0.5)
+    Else
+        masochist += Random(0, 1)
+        "I don't want to make a big deal of this. So my <Actor2.relationship> has an admirer? None of my business."
+    Endif
+    
+    SceneEnd()
+    timeout(200, family_neighbour_peeps)

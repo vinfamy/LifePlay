@@ -1,0 +1,28 @@
+WHAT: all, -sleep_hotel, -nap_hotel
+WHERE: all, -home
+WHEN: 8 - 22
+WHO: Actor = getRelative(Cousin, Sibling, Child, StepSibling, StepChild); If Actor:rapportwithplayer > 30 && Actor:attractiveness < Actor:masochist*Random(0, 1)*Random(0, 1)
+OTHER: none
+
+    SceneStart()
+    "My phone is ringing. It's my <Actor.relationship>, <Actor.name>. I wonder what <Actor.he_or_she> is calling me for ..."
+    Actor.dress()
+    Actor.show(2)
+    livesWithMe = Actor.livesWithPlayer()
+    Actor(Crying):: "My <Actor.girlfriend_or_boyfriend> and I ... we broke up!"
+    0:: "Console <Actor.him_or_her> on the phone"
+    1:: livesWithMe:: "Rush home to comfort <Actor.him_or_her>"
+    2:: !livesWithMe:: "Pay <Actor.him_or_her> a visit to console <Actor.him_or_her>"
+    
+    If 0
+        Player(Sad):: "Oh no, that sucks. I'm so sorry to hear that ..."
+    Else
+        Actor:rapportwithplayer += Random(0, 20)
+        setBackground(home)
+        Actor(Happy):: "Thank you for spending time with me in these difficult times. I feel so much better now with you here. You're the best <Actor.callplayer> ever!"
+    Endif
+    
+    SceneEnd()
+    timeout(1000, family_breakup_base)
+
+    

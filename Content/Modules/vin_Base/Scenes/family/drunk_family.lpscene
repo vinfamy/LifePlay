@@ -1,0 +1,29 @@
+WHAT: all
+WHERE: nightclub, bar
+WHEN: 21 - 3
+WHO: Actor = getRelativeExcept(GrandParent); If Random(70, 500) < Actor:interpersonal
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+
+    "There's a completely hammered <Actor.guy_or_woman> vomiting on the floor. Someone clearly couldn't handle their alcohol!"
+    "Oh wait ... it's my <Actor.relationship>! What the hell ..."
+    0:: "Ignore"
+    1:: "Scold <Actor.him_or_her>"
+    2:: "Walk <Actor.him_or_her> home"
+
+    If 0
+        "I'll just pretend that I don't know <Actor.him_or_her> and it's none of my business. The staff will clean that up."
+    Elseif 1
+        Player(Angry):: "That's disgusting. If you can't handle alcohol, don't drink! I'm embarassed to be your <Actor.callplayer>!"
+        masochist -= Random(0, 0.5)
+        Actor:rapportwithplayer -= Random(0, 5)
+    Else
+        "As a <Actor.callplayer>, I can't really just leave <Actor.him_or_her> like that. I'll have to walk <Actor.him_or_her> home."
+        Actor:rapportwithplayer += Random(0, 5)
+    Endif
+
+    SceneEnd()
+    timeout(500, drunk_family)

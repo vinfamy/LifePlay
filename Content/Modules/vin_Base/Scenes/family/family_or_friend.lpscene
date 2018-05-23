@@ -1,0 +1,41 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 0 - 24
+WHO: Dating = getRelative(); Friend = getPerson(true); If Friend:rapportwithplayer > 40 && Dating:rapportwithplayer > 40 && [Dating:intelligence - Friend:intelligence > Random(20, 100) || Friend:intelligence - Dating:intelligence > Random(20, 100)]
+OTHER: !isWithCompanion()
+
+    SceneStart()
+    Dating.dress()
+    Friend.dress()
+
+    Dating.show(2)
+    Friend.show(3)
+
+    "Unfortunately, sometimes two of the most important people in your life don't get along: My <Dating.relationship> and <Friend.name> clearly don't like each other. My <Dating.relationship> has not stopped accusing <Friend.name> of being a bad influence on me, while <Friend.name> thinks my family is holding me back."
+    0:: "Spend more time with my <Dating.relationship>"
+    1:: "Spend more time with <Friend.name>, my close friend"
+    2:: "Try to mediate"
+
+    If 0
+        "Family's first. I decided to be on my <Dating.relationship>'s side on this and spent more time with <Dating.him_or_her>. <Dating.He_or_She> is my <Dating.relationship> after all! Of course, my family loyalty clearly upset <Friend.name>."
+        Dating:rapportwithplayer += Random(0, 5)
+        Friend:rapportwithplayer -= Random(0, 5)
+    Elseif 1
+        "I decided to be on <Friend.name>'s side on this and spent more time with <Friend.him_or_her>. <Friend.He_or_She> is one of my best friends after all! Of course, my blatant family betrayal clearly upset my <Dating.relationship>."
+        Dating:rapportwithplayer -= Random(0, 5)
+        Friend:rapportwithplayer += Random(0, 5)
+    Else
+        "I'd rather not have to choose between two equally important people in my life. I tried instead to find a resolution to their conflict."
+        If Random(0, 100) < interpersonal
+            "My effort worked out, their relationship has improved somewhat. They still aren't thrilled to see each other but at least they have stopped going at each other all the time."
+            Dating:rapportwithplayer += Random(0, 2)
+            Friend:rapportwithplayer += Random(0, 2)
+        Else
+            "My effort failed miserably. Not only did their relationship not get any better, they were both annoyed that I tried to make them friends and refused to pick a side."
+            Dating:rapportwithplayer -= Random(0, 5)
+            Friend:rapportwithplayer -= Random(0, 5)
+        Endif
+    Endif
+
+    timeout(500, family_or_friend)
+    SceneEnd()

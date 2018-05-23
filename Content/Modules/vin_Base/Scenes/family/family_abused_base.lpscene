@@ -1,0 +1,58 @@
+WHAT: all, -sleep_hotel, -nap_hotel
+WHERE: all, -home
+WHEN: 8 - 22
+WHO: Actor = getRelative(Cousin, Sibling, Child, StepSibling, StepChild); If Actor:rapportwithplayer > 30 && Random(0, 500) < Actor:masochist - Actor:martial
+OTHER: Random(0, 500) < martial - masochist
+
+    SceneStart()
+    "My phone is ringing. It's my <Actor.relationship>, <Actor.name>. I wonder what <Actor.he_or_she> is calling me for ..."
+    Actor.dress()
+    Actor.show(2)
+    Actor2 = generatePersonTemporary()
+    While !Actor2.isInterestedIn(Actor)
+        Actor2 = generatePersonTemporary()
+    Endwhile
+    livesWithMe = Actor.livesWithPlayer()
+    Actor(Crying):: "My <Actor2.boyfriend_or_girlfriend> ... <Actor2.he_or_she> got all psycho and hit me again!"
+    0:: "Console <Actor.him_or_her> on the phone"
+    1:: livesWithMe:: "Rush home to confront <Actor.name>'s <Actor2.boyfriend_or_girlfriend>"
+    2:: !livesWithMe:: "Rush to <Actor.name>'s place to confront <Actor.his_or_her> <Actor2.boyfriend_or_girlfriend>"
+    
+    If 0
+        Player(Sad):: "Oh no, that sucks. I'm so sorry to hear that ... Maybe you should call the cops. Get a restraining order."
+        masochist += Random(0, 1)
+    Else
+        Actor:rapportwithplayer += Random(0, 20)
+        setBackground(home)
+        Actor2.dress()
+        Actor2.show(3)
+        Player(Angry):: "<Actor.name> told me everything! How dare you abuse my <Actor.relationship>!?"
+        Actor2(Furious):: "Shut up and get your nose out of our relationship! <Actor.He_or_She>'s my <Actor.boyfriend_or_girlfriend>. I can do whatever I want with <Actor.him_or_her>."
+        0:: interpersonal > 75:: "Intimidate <Actor2.name>"
+        1:: martial > 60:: "Beat <Actor2.name> up"
+        2:: "Just get <Actor.name> out of there"
+        
+        If 0
+            "I'm not 100% confident about my ability to fight, but at least I know how to sound intimidating."
+            Player(Furious):: "You lay a finger on my <Actor.relationship> again and you'll go home in a body bag!"
+            Actor2(Surprised):: "Okay okay ... easy there. It was just a spur of the moment. I didn't mean to hurt <Actor.him_or_her> ..."
+            Actor2.hide()
+            masochist -= Random(0, 1)
+        Elseif 1
+            Player(Furious):: "I'll teach you a lesson. Take this!"
+            Actor2(Furious):: "Ah ..."
+            "And just like that, I proceeded to beat the crap out of <Actor2.name>. That would teach <Actor2.him_or_her> for abusing my dear <Actor.relationship>!"
+            Actor2(Crying):: "That's enough. Please stop hitting me. I wouldn't dare to harm <Actor.him_or_her> again."
+            Actor2.hide()
+            masochist -= Random(0, 0.5)
+            martial += Random(0, 0.5)
+        Endif
+        
+        Player(Sad):: "Let's get out of here, <Actor.name>. You have suffered enough in the hands of this <Actor2.asshole_or_bitch>."
+        Actor2.hide()
+        "A few hours later ..."
+        Actor(Happy):: "Thank you for standing up for me and being there for me. I feel so much better now with you here. You're right. I deserve so much better than that <Actor2.asshole_or_bitch> of a <Actor.boyfriend_or_girlfriend>. I'll be strong and break up with <Actor.him_or_her>."
+    Endif
+    
+    SceneEnd()
+    timeout(1000, family_abused_base)

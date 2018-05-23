@@ -1,0 +1,24 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0 - 24
+WHO: Dating = getRelativeExcept(GrandParent); If Dating:rapportwithplayer < Random(0, 50) && Random(50, 100) < Dating:intelligence && Dating:interpersonal < Random(0, 50) 
+OTHER: !IsAtHome()
+
+    SceneStart()
+    Dating.dress()
+    Dating.show(2)
+
+    "My <Dating.relationship> is a workaholic, rarely leaving the office, and has been neglecting family recently."
+    0:: "Accept it"
+    1:: "Ask <Dating.him_or_her> to spend more time with the family"
+
+    If 0
+        "I'm happy to see that my <Dating.relationship> is such a career-oriented person. Hopefully, <Dating.he_or_she> will become successful thanks to <Dating.his_or_her> hard work."
+        Dating:rapportwithplayer += Random(0, 2)
+    Else
+        "I complained about how little time my <Dating.relationship> had been spending with the family recently and accused <Dating.him_or_her> of priotizing <Dating.his_or_her> career over family."
+        Dating:rapportwithplayer -= Random(0, 2)
+    Endif
+
+    timeout(200, workaholic_family)
+    SceneEnd()

@@ -1,0 +1,24 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0 - 24
+WHO: Dating = getRelative(); If Dating.isMale() && Dating.LivesWithPlayer() && Dating:perversion > Random(70, 100)
+OTHER: !isWithCompanion() && isAtHome() && Random(0, 1000) < intelligence
+
+    SceneStart()
+
+    "By accident, I found out that my <Dating.relationship> has been paying for adult webcam shows online! In fact, I'm pretty sure it's one of <Dating.his_or_her> favorite pastimes when I'm not around. What should I do about this?"
+    0:: "Nothing"
+    1:: "Embarass <Dating.him_or_her>"
+
+    If 0
+        "What's the big deal? <Dating.He_or_She> just has a healthy sex drive and needs to release. Watching a naked <Player.guy_or_girl> masturbating on webcam is harmless - It's not like my <Dating.relationship> is actually fucking the webcam model!"
+        perversion += Random(0, 1)
+        masochist += Random(0, 0.5)
+    Else
+        "I got very upset and made it known to my <Dating.relationship> that this is embarassing and unacceptable and must stop or <Dating.he_or_she> will have to move out."
+        Dating:rapportwithplayer -= Random(0, 2)
+        Dating:peversion -= Random(0, 1)
+    Endif
+
+    timeout(200, family_webcamshow)
+    SceneEnd()

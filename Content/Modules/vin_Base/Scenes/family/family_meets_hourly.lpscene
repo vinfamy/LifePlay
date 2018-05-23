@@ -1,0 +1,14 @@
+WHAT: work_hourly
+WHERE: all
+WHEN: 0 - 24
+WHO: Actor = getRelative(); If Actor:rapportwithplayer > 0
+OTHER: Random(0, 100) < 1
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    "Just out of coincidence, I came across my <Actor.relationship> during my shift today and we had a small chat."
+    "It's always good to see a friendly face outside the usual demanding customers."
+    mood += Random(0, 10)
+    SceneEnd()
+    timeout(200, family_meets_hourly)

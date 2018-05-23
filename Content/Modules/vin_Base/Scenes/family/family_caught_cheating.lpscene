@@ -1,0 +1,38 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 12 - 20
+WHO: Actor = getRelative(Parent); If Actor.isMarried() && Actor:rapportwithplayer > -10 && Random(60, 1000) < Actor:perversion
+OTHER: !Actor.livesWithPlayer() || isAtHome()
+
+    SceneStart()
+    If Actor.livesWithPlayer()
+        "I arrived back to my apartment's door just to hear some strange sound. It sounds like someone's ... moaning."
+    Else
+        setBackground(home)
+        "I decided to pay my <Actor.relationship> a visit today. When I arrived, no-one answered the door but I can hear some strange ... moans."
+    Endif
+    "I decided to hide behind the emergency door near the apartment to see who will come out of the apartment's door ..."
+    Actor.dress()
+    Actor.show(2)
+    Actor2 = generatePersonTemporary()
+    Actor2.dress()
+    Actor2.show(3)
+    "My <Actor.relationship> came out of the door, followed by a stranger."
+    Actor(Kiss):: "..."
+    Actor2(Kiss):: "..."
+    Actor(Flirty):: "That was amazing as always. You have so much energy, <Actor2.name>, unlike that old cow of a <Actor.wife_or_husband> I have. I already can't wait for our next time."
+    Actor2.hide()
+    "Oh no! My <Actor.dad_or_mom> is cheating on my <Actor.mom_or_dad> ..."
+    0:: "Confront <Actor.him_or_her>"
+    1:: "Pretend like I've seen nothing"
+    
+    If 0
+        "I was so upset that I started shouting at <Actor.him_or_her>, accusing <Actor.him_or_her> of being a selfish pervert who risks damaging our family. I told <Actor.him_or_her> that I was ashamed to be <Actor.his_or_her> <Actor.callplayer>."
+        "Amazingly, my <Actor.mom_or_dad> forgave <Actor.her_or_his> cheating <Actor.husband_or_wife>. Still, I have lost all respect for <Actor.him_or_her>." 
+        Actor:rapportwithplayer -= Random(0, 100)
+    Else
+        "For the sake of the family, I should stay silent. I guess everyone makes mistakes and it's only understandable that a couple who have been together for decades would have grown tired of each other by now."
+        masochist += Random(0, 0.5)
+    Endif
+    SceneEnd()
+    timeout(1000, family_caught_cheating)

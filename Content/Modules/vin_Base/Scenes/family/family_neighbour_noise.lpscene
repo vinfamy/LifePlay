@@ -1,0 +1,31 @@
+WHAT: all
+WHERE: home
+WHEN: 21 - 4
+WHO: Actor = getSpecific(Neighbour); Actor2 = getRelative(Sibling, StepSibling, Cousin, Child, StepChild); If Actor2.livesWithPlayer() && Random(50, 100) < Actor2:music 
+OTHER: isAtHome()
+
+    SceneStart()
+    
+    Actor.dress()
+    Actor.show(2)
+    Actor(Angry):: "Excuse me ..."
+    "It's my neighbour <Actor.name>. I wonder what <Actor.he_or_she> wants so late in the day."
+    Actor(Angry):: "Could you please tune down the music? I can't sleep. I swear - you do this every night!"
+    "It's not my music, but it's my <Actor2.relationship> <Actor2.name>, who has a pair of hi-tech loudspeakers."
+    0:: "Tell <Actor2.name> to tune down the music"
+    1:: "Defend <Actor2.name>"
+
+    If 0
+        Player(Sad):: "I'm so sorry about that. It's my <Actor2.relationship>. I'll tell <Actor.him_or_her> off right away."
+        masochist += Random(0, 0.5)
+        Actor2:rapportwithplayer -= Random(0, 1)
+    Elseif 1
+        "Honestly, I don't think the volume is all that high. I didn't even notice anything out of the ordinary until the neighbour shows up."
+        Player(Angry):: "I'm sorry but my <Actor2.relationship> is just enjoying some music in <Actor2.his_or_her> room, and the volume is acceptable, quite frankly. Do we not have the right to enjoy some music in our own space anymore?"
+        masochist -= Random(0, 0.5)
+        Actor:rapportwithplayer -= Random(0, 5)
+        Actor2:rapportwithplayer += Random(0, 3)
+    Endif
+    
+    timeout(96, family_neighbour_noise)
+    SceneEnd()

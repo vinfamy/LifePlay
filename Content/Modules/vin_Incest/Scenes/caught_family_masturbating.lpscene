@@ -1,0 +1,31 @@
+WHAT: all
+WHERE: home
+WHEN: 0-24
+WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Random(0, 500) < Actor:perversion
+OTHER: isAtHome()
+
+    SceneStart()
+
+    "What's that sound? If it is what I think it is, then my <Actor.relationship> is getting some very sexy alone time. <Actor.He_or_She> is moaning quite loudly."
+    0:: "Ignore"
+    1:: masochist < 50:: "Complain"
+    2:: "Peep"
+
+    If 0
+        "Good for <Actor.him_or_her> I guess. I can't ban my <Actor.relationship> from some healthy releases!"
+    Elseif 1
+        Player(Angry):: "For god's sake, keep it down. Do you want the entire building to know what you're up to?"
+        Actor:rapportwithplayer -= Random(0, 5)
+        masochist -= Random(0, 1)
+    Else
+        perversion += Random(0, 0.5)
+        Actor:incest += Random(0, 1)
+        "My curiousity got the better of me and I just had to see this ..."
+        Actor.strip()
+        Actor.show(2)
+        Actor(Crying):: "Yes, yes, yes!"
+        "Wow, <Actor.he_or_she> is really into it. It must have been a while since <Actor.he_or_she> last had sex. <Actor.He_or_She> is my <Actor.relationship> so I really shouldn't feel like this but ... I'm getting very aroused ... In fact, as much as the thought is so wrong on so many different levels, I can't help but wish I have the courage to slam open the door right now and come join <Actor.him_or_her> in <Actor.his_or_her> bed ..."
+    Endif
+
+    SceneEnd()
+    timeout(48, caught_family_masturbating)

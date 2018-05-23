@@ -1,0 +1,27 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 9 - 20
+WHO: Actor = getRelative(); If Random(30, 100) < Actor:rapportwithplayer && Random(100, 200) < Actor:intelligence + Actor:interpersonal
+OTHER: money < 100
+
+    SceneStart()
+    "I'm broke! With no paycheck in sight anytime soon, maybe I should ask my <Actor.relationship> to come to my rescue?"
+    0:: "Borrow money from my <Actor.relationship>"
+    1:: "Maybe not"
+    
+    If 0
+        Actor.dress()
+        Actor.show(2)
+        Player(Sad):: "I hate to ask this of you but I'm currently a bit short on cash. Could you ..."
+        money += Random(100, 400)
+        Actor(Happy):: "Of course, we're family after all. My money is your money."
+        "My <Actor.relationship> happily lent me some money. Best <Actor.relationship> ever!"
+        Actor:rapportwithplayer += Random(0, 1)
+        masochist += Random(0, 0.25)
+    Else
+        "I'd rather not rely on my family for any financial support."
+        masochist -= Random(0, 0.25)
+    Endif
+    
+    SceneEnd()
+    timeout(500, family_borrow)

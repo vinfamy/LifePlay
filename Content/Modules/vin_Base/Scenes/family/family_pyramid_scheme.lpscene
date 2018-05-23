@@ -1,0 +1,37 @@
+WHAT: all, -sleep_hotel, -nap_hotel
+WHERE: home
+WHEN: 8 - 22
+WHO: Actor = getRelative(); If Actor:rapportwithplayer > -10 && Actor:intelligence < Random(0, 30)*Random(0, 1)
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Happy):: "<Player.name>, do you have time now for a chat?"
+    Player(Happy):: "Of course, <Actor.Relationship>. What is it?"
+    Actor(Happy):: "I recently became a distributor for Pyramid Supplements International. Our state-of-the-art R&D team recently came up with a new product: the Magnum XXX snake oil. I have used it for the last month and feel 10 years younger. Don't tell anyone else this but because we're family, I can give you a 50% discount."
+    "Oh no, my naive <Actor.relationship> is tricked into yet another scammy get-rich-quick multi-level marketing scheme again ..."
+    0:: "Buy it"
+    1:: "Find an excuse not to buy it"
+    2:: "Convince <Actor.name> to quit the scheme"
+    
+    If 0
+        money -= Random(50, 200)
+        masochist += Random(0, 0.25)
+        "Damn, this thing costs a mini fortune, but I just want to support my <Actor.relationship>."
+    Elseif 1
+        Player(Sad):: "That sounds amazing, but I'm a bit broke right now. I'll get back to you after my next paycheck."
+        Actor:rapportwithplayer -= Random(0, 2)
+    Else
+        Player(Angry):: "<Actor.Relationship>! Please stop getting involved with these scams. You'll never make any money, and worse, you'll ruin all your personal relationships."
+        If Random(0, 200) < interpersonal
+            Actor(Sad):: "Maybe you're right. This isn't the first time that I have fallen victim to these pyramid schemes. I probably should just get a normal job."
+            Actor:intelligence => 30
+        Else
+            Actor(Angry):: "What do you know about entrepreneurship? Just wait, you'll think again when I become a millionaire next year."
+            Actor:rapportwithplayer -= Random(0, 5)
+        Endif        
+    Endif
+    
+    SceneEnd()
+    timeout(500, family_pyramid_scheme)

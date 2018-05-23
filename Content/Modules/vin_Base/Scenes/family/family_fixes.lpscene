@@ -1,0 +1,33 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Actor:intelligence < Random(0, 60) 
+OTHER: isAtHome() && intelligence > Random(0, 100)
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    
+    "I was walking back to my apartment when I found my <Actor.relationship> hurriedly walking in the opposite direction, looking a bit annoyed."
+    Player(Happy):: "What's the matter? You don't look too happy ..."
+    Actor(Sad):: "My laptop just stopped working all of a sudden. You know I'm hopeless with technology so I'm taking it to a repair shop. Last time I did that, they took ages to fix it so I'll probably have to live without my laptop for a while."
+    0:: "Wish <Actor.him_or_her> luck"
+    1:: "Offer help"
+    
+    If 0
+        Player(Sad):: "Oh, that sucks. Good luck with the laptop. Hopefully they won't take so long this time."
+        Actor(Sad):: "Thank you."
+    Else
+        Player(Happy):: "There's no need to take it to the repair shop. I know a thing or two about computers. I can have a look for you. Might be able to fix it right away."
+        Actor(Excited):: "Oh really? That would be awesome. Let's go back to our apartment, I can show you what's wrong."
+        "We went back to the apartment, and <Actor.He_or_She> switched the laptop on and showed me the issues."
+        If Random(0, 100) < intelligence
+            "It turned out to be an easy fix and I managed to return my <Actor.relationship>'s laptop to working condition in no time at all."
+            Actor:rapportwithplayer += Random(0, 3)
+        Else
+            "Unfortunately, I never managed to even figure out what the issue was and my <Actor.relationship> had no choice but to take the laptop to a professional anyway."
+        Endif
+    Endif
+    
+    SceneEnd()
+    timeout(200, family_fixes)

@@ -1,0 +1,32 @@
+WHAT: work
+WHERE: work
+WHEN: 8 - 19
+WHO: Actor = getRelative(); If Actor:rapportwithplayer > 20 && Actor:intelligence > Random(50, 100)
+OTHER: Random(0, 1000) < jobexperience
+
+    SceneStart()
+    Actor.dress()
+    "In an effort to attract talent, my company is asking their current employees to refer people they know to be interviewed for positions. If they turn out to be the successful candidate, the person who introduced them would receive a bonus."
+    Actor.show(2)
+    "This made me think of my <Actor.relationship> right away, who I knew was smart and unhappy with <Actor.his_or_her> current job."
+    "Should I recommend <Actor.name> to my company?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "I decided to go ahead and wrote a letter recommending my <Actor.relationship> for the company, which earned <Actor.him_or_her> an interview."
+        "A few weeks later ..."
+        If Random(0, 100) < Actor:intelligence
+            "Great news! <Actor.name> has been successful in the interview and will join my company soon. We are now also colleagues. What's more: I received a small bonus for having recommended a new staff member."
+            Actor:rapportwithplayer += Random(0, 10)
+            money += Random(500, 4000)
+        Else
+            "Unfortunately, <Actor.name> couldn't quite live up to the company's expectations in the interview and had no choice but to stay at <Actor.his_or_her> current job. This reflected a bit badly on me."
+            jobperformance -= Random(0, 0.5)
+        Endif
+    Else
+        "On second thought, I'm not entirely sure if my <Actor.relationship> is a good fit for this company."
+    Endif
+
+    SceneEnd()
+    timeout(2000, refer_a_relative)

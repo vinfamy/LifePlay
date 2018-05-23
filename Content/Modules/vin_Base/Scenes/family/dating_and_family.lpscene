@@ -1,0 +1,41 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 0 - 24
+WHO: Dating = getSpecific(Dating); Colleague = getRelativeExcept(Cousin, ParentSibling); If Colleague:rapportwithplayer > 0 && Dating:attractiontoplayer > 40 && Random(50, 100) < Colleague:intelligence && Dating:intelligence < 40
+OTHER: !isWithCompanion()
+
+    SceneStart()
+    Dating.dress()
+    Colleague.dress()
+
+    Dating.show(2)
+    Colleague.show(3)
+
+    "<Dating.name> and my <Colleague.relationship> clearly don't like each other. My <Colleague.relationship> thinks an intelligent <Player.man_or_woman> like me could do better than <Dating.name>."
+    0:: "Spend more time with <Dating.name>, my <Dating.boyfriend_or_girlfriend>"
+    1:: "Get closer to my <Colleague.relationship>"
+    2:: "Try to mediate"
+
+    If 0
+        "I decided to be on <Dating.name>'s side on this and spent more time with <Dating.him_or_her>. <Dating.He_or_She> is my <Dating.boyfriend_or_girlfriend> after all! Of course, this also upset my <Colleague.relationship>."
+        Dating:attractiontoplayer += Random(0, 5)
+        Colleague:rapportwithplayer -= Random(0, 5)
+    Elseif 1
+        "Family's first. I decided to be on my <Colleague.relationship>'s side on this and spent more time with <Colleague.him_or_her>. Of course, my favoritism clearly upset <Dating.name>."
+        Dating:attractiontoplayer -= Random(0, 5)
+        Colleague:rapportwithplayer += Random(0, 5)
+    Else
+        "I'd rather not have to choose. I tried instead to find a resolution to their conflict."
+        If Random(0, 100) < interpersonal
+            "My effort worked out, their relationship has improved somewhat. They still aren't thrilled to see each other but at least they have stopped going at each other all the time."
+            Dating:attractiontoplayer += Random(0, 2)
+            Colleague:rapportwithplayer += Random(0, 2)
+        Else
+            "My effort failed miserably. Not only did their relationship not get any better, they were both annoyed that I tried to make them friends and refused to pick a side."
+            Dating:attractiontoplayer -= Random(0, 5)
+            Colleague:rapportwithplayer -= Random(0, 5)
+        Endif
+    Endif
+
+    timeout(500, dating_and_family)
+    SceneEnd()

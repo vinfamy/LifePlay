@@ -1,0 +1,30 @@
+WHAT: all, -sleep_hotel, -nap_hotel
+WHERE: all, -home, -work
+WHEN: 0 - 24
+WHO: Actor2 = getRelative()
+OTHER: isWithCompanion() && CurrentCompanion.isDating()
+
+    SceneStart()
+    Actor2.dress()
+    Actor2.show(2)
+    Actor2(Happy):: "<Player.name>! Is that you? What a coincidence!"
+    "It's my <Actor2.relationship> ..."
+    Player(Happy):: "Nice to see you here!"
+    Actor2(Happy):: "And who's this fine <CurrentCompanion.gentleman_or_lady> you're with?"
+    0:: "My <CurrentCompanion.boyfriend_or_girlfriend>"
+    1:: "Just a friend of mine"
+    
+    If 0
+        "This is a perfect opportunity to show how commited I am to the relationship."
+        Player(Embarassed):: "<Actor2.Relationship>, this is my <CurrentCompanion.boyfriend_or_girlfriend>, <CurrentCompanion.name>."
+        CurrentCompanion(Happy):: "Nice to meet you finally in person. <Player.name> has never stopped going on about how amazing <Player.his_or_her> <Actor2.relationship> is."
+        Actor2(Happy):: "Nice to meet you too, <CurrentCompanion.name>. You guys sure are a cute couple."
+        CurrentCompanion:attractiontoplayer += Random(0, 3)
+        Actor2:rapportwithplayer += Random(0, 2)
+    Else
+        Player(Happy):: "Don't worry about <CurrentCompanion.him_or_her>. <CurrentCompanion.He_or_She> is just a friend."
+        "It's too early in the relationship to be 'official' in front of my family. We could break up anytime. How would I explain that to my <Actor2.relationship> then?"
+        CurrentCompanion:attractiontoplayer -= Random(0, 1)
+    Endif
+    SceneEnd()
+    timeout(500, see_family_on_date)

@@ -1,0 +1,29 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0-24
+WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Random(50, 200) < Actor:intelligence
+OTHER: isAtHome() && Random(0, 200) < intelligence
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Excited):: "This book is such a masterpiece ..."
+    0:: "Play it safe"
+    1:: "Show off my book knowledge"
+    
+    If 0
+        Player(Happy):: "Yes it is a good book indeed ..."
+        "My knowledge of books leaves a lot to be desired and I know it. No point trying to sound sophisticated here ..."
+    Else
+        "I tried my best to show off extensive reading to engage in a intelligent discussion with my <Actor.relationship>."
+        If Random(0, 100) < intelligence
+            Actor(Happy):: "I'm glad we share the same appreciation of literature."
+            Actor:rapportwithplayer += Random(0, 2)
+        Else
+            "Unfortunately, my knowledge of literature really wasn't deep enough to hold an intelligent conversation about it. From <Actor.his_or_her> facial expression, I could tell that <Actor.he_or_she> saw right through me as a non-reading dumbass."
+            Actor:rapportwithplayer -= Random(0, 1)
+        Endif
+    Endif
+    
+    SceneEnd()
+    timeout(500, book_discussion_family)

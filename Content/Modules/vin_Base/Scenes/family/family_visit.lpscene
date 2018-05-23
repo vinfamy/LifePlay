@@ -1,0 +1,16 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 9 - 20
+WHO: Actor = getRelative(); If !Actor.livesWithPlayer() && Random(20, 100) < Actor:rapportwithplayer && Actor:incest == 0
+OTHER: isAtHome()
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Happy):: "How are you doing, my dear <Actor.callplayer>? Just dropping by to visit. It's been a while."
+    "My <Actor.relationship> paid me a surprise visit. How nice of <Actor.him_or_her>! Life can be tough but it's comforting to know that my family is always right behind me."
+    Actor:rapportwithplayer += Random(0, 1)
+    mood += Random(0, 10)
+    
+    SceneEnd()
+    timeout(96, family_visit)

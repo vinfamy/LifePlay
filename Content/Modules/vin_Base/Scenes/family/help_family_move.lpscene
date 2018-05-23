@@ -1,0 +1,28 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 8 - 17
+WHO: Actor = getRelative(); If !Actor.livesWithPlayer() 
+OTHER: Random(0, 100) < 1
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    "My <Actor.relationship> is moving home soon. Should I offer <Actor.him_or_her> an extra hand?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "Why not? It feels good to help out my family. Besides, it will be a good way to exercise."
+        energy -= Random(0, 100)
+        fitness += Random(0, 0.25)
+        Actor:rapportwithplayer += Random(0, 5)
+        setBackground(home)
+        Actor(Happy):: "Thank you so much for helping us out today. We have no idea how we would have managed without you."
+        Player(Happy):: "Don't worry about it. It's only my duty as a <Actor.callplayer>."
+    Else
+        "Maybe not. I'm sure they'll be fine hiring a moving company to do it."
+        Actor:rapportwithplayer -= Random(0, 3)
+    Endif
+    
+    SceneEnd()
+    timeout(2000, help_family_move)

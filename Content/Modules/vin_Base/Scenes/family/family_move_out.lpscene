@@ -1,0 +1,24 @@
+WHAT: all, -sleep, -nap
+WHERE: work
+WHEN: 9 - 22
+WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Random(0, 5000) < Actor:intelligence + Actor:interpersonal
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Happy):: "I found an affordable apartment not too far from here. I wouldn't want to bother you here forever - we both need our own privacies. I'm planning to move out next month."
+    0:: "Wish <Actor.him_or_her> well"
+    1:: "Convince <Actor.him_or_her> to stay"
+    
+    If 0    
+        Player(Happy):: "It's your choice I suppose. That sounds like a good new place to live. Come back to visit anytime! My doors are always open."
+        Actor.setLivingWithPlayer(false)
+    Else
+        Player(Sad):: "Don't say that! It's not a bother to have you here at all. We're family, we should stay together. Besides, even after you move out, I would still need to find a roommate for the spare room in the apartment - I'd much rather have my <Actor.relationship> there than some random stranger."
+        "Eventually, I managed to change my <Actor.relationship>'s mind about moving out."
+        Actor:rapportwithplayer += Random(0, 5)
+    Endif
+    
+    SceneEnd()
+    timeout(2000, family_move_out, family_move_in)

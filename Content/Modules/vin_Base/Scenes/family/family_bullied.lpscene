@@ -1,0 +1,51 @@
+WHAT: all, -sleep_hotel, -nap_hotel
+WHERE: all, -home
+WHEN: 8 - 22
+WHO: Actor = getRelative(Cousin, Sibling, StepSibling, Child, StepChild); If Actor:age < 23 && Actor:rapportwithplayer > 30 && Random(0, 500) < Actor:masochist - Actor:martial - Actor:interpersonal
+OTHER: Random(0, 500) < martial - masochist
+
+    SceneStart()
+    "My phone is ringing. It's my <Actor.relationship>, <Actor.name>, who is at university. I wonder what <Actor.he_or_she> is calling me for ..."
+    Actor.dress()
+    Actor.show(2)
+    Actor2 = generatePersonTemporary()
+    Actor2.blendPreset(bodybuilder)
+    Actor(Crying):: "It's that bully <Actor2.name> again. <Actor2.He_or_She> hit me and stole my money!"
+    0:: "Console <Actor.him_or_her> on the phone"
+    1:: "Rush there to confront <Actor.name>'s bully"
+    
+    If 0
+        Player(Sad):: "Oh no, that sucks. I'm so sorry to hear that ... Maybe you should call the cops or the university's security."
+        masochist += Random(0, 1)
+    Else
+        Actor:rapportwithplayer += Random(0, 20)
+        setBackground(home)
+        Actor2.dress()
+        Actor2.show(3)
+        Player(Angry):: "<Actor.name> told me everything! How dare you bully my <Actor.relationship>!?"
+        Actor2(Furious):: "Shut up and get your nose out of our business! Unless you want to get beat up too ..."
+        0:: "Intimidate <Actor2.name>"
+        1:: martial > 70:: "Beat <Actor2.name> up"
+        
+        If 0
+            "I'm not 100% confident about my ability to fight, but at least I know how to sound intimidating."
+            Player(Furious):: "You lay a finger on my <Actor.relationship> again and you'll go home in a body bag!"
+            Actor2(Surprised):: "Okay okay ... easy there. It was just a spur of the moment. I didn't mean to hurt <Actor.him_or_her> ..."
+            masochist -= Random(0, 1)
+        Elseif 1
+            Player(Furious):: "I'll teach you a lesson. Take this!"
+            Actor2(Furious):: "Ah ..."
+            "And just like that, I proceeded to beat the crap out of <Actor2.name>. That would teach <Actor2.him_or_her> for bullying my dear <Actor.relationship>!"
+            Actor2(Crying):: "That's enough. Please stop hitting me. I wouldn't dare to harm <Actor.him_or_her> again."
+            masochist -= Random(0, 0.5)
+            martial += Random(0, 0.5)
+        Endif
+        
+        Player(Sad):: "Let's get out of here, <Actor.name>."
+        Actor2.hide()
+        "A few hours later ..."
+        Actor(Happy):: "Thank you for standing up for me and being there for me. You're right. I need to gain more confidence and no bullies would dare to mess with me. You're the best <Actor.callplayer> ever!"
+    Endif
+    
+    SceneEnd()
+    timeout(1000, family_bullied)

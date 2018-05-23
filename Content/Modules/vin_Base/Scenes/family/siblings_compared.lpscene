@@ -1,0 +1,28 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 17 - 21
+WHO: Actor = getRelative(Parent, StepParent); Actor2 = getRelative(Sibling, StepSibling); If Random(10, 300) < Actor2:intelligence - Player:intelligence
+OTHER: jobexperience < 40 && isAtHome()
+
+    SceneStart()
+    "I was at a family dinner when the topic of careers came up."
+    Actor.dress()
+    Actor.show(2)
+    Actor2.dress()
+    Actor2.show(3)
+    Actor(Happy):: "<Player.name>, have you heard that <Actor2.name> just got a promotion at work again? Meanwhile, look at you - are you still at that job with the terrible pay and no prospects? When are you going to get your life in order like your <Actor2.relationship>?"
+    0:: "Be defensive"
+    1:: "Congratulate <Actor2.name>"
+    
+    If 0
+        Player(Angry):: "There's nothing wrong with my job. I enjoy it. You know there are goals in life other than money, right?"
+        Actor:rapportwithplayer -= Random(0, 2)
+        Actor2:rapportwithplayer -= Random(0, 2)
+        masochist -= Random(0, 0.25)
+    Else
+        Player(Excited):: "Wow, congratulations, <Actor2.name>. I'm proud of you! You're definitely the smarter sibling in this family."
+        Actor2:rapportwithplayer += Random(0, 2)
+        masochist += Random(0, 0.25)
+    Endif
+    SceneEnd()
+    timeout(200, siblings_compared)

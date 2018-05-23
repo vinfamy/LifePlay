@@ -1,0 +1,32 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 9 - 20
+WHO: Actor = getRelative(Sibling, StepSibling, Child, StepChild, Cousin); If !Actor.isAsexual() && Actor:rapportwithplayer > 10 && Random(0, 500) < Actor:attractiveness + Actor:interpersonal && Actor:perversion < Random(0, 100)*Random(0, 1)*Random(0, 1)
+OTHER: IsAtHome()
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor2 = generatePersonTemporary()
+    While !Actor.isInterestedIn(Actor2)
+        Actor2 = generatePersonTemporary()
+    Endwhile
+    Actor(Happy):: "Here's <Actor2.name>, my new <Actor2.boyfriend_or_girlfriend>."
+    Actor2.dress()
+    Actor2.show(3)
+    Actor2(Happy):: "Nice to meet you. <Actor.name> has said great things about you."
+    0:: "Be friendly"
+    1:: "Be passive-aggressive"
+    
+    If 0
+        masochist += Random(0, 0.1)
+        Actor:rapportwithplayer += Random(0, 2)
+        Player(Happy):: "Nice to meet you too, <Actor2.name>. How long have you been going out with each other?"
+    Else
+        Actor(Sarcastic):: "Already asslicking <Actor.his_or_her> <Actor.callplayer>, I see?"
+        masochist -= Random(0, 0.25)
+        Actor:rapportwithplayer -= Random(0, 2)
+    Endif    
+    
+    SceneEnd()
+    timeout(1000, family_introduces_dating)

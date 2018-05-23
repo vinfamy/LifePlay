@@ -1,0 +1,21 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0-24
+WHO: Actor = getRelative(Parent, GrandParent, StepParent, ParentSibling); If Actor.livesWithPlayer() && Random(70, 200) < Actor:intelligence && Random(60, 200) < Actor:interpersonal && Actor:attractiveness < Random(0, 60)*Random(0, 1)
+OTHER: isAtHome()
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    "I couldn't help but notice that my <Actor.relationship> has been going out with a much younger <Actor.girl_or_guy> recently, younger than me even, buying <Actor.her_or_him> a lot of expensive gifts too. I'm almost certain that this is one of those sugarbabe arrangements ..."
+    0:: "Criticize <Actor.him_or_her>"
+    1:: "Ignore"
+    
+    If 0
+        "I went ahead to tell <Actor.him_or_her> off, calling <Actor.him_or_her> desperate,a pervert and an embarassment to the family."
+        Actor:rapportwithplayer -= Random(0, 20)
+    Else
+        "Oh well, it's <Actor.his_or_her> money - <Actor.he_or_she> can do whatever <Actor.he_or_she> wants with it, even exchanging it for sex and companionship, I suppose ..."
+    Endif
+    SceneEnd()
+    timeout(1000, family_as_sugarparent)

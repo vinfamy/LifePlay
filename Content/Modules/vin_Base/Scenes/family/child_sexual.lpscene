@@ -1,0 +1,26 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0 - 24
+WHO: Dating = getRelative(Sibling, StepSibling, Child, StepChild); If Dating:perversion > Random(70, 100)
+OTHER: !isWithCompanion() && isAtHome()
+
+    SceneStart()
+    "Recently I couldn't help but notice just how many <Dating.girls_or_guys> my <Dating.relationship> has been seeing and bringing home. I'm not entirely sure how I should feel about this ..."
+    0:: "None of my business"
+    1:: "I don't want my <Dating.relationship> to be a <Dating.player_or_slut>"
+
+    If 0
+        "Well, it's none of my business. If <Dating.name> wants to experience and experiment sexually, it's only normal for people <Dating.his_or_her> age."
+        perversion += Random(0, 0.5)
+        masochist += Random(0, 0.25)
+    Else
+        "Call me old-school or possessive, but I just cannot put up with the idea of my <Dating.relationship> whoring <Dating.himself_or_herself> out to random <Dating.girls_or_guys> like that. I need to make sure that <Dating.he_or_she> knows that."
+        Dating.dress()
+        Dating.show(2)
+        masochist -= Random(0, 0.5)
+        Dating(Angry):: "<Actor.Callplayer>! You're being very controlling. It's just a bit of harmless fun. I can do whatever you want - it's my body."
+        Dating:rapportwithplayer -= Random(0, 5)
+    Endif
+
+    timeout(500, child_sexual)
+    SceneEnd()

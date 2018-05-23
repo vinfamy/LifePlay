@@ -1,0 +1,29 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0-24
+WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Random(50, 200) < Actor:intelligence
+OTHER: isAtHome() && Random(0, 200) < intelligence
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Excited):: "What do you think about the government response to the current civil war situation in ..."
+    0:: "Play it safe"
+    1:: "Show off your knowledge of international news"
+    
+    If 0
+        Player(Happy):: "It is a terrible war. They all are ..."
+        "My knowledge of world affairs leaves a lot to be desired and I know it. No point trying to sound smart here ..."
+    Else
+        "I tried my best to show off my knowledge of current affairs to engage in a sophisticated discussion with <Actor.name>."
+        If Random(0, 100) < intelligence
+            Actor(Happy):: "It's rare nowadays for someone to be so knowledgeable about everything going on in the world. Proud of you, <Actor.callplayer>"
+            Actor:rapportwithplayer += Random(0, 2)
+        Else
+            "Unfortunately, my knowledge of world affairs really wasn't deep enough to hold an intelligent conversation about it. From <Actor.his_or_her> facial expression, I could tell that <Actor.he_or_she> saw right through me as ignorant but pretentious."
+            Actor:rapportwithplayer -= Random(0, 1)
+        Endif
+    Endif
+    
+    SceneEnd()
+    timeout(500, news_discussion_family)
