@@ -1,0 +1,26 @@
+WHAT: play_a_video_game
+WHERE: PC
+WHEN: 9 - 22
+WHO: Actor = getRelative(Sibling, StepSibling, Cousin); If Actor.livesWithPlayer() && Random(0, 300) < Actor:intelligence && Actor:rapportwithplayer > 10
+OTHER: Random(0, 300) < intelligence
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Happy):: "Hey, I just bought this new game. Got really good reviews online. It has co-op, wanna play?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        Player(Happy):: "Sure, let's give it a try. Been a while since we last played a video game together. We used to do that everyday when we were younger."
+        "A while later ..."
+        "It's a good game so far. I just dislike how many cutscenes there are ... Here's another one."
+        "Oh god, it's getting steamy. It's a sex scene!"
+        Actor(Embarassed):: "Sorry ... I had no idea this game ..."
+        "Is there anything more awkward in the world than having to sit through a video game sex scene with your own <Actor.relationship>?"
+        Actor:incest += Random(0, 2)
+    Else
+        Player(Sad):: "I wish I could, but I'm super busy right now."
+    Endif
+    SceneEnd()
+    timeout(100, family_video_game_sex_scene)

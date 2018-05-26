@@ -1,0 +1,32 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 9 - 22
+WHO: Actor = getRelative(Parent); If Player.isInterestedIn(Actor) && !Actor.isMarried() && Actor:rapportwithplayer > 0
+OTHER: isAtHome() && Random(0, 1000) < perversion
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    "My <Actor.relationship> is a single <Actor.relationship> and has been for many years now. I admire and appreciate <Actor.his_or_her> effort in bringing up a lot. Sometimes, I wonder how <Actor.he_or_she> managed to do that ..."
+    0:: "With just one person's income"
+    1:: "Without the warmth of a <Actor.woman_or_man>'s touch at night"
+    
+    If 0
+        "My <Actor.relationship> must have worked <Actor.his_or_her> socks off to earn enough to provide for the family."
+        "It's not much, but I must make sure to give <Actor.him_or_her> the best present ever whenever <Actor.Relationship>'s Day comes around."
+    Else
+        "I don't know why this thought came up in my mind: but it must have been years since my <Actor.relationship> last had sex."
+        Actor:incest += Random(0, 0.5)
+        0:: "I shouldn't be thinking about this"
+        1:: "I wish I could satisfy <Actor.his_or_her> needs"
+        
+        If 0
+            "Ew, why am I thinking about my <Actor.relationship>'s sex life?"
+        Else
+            "As incesturous as the thought might be, sometimes I wish I could show how grateful I am by being the one to satisfy the sexual desires of this dilligent and admirable single <Actor.relationship> ..."
+            "It's only a silly fantasy of course, I'm <Actor.his_or_her> <Actor.callplayer> after all."
+            Actor:incest += Random(0, 2)
+        Endif
+    Endif
+    SceneEnd()
+    timeout(96, single_parent)

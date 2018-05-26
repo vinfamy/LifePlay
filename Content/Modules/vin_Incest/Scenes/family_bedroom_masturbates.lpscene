@@ -1,0 +1,18 @@
+WHAT: do_laundry
+WHERE: home, laundry
+WHEN: 0-24
+WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Player.isInterestedIn(Actor) && Random(10, 300) < Actor:perversion
+OTHER: none
+
+    SceneStart()
+    "It's my turn to do the laundry today. It's a bit more work today as I also need to wash all the bed sheets. It's been a while since we last did that so we couldn't really delay it anymore."
+    "Wait, what the hell is this stain on my <Actor.relationship>'s sheet?"
+    0:: "My <Actor.relationship>'s ejaculate"
+    1:: "Who cares?"
+    
+    If 0
+        "Was <Actor.he_or_she> masturbating in <Actor.his_or_her> room, then couldn't help but ejaculate all over <Actor.his_or_her> sheet?"
+        Actor:incest += Random(0, 1)
+    Endif
+    SceneEnd()
+    timeout(200, family_bedroom_masturbates)

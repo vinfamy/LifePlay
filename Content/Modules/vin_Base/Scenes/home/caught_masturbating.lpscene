@@ -73,7 +73,7 @@ If Interested
             "I came. I must have given my peeping Tom one hell of a show!"
         Endif
     
-    timeout(caught_masturbating, 24)
+    timeout(24, caught_masturbating)
     SceneEnd()
 Else
     Peeping.Delete()

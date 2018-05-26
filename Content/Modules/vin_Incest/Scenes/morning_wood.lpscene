@@ -1,0 +1,31 @@
+WHAT: sleep
+WHERE: home
+WHEN: 9 - 12
+WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Actor.isInterestedIn(Player)
+OTHER: isAtHome() && Player.isMale() && Random(0, 500) < arousal
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Anxious):: "Wake up, <Actor.callplayer>! Aren't you late for work?"
+    Player(Scared):: "Oh shit! I completely overslept. What time is it now?"
+    "When I looked back at my <Actor.relationship>, <Actor.his_or_her> face was completely red."
+    Actor(Embarassed):: "... Your ..."
+    Actor:incest += Random(0, 1)
+    "<Actor.He_or_She> pointed at my crotch. I had a massive morning wood and it has fallen out of my pants. No wonder I slept so soundly, I was probably having some wet dreams. "
+    0:: "Sorry"
+    1:: "Like what you see?"
+    
+    If 0
+        Player(Embarassed):: "Sorry. God, this is embarassing ... this sometimes happens in the morning ..."
+        Actor(Embarassed):: "It's okay. It happens. You should get dressed. You're late for work."
+    Elseif Actor:incest > 25
+        Actor(Flirty):: "Maybe just a little bit ..."
+        Actor:incest += Random(0, 1)
+    Else
+        Actor(Embarassed):: "What the hell! That's so inappropriate. I'm your <Actor.relationship> for God's sake."
+        Actor:incest -= Random(0, 0.5)
+    Endif
+    
+    SceneEnd()
+    timeout(96, morning_wood)

@@ -1,0 +1,26 @@
+WHAT: watch_TV, watch_a_movie_in
+WHERE: home
+WHEN: 8 - 21
+WHO: Actor = getRelative(Child, StepChild); If Actor.livesWithPlayer() && Player.isInterestedIn(Actor)
+OTHER: isAtHome() && Player.isMale() && Random(30, 500) < perversion
+
+    SceneStart()
+    "We're having a family gathering today over a movie. Only <Actor.name> is not here yet."
+    Actor.dress()
+    Actor.show(2)
+    Player(Happy):: "There you are! Come join us!"
+    "Now that I've had a chance to look, there are no seats left on the sofa for <Actor.him_or_her> ...""
+    0:: "Stand up"
+    1:: "Keep sitting"
+    
+    If 0
+        "I'll just stand behind the sofa to watch the movie and leave my seat for my <Actor.relationship>."
+    Else
+        "To my surprise, <Actor.name> proceeded to sit on my lap."
+        "I guess <Actor.he_or_she> used to do that all the time when <Actor.he_or_she> was a child. No big deal."
+        "A while later ..."
+        "Oh no, I don't feel so good. My <Actor.relationship> sitting on my lap is so strangely arousing and giving me a boner. Damn, I really need to calm myself down before <Actor.he_or_she> notices my hard rod underneath <Actor.him_or_her>."
+        Actor:incest += Random(0, 2)
+    Endif
+    SceneEnd()
+    timeout(200, family_sit_on_lap)

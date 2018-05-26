@@ -1,0 +1,24 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    If isAtHome()
+        "Am I sure that I want to move out from my current home?"
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            "This apartment just wasn't for me. I decided to terminate my lease contract with the landlord."
+            "Time to find a new place to live."
+            loseHome()
+        Else
+            "On second thought, I don't hate this place that much."
+        Endif
+    Else
+        "I'm not renting this home! There's no lease contract to terminate. I can stay or leave as I see fit."
+    Endif
+    
+    SceneEnd()

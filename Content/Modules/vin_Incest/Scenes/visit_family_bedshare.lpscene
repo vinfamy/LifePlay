@@ -1,0 +1,60 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 19 - 22
+WHO: Actor = getRelative(Sibling, StepSibling); If !Actor.livesWithPlayer() && Player.isInterestedIn(Actor) && Actor:rapportwithplayer > 20
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor:rapportwithplayer += Random(0, 2)
+    "I'm visiting my <Actor.relationship> today."
+    Player(Happy):: "That was a great day. Thanks for dinner. I think I should get going though before it gets too late."
+    Actor(Happy):: "No, stay the night! You can go back tomorrow's morning."
+    Player(Happy):: "I'd love to, but you don't have a spare bedroom, do you?"    
+    If Actor:rapportwithplayer + Actor:incest < Random(0, 70)*Random(0, 1)
+        Actor(Sad):: "Yeah, you're right. Alright, visit again soon, <Actor.Callplayer>."
+    Else
+        Actor(Happy):: "We can share bed for the night. We used to do that when we were children."
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            Player(Happy):: "Alright then, I'll stay. Let's go down memory lane together."
+            "Later that night ..."
+            Actor:incest += Random(0, 1)
+            Actor.closeEyes(true)
+            Player(Happy):: "Damn, <Actor.his_or_her> leg is touching my private part ... I'm so aroused. When has my <Actor.relationship> grown up to become such a <Actor.handsome_or_beautiful> <Actor.man_or_woman>."
+            0:: "Feel <Actor.him_or_her> up"
+            1:: "Maybe not"
+            
+            If 0
+                "I cannot take it anymore. I suppose a few touches won't hurt ..."
+                Actor:incest += Random(0, 1)
+                If Actor:incest + Actor:perversion > 125
+                    Actor.closeEyes(false)
+                    Actor(Flirty):: "I see you're getting handsy ... Couldn't resist your own <Actor.relationship>, could you, bad <Player.boy_or_girl>? To be honest, this is the real reason why I was so keen for you to stay the night ..."
+                    Actor(Kiss):: "..."
+                    Player(Kiss):: "..."
+                    "Is this real life or a dream? I'm kissing my own <Actor.relationship> and I like it ..."
+                    0:: "Give in to forbidden desires"
+                    1:: "Stop it there"
+                    
+                    If 0
+                        Sex(Player, Actor)
+                        Actor:incest += Random(0, 50)
+                    Else
+                        "This is going too far. I needed to stop it."
+                        "Eventually, we went back to sleep, neither of us trying anything funny for the rest of the night."
+                    Endif
+                Endif
+            Else
+                "I'd better not get too handsy. <Actor.He_or_She> is my <Actor.relationship> after all."
+            Endif
+        Else
+            Player(Sad):: "Yeah but we're adults now ... that would be too weird."
+            Actor(Sad):: "Yeah, you're right. Alright, visit again soon, <Actor.Callplayer>."
+        Endif
+    Endif
+    SceneEnd()
+    timeout(200, visit_family_bedshare)

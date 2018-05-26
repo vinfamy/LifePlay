@@ -1,0 +1,21 @@
+WHAT: masturbate, sleep, sleep_hotel, nap, nap_hotel
+WHERE: all
+WHEN: 0 - 24
+WHO: Actor = getRelative(); If Player.isInterestedIn(Actor) && Random(50, 200) < Actor:attractiveness && Actor:incest < 30
+OTHER: Random(0, 300) < perversion
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    "I know it's wrong but I have a pretty big crush on my own <Actor.relationship> ... Unfortunately for me, we're family so nothing will ever happen. It never hurts to fantasize a bit though ..."
+    0:: "Fantasize about sex with my <Actor.relationship>"
+    1:: "Resist the urge"
+    
+    If 0
+        SexNoAffair(Player, Actor)
+        perversion += Random(0, 0.25)
+        arousal += 50
+        Actor:incest += Random(0, 2)
+    Endif
+    SceneEnd()
+    timeout(150, fantasize_family)

@@ -8,16 +8,16 @@ OTHER: fitness < Random(0, 60)
     Dating.dress()
     Dating.show(2)
     "My <Dating.relationship> is far more athletic than me and lives a rather healthy lifestyle. I sometimes feel like the out-of-shape one in the family."
-    0:: "Ask <Dating.name> for help"
+    0:: "Ask my <Dating.relationship> for help"
     1:: "Do nothing"
 
     If 0
         If Random(0, 50) < Dating:rapportwithplayer
-            "<Dating.name> agreed to help me become healthier. <Dating.He_or_She> took me to the gym with <Dating.him_or_her> and designed training and diet plans for me."
+            "My <Dating.relationship> agreed to help me become healthier. <Dating.He_or_She> took me to the gym with <Dating.him_or_her> and designed training and diet plans for me."
             fitness += Random(0, 1)
             Dating:rapportwithplayer += Random(0, 2)
         Else
-            "Although <Dating.name> promised to help me, <Dating.he_or_she> ended up being too busy to really spend time as my personal trainer and nutritionist."
+            "Although my <Dating.relationship> promised to help me, <Dating.he_or_she> ended up being too busy to really spend time as my personal trainer and nutritionist."
         Endif
     Else
         "It doesn't matter. I'm proud of who I am and my family should be too."

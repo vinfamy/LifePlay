@@ -1,0 +1,22 @@
+WHAT: all
+WHERE: home
+WHEN: 8 - 21
+WHO: Actor = getRelative(); Dating = getSpecific(Dating); If Actor.livesWithPlayer() && Actor.isInterestedIn(Player) && Random(10, 300) < Actor:rapportwithplayer
+OTHER: isAtHome()
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Annoyed):: "Why do you keep going out with that <Dating.name>? A <Player.handsome_or_beautiful> <Player.man_or_woman> like you could do so much better than <Dating.him_or_her>!"
+    "I don't know why my <Actor.relationship> has become so possessive of me these days ... It's getting weird."
+    0:: "<Actor.He_or_She> is just protective of me ..."
+    1:: "<Actor.He_or_She> is attracted to me?"
+    
+    If 0
+        "<Actor.He_or_She> probably just wants to make sure that I'm safe."
+    Else
+        "Could it be that deep inside, <Actor.he_or_she> harbors forbidden desires for me ... and <Actor.he_or_she> is just jealous of <Dating.name>?"
+        Actor:incest += Random(0, 2)
+    Endif
+    SceneEnd()
+    timeout(200, family_possessive)

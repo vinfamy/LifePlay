@@ -1,0 +1,31 @@
+WHAT: all
+WHERE: home
+WHEN: 9 - 18
+WHO: Actor = getRelativeExcept(Parent, StepParent, GrandParent, ParentSibling); If Actor.livesWithPlayer() && Random(0, 300) < Actor:attractiveness && Actor.isInterestedIn(Player)
+OTHER: isAtHome()
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Player(Happy):: "What's the matter, <Actor.name>? You look sad."
+    Actor(Sad):: "I just had an argument with my <Player.boyfriend_or_girlfriend> again. You know expensive clothes are my guilty pleasure - I wanted <Player.him_or_her> to take me shopping today, but <Player.he_or_she> said we would do well to save money."
+    Actor(Angry):: "<Player.He_or_She> even accused me of being materialistic and shallow ..."
+    0:: "Sucks to hear"
+    1:: "I can take you shopping"
+    
+    If 0
+        Player(Sad):: "Oh, that's horrible to hear. I'm sure your <Player.boyfriend_or_girlfriend> will have a change of heart soon. Taking you shopping is the least <Player.he_or_she> could do."
+    Else
+        Player(Happy):: "Screw your <Player.boyfriend_or_girlfriend>. I can take you shopping."
+        Actor(Excited):: "Really? I'll go get changed then, we'll go right away. I'm warning you in advance though: I do spend a lot whenever I shop."
+        setBackground(department_store)
+        money -= Random(100, 500)
+        "Damn my <Actor.relationship> wasn't kidding about spending money ... These clothes <Actor.he_or_she> is getting cost a fortune. Oh well, too late to back out now."
+        Actor(Happy):: "I feel so much better now. Thank you so much for taking me shopping. You're so generous, unlike my <Player.boyfriend_or_girlfriend>."
+        Actor(Kiss):: "..."
+        "<Actor.name> kissed me on the cheek ..."
+        Actor(Happy):: "Honestly, it's a shame that you're my <Actor.callplayer> and that a kiss on the cheek is all I can give you. You would make a perfect <Player.boyfriend_or_girlfriend> for me otherwise."
+        Actor:incest += Random(0, 5)
+    Endif
+    SceneEnd()
+    timeout(200, take_family_shopping)

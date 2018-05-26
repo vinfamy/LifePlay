@@ -1,0 +1,24 @@
+WHAT: do_housework
+WHERE: home
+WHEN: 8 - 21
+WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Player.isInterestedIn(Actor)
+OTHER: isAtHome && Random(0, 500) < perversion
+
+    SceneStart()
+    "It's my turn to clean the apartment today. I'm nearly done though - it's only my <Actor.relationship>'s room left."
+    0:: "Clean the room thoroughly"
+    1:: "Get it done quickly"
+    
+    If 0
+        "Might as well clean it properly ... I'll even clean inside the drawers"
+        "Oh, this is the drawer for <Actor.his_or_her> underwear ... I don't need to clean this ... or maybe I should ..."
+        0:: "Take a pair of <Actor.boxers_or_panties>"
+        1:: "Leave it"
+
+        "I couldn't help it. I have fantasized about my <Actor.relationship> before. I should take these for my next masturbation session. It's just harmless fantasy, right? <Actor.He_or_She> won't notice one pair gone missing ..."
+        Actor:incest += Random(0, 2)       
+    Else
+        "I haven't got time to waste here. Let's get this over and done with."
+    Endif
+    SceneEnd()
+    timeout(200, steal_family_underwear)

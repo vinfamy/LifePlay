@@ -1,0 +1,26 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0-24
+WHO: Peeping = getRelative(); If Peeping.isInterestedIn(Player) && Peeping.livesWithPlayer() && Random(40, 500) < Peeping:perversion
+OTHER: isAtHome()
+
+    SceneStart()
+    Player.strip()    
+    setBackground(home)
+    Player(Happy):: "Hmm, what should I wear today?"
+    Player(Embarassed):: "What? Who's there?"
+    "I was getting changed when suddenly I heard a noise. Someone must be peeping on me!"
+    0:: "Get dressed quickly"
+    1:: "Take my time"
+    
+    If 0 
+        Player.dress()
+        "I quickly put some clothes on and went looking around but couldn't find anyone. Whoever the peeping Tom was must have some quick feet."
+    Else
+        perversion += Random(0, 0.1)        
+        "I won't lie: The thought of someone watching me getting changed turned me on ... I might as well take my time and give my peeping Tom a show to remember"
+        Peeping:incest += Random(0, 1)
+    Endif
+    
+    timeout(48, family_peeps_changed)
+    SceneEnd()

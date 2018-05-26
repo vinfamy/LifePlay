@@ -1,0 +1,36 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 22-4
+WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Player.isInterestedIn(Actor)
+OTHER: isAtHome() && Random(30, 500) < perversion
+
+    SceneStart()
+
+    "Phew, no better relief than getting to pee just in time. Now let's return to my room ..."
+    "Hmm, my <Actor.relationship>'s room door is slightly open but the lights are off. <Actor.He_or_She> must have forgotten to lock it before going to bed - that door can be dodgy sometimes."
+    0:: "Ignore"
+    1:: "Go to <Actor.his_or_her> room"
+
+    If 0
+        "Who cares? I'll just return to my room."
+    Else
+        perversion += Random(0, 0.5)
+        Actor:incest += Random(0, 0.5)
+        "My curiousity got the better of me ..."
+        Actor.strip()
+        Actor.closeEyes(true)
+        Actor.show(2)
+        "Wow, my <Actor.relationship> is sleeping naked ... <Actor.He_or_She> is my <Actor.relationship> so I really shouldn't feel like this but ... I'm getting very aroused myself ... In fact, as much as the thought is so wrong on so many different levels, I can't help but wish I have the courage to come join <Actor.him_or_her> in <Actor.his_or_her> bed ... or maybe I can touch <Actor.him_or_her> just a little bit."
+        0:: "Feel <Actor.him_or_her> up"
+        1:: "No way"
+        
+        If 0
+            "A few touches wouldn't hurt."
+            Actor:incest += Random(0, 3)
+        Else
+            "I should not. If <Actor.he_or_she> wakes up, everything would be so messed up."
+        Endif
+    Endif
+
+    SceneEnd()
+    timeout(96, feel_up_bedroom)

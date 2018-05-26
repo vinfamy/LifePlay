@@ -1,0 +1,36 @@
+WHAT: all
+WHERE: home
+WHEN: 22-4
+WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Random(0, 500) < Actor:perversion && Actor.isInterestedIn(Player) && Actor:incest > 25
+OTHER: isAtHome()
+
+    SceneStart()
+
+    "What's that sound? If it is what I think it is, then my <Actor.relationship> is having some wet dreams. <Actor.He_or_She> is moaning something incoherent."
+    0:: "Ignore"
+    1:: "Go to <Actor.his_or_her> room"
+
+    If 0
+        "Good for <Actor.him_or_her> I guess. I can't ban my <Actor.relationship> from having fantasies at night!"
+    Else
+        perversion += Random(0, 0.5)
+        Actor:incest += Random(0, 1)
+        "My curiousity got the better of me and I just had to see this ..."
+        Actor.strip()
+        Actor.closeEyes(true)
+        Actor.show(2)
+        Actor:: "Yes, <Actor.Callplayer>, just like that! Touch me there ..."
+        "Wow, my <Actor.relationship> is sleeping naked ... more importantly, is <Actor.he_or_she> fantasizing about me in <Actor.his_or_her> sleep? <Actor.He_or_She> is my <Actor.relationship> so I really shouldn't feel like this but ... I'm getting very aroused myself ... In fact, as much as the thought is so wrong on so many different levels, I can't help but wish I have the courage to come join <Actor.him_or_her> in <Actor.his_or_her> bed ... or maybe I can touch <Actor.him_or_her> just a little bit."
+        0:: "Feel <Actor.him_or_her> up"
+        1:: "No way"
+        
+        If 0
+            "A few touches wouldn't hurt. Besides, <Actor.he_or_she> was literally asking for it during <Actor.his_or_her> sleep."
+            Actor:incest += Random(0, 5)
+        Else
+            "I should not. If <Actor.he_or_she> wakes up, everything would be so messed up."
+        Endif
+    Endif
+
+    SceneEnd()
+    timeout(96, family_wet_dream)

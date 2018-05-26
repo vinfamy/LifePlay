@@ -1,0 +1,70 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 21 - 24
+WHO: Actor = getRelative(Sibling, StepSibling, Cousin); If Random(60, 300) < Actor:perversion && Random(10, 200) < Actor:rapportwithplayer
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Excited):: "Yo, you're still awake? Listen, I'm heading out to a stripclub soon. Wanna join?"
+    "Ah, it's my <Actor.relationship> <Actor.name>. Always a bad influence ..."
+    0:: "Sure"
+    1:: "Nope"
+
+    If 0
+        Player(Excited):: "Actually that's an excellent idea. Watching a few hotties dancing naked is just what I need right now."
+        mood += Random(0, 20)
+        perversion += Random(0, 0.25)
+        Actor:rapportwithplayer += Random(0, 10)
+        "Later that night ..."
+        setBackground(nightclub)
+        Stripper = generatePersonTemporary()
+        Stripper.blendPreset(twenties)
+        Stripper.blendpreset(hourglass1_F)
+        Stripper.randomizeHairs()    
+        If !Player.isInterestedIn(Stripper)
+            Stripper.blendPreset(athletic)
+        Endif
+        Stripper.randomizeFace()
+        Stripper.randomizeHairs()
+        
+        Actor.show(4)
+        
+        Stripper.dress()
+        Stripper.strip()
+        Stripper.show(2)
+        arousal += Random(0, 30)
+        "The stripper gave me quite a lap dance. I really need to release now ..."
+        0:: "Pay for extra service"
+        1:: "Just enjoy the show"
+        
+        If 0
+            money -= Random(200, 1000)
+            "It cost quite a bit of money but eventually I managed to convince the stripper to do more than just giving me a show."
+            Actor.hide()
+            Sex(Player, Stripper)
+            perversion += Random(0, 0.5)       
+            Stripper.show(2)
+            "That was a very pleasurable night out with my <Actor.relationship>!"
+            Actor:incest += Random(0, 2)
+        Else
+            "I'd rather just watch ..."
+            If Actor.isInterestedIn(Stripper)
+                "With me not going for it, <Actor.name> paid the stripper instead to have sex with <Actor.him_or_her>."
+                Player.hide()
+                Sex(Actor, Stripper)
+                Stripper.hide()
+                Actor.show(4)
+                Player.show(0)
+                "I can't believe I watched the whole thing! I got to see another side of my <Actor.relationship>."
+                Actor:incest += Random(0, 5)
+            Endif
+            "That was an enjoyable night out, even if I never got to release myself."       
+        Endif    
+    Else
+        Player(Sad):: "Sorry, it's not my thing."
+    Endif
+
+    SceneEnd()
+    timeout(500, stripclub_with_family)

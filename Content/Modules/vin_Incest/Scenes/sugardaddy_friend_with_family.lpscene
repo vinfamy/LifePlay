@@ -1,0 +1,61 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 17 - 21
+WHO: Actor = getRelative(Parent, StepParent, GrandParent, ParentSibling); If Actor.isInterestedIn(Player) && Random(70, 500) < Actor:perversion
+OTHER: none
+    
+    SugarParent = SugarParent.getGlobal()    
+    If SugarParent > 0
+        SceneStart()
+        Sugar = getSpecific(SugarParent)
+        Sugar.dress()
+        Sugar.show(2)
+        setBackground(restaurant)
+        "I'm on another date with my <Sugar.sugardaddy_or_sugarmommy>."
+        Sugar(Flirty):: "Darling, you know after everything I have given you, would you be a good <Player.boy_or_girl> and do something that pleases your <Sugar.Daddy_or_Momma>?"
+        Player(Flirty):: "What is it, <Sugar.Daddy_or_Momma>?"
+        Sugar(Flirty):: "You know I love fucking your brain out ... but I also love to watch. I have one of my loyal staff members who I want you to pleasure in front of me ..."
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            Player(Flirty):: "Anything to please you, <Sugar.Daddy_or_Momma>."
+            "<Sugar.name> then said that <Said.he_or_she> would organize everything."
+            "A few days later ..."
+            setBackground(home)
+            Sugar(Happy):: "Here you are, finally. I didn't lie, did I, <Actor.name>? My sugarbabe is smoking hot. You deserve this night for all your hard work for my company."
+            Player(Flirty):: "Nice to meet ..."
+            Actor.dress()
+            Actor.show(3)
+            Actor(Shocked):: "What the fuck!"
+            Player(Shocked):: "No fucking way!"
+            "My <Sugar.sugardaddy_or_sugarmomma>'s worker turned out to be my <Actor.relationship>. Something straight out of a porn parody just happened to me ..."
+            Actor(Shocked):: "My <Actor.callplayer>, you're the sugarbabe!? I didn't know you resorted to this to make money."
+            Sugar(Surprised):: "What? You're <Player.his_or_her> <Actor.relationship>? I had no idea."
+            Sugar(Flirty):: "Although it gives me some ideas ..."
+            "Oh god, why on earth does <Sugar.Daddy_or_Momma> want from this already messed-up situation?"
+            Sugar(Evil):: "Tell you what? I'll give you that promotion you've been eyeing and <Player.him_or_her> a big chunk of cash if you two still fuck. I've seen many incest porn, but never one live. Would be a sight to remember that even money could rarely buy!"
+            0:: "Yes"
+            1:: "No"
+            
+            If 0
+                "The lure of money is too great. After all, money is why I have a <Sugar.sugardaddy_or_sugarmomma> in the first place ..."
+                "It took some more convincing to get my <Actor.relationship> to accept, but eventually, the promotion is too great a prize."
+                Sex(Actor, Player)
+                Actor:incest += Random(0, 50)
+                money += Random(1000, 5000)
+            Else
+                Player(Angry):: "No way! I'll do everything else for you, <Sugar.Daddy_or_Momma>. But not this ..."
+                Sugar(Angry):: "I'm disappointed in your choice, but fine."
+                Sugar(Flirty):: "But I cannot just let this night go to waste, can I? I already paid for the hotel room. You must fuck me now, while your <Actor.relationship> watches ..."
+                Sugar(Evil):: "Or I'll end our little arrangement and fire your <Actor.relationship>!"
+                "We had no other choice ..."
+                Sex(Sugar, Player)
+                Actor:incest += Random(0, 20)           
+            Endif
+        Else
+            Player(Sad):: "I'm sorry, <Sugar.Daddy_or_Momma> ... I don't even know this subordinate of yours. I don't just have sex with random strangers. You can't just use me as reward for your staff."
+        Endif        
+        SceneEnd()
+        timeout(1000, sugardaddy_friend_with_family)
+    Endif

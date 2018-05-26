@@ -18,7 +18,7 @@ OTHER: !isWithCompanion() && isAtHome()
         Dating.dress()
         Dating.show(2)
         masochist -= Random(0, 0.5)
-        Dating(Angry):: "<Actor.Callplayer>! You're being very controlling. It's just a bit of harmless fun. I can do whatever you want - it's my body."
+        Dating(Angry):: "<Dating.Callplayer>! You're being very controlling. It's just a bit of harmless fun. I can do whatever you want - it's my body."
         Dating:rapportwithplayer -= Random(0, 5)
     Endif
 

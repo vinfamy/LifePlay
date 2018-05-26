@@ -1,0 +1,22 @@
+WHAT: do_housework
+WHERE: home
+WHEN: 8 - 21
+WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Actor.isInterestedIn(Player) && Random(30, 500) < Actor:perversion
+OTHER: isAtHome()
+
+    SceneStart()
+    "It's my turn to clean the apartment today. I'm nearly done though - it's only my <Actor.relationship>'s room left."
+    0:: "Clean the room thoroughly"
+    1:: "Get it done quickly"
+    
+    If 0
+        "Might as well clean it properly ... I'll even clean inside the drawers"
+        "Hmm, what's this thing?"
+        "I know what it is ... It's a <Actor.Fleshlight_or_dildo>!"
+        "Wow, I would never have imagined that my <Actor.relationship> uses sextoys. I won't deny that this discovery turns me on so much."
+        Actor:incest += Random(0, 2)       
+    Else
+        "I haven't got time to waste here. Let's get this over and done with."
+    Endif
+    SceneEnd()
+    timeout(200, found_family_sextoy)

@@ -1,0 +1,41 @@
+WHAT: all, -sleep, -nap. -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 9 - 22
+WHO: Actor = getRelative(Sibling, StepSibling, Cousin, Child, StepChild); If Random(50, 300) < Actor:perversion && !Actor.isAsexual() && Actor:rapportwithplayer > 20
+OTHER: Random(50, 500) < intelligence
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Embarassed):: "I have an emergency that I need your help with, but please promise you won't tell anyone. It's embarassing!"
+    Player(Surprised):: "I promise. What is it?"
+    Actor2 = generatePersonTemporary()
+    While !Actor.isInterestedIn(Actor2)
+        Actor2 = generatePersonTemporary()
+    Endwhile
+    Actor2.dress()
+    Actor(Embarassed):: "You remember <Actor2.name>? I broke up with <Actor2.him_or_her> today. <Actor2.He_or_She> was so upset that <Actor2.he_or_she> uploaded a sex tape of us onto PornHub to take revenge on me ..."
+    Actor(Crying):: "The video already has a few thousands views. Please do something to take it down, before my reputation is destroyed ..."
+    Player(Angry):: "Oh god, what a horrible situation ... I'll work on getting it removed right away! Don't worry, I'll sort it out. And I won't tell anyone."
+    Actor(Crying):: "Thank you ... I knew I could rely on you"
+    Actor.hide()
+    "A while later ..."
+    "Ah, it turns out PornHub has a policy that allows me to simply submit a request for a video to be taken down. I should do that now ... or maybe ..."
+    0:: "Download the video first"
+    1:: "Just send the request"
+    
+    If 0
+        "I couldn't help it ... even if it's my own <Actor.relationship> who is the pornstar this time."
+        "I downloaded the video to watch later before getting on with the task of sending the take down request."
+        "Once that was done, there was only one thing I was going to do. I know it's so wrong, but I just couldn't resist the forbidden fruit. Well, it's just watching my <Actor.relationship> having sex with an ex, I'm not actually doing anything sexual to <Actor.him_or_her>. It's harmless, right?"
+        Sex(Actor2, Actor)
+        Actor.hide()
+        Actor:incest += Random(0, 10)
+    Else
+        "No time to lose. Let's just send the request now to PornHub."
+    Endif
+    "About an hour after the request was sent, PornHub responded by taking down the video. Hopefully that was quick enough for my <Actor.relationship>'s reputation to remain intact."
+    Actor:rapportwithplayer += Random(0, 20)
+    
+    SceneEnd()
+    timeout(1000, family_sextape)

@@ -1,0 +1,45 @@
+WHAT: all, -go_to_the_bathroom, -sleep, -nap
+WHERE: home
+WHEN: 18 - 24
+WHO: Actor = getRelative(Sibling, StepSibling, Cousin); If Player.isInterestedIn(Actor) && Actor:rapportwithplayer > 0
+OTHER: IsAtHome()
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    "I was going down the memory lane with my <Actor.relationship>, who I was very close to during our childhood."
+    Actor(Happy):: "I wish we could be children forever. Do you remember all the fun games we used to play together as children?"
+    Player(Happy):: "Of course, I remember that time when we played ..."
+    0:: "Hide and seek"
+    1:: "Show me yours and I'll show you mine"
+    
+    If 0
+        Actor(Happy):: "Of course, we used to play that all the time, messing up the whole house and upsetting all the adults by the time we were done."
+        Actor:rapportwithplayer += Random(0, 2)
+    Else
+        Actor(Embarassed):: "Well, that wasn't exactly what I meant by 'childhood games'."
+        Actor(Embarassed):: "But yeah, I definitely remember that. To be honest, you were the first <Player.guy_or_girl> I saw naked."
+        "Well, that conversation got real awkward in a hurry ..."
+        Actor:incest += Random(0, 2)
+        If Random(30, 100) < perversion || Random(20, 100) < Actor:incest
+            "Suddenly, a crazy thought came up in my mind ..."
+            0:: "Let's play that again now"
+            1:: "Say nothing"
+            
+            If 0
+                If Random(0, 200) < interpersonal + Actor:perversion
+                    Actor(Embarassed):: "Fine then. There's no harm in a quick glance, I guess. You go first!"
+                    Player.strip()
+                    Actor(Embarassed):: "My <Actor.callplayer> has grown up I see ... It's my turn now ..."
+                    Actor.strip()
+                    Actor:incest += Random(0, 3)
+                    "Wow, I can't believe my <Actor.relationship> is once again naked in front of me, this time with both of us as adults."
+                Else
+                    Actor(Angry):: "What? Are you crazy? No way! It might have been fine when we were innocent children just being curious. We should know better now as adults."
+                    Actor:rapportwithplayer -= Random(0, 1)
+                Endif
+            Endif
+        Endif
+    Endif
+    SceneEnd()
+    timeout(200, family_childhood_game)

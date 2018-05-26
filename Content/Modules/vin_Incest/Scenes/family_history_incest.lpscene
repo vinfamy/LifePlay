@@ -1,0 +1,24 @@
+WHAT: watch_tv
+WHERE: home
+WHEN: 0-24
+WHO: Actor = getRelative(Sibling, Cousin); If Actor.isInterestedIn(Player) && Random(30, 300) < Actor:intelligence
+OTHER: isAtHome() && Random(30, 300) < intelligence
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    "My <Actor.relationship> and I just watched a history documentary about royal families during the medieval period together on TV."
+    Player(Happy):: "Wow, I can't believe people used to ..."
+    0:: "Be married off to seal alliances"
+    1:: "Marry their <Actor.relationship>s"
+    
+    If 0
+        Actor(Sad):: "Yeah it's a shame that women used to be used as nothing more than pawns in the diplomacy game."
+    Else
+        Actor(Embarassed):: "..."
+        "Wow, that conversation just got awkward real quick ..."
+        Actor:incest += Random(0, 2)
+    Endif
+    
+    SceneEnd()
+    timeout(200, family_history_incest)

@@ -1,0 +1,34 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 22-4
+WHO: Actor = getSpecific(Neighbour); Actor2 = getRelative(); If Actor:perversion > 70 && Actor.isInterestedIn(Actor2) && Actor2.livesWithPlayer() && Actor2:incest > 75 && Actor:rapportwithplayer < Random(-100, -20)
+OTHER: isModEnabled(vin_NTR) && isAtHome() && intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Evil):: "We need to talk, degenerate!"
+    "It's my neighbour <Actor.name>. What the hell is going on?"
+    Player(Surprised):: "What happened? Why are you name-calling me?"
+    Actor(Evil):: "I saw everything! You scum was sleeping with your own <Actor2.relationship>!"
+    "Oh no! We got caught ... There's no point making up any excuses..."
+    Actor(Evil):: "Lucky for you ... I can be convinced to stay quiet about it."
+    Actor(Evil):: "But I'm not interested in money. I want to fuck your <Actor2.relationship>."
+    0:: "Accept"
+    1:: "No deal"
+    
+    If 0
+        "This incesturous affair cannot get out ... or it'll ruin our lives."
+        "I had to convince my <Actor2.relationship> to do it as humiliating as it was, but <Actor2.he_or_she> eventually accepted. We had no other choice."
+        Actor2.dress()
+        Sex(Actor, Actor2)
+        masochist += Random(0, 5)
+    Else
+        Player(Angry):: "No deal! You can't blackmail us ..."
+        Actor(Evil):: "Then be prepared for your life to get destroyed!"
+        "<Actor.name> kept <Actor.his_or_her> promise, telling everyone in the neighbourhood about our affair. Worse, rumours spread and eventually some of my colleagues catch wind of it. It will be much more difficult for me to make friends, get a promotion or get a new job now."
+        interpersonal -= Random(0, 20)
+        jobexperience -= Random(0, 20)
+    Endif
+    SceneEnd()
+    timeout(1000, neighbour_catches_incest, neighbour_blackmails_incest, neighbour_blackmails_family_incest)

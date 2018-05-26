@@ -1,0 +1,25 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0-24
+WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Actor.isInterestedIn(Player) && Random(30, 300) < Actor:perversion
+OTHER: isAtHome()
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Player(Happy):: "Damn I ran out of data on my phone. Can I borrow your phone to google something real quick?"
+    Actor(Happy):: "Sure, here you are."
+    0:: "Use Chrome"
+    1:: "Use Safari"
+    
+    If 0
+        "I opened Chrome, only to be greeted by its start screen with frequently visited sites. I couldn't help but notice the fourth one was 'Patreon - Romancing my <Actor.callplayer>'."
+        "What the hell! I know these indie adult games are becoming more popular, but could my <Actor.relationship> be fantasizing about me while playing these incest games?"
+        "I didn't say anything though and proceeded to look up what I needed and returned the phone to my <Actor.relationship>."
+        Actor:incest += Random(0, 2)
+    Else
+        "I looked up what I needed and returned the phone to my <Actor.relationship>."
+    Endif
+    
+    SceneEnd()
+    timeout(96, family_incest_game)

@@ -8,7 +8,7 @@ OTHER: none
     Dating.dress()
     Dating.show(2)
 
-    "<Dating.name> and I are having a pretty silly argument over some trivial things. How should I act?"
+    "My <Dating.relationship> and I are having a pretty silly argument over some trivial things. How should I act?"
     0:: "Back down"
     1:: "Try to win"
 
@@ -16,7 +16,7 @@ OTHER: none
         "I decided to just let it go and went easy on <Dating.him_or_her> this time."
         masochist += Random(0, 0.5)
     Else
-        "No way I'm backing down. I made sure that <Dating.name> knew that I was not a pushover of a <Dating.callplayer>."
+        "No way I'm backing down. I made sure that my <Dating.relationship> knew that I was not a pushover of a <Dating.callplayer>."
         Dating:rapportwithplayer -= Random(0, 1)
     Endif
 

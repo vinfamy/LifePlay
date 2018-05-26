@@ -1,7 +1,7 @@
 WHAT: masturbate
 WHERE: home
 WHEN: 0-24
-WHO: Peeping = getRelativeExcept(); If Peeping.isInterestedIn(Player) && Peeping.livesWithPlayer() && Random(40, 500) < Peeping:perversion
+WHO: Peeping = getRelative(); If Peeping.isInterestedIn(Player) && Peeping.livesWithPlayer() && Random(40, 500) < Peeping:perversion
 OTHER: isAtHome()
 
 
@@ -53,5 +53,5 @@ OTHER: isAtHome()
             "I came. I must have given my peeping Tom one hell of a show!"
         Endif
     
-    timeout(family_catches_masturbating, 24)
+    timeout(24, family_catches_masturbating)
     SceneEnd()

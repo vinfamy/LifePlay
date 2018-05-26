@@ -1,0 +1,27 @@
+WHAT: watch_a_movie_in
+WHERE: home
+WHEN: 16 - 22
+WHO: Actor = getRelative(Sibling, StepSibling, Cousin); If Actor.livesWithPlayer() && Actor:rapportwithplayer > 10
+OTHER: isAtHome() && Random(0, 100) < 1
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Happy):: "Hey, I just bought this movie on the DVD. Got really good reviews online. Movie night tonight?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        Player(Happy):: "Sure, let's give it a try. Been a while since we last had a movie night. We used to do that everyday when we were younger."
+        "A while later ..."
+        "It's a decent movie so far ..."
+        "Oh god, this is getting steamy. It's a sex scene!"
+        Actor(Embarassed):: "Sorry ... I had no idea this movie has ... It says PG13 on the cover."
+        "Is there anything more awkward in the world than having to sit through a movie sex scene with your own <Actor.relationship>?"
+        Actor:incest += Random(0, 2)
+    Else
+        Player(Sad):: "I wish I could, but I'm super busy right now."
+    Endif
+    SceneEnd()
+    timeout(100, family_movie_sex_scene)
+

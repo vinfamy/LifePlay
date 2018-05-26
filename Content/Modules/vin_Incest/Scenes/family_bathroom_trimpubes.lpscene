@@ -1,0 +1,28 @@
+WHAT: go_to_the_bathroom
+WHERE: home
+WHEN: 0-24
+WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Player.isInterestedIn(Actor) && Random(10, 300) < Actor:perversion
+OTHER: isAtHome()
+
+    SceneStart()
+    Player(Pain):: "<Actor.Relationship>, I need to use the bathroom real bad! Hurry up please ..."
+    Actor.dress()
+    Actor.show(2)
+    Actor(Happy):: "Just a couple more minutes ..."
+    "My <Actor.relationship> has been using bathroom for like half an hour. What on earth is <Actor.he_or_she> doing in there that takes so long?"
+    "A while later ..."
+    Actor(Happy):: "There you go."
+    Actor.hide()
+    "Finally ..."
+    "I went in and did my thing. What a relief!"
+    "Wait, what the hell is this hair on the toilet bowl?"
+    0:: "My <Actor.relationship>'s pubes"
+    1:: "Who cares?"
+    
+    If 0
+        "Was <Actor.he_or_she> trimming <Actor.his_or_her> pubic hair in here? Is that why it took <Actor.him_or_her> so long to come out? And then in a rush, <Actor.he_or_she> didn't quite manage to flush down every last hair ..."
+        "Who is <Actor.he_or_she> trimming it for? I wonder ..."
+        Actor:incest += Random(0, 1)
+    Endif
+    SceneEnd()
+    timeout(100, family_bathroom_trimpubes)

@@ -1,7 +1,7 @@
 WHAT: all, -sleep, -sleep_hotel
 WHERE: all, -work
 WHEN: 9-20
-WHO: Friend = getRelative(Sibling, StepSibling, Cousin); If Actor:rapportwithplayer > 20 && Friend:fitness > 60
+WHO: Friend = getRelative(Sibling, StepSibling, Cousin); If Friend:rapportwithplayer > 20 && Friend:fitness > 60
 OTHER: !IsWithCompanion() && Random(0, 100) < fitness
 
     sceneStart()

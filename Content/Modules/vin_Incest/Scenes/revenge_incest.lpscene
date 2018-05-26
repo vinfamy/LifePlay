@@ -1,0 +1,42 @@
+WHAT: all, -sleep_hotel, -nap_hotel
+WHERE: all, -home
+WHEN: 8 - 22
+WHO: Actor = getRelative(Cousin, Sibling, Child, StepSibling, StepChild); If Actor:rapportwithplayer > 30 && Actor:attractiveness < Actor:masochist*Random(0, 1)*Random(0, 1) && Actor.isInterestedIn(Player)
+OTHER: none
+
+    SceneStart()
+    "My phone is ringing. It's my <Actor.relationship>, <Actor.name>. I wonder what <Actor.he_or_she> is calling me for ..."
+    Actor.dress()
+    Actor.show(2)
+    livesWithMe = Actor.livesWithPlayer()
+    Actor(Crying):: "My <Actor.girlfriend_or_boyfriend> broke up with me!"
+    "From <Actor.his_or_her> voice, <Actor.he_or_she> clearly has been downing a lot of alcohol too ..."
+    0:: "Console <Actor.him_or_her> on the phone"
+    1:: livesWithMe:: "Rush home to comfort <Actor.him_or_her>"
+    2:: !livesWithMe:: "Pay <Actor.him_or_her> a visit to console <Actor.him_or_her>"
+    
+    If 0
+        Player(Sad):: "Oh no, that sucks. I'm so sorry to hear that ..."
+    Else
+        Actor:rapportwithplayer += Random(0, 20)
+        setBackground(home)
+        Actor(Happy):: "Thank you for spending time with me in these difficult times. I feel so much better now with you here. You're the best <Actor.callplayer> ever!"
+        If Actor:incest > 25
+            Actor(Evil):: "You know what? My <Actor.girlfriend_or_boyfriend> always hated you. Let's teach <Actor.her_or_him> a lesson for breaking up with me ... Come, take my body!"
+            0:: "Yes"
+            1:: "No"
+            
+            If 0
+                "I would be lying if I said I never fantasized about <Actor.name> that way. I tried to justify this in my head as me just helping <Actor.him_or_her> get revenge but part of me wonders if I was just taking advantage of <Actor.his_or_her> anger, heartbreak and intoxication ..."
+                Sex(Actor, Player)
+                Actor:incest += Random(0, 50)
+            Else
+                Player(Shocked):: "Are you crazy!? I'm your <Actor.callplayer> ... You're drunk!"
+            Endif
+        Endif
+    Endif
+    
+    SceneEnd()
+    timeout(1000, revenge_incest)
+
+    

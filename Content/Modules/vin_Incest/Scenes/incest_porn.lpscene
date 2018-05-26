@@ -1,0 +1,22 @@
+WHAT: masturbate
+WHERE: home, hotel
+WHEN: 0-24
+WHO: Actor = getRelative(); If Player.isInterestedIn(Actor)
+OTHER: isAtHome()
+
+    SceneStart()
+    Player.strip()
+    Player(Pain): "..."
+    "I'm pleasuring myself while watching some porn. The current video just ends though. I now need to pick the next video."
+    0:: "Beautiful blonde makes love with her husband"
+    1:: "POV sex with my hot <Actor.relationship>"
+    
+    If 0
+        "Sometimes, vanilla is the best ice cream."
+    Else
+        "I don't know what came over me, but I was feeling adventurous with my video choice. Some fantasy incest won't hurt."
+        "For some reason, this video got me much more excited than usual ... I know it's wrong, but I can't help imagine my own <Actor.relationship> in place of the pornstar on my screen."
+        Actor:incest += Random(0, 1)
+    Endif
+    SceneEnd()
+    timeout(48, incest_porn)

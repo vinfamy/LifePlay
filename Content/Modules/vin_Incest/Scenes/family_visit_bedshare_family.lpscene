@@ -1,0 +1,60 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 19 - 22
+WHO: Actor = getRelative(Sibling, StepSibling); Actor2 = getRelative(Sibling, StepSibling); If !Actor.livesWithPlayer() && Actor2.livesWithPlayer() && Actor2.isInterestedIn(Actor) && Actor:rapportwithplayer > 10
+OTHER: isAtHome()
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor2.dress()
+    Actor2.show(4)
+    Actor:rapportwithplayer += Random(0, 2)
+    "My <Actor.relationship> is visiting me today."
+    Actor(Happy):: "That was a great day. Thanks for dinner. I think I should get going though before it gets too late."
+    0:: "Ask <Actor.him_or_her> to stay the night"
+    1:: "Goodbye"
+    
+    If 0
+        Player(Happy):: "No, stay the night! You can go back tomorrow's morning."
+        Actor(Happy):: "I'd love to, but you don't have a spare bedroom, do you?"
+        Actor2(Happy):: "We can share bed for the night. We used to do that when we were children."
+        If Random(0, 100) < Actor2:interpersonal
+            Actor(Happy):: "Alright then, I'll stay. Let's go down memory lane together tonight, <Actor2.name>."
+            Actor.hide()
+            Actor2.hide()
+            "Later that night ..."
+            "Hmm, what's that sound coming from <Actor2.name>'s room? Is that a ... moan?"
+            0:: "Check it out"
+            1:: "Go back to sleep"
+            
+            If 0
+                "My curiousity got the better of me and I just had to check what's going on ..."
+                If Random(0, 100) < sneak
+                    Actor:incest += Random(0, 2)
+                    "Luckily, my <Actor2.relationship> didn't quite close <Actor2.his_or_her> door completely shut. With my sneaking talent, I managed to get a pretty good view of what was going on ..."
+                    "What? Is <Actor2.name> kissing <Actor.name>!? What kind of incesturous relationship are them two having? No wonder <Actor2.name> was so keen for <Actor.name> to stay."
+                    Sex(Actor, Actor2)
+                    Actor.hide()
+                    Actor2.hide()
+                    Player.show(0)
+                    arousal += Random(0, 30)
+                    "This is so wrong, I know, watching my <Actor.relationship> fuck my <Actor2.relationship> ... but for some reason, I'm getting so excited."
+                    Actor:incest += Random(0, 25)
+                    Actor2:incest += Random(0, 25)
+                Else
+                    "Unfortunately for me, their doors were fully closed and all the curtains were pulled down. There's no way I can get a look in ..."
+                Endif
+            Else
+                "I couldn't be bothered to get out of bed. Whatever ..."
+            Endif
+        Else
+            Actor(Sad):: "Yeah but we're adults now ... that would be too weird."
+            Actor2(Sad):: "Yeah, you're right. Alright, visit again soon, <Actor.Relationship>."
+        Endif
+    Else
+        Player(Happy):: "Alright, visit again soon, <Actor.Relationship>."
+    Endif
+    
+    SceneEnd()
+    timeout(200, family_visit_bedshare_family)

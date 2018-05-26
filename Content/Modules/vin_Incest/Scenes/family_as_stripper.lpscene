@@ -1,0 +1,63 @@
+WHAT: work
+WHERE: work
+WHEN: 21 - 24
+WHO: Colleague = getSpecific(Colleague); Actor = getRelative(Sibling, StepSibling, Cousin, Child, StepChild); If Actor:age < 40 && Random(80, 200) < Actor:perversion && Random(50, 200) < Actor:attractiveness && Actor:intelligence < Random(0, 70)*Random(0, 1) && Colleague:perversion > Random(50, 100) && Colleague:rapportwithplayer > Random(0, 50) && !Colleague.isInterestedIn(Player) && Colleague.isInterestedIn(Actor)
+OTHER: none
+
+
+    SceneStart()
+    setBackground(work)
+    Colleague.dress()
+    Colleague.show(2)
+
+    Colleague(Excited):: "Yo, you're still going strong this late? Listen, I'm heading out to a stripclub soon. Wanna join?"
+    0:: "Sure"
+    1:: "Nope"
+
+    If 0
+        Player(Excited):: "Actually that's an excellent idea. Watching a few hotties dancing naked is just what I need right now to relieve the stress."
+        mood += Random(0, 20)
+        perversion += Random(0, 0.25)
+        Colleague:rapportwithplayer += Random(0, 20)
+        "Later that night ..."
+        setBackground(nightclub)
+        
+        Colleague.show(4)
+        Colleague(Happy):: "Damn, do you see that stripper over there? <Actor.He_or_She> is smoking hot! I think I'm going to blow as much cash as it takes to fuck <Actor.his_or_her> brains out tonight."
+        Actor.show(2)
+        "Hmm, the stripper that <Colleague.name> is having <Colleague.his_or_her> eyes on looks very familiar ..."
+        "Wait, that's my <Actor.relationship>! What the fuck! <Actor.He_or_She> hasn't seen me yet, thank God."
+        0:: "Stay quiet"
+        1:: "Peep on <Colleague.name> and <Actor.name>"
+        2:: "Dissuade <Colleague.name>"
+        
+        If 0
+            "I would become a butt of jokes at the office tomorrow if my colleague finds out my own <Actor.relationship> is a stripper. Looks like I have no choice but to stay silent and let <Colleague.name> fuck my <Actor.relationship>."
+            masochist += Random(0, 2)
+            "<Colleague.name> went ahead and took <Actor.name> to a private room. I was humiliated but couldn't say a single word. At least <Actor.name> never saw me."
+        Elseif 1
+            "I would become a butt of jokes at the office tomorrow if my colleague finds out my own <Actor.relationship> is a stripper. Looks like I have no choice but to stay silent and let <Colleague.name> fuck my <Actor.relationship>."
+            "In fact, I guess a little peek wouldn't hurt ..."
+            Player.hide()
+            Sex(Colleague, Actor)
+            Actor.hide()
+            Colleague.show(4)
+            Player.show(0)
+            "I can't believe I watched the whole thing! I got to see another side of my <Actor.relationship>."
+            Actor:incest += Random(0, 5)
+        Else
+            Player(Sad):: "Don't waste your money on that whore, <Colleague.name>. I fucked <Actor.him_or_her> the last time I was here, <Actor.he_or_she> was a dead fish the whole time."
+            If Random(0, 100) < interpersonal
+                Colleague(Surprised):: "Oh really? I almost wasted my money then. Thanks for the warning."
+            Else
+                Colleague(Angry):: "Bullshit! Didn't you say earlier than this is your first time here? You're just jealous that I can afford <Actor.him_or_her> but you can't?"
+                "<Colleague.name> went ahead and took <Actor.name> to a private room. I was humiliated but couldn't say a single word. At least <Actor.name> never saw me."
+                masochist += Random(0, 2)
+            Endif
+        Endif    
+    Else
+        Player(Sad):: "Sorry, it's not my thing. Besides, I still have plenty of work to do."
+    Endif
+
+    SceneEnd()
+    timeout(1000, family_as_stripper)

@@ -1,0 +1,30 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0-24
+WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Actor.isInterestedIn(Player) && Random(50, 300) < Actor:perversion
+OTHER: isAtHome()
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Happy):: "Look, I saw a cute dog on the way back home today and took a snap of him."
+    Player(Happy):: "Really? Let me see ..."
+    Actor.hide()
+    "My <Actor.relationship> gave me <Actor.his_or_her> phone to show me the picture. What a cute dog indeed! I wonder if <Actor.he_or_she> took more than one snaps of the dog."
+    0:: "Swipe for more"
+    1:: "Return the phone"
+    
+    If 0
+        "There must be more!"
+        Actor.strip()
+        Actor.show(3)
+        "What the fuck!"
+        "Oh no, there were no more cute dog pictures. Instead, the next photo was a nude selfie of my <Actor.relationship>. I wonder if <Actor.he_or_she> took it for a lover."
+        "I didn't say anything though and proceeded to calmly swipe back to the dog photo and returned the phone to my <Actor.relationship>."
+        Actor:incest += Random(0, 2)
+    Else
+        "Yeah, it's probably just the one photo that <Actor.he_or_she> wanted to show me."
+    Endif
+    
+    SceneEnd()
+    timeout(200, family_nude_selfie)

@@ -1,0 +1,27 @@
+WHAT: all
+WHERE: home
+WHEN: 9 - 18
+WHO: Actor = getRelativeExcept(Child, StepChild); If Actor.isDominantSex(Player) && Actor.livesWithPlayer() & Actor.isInterestedIn(Player) & Player.isInterestedIn(Actor) && Random(100, 400) < Actor:interpersonal + Actor:intelligence
+OTHER: isAtHome() && money < 250 && & Random(0, 300) < attractiveness
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Happy):: "What's the matter, <Player.name>? You look sad."
+    Player(Sad):: "I'm broke ... You know expensive clothes are my guilty pleasures. I have to wait for my next paycheck now for that."
+    Actor(Happy):: "You don't have to wait that long. I can take you shopping today."
+    Player(Excited):: "Really? I'll go get changed then, we'll go right away. I'm warning you in advance though: I do spend a lot whenever I shop."
+    setBackground(department_store)
+    "Damn my <Actor.relationship> wasn't kidding about me being able to spend as much as I want ... These clothes I'm getting cost a fortune, yet <Actor.he_or_she> is happily paying for them."
+    mood += Random(0, 30)
+    Player(Happy):: "I feel so much better now. Thank you so much for taking me shopping. You're so generous, <Actor.Relationship>!"
+    0:: "Kiss <Actor.Relationship> on the cheek"
+    1:: "Go home"
+    
+    If 0
+        Player(Kiss):: "..."
+        Player(Happy):: "Honestly, it's a shame that you're my <Actor.relationship> and that a kiss on the cheek is all I can give you. You would make a perfect <Actor.boyfriend_or_girlfriend> for me otherwise."
+        Actor:incest += Random(0, 5)
+    Endif
+    SceneEnd()
+    timeout(200, family_takes_shopping)

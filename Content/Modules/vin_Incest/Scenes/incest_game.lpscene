@@ -1,0 +1,20 @@
+WHAT: play_a_video_game
+WHERE: PC
+WHEN: 0-24
+WHO: Actor = getRelative(); If Player.isInterestedIn(Actor)
+OTHER: isAtHome()
+
+    SceneStart()
+    "There are a few new game releases on Patreon recently that I wanted to try out. I have some free time now, which game should I try?"
+    0:: "University Romance"
+    1:: "My hot <Actor.relationship> and I"
+    
+    If 0
+        "Sometimes, vanilla is the best ice cream."
+    Else
+        "I don't know what came over me, but I was feeling adventurous with my game choice. Some fantasy incest won't hurt."
+        "For some reason, this game got me much more excited than usual ... I know it's wrong, but I can't help imagine my own <Actor.relationship> in place of the main character in the game."
+        Actor:incest += Random(0, 1)
+    Endif
+    SceneEnd()
+    timeout(48, incest_game)

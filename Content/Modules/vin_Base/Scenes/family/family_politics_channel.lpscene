@@ -18,5 +18,5 @@ OTHER: Random(80, 200) < intelligence
         "I'd rather not get involved in this whole thing."
         Actor:rapportwithplayer -= Random(0, 0.5)
     Endif
-    
+    SceneEnd()
     timeout(200, family_politics_channel)

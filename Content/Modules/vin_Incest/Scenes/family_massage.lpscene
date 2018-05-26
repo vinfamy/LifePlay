@@ -1,0 +1,74 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 18 - 24
+WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Actor:rapportwithplayer > 40 && Actor.isInterestedIn(Player) && Random(0, 100) < Actor:fitness  && Random(50, 500) < Actor:perversion
+OTHER: isAtHome() && energy < Random(0, 50)*Random(0, 1)
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Player(Sad):: "Damn, that was a long day. I'm exhausted."
+    Actor(Happy):: "You know, I took a massage course a while back. I can help you wind down if you want."
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        Player(Happy):: "It's worth a try, I guess."
+        If Actor:incest < 25
+            NormalEnding = true
+        Else
+            Actor(Happy):: "Why don't you strip down? Don't want your clothes to get all dirty ..."
+            0:: "Yes"
+            1:: "No"
+            
+            If 0
+                Player(Happy):: "I guess you're right."
+                Player.strip()
+                If Actor:incest < 50
+                    NormalEnding = true
+                Else
+                    "The massage started professionally, but now my <Actor.relationship> is massaging my sensitive spots ... I'm not entirely sure whether this is supposed to be part of the routine."
+                    0:: "Just enjoy it"
+                    1:: "Ask <Actor.him_or_her> to move to another spot"
+                    
+                    If 0
+                        If Actor:incest < 75
+                            NormalEnding = true
+                        Else
+                            "<Actor.Relationship> is rubbing my hot spot vigorously now. It's clear now that this isn't part of the normal massage routine. It's also clear what my perverted <Actor.relationship> really wants ..."
+                            0:: "Receive my happy ending"
+                            1:: "Stop it"
+                            
+                            If 0
+                                Sex(Player, Actor)
+                                NormalEnding = false
+                                Actor:incest += Random(0, 50)
+                            Else
+                                "I moved <Actor.his_or_her> hand away from my sensitive spot, clearly signalling that this is going too far."
+                                NormalEnding = true
+                            Endif
+                        Endif
+                    Else    
+                        NormalEnding = true
+                    Endif
+                Endif
+            Else
+                Player(Embarassed):: "No way. You're my <Actor.relationship>. You can't see me naked."
+                Actor:incest -= Random(0, 1)
+                NormalEnding = true
+            Endif
+        Endif
+
+        If NormalEnding
+            "A while later ..."
+            Player(Happy):: "That was amazing, <Actor.Relationship>! You're a good <Actor.masseur_or_masseuse>."
+            Actor:rapportwithplayer += Random(0, 2)
+            Actor:incest += Random(0, 2)
+            energy += Random(0, 30)
+        Endif
+    Else
+        Actor:incest -= Random(0, 1)
+        Player(Sad):: "Thank you for the offer. But isn't that a bit weird? You're my <Actor.relationship>. I'm not comfortable with you giving me a massage."
+    Endif
+    SceneEnd()
+    timeout(100, family_massage)

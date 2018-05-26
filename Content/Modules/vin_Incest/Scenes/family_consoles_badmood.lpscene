@@ -1,0 +1,59 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Actor:rapportwithplayer > 20 && Actor.isInterestedIn(Player) 
+OTHER: isAtHome() && mood < Random(0, 50)*Random(0, 1)
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Sad):: "What's going on, my <Actor.callplayer>? You don't look happy."
+    0:: "Don't worry"
+    1:: "Tell <Actor.him_or_her> what's bothering me"
+    
+    If 0
+        Player(Happy):: "Don't worry about it. I'm just in a bad mood. Woke up on the wrong side of the bed and all that."
+        Actor(Happy):: "Okay then, hope you feel better soon."
+    Else
+        "I'm under a lot of mental stress recently and it was good to have someone to vent to."
+        mood += Random(0, 10)
+        Actor:rapportwithplayer += Random(0, 2)
+        If Player.isDating() || Actor:incest < 25
+            Actor(Happy):: "I'm glad I could help you release a bit. Next time you have something that bothers you, remember I'm a good listener."
+        Else
+            Actor(Wink):: "You know: you really need to find yourself a <Player.girlfriend_or_boyfriend> to share the stress with in life."
+            Player(Sarcastic):: "Haha, who would ever date a <Player.guy_or_girl> like me?"
+            Actor(Happy):: "Don't say that ... you're an attractive and intelligent <Player.guy_or_girl>. If I weren't your <Actor.relationship>, I would totally be your <Actor.boyfriend_or_girlfriend>."
+            0:: "That's weird"
+            1:: "I would date you too"
+            
+            If 0
+                Actor:incest -= Random(0, 1)
+                Player(Surprised):: "Ew, that's a weird thing to say, <Actor.Relationship>! What the hell ..."
+                Actor(Embarassed):: "Yeah ... now that I think about it, that was weird. Forget I said that"
+            Else
+                Actor:incest += Random(0, 2)
+                Player(Flirty):: "I would date you too ... if I weren't your <Player.callplayer>."
+                If Actor:incest + Actor:perversion > Random(100, 200)
+                    Actor(Flirty):: "I'm sure you would ..."
+                    Actor(Kiss):: "..."
+                    Player(Kiss):: "..."
+                    "This is so wrong: I'm kissing my own <Actor.relationship>! Worse, it's getting more and more heated."
+                    0:: arousal < 80:: "Stop it there"
+                    1:: "Let it happen"
+                    
+                    If 0
+                       "Enough! I pulled away from <Actor.name>, stood up and literally ran into my room, leaving my <Actor.relationship> embarassed." 
+                    Else
+                        "I can't take this anymore! This might be wrong and forbidden ... but the sexual tension is too much to resist anymore. Didn't we just basically admit our attraction to each other? Then why should our family connection be an obstacle?."
+                        Sex(Player, Actor)
+                        Actor:incest += Random(0, 50)
+                        Actor.hide()
+                        "That's it. I had sex with my own <Actor.relationship>, an inexcusable act, yet as soon as it was over, I began justifying it in my mind that I simply made a mistake under the influence of extreme stress and desperately needed to release."
+                    Endif  
+                Endif
+            Endif
+        Endif
+    Endif
+    SceneEnd()
+    timeout(200, family_consoles_badmood)

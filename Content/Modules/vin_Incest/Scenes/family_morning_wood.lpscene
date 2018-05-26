@@ -1,0 +1,33 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 9 - 12
+WHO: Actor = getRelative(); If Actor.isMale() && Actor.livesWithPlayer() && Player.isInterestedIn(Actor) && Random(0, 500) < Actor:perversion
+OTHER: isAtHome()
+
+    SceneStart()
+    "It's already late in the morning yet my <Actor.relationship> still hasn't gotten out of <Actor.his_or_her> room yet. <Actor.He_or_She> is already very late for work."
+    0:: "Go wake <Actor.him_or_her> up"
+    1:: "Let <Actor.him_or_her> sleep"
+    
+    If 0
+        Actor.dress()
+        Actor.show(2)
+        Player(Anxious):: "Wake up, <Actor.Relationship>! Aren't you late for work?"
+        Actor(Scared):: "Oh shit! I completely overslept. What time is it now?"
+        Actor:incest += Random(0, 1)
+        "I couldn't help but notice that my <Actor.relationship> had a massive morning wood and it has fallen out of his pants. No wonder he slept so soundly, he was probably having some wet dreams."
+        0:: "Say nothing"
+        1:: "Your thing is hard ..."
+        
+        If 1
+            Actor(Embarassed):: "Sorry. God, this is embarassing ... this sometimes happens in the morning ..."
+            Player(Embarassed):: "It's okay. It happens."
+            Actor:incest += Random(0, 1)
+        Endif
+        Player(Happy):: "You should get dressed. You're late for work."
+    Else
+        "Maybe <Actor.he_or_she> took the day off. <Actor.He_or_She> would have set the alarm otherwise. I'll just let <Actor.him_or_her> sleep."
+    Endif
+    
+    SceneEnd()
+    timeout(96, family_morning_wood)

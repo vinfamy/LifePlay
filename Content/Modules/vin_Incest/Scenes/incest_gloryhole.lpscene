@@ -1,0 +1,26 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -sleep_nap
+WHERE: all
+WHEN: 8 - 21
+WHO: Actor = getRelative(); If Actor.isInterestedIn(Player) && Player.isInterestedIn(Actor) && Random(50, 500) < Actor:perversion
+OTHER: isAtHome() && Random(50, 500) < perversion && [Actor.isMale() || Player.isMale()]
+
+    SceneStart()
+    "I hate to admit this, but I do have a habit of going to sexshops and engaging in some anonymous gloryhole oral sex ..."
+    0:: "Go today"
+    1:: "I should stop"
+    
+    If 0
+        "It's been a while since I last did that. I miss that experience ..."
+        setBackground(department_store)
+        "A while later ..."
+        "That was amazing. Nothing beats some oral fun with a complete stranger that I never have to see."
+        Actor.dress()
+        Actor.show(2)
+        "Wait ... is that my <Actor.relationship> coming out of the sex shop? Oh no! Could the <Actor.guy_or_girl> on the other side of the gloryhole be <Actor.him_or_her>?"
+        "At least <Actor.he_or_she> hasn't seen me yet. Let's just get the hell out of here befoe <Actor.he_or_she> does."
+        Actor:incest += Random(0, 20)
+    Else
+        "It's a shameful habit. I should give it up."
+    Endif
+    SceneEnd()
+    timeout(500, incest_gloryhole)

@@ -8,7 +8,7 @@ OTHER: isAtHome() && Random(60, 500) < jobexperience
     "I was at a family dinner when the topic of careers came up."
     Actor.dress()
     Actor.show(2)
-    Actor(Happy):: "Everyone, <Player.name> recently got a promotion ... again! The <Actor.boy_or_girl> is flying high. Definitely making <Player.his_or_her> <Actor.relationship> proud!"
+    Actor(Happy):: "Everyone, <Player.name> recently got a promotion ... again! The <Player.boy_or_girl> is flying high. Definitely making <Player.his_or_her> <Actor.relationship> proud!"
     0:: "Boast"
     1:: "Be modest"
     

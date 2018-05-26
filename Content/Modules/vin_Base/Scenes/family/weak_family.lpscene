@@ -8,15 +8,15 @@ OTHER: fitness > 70
     Dating.dress()
     Dating.show(2)
     "My <Dating.relationship> isn't the healthiest person in the world and is rather unfit. Worse, <Dating.he_or_she> has very few athletic pursuits."
-    0:: "Encourage <Dating.name> to exercise more"
+    0:: "Encourage my <Dating.relationship> to exercise more"
     1:: "Do nothing"
 
     If 0
         If Random(0, 150) < interpersonal + fitness 
-            "Motivated by my encouragements, <Dating.name> took up a few sports and adopted a healthier lifestyle."
+            "Motivated by my encouragements, my <Dating.relationship> took up a few sports and adopted a healthier lifestyle."
             Dating:fitness += Random(0, 2)
         Else
-            "Unfortunately, despite my encouragements, <Dating.name> still refused to exercise. <Dating.He_or_She> even accused me of being a gym nut."
+            "Unfortunately, despite my encouragements, my <Dating.relationship> still refused to exercise. <Dating.He_or_She> even accused me of being a gym nut."
             Dating:rapportwithplayer -= Random(0, 2)
         Endif
     Else

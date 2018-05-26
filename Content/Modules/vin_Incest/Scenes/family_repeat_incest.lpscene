@@ -1,0 +1,23 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 9 - 22
+WHO: Actor = getRelative(); If Actor:incest > 90
+OTHER: isAtHome() && Random(0, 500) < perversion
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    "My <Actor.relationship> and I are lovers now. We couldn't resist messing around with each other all the time."
+    0:: "Go with the flow"
+    1:: "We should be careful"
+    
+    If 0
+        Actor(Flirty):: "Come here, you ..."
+        Sex(Player, Actor)
+        perversion += Random(0, 0.25)
+        Actor:incest += Random(0, 10)
+    Else
+        "We shouldn't be so blatant and risk getting caught by others."
+    Endif
+    SceneEnd()
+    timeout(200, family_repeat_incest)

@@ -1,0 +1,72 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 18 - 24
+WHO: Actor = getRelative(Sibling, StepSibling, Cousin, Child, StepChild); If Player.isInterestedIn(Actor) && Actor:rapportwithplayer > 40 && Actor:attractiveness < Random(0, 100)*Random(0, 1) && Actor:interpersonal < Random(0, 100)*Random(0, 1) && Actor:perversion < Random(0, 50)*Random(0, 1)
+OTHER: none
+
+    SceneStart()
+    setBackground(home)
+    Actor.dress()
+    Actor.show(2)
+    "I went to the living room only to find my <Actor.relationship> crying <Actor.his_or_her> eyes out while downing an excessive amount of alcohol."
+    Actor(Crying):: "..."
+    Player(Surprised):: "<Actor.name>, what is going on? Why are you crying?"
+    Actor(Crying):: "You know that <Actor.girl_or_guy> that I told you I had a crush on for years? I finally worked up the courage to admit my feeling for <Actor.her_or_him> ... and <Actor.she_or_he> rejected me. <Actor.She_or_He> said I was too ugly and boring for <Actor.her_or_him>."
+    0:: "<Actor.She_or_He> is just shallow"
+    1:: "You're beautiful and interesting"
+    
+    If 0
+        Player(Angry):: "That <Actor.girl_or_guy> is just shallow. You could do much better than <Actor.her_or_him>."
+        "I went on to console <Actor.name> until <Actor.he_or_she> stopped crying."
+        Actor(Happy):: "Thank you for being there for me. I feel so much better now ..."
+        Actor:rapportwithplayer += Random(0, 5)
+    Else
+        Player(Happy):: "Well, that <Actor.girl_or_guy> must be blind or retarded. Not only are you extremely beautiful, you're the coolest <Actor.guy_or_girl> on the planet too."
+        Actor(Sad):: "You're just giving me compliments to cheer me up, aren't you? You don't actually believe a single word of that."
+        0:: "It's an objective compliment"
+        1:: "If I weren't your <Actor.callplayer>, I would date you"
+        
+        If 0
+            Player(Happy):: "I swear: you're objectively attractiveness and interesting. That <Actor.girl_or_guy> is just a poor judge of character. I'm sure it won't be long before you find someone who appreciates you."
+            Actor(Happy):: "Alright then, I believe you, <Player.Callplayer>. Thank you for being there for me. I feel so much better now ..."
+            Actor:rapportwithplayer += Random(0, 5)
+        Else
+            Player(Flirty):: "Honestly, if I weren't your <Actor.callplayer>, I would totally date you myself!"
+            If Actor:incest < 25 || !Actor.isInterestedIn(Player)
+                Actor(Embarassed):: "Ew, that's a really weird thing to say ... you're my <Actor.callplayer>!"
+                Player(Embarassed):: "I did say if ..."
+                Actor:incest += Random(0, 5)
+            Else
+                Actor(Flirty):: "Why don't you prove it then? Kiss me!"
+                0:: "What the fuck!"
+                1:: "Anything to make you feel better"
+                
+                If 0
+                    Player(Angry):: "No, what the hell! I said if. I'm your <Actor.callplayer>. We can't kiss. You're drunk - you need to stop drinking."
+                    Actor(Crying):: "See? I'm ugly - nobody wants me."
+                Else
+                    Player(Embarassed):: "This is so wrong, but I guess it's the only way to make you feel better ... Just a quick kiss, okay?"
+                    Player(Kiss):: "..."
+                    Actor(Kiss):: "..."
+                    Actor:incest += Random(0, 5)
+                    "I only intended it to be a brief kiss to prove a point, but <Actor.name> is refusing to let go. <Actor.His_or_Her> hands start rubbing my private parts. This reaction is hardly surprising: <Actor.he_or_she> is heartbroken, drunk and desperate to feel wanted."
+                    "What's more baffling is my own reaction to all this: I'm becoming extremely aroused ... at the thought of having sex with my own <Actor.relationship>! I really really need to stop this escalating any further."
+                    0:: arousal < 80:: "Stop <Actor.name>"
+                    1:: "Give in to desires"
+                    
+                    If 0
+                       "Enough! I pulled away from <Actor.name>, stood up and literally ran into my room, leaving my <Actor.relationship> still sobbing, feeling worthless." 
+                    Else
+                        "I can't take this anymore! This might be wrong and forbidden ... but the sexual tension is too much to resist anymore. <Actor.He_or_She> needs to feel wanted, and I'm about to satisfy that need."
+                        Sex(Player, Actor)
+                        Actor:incest += Random(0, 50)
+                        Actor.hide()
+                        "That's it. I had sex with my own <Actor.relationship>, an inexcusable act, yet as soon as it was over, I began justifying it in my mind that I was merely giving <Actor.him_or_her> the attention that <Actor.he_or_she> craved."
+                    Endif  
+                Endif
+            Endif
+        Endif
+    Endif
+    
+    SceneEnd()
+    timeout(1000, console_family_rejected)
