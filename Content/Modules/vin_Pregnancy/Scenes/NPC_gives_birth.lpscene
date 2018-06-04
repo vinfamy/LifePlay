@@ -8,13 +8,18 @@ OTHER: none
     setBackground(home)
     Actor.dress()
     Actor.show(2)
-    "<Actor.name> is going into labour. As the father, I need to take her to the hospital ..."
-    0:: "Take <Actor.name> a hospital"
+    "<Actor.name> is going into labour. I need to take her to the hospital ..."
+    0:: "Take <Actor.name> to a hospital"
     
     setBackground(hospital)
     Actor.strip()
     Actor.endPregnancy()
     "Those were among the tensest hours in my life, but thankfully, everything went smoothly in the end. Both <Actor.name> and our child were in good condition. Nothing beats the feeling of being a new father."
+    If Actor.isRelative()
+        "Of course, nobody else knows that I'm the father. <Actor.name> is my own <Actor.relationship> after all ... We agreed to keep it a secret and made up a story about a sperm donor to the rest of the family and society."
+        "We did something forbidden and extremely risky that led to this baby. Yet by some miracle, the baby turned out to be healthy both physically and mentally." 
+    Else
+        children += 1      
+    Endif   
     mood += 100
-    children += 1    
     SceneEnd()

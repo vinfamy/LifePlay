@@ -12,4 +12,8 @@ OTHER: none
     Player(Happy):: "Sure, what is it?"
     Actor(Sad):: "I'm pregnant ... with your child."
     "The evidence from the paternity test is undeniable. I'm the father of <Actor.name>'s unborn baby."
+    If Actor.isRelative()
+        "Or more precisely ... of my own <Actor.relationship>'s unborn baby!"
+        "We did something forbidden and extremely risky that led to this baby. We can now only hope that the truth will never come out and the baby will somehow turn out to be healthy physically and mentally." 
+    Endif    
     SceneEnd()

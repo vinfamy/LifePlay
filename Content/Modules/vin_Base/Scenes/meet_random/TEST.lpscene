@@ -10,7 +10,7 @@ OTHER: none
 	1:: "No"
 	
 	If 0
-		"Yes"
+		Sex(Player, CurrentCompanion)
 	Else
 		"No"
 	Endif

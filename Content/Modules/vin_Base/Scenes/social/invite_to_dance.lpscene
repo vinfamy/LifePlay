@@ -2,7 +2,7 @@ WHAT: all, -dance, -go_to_the_bathroom
 WHERE: nightclub
 WHEN: 0 - 24
 WHO: none
-OTHER: Random(0, 500) < attractiveness + interpersonal
+OTHER: Random(0, 500) < attractiveness + interpersonal && [!isWithCompanion() || !CurrentCompanion.isRelative()]
 
 SceneStart()
 Actor = getCompanion()

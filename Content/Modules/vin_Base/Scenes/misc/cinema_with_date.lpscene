@@ -2,7 +2,7 @@ WHAT: watch_a_movie
 WHERE: cinema
 WHEN: 0-24
 WHO: none
-OTHER: isWithCompanion()
+OTHER: isWithCompanion() && !CurrentCompanion.isRelative() && Random(30, 500) < perversion
 
     SceneStart()
     "I'm watching a movie with <CurrentCompanion.name>. It's really dark in here."

@@ -2,7 +2,7 @@ WHAT: all
 WHERE: all
 WHEN: 0 - 24
 WHO: none
-OTHER: isWithCompanion() && Random(0, 500) < CurrentCompanion:attractiontoplayer
+OTHER: isWithCompanion() && Random(0, 500) < CurrentCompanion:attractiontoplayer && !CurrentCompanion.isRelative()
 
 SceneStart()
 CurrentCompanion.show(2)
