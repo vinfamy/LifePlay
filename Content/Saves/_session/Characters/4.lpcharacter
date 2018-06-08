@@ -176,6 +176,7 @@ SKIN Skin_Sagging: 100% 0.784755
 SKIN Muscle_Tone: 100% 0.13692
 
 // Stats
+STAT incest: 100% 0.0
 STAT age: 100% 25.57918
 STAT attractiveness: 100% 67.073578
 STAT cooking: 100% 44.816433
@@ -191,5 +192,5 @@ STAT perversion: 100% 46.583454
 STAT sneak: 100% 94.967499
 STAT attractiontoplayer: 100% 100.0
 STAT rapportwithplayer: 100% -1.094902
-STAT arousal: 100% 22.219086
-STAT intoxication: 100% 0.151946
+STAT arousal: 100% 5.073896
+STAT intoxication: 100% 0.033717

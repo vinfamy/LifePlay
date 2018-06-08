@@ -1,0 +1,80 @@
+WHAT: all
+WHERE: all, -home, -hotel
+WHEN: 22 - 4
+WHO: none
+OTHER: !Player.isMale() && Random(50, 300) < attractiveness && intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)
+
+    SceneStart()
+    setBackground(street)
+    "Damn it's dark in here. I shouldn't have gone for that shortcut just to save a few minutes. Too late to regret now - let's just walk fast and get the hell out of here - I don't feel safe."
+    Actor = generatePersonTemporary()
+    While !Actor.isMale()
+        Actor = generatePersonTemporary()
+    Endwhile
+    Actor.dress()
+    Actor.show(2)
+    Actor(Evil):: "Alright, I'll make this quick: hand over your ...."
+    Actor(Flirty):: "... Oh, what a surprise to see a beauty like you alone here. It must be my lucky day. I think you can give me something a hell lot better than your purse ..."
+    "Oh no, I don't like how this is going ..."
+    0:: "Just take my money"
+    1:: "Run"
+    2:: "Attack"
+    
+    If 0
+        Player(Scared):: "Please, just take my money ... Don't harm me ..."
+        "I obediently handed over my purse, hoping that it would be enough to keep the thug off me."
+        money -= Random(30, 300)
+        If Random(0, 100) < Player:interpersonal - Actor:perversion
+            Actor(Evil):: "Fine, since you're being so compliant, I'll let you go. Don't you dare call the cops!"
+            Rape = false
+        Else
+            Actor(Evil):: "Thanks for handing over your money so obediently. But you're naive to think I'll let a hottie like you go just like that."
+            Rape = true
+        Endif
+    Elseif 1
+        "I decided to make a run for it!"
+        If Random(0, 200) < Player:fitness
+            Actor.hide()
+            "I did it! The thug was long left behind and I escaped. Phew, that was close."
+            Rape = false
+        Else
+            money -= Random(30, 300)
+            "I tried to escape but the thug was too fast for me and knocked me down to the ground."
+            Actor(Evil):: "I think you can just run away? You should have saved the energy to endure a hard pounding from me tonight."
+            Rape = true
+        Endif    
+    Else
+        Player(Furious):: "You mess with the wrong <Player.guy_or_girl>! Take this."
+        Actor(Furious):: "You dare sucker-punch me? I'll teach you a lesson."
+        "A fierce fight ensued ..."
+        If martial > Actor:martial
+            Rape = false
+            Actor(Pain):: "Ah!"
+            Player(Angry):: "That should teach you to never ambush innocent people in dark alleys anymore."
+        Else
+            money -= Random(30, 300)
+            Rape = true
+            Player(Pain):: "Ah!"
+            Actor(Evil):: "Ha! You really thought you could match me in a fight? I have to say - this just makes me want to fuck your brain out even more, you'll see how I conquer this wild bitch tonight!"            
+        Endif
+    Endif
+    
+    If Rape
+        "Soon, <Actor.he_or_she> was ripping my clothes off and proceeded to force <Actor.himself_or_herself> upon me."
+        Player(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
+        If Random(0, 100) < 30
+            "All of a sudden, I heard police siren. The thug was terrified and made a run for it."
+            Actor.hide()
+            "Three cops arrived at the scene, finding me in all state of undress. Apparently a passerby saw what was happening and called the cops, who responded immediately. Good thing they did, this night could have gone a lot worse."
+            mood -= Random(0, 50)
+        Else
+            "My cries for help went unheard in the dark alley and I had no choice but endure the worst night of my life at the hand of this vile <Actor.man_or_woman>."
+            Filter(Aggressive)
+            TalkNonConsensual()
+            SexNoAffair(Actor, Player)
+            Actor.hide()
+            mood => 0
+        Endif
+    Endif
+    SceneEnd()
+    timeout(500, vi_darkalley_rape)

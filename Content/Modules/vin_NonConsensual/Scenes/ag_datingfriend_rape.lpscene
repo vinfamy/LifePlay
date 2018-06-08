@@ -1,0 +1,72 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor2 = getSpecific(Dating); Actor = getSpecific(Dating_Friend); If !Actor.isMale() && Actor:attractiontoplayer < 20 && Player.isInterestedIn(Actor) && Random(70, 300) < Actor:attractiveness
+OTHER: Player.isMale() && !isAtHome()
+
+    SceneStart()
+    "There's someone at the door."
+    Actor.dress()
+    Actor.show(2)
+    "It's <Actor.name>, one of my <Actor2.boyfriend_or_girlfriend>'s best friends."
+    Actor(Happy):: "Oh hey there, <Player.name>. Is <Actor2.name> home?"
+    Player(Sad):: "What a shame. <Actor2.He_or_She> just headed out and won't be back until tomorrow."
+    Actor(Sad):: "Oh that's unfortunate. Alright then, I'll come back tomorrow."
+    "<Actor.name> is smoking hot ... What a shame that <Actor.he_or_she> is so loyal to <Actor2.name> as a friend that <Actor.he_or_she> seems to pay zero romantic attention to me ..."
+    0:: "Bless their friendship"
+    1:: "I bet I can bed <Actor.him_or_her>"
+    
+    If 0
+        "I'd got to respect that. I'm glad my <Actor2.boyfriend_or_girlfriend> has such good friends."
+    Else
+        "<Actor.He_or_She> might try to stay loyal to <Actor.his_or_her> friend, but deep inside, I just knew <Actor.he_or_she> gets wet whenever <Actor.he_or_she> thinks of me. <Actor.He_or_She> just wouldn't admit it."
+        "Now, should I try to move a move?"
+        0:: "Get <Actor.him_or_her> drunk"
+        1:: "Go watch some bestie porn"
+        
+        If 0
+            "Some good old alcohol should do the trick in bringing <Actor.him_or_her> to <Actor.his_or_her> true attraction to me."
+            Player(Happy):: "Hang on. Are you sure you don't want a drink? I feel bad that you have to go all the way here yet <Actor2.name> isn't around."
+            Actor(Happy):: "I shouldn't ... Fine then, just one drink, okay?"
+            setBackground(home)
+            moveTo(Home)
+            Actor(Pain):: "Thank you for inviting me into your apartment and for the drinks, but I think I'd gotta leave now. Would you mind calling me a taxi? I'm so drunk ..."
+            0:: "Call the cab for <Actor.him_or_her>"
+            1:: "Grab <Actor.him_or_her> and start making out"
+            
+            If 0
+                Player(Happy):: "Sure, I'll get you a cab right away. Should be here in ten minutes."
+                Actor:rapportwithplayer += Random(0, 2)
+            Else
+                "<Actor.He_or_She> is out of it. It's time for my master plan."
+                Player(Kiss):: "..."
+                Actor(Angry):: "<Player.name>! What the hell are you doing? You have a <Actor2.boyfriend_or_girlfriend>! And worse, <Actor2.he_or_she> is my best friend!"
+                Actor:rapportwithplayer -= Random(0, 10)
+                Actor(Angry):: "I'm leaving! I can't believe you just forced a kiss on me like that!"
+                0:: "Apologize"
+                1:: masochist < 0:: "Blackmail <Actor.him_or_her>"
+                
+                If 0
+                    Player(Embarassed):: "I'm sorry ... It was a moment of passion. I didn't know what I was doing ... Please don't tell <Actor2.name>."
+                Else
+                    Player(Furious):: "Nobody rejects me like that! Let's see if you can remain so loyal to your friend after a hard pounding!"
+                    Actor(Angry):: "Get your hands off me! Have you gone crazy? Help!"
+                    Player(Evil):: "Listen and stop screaming! You'd better be a good <Actor.boy_or_girl> for me, or I'll tell <Actor2.name> that you tried to seduce me. How do you like your friendship in ruin? We both know that <Actor2.name> is going to trust <Actor2.his_or_her> own <Player.boyfriend_or_girlfriend> over a friend like you."
+                    "Maybe <Actor.name>'s decision making was affected by the alcohol. Or maybe, that friendship with <Actor2.name> just means that much to <Actor.him_or_her>. Either way, <Actor.he_or_she> seemed to let go after what I said. Soon, I was ripping <Actor.his_or_her> clothes off and proceeded to force myself upon <Actor.him_or_her>."
+                    Actor(Crying):: "No! Please stop ... What if <Actor2.name> comes home to find us like this ..."
+                    Filter(Aggressive)
+                    TalkNonConsensual()
+                    SexNoAffair(Player, Actor)
+                    Actor.hide()
+                    
+                    Actor:rapportwithplayer => -100
+                    blockContact(Actor)
+                    "<Actor.name> was an idiot. <Actor.He_or_She> never reported me to the police or even my <Actor2.boyfriend_or_girlfriend>, but <Actor.he_or_she> blocked my phone and avoided speaking to me ever since, to <Actor2.name>'s confusion." 
+                Endif
+            Endif 
+        Else
+            "It might not be a good idea to actually fuck your <Actor2.boyfriend_or_girlfriend>'s best friend, but no harm fantasizing about it. In fact, plenty of porn videos have this plot - I'll just go watch some while fantasizing about <Actor.name>."
+        Endif
+    Endif
+    SceneEnd()
+    timeout(500, ag_datingfriend_rape)

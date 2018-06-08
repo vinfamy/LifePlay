@@ -1,0 +1,33 @@
+WHAT: pickpocket
+WHERE: all
+WHEN: 0 - 24
+WHO: none
+OTHER: !Player.isMale() && Random(70, 100) < attractiveness && sneak < Random(0, 100)*Random(0, 1)*Random(0, 1)
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    While !Actor.isMale()
+        Actor = generatePersonTemporary()
+    Endwhile
+    Actor.dress()
+    Actor.show(2)
+    Actor(Angry):: "Stop right there, thief! What do you think you're doing?"
+    "Oh no, I got caught. My owner of the place forced me to go with <Actor.him_or_her> to a storage room with <Actor.him_or_her> where I was bound to a chair."
+    Player(Crying):: "Please, this is my first time pickpocketing. I was just desperate for some money. Don't call the cops - it'll ruin my future."
+    Actor(Evil):: "Call the cops? What good does that do to me? Oh no, I have much better use for a pretty thief like you."
+    Actor(Evil):: "Now, stay still and enjoy it. I'll let you go and won't call the cops if you act like a good <Player.boy_or_girl>."
+    Player(Surprised):: "What are you doing? Get your hands off me, you pervert!"
+    If martial*0.5 > Actor:martial
+        "Unfortunately for the perverted owner, even with my hands tied, I was more than a handful for <Actor.him_or_her> to subdue. After a brief struggle, I managed to get away from <Actor.him_or_her> and escaped the place."  
+    Else
+        "With my hands tied to a chair, I never stood a chance and the perverted owner managed to overcome my struggles easily. Soon, <Actor.he_or_she> was ripping my clothes off and proceeded to force <Actor.himself_or_herself> upon me."
+        Player(Crying):: "No! Please stop ... Somebody help ..."
+        Filter(Aggressive)
+        TalkNonConsensual()
+        SexNoAffair(Actor, Player)
+        Actor.show(2)
+        mood => 0
+        Actor(Evil):: "That was good, bitch. Now, get out of my sight. You pleasured me well - I won't call the cops on your little pickpocketing adventure."
+    Endif
+    SceneEnd() 
+    timeout(1000, vi_pickpocket_caught_rape)

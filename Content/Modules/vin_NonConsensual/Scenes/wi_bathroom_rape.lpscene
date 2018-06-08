@@ -1,0 +1,70 @@
+WHAT: go_to_the_bathroom
+WHERE: nightclub, bar, toilets, community_centre
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 1000) < sneak
+
+    SceneStart()
+    Actor2 = generatePersonTemporary()
+    While Actor2.isMale()
+        Actor2 = generatePersonTemporary()    
+    Endwhile
+    "What's that sound coming from the <Actor2.male_or_female> bathroom? Is that ... a scream? I need to check it out, sounds like someone's in serious distress."
+    Actor = generatePersonTemporary()
+    While !Actor.isMale()
+        Actor = generatePersonTemporary()
+    Endwhile
+    Actor2.show(3)
+    Actor.show(2)
+    "Oh my god, someone is being sexually assaulted in one of the cubicles! I must do something!"
+    0:: "Report to staff"
+    1:: "Attack the rapist"
+    2:: "Watch"
+
+    If 0
+        masochist += Random(0, 0.5)
+        Rape = false
+        "I shouldn't be foolish as to confront the rapist head-on. The <Actor.guy_or_girl> could be dangerous."
+        "I decided to run and call for help from the place's staff. Eventually, they overwhelmed the rapist and rescued the poor <Actor2.guy_or_girl>. It was sorta too late though, as by the time help arrives, the rapist already came inside <Actor.his_or_her> poor victim."
+    Elseif 1
+        masochist -= Random(0, 2)
+        "I haven't got time to waste. The poor <Actor2.guy_or_girl> is being assaulted righ now. I must act quick!"
+        If martial > Actor:martial || !isModEnabled(vin_NTR)
+            Rape = false
+            Actor(Pain):: "Ah!"
+            Player(Angry):: "That should teach you to not sexually assault people in locker rooms!"
+            Actor.hide()
+            Actor2(Happy):: "My hero! You taught that creep a lesson. I don't know what I can do to thank you, honestly."
+            0:: "It's only the right thing to do"
+            1:: "Ask for <Actor2.his_or_her> number"
+            
+            If 0
+                Player(Happy):: "It's only my citizen's duty. I cannot let criminals like that get away with their creepy acts."
+            Else
+                Player(Happy):: "You know ... I'd love to get to know you more."
+                Actor2(Happy):: "Of course, here's my number. I'd love to get to know a strong <Player.gentleman_or_lady> like you better too."
+                Actor2.makePermanent()
+                Actor2:attractiontoplayer += Random(0, 50)
+                Actor2:rapportwithplayer += Random(0, 50)
+                exchangeContact(Actor2)
+            Endif
+        Else
+            Rape = true
+            Player(Pain):: "Ah!"
+            Actor(Evil):: "Ha! You really thought you could match me in a fight? I have to say - this just makes me want to fuck <Actor2.his_or_her> brain out even more and make you wannabe hero watch it all!"  
+        Endif        
+    Else
+        Rape = true
+        "I really should do something to help, but for some reason, I couldn't help but be excited at the thought of watching some live forced porn living out in front of my eyes."
+        masochist += Random(0, 2)
+    Endif
+    
+    If Rape
+        Actor2(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
+        "<Actor2.His_or_Her> cries for help went unheard in the bathroom and <Actor2.he_or_she> had no choice but endure it all at the hand of this vile <Actor.man_or_woman> in a dirty cubicle."
+        Filter(Aggressive)
+        TalkNonConsensual()
+        SexNoAffair(Actor, Actor2)
+    Endif
+    SceneEnd()
+    timeout(500, wi_bathroom_rape)

@@ -1,0 +1,60 @@
+WHAT: sleep, nap
+WHERE: home
+WHEN: 22 - 4
+WHO: Actor2 = getSpecific(Neighbour); If !Actor.isMale() && Random(60, 500) < Actor:attractiveness && Actor:intelligence < Random(0, 100)*Random(0, 1)
+OTHER: none
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    While !Actor.isMale()
+        Actor = generatePersonTemporary()
+    Endwhile
+    Actor(Evil):: "Wake up, whore. And prepare to get fucked!"
+    "What's going on? Oh no, it sounds like my neighbour <Actor2.name>'s apartment has been invaded by a rapist."
+    0:: "Stay in bed"
+    1:: "Confront the home invader"
+    2:: "Peep"
+    
+    If 0
+        masochist += Random(0, 1)
+        "I can't risk my life to save my neighbour from the inevitable ... I should just lay here and do nothing and hope that the thug leaves my room alone."
+        Actor:rapportwithplayer -= Random(0, 10)
+        "The screams of my neighbour clearly suggested what was going on over there, yet I stayed still in my bed, fearful for my own life."
+        Rape = false
+    Elseif 1
+        masochist -= Random(0, 2)
+        "I rush to my neighbour's apartment and jumped on the invader."
+        Actor.show(2)
+        Player(Angry):: "Thug, take this!"
+        Actor(Angry):: "How dare you sucker-punch me? I'll teach you a lesson."
+        "A fierce fight ensued ..."
+        If martial > Actor:martial
+            Rape = false
+            Actor(Pain):: "Ah!"
+            Player(Angry):: "That should teach you to never invade people's home and sexually assault them anymore."
+            Actor2:rapportwithplayer += Random(0, 10)
+            Actor2:attractiontoplayer += Random(0, 10)
+            "We called the cops, who promply arrestly the wannabe rapist."
+        Else
+            Rape = true
+            Player(Pain):: "Ah!"
+            Actor(Evil):: "Ha! You really thought you could match me in a fight? I have to say - this just makes me want to fuck <Actor2.him_or_her> even more and make you wannabe hero watch it all!"            
+        Endif
+    Else
+        "This is so wrong, but instead of wanting to help, something deep inside me wanted to watch my neighbour get violated by a dangerous home invader ..."
+        masochist += Random(0, 2)
+        Rape = true
+    Endif
+    
+    If Rape
+        Actor.show(2)
+        Actor2.dress()
+        Actor2.show(3)
+        Actor2(Crying):: "No, please stop ... Somebody helps."
+        "<Actor2.name>'s struggles against the home invader was futile. <Actor2.He_or_She> had no choice but to endure giving this vile creature pleasure against <Actor2.his_or_her> will ..."
+        Filter(Aggressive)
+        TalkNonConsensual()
+        SexNoAffair(Actor, Actor2)      
+    Endif
+    SceneEnd()
+    timeout(1000, wi_homeinvader_rape_neighbour)

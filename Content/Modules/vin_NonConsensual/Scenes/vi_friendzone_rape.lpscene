@@ -1,0 +1,61 @@
+WHAT: all
+WHERE: all
+WHEN: 0 - 24
+WHO: Actor = getCompanion(); If !Actor.isRelative() && Actor.isMale() && !Actor.isDating()
+OTHER: !Player.isMale() && Player.isDating() && Random(50, 100) < Actor:attractiontoplayer
+
+    SceneStart()
+    "I can tell <Actor.name> finds me attractive. Unfortunately for <Actor.him_or_her>, I only see <Actor.him_or_her> as a friend. Besides, I'm already seeing someone else ..."
+    0:: "Don't give <Actor.him_or_her> any false hope"
+    1:: "Play along a bit"
+    
+    If 0
+        "There are a million other straight <Player.guys_or_girls> out there for <Actor.name>, just not me."
+        "Whenever <Actor.he_or_she> tries to flirt with me, I shut <Actor.him_or_her> down right away and remind <Actor.name> that we're only friends."
+        Actor:attractiontoplayer -= Random(0, 2)
+    Else
+        "I may not be into <Actor.him_or_her> ... but there's no harm flirting back a bit. I don't want to be rude and offend <Actor.name> with constant rejections."
+        Actor:attractiontoplayer += Random(0, 2)
+        
+        If Random(40, 200) < Actor:attractiontoplayer
+            "<Actor.name> decided to invite me into <Actor.his_or_her> apartment for drinks tonight. <Actor.He_or_She>'s been extremely generous with the alcohol and I'm feeling quite tipsy already."
+            setBackground(home)
+            Player(Pain):: "Thank you for inviting me into your apartment and for the drinks, but I think I'd gotta leave now. Would you mind calling me a taxi? I'm so drunk ..."
+            
+            If Random(50, 250) > Actor:attractiontoplayer
+                Actor(Happy):: "Sure, I'll get you a cab right away. Should be here in ten minutes."
+                Actor:rapportwithplayer += Random(0, 2)
+            Else
+                "All of a sudden, <Actor.name> grabbed me ..."
+                Actor(Kiss):: "..."
+                Player(Angry):: "<Actor.name>! What the hell are you doing? You know I'm not into you that way! We're only friends."
+                Actor:rapportwithplayer -= Random(0, 5)
+                Player(Angry):: "I'm leaving! I can't believe you just forced a kiss on me like that!"
+                
+                If Random(-100, 0) < masochist
+                    Actor(Embarassed):: "I'm sorry ... It was a moment of passion. I didn't know what I was doing ..."
+                Else
+                    Actor(Furious):: "Nobody rejects me like that! Let's see if I can't change your mind after a hard pounding!"
+                    Player(Angry):: "Get your hands off me! Have you gone crazy? Help!"
+                    If martial*0.5 > Actor:martial
+                        "Unfortunately for <Actor.name>, even drunk, I was more than a handful for <Actor.him_or_her> to subdue. After a brief struggle, I managed to get away from <Actor.him_or_her> and escaped <Actor.his_or_her> apartment."  
+                    Else
+                        "Affected by the alcohol, I never stood a chance and <Actor.name> managed to overcome my struggles easily. Soon, <Actor.he_or_she> was ripping my clothes off and proceeded to force <Actor.himself_or_herself> upon me."
+                        Player(Crying):: "No! Please stop ... I trusted you ... Somebody help ..."
+                        Filter(Aggressive)
+                        TalkNonConsensual()
+                        SexNoAffair(Actor, Player)
+                        Actor.hide()
+                        mood => 0
+                    Endif
+                    
+                    Actor:rapportwithplayer => -100
+                    blockContact(Actor)
+                    "<Actor.name> was lucky to avoid jail time as I never reported <Actor.him_or_her> to the police, perhaps not willing to see my old friend in jail, but I blocked <Actor.him_or_her> and never wanted to see <Actor.him_or_her> again. One thing for sure: <Actor.He_or_She> did nothing to make me fall in love with <Actor.him_or_her>." 
+                Endif
+            Endif 
+            endDate()
+        Endif
+    Endif
+    SceneEnd()
+    timeout(300, vi_friendzone_rape)

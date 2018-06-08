@@ -1,0 +1,79 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor2 = getRelative(Sibling, StepSibling, Cousin, Child, StepChild); If Actor2.livesWithPlayer() && !Actor2.isMale() && Random(30, 100) < Actor2:masochist && Actor2:martial < 50
+OTHER: Player.isMale() && !isAtHome()
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    While !Actor.isMale()
+        Actor = generatePersonTemporary()
+    Endwhile
+    Actor.dress()
+    Actor.show(2)
+    Actor(Angry):: "Open the door! Open the fucking door, you bitch!"
+    "Oh no, it's my <Actor2.relationship>'s pyscho ex <Actor.name> slamming at our apartment's door again. <Actor.He_or_She> was a violent and abusive partner - <Actor2.name> was lucky to somehow manage to get away from <Actor.him_or_her> in the end but I know <Actor2.he_or_she> can be quite weak-willed and most likely not over <Actor.his_or_her> mental control completely."
+    0:: "Confront <Actor.name>"
+    1:: "Urge <Actor2.name> to hide"
+    2:: isModEnabled(vin_NTR):: "Hide in the bathroom myself"
+    
+    If 0
+       "This is unacceptable. I'm <Actor2.name>'s <Actor2.callplayer>. It's my proud duty to protect <Actor2.him_or_her>."
+       Player(Angry):: "<Actor2.name> doesn't have to open the door for you <Actor.asshole_or_bitch>! Get the fuck out of our sight, or else!"
+       Actor(Furious):: "Ah you must be the nosy <Actor2.callplayer>? Take this!"
+       Player(Furious):: "I'll teach you a lesson!"
+       If Actor:martial > martial && isModEnabled(vin_NTR)
+            Raped = true
+            Player(Pain):: "Ah!"
+            Actor(Furious):: "Not so tough now, are you?"
+            "I'm knocked out. I might have been brave but was no match in a fight with this psycho ..."
+            Actor(Evil):: "<Actor2.name>, stop hiding. Get out and see me. You know you can't resist some alpha dominance! Your brain was programmed that way. Accept it!"
+       Else
+            Raped = false
+            Actor(Pain):: "Ah!"
+            Player(Furious):: "That should teach you to leave my <Actor2.relationship> alone!"
+            "Bravo me! I beat the living shit out of that psycho. Hopefully this would get rid of this nuisance for good and break the mental control this asshole has over my <Actor2.relationship>."
+            Actor2:rapportwithplayer += Random(0, 5)
+       Endif
+    Else
+        masochist += Random(0, 0.5)
+        "We should stay calm. I'm not going to try to act brave but stupid. There are more measured ways to deal with this than confronting <Actor.name> directly."
+        "I whisper to <Actor2.name> that we should just stay silent and hide in our rooms, pretending that no-one's here, until <Actor.name> gets tired of slamming the door and leaves."
+        "I stayed with my <Actor2.relationship>, giving <Actor2.him_or_her> the mental support that <Actor2.he_or_she> needs."
+        Raped = false
+    Else
+        "Damn, this <Actor.guy_or_girl> is a dangerous psycho. I'd much rather not get caught in the crossfire of their problems."
+        "Pride is highly overrated - life is more important. I'd better go hide in the bathroom."
+        masochist += Random(0, 3)
+        Actor2:rapportwithplayer -= Random(0, 5)
+        Raped = true
+        "Wait, is that the sound of the apartment door opening?"
+        "My <Actor2.relationship> is an idiot! These dominant <Actor.guys_or_girls> never fail to get <Actor2.his_or_her> heart racing and <Actor2.his_or_her> brain fucked up. This psycho may not be <Actor2.his_or_her> <Actor.boyfriend_or_girlfriend> anymore, but <Actor.he_or_she> never lost control of <Actor2.him_or_her>."
+        Actor(Angry):: "What takes you so fucking long, you whore?"
+    Endif
+    
+    If Raped
+        Player.hide()
+        Actor2.dress()
+        Actor2.show(0)
+        "We all know what's coming now ..."
+        Actor(Angry):: "Now, you deserve a punishment!"
+        "And just like that, <Actor.name> grabbed <Actor2.name> and threw <Actor.him_or_her> into the bed without a care of whether that might hurt <Actor2.him_or_her>. <Actor.name> proceeded to brutally rape <Actor.him_or_her> right there and then ..."
+        0:: "Call the cops"
+        1:: "Peep on them"
+        
+        If 0
+            "I'm clearly no match for <Actor.name> in a fight so let's not risk my life for no use here. But at least I can call the cops."
+            "Eventually, the cops did arrive and arrest <Actor.name> ... Too late though, <Actor.he_or_she> had plenty of time to dump my <Actor2.relationship> full of <Actor.his_or_her> cum ..."
+            mood -= Random(0, 75)
+        Else
+            masochist += Random(0, 5)
+            "I should be the definition of a cuck in the dictionary. My own <Actor2.relationship> was getting violated by <Actor2.his_or_her> abusive ex and here I am, all strangely turned on ..."
+            Filter(Aggressive)
+            TalkNonConsensual()
+            Sex(Actor, Actor2)
+            Actor2:incest += Random(0, 10)
+        Endif
+    Endif
+    SceneEnd()
+    timeout(500, wi_ex_rape_family)

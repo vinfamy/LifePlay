@@ -1,0 +1,53 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getSpecific(Dating); Actor2 = getPerson(true); If !Actor.isMale() && Actor:perversion < Random(0, 100)*Random(0, 1) && Random(50, 200) < Actor2:perversion && Random(50, 200) < Actor2:rapportwithplayer
+OTHER: isModEnabled(vin_NTR) && !isAtHome() && Player.isMale() && Random(50, 100) < masochist && Random(80, 500) < perversion
+
+    SceneStart()
+    "<Actor2.name> is one of my best friends and I can tell <Actor2.he_or_she> really finds my <Actor.boyfriend_or_girlfriend> <Actor.name> attractive. I don't mind it so much really. In fact, my biggest fantasy is to watch <Actor2.name> fuck <Actor.name>. There's no way <Actor.name> would ever agree to that willingly though ..."
+    0:: "It's just a fantasy"
+    1:: "Trick <Actor.name>"
+    
+    If 0
+        "It's just a fantasy. <Actor.name> will never consent to it and it will never happen."
+    Else
+        Actor.dress()
+        Actor.show(2)
+        Player(Flirty):: "Darling, my biggest fantasy has always been making love to you while you're tied up and blindfolded ..."       
+        If Random(50, 200) < Actor:attractiontoplayer + interpersonal
+            Actor(Flirty):: "I guess I can try it ... only for you."
+            Player(Excited):: "You're the best <Actor.boyfriend_or_girlfriend> ever ... I love you!"
+            "Tonight is the night ..."
+            "I tied <Actor.name> up so well <Actor.he_or_she> could barely move. And this blindfold should keep <Actor.him_or_her> from seeing a thing ..."
+            Player(Flirty):: "Darling, here I go ..."
+            Actor2.dress()
+            Actor2.show(3)
+            "I had no intention to enjoy my <Actor.boyfriend_or_girlfriend> tonight of course. Instead, I waved a signal to <Actor2.name>, who has been hiding in the closet the whole time, to finally come out and enjoy my generous gift. Soon, <Actor2.his_or_her> hands were all over <Actor.him_or_her>."
+            Actor(Angry):: "<Actor.name>, what the hell is going on? I know it's not you ..."
+            "The act's over. I decided to remove <Actor.name>'s blindfold and <Actor.he_or_she> was soon overcome with a look of horror when <Actor.he_or_she> realized who had been feeling <Actor.him_or_her> up."
+            Actor2(Flirty):: "You have no idea how long I have been wanting to fuck you hard. Thankfully I have the best friend in the world. Sharing is caring after all!"
+            Actor(Furious):: "<Player.name>! <Actor2.name>! Enough of this perverted joke. Get my hands untied this instance!"
+            "Unfortunately for <Actor.name>, this was no joke. Soon enough, <Actor2.name> ripped <Actor.his_or_her> clothes off and forced <Actor2.himself_or_herself> on my <Actor.boyfriend_or_girlfriend>, helplessly tied to the bed. Meanwhile, I just stood there and watched, even cheering on my friend."
+            Filter(Aggressive)
+            TalkNonConsensual()
+            SexNoAffair(Actor2, Actor)
+            Actor2.hide()
+            Actor.show(2)
+            Player.show(0)
+            "<Actor.name> had to endure <Actor2.name>'s brutal pounding until it was all over. But is our relationship also over with this? Surely, <Actor.he_or_she> will never forgive me for this?"            
+            If Random(0, 100) < Actor:masochist
+                Actor:attractiontoplayer => -100
+                "Of course <Actor.name> broke up with me. <Actor.He_or_She> trusted me and I tricked <Actor.him_or_her> into getting violated by my best friend just to satisfy some perverse fantasy."
+                loseDating()
+                blockContact(Actor)
+                "However, after everything we've been through together as a couple, <Actor.name> didn't quite have it to report what happened to the cops, sparing me and <Actor2.name> jail time."             
+            Else
+                "I don't know how, but even after what happened, <Actor.name> didn't have the heart to break up with me ... I wonder if I should take this as consent for <Actor.him_or_her> to be a fucktoy on demand for all my friends."
+            Endif
+        Else
+            Actor(Angry):: "Honey, I've told you many times before: I'm not comfortable doing that for you."
+        Endif
+    Endif
+    SceneEnd()
+    timeout(1000, ag_forcedfuckdatingfriend)

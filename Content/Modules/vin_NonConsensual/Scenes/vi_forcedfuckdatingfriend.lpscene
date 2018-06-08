@@ -1,0 +1,53 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getSpecific(Dating); Actor2 = getSpecific(Dating_Friend); If Actor.isMale() && Random(50, 100) < Actor:masochist && Random(80, 1000) < Actor:perversion && Random(70, 200) < Actor2:perversion
+OTHER: !isAtHome() && !Player.isMale() && perversion < Random(0, 100)*Random(0, 1)
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Flirty):: "Darling, my biggest fantasy has always been making love to you while you're tied up and blindfolded ..."
+    0:: "We can try"
+    1:: "No way"
+    
+    If 0
+        Player(Flirty):: "I guess I can try it ... only for you."
+        Actor(Excited):: "You're the best <Player.boyfriend_or_girlfriend> ever ... I love you!"
+        "Tonight is the night ..."
+        "Damn, <Actor.name> was serious about this. I got tied up so well I could barely move. Also, I cannot see a thing with this blindfold."
+        Actor(Flirty):: "Darling, here I go ..."
+        "There is my <Actor.boyfriend_or_girlfriend> feeling me up all over ... Wait ... this doesn't feel like <Actor.him_or_her> at all!"
+        Player(Angry):: "<Actor.name>, what the hell is going on? I know it's not you ..."
+        "My blindfold was removed and to my horror, the <Actor2.man_or_woman> who has been feeling me up isn't <Actor.name>, but <Actor2.name>, one of <Actor.name>'s best friends!"
+        Actor2.dress()
+        Actor2.show(3)
+        Actor2(Flirty):: "You have no idea how long I have been wanting to fuck you hard. Thankfully I have the best friend in the world. Sharing is caring after all!"
+        Player(Furious):: "<Actor.name>! <Actor2.name>! Enough of this perverted joke. Get my hands untied this instance!"
+        "Unfortunately for me, this was no joke. Soon enough, <Actor2.name> ripped my clothes off and forced <Actor2.himself_or_herself> on me, helplessly tied to the bed. <Actor.name>, the <Actor.boyfriend_or_girlfriend> that I trust, stood there and watched, even cheering on <Actor.his_or_her> friend."
+        Filter(Aggressive)
+        TalkNonConsensual()
+        SexNoAffair(Actor2, Player)
+        mood => 0
+        Actor2.hide()
+        Actor.show(2)
+        "I had to endure <Actor2.name>'s brutal pounding until it was all over. But is my relationship also over with this?"
+        0:: "Of course"
+        1:: "No ..."
+        
+        If 0
+            masochist -= Random(0, 2)
+            "Of course I'm breaking up with <Actor.name>. I trusted <Actor.him_or_her> and <Actor.he_or_she> tricked me into getting violated by <Actor.his_or_her> best friend just to satisfy some perverse fantasy or fulfil some bro pact."
+            loseDating()
+            blockContact(Actor)
+            blockContact(Actor2)
+            "After everything we've been through together as a couple, I didn't quite have it to report what happened to the cops, sparing my ex and <Actor.his_or_her> friend jail time."             
+        Else
+            masochist += Random(0, 5)
+            "I don't know why, but even after what happened, I didn't quite have the heart to break up with <Actor.name> ... I just hope <Actor.he_or_she> doesn't see this weakness as consent for me to be a fucktoy on demand for all <Actor.his_or_her> friends."
+        Endif
+    Else
+        Player(Angry):: "Honey, I've told you many times before: I'm not comfortable doing that for you."
+    Endif
+    SceneEnd()
+    timeout(1000, vi_forcedfuckdatingfriend)

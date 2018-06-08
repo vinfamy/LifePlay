@@ -1,0 +1,56 @@
+WHAT: all
+WHERE: all, -home, -hotel
+WHEN: 22 - 4
+WHO: Actor2 = getCompanion(); Actor = getPerson(); If !Actor2.isMale() && Actor.isMale() && !Actor.isDating() && !Actor.isRelative() && Random(-100, -50) > Actor:rapportwithplayer && Random(50, 200) < Actor:perversion && Random(-100, -50) > Actor:masochist
+OTHER: intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)
+
+    SceneStart()
+    setBackground(street)
+    "Damn it's dark in here. I shouldn't have gone for that shortcut just to save a few minutes. Too late to regret now - let's just walk fast and get the hell out of here - I don't feel safe."
+    Actor.dress()
+    Actor.show(2)
+    Actor(Evil):: "Karma is a bitch, isn't it?"
+    Actor(Evil):: "Tonight you'll pay for what you've done to me. I'm going to fuck your friend here hard until <Actor2.he_or_she> bleeds and you're going to have to watch it all."
+    "Oh no, it's <Actor.name> who I had a big grudge with. I don't like how this is going ..."
+    0:: "Run"
+    1:: "Attack"
+    
+    If 0
+        masochist += Random(0, 2)
+        "I decided to make a run for it!"
+        Actor.hide()
+        Actor2.hide()
+        "I did it! <Actor.name> was long left behind and I escaped. Phew, that was close."
+        Rape = false
+        "Unfortunately <Actor2.name> was left behind also ... I can't imagine what horrible things  <Actor2.he_or_she> is enduring right now ... Oh well, better <Actor2.him_or_her> than me!"
+        Actor2:attractiontoplayer -= Random(0, 50)
+        Actor2:rapportwithplayer -= Random(0, 50)
+    Else
+        Player(Furious):: "You mess with the wrong <Player.guy_or_girl>! Take this."
+        Actor(Furious):: "You dare sucker-punch me? I'll teach you a lesson."
+        "A fierce fight ensued ..."
+        If martial > Actor:martial || !isModEnabled(vin_NTR)
+            Rape = false
+            Actor(Pain):: "Ah!"
+            Player(Angry):: "That should teach you!"
+            Actor2:attractiontoplayer += Random(0, 5)
+            Actor2:rapportwithplayer += Random(0, 5)
+        Else
+            Rape = true
+            Player(Pain):: "Ah!"
+            Actor(Evil):: "Ha! You really thought you could match me in a fight? I have to say - this just makes me want to fuck <Actor2.his_or_her> brain out even more and make you wannabe hero watch it all!"
+            mood -= Random(0, 100)
+        Endif
+    Endif
+    
+    If Rape
+        "Soon, <Actor.name> was ripping the poor <Actor2.guy_or_girl>'s clothes off and proceeded to force <Actor.himself_or_herself> upon <Actor.his_or_her> victim."
+        Actor2(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
+        "<Actor2.His_or_Her> cries for help went unheard in the dark alley and <Actor2.he_or_she> had no choice but endure it all at the hand of this vile <Actor.man_or_woman>."
+        Filter(Aggressive)
+        TalkNonConsensual()
+        SexNoAffair(Actor, Actor2)
+        mood -= Random(0, 100)
+    Endif
+    SceneEnd()
+    timeout(500, wi_revenge_rape_ntr)

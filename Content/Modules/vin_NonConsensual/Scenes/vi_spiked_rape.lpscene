@@ -1,0 +1,40 @@
+WHAT: all, -go_to_the_bathroom
+WHERE: bar, nightclub
+WHEN: 21 - 4
+WHO: none
+OTHER: !Player.isMale() && Random(40, 500) < attractiveness
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    While !Actor.isMale()
+        Actor = generatePersonTemporary()    
+    Endwhile
+    Actor.dress()
+    Actor.show(2)
+    "I was just hanging out at the bar when a stranger approached me."
+    Actor(Happy):: "I'm sorry if this is all too sudden. But you're the most beautiful <Player.girl_or_guy> I've ever seen. I'd love nothing more than being able to buy you a drink."
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "Ah, what a charming <Actor.gentleman_or_lady>!"
+        Player(Happy):: "Of course! I'd love to have a drink with you."
+        "Soon enough, the charming stranger was back with drinks for both of us. We enjoyed our drinks while having a pleasant conversation. <Actor.He_or_She> introduced <Actor.himself_or_herself> as <Actor.name>."
+        "A while later ..."
+        "What's happening to me? I only had one drink for God's sake. My head is already shaking and I'm feeling ... aroused?"
+        "I'm losing control of my body - wait, where is <Actor.name> leading me to? We're leaving the bar ..."
+        "A while later ..."
+        setBackground(home)
+        "Why am I in this disgusting hotel room? Oh no, that drink was spiked!"
+        Actor(Evil):: "You stupid bitches never learn. Show you some charm and you all drink the first thing given to you."
+        Actor(Flirty):: "Now, let us have some fun, because you're gonna forget all about this in the morning!"
+        "Part of my mind still wanted to resist but it's too weak compared to the strong drug in my system."
+        Filter(Aggressive)
+        TalkNonConsensual()
+        SexNoAffair(Actor, Player)
+        mood => 0
+    Else
+        "You can never be too careful nowadays. I'd better not accept a drink from a complete stranger."
+    Endif
+    SceneEnd()
+    timeout(250, vi_spiked_rape)

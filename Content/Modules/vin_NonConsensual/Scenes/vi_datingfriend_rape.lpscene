@@ -1,0 +1,58 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor2 = getSpecific(Dating); Actor = getSpecific(Dating_Friend); If Actor.isMale() && Actor.isInterestedIn(Player) && Random(50, 300) < Actor:attractiontoplayer && Actor:masochist < -50 && Actor:perversion > 50
+OTHER: !Player.isMale() && !isAtHome()
+
+    SceneStart()
+    "There's someone at the door."
+    Actor.dress()
+    Actor.show(2)
+    "It's <Actor.name>, one of my <Actor2.boyfriend_or_girlfriend>'s best friends."
+    Actor(Happy):: "Oh hey there, <Player.name>. Is <Actor2.name> home?"
+    Player(Sad):: "What a shame. <Actor2.He_or_She> just headed out and won't be back until tomorrow."
+    Actor(Sad):: "Oh that's unfortunate. Can I come in for a drink at least? It was a long journey to get here for nothing."
+    "Did <Actor.name> just invite <Actor.himself_or_herself> into our apartment? I must admit: I never liked <Actor.name>. <Actor.He_or_She> always tried to flirt with me behind <Actor2.name>'s back ..."
+    0:: "Find an excuse"
+    1:: "Invite <Actor.him_or_her> in"
+    
+    If 0
+        Player(Sad):: "I wish I could let you stay. But I'm preparing to head out soon too ..."
+    Else
+        "I don't want to be rude to one of my <Actor2.boyfriend_or_girlfriend>'s best friends. "
+        0:: "Serve alcohol"
+        1:: "Just make some tea"
+        
+        If 0
+            "Oh well, if I'm going to get stuck with my <Actor2.boyfriend_or_girlfriend>'s unlikable friend, maybe some alcohol would help me tolerate the conversation."
+            "A while later ..."
+            "Damn it, the conversation was so awkward that I had nothing to do but drink. I'm now feeling quite tipsy."
+            "All of a sudden, <Actor.name> grabbed me ..."
+            Actor(Kiss):: "..."
+            Player(Angry):: "<Actor.name>! What the hell are you doing? I have a <Actor2.boyfriend_or_girlfriend>! And worse, <Actor2.he_or_she> is your best friend!"
+            Actor:rapportwithplayer -= Random(0, 10)
+            Player(Angry):: "Please leave, right away! I can't believe you just forced a kiss on me like that!"
+            
+            If Random(-100, -50) < masochist
+                Actor(Embarassed):: "I'm sorry ... It was a moment of passion. I didn't know what I was doing ... Please don't tell <Actor2.name>."
+            Else
+                Actor(Furious):: "Nobody rejects me like that! Let's see if you can remain so loyal to your <Actor2.boyfriend_or_girlfriend> after a hard pounding!"
+                Player(Angry):: "Get your hands off me! Have you gone crazy? Help!"
+                Actor(Evil):: "Listen and stop screaming! You'd better be a good <Player.boy_or_girl> for me, or I'll tell <Actor2.name> that you tried to seduce me. How do you like your relationship in ruin? We both know that <Actor2.name> is going to trust me over you. We've been best friends since well before <Actor2.he_or_she> even met you."
+                "Maybe my decision making was affected by the alcohol. Or maybe, my relationship just means that much to me. Either way, my mind seemed to let go after what <Actor.he_or_she> said and I stopped struggling. Soon, <Actor.he_or_she> was ripping my clothes off and proceeded to force <Actor.himself_or_herself> upon me."
+                Player(Crying):: "No! Please stop ... What if <Actor2.name> comes home to find us like this ..."
+                Filter(Aggressive)
+                TalkNonConsensual()
+                SexNoAffair(Actor, Player)
+                Actor.hide()
+                
+                Actor:rapportwithplayer => -100
+                blockContact(Actor)
+                "I never had the courage to report <Actor.name> to the police or even my <Actor2.boyfriend_or_girlfriend>, but I did blocked <Actor2.his_or_her> phone and start avoiding speaking to <Actor2.him_or_her> since that night, to <Actor2.name>'s confusion." 
+            Endif 
+        Else
+            "Let's just make the <Actor.guy_or_girl> some tea so that <Actor.he_or_she> can be on <Actor.his_or_her> way soon. Don't want <Actor.him_or_her> lingering around or trying anything funny."
+        Endif
+    Endif
+    SceneEnd()
+    timeout(500, vi_datingfriend_rape)

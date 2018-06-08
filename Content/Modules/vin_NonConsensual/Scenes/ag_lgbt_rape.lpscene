@@ -1,0 +1,68 @@
+WHAT: all
+WHERE: all
+WHEN: 0 - 24
+WHO: Actor = getCompanion(); If !Actor.isRelative() && !Actor.isMale() && !Actor.isInterestedIn(Player) && Player.isInterestedIn(Actor) && Random(70, 300) < Actor:attractiveness
+OTHER: Player.isMale()
+
+    SceneStart()
+    "<Actor.name> is smoking hot ... What a shame that <Actor.he_or_she> isn't into <Player.guys_or_girls> ..."
+    0:: "<Actor.He_or_She> was born that way"
+    1:: "I bet I can 'convert' <Actor.him_or_her>"
+    
+    If 0
+        "That's just <Actor.his_or_her> sexual orientation. I have to respect that. There are a million other straight <Actor.guys_or_girls> out there for me."
+    Else
+        "<Actor.He_or_She> might not be into <Player.guys_or_girls> ... for now. I bet I can convert <Actor.him_or_her>."
+        "Now, how am I supposed to do that?"
+        0:: "Get <Actor.him_or_her> drunk"
+        1:: "Be a nice <Player.gentleman_or_lady>"
+        
+        If 0
+            "Some good old alcohol should do the trick in bringing <Actor.him_or_her> to <Actor.his_or_her> true sexuality."
+            setBackground(home)
+            moveTo(Home)
+            Actor(Pain):: "Thank you for inviting me into your apartment and for the drinks, but I think I'd gotta leave now. Would you mind calling me a taxi? I'm so drunk ..."
+            0:: "Call the cab for <Actor.him_or_her>"
+            1:: "Grab <Actor.him_or_her> and start making out"
+            
+            If 0
+                Player(Happy):: "Sure, I'll get you a cab right away. Should be here in ten minutes."
+                Actor:rapportwithplayer += Random(0, 2)
+            Else
+                "<Actor.He_or_She> is out of it. It's time for my master plan."
+                Player(Kiss):: "..."
+                Actor(Angry):: "Eww <Player.name>! What the hell are you doing? You know I'm not into <Player.guys_or_girls>!"
+                Actor:rapportwithplayer -= Random(0, 10)
+                Actor(Angry):: "I'm leaving! I can't believe you just forced a kiss on me like that!"
+                0:: "Apologize"
+                1:: masochist < 0:: "Force myself upon <Actor.him_or_her>"
+                
+                If 0
+                    Player(Embarassed):: "I'm sorry ... It was a moment of passion. I didn't know what I was doing ..."
+                Else
+                    Player(Furious):: "Nobody rejects me like that! Let's see if I can't convert you after a hard pounding!"
+                    Actor(Angry):: "Get your hands off me! Have you gone crazy? Help!"
+                    If Actor:martial*0.5 > martial
+                        "Unfortunately for me, even drunk, <Actor.name> was more than a handful for me to subdue. After a brief struggle, <Actor.he_or_she> managed to get away from me and escaped my apartment."  
+                    Else
+                        "Affected by the alcohol, <Actor.name> never stood a chance and I managed to overcome <Actor.his_or_her> struggles easily. Soon, I was ripping <Actor.his_or_her> clothes off and proceeded to force myself upon <Actor.him_or_her>."
+                        Actor(Crying):: "No! Please stop ... Somebody help ..."
+                        Filter(Aggressive)
+                        TalkNonConsensual()
+                        SexNoAffair(Player, Actor)
+                        Actor.hide()
+                    Endif
+                    
+                    Actor:rapportwithplayer => -100
+                    blockContact(Actor)
+                    "I was lucky to avoid jail time as <Actor.name> never reported me to the police, but <Actor.he_or_she> blocked me and never wanted to see me again. One thing for sure: I did nothing to convert <Actor.name> to become into <Player.guys_or_girls>." 
+                Endif
+            Endif 
+            
+            endDate()
+        Else
+            "I'll just continue hanging out with <Actor.him_or_her> and treating <Actor.him_or_her> well. Eventually, <Actor.he_or_she> will surely fall for my charm."
+        Endif
+    Endif
+    SceneEnd()
+    timeout(500, ag_lgbt_rape)

@@ -1,0 +1,62 @@
+WHAT: all
+WHERE: all, -home, -hotel
+WHEN: 22 - 4
+WHO: Actor = getPerson(); If Actor.isMale() && !Actor.isDating() && !Actor.isRelative() && Random(-100, -50) > Actor:rapportwithplayer && Random(50, 200) < Actor:perversion && Random(-100, -50) > Actor:masochist
+OTHER: !Player.isMale() && Random(50, 300) < attractiveness && intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)
+
+    SceneStart()
+    setBackground(street)
+    "Damn it's dark in here. I shouldn't have gone for that shortcut just to save a few minutes. Too late to regret now - let's just walk fast and get the hell out of here - I don't feel safe."
+    Actor.dress()
+    Actor.show(2)
+    Actor(Evil):: "Karma is a bitch, isn't it?"
+    Actor(Evil):: "Tonight you'll pay for what you've done to me. I'm going to fuck you hard until you bleed."
+    "Oh no, it's <Actor.name> who I had a big grudge with. I don't like how this is going ..."
+    0:: "Run"
+    1:: "Attack"
+    
+    If 0
+        "I decided to make a run for it!"
+        If Random(0, 200) < Player:fitness
+            Actor.hide()
+            "I did it! <Actor.name> was long left behind and I escaped. Phew, that was close."
+            Rape = false
+        Else
+            "I tried to escape but <Actor.name> was too fast for me and knocked me down to the ground."
+            Actor(Evil):: "I think you can just run away? You should have saved the energy to endure a hard pounding from me tonight."
+            Rape = true
+        Endif    
+    Else
+        Player(Furious):: "You mess with the wrong <Player.guy_or_girl>! Take this."
+        Actor(Furious):: "You dare sucker-punch me? I'll teach you a lesson."
+        "A fierce fight ensued ..."
+        If martial > Actor:martial
+            Rape = false
+            Actor(Pain):: "Ah!"
+            Player(Angry):: "That should teach you!"
+        Else
+            Rape = true
+            Player(Pain):: "Ah!"
+            Actor(Evil):: "Ha! You really thought you could match me in a fight? I have to say - this just makes me want to fuck your brain out even more, you'll see how I conquer this wild bitch tonight!"            
+        Endif
+    Endif
+    
+    If Rape
+        "Soon, <Actor.he_or_she> was ripping my clothes off and proceeded to force <Actor.himself_or_herself> upon me."
+        Player(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
+        If Random(0, 100) < 30
+            "All of a sudden, I heard police siren. <Actor.name> was terrified and made a run for it."
+            Actor.hide()
+            "Three cops arrived at the scene, finding me in all state of undress. Apparently a passerby saw what was happening and called the cops, who responded immediately. Good thing they did, this night could have gone a lot worse."
+            mood -= Random(0, 50)
+        Else
+            "My cries for help went unheard in the dark alley and I had no choice but endure the worst night of my life at the hand of this vile <Actor.man_or_woman>."
+            Filter(Aggressive)
+            TalkNonConsensual()
+            SexNoAffair(Actor, Player)
+            Actor.hide()
+            mood => 0
+        Endif
+    Endif
+    SceneEnd()
+    timeout(500, vi_revenge_rape)

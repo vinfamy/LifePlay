@@ -1,0 +1,36 @@
+WHAT: get_a_health_checkup
+WHERE: all
+WHEN: 0 - 24
+WHO: none
+OTHER: !Player.isMale() && Random(70, 1000) < attractiveness
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    While !Actor.isMale()
+        Actor = generatePersonTemporary()      
+    Endwhile
+    Actor.dress()
+    Actor.show(2)
+    "I'm lying on the examination couch for some tests. I've got to say the nurse who has been administering the test is kinda creepy and has been looking at me a bit weird."
+    Actor(Evil):: "Now, stay still. This may hurt a bit ..."
+    0:: "Wait, what's that needle for?"
+    1:: "<Actor.He_or_She> knows what <Actor.he_or_she> is doing"
+    
+    If 0
+        Player(Angry):: "Wait, why do you need to inject anything into me? Aren't you supposed to take my blood samples?"
+        Actor(Sad):: "Oh god, silly me. Sorry!"
+        "Damn, that's bizzare. I should go to another hospital for medical checkup next time."
+    Else
+        "Maybe for the blood to be ready for testing, it needs some drug first ..."
+        "A while later ..."
+        "What's happening to me? My head is already shaking and I'm feeling ... aroused? I'm losing control of my body. What drug was I injected with?"
+        Actor(Evil):: "You stupid bitches never question what gets injected into your body, do you?"
+        Actor(Flirty):: "Now, let us have some fun, because you're gonna forget all about this once the drug's effects pass!"
+        "Part of my mind still wanted to resist but it's too weak compared to the strong drug in my system."
+        Filter(Aggressive)
+        TalkNonConsensual()
+        SexNoAffair(Actor, Player)
+        mood => 0
+    Endif
+    SceneEnd()
+    timeout(1000, vi_hospital_rape)

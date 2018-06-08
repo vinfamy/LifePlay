@@ -1,0 +1,28 @@
+WHAT: go_to_the_bathroom
+WHERE: sports_centre
+WHEN: 0 - 24
+WHO: none
+OTHER: !Player.isMale() && Random(70, 1000) < attractiveness
+
+    SceneStart()
+    Player.strip()
+    "Damn, the locker room is empty today. Let's get this shower over and done with quick. I don't feel particularly safe."
+    Actor = generatePersonTemporary()
+    While !Actor.isMale()
+        Actor = generatePersonTemporary()
+    Endwhile
+    "All of a sudden, a stranger grabbed me by the <Player.dick_or_pussy> from behind."
+    Actor.show(2)
+    If martial > Actor:martial
+        Actor(Pain):: "Ah!"
+        Player(Angry):: "That should teach you to not sexually assault people in locker rooms!"
+    Else
+        "The element of surprise was too great. I was overwhelmed before I could even react to the assault."
+        Player(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
+        "My cries for help went unheard in the locker room and I had no choice but endure it all at the hand of this vile <Actor.man_or_woman>."
+        Filter(Aggressive)
+        TalkNonConsensual()
+        SexNoAffair(Actor, Player)
+    Endif
+    SceneEnd()
+    timeout(500, vi_locker_rape)

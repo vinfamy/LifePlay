@@ -1,0 +1,42 @@
+WHAT: go_to_the_bathroom
+WHERE: sports_centre
+WHEN: 0 - 24
+WHO: none
+OTHER: Player.isMale() && Random(50, 1000) < perversion
+
+    SceneStart()
+    "The gym is so empty today. Maybe I should peep on the female locker room?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        Actor = generatePersonTemporary()
+        While Actor.isMale()
+            Actor = generatePersonTemporary()
+        Endwhile
+        Actor.show(2)
+        "Oh wow, what a hottie taking a shower in the locker room! No-one else is around ... Perhaps I should take this chance."
+        0:: "Force myself on <Actor.him_or_her>"
+        1:: "Just watch <Actor.him_or_her> shower"
+        
+        If 0
+            "Taking <Actor.him_or_her> completely by surprise, I grabbed the beautiful <Actor.woman_or_man> by the <Actor.dick_or_pussy> from behind."
+            If martial < Actor:martial
+                Player(Pain):: "Ah!"
+                Actor(Angry):: "That should teach you to not sexually assault people in locker rooms!"
+            Else
+                "The element of surprise was too great. <Actor.He_or_She> was overwhelmed before <Actor.he_or_she> could even react to the assault."
+                Actor(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
+                "<Actor.His_or_Her> cries for help went unheard in the locker room and <Actor.he_or_she> had no choice but endure it all at my hand."
+                Filter(Aggressive)
+                TalkNonConsensual()
+                SexNoAffair(Player, Actor)
+            Endif
+        Else
+            "Nah, let's not be rash. I may be a pervert, but no rapist."
+        Endif
+    Else
+        "Nah, let's not be a creep here ..."
+    Endif
+    SceneEnd()
+    timeout(500, ag_locker_rape)
