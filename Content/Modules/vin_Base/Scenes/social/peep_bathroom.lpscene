@@ -4,27 +4,42 @@ WHEN: 0 - 24
 WHO: none
 OTHER: Random(0, 100) < 0.1 || [Random(0, 100) < 5 && WHERE == nightclub]
 
-SceneStart()
+    SceneStart()
 
-"I was about to step into my cubicle when I noticed some moaning from the cubicle next to mine ... Some couple clearly couldn't wait until they get home."
-0:: "Ignore"
-1:: perversion > 20:: "Peep"
-    
-    If 0
-        "There's nothing to see here. I 'did the business' as fast as I could and got the hell out of the bathroom. The couple were too busy fucking to ever notice me coming in and out."
-    Else
-        perversion += Random(0, 0.5)
-        "Live pornography? Hell yeah, sign me up!"
-        "I stood up on top of the toilet seat cover and started peeping at them."
-        Guy = generatePerson()
-        Girl = generatePerson()
-        Sex(Guy, Girl)
-        Guy.hide()
-        Girl.hide()
-        arousal += Random(0, 30)
-        Player.show(0)
-        "Damn, that was hot. I'm so horny now ..."
-    Endif
+    "I was about to step into my cubicle when I noticed some moaning from the cubicle next to mine ... Some couple clearly couldn't wait until they get home."
+    0:: "Ignore"
+    1:: perversion > 20:: "Peep"
+        
+        If 0
+            "There's nothing to see here. I 'did the business' as fast as I could and got the hell out of the bathroom. The couple were too busy fucking to ever notice me coming in and out."
+        Else
+            perversion += Random(0, 0.5)
+            "Live pornography? Hell yeah, sign me up!"
+            "I stood up on top of the toilet seat cover and started peeping at them."
+            Guy = generatePerson()
+            Girl = generatePerson()
+            Sex(Guy, Girl)
+            arousal += Random(0, 30)
+            Guy.show(2)
+            Girl.show(3)
+            Player.show(0)
+            "That was hot. But it looks like they're already ready for another round ..."
+            0:: "Offer to join them"
+            1:: "Enough"
+            
+            If 0
+                Player(Flirty):: "Looks like you guys are having some fun there? Mind if I join?"
+                If Random(30, 100) < Guy:perversion || Random(30, 100) < Guy:attractiontoplayer
+                    Guy(Flirty):: "Come on and join us then, what are you waiting for?"
+                    Sex(Guy, Girl, Player)
+                    Player:perversion += Random(0, 1)
+                Else
+                    Guy(Angry):: "What the fuck are you doing here, peeping Tom? Get out or I'll call the police."
+                Endif
+            Else
+                "I should get out of here before I get caught."
+            Endif
+        Endif
 
-SceneEnd()
-timeout(24, peep_bathroom)
+    SceneEnd()
+    timeout(48, peep_bathroom)

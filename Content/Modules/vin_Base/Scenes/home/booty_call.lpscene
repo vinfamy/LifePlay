@@ -1,15 +1,20 @@
 WHAT: all, -go_to_the_bathroom, -sleep, -nap
 WHERE: home
 WHEN: 18 - 24
-WHO: Actor = getPerson(true); If Player.isInterestedIn(Actor) && Actor:perversion > 80 && Actor:attractiontoplayer > 10
-OTHER: !Player.isDating() && IsAtHome() && arousal > 50 && perversion > 30
+WHO: Actor = getPerson(true); If !Actor.isDating() && Player.isInterestedIn(Actor) && Actor:perversion > 80 && Actor:attractiontoplayer > 10
+OTHER: IsAtHome() && arousal > 50 && perversion > 30
 
     SceneStart()
     Actor.dress()
-    Actor.show(2)    
+    Actor.show(2)
+    Actor2 = getPerson(true)
+    While Actor2.isValid() && [!Player.isInterestedIn(Actor2) || Actor2:perversion < 60 || Actor2:attractiontoplayer < 5 || Actor.isDating()]
+        Actor2 = getPerson(true)
+    EndWhile
     "I'm so horny, damn it! Maybe I should give <Actor.name> a booty call? Being a free spirit, I'm sure <Actor.he_or_she> will be down."
     0:: "Yes"
     1:: "No"
+    2:: Actor2.isValid():: "Call another fuckbuddy for a threesome"
     
     If 0
         "In no time at all, <Actor.name> arrived and we didn't bother with any dating bullshit, but just got it on immediately."
@@ -17,8 +22,18 @@ OTHER: !Player.isDating() && IsAtHome() && arousal > 50 && perversion > 30
         perversion += Random(0, 0.5)
         Actor.hide()
         "<Actor.name> satisfied my needs, I satisfied <Actor.his_or_hers>. It's a win-win for both sides!"
-    Else
+    Elseif 1
         "No way. I'm not so desperate that I would just fuck anyone I know."
+    Else
+        "Lucky me! <Actor.name> isn't the only one on my contact list that is a potential booty call. <Actor2.name> too I'm sure will be up for it."
+        Actor2.dress()
+        Actor2.show(3)
+        "In no time at all, <Actor.name> and <Actor2.name> arrived and we didn't bother with any dating bullshit, but just got it on immediately."
+        Sex(Player, Actor, Actor2)
+        perversion += Random(0, 1)
+        Actor.hide()
+        Actor2.hide()
+        "<Actor.name>, <Actor2.name> and I satisfied each other's needs. It's a win-win for all three sides!"        
     Endif
     
     SceneEnd()

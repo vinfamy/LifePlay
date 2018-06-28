@@ -42,6 +42,7 @@ OTHER: none
                 Player(Sad):: "This is so wrong ... but if you give me an ultimatum like that ..."
                 Sex(Actor, Player)
                 Actor:incest += Random(0, 50)
+                Sex(Actor, Player, Sugar)
             Else
                 Player(Angry):: "Are you for real right now? You're my <Actor.relationship> for God's sake! I can't sleep with you. Who cares about your besties rivalry?"
                 Actor:rapportwithplayer -= Random(0, 50)           

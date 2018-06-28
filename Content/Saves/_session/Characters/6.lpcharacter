@@ -130,7 +130,7 @@ MORPH Wrists_Size_min: 100% 0.060382
 
 //Hair
 HAIR Hairstyle: 100% Hair_Long_F
-HAIR Hair_Thickness: 100% 1.278841
+HAIR Hair_Thickness: 100% 1.0
 HAIR Hair_Color_R: 100% 0.015
 HAIR Hair_Color_G: 100% 0.003
 HAIR Hair_Color_B: 100% 0.0
@@ -158,6 +158,7 @@ SKIN Skin_Sagging: 100% 0.830673
 SKIN Muscle_Tone: 100% 0.064401
 
 // Stats
+STAT incest: 100% 0.0
 STAT age: 100% 18.862759
 STAT attractiveness: 100% 18.344677
 STAT cooking: 100% 6.613361
@@ -171,7 +172,7 @@ STAT muscle: 100% 48.866238
 STAT music: 100% 92.059082
 STAT perversion: 100% 74.254585
 STAT sneak: 100% 56.755276
-STAT attractiontoplayer: 100% -18.888334
+STAT attractiontoplayer: 100% 100.0
 STAT rapportwithplayer: 100% 43.029564
-STAT arousal: 100% 46.374275
-STAT intoxication: 100% 0.171776
+STAT arousal: 100% 68.765999
+STAT intoxication: 100% 0.036042

@@ -51,6 +51,21 @@ OTHER: isWithCompanion() && CurrentCompanion.isDating() && perversion > 70 && Cu
                 MyFuck.hide()
                 CurrentCompanion.hide()
                 perversion += Random(0, 1)
+                "Wow that was amazing. But do we have the energy to go on for the whole night?"
+                0:: "Yes"
+                1:: "I'm exhausted already"
+                
+                If 0
+                    perversion += Random(0, 1)
+                    Sex(Player, MyFuck, CurrentCompanion)
+                    Sex(CurrentCompanion, DatingFuck, Player)
+                    Sex(Player, MyFuck, DatingFuck)
+                Endif
+                Player.show(0)
+                CurrentCompanion.show(5)
+                MyFuck.show(2)
+                DatingFuck.show(3)
+
                 "What an amazing night that was. What an experience! And what a way to add spice to our relationship."
                 CurrentCompanion:attractiontoplayer += Random(0, 5)
                 HadSex = true

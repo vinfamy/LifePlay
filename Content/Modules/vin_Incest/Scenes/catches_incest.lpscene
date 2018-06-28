@@ -32,6 +32,30 @@ OTHER: isAtHome()
             "This is so wrong, I know, watching my <Actor.relationship> fuck my <Actor2.relationship> ... but for some reason, I'm getting so excited."
             Actor:incest += Random(0, 25)
             Actor2:incest += Random(0, 25)
+            Actor.show(2)
+            Actor2.show(3)
+            Player.show(0)
+            "It looks like they're already ready for another round ..."
+            0:: "Offer to join them"
+            1:: "Enough"
+            
+            If 0
+                Player(Flirty):: "Looks like you guys are having some fun there? Mind if I join?"
+                If Random(50, 100) < Actor:incest || Random(50, 100) < Actor2:incest
+                    Actor(Flirty):: "I didn't realize how much of a pervert my <Actor.callplayer> is ... Come on and join us then, what are you waiting for?"
+                    Sex(Actor, Actor2, Player)
+                    Actor:incest += Random(0, 50)
+                    Actor2:incest += Random(0, 50)
+                Else
+                    Actor(Angry):: "What are you doing here, peeping Tom? Get out! And not a word about this to anyone. You've seen nothing!"
+                    Actor:rapportwithplayer -= Random(0, 3)
+                Endif
+            Else
+                "I should get out of here before I get caught."
+            Endif
+        Else
+            "Unfortunately for me, their doors were fully closed and all the curtains were pulled down. There's no way I can get a look in ..."
+        Endif
         Else
             "Unfortunately for me, their doors were fully closed and all the curtains were pulled down. There's no way I can get a look in ..."
         Endif

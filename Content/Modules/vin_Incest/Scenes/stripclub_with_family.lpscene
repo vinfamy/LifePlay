@@ -38,6 +38,7 @@ OTHER: none
         "The stripper gave me quite a lap dance. I really need to release now ..."
         0:: "Pay for extra service"
         1:: "Just enjoy the show"
+        2:: "Let's share"
         
         If 0
             money -= Random(200, 1000)
@@ -48,7 +49,7 @@ OTHER: none
             Stripper.show(2)
             "That was a very pleasurable night out with my <Actor.relationship>!"
             Actor:incest += Random(0, 2)
-        Else
+        Elseif 1
             "I'd rather just watch ..."
             If Actor.isInterestedIn(Stripper)
                 "With me not going for it, <Actor.name> paid the stripper instead to have sex with <Actor.him_or_her>."
@@ -60,7 +61,13 @@ OTHER: none
                 "I can't believe I watched the whole thing! I got to see another side of my <Actor.relationship>."
                 Actor:incest += Random(0, 5)
             Endif
-            "That was an enjoyable night out, even if I never got to release myself."       
+            "That was an enjoyable night out, even if I never got to release myself."
+        Else
+            money -= Random(200, 1000)
+            "It cost quite a bit of money but eventually we managed to convince the stripper to do more than just giving us a show. What a way to bond with your <Actor.relationship>!"
+            Sex(Player, Stripper, Actor)
+            perversion += Random(0, 1)
+            Actor:incest += Random(0, 20)            
         Endif    
     Else
         Player(Sad):: "Sorry, it's not my thing."

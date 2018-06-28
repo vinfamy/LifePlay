@@ -5,66 +5,72 @@ WHO: Colleague = getSpecific(Colleague); If Colleague:perversion > Random(50, 10
 OTHER: Random(0, 100) < 0.05*perversion
 
 
-SceneStart()
-setBackground(work)
-Colleague.dress()
-Colleague.show(2)
+    SceneStart()
+    setBackground(work)
+    Colleague.dress()
+    Colleague.show(2)
 
-Colleague(Excited):: "Yo, you're still going strong this late? Listen, I'm heading out to a stripclub soon. Wanna join?"
-0:: "Sure"
-1:: "Nope"
+    Colleague(Excited):: "Yo, you're still going strong this late? Listen, I'm heading out to a stripclub soon. Wanna join?"
+    0:: "Sure"
+    1:: "Nope"
 
-If 0
-    Player(Excited):: "Actually that's an excellent idea. Watching a few hotties dancing naked is just what I need right now to relieve the stress."
-    mood += Random(0, 20)
-    perversion += Random(0, 0.25)
-    Colleague:rapportwithplayer += Random(0, 20)
-    "Later that night ..."
-    setBackground(nightclub)
-    Stripper = generatePerson()
-    Stripper.blendPreset(twenties)
-    Stripper.blendpreset(hourglass1_F)
-    Stripper.randomizeHairs()    
-    If !Player.isInterestedIn(Stripper)
-        Stripper.blendPreset(athletic)
-    Endif
-    Stripper.randomizeFace()
-	Stripper.randomizeHairs()
-    
-    Colleague.show(4)
-    
-    Stripper.dress()
-    Stripper.strip()
-    Stripper.show(2)
-    arousal += Random(0, 30)
-    "The stripper gave me quite a lap dance. I really need to release now ..."
-    0:: "Pay for extra service"
-    1:: "Just enjoy the show"
-    
     If 0
-        money -= Random(200, 1000)
-        "It cost quite a bit of money but eventually I managed to convince the stripper to do more than just giving me a show."
-        Colleague.hide()
-        Sex(Player, Stripper)
-        perversion += Random(0, 0.5)       
-        Stripper.show(2)
-        "That was a very pleasurable night out after work!"
-    Else
-        "I'd rather just watch ..."
-        If Colleague.isInterestedIn(Stripper)
-            "With me not going for it, <Colleague.name> paid the stripper instead to have sex with <Colleague.him_or_her>."
-            Player.hide()
-            Sex(Colleague, Stripper)
-            Stripper.hide()
-            Colleague.show(4)
-            Player.show(0)
-            "I can't believe I watched the whole thing! I got to see another side of my colleague."
+        Player(Excited):: "Actually that's an excellent idea. Watching a few hotties dancing naked is just what I need right now to relieve the stress."
+        mood += Random(0, 20)
+        perversion += Random(0, 0.25)
+        Colleague:rapportwithplayer += Random(0, 20)
+        "Later that night ..."
+        setBackground(nightclub)
+        Stripper = generatePerson()
+        Stripper.blendPreset(twenties)
+        Stripper.blendpreset(hourglass1_F)
+        Stripper.randomizeHairs()    
+        If !Player.isInterestedIn(Stripper)
+            Stripper.blendPreset(athletic)
         Endif
-        "That was an enjoyable night out after work, even if I never got to release myself."       
-    Endif    
-Else
-    Player(Sad):: "Sorry, it's not my thing. Besides, I still have plenty of work to do."
-Endif
+        Stripper.randomizeFace()
+        Stripper.randomizeHairs()
+        
+        Colleague.show(4)
+        
+        Stripper.dress()
+        Stripper.strip()
+        Stripper.show(2)
+        arousal += Random(0, 30)
+        "The stripper gave me quite a lap dance. I really need to release now ..."
+        0:: "Pay for extra service"
+        1:: "Just enjoy the show"
+        2:: "Let's share"
+        
+        If 0
+            money -= Random(200, 1000)
+            "It cost quite a bit of money but eventually I managed to convince the stripper to do more than just giving me a show."
+            Colleague.hide()
+            Sex(Player, Stripper)
+            perversion += Random(0, 0.5)       
+            Stripper.show(2)
+            "That was a very pleasurable night out after work!"
+        Elseif 1
+            "I'd rather just watch ..."
+            If Colleague.isInterestedIn(Stripper)
+                "With me not going for it, <Colleague.name> paid the stripper instead to have sex with <Colleague.him_or_her>."
+                Player.hide()
+                Sex(Colleague, Stripper)
+                Stripper.hide()
+                Colleague.show(4)
+                Player.show(0)
+                "I can't believe I watched the whole thing! I got to see another side of my colleague."
+            Endif
+            "That was an enjoyable night out after work, even if I never got to release myself."
+        Else
+            money -= Random(200, 1000)
+            "It cost quite a bit of money but eventually we managed to convince the stripper to do more than just giving us a show. What a way to bond with your colleague!"
+            Sex(Player, Stripper, Colleague)
+            perversion += Random(0, 1)       
+        Endif    
+    Else
+        Player(Sad):: "Sorry, it's not my thing. Besides, I still have plenty of work to do."
+    Endif
 
-SceneEnd()
-timeout(500, stripclub)
+    SceneEnd()
+    timeout(500, stripclub)

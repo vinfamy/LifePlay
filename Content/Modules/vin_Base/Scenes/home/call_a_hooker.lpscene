@@ -28,16 +28,38 @@ OTHER: IsAtHome() && arousal > 50 && perversion > 30
         "Should I arrange to have sex with this hooker?"
         0:: "Yes"
         1:: "No"
+        2:: "Get another one for a threesome"
         
         If 0
-            "In no time at all, <Actor.name> arrived and we got it on immediately."
+            "In no time at all, the hooker arrived and we got it on immediately."
             Sex(Player, Actor)
             perversion += Random(0, 0.5)
             money -= Random(100, 300)
             Actor.show(2)
             "I paid the hooker and we parted ways. Good service that was!"
-        Else
+        Elseif 1
             "Nah, <Actor.he_or_she> isn't my type."
+        Else
+            Actor2 = generatePersonTemporary()
+            While !Player.isInterestedIn(Actor)
+                Actor2 = generatePersonTemporary()       
+            Endwhile        
+            Random
+                Actor2.blendPreset(twenties)
+                Actor2.blendPreset(thirties)
+            EndRandom        
+            Actor2.randomizeHairs()
+            Actor2.randomizeFace()            
+            Actor2.dress()
+            Actor2.show(3)
+            
+            "In no time at all, the two prostitutes arrived and we got it on immediately."
+            Sex(Player, Actor, Actor2)
+            perversion += Random(0, 1)
+            money -= Random(200, 600)
+            Actor.show(2)
+            Actor2.show(3)
+            "I paid the hookers and we parted ways. Good service that was!"            
         Endif
     Else
         "No way. I'm not so desperate that I have to pay to get laid."

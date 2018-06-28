@@ -61,6 +61,7 @@ If 0
         Friend(Wink):: "Hey, you know what? Let's have a bet. See that cute <Bird.guy_or_girl> over there? Let's see who can get <Bird.him_or_her> in bed first!"
         0:: "Accept the bet"
         1:: "Refuse"
+        2:: "A threesome should tempt <Bird.him_or_her>"
         
         If 0
             "The peer pressure, coupled with the amount of alcohol I drank, was too much. I accepted the bet."
@@ -73,11 +74,21 @@ If 0
             Sex(Bird, Player)
             Bird.hide()
             "I won my bet with <Friend.name>, but at the cost of cheating on <Dating.name>. However, I was too drunk from the alcohol and exhausted from the sex to feel too guilty at that particular moment. Let's just hope <Dating.name> will never find out."
-        Else
+        Elseif 1
             "I might be drunk but I'm not a cheater."
             Player(Irritated):: "Come on, you know I can't do that! I'm taken ..."
             Friend(Angry):: "You're no fun at all!"
             Friend:rapportwithplayer -= Random(0, 3)
+        Else
+            Player(Happy):: "Forget about the bet! How about us both trying to seduce <Bird.him_or_her> at the same time? Surely no <Bird.man_or_girl> can turn down a threesome?"
+            perversion += Random(0, 1)
+            "As we expected, the cute <Bird.guy_or_girl> stood no chance of resisting the prospect of a steamy threesome with me and <Friend.name>. We ended up following <Bird.him_or_her> home."
+            setBackground(home)
+            Sex(Bird, Player, Friend)
+            Bird.hide()
+            Friend.hide()
+            Player.show(0)
+            "I don't know what came over to make such a bold suggestion and follow through with it. However, I was too drunk from the alcohol and exhausted from the sex to feel too guilty at that particular moment. Let's just hope <Dating.name> will never find out."            
         Endif
     Endif
 Else

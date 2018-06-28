@@ -35,7 +35,26 @@ OTHER: Random(0, 100) < 20
         "Soon enough, the couple's making out became more and more intense and it became increasingly clear that they had no shame to do it right here in the cinema."
         perversion += Random(0, 0.5)
         Sex(Actor, Actor2)
-    Endif
-    
-    timeout(48, cinema_couple)
+        Actor.show(2)
+        Actor2.show(3)
+        Player.show(0)
+        "That was hot. But it looks like they're already ready for another round ..."
+        0:: "Offer to join them"
+        1:: "Enough"
+        
+        If 0
+            Player(Flirty):: "Looks like you guys are having some fun there? Mind if I join?"
+            If Random(50, 100) < Actor:perversion || Random(30, 100) < Actor:attractiontoplayer
+                Actor(Flirty):: "Come on and join us then, what are you waiting for?"
+                Sex(Actor, Actor2, Player)
+                Player:perversion += Random(0, 1)
+            Else
+                Actor(Angry):: "What the fuck are you doing here, peeping Tom? Get out or I'll call the police."
+                Actor:rapportwithplayer -= Random(0, 3)
+            Endif
+        Else
+            "I should get out of here before I get caught."
+        Endif
+    Endif    
+    timeout(96, cinema_couple)
     SceneEnd()

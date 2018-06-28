@@ -28,6 +28,26 @@ OTHER: isAtHome()
             Sex(Actor, Actor2)
             arousal += Random(0, 30)
             "This is so wrong, I know. <Actor.He_or_She> is my <Actor.relationship> after all ... but for some reason, I'm getting so excited watching <Actor.he_or_she> getting it on with this stranger. In fact, as much as the thought is quite fucked up, I can't help but imagine myself in the place of the lucky <Actor2.guy_or_girl> ..."
+            Actor.show(2)
+            Actor2.show(3)
+            Player.show(0)
+            "It looks like they're already ready for another round ..."
+            0:: "Offer to join them"
+            1:: "Enough"
+            
+            If 0
+                Player(Flirty):: "Looks like you guys are having some fun there? Mind if I join?"
+                If Random(50, 100) < Actor:incest
+                    Actor(Flirty):: "I didn't realize how much of a pervert my <Actor.callplayer> is ... Come on and join us then, what are you waiting for?"
+                    Sex(Actor, Player, Actor2)
+                    Actor:incest += Random(0, 50)
+                Else
+                    Actor(Angry):: "What are you doing here, peeping Tom? And what's up with that perverted proposal? You're my <Actor.callplayer>, for God's sake!"
+                    Actor:rapportwithplayer -= Random(0, 3)
+                Endif
+            Else
+                "I should get out of here before I get caught."
+            Endif
         Else
             "Unfortunately for me, their doors were fully closed and all the curtains were pulled down. There's no way I can get a look in ..."
         Endif

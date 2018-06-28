@@ -45,6 +45,14 @@ If 0
                 Sex(Bull, Dating)
                 masochist += Random(0, 2)
                 perversion += Random(0, 1)
+                "That was hot. But it looks like both <Bull.name> and <Dating.name> could go for another round ... and I'm becoming quite aroused."
+                0:: "Have a threesome"
+                1:: "Nope"
+                
+                If 0
+                   Sex(Bull, Dating, Player)
+                   perversion += Random(0, 1)
+                Endif
                 Bull.hide()
                 Dating.show(2)
                 Player.show(0)

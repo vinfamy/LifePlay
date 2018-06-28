@@ -42,6 +42,7 @@ OTHER: none
                 "The lure of money is too great. After all, money is why I have a <Sugar.sugardaddy_or_sugarmomma> in the first place ..."
                 "It took some more convincing to get my <Actor.relationship> to accept, but eventually, the promotion is too great a prize."
                 Sex(Actor, Player)
+                Sex(Actor, Player, Sugar)
                 Actor:incest += Random(0, 50)
                 money += Random(1000, 5000)
             Else

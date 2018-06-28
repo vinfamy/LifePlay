@@ -31,6 +31,27 @@ OTHER: Random(50, 1000) < attractiveness && perversion < Random(0, 100)
         perversion += Random(0, 1)
         Sex(Actor, Player)
         money += Random(100, 500)
+        Actor.show(2)
+        Player.show(0)
+        Actor2 = generatePersonTemporary()
+        While !Actor2.isInterestedIn(Player)
+            Actor2 = generatePersonTemporary()
+        Endwhile
+        Actor2.dress()
+        Actor2.show(3)
+        Actor2(Flirty):: "Well, well, well. Having some fun with the housekeeper there, <Actor.name>? All without your roommate!"
+        Actor(Flirty):: "As always ... you're free to join us ... I'm sure this whore will be okay with it for an extra tip."
+        0:: "Okay ..."
+        1:: "No way"
+        
+        If 0
+            Player(Embarassed):: "Well ... I've gone this far anyway so ..."
+            money += Random(100, 500)
+            Sex(Actor, Player, Actor2)
+            perversion += Random(0, 1)
+        Else
+            Player(Angry):: "No way. I told you I wouldn't do this to just any guest!"
+        Endif
     Else
         Actor.hide()
         "I stormed off from the pervert's room. Oh god, I really hate my job! Lousy money and creepy guests ..."

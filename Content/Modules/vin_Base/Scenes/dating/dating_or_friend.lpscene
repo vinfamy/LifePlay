@@ -4,38 +4,59 @@ WHEN: 0 - 24
 WHO: Dating = getSpecific(Dating); Friend = getPerson(true); If Friend:rapportwithplayer > 40 && !Friend.isInterestedIn(Player) && Dating:attractiontoplayer > 40 && [Dating:intelligence - Friend:intelligence > Random(20, 100) || Friend:intelligence - Dating:intelligence > Random(20, 100)]
 OTHER: !isWithCompanion()
 
-SceneStart()
-Dating.dress()
-Friend.dress()
+    SceneStart()
+    Dating.dress()
+    Friend.dress()
 
-Dating.show(2)
-Friend.show(3)
+    Dating.show(2)
+    Friend.show(3)
 
-"Unfortunately, sometimes two of the most important people in your life don't get along: <Dating.name> and <Friend.name> clearly don't like each other. <Dating.name> has not stopped accusing <Friend.name> of being a bad influence on me, while <Friend.name> thinks I can do much better than a <Dating.boyfriend_or_girlfriend> like <Dating.name>."
-0:: "Spend more time with <Dating.name>, my <Dating.boyfriend_or_girlfriend>"
-1:: "Spend more time with <Friend.name>, my close friend"
-2:: "Try to mediate"
+    "Unfortunately, sometimes two of the most important people in your life don't get along: <Dating.name> and <Friend.name> clearly don't like each other. <Dating.name> has not stopped accusing <Friend.name> of being a bad influence on me, while <Friend.name> thinks I can do much better than a <Dating.boyfriend_or_girlfriend> like <Dating.name>."
+    0:: "Spend more time with <Dating.name>, my <Dating.boyfriend_or_girlfriend>"
+    1:: "Spend more time with <Friend.name>, my close friend"
+    2:: "Try to mediate"
 
-If 0
-    "I decided to be on <Dating.name>'s side on this and spent more time with <Dating.him_or_her>. <Dating.He_or_She> is my <Dating.boyfriend_or_girlfriend> after all! Of course, my blatant betrayal clearly upset <Friend.name>."
-    Dating:attractiontoplayer += Random(0, 5)
-    Friend:rapportwithplayer -= Random(0, 5)
-Elseif 1
-    "I decided to be on <Friend.name>'s side on this and spent more time with <Friend.him_or_her>. <Friend.He_or_She> is one of my best friends after all! Of course, my blatant betrayal clearly upset <Dating.name>."
-    Dating:attractiontoplayer -= Random(0, 5)
-    Friend:rapportwithplayer += Random(0, 5)
-Else
-    "I'd rather not have to choose between two equally important people in my life. I tried instead to find a resolution to their conflict."
-    If Random(0, 100) < interpersonal
-        "My effort worked out, their relationship has improved somewhat. They still aren't thrilled to see each other but at least they have stopped going at each other all the time."
-        Dating:attractiontoplayer += Random(0, 2)
-        Friend:rapportwithplayer += Random(0, 2)
-    Else
-        "My effort failed miserably. Not only did their relationship not get any better, they were both annoyed that I tried to make them friends and refused to pick a side."
-        Dating:attractiontoplayer -= Random(0, 5)
+    If 0
+        "I decided to be on <Dating.name>'s side on this and spent more time with <Dating.him_or_her>. <Dating.He_or_She> is my <Dating.boyfriend_or_girlfriend> after all! Of course, my blatant betrayal clearly upset <Friend.name>."
+        Dating:attractiontoplayer += Random(0, 5)
         Friend:rapportwithplayer -= Random(0, 5)
+    Elseif 1
+        "I decided to be on <Friend.name>'s side on this and spent more time with <Friend.him_or_her>. <Friend.He_or_She> is one of my best friends after all! Of course, my blatant betrayal clearly upset <Dating.name>."
+        Dating:attractiontoplayer -= Random(0, 5)
+        Friend:rapportwithplayer += Random(0, 5)
+    Else
+        "I'd rather not have to choose between two equally important people in my life. I tried instead to find a resolution to their conflict."
+        If Random(0, 100) < interpersonal
+            "My effort worked out, their relationship has improved somewhat. They still aren't thrilled to see each other but at least they have stopped going at each other all the time."
+            Dating:attractiontoplayer += Random(0, 2)
+            Friend:rapportwithplayer += Random(0, 2)
+            If perversion > 50
+                "Should I be satisfied with this improvement or should I push for even more? A perverted idea comes up in my head ..."
+                0:: "A threesome should resolve all conflicts!"
+                1:: "That's a stupid idea"
+                
+                If 0
+                    "To be honest, I have always fantasized about having a threesome with my <Dating.boyfriend_or_girlfriend> and <Friend.name> ... Besides, maybe a threesome would be just what needed to make them two friends."
+                    If Random(50, 100) < Dating:perversion && Random(50, 100) < Friend:perversion
+                        "Somehow I managed to convince them both to do it ... Sharing is caring after all."
+                        setBackground(home)
+                        Sex(Player, Dating, Friend)
+                        perversion += Random(0, 1)
+                        Dating:attractiontoplayer += Random(0, 2)
+                        Friend:rapportwithplayer += Random(0, 2)                        
+                    Else
+                        "Unfortunately, as fantastic as the idea appears in my head, I didn't even get close to convicing them to go for it."
+                    Endif
+                Else
+                    "Nah, not really. I must have been watching too much porn recently to even think about that."
+                Endif
+            Endif
+        Else
+            "My effort failed miserably. Not only did their relationship not get any better, they were both annoyed that I tried to make them friends and refused to pick a side."
+            Dating:attractiontoplayer -= Random(0, 5)
+            Friend:rapportwithplayer -= Random(0, 5)
+        Endif
     Endif
-Endif
 
-timeout(500, dating_or_friend)
-SceneEnd()
+    timeout(500, dating_or_friend)
+    SceneEnd()
