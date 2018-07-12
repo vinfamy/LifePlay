@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: retire_from_porn
+ACTION_NAME: Retire from porn
+WHERE: sexwork
+WHEN: 0 - 24
+MINUTES: 1 - 1
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: 
+CONDITIONS: pornfame > 0 (STAT_COMPARE)
+MOVE_FIRST: false
+SCENE_ALWAYS: retire_from_porn
+ANIMATION:   

@@ -1,0 +1,20 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    setBackground(street)
+    "<CurrentCompanion.name> isn't making me too much money in an increasingly competitive sex industry. Maybe it's time to drop <CurrentCompanion.him_or_her> and find some fresh blood to pimp?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "Enough is enough. <CurrentCompanion.name> isn't bringing in the dough, <CurrentCompanion.he_or_she> isn't worth my time investment."
+        CurrentCompanion.removeProstitute()
+    Else
+        "No, <CurrentCompanion.he_or_she> might not be bringing in as much revenue as before, but still a valuable asset for my business."
+    Endif
+    
+    SceneEnd()

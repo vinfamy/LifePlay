@@ -1,0 +1,19 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "Am I sure about quitting porn?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "I wasn't making that much money and the social taboo attached to it isn't worth it."
+        pornfame => 0
+    Else
+        "On second thought, what else could I do to make money? Who's gonna hire a former pornstar?"
+    Endif
+    
+    SceneEnd()

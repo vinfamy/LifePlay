@@ -1,0 +1,56 @@
+WHAT: all
+WHERE: all, -work
+WHEN: 8 - 18
+WHO: Actor3 = getSpecific(Prostitute); If Random(1, 500) < Actor3:pornfame
+OTHER: none
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    Actor.dress()
+    Actor.show(2)
+    "A porn director wants to book <Actor3.name> for a scene with <Actor.name> ..."
+    0:: "Turn down the offer"
+    1:: "Rip the director off"
+    2:: "Offer a fair price"
+    3:: "Give the director a bargain"
+    
+    If 0
+        Player(Sad):: "Sorry, but <Actor3.he_or_she> has a holiday planned on the day of the shoot ..."
+    Elseif 3 || Random(0, 100) < choice*Actor3:pornfame
+        "The porn director accepted my demands and soon enough we were meeting at the shoot location that we agreed on."
+        Random
+            setBackground(home)
+            setBackground(bar)
+            setBackground(hairdresser)
+            setBackground(cafe)
+            setBackground(clothes)
+            setBackground(dentist)
+            setBackground(doctor)
+            setBackground(hotel)
+            setBackground(laundry)
+            setBackground(marketplace)
+            setBackground(musical_instrument)
+            setBackground(nightclub)
+            setBackground(work)
+            setBackground(place_of_worship)
+            setBackground(police)
+            setBackground(prison)
+            setBackground(pub)
+            setBackground(restaurant)
+            setBackground(shoes)
+            setBackground(sports_centre)
+            setBackground(supermarket)
+            setBackground(theatre)
+            setBackground(toilets)
+        endRandom
+        Actor3.dress()
+        Sex(Actor, Actor3)
+        money += Random(200, 800)/choice
+        Actor3:pornfame += 0.5
+        Actor3:perversion += 0.25
+    Else
+        "No way, that's way above the market rate for this type of shoots! You have too high an opinion of your talent. You should ask the other agents how much they charge."
+    Endif
+    
+    SceneEnd()
+    timeout(48, porn_shoot_pimp)

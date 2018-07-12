@@ -1,0 +1,19 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getSpecific(Dating); If Actor:perversion < 50 && !Actor.isProstitute() && Actor:masochist < 25
+OTHER: Random(0, 1000) < pornfame/intelligence
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Angry):: "<Player.name>, can we talk please?"
+    "Oh god, this doesn't sound good."
+    Actor(Sarcastic):: "So this is what you have been doing for a living? You hid the truth from me all this time."
+    "<Actor.name> showed me a printout with a screenshot on it ... It's my porn Twitter account ..."
+    Actor(Angry):: "It's over! I'm breaking up with you. This is the biggest humiliation of my life, dating a pornstar unknowingly"
+    "No point trying to talk <Actor.him_or_her> out of a breakup now ... it's no use. Not many people can tolerate their significant other sleeping with another person, let alone doing it for money and publishing it all over the internet."
+    loseDating()
+    Actor:attractiontoplayer -= Random(0, 100)
+    mood -= Random(0, 100)
+    SceneEnd()

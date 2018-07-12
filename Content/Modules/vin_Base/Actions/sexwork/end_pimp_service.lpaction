@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: end_pimp_service
+ACTION_NAME: End pimp services
+WHERE: sexwork
+WHEN: 0 - 24
+MINUTES: 1 - 1
+TIMEOUT_MINUTES: 1440
+ALSO_TIMEOUT: 
+EFFECTS:
+CONDITIONS: companioniswhore == 1 (STAT_COMPARE)
+MOVE_FIRST: false
+SCENE_ALWAYS: end_pimp_service
+ANIMATION:   

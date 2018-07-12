@@ -1,0 +1,43 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 16 - 2
+WHO: Actor3 = getSpecific(Prostitute); If Random(0, 350)*Random(0, 350) < Actor3:attractiveness*Actor3:attractiveness
+OTHER: !isWithCompanion()
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    Actor.dress()
+    Actor.show(2)
+    Actor2 = generatePersonTemporary()
+    Actor2.dress()
+    Actor2.show(3)
+    "Two Johns messaged me on Adultwork ..."
+    Actor(Flirty):: "How much for <Actor3.name> to have fun with both of us?"
+    0:: "Turn <Actor.him_or_her> down"
+    1:: "Rip <Actor.him_or_her> off"
+    2:: "Offer a fair price"
+    3:: "Give <Actor.him_or_her> a bargain"
+    
+    If 0
+        Player(Sad):: "Sorry, but <Actor3.he_or_she>'s not in town today ..."
+    Elseif choice*Actor3:attractiveness > Actor:intelligence + Actor:interpersonal
+        Actor(Flirty):: "It looks like we have a deal."
+        "Soon enough, we were meeting at a motel room that we agreed on."
+        Actor3.dress()
+        Actor3.show(1)
+        setBackground(home)
+        money += Random(75, 400)/choice
+        money += Actor3:pornfame*4/choice
+        Actor3:perversion += 0.5
+        0:: "Leave them to it"
+        1:: "Peep a bit"
+        
+        If 1
+            Sex(Actor, Actor3, Actor2)
+        Endif
+    Else
+        Actor(Angry):: "No way, that's too expensive! You have too high an opinion of your whore. You should look at the others' profiles and see how much they charge."
+    Endif
+    
+    SceneEnd()
+    timeout(3, john_online_pimp, john_threesome_online_pimp)

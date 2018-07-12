@@ -1,0 +1,20 @@
+WHAT: work
+WHERE: work
+WHEN: 0 - 24
+WHO: Actor = getSpecific(Boss); If Actor:perversion < 75 && !Actor.isProstitute()
+OTHER: Random(0, 1000) < pornfame/intelligence
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Angry):: "<Player.name>, meet me in my office please!"
+    "Oh god, this doesn't sound good."
+    Actor(Sarcastic):: "It seems you have a very interesting second job ..."
+    "<Actor.name> showed me a printout with a screenshot on it ... It's my porn Twitter account ..."
+    Actor(Angry):: "You're fired! Frankly, you should have known better."
+    "No point begging for my job now ... it's no use. No companies want to risk their reputation by keeping a pornstar employed."
+    "My chance of getting another job is rather low now. Surely, any HR department could easily find out about my porn career."
+    loseJob()
+    jobexperience -= Random(0, 100)
+    mood -= Random(0, 100)
+    SceneEnd()

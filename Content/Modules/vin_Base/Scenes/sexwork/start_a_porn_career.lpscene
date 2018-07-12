@@ -1,0 +1,19 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "Am I sure about becoming a pornstar?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "Yes, it sounds like a very pleasurable way to make ends meet."
+        pornfame += 5
+    Else
+        "No, that's a crazy idea. What if my family finds out?"
+    Endif
+    
+    SceneEnd()

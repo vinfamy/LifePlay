@@ -1,0 +1,31 @@
+WHAT: whore_out
+WHERE: sexwork
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 150)*Random(0, 150) < attractiveness*attractiveness
+
+    SceneStart()
+    setBackground(street)
+    Actor = generatePersonTemporary()
+    Actor.dress()
+    Actor.show(2)
+    "Here comes a John ..."
+    Actor(Flirty):: "How much?"
+    0:: "Turn <Actor.him_or_her> down"
+    1:: "Rip <Actor.him_or_her> off"
+    2:: "Offer a fair price"
+    3:: "Give <Actor.him_or_her> a bargain"
+    
+    If 0
+        Player(Sad):: "Sorry, but I'm not working right now ..."
+    Elseif choice*attractiveness > Actor:intelligence + Actor:interpersonal
+        Actor(Flirty):: "It looks like we have a deal, darling."
+        "Soon enough, I was following <Actor.him_or_her> to a nearby motel room."
+        setBackground(home)
+        Sex(Actor, Player)
+        money += Random(100, 500)/choice
+    Else
+        Actor(Angry):: "No way, that's too expensive! You have too high an opinion of yourself, honey. I'll find myself another whore elsewhere."
+    Endif
+    
+    SceneEnd()

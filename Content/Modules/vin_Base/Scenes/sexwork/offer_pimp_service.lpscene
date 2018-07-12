@@ -1,0 +1,27 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    setBackground(street)
+    "Should I try to convince <CurrentCompanion.name> to enter the sex industry with me as <CurrentCompanion.his_or_her> agent?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        If Random(0, 100) < interpersonal && CurrentCompanion:perversion + CurrentCompanion:masochist > 50 && [CurrentCompanion:attractiontoplayer > 50 || CurrentCompanion:rapportwithplayer > 70] && CurrentCompanion:intelligence*2 + CurrentCompanion:interpersonal < Random(0, 300)
+            CurrentCompanion(Sad):: "I guess you're right. This is probably the easiest way that I can make money ..."
+            "<CurrentCompanion.name> accepted my offer. I can now pimp <CurrentCompanion.him_or_her> out or advertise <CurrentCompanion.his_or_her> services to nude photographers and porn directors."
+            CurrentCompanion.addProstitute()
+        Else
+            "Despite my best effort, <CurrentCompanion.name> took offense to my suggestion. Our relationship has suffered as a result."
+            CurrentCompanion:attractiontoplayer -= Random(0, 10)
+            CurrentCompanion:rapportwithplayer -= Random(0, 10)
+        Endif
+    Else
+        "No, that's a crazy idea. There's no way <CurrentCompanion.he_or_she> would agree to this."
+    Endif
+    
+    SceneEnd()

@@ -1,0 +1,35 @@
+WHAT: whore_out_online
+WHERE: sexwork
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 250)*Random(0, 250) < attractiveness*attractiveness
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    Actor.dress()
+    Actor.show(2)
+    Actor2 = generatePersonTemporary()
+    Actor2.dress()
+    Actor2.show(3)
+    "Two Johns messaged me on Adultwork ..."
+    Actor(Flirty):: "How much for you to have fun with both of us?"
+    0:: "Turn <Actor.him_or_her> down"
+    1:: "Rip <Actor.him_or_her> off"
+    2:: "Offer a fair price"
+    3:: "Give <Actor.him_or_her> a bargain"
+    
+    If 0
+        Player(Sad):: "Sorry, but I'm not in town today ..."
+    Elseif choice*attractiveness > Actor:intelligence + Actor:interpersonal
+        Actor(Flirty):: "It looks like we have a deal, darling."
+        "Soon enough, we were meeting at a motel room that we agreed on."
+        setBackground(home)
+        Sex(Actor, Player, Actor2)
+        money += Random(150, 750)/choice
+        money += pornfame*7/choice
+        perversion += 0.5
+    Else
+        Actor(Angry):: "No way, that's too expensive! You have too high an opinion of yourself, honey. You should look at the others' profiles and see how much they charge."
+    Endif
+    
+    SceneEnd()

@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: engage_with_porn_fans
+ACTION_NAME: Engage with fans
+WHERE: sexwork
+WHEN: 0 - 24
+MINUTES: 40 - 120
+TIMEOUT_MINUTES:
+ALSO_TIMEOUT: 
+EFFECTS: pornfame +0.02 (END)
+CONDITIONS: pornfame > 0 (STAT_COMPARE)
+MOVE_FIRST: false
+SCENE_ALWAYS:
+ANIMATION:   
