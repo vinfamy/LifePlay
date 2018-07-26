@@ -21,3 +21,13 @@ If the highlighter gets updated with new function keywords and you wish to keep 
 	- remove your current version in the Define your language window
 	- copy-paste anything from your previous version that's between the <styles> and </styles> tags to the new one's xml
 	- import the new .xml
+	
+Currently the keywords lists are
+	1. block types
+	2. command functions
+	3. condition functions
+	4. special variables
+	5. stats
+	6. locations
+	7. moods
+	8. tags

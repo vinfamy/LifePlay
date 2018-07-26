@@ -1,0 +1,23 @@
+Actor.isEquipped(Slot)
+
+USE:
+Check if an actor is wearing any clothes in a certain 'slot'. Will return true even if it's an underwear hidden under other clothes. The slots are:
+Outerwear
+Headwear
+Eyewear
+Top
+Top_Under
+Bottom
+Bottom_Under
+Foot
+Foot_Under
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Clothes
+COMPARE: dress, strip
+
+EXAMPLE:
+    If John.isEquipped(Bottom_Under)
+        "John is wearing a pair of boxers or something."
+	Endif

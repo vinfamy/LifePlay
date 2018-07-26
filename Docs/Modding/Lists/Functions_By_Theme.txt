@@ -20,6 +20,7 @@ Overview of command and condition functions, by theme
 	
 - Clothes
 	dress, strip, dressWedding
+	isEquipped
 	
 - Companions
 	endDate, getCompanion, startDate
