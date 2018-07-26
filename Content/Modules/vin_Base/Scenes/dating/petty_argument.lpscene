@@ -2,23 +2,23 @@ WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 0 - 24
 WHO: Dating = getSpecific(Dating); If Dating:attractiontoplayer < Random(0, 70)*Random(0, 1)*Random(0, 1)
-OTHER: !isAtHome() && !isWithCompanion()
+OTHER: !isWithCompanion()
 
-SceneStart()
-Dating.dress()
-Dating.show(2)
+    SceneStart()
+    Dating.dress()
+    Dating.show(2)
 
-"<Dating.name> and I are having a pretty silly argument over some trivial things. How should I act?"
-0:: "Back down"
-1:: "Try to win"
+    "<Dating.name> and I are having a pretty silly argument over some trivial things. How should I act?"
+    0:: "Back down"
+    1:: "Try to win"
 
-If 0
-    "I decided to just let it go and went easy on <Dating.him_or_her> this time."
-    masochist += Random(0, 0.5)
-Else
-    "No way I'm backing down. I made sure that <Dating.name> knew that I was not a pushover of a <Player.boyfriend_or_girlfriend>."
-    Dating:rapportwithplayer -= Random(0, 1)
-Endif
+    If 0
+        "I decided to just let it go and went easy on <Dating.him_or_her> this time."
+        masochist += Random(0, 0.5)
+    Else
+        "No way I'm backing down. I made sure that <Dating.name> knew that I was not a pushover of a <Player.boyfriend_or_girlfriend>."
+        Dating:rapportwithplayer -= Random(0, 1)
+    Endif
 
-timeout(250, petty_argument)
-SceneEnd()
+    timeout(250, petty_argument)
+    SceneEnd()

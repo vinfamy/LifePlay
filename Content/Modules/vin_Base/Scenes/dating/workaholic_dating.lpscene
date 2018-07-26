@@ -2,23 +2,23 @@ WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 0 - 24
 WHO: Dating = getSpecific(Dating); If Dating:attractiontoplayer < Random(0, 50) && Random(50, 100) < Dating:intelligence && Dating:interpersonal < Random(0, 50) 
-OTHER: !IsAtHome()
+OTHER: none
 
-SceneStart()
-Dating.dress()
-Dating.show(2)
+    SceneStart()
+    Dating.dress()
+    Dating.show(2)
 
-"<Dating.name> is a workaholic, rarely leaving the office, and has been neglecting me recently."
-0:: "Accept it"
-1:: "Demand <Dating.him_or_her> to spend more time with me"
+    "<Dating.name> is a workaholic, rarely leaving the office, and has been neglecting me recently."
+    0:: "Accept it"
+    1:: "Demand <Dating.him_or_her> to spend more time with me"
 
-If 0
-    "I like it that <Dating.name> is such a career-oriented person. I'll be happy to see my <Dating.boyfriend_or_girlfriend> become successful thanks to <Dating.his_or_her> hard work."
-    Dating:attractiontoplayer += Random(0, 2)
-Else
-    "I complained about how little time <Dating.name> had been spending with me recently and accused <Dating.him_or_her> of priotizing <Dating.his_or_her> career over me."
-    Dating:attractiontoplayer -= Random(0, 2)
-Endif
+    If 0
+        "I like it that <Dating.name> is such a career-oriented person. I'll be happy to see my <Dating.boyfriend_or_girlfriend> become successful thanks to <Dating.his_or_her> hard work."
+        Dating:attractiontoplayer += Random(0, 2)
+    Else
+        "I complained about how little time <Dating.name> had been spending with me recently and accused <Dating.him_or_her> of priotizing <Dating.his_or_her> career over me."
+        Dating:attractiontoplayer -= Random(0, 2)
+    Endif
 
-timeout(200, workaholic_dating)
-SceneEnd()
+    timeout(200, workaholic_dating)
+    SceneEnd()

@@ -2,7 +2,7 @@ WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 17 - 22
 WHO: Dating = getSpecific(Dating); Actor = getSpecific(Dating_Friend); If Random(0, 100) < Dating:interpersonal
-OTHER: !isAtHome()
+OTHER: isAtDatingHome()
 
     SceneStart()
     Dating.dress()

@@ -2,23 +2,23 @@ WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 0 - 24
 WHO: Dating = getSpecific(Dating); If Dating:attractiontoplayer > Random(50, 100) && Random(0, 100) < Dating:interpersonal
-OTHER: !IsAtHome()
+OTHER: none
 
-SceneStart()
-Dating.dress()
-Dating.show(2)
+    SceneStart()
+    Dating.dress()
+    Dating.show(2)
 
-"<Dating.name> is in love with me, but sometimes <Dating.he_or_she> is just too ... cheesy. <Dating.He_or_She> says things to me that sounds like they belong in a medieval poem, a Broadway musical or an Ed Sheeran's song!"
-0:: "Play along"
-1:: "Tell <Dating.him_or_her> to stop being so cheesy"
+    "<Dating.name> is in love with me, but sometimes <Dating.he_or_she> is just too ... cheesy. <Dating.He_or_She> says things to me that sounds like they belong in a medieval poem, a Broadway musical or an Ed Sheeran's song!"
+    0:: "Play along"
+    1:: "Tell <Dating.him_or_her> to stop being so cheesy"
 
-If 0
-    "I like it that <Dating.name> is such a romantic soul. Besides, who doesn't fantasize about a fair-tale romance."
-    Dating:attractiontoplayer += Random(0, 2)
-Else
-    "I told <Dating.name> that <Dating.he_or_she> was being too cheesy and it made me uncomfortable."
-    Dating:attractiontoplayer -= Random(0, 2)
-Endif
+    If 0
+        "I like it that <Dating.name> is such a romantic soul. Besides, who doesn't fantasize about a fair-tale romance."
+        Dating:attractiontoplayer += Random(0, 2)
+    Else
+        "I told <Dating.name> that <Dating.he_or_she> was being too cheesy and it made me uncomfortable."
+        Dating:attractiontoplayer -= Random(0, 2)
+    Endif
 
-timeout(200, romantic_dating)
-SceneEnd()
+    timeout(200, romantic_dating)
+    SceneEnd()

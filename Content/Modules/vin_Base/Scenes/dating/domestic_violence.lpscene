@@ -2,38 +2,44 @@ WHAT: all
 WHERE: home
 WHEN: 0 - 24
 WHO: Dating = getSpecific(Dating); If Dating.isDominantSex(Player) && Dating:attractiontoplayer < -5 && Dating:martial > Random(65, 100) && Dating:masochist < -50
-OTHER: !isWithCompanion() && !isAtHome()
+OTHER: !isWithCompanion()
 
-SceneStart()
-Dating.dress()
-Dating.show(2)
-Dating(Furious):: "What did you say, bitch?"
-"<Dating.name> has serious anger management issues which make <Dating.him_or_her> an abusive and violent partner. During <Dating.his_or_her> rages, <Dating.he_or_she> would insult and even hit me mercilessly. I really should put an end to this."
-0:: "Bear it"
-1:: "Break up with <Dating.name>"
-2:: "Break up and call the cops"
+    SceneStart()
+    Dating.dress()
+    Dating.show(2)
+    Dating(Furious):: "What did you say, bitch?"
+    "<Dating.name> has serious anger management issues which make <Dating.him_or_her> an abusive and violent partner. During <Dating.his_or_her> rages, <Dating.he_or_she> would insult and even hit me mercilessly. I really should put an end to this."
+    0:: "Bear it"
+    1:: "Leave <Dating.name>"
 
-If 0
-    "I don't know if I'm crazy or just stupid, but somehow I keep on accepting the physical and emotional abuses <Dating.name> brings me. I just couldn't get away from this monster."
-    masochist += Random(0, 2)
-    mood -= Random(0, 100)
-    energy -= Random(0, 100)
-    fitness -= Random(0, 1)
-    attractiveness -= Random(0, 1)
-    interpersonal -= Random(0, 1)
-    intelligence -= Random(0, 1)
-Elseif 1
-    "Enough is enough. I don't want <Dating.him_or_her> in jail but I also don't have to put up with this!"
-    "I ran away from my abusive <Dating.boyfriend_or_girlfriend>, telling <Dating.him_or_her> it was all over."
-    loseDating()
-Else
-    "Not only will I break up with <Dating.him_or_her>, I want <Dating.him_or_her> to be punished for the trauma <Dating.he_or_she> has caused me!"
-    loseDating()
-    "I called the cops who promptly arrested <Dating.name> for domestic violence. A restraining order is also immediately put in place to prevent me from being harmed by this monster any longer. <Dating.name> managed to avoid jail time in the end, but lost <Dating.his_or_her> job as a result."
-    Dating:rapportwithplayer => -100
-    blockContact(Dating)
-    masochist -= Random(0, 5)
-Endif
+    If 0
+        "I don't know if I'm crazy or just stupid, but somehow I keep on accepting the physical and emotional abuses <Dating.name> brings me. I just couldn't get away from this monster."
+        masochist += Random(0, 2)
+        mood -= Random(0, 100)
+        energy -= Random(0, 100)
+        fitness -= Random(0, 1)
+        attractiveness -= Random(0, 1)
+        interpersonal -= Random(0, 1)
+        intelligence -= Random(0, 1)
+    Else
+        "Enough is enough. I don't want <Dating.him_or_her> in jail but I also don't have to put up with this!"
+        If isPlayerMarried()
+            Player(Crying):: "I cannot put up with this abusive marriage any longer ..."
+            "And just like that, I divorced that abusive <Dating.husband_or_wife> of mine ..."
+            mood -= 100
+            Divorce()
+            LoseDating()
+            If Player.isDominantSex(Dating) && money > 1000
+                "Unfortunately for me, the court awarded half of my hard-earned fortune to <Dating.name> ... What a disaster of a marriage that was ..."
+                money -= money*0.5
+            Endif        
+        Else
+            "I ran away from my abusive <Dating.boyfriend_or_girlfriend>, telling <Dating.him_or_her> it was all over."
+            LoseDating()
+            mood -= 50
+        Endif
+        blockContact(Dating)
+    Endif
 
-timeout(250, domestic_violence)
-SceneEnd()
+    timeout(250, domestic_violence)
+    SceneEnd()

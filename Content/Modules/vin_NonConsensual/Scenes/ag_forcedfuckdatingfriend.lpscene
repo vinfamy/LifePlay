@@ -2,7 +2,7 @@ WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 0 - 24
 WHO: Actor = getSpecific(Dating); Actor2 = getPerson(true); If !Actor.isMale() && Actor:perversion < Random(0, 100)*Random(0, 1) && Random(50, 200) < Actor2:perversion && Random(50, 200) < Actor2:rapportwithplayer
-OTHER: isModEnabled(vin_NTR) && !isAtHome() && Player.isMale() && Random(50, 100) < masochist && Random(80, 500) < perversion
+OTHER: isModEnabled(vin_NTR) && Player.isMale() && Random(50, 100) < masochist && Random(80, 500) < perversion
 
     SceneStart()
     "<Actor2.name> is one of my best friends and I can tell <Actor2.he_or_she> really finds my <Actor.boyfriend_or_girlfriend> <Actor.name> attractive. I don't mind it so much really. In fact, my biggest fantasy is to watch <Actor2.name> fuck <Actor.name>. There's no way <Actor.name> would ever agree to that willingly though ..."
@@ -38,8 +38,20 @@ OTHER: isModEnabled(vin_NTR) && !isAtHome() && Player.isMale() && Random(50, 100
             "<Actor.name> had to endure <Actor2.name>'s brutal pounding until it was all over. But is our relationship also over with this? Surely, <Actor.he_or_she> will never forgive me for this?"            
             If Random(0, 100) < Actor:masochist
                 Actor:attractiontoplayer => -100
-                "Of course <Actor.name> broke up with me. <Actor.He_or_She> trusted me and I tricked <Actor.him_or_her> into getting violated by my best friend just to satisfy some perverse fantasy."
-                loseDating()
+                "Of course <Actor.name> said it was all over. <Actor.He_or_She> trusted me and I tricked <Actor.him_or_her> into getting violated by my best friend just to satisfy some perverse fantasy."
+                If isPlayerMarried()
+                    Actor(Crying):: "I cannot put up with this abusive marriage any longer ..."
+                    mood -= 100
+                    Divorce()
+                    LoseDating()
+                    If Player.isDominantSex(Actor) && money > 1000
+                        "Unfortunately for me, the court awarded half of my hard-earned fortune to <Actor.name> ... What a disaster of a marriage that was ..."
+                        money -= money*0.5
+                    Endif        
+                Else
+                    LoseDating()
+                    mood -= 50
+                Endif           
                 blockContact(Actor)
                 "However, after everything we've been through together as a couple, <Actor.name> didn't quite have it to report what happened to the cops, sparing me and <Actor2.name> jail time."             
             Else

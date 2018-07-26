@@ -2,7 +2,7 @@ WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 0 - 24
 WHO: Dating = getRelativeExcept(GrandParent); If Dating:rapportwithplayer < Random(0, 50) && Random(50, 100) < Dating:intelligence && Dating:interpersonal < Random(0, 50) 
-OTHER: !IsAtHome()
+OTHER: none
 
     SceneStart()
     Dating.dress()

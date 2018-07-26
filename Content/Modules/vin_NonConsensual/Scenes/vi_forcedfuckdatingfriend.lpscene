@@ -2,7 +2,7 @@ WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 0 - 24
 WHO: Actor = getSpecific(Dating); Actor2 = getSpecific(Dating_Friend); If Actor.isMale() && Random(50, 100) < Actor:masochist && Random(80, 1000) < Actor:perversion && Random(70, 200) < Actor2:perversion
-OTHER: !isAtHome() && !Player.isMale() && perversion < Random(0, 100)*Random(0, 1)
+OTHER: !Player.isMale() && perversion < Random(0, 100)*Random(0, 1)
 
     SceneStart()
     Actor.dress()
@@ -37,8 +37,22 @@ OTHER: !isAtHome() && !Player.isMale() && perversion < Random(0, 100)*Random(0, 
         
         If 0
             masochist -= Random(0, 2)
-            "Of course I'm breaking up with <Actor.name>. I trusted <Actor.him_or_her> and <Actor.he_or_she> tricked me into getting violated by <Actor.his_or_her> best friend just to satisfy some perverse fantasy or fulfil some bro pact."
-            loseDating()
+            "Of course it's all over with <Actor.name>. I trusted <Actor.him_or_her> and <Actor.he_or_she> tricked me into getting violated by <Actor.his_or_her> best friend just to satisfy some perverse fantasy or fulfil some bro pact."
+            If isPlayerMarried()
+                Player(Crying):: "I cannot put up with this abusive marriage any longer ..."
+                "And just like that, I divorced that abusive <Actor.husband_or_wife> of mine ..."
+                mood -= 100
+                Divorce()
+                LoseDating()
+                If Player.isDominantSex(Actor) && money > 1000
+                    "Unfortunately for me, the court awarded half of my hard-earned fortune to <Actor.name> ... What a disaster of a marriage that was ..."
+                    money -= money*0.5
+                Endif        
+            Else
+                "I ran away from my abusive <Actor.boyfriend_or_girlfriend>, telling <Actor.him_or_her> it was all over."
+                LoseDating()
+                mood -= 50
+            Endif           
             blockContact(Actor)
             blockContact(Actor2)
             "After everything we've been through together as a couple, I didn't quite have it to report what happened to the cops, sparing my ex and <Actor.his_or_her> friend jail time."             

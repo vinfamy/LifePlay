@@ -2,23 +2,23 @@ WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 0 - 24
 WHO: Dating = getSpecific(Dating); If Dating:attractiontoplayer > Random(70, 100) && Dating:interpersonal < Random(0, 100)*Random(0, 1)*Random(0, 1)
-OTHER: !IsAtHome()
+OTHER: !isPlayerMarried()
 
-SceneStart()
-Dating.dress()
-Dating.show(2)
+    SceneStart()
+    Dating.dress()
+    Dating.show(2)
 
-"<Dating.name> is totally in love with me, but sometimes <Dating.he_or_she> is just too ... serious. <Dating.He_or_She> constantly mentions marriages and having children, even naming the imaginary children that we would have together!"
-0:: "Play along"
-1:: "Tell <Dating.him_or_her> it's too early"
+    "<Dating.name> is totally in love with me, but sometimes <Dating.he_or_she> is just too ... serious. <Dating.He_or_She> constantly mentions marriages and having children, even naming the imaginary children that we would have together!"
+    0:: "Play along"
+    1:: "Tell <Dating.him_or_her> it's too early"
 
-If 0
-    "I like it that <Dating.name> is so serious about me. Besides, if this relationship continues on like this, maybe we will end up going all the way ..."
-    Dating:attractiontoplayer += Random(0, 2)
-Else
-    "I told <Dating.name> that it was too early in our relationship to be thinking about marriages and children."
-    Dating:attractiontoplayer -= Random(0, 2)
-Endif
+    If 0
+        "I like it that <Dating.name> is so serious about me. Besides, if this relationship continues on like this, maybe we will end up going all the way ..."
+        Dating:attractiontoplayer += Random(0, 2)
+    Else
+        "I told <Dating.name> that it was too early in our relationship to be thinking about marriages and children."
+        Dating:attractiontoplayer -= Random(0, 2)
+    Endif
 
-timeout(200, tooserious_dating)
-SceneEnd()
+    timeout(200, tooserious_dating)
+    SceneEnd()

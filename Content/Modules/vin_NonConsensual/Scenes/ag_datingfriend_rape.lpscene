@@ -2,7 +2,7 @@ WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 0 - 24
 WHO: Actor2 = getSpecific(Dating); Actor = getSpecific(Dating_Friend); If !Actor.isMale() && Actor:attractiontoplayer < 20 && Player.isInterestedIn(Actor) && Random(70, 300) < Actor:attractiveness
-OTHER: Player.isMale() && !isAtHome()
+OTHER: Player.isMale() && isAtDatingHome()
 
     SceneStart()
     "There's someone at the door."

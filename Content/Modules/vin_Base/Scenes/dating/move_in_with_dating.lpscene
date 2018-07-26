@@ -2,23 +2,32 @@ WHAT: all
 WHERE: home
 WHEN: 0 - 24
 WHO: none
-OTHER: isAtHome() && isWithCompanion() && CurrentCompanion.isDating() && [[CurrentCompanion.isDominantSex(Player) && CurrentCompanion:attractiontoplayer > 40] || CurrentCompanion:attractiontoplayer > 80]
+OTHER: PlayerHasHome() && DatingHasHome() && isWithCompanion() && CurrentCompanion.isDating() && [isPlayerMarried() || CurrentCompanion:attractiontoplayer > 40]
 
-SceneStart()
+    SceneStart()
 
-CurrentCompanion.show(2)
-CurrentCompanion(Happy):: "Baby, I was just thinking: Why don't you move in to live with me? I think our relationship is at the stage where we could move on to the next level by living together ..."
-0:: "Yes"
-1:: "No"
+    CurrentCompanion.show(2)
+    If isPlayerMarried()
+         CurrentCompanion(Happy):: "Baby, now that we're married: Why don't you move in to live with me? Surely as a married couple, we must live together ..."       
+    Else
+        CurrentCompanion(Happy):: "Baby, I was just thinking: Why don't you move in to live with me? I think our relationship is at the stage where we could move on to the next level by living together ..."
+    Endif
+    "Start living together?"
+    0:: "Yes"
+    1:: "No"
+    2:: "Ask <CurrentCompanion.name> to move in instead"
 
-If 0
-    "I accepted <CurrentCompanion.name>'s offer. It would be a good experience living together. Besides, I can save quite a bit of money on rent."
-    loseHome()
-    CurrentCompanion:attractiontoplayer += Random(0, 10)
-Else
-    "I turned down <CurrentCompanion.name>'s offer. It's too early in our relationship to think about moving in together."
-    CurrentCompanion:attractiontoplayer -= Random(0, 2)
-Endif
+    If 0
+        "I accepted <CurrentCompanion.name>'s offer. It would be a good experience living together. Besides, I can save quite a bit of money on rent."
+        loseHome()
+        CurrentCompanion:attractiontoplayer += Random(0, 10)
+    Elseif 1
+        "I turned down <CurrentCompanion.name>'s offer."
+        CurrentCompanion:attractiontoplayer -= Random(0, 2)
+    Else
+        "Actually, I think it's more appropriate that <CurrentCompanion.name> moves in with me instead. After a short discussion, <CurrentCompanion.he_or_she> accepted my offer."
+        loseHomeDating()
+    Endif
 
-timeout(1000, move_in_with_dating)
-SceneEnd()
+    timeout(500, move_in_with_dating)
+    SceneEnd()

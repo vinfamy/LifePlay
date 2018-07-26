@@ -4,327 +4,327 @@ WHEN: 0-24
 WHO: none
 OTHER: none
 
-HadSex = false
+    HadSex = false
 
-setBackground(home)
+    setBackground(home)
 
-sceneStart()
+    sceneStart()
 
-Difficulty = Random(0.25, 2)
-Salary = 1500+Difficulty*jobexperience*100*CostOfLiving
-SalaryConverted = Salary.convertToLocalCurrency(true)
+    Difficulty = Random(0.25, 2)
+    Salary = 1500+Difficulty*jobexperience*100*CostOfLiving
+    SalaryConverted = Salary.convertToLocalCurrency(true)
 
-"I discovered a open vacancy at this company for someone with my experience. I calculated that I could take home around <SalaryConverted> per month with this job."
+    "I discovered a open vacancy at this company for someone with my experience. I calculated that I could take home around <SalaryConverted> per month with this job."
 
-"Should I apply for this position?"
-0:: "Yes"
-1:: "No"
+    "Should I apply for this position?"
+    0:: "Yes"
+    1:: "No"
 
-If 0
-    "I spent some time completing application forms and tailoring my CV and cover letter to the job ad. I'm fairly happy with what I currently have. However, I reckon certain 'embellishments' on my application would do well for my success chance."
-    0:: "Be honest"
-    1:: "Lie a bit"
-    
     If 0
-        "I remained honest in everything I wrote and submitted my application"
-        LieOnCV = false
-    Else
-        "I added a few believable lies to make myself look better as a candidate, then submitted my application"
-        LieOnCV = true
-    endif
-    
-    If LieOnCV
-        Dice = Random(0, 0.7)
-    Else
-        Dice = Random(0, 1)
-    Endif
-    
-    "A couple of weeks later ..."
-    Player.dress()
-    
-    If Dice*Difficulty < 0.005*(intelligence+interpersonal)
-        Player(Happy):: "Thank you for your call. I'm looking forward to the upcoming interview." 
-        "I received a call from the HR department, notifying me that my application was successful and inviting me for an interview. I must now prepare for the fateful day."
-        If LieOnCV
-            "I can't know for sure, but perhaps my subtle lies on the application did their magic. Not that they don't carry certain risks ..."
+        "I spent some time completing application forms and tailoring my CV and cover letter to the job ad. I'm fairly happy with what I currently have. However, I reckon certain 'embellishments' on my application would do well for my success chance."
+        0:: "Be honest"
+        1:: "Lie a bit"
+        
+        If 0
+            "I remained honest in everything I wrote and submitted my application"
+            LieOnCV = false
+        Else
+            "I added a few believable lies to make myself look better as a candidate, then submitted my application"
+            LieOnCV = true
         endif
-            
-            setBackground(work)
-            "The day of the interview ..."
-            
-            Player.Dress()
-            Boss = generatePerson()
-
-            If Random (0,1) < 0.7
-                Random
-                    Boss.blendPreset(workaholic)
-                    Boss.blendPreset(workhard_playhard)
-                endRandom
-            endif
-
-            If Random(0,1) < 0.95
-                Random
-                    Boss.blendPreset(fourties)
-                    Boss.blendPreset(fifties)
-                    Boss.blendPreset(sixties)        
-                endRandom
+        
+        If LieOnCV
+            Dice = Random(0, 0.7)
+        Else
+            Dice = Random(0, 1)
+        Endif
+        
+        "A couple of weeks later ..."
+        Player.dress()
+        
+        If Dice*Difficulty < 0.005*(intelligence+interpersonal)
+            Player(Happy):: "Thank you for your call. I'm looking forward to the upcoming interview." 
+            "I received a call from the HR department, notifying me that my application was successful and inviting me for an interview. I must now prepare for the fateful day."
+            If LieOnCV
+                "I can't know for sure, but perhaps my subtle lies on the application did their magic. Not that they don't carry certain risks ..."
             endif
                 
-            Boss.randomizeFace()
-            Boss.randomizeHairs()
+                setBackground(work)
+                "The day of the interview ..."
                 
-            Boss.dress()
-            Boss.show(2)
-            
-            Boss(Happy):: "I'm the Managing Director, <Boss.name> <Boss.name_last>. It's a pleasure to meet you, <Player.Mr_or_Ms> <Player.name_last>."
-            Player(Happy):: "The pleasure is all mine, <Boss.Mr_or_Ms> <Boss.name_last>. Please, just <Player.name> is enough."
-            Boss(Happy):: "Please take a seat ... So, <Player.name>, shall we begin the interview?"
-            
-            Performance = 0
-            Flirt = 0
-            Porn = IsModEnabled(vin_VanillaPorn)
-            Vanilla = IsModEnabled(vin_VanillaRealistic)
-            Interested = Boss.isInterestedIn(Player)
-            
-            Diff_Intel = Boss:intelligence - intelligence
-            If Diff_Intel < 0
-                Diff_Intel *= -1
-            Endif
-            
-            Diff_Inter = Boss:interpersonal - interpersonal
-            If Diff_Inter < 0
-                Diff_Inter *= -1
-            Endif
-            
-            
-            Boss:: "First of all, <Player.name>, could you please tell me a bit about yourself?"
-            0:: "Focus on your professional and academic achievements"
-            1:: "Focus on your interests and hobbies"
-            2:: perversion > 10:: "Flirt"
-            
-            If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)] || [2 && Interested && (Boss.peversion + attractiveness) > Random(0, 200)]
-                "<Boss.He_or_She> seemed receptive to my answer."
-                Performance += Random(0, 2)
-                If 2
-                    Flirt += 1
-                    perversion += 0.01
-                endIf
-            Else
-                "My answer didn't seem to impress <Boss.name> at all ..."
-                Performance -= Random(0, 2)
-            Endif
-            
-            
-            Boss:: "Alright, <Player.name>, can you list some of your strengths?"
-            0:: "Analytical skills, problem-solving, numeracy skills, IT proficiency"
-            1:: "Communication skills, teamwork and leadership"
-            2:: perversion > 10:: "Flirt"
-            
-            If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)] || [2 && Interested && (Boss.peversion + attractiveness) > Random(0, 200)]
-                "<Boss.He_or_She> seemed receptive to my answer."
-                Performance += Random(0, 2)
-                If 2
-                    Flirt += 1
-                    perversion += 0.01
-                endIf
-            Else
-                "My answer didn't seem to impress <Boss.name> at all ..."
-                Performance -= Random(0, 2)
-            Endif
+                Player.Dress()
+                Boss = generatePerson()
 
+                If Random (0,1) < 0.7
+                    Random
+                        Boss.blendPreset(workaholic)
+                        Boss.blendPreset(workhard_playhard)
+                    endRandom
+                endif
 
-            Boss:: "Thank you, <Player.name>. Now, what weaknesses do you have?"
-            0:: "I'm a perfectionist."
-            1:: "I can be too gentle and find it hard to criticize colleagues."
-            2:: perversion > 10:: "Flirt"
-            
-            If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)] || [2 && Interested && (Boss.peversion + attractiveness) > Random(0, 200)]
-                "<Boss.He_or_She> seemed receptive to my answer."
-                Performance += Random(0, 2)
-                If 2
-                    Flirt += 1
-                    perversion += 0.01
-                endIf
-            Else
-                "My answer didn't seem to impress <Boss.name> at all ..."
-                Performance -= Random(0, 2)
-            Endif
-            
-            
-            Boss:: "What do you know about our company? Why do you want to work here?"
-            0:: "Impress <Boss.him_or_her> with your research about the business"
-            1:: "What attracts me most to this company is its people"
-            2:: perversion > 10:: "Flirt"
-            
-            If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)] || [2 && Interested && (Boss.peversion + attractiveness) > Random(0, 200)]
-                "<Boss.He_or_She> seemed receptive to my answer."
-                Performance += Random(0, 2)
-                If 2
-                    Flirt += 1
-                    perversion += 0.01
-                endIf
-            Else
-                "My answer didn't seem to impress <Boss.name> at all ..."
-                Performance -= Random(0, 2)
-            Endif
-
-            
-            Boss:: "<Player.name>, where do you see yourself five years from now?"
-            0:: "Being seen as a specialist in this field"
-            1:: "Supporting and mentoring new recruits"
-            2:: perversion > 10:: "Flirt"
-            
-            If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)] || [2 && Interested && (Boss.peversion + attractiveness) > Random(0, 200)]
-                "<Boss.He_or_She> seemed receptive to my answer."
-                Performance += Random(0, 2)
-                If 2
-                    Flirt += 1
-                    perversion += 0.01
-                endIf
-            Else
-                "My answer didn't seem to impress <Boss.name> at all ..."
-                Performance -= Random(0, 2)
-            Endif
-            
-            
-            Boss:: "I think that's everything from me. Do you have any questions?"
-            0:: "Ask about the role"
-            1:: "Ask about the team"
-            2:: perversion > 20 && Flirt > 0:: "Offer my number"
-            3:: Porn && perversion > 40 && Flirt > 1:: "Offer sex"
-            
-            If 2
-                Player(Wink):: "Please, call me. I would love to meet in a more casual setting ... for your wise 'career advices' and get to know you in a more 'personal' level."
-                perversion += 0.05
-                If Interested && Flirt*(Boss.peversion + attractiveness) > Random(0, 200)
-                    "Making sure first that no-one else was around, <Boss.he_or_she> sneakily took my number."
-                    exchangeContact(Boss)
-                    Performance += Random(0, 5)
+                If Random(0,1) < 0.95
+                    Random
+                        Boss.blendPreset(fourties)
+                        Boss.blendPreset(fifties)
+                        Boss.blendPreset(sixties)        
+                    endRandom
+                endif
                     
-                    If Random(0, 100) < Boss:attractiontoplayer + Boss:perversion
-                        setBackground(home)
-                        "The next morning ..."
-                        Boss(Happy):: "Hi, it's me, <Boss.name>."
-                        Player(Happy):: "Of course, <Boss.Mr_or_Ms> <Boss.name_last>. I was expecting your call."
-                        Boss(Flirty):: "Please, just call me <Boss.name>. You know how you mentioned you wanted to meet outside of the office. I know this great bar downtown ..."
-                        0:: "Agree to go on a date"
-                        1:: "Turn <Boss.him_or_her> down"
+                Boss.randomizeFace()
+                Boss.randomizeHairs()
+                    
+                Boss.dress()
+                Boss.show(2)
+                
+                Boss(Happy):: "I'm the Managing Director, <Boss.name> <Boss.name_last>. It's a pleasure to meet you, <Player.Mr_or_Ms> <Player.name_last>."
+                Player(Happy):: "The pleasure is all mine, <Boss.Mr_or_Ms> <Boss.name_last>. Please, just <Player.name> is enough."
+                Boss(Happy):: "Please take a seat ... So, <Player.name>, shall we begin the interview?"
+                
+                Performance = 0
+                Flirt = 0
+                Porn = IsModEnabled(vin_VanillaPorn)
+                Vanilla = IsModEnabled(vin_VanillaRealistic)
+                Interested = Boss.isInterestedIn(Player)
+                
+                Diff_Intel = Boss:intelligence - intelligence
+                If Diff_Intel < 0
+                    Diff_Intel *= -1
+                Endif
+                
+                Diff_Inter = Boss:interpersonal - interpersonal
+                If Diff_Inter < 0
+                    Diff_Inter *= -1
+                Endif
+                
+                
+                Boss:: "First of all, <Player.name>, could you please tell me a bit about yourself?"
+                0:: "Focus on your professional and academic achievements"
+                1:: "Focus on your interests and hobbies"
+                2:: perversion > 10:: "Flirt"
+                
+                If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)] || [2 && Interested && (Boss.peversion + attractiveness) > Random(0, 200)]
+                    "<Boss.He_or_She> seemed receptive to my answer."
+                    Performance += Random(0, 2)
+                    If 2
+                        Flirt += 1
+                        perversion += 0.01
+                    endIf
+                Else
+                    "My answer didn't seem to impress <Boss.name> at all ..."
+                    Performance -= Random(0, 2)
+                Endif
+                
+                
+                Boss:: "Alright, <Player.name>, can you list some of your strengths?"
+                0:: "Analytical skills, problem-solving, numeracy skills, IT proficiency"
+                1:: "Communication skills, teamwork and leadership"
+                2:: perversion > 10:: "Flirt"
+                
+                If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)] || [2 && Interested && (Boss.peversion + attractiveness) > Random(0, 200)]
+                    "<Boss.He_or_She> seemed receptive to my answer."
+                    Performance += Random(0, 2)
+                    If 2
+                        Flirt += 1
+                        perversion += 0.01
+                    endIf
+                Else
+                    "My answer didn't seem to impress <Boss.name> at all ..."
+                    Performance -= Random(0, 2)
+                Endif
+
+
+                Boss:: "Thank you, <Player.name>. Now, what weaknesses do you have?"
+                0:: "I'm a perfectionist."
+                1:: "I can be too gentle and find it hard to criticize colleagues."
+                2:: perversion > 10:: "Flirt"
+                
+                If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)] || [2 && Interested && (Boss.peversion + attractiveness) > Random(0, 200)]
+                    "<Boss.He_or_She> seemed receptive to my answer."
+                    Performance += Random(0, 2)
+                    If 2
+                        Flirt += 1
+                        perversion += 0.01
+                    endIf
+                Else
+                    "My answer didn't seem to impress <Boss.name> at all ..."
+                    Performance -= Random(0, 2)
+                Endif
+                
+                
+                Boss:: "What do you know about our company? Why do you want to work here?"
+                0:: "Impress <Boss.him_or_her> with your research about the business"
+                1:: "What attracts me most to this company is its people"
+                2:: perversion > 10:: "Flirt"
+                
+                If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)] || [2 && Interested && (Boss.peversion + attractiveness) > Random(0, 200)]
+                    "<Boss.He_or_She> seemed receptive to my answer."
+                    Performance += Random(0, 2)
+                    If 2
+                        Flirt += 1
+                        perversion += 0.01
+                    endIf
+                Else
+                    "My answer didn't seem to impress <Boss.name> at all ..."
+                    Performance -= Random(0, 2)
+                Endif
+
+                
+                Boss:: "<Player.name>, where do you see yourself five years from now?"
+                0:: "Being seen as a specialist in this field"
+                1:: "Supporting and mentoring new recruits"
+                2:: perversion > 10:: "Flirt"
+                
+                If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)] || [2 && Interested && (Boss.peversion + attractiveness) > Random(0, 200)]
+                    "<Boss.He_or_She> seemed receptive to my answer."
+                    Performance += Random(0, 2)
+                    If 2
+                        Flirt += 1
+                        perversion += 0.01
+                    endIf
+                Else
+                    "My answer didn't seem to impress <Boss.name> at all ..."
+                    Performance -= Random(0, 2)
+                Endif
+                
+                
+                Boss:: "I think that's everything from me. Do you have any questions?"
+                0:: "Ask about the role"
+                1:: "Ask about the team"
+                2:: perversion > 20 && Flirt > 0:: "Offer my number"
+                3:: Porn && perversion > 40 && Flirt > 1:: "Offer sex"
+                
+                If 2
+                    Player(Wink):: "Please, call me. I would love to meet in a more casual setting ... for your wise 'career advices' and get to know you in a more 'personal' level."
+                    perversion += 0.05
+                    If Interested && Flirt*(Boss.peversion + attractiveness) > Random(0, 200)
+                        "Making sure first that no-one else was around, <Boss.he_or_she> sneakily took my number."
+                        exchangeContact(Boss)
+                        Performance += Random(0, 5)
                         
-                        If 1
-                            Player(Concerned):: "I'm afraid I'm busy tonight. Maybe next time ..."
-                            Performance -= Random(0, 10)
-                            "I'm not even sure why I did that. Why gave <Boss.him_or_her> my number only to turn <Boss.him_or_her> down now. This can't be good for my chance of getting the job ..."
-                        Else
-                            Player(Wink):: "Of course, I can't wait to see you there!"
-                            Performance += Random(0, 5)
+                        If Random(0, 100) < Boss:attractiontoplayer + Boss:perversion
+                            setBackground(home)
+                            "The next morning ..."
+                            Boss(Happy):: "Hi, it's me, <Boss.name>."
+                            Player(Happy):: "Of course, <Boss.Mr_or_Ms> <Boss.name_last>. I was expecting your call."
+                            Boss(Flirty):: "Please, just call me <Boss.name>. You know how you mentioned you wanted to meet outside of the office. I know this great bar downtown ..."
+                            0:: "Agree to go on a date"
+                            1:: "Turn <Boss.him_or_her> down"
                             
-                            setBackground(bar)
-                            Player.dress()
-                            Boss.dress()
-                            
-                            "That night ..."
-                            Boss:attractiontoplayer += 5
-                            Player(Flirty):: "This is a fancy place in fact. You have a great taste, <Boss.name>!"
-                            Boss(Flirty):: "You flatter me ... How time flies! It's already 2am. Would you mind if I drive you home?"
-                            Player(Flirty):: "That's very nice of you! Let's go."
-                            setBackground(street)
-                            "20 minutes later ..."
-                            Boss(Flirty):: "So here you are. This is a nice neighborhood to live."
-                            "And <Boss.name> kept the conversation going in the car. It was obvious that <Boss.he_or_she> was expecting something more ..."
-                            0:: "Say goodbye"
-                            1:: "Kiss <Boss.him_or_her>"
-                            2:: Vanilla:: "Invite <Boss.him_or_her> inside for 'tea'"
-                            
-                            If 0
-                                "<Boss.name> seemed disappointed but forced a smile to say farewell anyway. After all, I did go on a date with <Boss.him_or_her>, that should be enough to help my chances of getting the job."
-                                Performance -= Random(0, 5)
+                            If 1
+                                Player(Concerned):: "I'm afraid I'm busy tonight. Maybe next time ..."
+                                Performance -= Random(0, 10)
+                                "I'm not even sure why I did that. Why gave <Boss.him_or_her> my number only to turn <Boss.him_or_her> down now. This can't be good for my chance of getting the job ..."
                             Else
-                                If 1
-                                    Player(Kiss):: "..."
-                                    Boss(Kiss):: "..."
-                                    "I leaned in for a kiss, which should make <Boss.name> think twice before picking anyone else for the job. Afterwards, we parted ways."
-                                    perversion += 0.05
+                                Player(Wink):: "Of course, I can't wait to see you there!"
+                                Performance += Random(0, 5)
+                                
+                                setBackground(bar)
+                                Player.dress()
+                                Boss.dress()
+                                
+                                "That night ..."
+                                Boss:attractiontoplayer += 5
+                                Player(Flirty):: "This is a fancy place in fact. You have a great taste, <Boss.name>!"
+                                Boss(Flirty):: "You flatter me ... How time flies! It's already 2am. Would you mind if I drive you home?"
+                                Player(Flirty):: "That's very nice of you! Let's go."
+                                setBackground(street)
+                                "20 minutes later ..."
+                                Boss(Flirty):: "So here you are. This is a nice neighborhood to live."
+                                "And <Boss.name> kept the conversation going in the car. It was obvious that <Boss.he_or_she> was expecting something more ..."
+                                0:: "Say goodbye"
+                                1:: "Kiss <Boss.him_or_her>"
+                                2:: Vanilla:: "Invite <Boss.him_or_her> inside for 'tea'"
+                                
+                                If 0
+                                    "<Boss.name> seemed disappointed but forced a smile to say farewell anyway. After all, I did go on a date with <Boss.him_or_her>, that should be enough to help my chances of getting the job."
+                                    Performance -= Random(0, 5)
                                 Else
-                                    perversion += 0.2
-                                    Performance += Random(0, 10)
-                                    setBackground(home)
-                                    "Let's not kid ourselves here! We both knew how this night was going to end up. As soon as we were inside, our hands were all over each other and we started a long and passionate makeout session."
-                                    HadSex = true
-                                    Sex(Boss, Player)
+                                    If 1
+                                        Player(Kiss):: "..."
+                                        Boss(Kiss):: "..."
+                                        "I leaned in for a kiss, which should make <Boss.name> think twice before picking anyone else for the job. Afterwards, we parted ways."
+                                        perversion += 0.05
+                                    Else
+                                        perversion += 0.2
+                                        Performance += Random(0, 10)
+                                        setBackground(home)
+                                        "Let's not kid ourselves here! We both knew how this night was going to end up. As soon as we were inside, our hands were all over each other and we started a long and passionate makeout session."
+                                        HadSex = true
+                                        Sex(Boss, Player)
+                                    Endif
                                 Endif
                             Endif
                         Endif
-                    Endif
-                Else
-                    Boss(Irritated):: "I'm afraid that's very unprofessional. I cannot do that!"
-                    Performance -= Random(0, 10)
-                EndIf
-            Else
-                If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)]
-                    "<Boss.He_or_She> seemed impressed by my eager questions."
-                    Performance += Random(0, 2)
-                Else
-                    If 3
-                        "I started rubbing my hand on <Boss.name>'s inner thigh."
-                        Player(Flirty):: "I want you to know that I'll do anything to get this job ... anything. Especially for such a good-looking hiring manager as yourself."
-                        perversion += 0.5
-                        If Interested && Flirt*(Boss.peversion + attractiveness) > Random(0, 400)
-                            "Checking first that no-one else was around, <Boss.he_or_she> sneakily pulled down the window shades and locked the interview room's door. <Boss.He_or_She> then approached me full of lust in <Boss.his_or_her> eyes."
-                            Performance += Random(0, 20)
-                            HadSex = true
-                            Sex(Boss, Player)
-                        Else
-                            Boss(Angry):: "What are you doing? That's totally inappropriate. I think this interview has run its course. Goodbye!"
-                            Performance -= Random(0, 30)
-                        Endif
                     Else
-                        "My questions didn't seem to impress <Boss.name> at all ..."
-                        Performance -= Random(0, 2)
+                        Boss(Irritated):: "I'm afraid that's very unprofessional. I cannot do that!"
+                        Performance -= Random(0, 10)
+                    EndIf
+                Else
+                    If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)]
+                        "<Boss.He_or_She> seemed impressed by my eager questions."
+                        Performance += Random(0, 2)
+                    Else
+                        If 3
+                            "I started rubbing my hand on <Boss.name>'s inner thigh."
+                            Player(Flirty):: "I want you to know that I'll do anything to get this job ... anything. Especially for such a good-looking hiring manager as yourself."
+                            perversion += 0.5
+                            If Interested && Flirt*(Boss.peversion + attractiveness) > Random(0, 400)
+                                "Checking first that no-one else was around, <Boss.he_or_she> sneakily pulled down the window shades and locked the interview room's door. <Boss.He_or_She> then approached me full of lust in <Boss.his_or_her> eyes."
+                                Performance += Random(0, 20)
+                                HadSex = true
+                                Sex(Boss, Player)
+                            Else
+                                Boss(Angry):: "What are you doing? That's totally inappropriate. I think this interview has run its course. Goodbye!"
+                                Performance -= Random(0, 30)
+                            Endif
+                        Else
+                            "My questions didn't seem to impress <Boss.name> at all ..."
+                            Performance -= Random(0, 2)
+                        Endif
                     Endif
                 Endif
-            Endif
-            
-            
-            Boss.hide()
-            setBackground(home)            
-            "A few days later ..."
-            Player.dress()
-            
-            If Performance > Random(0, 5)*Difficulty*GameDifficulty
-                Player(Excited):: "Thank you so much for your call. I'm looking forward to starting my first day at your firm."
-                "The HR department called. I got the job! Subject to a reference check, the contract is on its way. I can't wait to start!"
-                If !LieOnCV || Random(0, 70) < intelligence
-                    moveJobs()
-                    Salary.setSalary()
-                    Boss.setBoss()
-                    mood += 100
-                    timeOut(5000, performance_review)
-                    SleepingWithBoss.setGlobal(0)
+                
+                
+                Boss.hide()
+                setBackground(home)            
+                "A few days later ..."
+                Player.dress()
+                
+                If Performance > Random(0, 5)*Difficulty*GameDifficulty
+                    Player(Excited):: "Thank you so much for your call. I'm looking forward to starting my first day at your firm."
+                    "The HR department called. I got the job! Subject to a reference check, the contract is on its way. I can't wait to start!"
+                    If !LieOnCV || Random(0, 70) < intelligence
+                        moveJobs()
+                        Salary.setSalary()
+                        Boss.setBoss()
+                        mood += 100
+                        timeOut(5000, performance_review)
+                        SleepingWithBoss.setGlobal(0)
+                    Else
+                        Player(Anxious):: "No! No! Please let me explain. This is all a big misunderstanding ..."
+                        "Oh no! Their reference check exposed the blatant lies on my application. I would not be signing any contract with them after all ... The best I can hope for is my dishonest reputation doesn't get to other employers."
+                        mood -= Random(0, 40)
+                    Endif
                 Else
-                    Player(Anxious):: "No! No! Please let me explain. This is all a big misunderstanding ..."
-                    "Oh no! Their reference check exposed the blatant lies on my application. I would not be signing any contract with them after all ... The best I can hope for is my dishonest reputation doesn't get to other employers."
-                    mood -= Random(0, 40)
+                    Player(Sad):: "Thank you for your consideration anyway. I'll be sure to stay updated about the firm's future positions."
+                    "The HR department called. I didn't get the job ... My job hunt continues."
+                    If HadSex
+                        "What a damn fucker that Managing Director is! I can't believe I got taken advantage of - slept with <Boss.him_or_her> and still didn't get the job."
+                    Endif
+                    mood -= Random(0, 30)
                 Endif
-            Else
-                Player(Sad):: "Thank you for your consideration anyway. I'll be sure to stay updated about the firm's future positions."
-                "The HR department called. I didn't get the job ... My job hunt continues."
-                If HadSex
-                    "What a damn fucker that Managing Director is! I can't believe I got taken advantage of - slept with <Boss.him_or_her> and still didn't get the job."
-                Endif
-                mood -= Random(0, 30)
-            Endif
+            
+        Else
+            Player(Sad):: "Thank you for your time anyway. All the best with finding the right candidate."
+            "Oh no! The HR department just called. My application was unsuccessful. I didn't even manage to secure an interview. I must now look for alternative positions elsewhere."
+            If !LieOnCV
+                "On hindsight, maybe being so honest wasn't a good idea after all."
+            endif
+            mood -= Random(0, 10)
+        Endif
         
     Else
-        Player(Sad):: "Thank you for your time anyway. All the best with finding the right candidate."
-        "Oh no! The HR department just called. My application was unsuccessful. I didn't even manage to secure an interview. I must now look for alternative positions elsewhere."
-        If !LieOnCV
-            "On hindsight, maybe being so honest wasn't a good idea after all."
-        endif
-        mood -= Random(0, 10)
-    Endif
-    
-Else
-    "I decided against applying for this position."
-endif
+        "I decided against applying for this position."
+    endif
 
-sceneEnd()
+    sceneEnd()

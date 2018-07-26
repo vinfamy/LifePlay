@@ -4,121 +4,146 @@ WHEN: 0-24
 WHO: Dating = getSpecific(Dating); Affair = getSpecific(Affair); If Dating:intelligence + Dating:interpersonal - Dating:masochist > Random(0, 500)*actionDuration
 OTHER: none
 
-SceneStart()
-setBackground(home)
-Dating.dress()
-Dating.show(2)
+    SceneStart()
+    setBackground(home)
+    Dating.dress()
+    Dating.show(2)
 
-Dating(Angry):: "<Player.name>, we need to talk!"
-Dating:attractiontoplayer -= Random(0, 50)
-"This can't be good ..."
-Player(Anxious):: "Yes, darling, what is it? You don't look too happy ..."
-Dating(Angry):: "Of course I don't, and you know damn well why!"
-Dating(Furious):: "I know about you and <Affair.name>. You <Player.asshole_or_slut>, you were sleeping around behind my back!"
-0:: "Deny"
-1:: "Confess and apologize"
-2:: masochist < 0:: "Admit unapologetically"
+    Dating(Angry):: "<Player.name>, we need to talk!"
+    Dating:attractiontoplayer -= Random(0, 50)
+    "This can't be good ..."
+    Player(Anxious):: "Yes, darling, what is it? You don't look too happy ..."
+    Dating(Angry):: "Of course I don't, and you know damn well why!"
+    Dating(Furious):: "I know about you and <Affair.name>. You <Player.asshole_or_slut>, you were sleeping around behind my back!"
+    0:: "Deny"
+    1:: "Confess and apologize"
+    2:: masochist < 0:: "Admit unapologetically"
 
-If 0
-    Player(Angry):: "Baby! You must trust me. Don't believe those baseless rumours. <Affair.name> and I - we didn't do anything!"
-    If intelligence - Dating:intelligence > Random (0, 50)
-        Dating(Sad):: "Maybe you're right. I'm sorry - I shouldn't have believed those lies ..."
-        breakup = false
-    Else
-        Dating(Furious):: "You still want to continue lying to me? Do you take me for a fool?"
-        breakup = true
-    Endif
-Elseif 1
-    Player(Crying):: "Baby! It was a terrible mistake. I didn't mean to hurt you. I have felt guilty about it everday since ... Please don't leave me - it will never happen again."
-    If Dating:attractiontoplayer + interpersonal > Random(0, 200)
-        Dating(Sad):: "... Fine. For everything we've done together, I might as well give you one final chance. I hope I won't regret this later."
-        breakup = false
-    Else
-        Dating(Furious):: "Of course you would say that. They always say it's a mistake. You know what? I made a mistake getting in a relationship with someone like you in the first place."
-        breakup = true      
-    Endif
-Else
-    Player(Evil):: "It's about time you find out ... So I fucked <Affair.him_or_her>. What's the matter? So what are you going to do? Break up with me? As if a loser like you could find someone better!"
-    masochist -= Random(0, 2)
-    If Dating:masochist > Random(30, 100)
-        Dating(Shocked):: "How could you? I'm your <Dating.boyfriend_or_girlfriend> ... But I guess you're right ... I couldn't bear to break up with you."
-        Dating:masochist += Random(0, 10)
-        breakup = false
-    Else
-        Dating(Furious):: "Now I get to see your true colors! Are you not at least a bit sorry? Yes, I'm indeed breaking up with you. Get the fuck out of my life."        
-        breakup = true
-    Endif
-Endif
-
-If breakup
-    "And just like that, <Dating.name> broke up with me ... What's more - I found out later that <Dating.he_or_she> also blocked my number."
-    LoseDating()
-    mood -= 50
-    blockContact(Dating)
-Elseif Affair.isContactExchanged() && Dating:masochist < 30
-    Dating(Angry):: "I can forgive you, with one condition ..."
-    Dating(Angry):: "You must end all contacts with <Affair.name> - no meeting, call, social media, the rest of it!"
-    0:: "Block <Affair.name>"
-    1:: "No"
-    
     If 0
-        Player(Sad):: "I guess I don't have another choice ..."
-        blockContact(Affair)
+        Player(Angry):: "Baby! You must trust me. Don't believe those baseless rumours. <Affair.name> and I - we didn't do anything!"
+        If intelligence - Dating:intelligence > Random (0, 50)
+            Dating(Sad):: "Maybe you're right. I'm sorry - I shouldn't have believed those lies ..."
+            breakup = false
+        Else
+            Dating(Furious):: "You still want to continue lying to me? Do you take me for a fool?"
+            breakup = true
+        Endif
+    Elseif 1
+        Player(Crying):: "Baby! It was a terrible mistake. I didn't mean to hurt you. I have felt guilty about it everday since ... Please don't leave me - it will never happen again."
+        If Dating:attractiontoplayer + interpersonal > Random(0, 200)
+            Dating(Sad):: "... Fine. For everything we've done together, I might as well give you one final chance. I hope I won't regret this later."
+            breakup = false
+        Else
+            Dating(Furious):: "Of course you would say that. They always say it's a mistake. You know what? I made a mistake getting in a relationship with someone like you in the first place."
+            breakup = true      
+        Endif
     Else
-        Player(Sad):: "I'm afraid I can't do that ... <Affair.name> is an important person in my life."
-        Dating(Furious):: "More important than me apparently ... Fine, then it's over between us!"
-        "And just like that, <Dating.name> broke up with me ... What's more - I found out later that <Dating.he_or_she> also blocked my number."
-        LoseDating()
-        mood -= 50
-        blockContact(Dating)
-    Endif
-Endif
-
-Dating.hide()
-
-If Dating.isDating()
-    forgiveAffairs()
-    If Affair.isContactExchanged()
-        "Phew ... that was a relief. <Dating.He_or_She> didn't break up with me even after what happened."
-        If perversion > 50
-            "Suddenly, a perverted and evil idea came to mind: I could celebrate by calling <Affair.name> over and continuing to get away with the affair!"
-            0:: "Call <Affair.name> over"
-            1:: "I should not"
-            
-            If 0
-                perversion += Random(0,1)
-                masochist -= Random(0,2)
-                "A while later ..."
-                Affair.dress()
-                Affair.show(2)
-                Affair(Evil):: "Hah, what a placemat of a <Dating.boyfriend_or_girlfriend> you have! I would love to see <Dating.his_or_her> face if <Dating.he_or_she> knew that you went off to me right away after the loser forgave you ..."
-                Sex(Affair, Player)
-                Affair.hide()
-                "I enjoyed that much more than usual. Maybe it was the blatant shamelessness of cheating on my <Dating.boyfriend_or_girlfriend> that added spices to the sex."
-            Else
-                "That's fucked up. I shouldn't toy with my chances like that ... It's best if I avoid seeing <Affair.name> for a while at least."
-            Endif
+        Player(Evil):: "It's about time you find out ... So I fucked <Affair.him_or_her>. What's the matter? So what are you going to do? Break up with me? As if a loser like you could find someone better!"
+        masochist -= Random(0, 2)
+        If Dating:masochist > Random(30, 100)
+            Dating(Shocked):: "How could you? I'm your <Dating.boyfriend_or_girlfriend> ... But I guess you're right ... I couldn't bear to break up with you."
+            Dating:masochist += Random(0, 10)
+            breakup = false
+        Else
+            Dating(Furious):: "Now I get to see your true colors! Are you not at least a bit sorry? Yes, I'm indeed breaking up with you. Get the fuck out of my life."        
+            breakup = true
         Endif
     Endif
-Elseif perversion > 30 && Affair.isContactExchanged()
-    "Now that it's all over, a perverted idea came to my mind: Should I call <Affair.name> over to ... cheer me up?"
-    0:: "Call <Affair.name> over"
-    1:: "I should not"
-    
-    If 0
-        "I'll show that fool <Dating.name> that it's all <Dating.his_or_her> loss!"
-        "A while later ..."
-        Affair.dress()
-        Affair.show(2)
-        Affair(Evil):: "Hah, what a loser of a <Dating.boyfriend_or_girlfriend> you had - good riddance! I would love to see <Dating.his_or_her> face if <Dating.he_or_she> knew that you went off to me right away after the <Dating.idiot_or_bitch> broke up with you ..."
-        Sex(Affair, Player)
-        Affair.hide()
-        "I enjoyed that much more than usual. Sweet revenge certainly added spices to the sex."
-        perversion += Random(0,1)
-        masochist -= Random(0,2)
-    Else
-        "That would be an evil thing to do and an insult to my memories with <Dating.name>. I may have cheated but I'm not completely shameless ..."
-    Endif
-Endif
 
-SceneEnd()
+    If breakup
+        If isPlayerMarried()
+            Dating(Sad):: "I'm afraid this marriage isn't working ..."
+            "And just like that, <Dating.name> divorced me ..."
+            mood -= 100
+            Divorce()
+            LoseDating()
+            If Player.isDominantSex(Dating) && money > 1000
+                "To make matters worse, the court awarded half of my hard-earned fortune to <Dating.name> ... What a disaster of a marriage that was ..."
+                money -= money*0.5
+            Endif        
+        Else
+            "And just like that, <Dating.name> broke up with me ... What's more - I found out later that <Dating.he_or_she> also blocked my number."
+            LoseDating()
+            mood -= 50
+        Endif
+        blockContact(Dating)
+
+    Elseif Affair.isContactExchanged() && Dating:masochist < 30
+        Dating(Angry):: "I can forgive you, with one condition ..."
+        Dating(Angry):: "You must end all contacts with <Affair.name> - no meeting, call, social media, the rest of it!"
+        0:: "Block <Affair.name>"
+        1:: "No"
+        
+        If 0
+            Player(Sad):: "I guess I don't have another choice ..."
+            blockContact(Affair)
+        Else
+            Player(Sad):: "I'm afraid I can't do that ... <Affair.name> is an important person in my life."
+            Dating(Furious):: "More important than your <Dating.boyfriend_or_girlfriend> apparently ... Fine, then it's over between us!"
+            If isPlayerMarried()
+                Dating(Sad):: "I'm afraid this marriage isn't working ..."
+                "And just like that, <Dating.name> divorced me ..."
+                mood -= 100
+                Divorce()
+                LoseDating()
+                If Player.isDominantSex(Dating) && money > 1000
+                    "To make matters worse, the court awarded half of my hard-earned fortune to <Dating.name> ... What a disaster of a marriage that was ..."
+                    money -= money*0.5
+                Endif        
+            Else
+                "And just like that, <Dating.name> broke up with me ... What's more - I found out later that <Dating.he_or_she> also blocked my number."
+                LoseDating()
+                mood -= 50
+            Endif
+            blockContact(Dating)
+        Endif
+    Endif
+
+    Dating.hide()
+
+    If Dating.isDating()
+        forgiveAffairs()
+        If Affair.isContactExchanged()
+            "Phew ... that was a relief. <Dating.He_or_She> didn't break up with me even after what happened."
+            If perversion > 50
+                "Suddenly, a perverted and evil idea came to mind: I could celebrate by calling <Affair.name> over and continuing to get away with the affair!"
+                0:: "Call <Affair.name> over"
+                1:: "I should not"
+                
+                If 0
+                    perversion += Random(0,1)
+                    masochist -= Random(0,2)
+                    "A while later ..."
+                    Affair.dress()
+                    Affair.show(2)
+                    Affair(Evil):: "Hah, what a placemat of a <Dating.boyfriend_or_girlfriend> you have! I would love to see <Dating.his_or_her> face if <Dating.he_or_she> knew that you went off to me right away after the loser forgave you ..."
+                    Sex(Affair, Player)
+                    Affair.hide()
+                    "I enjoyed that much more than usual. Maybe it was the blatant shamelessness of cheating on my <Dating.boyfriend_or_girlfriend> that added spices to the sex."
+                Else
+                    "That's fucked up. I shouldn't toy with my chances like that ... It's best if I avoid seeing <Affair.name> for a while at least."
+                Endif
+            Endif
+        Endif
+    Elseif perversion > 30 && Affair.isContactExchanged()
+        "Now that it's all over, a perverted idea came to my mind: Should I call <Affair.name> over to ... cheer me up?"
+        0:: "Call <Affair.name> over"
+        1:: "I should not"
+        
+        If 0
+            "I'll show that fool <Dating.name> that it's all <Dating.his_or_her> loss!"
+            "A while later ..."
+            Affair.dress()
+            Affair.show(2)
+            Affair(Evil):: "Hah, what a loser of a <Dating.boyfriend_or_girlfriend> you had - good riddance! I would love to see <Dating.his_or_her> face if <Dating.he_or_she> knew that you went off to me right away after the <Dating.idiot_or_bitch> broke up with you ..."
+            Sex(Affair, Player)
+            Affair.hide()
+            "I enjoyed that much more than usual. Sweet revenge certainly added spices to the sex."
+            perversion += Random(0,1)
+            masochist -= Random(0,2)
+        Else
+            "That would be an evil thing to do and an insult to my memories with <Dating.name>. I may have cheated but I'm not completely shameless ..."
+        Endif
+    Endif
+
+    SceneEnd()

@@ -2,7 +2,7 @@ WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 0 - 24
 WHO: Actor2 = getSpecific(Dating); If !Actor2.isMale() && Random(30, 100) < Actor2:masochist && Actor2:martial < 50
-OTHER: Player.isMale() && !isAtHome()
+OTHER: Player.isMale() && isAtDatingHome()
 
     SceneStart()
     Actor = generatePersonTemporary()

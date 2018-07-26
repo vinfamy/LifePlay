@@ -33,6 +33,7 @@ OTHER: !Player.isDating() && !isWithCompanion()
         
         If 0
             "We exchanged contacts so that we can go on future dates."
+            exchangeContact(Date)
             "Should I continue to hang out with <Date.name> after the dinner?"
             0:: "Yes"
             1:: "No"

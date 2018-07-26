@@ -11,9 +11,23 @@ OTHER: Random(0, 1000) < pornfame/intelligence
     "Oh god, this doesn't sound good."
     Actor(Sarcastic):: "So this is what you have been doing for a living? You hid the truth from me all this time."
     "<Actor.name> showed me a printout with a screenshot on it ... It's my porn Twitter account ..."
-    Actor(Angry):: "It's over! I'm breaking up with you. This is the biggest humiliation of my life, dating a pornstar unknowingly"
-    "No point trying to talk <Actor.him_or_her> out of a breakup now ... it's no use. Not many people can tolerate their significant other sleeping with another person, let alone doing it for money and publishing it all over the internet."
-    loseDating()
+    Actor(Angry):: "It's over! I'm breaking up with you. This is the biggest humiliation of my life, being with a pornstar unknowingly"
+    "No point trying to talk <Actor.him_or_her> out of it now ... it's no use. Not many people can tolerate their significant other sleeping with another person, let alone doing it for money and publishing it all over the internet."
+    If isPlayerMarried()
+        Actor(Sad):: "I'm afraid this marriage isn't working ..."
+        "And just like that, <Actor.name> divorced me ..."
+        mood -= 100
+        Divorce()
+        LoseDating()
+        If Player.isDominantSex(Actor) && money > 1000
+            "To make matters worse, the court awarded half of my hard-earned fortune to <Actor.name> ... What a disaster of a marriage that was ..."
+            money -= money*0.5
+        Endif        
+    Else
+        "And just like that, <Actor.name> broke up with me ... What's more - I found out later that <Actor.he_or_she> also blocked my number."
+        LoseDating()
+        mood -= 50
+    Endif
+    blockContact(Actor)
     Actor:attractiontoplayer -= Random(0, 100)
-    mood -= Random(0, 100)
     SceneEnd()

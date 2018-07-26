@@ -2,11 +2,12 @@ WHAT: all
 WHERE: home
 WHEN: 0 - 24
 WHO: Dating = getSpecific(Dating); If Random(0, 5000) < Dating:perversion - 2*Dating:attractiontoplayer
-OTHER: !isAtHome()
+OTHER: isAtDatingHome()
 
     SceneStart()
-
-    "I'm paying a surprise visit to my <Dating.boyfriend_or_girlfriend> today. I'm sure <Dating.he_or_she> will be glad when <Dating.he_or_she> sees me."
+    If DatingHasHome()
+        "I'm paying a surprise visit to my <Dating.boyfriend_or_girlfriend> today. I'm sure <Dating.he_or_she> will be glad when <Dating.he_or_she> sees me."
+    Endif
     "Wait, what's that sound? Someone is ... moaning?"
     Player.hide()
     DatingAffair = generatePersonTemporary()
@@ -52,9 +53,23 @@ OTHER: !isAtHome()
         2:: cuckold:: "Admit I enjoyed watching"
         
         If 0
-            Player(Angry):: "Do you take me for a fool? Our relationship is over, you cheating <Dating.asshole_or_whore>. Bye!"
-            "And just like that, we broke up. A <Dating.boyfriend_or_girlfriend> like that was good riddance!"
-            loseDating()
+            Player(Angry):: "Do you take me for a fool? Our relationship is over, you cheating <Dating.asshole_or_whore>. Bye!"            
+            If isPlayerMarried()
+                Player(Sad):: "I'm afraid this marriage isn't working ..."
+                "And just like that, I divorced that cheating <Dating.boyfriend_or_girlfriend> of mine ..."
+                mood -= 100
+                Divorce()
+                LoseDating()
+                If Player.isDominantSex(Dating) && money > 1000
+                    "Unfortunately for me, the court awarded half of my hard-earned fortune to <Dating.name> ... What a disaster of a marriage that was ..."
+                    money -= money*0.5
+                Endif        
+            Else
+                "And just like that, we broke up. A <Dating.boyfriend_or_girlfriend> like that was good riddance!"
+                LoseDating()
+                mood -= 50
+            Endif
+            blockContact(Dating)
         Elseif 1
             Player(Sad):: "I guess after everything we've been through, you deserve a final chance, but you must cut all contacts with <DatingAffair.him_or_her> ..."
             "I decided to forgive <Dating.him_or_her> and tried to save this relationship. I don't know if this trust is misplaced or not ..."

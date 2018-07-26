@@ -1,0 +1,7 @@
+timeoutActor(hours, actor1, actor2, ..., actorN)
+
+Timeout these actors for x hours so that they won't trigger in any scene again. The number of hours is adjusted by the scene frequency setting however.
+
+Example:
+    "John just interacted with me in a scene. I don't want him to appear until tomorrow"
+    timeout(24, John)  // could be more or less than 24 hours depending on the scene frequency setting

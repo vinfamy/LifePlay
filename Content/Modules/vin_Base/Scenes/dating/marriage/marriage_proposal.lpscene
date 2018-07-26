@@ -1,0 +1,310 @@
+WHAT: all, -go_to_the_bathroom
+WHERE: all, -toilets, -PC, -office
+WHEN: 0-24
+WHO: Companion = getCompanion(); If CurrentCompanion.isDating() && CurrentCompanion:attractiontoplayer > Random(65, 100)
+OTHER: !isPlayerMarried()
+
+    SceneStart()
+    CurrentCompanion.show(2)
+    Engaged = false
+
+    If ForcedTrigger() || [Player.IsDominantSex(CurrentCompanion) || [interpersonal > Random(90, 100) && masochist < -70]]
+        "I think I'm in love with <CurrentCompanion.name>, and I know <CurrentCompanion.name> feels the same. However, have I ever imagined <CurrentCompanion.him_or_her> as my <CurrentCompanion.husband_or_wife>?"
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            "I can definitely see myself spending the rest of my days with <CurrentCompanion.him_or_her> indeed. But is this the right time to have the courage to propose to <CurrentCompanion.him_or_her>?"
+            0:: "Yes"
+            1:: "No"
+            
+            If 0
+                setBackground(restaurant)
+                Player(Anxious):: "Baby, I have something really important to tell you ..."
+                CurrentCompanion(Curious):: "Of course, <Player.name>. What is it?"
+                
+                If interpersonal < 50
+                    "Alright, this is the moment. <Player.name>, you can do this! Be brave. Keep calm ... Keep calm ... Don't screw this up!"
+                Endif
+                
+                Player(Happy):: "You know, although we haven't been in a relationship with each other for too long, I am totally in love with you and I know you feel the same ..."
+                Player(Happy):: "I would love nothing more than to take our relationship to the next level and be able to call you my <CurrentCompanion.husband_or_wife>."
+                Player(Happy):: "<CurrentCompanion.name>, will you marry me?"
+                CurrentCompanion(Surprised):: "<Player.name>! I ..."
+                
+                If CurrentCompanion:attractiontoplayer > Random(75, 100)
+                    CurrentCompanion(Happy):: "Yes! Yes! Of course, I'll be your <CurrentCompanion.husband_or_wife>! I'd love nothing more than spending the rest of my life with you"
+                    Engaged = true
+                    mood += 100                   
+                    "So we embraced and kissed, treasuring our first moment as an engaged couple."
+                    Sex(Player, CurrentCompanion)
+                Else
+                    CurrentCompanion(Surprised):: "<Player.name> ... I love you too ... but I'm not quite ready for marriage yet. We're too young for that."
+                    "And ... I've been rejected ... My heart is broken and I don't know how to feel about this ... We're still a couple, although this rejection has put some serious doubt on the strength of our relationship."
+                    mood -= 100
+                    CurrentCompanion:attractiontoplayer -= Random(0, 20)
+                Endif
+            Else
+                "No, it's still too early. I want to spend more time in a relationship with <CurrentCompanion.name> before thinking about the next step ..."
+            Endif
+        Else
+            "Nope, I don't see <CurrentCompanion.name> as <CurrentCompanion.husband_or_wife> material."
+        Endif
+    Else
+        setBackground(restaurant)
+        CurrentCompanion(Anxious):: "Baby, I have something really important to tell you ..."
+        "<CurrentCompanion.name> has taken me to a fancy restaurant but been acting rather weirdly today, as if he had something important to say to me all day."
+        Player(Curious):: "Of course, darling. What is it?"
+        
+        If CurrentCompanion:interpersonal > Random(0, 30)
+            CurrentCompanion(Happy):: "You know, although we haven't been in a relationship with each other for too long, I am totally in love with you and I know you feel the same ..."
+            CurrentCompanion(Happy):: "I would love nothing more than to take our relationship to the next level and be able to call you my <Player.husband_or_wife>."
+            CurrentCompanion(Happy):: "<Player.name>, will you marry me?"
+            Player(Surprised):: "<CurrentCompanion.name>! I ..."
+            0:: "Agree to marry <CurrentCompanion.name>"
+            1:: "Reject <CurrentCompanion.him_or_her>"
+            
+            If 0
+                Player(Happy):: "Yes! Yes! Of course, I'll be your <Player.husband_or_wife>! I'd love nothing more than spending the rest of my life with you."
+                Engaged = true
+                mood += 100
+                "So we embraced and kissed, treasuring our first moment as an engaged couple."
+                Sex(CurrentCompanion, Player)
+            Else
+                Player(Surprised):: "<CurrentCompanion.name> ... I love you too ... but I'm not quite ready for marriage yet. We're too young for that."
+                mood -= 30
+                "It was a difficult conversation to have. We're still a couple, although this rejection has put some serious doubt on the strength of our relationship."
+                CurrentCompanion:attractiontoplayer -= Random(0, 40)
+            Endif
+        Else
+            CurrentCompanion(Scared):: "I ... I ... Actually, can you believe it? I completely forgot what I wanted to say. Nevermind me!"
+            "And so <CurrentCompanion.name> went back to acting weird for the rest of the day ..."
+        Endif
+    Endif
+    
+    If Engaged
+        Cheated = false
+        CurrentCompanion.hide()
+        setBackground(home)
+        "With our wedding coming up, should I have a <Player.bachelor_or_bachelorette> party without my fiance?"
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            "Why not? I might not have many more chances to let loose after our wedding."
+            "With that decision made, one of my best friends, a party animal, immediately volunteered to organize a <Player.bachelor_or_bachelorette> party for us. <Player.He_or_She> didn't tell me the details of what's going to happen on the day, but told me to expect some pleasant surprises."
+            setBackground(nightclub)
+            "Tonight is the night. My friend got us a nice limousine to take us to the most expensive nightclub in the city. We had so much booze on the limousine that by the time we arrived at the club, we were already quite drunk."
+            "I can't believe it! My friend managed to book the nightclub's VIP area all for us. This must have cost a fortune! I knew I could rely on my friend ..."
+            "After many more rounds of expensive alcohol, I was told to close my eyes for the surprise of the night that my friends had in store for me. Being quite drunk already, I happily obliged."
+            Stripper = generatePersonTemporary()
+            While !Player.isInterestedIn(Stripper)
+                Stripper = generatePersonTemporary()
+            Endwhile
+            Stripper2 = generatePersonTemporary()
+            While !Player.isInterestedIn(Stripper2)
+                Stripper2 = generatePersonTemporary()
+            Endwhile
+            Stripper.blendPreset(twenties)
+            Stripper2.blendPreset(twenties)
+            
+            If Stripper.isMale()
+                Stripper.blendPreset(bodybuilder)
+            Else
+                Stripper.blendpreset(hourglass1_F)
+            Endif
+            Stripper.randomizeFace()
+            Stripper.randomizeHairs()
+            
+            If Stripper2.isMale()
+                Stripper2.blendPreset(bodybuilder)
+            Else
+                Stripper2.blendpreset(hourglass1_F)
+            Endif
+            Stripper2.randomizeFace()
+            Stripper2.randomizeHairs()
+            
+            Stripper.show(2)
+            Stripper2.show(3)
+            "My friends then told me to open my eyes, and I couldn't believe what I was seeing ... Two hot strippers are dancing in front of me with all my friends cheering them on."
+            "My best friend whispered into my ear, assuring me that the strippers have already been paid for some 'extra service'. <Player.He_or_She> suggested I have one last threesome with these hotties before being tied down to one <CurrentCompanion.man_or_woman> for the rest of my life."
+            0:: "Yes"
+            1:: "No"
+            
+            If 0
+                "Oh well, as long as <CurrentCompanion.name> doesn't find out, this would be an experience I'll never forget. People do this on <Player.bachelor_or_bachelorette> parties all the time, I'm sure ..."
+                Sex(Stripper, Player, Stripper2)
+                Player.show(0)
+                Cheated = true
+            Else
+                "No way, this is going way too far. I must remain faithful to my fiance and not give in to peer pressure. I can't risk our marriage just for a few minutes of wild fun."
+                "Having made my decision, I sent the strippers on their way. My friends were clearly disappointed and the whole thing was a bit of a killjoy for the rest of the party."
+            Endif
+            Stripper.hide()
+            Stripper2.hide()
+        Else
+            CurrentCompanion:attractiontoplayer += Random(0, 5)
+            "No, nothing good would come out of it. Let's just focus on making the proper preparations for the wedding."
+        Endif
+        
+        Actor = getSpecific(ExDating)
+        If Actor.isValid() && Actor.isContactExchanged() && Actor:masochist > 0 && Actor:rapportwithplayer > 0 && Actor:attractiontoplayer > 20
+            setBackground(home)
+            "I heard a knock on my door. I wonder who it might be."
+            Actor.dress()
+            Actor.show(2)
+            "It's my ex <Actor.name>!"
+            
+            Actor(Happy):: "<Player.name>, I found out from Facebook ... you're getting married to <CurrentCompanion.name> ..."
+            "As far as exes go, we're still on quite good terms, but I obviously didn't invite <Actor.name> to the wedding. Not exactly the easiest announcement to make to an ex."
+            Actor(Sad):: "I guess it's your life and you have every right to make that choice ... I'm glad you found a <CurrentCompanion.man_or_woman> to settle down with ... I'm happy for you ..."
+            "<Actor.name>'s facial expression certainly didn't scream out 'happy'. Poor <Actor.guy_or_girl>, maybe deep inside <Actor.name> still has feelings for me ... and to be honest, maybe I do feel the same."
+            0:: "Just thank <Actor.him_or_her>"
+            1:: "Invite <Actor.him_or_her> in"
+
+            If 0
+                Player(Sad):: "Thank you ... You should go though. It would be troublesome if my fiance sees you here."
+                Actor:attractiontoplayer -= Random(0, 3)
+            Else
+                Player(Sad):: "Thank you ... That's very kind of you."
+                "Feeling sorry for my ex, I decided to invite <Actor.him_or_her> inside to chat a bit. I told myself nothing would happen and I was only doing it out of sympathy."
+                Player(Sad):: "Actually, do you want to come inside for a bit? We're still friends right?"
+                choice = -1    
+                ate = false
+                hadSex = false
+                    
+                While choice < 5
+                    Kissed = false
+                    "What should I suggest to <Actor.name> that we do?"
+                    0:: "Chat"
+                    1:: !ate:: "Eat something together"
+                    2:: "Watch a movie"
+                    3:: "Drink alcohol"
+                    4:: !hadSex:: "Kiss <Actor.him_or_her>"
+                    5:: "Politely ask <Actor.him_or_her> to leave"
+                    
+                    If 5
+                        "We said goodbye and went our ways."
+                    Else
+                        Actor:rapportwithplayer += Random(0, 0.5)
+                        Actor:attractiontoplayer += Random(0, 0.5)
+                        If 0
+                            "We simply sat and chat for a while ..."
+                        Elseif 1
+                            "We made some quick snacks and enjoyed them together ..."
+                            ate = true
+                        Elseif 2
+                            "We watched a movie together ..."
+                        Elseif 3
+                            "We had a drink together ..."
+                            Player:intoxication += Random(0,10)
+                            Actor:intoxication += Random(0,10)
+                        Elseif 4
+                            Kissed = true
+                        Endif
+
+                        If Kissed || [!hadSex && Actor:attractiontoplayer > Random(30, 200)]
+                            Player(Kiss):: "..."
+                            Actor(Kiss):: "..."
+                            "We had a kiss, an awkward one at first, but soon moving towards a more passionate direction."
+                            "Should I let this escalate further?"
+                            0:: "Make out"
+                            1:: "Stop"
+                            
+                            If 0
+                                "Our kiss got more and more steamy and soon we were making out, our hands all over each other."
+                                hadSex = true
+                                Player:perversion += Random(0, 1)
+                                Sex(Player, Actor)
+                                Actor.hide()
+                                Player.show(0)
+                                Cheated = true
+                                "Why did I do that? I let the old flame spark again ... I can only hope that my fiance will never find out about it."
+                                choice = 5
+                            Else
+                                "I decided to stop it there and not go any further. This could have destroyed my future marriage."
+                            Endif
+                        Elseif Random(0, 100) < 15
+                            Actor(Happy):: "I've gotta go now. Thank you for inviting me in."
+                            "We parted ways."
+                            choice = 5            
+                        Endif        
+                    Endif
+                Endwhile                                
+            Endif
+            Actor.hide()
+        Endif
+        
+        Affair = getSpecific(Affair)
+        If intelligence < CurrentCompanion:intelligence*Random(0, 1) && [Cheated || Affair.isValid()]
+            setBackground(home)
+            CurrentCompanion.show(2)
+            CurrentCompanion(Angry):: "<Player.name>, we need to talk!"
+            CurrentCompanion:attractiontoplayer -= Random(0, 50)
+            "This can't be good ..."
+            Player(Anxious):: "Yes, darling, what is it? You don't look too happy ..."
+            CurrentCompanion(Angry):: "Of course I don't, and you know damn well why!"
+            CurrentCompanion(Furious):: "I know about your little romp. You <Player.asshole_or_slut>, you were sleeping around behind my back! I trusted you. I loved you. I wanted to spend the rest of my life with you, yet you betrayed me!"
+            "And just like that, <CurrentCompanion.name> called off the engagement and broke up with me ... not too long before our planned wedding date. I found out later that <CurrentCompanion.he_or_she> also blocked my number."
+            LoseDating()
+            mood -= 100
+            blockContact(Dating)
+        Else
+            setBackground(work)
+            Master = generatePersonTemporary()
+            While !Master.isMale()
+                Master = generatePersonTemporary()
+            Endwhile
+            Master.dress()
+            
+            setBackground(biergarten)
+            "The most important day of my life is here ..."
+            Player.show(0)
+            CurrentCompanion.show(1)
+            Master.show(3)
+            Player.dressWedding()
+            CurrentCompanion.dressWedding()
+            Master(Happy):: "Today, <Player.name> and <CurrentCompanion.name> honored you with their invitation to be present with them today for this ceremony."
+            Master(Happy):: "And so, this day, they declare before all of us that they shall live together in marriage."
+            Master(Happy):: "In the traditional way, they entered into their marriage with the joining of hands, the making of vows and promises, and the giving and receiving of rings, an outward symbol of their voluntary commitment to one another."
+            Master(Happy):: "Therefore, it is my pleasure, that I now pronounce them <Player.husband_or_wife> and <CurrentCompanion.husband_or_wife>."
+            If CurrentCompanion.isMale() && Player.isMale()
+                Master(Happy):: "You may now kiss your husband!"
+            Else
+                Master(Happy):: "You may now kiss your bride!"
+            Endif
+            Player(Kiss):: "..."
+            CurrentCompanion(Kiss):: "..."
+            Master.hide()
+            setBackground(home)
+            "And that's it - it's official, we're married! <CurrentCompanion.name> is now my dear <CurrentCompanion.husband_or_wife>. The rest of the wedding ceremony went without issues, although honestly, both of us couldn't wait for it to end and the guests to leave so that we can begin our intimate wedding night."
+            getMarried()
+            Sex(Player, CurrentCompanion)
+            If PlayerHasHome() && DatingHasHome()
+                CurrentCompanion.show(2)
+                Player.show(0)
+                 CurrentCompanion(Happy):: "Baby, now that we're married: Why don't you move in to live with me? Surely as a married couple, we must live together ..."       
+                "Start living together?"
+                0:: "Yes"
+                1:: "No"
+                2:: "Ask <CurrentCompanion.name> to move in instead"
+
+                If 0
+                    "I accepted <CurrentCompanion.name>'s offer."
+                    loseHome()
+                    CurrentCompanion:attractiontoplayer += Random(0, 10)
+                Elseif 1
+                    "I turned down <CurrentCompanion.name>'s offer."
+                    CurrentCompanion:attractiontoplayer -= Random(0, 2)
+                Else
+                    "Actually, I think it's more appropriate that <CurrentCompanion.name> moves in with me instead. After a short discussion, <CurrentCompanion.he_or_she> accepted my offer."
+                    loseHomeDating()
+                Endif
+                timeout(500, move_in_with_dating)                
+            Endif
+        Endif
+    Endif
+    
+    endDate()
+    SceneEnd()
+    timeout(1000, marriage_proposal)

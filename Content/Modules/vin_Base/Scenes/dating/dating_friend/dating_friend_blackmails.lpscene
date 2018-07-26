@@ -2,7 +2,7 @@ WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 0 - 24
 WHO: Dating = getSpecific(Dating); Affair = getSpecific(Affair); Actor = getSpecific(Dating_Friend); If Actor:rapportwithplayer < 10 && Actor.isInterestedIn(Player) && Actor:perversion > 50 && Random(0, 100) < Actor:intelligence - intelligence
-OTHER: !isAtHome()
+OTHER: isAtDatingHome()
 
     SceneStart()
     "I heard a knock on the door. I wonder who it is."
@@ -76,9 +76,21 @@ OTHER: !isAtHome()
         Endif
 
         If breakup
-            "And just like that, <Dating.name> broke up with me ... What's more - I found out later that <Dating.he_or_she> also blocked my number."
-            LoseDating()
-            mood -= 50
+            If isPlayerMarried()
+                Dating(Sad):: "I'm afraid this marriage isn't working ..."
+                "And just like that, <Dating.name> divorced me ..."
+                mood -= 100
+                Divorce()
+                LoseDating()
+                If Player.isDominantSex(Dating) && money > 1000
+                    "To make matters worse, the court awarded half of my hard-earned fortune to <Dating.name> ... What a disaster of a marriage that was ..."
+                    money -= money*0.5
+                Endif        
+            Else
+                "And just like that, <Dating.name> broke up with me ... What's more - I found out later that <Dating.he_or_she> also blocked my number."
+                LoseDating()
+                mood -= 50
+            Endif
             blockContact(Dating)
         Elseif Affair.isContactExchanged() && Dating:masochist < 30
             Dating(Angry):: "I can forgive you, with one condition ..."
@@ -91,10 +103,22 @@ OTHER: !isAtHome()
                 blockContact(Affair)
             Else
                 Player(Sad):: "I'm afraid I can't do that ... <Affair.name> is an important person in my life."
-                Dating(Furious):: "More important than me apparently ... Fine, then it's over between us!"
-                "And just like that, <Dating.name> broke up with me ... What's more - I found out later that <Dating.he_or_she> also blocked my number."
-                LoseDating()
-                mood -= 50
+                Dating(Furious):: "More important than your own <Dating.boyfriend_or_girlfriend> apparently ... Fine, then it's over between us!"
+                If isPlayerMarried()
+                    Dating(Sad):: "I'm afraid this marriage isn't working ..."
+                    "And just like that, <Dating.name> divorced me ..."
+                    mood -= 100
+                    Divorce()
+                    LoseDating()
+                    If Player.isDominantSex(Dating) && money > 1000
+                        "To make matters worse, the court awarded half of my hard-earned fortune to <Dating.name> ... What a disaster of a marriage that was ..."
+                        money -= money*0.5
+                    Endif        
+                Else
+                    "And just like that, <Dating.name> broke up with me ... What's more - I found out later that <Dating.he_or_she> also blocked my number."
+                    LoseDating()
+                    mood -= 50
+                Endif
                 blockContact(Dating)
             Endif
         Endif
