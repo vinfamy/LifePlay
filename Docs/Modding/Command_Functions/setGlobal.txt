@@ -1,0 +1,17 @@
+GlobalVariableName.setGlobal(float or floatvariable)
+
+USE:
+Set (add if it doesn't already exist) a global variable to a certain number.
+
+TYPE: Command, non-Ref (ref-like syntax)
+RETURNS: /
+THEME: Variables
+COMPARE: getGlobal, clearGlobal, getID
+
+EXAMPLE:
+    NumberOfChildren.setGlobal(3)
+    
+    OR
+    
+    SugarDaddyID = Actor2.getID()
+    SugarDaddy.setGlobal(SugarDaddyID)

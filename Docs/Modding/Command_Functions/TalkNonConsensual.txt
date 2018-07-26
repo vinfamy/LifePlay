@@ -1,0 +1,15 @@
+TalkNonConsensual()
+
+USE:
+call this command before starting a sex scene to make sure that none of the regular 'dirtytalk' (ie both ppl wanting it) is played, and only rape talk is.
+
+TYPE: Command, non-Ref
+RETURNS: /
+THEME: Sex
+COMPARE: Filter(Aggressive)
+
+EXAMPLE:
+	"Before I knew what was happening, I was pushed face down on the bed..."
+	Filter(Aggressive,Anal)
+	TalkNonConsensual()
+	SexNoAffair(Rapist, Player)

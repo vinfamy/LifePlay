@@ -1,0 +1,19 @@
+isAtHome()
+
+USE:
+Check if the player is at their own home. Frequently used to separate 'WHERE: home' cases of the player being at home and being at their significant other's home.
+
+TYPE: Condition, non-Ref
+RETURNS: bool
+THEME: Location
+COMPARE: moveTo
+
+EXAMPLE:
+    WHERE: home
+    ....
+    
+    If isAtHome()
+        "Home sweet home"
+    Else
+        "I must be at my boyfriend's house."
+    Endif

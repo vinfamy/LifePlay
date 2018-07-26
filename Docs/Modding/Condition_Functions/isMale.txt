@@ -1,0 +1,14 @@
+Actor.isMale()
+
+USE:
+Check if the actor is male. 
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Gender
+COMPARE: isDominantSex, isSameGender, isInterestedIn
+
+EXAMPLE:
+    If John.isMale()
+        "<John.name> is a dude!"
+    Endif

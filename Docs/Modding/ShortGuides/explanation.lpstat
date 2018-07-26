@@ -1,0 +1,11 @@
+Pretty self-explanatory. Not sure what I can explain here ...
+
+STAT_ID: mood
+STAT_NAME: Mood
+PLAYER_ONLY: true
+HIGHER_BETTER: true
+STAT_MIN: 0
+STAT_MAX: 100
+DAILY_CHANGE: -5
+DEFAULT_VALUE: 100
+NPC_ONLY: false

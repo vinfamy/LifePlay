@@ -1,0 +1,18 @@
+Actor.setLivingWithPlayer(bool)
+
+USE:
+flags or unflags an actor as living with the player
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Housing
+COMPARE: livesWithPlayer
+
+EXAMPLE:
+	"Since I have a spare room available and could do with the extra cash, I've agreed to sub-let it to a foreign exchange student."
+	Student = generatePerson(twenties)
+	Student::"Hello! Thank you for letting me stay here!"
+	Student.setLivingWithPlayer(true)
+
+	Roomie(Angry)::"I've had it with living in this pig sty! You never clean up after yourself!"
+	Roomie.setLivingWithPlayer(false)

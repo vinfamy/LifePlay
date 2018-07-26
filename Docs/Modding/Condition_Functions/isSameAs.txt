@@ -1,0 +1,14 @@
+Actor1.isSameAs(Actor2)
+
+USE:
+Check if the two actors are the same person
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Identity
+COMPARE: getID, isPlayer
+
+EXAMPLE:
+    If John.isSameAs(Jack)
+        "They're the same dude!"
+    Endif

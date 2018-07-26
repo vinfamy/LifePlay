@@ -1,0 +1,14 @@
+Actor.show(position_index)
+
+USE:
+Show this actor on screen. The player's default position is 0. 1 - 6 is counted from right to left of the screen.
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Actor Loading, Scenes
+COMPARE: hide, getSpecific, generatePerson, generatePersonTemporary, getPerson
+
+EXAMPLE:
+    NewGuy = generatePerson()
+    NewGuy.dress()
+    NewGuy.show(2)

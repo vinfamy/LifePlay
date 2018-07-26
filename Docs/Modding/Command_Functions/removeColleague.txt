@@ -1,0 +1,13 @@
+Actor.removeColleague()
+
+USE:
+Remove this actor from the list of colleague. Will remain acquaintance at least though.
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Job
+Compare: addColleague, isColleague, getSpecific(Colleague)
+
+EXAMPLE:
+    John(Sad):: "I'm leaving the company."
+    John.removeColleague()

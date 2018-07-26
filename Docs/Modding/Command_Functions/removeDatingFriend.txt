@@ -1,0 +1,13 @@
+Actor.removeDatingFriend()
+
+USE:
+Remove this actor from the list of your significant other's friends. Will remain acquaintance at least though.
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Acquaintance
+COMPARE: addDatingFriend, isDatingFriend, getSpecific(Dating_Friend)
+
+EXAMPLE:
+    John(Sad):: "Your boyfriend is an asshole. I'm no longer his friend."
+    John.removeDatingFriend()

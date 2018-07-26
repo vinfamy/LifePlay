@@ -1,0 +1,16 @@
+moveJobs()
+
+USE:
+Get hired at this current building and make it our new workplace. Remember to use setBoss() and SetSalary() separately.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Job
+COMPARE: loseJob, setBoss, setSalary
+
+EXAMPLE:
+    "I signed the contract."
+    moveJobs()
+    Salary = 2000
+    Interviewer.setBoss()
+    Salary.setSalary()

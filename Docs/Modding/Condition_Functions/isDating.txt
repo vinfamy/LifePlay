@@ -1,0 +1,20 @@
+Actor.isDating()
+
+USE:
+Check if the actor is in a relationship with the player.
+Alternatively, if the Actor is Player then it checks whether the player is currently in a relationship at all.
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Relationships
+COMPARE: loseDating, setDating, getSpecific(Dating)
+
+EXAMPLE:
+    If Player.isDating()
+        "I'm dating someone ..."
+        If John.isDating()
+            "And <John.name> is my <John.boyfriend_or_girlfriend>."
+        Else
+            "But my significant other isn't <John.name>."
+        Endif
+    Endif

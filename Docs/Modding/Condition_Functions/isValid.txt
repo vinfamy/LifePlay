@@ -1,0 +1,19 @@
+Actor.isValid()
+
+USE:
+Check if an actor variable is valid. Most commonly used after GetPerson(), GetCompanion() or GetSpecific()
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Actor Loading
+COMPARE: getPerson, getSpecific
+
+EXAMPLE:
+    John = getSpecific(Colleague)
+    If John.isValid()
+        "I have at least one colleague"
+    Else
+        John = generatePerson()
+        John.addColleague()
+        "I met a new colleague, <John.name>"
+    Endif

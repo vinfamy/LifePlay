@@ -1,0 +1,13 @@
+Actor.setPT()
+
+USE:
+Make this person your personal trainer. Current personal trainer is no longer PT and becomes acquaintance.
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Special Characters
+COMPARE: losePT
+
+EXAMPLE:
+    "<John.name> agreed to train me."
+    John.setPT()

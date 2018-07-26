@@ -1,0 +1,20 @@
+WHERE
+
+USE:
+WHERE is mostly used to enter a condition at the top of a scene, affecting its random triggering depending on the player's location.
+However, it can also be used as a command in the rest of the scene script, returning the player's location.
+Available locationIDs can be found in Docs/Lists/all_wheres.txt
+
+TYPE: Condition, non-Ref
+RETURNS: locationID (string)
+THEME: Scenes, Location
+COMPARE: isAtHome, WHAT, WHEN
+
+EXAMPLE: 
+	Title = "shop assistant"
+	If WHERE == bank
+		Title = "cashier"
+	Elseif WHERE == bar || WHERE == nightclub
+		Title = "bartender"
+	Endif
+	"It's my lucky day. I found myself being served by a <New_Person.handsome_or_cute> <Title>."

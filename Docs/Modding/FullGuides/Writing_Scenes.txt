@@ -1,0 +1,429 @@
+1. Basics
+2. Triggering a scene
+3. Scoping
+3.1. Creating a new actor
+3.2. Loading an actor
+3.3. Introducing the actor
+3.4. Removing the actor
+4. Main script
+4.1. Descriptions and Dialogue
+4.2. Functions
+4.3. Variables and Stats
+4.4. Choices
+4.5. Conditions
+4.6. Loops
+4.7. Random
+4.8. Commenting, Indentation
+5. Testing
+
+1. Basic structure
+
+	A 'scene' in the game is a virtual novel-type showing of characters with dialogue and choices, potentially leading to a sex scene. Scenes are built by a script in an .lpscene file, which is typically structured as follows:
+
+	// trigger conditions
+	WHAT:  
+	WHERE:
+	WHEN:
+	WHO:
+	OTHER:
+	
+		// some code can happen before the scene UI triggers
+	
+	SceneStart()		// brings up scene UI
+	
+		// scene script goes here
+	
+	SceneEnd()			// closes scene UI, removes newly generated chars & sticks them back in their lpcharacters
+	
+	timeout(200, sceneID) // cooldown on the scene appearing again
+	
+	
+2. Triggering a Scene
+
+	At the top of the scene are a few fields where you can stipulate basic conditions for the scene to trigger randomly.
+	
+	WHAT: sleep, masturbate 
+		// lists the activities that can trigger the scene using their ID, separated by commas. See the 'Actions' folder of loaded modules to figure out which are available. Alternatively, you can use 'all' and exempt certain actions by prepending them with a - symbol:
+			// WHAT: all, -sleep
+		// If you don't want to put anything here, add 'none'
+			// WHAT: none
+	
+	WHERE: home, office 
+		// lists locations that trigger the scenes. See the Docs/Lists/All_wheres.txt for locations. You can also use all and -home, for instance, as with WHAT.
+		// If you don't want to put anything here, add 'none'
+			// WHERE: none
+	
+	WHEN: 9-21 
+		// time periods when scene is available, can roll over a date transition (22-4)
+	
+	WHO: Actor = getSpecific(Dating) 
+		// Assigns an actor id to the "actor" variable. This variable can be named whatever, and is simply a way of knowing if an actor with the specific scope is available and immediately being able to refer to them in the rest of the script. See 3.: scoping. Multiple actors can be introduced, separated by a semi-colon:
+			// WHO: Dating = getSpecific(Dating); Affair = getSpecific(Affair); Actor = getSpecific(Dating_Friend)
+		
+		// Additional conditions depending on the actor(s) can be added after this with a semi-colon and a leading 'If', like
+			// WHO: Actor = getSpecific(ExDating); If !Actor.isContactExchanged() && Random(20,100) < Actor:rapportwithplayer
+			
+		// If the game fails to find an appropriate actor or if the following If-condition returns false, the scene will be skipped.
+		// If you don't want to put anything here, just add 'none'
+			// WHO = none
+		
+	OTHER: !isWithCompanion 
+		// other conditions
+	
+	
+	Alternatively, you can bypass these trigger conditions if you enter the name of the scene to the SCENE_ALWAYS field of an action file. For an example in the base game, see
+		Modules/vin_Base/Actions/Social/organize_a_house_party.lpaction
+		Modules/vin_Base/Scenes/Social/house_party.lpscene
+	house_party can still trigger randomly, but if you organize it yourself, it immediately triggers. In order to know if it was force-triggered or not, to make sure your text and code can follow up on that, you can use the ForcedTrigger condition.
+	
+		
+3. Scoping
+
+	Scoping is necessary for any scene involving more than the player. It winds down to either creating a new actor or finding an existing one, and then storing their ID in a variable for use in the scene. 
+	Scoping can happen inside or outside the main script, as well as in the WHO condition on top. 
+	
+	3.1. Creating a new actor
+	
+		There are two ways of creating a new actor to introduce to your player's life: a permanent one and a temporary one.
+		
+		GeneratePerson() creates an actor who will stay in your game permanently, and assigns their actorID to the variable you call the function on:
+			ActorVar = GeneratePerson()
+		Between those parentheses, you can specify any actor presets you want to use (see the Presets folder of the modules). For instance, if you want to create a bodybuilder male, you type:
+			ActorVar = GeneratePerson(bodybuilder)
+		You can combine presets too:
+			ActorVar = GeneratePerson(easterneuropean, twenties, fitness_model)
+			
+		While this already gives you some control over who is created, it might not be enough. Certain data such as gender preference and most actor stats is entirely randomized on creation, so you may need to create a few actors before you land on the right person. Or you may simply want to create an actor who's only needed for the duration of the scene, but shouldn't stay in your game permanently.
+		
+		GeneratePersonTemporary() creates such a non-permanent actor, and uses the same presets as GeneratePerson. Sex with temporary actors doesn't count as an affair.
+		
+		For example, if you want to only generate an actor who's interested in your gender, you could use a while loop to generate temporary actors until you find the right one:
+		
+			ActorVar = GeneratePersonTemporary()
+			While !ActorVar.isInterestedIn(Player)
+				ActorVar = GeneratePersonTemporary()
+			EndWhile
+		
+		After that, you can still make the temporary actor permanent, by using the makePermanent function:
+		
+			ActorVar.makePermanent()
+			
+		And it's possible that you want to apply a preset to a person after they're already generated:
+			ActorVar.blendPreset(bodybuilder)
+			
+		When you do so, however, their face and hair will most likely be set to the default for that preset, causing some repetition. You can mix things up a little with:
+			ActorVar.randomizeFace()
+			ActorVar.randomizeHairs()
+			
+			
+	3.2. Loading an actor
+	
+		In order to find a (permanent) actor to use in your scene, you have the following options:
+		
+			- "Player" is you. Yes, you! "Player" is a special global var that always contains the player's actorID.
+			
+			- "CurrentCompanion" is a special global var that'll always hold your current companion's ID so you can use it right away. Its function counterpart is getCompanion, which is largely pointless.
+					CurrentCompanion.dress()
+				is the same as
+					ActorVar = getCompanion()
+					ActorVar.dress()
+		
+			- getPerson() gets a random actor. 
+				ActorVar = getPerson() 		// get a random, permanent actor
+				ActorVar = getPerson(true) 	// get a random actor whose number you have
+				ActorVar = getPerson(false) // get a random actor whose number you don't have
+				
+			- getSpecific() gets a specific actor. You can stipulate which actor by
+				- keyword: Dating (bf/gf), Dating_Friend (friend of your bf/gf), Boss, Colleague, Neighbour, PT (personal trainer), ExDating (ex-bf/gf), Landlord, CurrentBabyDaddy (father of player's unborn child), Impregnated (carrying player's child)
+				
+				- ID: every actor has a reference number that you can get with the getID() function. You can store it in a global var and look it up later in order to find them back again:
+					ID = ActorVar.GetID			// 'ID' is a local var
+					MySpecialNPC.SetGlobal(ID)	// there now is a 'MySpecialNPC' global var with the value previously stored in 'ID'
+				and then in another script:
+					ID = MySpecialNPC.GetGlobal()
+					if ID != 0
+						Actor = getSpecific(ID)
+					endif
+					
+	
+	3.3. Introducing the actor
+	
+		Once you have an actor selected for your scene, chances are you want him or her to actually show up:
+			Actor.show()
+		
+		Perhaps they should be dressed first though, so let's type
+			Actor.dress()
+			Actor.show()
+		
+		You can specify where on the screen the actor is to show up with a number, stating their position, from right to left:
+			Actor.show(2)
+		
+	3.4. Removing the actor
+	
+		Once you no longer need or want an actor in the scene, you can remove them:
+			Actor.hide()
+		When the scene ends, all actors are removed from the scene UI automatically.	
+
+		
+4. Main script
+
+	The main script will typically consist of a sequence of descriptions and dialogue, functions, operators, and choices. Everything is written and read from top to bottom.
+	Its structure is usually given shape with 'if'-conditions, and sometimes 'while'-loops or 'Random' structures.
+	
+	4.1. Descriptions and Dialogue
+	
+	Scene descriptions provide narration and are added between double quotation marks:
+		"I heard a knock on the door. I wonder who it is."
+	
+	Dialogue is also between double quotation marks, but is preceded by the actor speaking it:
+	
+		Player:: "Oh, it's you, <Actor.name>. What a shame though, <Dating.name> just went out and won't be back for another few hours."
+		Actor(Happy):: "Yes, I know. <Dating.S> told me."
+		
+	As you can tell, you can direct the emotion of the actor by inserting a "mood" keyword in parentheses after the actor. A list of available mood keywords is in Docs/Lists/All_moods.txt.
+	
+	Both scene descriptions and dialogue can dynamically insert text based on an actor var. This is called interpolating, and is marked by < >.
+		<Actor.name> 			// Actor's first name
+		<Actor.name_last> 		// Actor's last name
+		<Actor.relationship>	// Player's family relationship to the actor
+		<Actor.callplayer>		// Actor's family relationship to the Player
+		<Actor.S> or <Actor.s>  // Subject pronoun: I, he, she - with or without capitalization
+		<Actor.P> or <Actor.p> // Possessive adjective: my, his, her
+		<Actor.O> or <Actor.o> // Object pronoun: me, him, her
+		<Actor.R> or <Actor.r> // Reflexive pronoun: myself, himself, herself
+		<Actor.PP> or <Actor.pp> // Possessive pronoun: mine, his, hers
+		
+	In order to choose between other words to inject, based on the actor's gender, you park them between _or_:
+		<Actor.name> is a successful <Actor.man_or_woman>.
+		
+	If you've stored a string in a var, you can also use that:
+		myGift = "chocolates"
+		herPref = "flowers"
+		"I gave her <myGift> but she said she preferred <herPref>."
+		
+	
+	4.2. Functions
+	
+	All existing functions are listed in /Docs/Modding. Each file under Docs/Modding/Command_Functions and Docs/Modding/Condition_Functions describes the use of a single function. 
+	
+	If you're unsure what you're looking for, consider using the Lists/Functions_By_Theme.txt file, which groups functions according to the context in which they're used.
+	
+	Let's go over what's typically in one of them.
+	- The top line is a short example showcasing the function's syntax.
+		Actor.addColleague()
+	- USE: this field describes what the function is for.
+	- TYPE: this field tells you what kind of function it is. Eg a command or a condition, a reference function (meant to run on an actor) or not.
+	- RETURNS: if the function returns a data type, this field will tell you which one. 
+	- THEME: keywords describing the context in which this function is used (see Lists/Functions_By_Theme.txt)
+	- COMPARE: other functions relevant to this one
+	- EXAMPLE: an example in context
+	
+	
+	4.3. Variables and Stats
+	
+	Three types of variables are available:
+	- local ones you use in the script
+	- global ones you use with the getGlobal and setGlobal functions
+	- actor stats
+	
+	Local variables can be added at any point by simply assigning them a value with "=". You don't need to declare them first. The values can be numbers, actorIDs, boolean (true/false), as well as strings:
+		Choices = 7						// stores number
+		Friend = getPerson(true)  		// stores actorID
+		Dating = Friend.isDating()	 	// stores true or false 
+		DateType = "Hang Out"				// stores string, this can be injected in a description or dialog: "<DateType> with <Friend.name>"?
+		
+	Global variables are stored outside of the script and can be consulted in any other script. You create them by giving them a name and setting them to a value (either explicit or contained in a local var):
+		myGlobalVarName.setGlobal(5)
+		myGlobalVarName.setGlobal(myLocalVar)
+	They are consulted by passing them to a local var:
+		myLocalVar = myGlobalVarName.getGlobal()
+	You delete them like this:
+		myGlobalVarName.clearGlobal()
+		
+	Actor stats are added to the game with separate .lpstat files in the module (/"Stats"). They are consulted on an actor by connecting the actor var with the actor stat's ID with a colon: 
+		if 20 > actorA:perversion
+		attr = actorB:attractiveness
+	If you don't specify the actor, the game will assume you mean to check the stat on the player:
+		if 30 < perversion
+		is the same as
+		if 30 < Player:perversion
+	Unlike local vars, you cannot assign a value to actor stats with '=' but must use '=>' instead:
+		actorA:attractiontoplayer => 20
+
+	Local numeric and actor variables can be easily manipulated with 'assignment operators', setting their value to the result of a calculation involving themselves:
+		somefloat += 1			// the same as somefloat = somefloat + 1
+		somefloat -= 2
+		actor:somestat *= 0.8
+		actor:somestat /= 2
+		
+	4.4. Choices
+
+	If you want to give the player a choice between several options on how to proceed further in the scene, you set them up with consecutive integers starting with 0, followed by two colons:
+	
+		SO = getSpecific(Dating)
+	
+		"<SO.name> has hardly spoken a word all night. What do I do?"
+		0:: "Enjoy the peace and quiet."
+		1:: "Tell a joke"
+		2:: "What's wrong, <SO.name>?"
+		
+	You can also make certain choices only selectable if they meet a certain condition:	
+		0:: masochism < -20:: "Enjoy the peace and quiet."
+		1:: interpersonal > 30:: "Tell a joke."
+		2:: "What's wrong, <SO.name>?"
+		
+	Make sure that one option is always selectable so that the player doesn't get stuck. In order to follow up on these choices, you're going to need if-conditions.
+	
+		
+	4.5. Conditions
+	
+	Conditions make sure that certain code is only executed under certain circumstances. Conditions are already part of the top triggers of a scene, the triggers of an action file, or choices, but you can also add some in the main script with an if-structure.
+	
+	If-structures are useful for any kind of branching that you want to see in the scene, and essential to follow up on previous choices:
+	
+		If 0
+			SO(Angry)::"You never pay any attention to me!"
+		Elseif 1
+			SO(Happy)::"You always know how to cheer me up."
+		Else
+			SO(Disgusted)::"Well I met <Frenemy.name> today and would you believe she had the nerve to tell me that..."
+		Endif
+		
+	If-structures are organized as follows:
+		If conditionA 	// opens the if-structure
+			// lines dependent on conditionA being true
+		Elseif conditionB	// optional elseif
+			// lines dependent on conditionA being false but conditionB being true
+		...					// there can be multiple elseifs, each one assuming that the conditions above are false
+		Else				// optional else: there can be only one
+			// lines dependent on all of the conditions above being false
+		Endif 			// closes the structure
+		
+	They can also be nested:
+		If conditionA
+			If conditionAA
+			Elseif conditionAB
+			Endif
+		Elseif conditionB
+			if conditionBA
+			Else
+			Endif
+		Endif
+		
+	Apart from conditions following up on choices, any condition is always boolean: it only evaluates whether the entire expression that follows is true or false. 
+	To make certain that your expression will be valid for a condition, it should contain either
+		- (boolean) condition functions, which return 'true' or 'false'
+				If Actor.livesWithPlayer()
+				If isWithCompanion() etc. 
+			In order to check the reverse of a boolean function, you prepend it with the not symbol (!): 
+				!Actor.liveswithPlayer()
+				
+		- vars containing 'true' or 'false' as a value
+				If conditionA
+					breakup = true		// assigns 'true' to the variable
+				Else
+					breakup = false
+				Endif
+				...
+				If breakup				// var's value returns true or false, so this is a valid expression
+				
+				Endif
+				
+		- comparison operators that check the value of a variable or stat against another value or var/stat
+				If MyLocalVar > Actor.interpersonal	// greater than
+				Elseif attractiveness < 20			// smaller than
+				Elseif MyLocalVar != 0				// not equal to
+				Elseif Actor.intelligence == 60		// equal to
+				Elseif perversion >= 30				// greater than or equal to
+				Elseif Actor.intelligence <= 20		// smaller than or equal to
+				Endif
+				
+		- a combination of the above, held together with logical operators:
+			&& means AND:
+				If Actor.isMale() && Actor.isDating()
+					"<Actor.name> is my boyfriend."
+				Endif
+				
+			|| means OR:
+				If Actor.isColleague() || Actor.isBoss()
+					"It was odd seeing <Actor.name> outside of work."
+				Endif
+				
+			OR takes precedence over AND, so the following
+				If Actor.isColleague() && Actor.isMale() || Actor.isBoss()
+			is only true if the actor is 
+				either male or your boss
+				AND a colleague
+			which, given how colleagues and bosses are different groups, means that it will never be true for your boss. You probably meant for the condition to always and only be true for either bosses or male colleagues.
+			If so, you can use brackets [] to override the hierarchy:
+				If [Actor.isColleague() && Actor.isMale()] || Actor.isBoss()
+			It's never a bad idea to add brackets, if only just for readability.
+			
+			Just like with boolean functions, any expression inside brackets can be preceded by the NOT operator: !
+				If ![Actor.isColleague() && Actor.isMale()]
+			
+	
+	4.6. Loops
+	
+		A while-loop repeats code and lines as long as the conditional expression that follows 'while' is true:
+			While intoxication < 80
+				Creep(Grin)::"Can I ply you with another drink?"
+				Player(Happy)::"Sure, I can do with another..."
+				intoxication += 10
+			endWhile
+			Player(Drained)::"I think I've had far too many..."
+			
+		For another example on using while-loops, refer back to 3.1.
+		
+		The most important thing to know about a while loop is that you must absolutely make sure that it isn't infinite. If the expression has no chance of ever becoming false, the loop will just keep excuting what's inside it forever, which usually results in crashing the game.
+			While Player.isPlayer()
+				// crash: the player is always going to be the player
+			endWhile
+			
+			While 30 > attractiveness
+				// crash if attractiveness isn't increased inside the loop
+			endWhile
+			
+	
+	4.7. Random
+	
+		You can randomize code and text lines by placing them between a Random and endRandom block, giving each code or text line an equal chance of being displayed:
+			Random
+				New_Person(Flirty):: "Hey there good-looking, fancy meeting you here!"
+				New_Person(Flirty):: "<Player.name>! Is that you, a sight to admire as always? How is it going?"
+				New_Person(Flirty):: "I knew it was you right away, hottie! How is life treating you?"
+			endRandom
+			
+			Random
+				Guest1 = getPerson()
+				Guest1 = generatePerson()
+			endRandom
+			
+	4.8. Commenting, Indentation
+	
+		You can comment out a line by prepending it with a double slash
+			// This is a comment: it won't be executed by the game, but helps you keep track of what parts of the script are supposed to do
+			If conditionA // what's behind this double slash is also a comment
+		
+		Indentation makes the overall structure easier to follow, and has been used throughout this document already:
+			If conditionA
+				// some code doing something
+				If conditionAA
+					// some more code here
+				Else
+					// why not here too
+				Endif
+			Endif
+			
+		While most people are used to using the Tab key for indentation, there seems to be a problem with getting LifePlay files to recognize them. If you're using a proper text editor, you can find an option to convert Tabs to clusters of spaces. For Notepad++, that's in Edit/Blank Operations/TAB to Space. Just run it when you're done.
+		
+5. Testing
+
+		Once you're done with a scene, you'll probably want to give it a try and see if it works. Rather than waiting for it to trigger randomly, you can 
+			- open the console with #
+			- type in the scene's ID, eg meet_new_person
+			
+		A scene's ID is its file name, without the extension.
+
+		If the # key doesn't work for you, you can specifiy a different one in the game's Config/DefaultInput.ini file. Find and edit the following line: 
+			+ActionMappings=(ActionName="TestScenes",Key=#,bShift=False,bCtrl=False,bAlt=False,bCmd=False)

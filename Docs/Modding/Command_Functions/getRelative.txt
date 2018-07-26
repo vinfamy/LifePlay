@@ -1,0 +1,17 @@
+getRelative()
+getRelative(keyword, keyword, ..., keyword)
+
+USE: 
+Retrieves an actor who's related to the player.
+This can be filtered down to only certain types of relatives with keywords: Sibling, StepSibling, Child, StepChild, Cousin, ParentSibling (uncles/aunts), GrandParent, Parent, StepParent
+
+TYPE: Command, non-Ref
+RETURNS: Actor
+THEME: Family, Actor Loading
+COMPARE: getRelativeExcept
+
+EXAMPLE: 
+
+	WHO: Actor = getRelative()
+	
+	WHO: Actor = getRelative(Sibling, StepSibling, Cousin, Child, StepChild)

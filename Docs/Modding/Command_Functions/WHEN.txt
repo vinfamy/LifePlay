@@ -1,0 +1,19 @@
+WHEN
+
+USE:
+WHEN is mostly used to enter a condition at the top of a scene, affecting its random triggering depending on what time of day it is.
+However, it can also be used as a command in the rest of the scene script, to return the time of day in a float.
+
+TYPE: Command, non-Ref
+RETURNS: float
+THEME: Scenes, Time
+COMPARE: WHAT, WHERE
+
+EXAMPLE:
+	If WHEN > 21 || WHEN < 4
+		time = "late"
+	Elseif WHEN < 9
+		time = "early"
+	Endif
+	"My neighbour's having <Neighbour.p> stereo on, and it's so loud the bass can be heard from a block away! I've got a good mind to tell <Neighbour.o> that I'm calling the police if <Neighbour.s> ever makes such noise this <time> again!"
+		

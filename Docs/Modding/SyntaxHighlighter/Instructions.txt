@@ -1,0 +1,23 @@
+INSTALLING
+
+Since you're interested in installing the Notepad++ highlighter, let's presume you have Notepad++ installed. Right?
+
+Go to the program's menu: Language/Define your language
+In the window that pops up click "import". Find the .xml file and import it. 
+
+From now on, every LP filetype you open will open with the syntax highlighter enabled.
+
+CHANGING LAYOUT
+
+The main purpose of a syntax highligher consists of
+- making sure blocks are collapsible (eg If-Elseif-Else-Endif blocks can be collapsed)
+- applying specific font choices and colors (styles) to specific lists of keywords
+- also applying specific styles for comments, quotes etc.
+
+You can easily change the styles of this highlighter by opening it in the Define your language window and clicking on any button called "Styler".
+
+If the highlighter gets updated with new function keywords and you wish to keep your personal styling choices,
+	- export your current version of the highlighter first. This'll create an .xml file like the one offered here.
+	- remove your current version in the Define your language window
+	- copy-paste anything from your previous version that's between the <styles> and </styles> tags to the new one's xml
+	- import the new .xml

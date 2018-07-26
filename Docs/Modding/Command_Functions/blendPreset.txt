@@ -1,0 +1,20 @@
+Actor.blendPreset(PresetID)
+
+USE:
+Blend this actor with a preset, usually called after generatePerson(). 
+Presets are contained in a module's folder for the purpose, and can contain either body morphing or stat-related intel.
+PresetID is the filename without the extension.
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Actor Creation, Looks, Stats
+COMPARE: generatePerson, generatePersonTemporary
+
+EXAMPLE:
+    // We want a male bodybuilder
+    Bodybuilder = generatePerson()  // just so that we get the random stats etc, but this might generate a female
+	
+    Bodybuilder.blendPreset(bodybuilder)  // if the above is female, then this will reset face and hair to the default male face and hair, so it's best to follow up with
+	
+    Actor.randomizeFace()
+    Actor.randomizeHairs()

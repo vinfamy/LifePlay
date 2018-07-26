@@ -1,0 +1,16 @@
+Actor.setBoss()
+
+USE:
+Make this person your boss. Current boss is no longer boss and becomes acquaintance.
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Job
+COMPARE: isBoss, getSpecific(Boss), moveJobs
+
+EXAMPLE:
+    "I signed the contract."
+    moveJobs()
+    Salary = 2000
+    Interviewer.setBoss()
+    Salary.setRent()

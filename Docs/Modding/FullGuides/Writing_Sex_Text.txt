@@ -1,0 +1,114 @@
+WRITING SEX TEXT
+
+Descriptions are narrative flavor texts that appear at the top right corner of the screen during a sex scene. They are entered in .lpdesc files in the following format:
+	Condition
+		Text
+	##	// separates this description from the following one
+
+
+DirtyTalks are dialogue lines floating near a character during a sex scene. They are entered in .lptalk files in the following format:
+	Condition
+		A1's text
+		A2's text 
+		// and so on for group sex
+	## // separates this DT from the following one	
+
+Writing or editing these is pretty much alike, so we talk about them in one and the same document. They both are very reliant on using Tags in the condition, have to consider actor roles, and can use interpolation.
+
+1. The conditions
+
+	The condition line for descriptions and dirtytalks heavily uses the Tag() condition function. This lists one or several tags that must be true for the current animation, if the text is to be displayed. A list of available tags is in Docs/Modding/Lists/All_sex_tags.txt
+	
+		description:
+		Tag(Kneeling, Blowjob, Couple)
+			<A2.name> got down on <A2.p> knees and gave <A1.name>'s cock a long lick from base to tip.
+		##
+		
+		dirtytalk
+		Tag(Kneeling, Blowjob, Couple)
+			Christ almighty, that feels so good!
+			(muffled) Hm-hm?
+		##
+		
+	Several conditions can be tied together with the AND (&&) or OR (||) logical operators. A conditional expression can also be negated by the NOT (!) operator. For more info on using logical operators, have a look at chapter 4.5 in "Writing Scenes.txt"
+		Tag(Doggystyle) || Tag(ReverseCowgirl)
+			<A2.name> couldn't quite see the look on <A1.name>'s face.
+		##
+		
+		Tag(DoggyStyle) || Tag(ReverseCowgirl)
+			...		// use three dots to not display anything for this actor
+			Are you alright back there? 
+		##
+		
+		Tag(LickingBoobs, Couple) && !Tag(MM)
+			<A1.name> placed <A1.p> hands on <A2.name>'s breasts and squeezed.
+		##
+		
+		Tag(LickingBoobs, Couple) && !Tag(MM)
+			Honk honk!
+			Real mature...
+		##
+		
+	Descriptions and DirtyTalks can be marked to only play when a particular anim starts or ends:
+		*START* Tag(Blowjob, Couple)
+			<A2.name> grabbed a hold of <A1.name>'s cock and wrapped <A2.p> lips around its head.
+		##
+		
+		*END* Tag(Vaginal, Couple) && toCum > 90
+			Oh god, I'm gonna cum!
+			Yes, yes, give it to me!
+		##
+	
+	Conditions in descriptions and dirtytalks aren't limited to Tag alone, and most of what's said in chapter 4.5 of "Writing Scenes" applies here too (except for the if-structure):
+		*START* Tag(Blowjob, Kneeling) && [30 > [A2:attractiveness - A1:attractiveness] ]
+			<A1.S> couldn't believe that a <A2.man_or_woman> as <A2.handsome_or_gorgeous> as <A2.name> was on <A2.p> knees before <A1.o>
+			
+	Finally, a special variable is available in sex scenes, which corresponds to the arousal meter: toCum. See an example above.
+			
+
+2. Actor roles
+
+	Conditions, and the text of descriptions, refer to the actors involved with pre-determined actor variables: A1, A2, and so on. The sequence of lines of a dirtytalk also follows this order.
+	
+	So, how do you know which actor's going to be which?
+	
+	Generally, when a sex scene is started in a narrative scene script with the Sex() command, the actors to use are stated as parameters.
+		Sex(Boss, Player)
+		Sex(Male1, Player, Male2)
+		
+	This will rarely affect the roles that are assigned, except perhaps for threesomes: Sex(Male1, Player, Male2) will not be the same as Sex(Male2, Player, Male1).
+	
+	The default ordering happens
+		- first, by gender: males are assigned a role before transsexuals, who come before women
+		- between same genders, by dominance: same-gender actors with a lower submission stat come first
+	So a foursome with two guys, a transsexual and woman would be ordered like
+		A1: most dominant male
+		A2: least dominant male
+		A3: transsexual
+		A4: female
+		
+	Of course, we need to bear in mind that the player can swap roles at any time. 
+	
+	A common pitfall in writing descriptions and dirtytalks is to wind up talking about body parts that the actors simply don't have. This can be due to 
+		- incorrect tag use (eg 'Couple' instead of 'MF') 
+		- not anticipating a particular actor role order or the possibility of role swaps
+		- using actual words where interpolation would've been better
+
+		
+3. Interpolation
+
+	As you can tell by previous examples, you can use specific in-text functions between < > to insert text based on the actor's names, whether an actor is the player, or the actor's gender. We call this interpolation, and it is very similar to how it works in narrative scenes (see 4.1. of "Writing Scenes").
+	
+	Available functions:
+		<A1.name> 			// A1's first name
+		<A1.name_last>		// A1's last name
+		<A1.S> or <A1.s>	// Subject pronoun (I, he, she), with or without capitals
+		<A1.P> or <A1.p>	// Possessive adjective (my, his, her)
+		<A1.O> or <A1.o>	// Object pronoun (me, him, her)
+		<A1.R> or <A1.r> 	// Reflexive pronoun (myself, himself, herself)
+		<A1.PP> or <A1.pp> 	// Possessive Pronoun (mine, his, hers)
+		
+	In addition, you can always insert any choice of two words, depending on an actor's gender, by placing them around _or_ :
+		<A1.Mr_or_Mrs> <A1.name_last> is a very attractive <A1.man_or_woman>.
+	and if you don't use that 'on' an actor, it'll be based on whether the player is involved in the scene:
+		<We_or_They> had the time of <our_or_their> lives.

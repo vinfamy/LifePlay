@@ -1,0 +1,14 @@
+Actor.isPlayer()
+
+USE:
+Check if the actor is the player.
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Identity
+COMPARE: getID, isSameAs
+
+EXAMPLE:
+    If John.isPlayer()
+        "Should have just use the variable Player!"
+    Endif

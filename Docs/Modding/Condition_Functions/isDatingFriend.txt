@@ -1,0 +1,14 @@
+Actor.isDatingFriend()
+
+USE:
+Check if the actor is a friend of your significant other
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Acquaintance
+COMPARE: addDatingFriend, removeDatingFriend, getSpecific(Dating_Friend)
+
+EXAMPLE:
+    If John.isDatingFriend()
+        John(Happy):: "Nice to meet you at last, <Player.name>. <Dating.name> can't stop talking about you."
+    Endif

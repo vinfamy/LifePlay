@@ -1,0 +1,37 @@
+These are used in dialogue like below:
+Player(Happy):: "Hello!"
+
+Replace 'Happy' with any of the below:
+    Angry
+    Annoyed
+    Anxious
+    Attentive
+    Bored
+    Confused
+    Crying
+    Curious
+    Disgusted
+    Drained
+    Embarassed
+    Evil
+    Excited
+    Flirty
+    Furious
+    Grin
+    Irritated
+    Kiss
+    Lazy
+    Offended
+    Pain
+    Peaceful
+    Posing
+    Sarcastic
+    Scared
+    Serene
+    Shocked
+    Shy
+    Surprised
+    Wink
+    Sad
+    Happy
+    Tired

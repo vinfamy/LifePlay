@@ -1,0 +1,16 @@
+FloatVar.setRent()
+
+USE:
+Set this as your current rent.
+
+TYPE: Command, non-Ref (ref-like syntax)
+RETURNS: /
+THEME: Housing, Money
+COMPARE: getRent, setLandlord, moveHome
+
+EXAMPLE:
+    "I signed the contract."
+    moveHome()
+    Rent = 1000
+    Landlord.setLandlord()
+    Rent.setRent()

@@ -1,0 +1,15 @@
+GlobalVariable.getGlobal()
+
+USE:
+Get the float value of a global variable. If there's no global variable under such name, returns 0.
+
+TYPE: Command, non-Ref (ref-like syntax)
+RETURNS: float
+THEME: Variables
+COMPARE: clearGlobal, setGlobal, getID
+
+EXAMPLE:
+    SugarDaddyID = SugarDaddyGV.getGlobal()
+    If SugarDaddy != 0
+        SugarDaddyActor = getSpecific(SugarDaddyID)
+    Endif

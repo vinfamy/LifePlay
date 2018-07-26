@@ -1,0 +1,21 @@
+Each lpdesc can contain as many erotic sex descriptions (these are the ones that show up in the top right corner) as you want.
+Each description contains two lines:
+    1/ Conditions (no 'If' at the start), most frequently using the function Tag() and comparing special variable toCum. You can also add *START* or *END* at the start of this condition to specify the description to be used at the start of the sex position or when sex ends (CUMMING!) while in that position respective
+    2/ The actual description itself, most likely including a lot of <> or interpolations (read interpolating.txt).
+Descriptions are seperated from each other with a line with just ##
+
+
+EXAMPLES:
+    Tag(Blowjob, Couple)
+        Never breaking eye contact, <A2.s> continued <A2.p> oral assault, by holding <A1.o> by the base of <A1.p> penis and slapping the underside of the head against <A2.p> tongue. Then going right back deep-throating, and stroking <A1.p> throbbing member.
+    ##
+    Tag(Blowjob, Couple) && toCum > 70
+        <A2.S> began to feel <A1.o> tense, and quiver with each lick and stroke <A2.p> tongue and fingers provided, and <A2.s> knew <A1.s> was close.
+    ##
+
+    *START* Tag(Missionary, MF)
+        Hovering over <A2.o>, <A1.s> took <A2.p> hand and placed it on <A1.p> manhood, which <A2.s> guided right into <A2.p> wet pussy. <A1.S> didn't waste any time. No starting slowly, and working up to it. <A1.P> pace was fast from the start. <A1.S> leaned up placing <A2.p> right leg on <A1.p> shoulder, and began to lick and kiss <A2.p> calf. <A1.S> looked down at <A2.o>, while <A2.s> was looking up watching <A1.o>, with lust filled eyes. 
+    ##
+    *END* Tag(Handjob, MF)
+        <A2.P> right hand quickly stroked <A1.p> throbbing cock. <A1.S> froze up, and fell silent, as the dam burst. Sending loads of hot, white cream all over <A2.p> breasts. 
+    ##

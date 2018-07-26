@@ -1,0 +1,20 @@
+Actor.dress(optional_item)
+
+USE:
+If there's nothing in the bracket, it will dress the actor fully appropriate to the current building. If a clothing piece is specified, will put that on only. Check LifePlay\Content\Heavy\Clothes for the names of the items
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Clothes
+COMPARE: strip
+
+EXAMPLE:
+    setBackground(work)
+    Player.dress()  // will put on a full suit with oxford shoes etc and underwear underneath
+    
+    OR 
+    
+    Player.dress(Casual-Clothes_1_F) // will put on casual clothes only, no shoe or underwear
+
+
+

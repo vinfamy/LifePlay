@@ -1,0 +1,14 @@
+Actor1.isInterestedIn(Actor2)
+
+USE:
+Check if the one actor is interested sexually in another actor's gender. Does not take into account attractiontoplayer stat, just look at Actor1's sexual orientation and Actor2's gender.
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Gender Preference
+COMPARE:
+
+EXAMPLE:
+    If John.isInterestedIn(Player)
+        "A <John.guy_or_girl> approached me and introduced <John.himself_or_herself> as <John.name>."
+    Endif

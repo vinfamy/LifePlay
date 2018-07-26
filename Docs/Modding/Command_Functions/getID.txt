@@ -1,0 +1,20 @@
+Actor.getID()
+
+USE:
+Get the ID number of this actor, which can then be saved as a global variable and then called on using getSpecific.
+
+TYPE: Command, Reference
+RETURNS: Float
+THEME: Identity, Variables
+COMPARE: setGlobal, getGlobal, getSpecific
+
+EXAMPLE:
+    ID = Actor.getID()
+    SugarDaddy.setGlobal(ID)
+    
+    // another scene
+    
+    ID = SugarDaddy.getGlobal()
+    If ID != 0
+        Actor = getSpecific(ID)
+    Endif

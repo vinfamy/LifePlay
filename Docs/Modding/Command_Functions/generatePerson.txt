@@ -1,0 +1,18 @@
+generatePerson()
+generatePerson(preset1, preset2, ..., presetN)
+
+USE: 
+Generate a new actor. If nothing inside the bracket: completely random actor. Or you can specify the presets to blend into this new actor. The actor generated using this method will be permanent right away, meaning they will remain after the current scene ends and are usable for some functions that only work with permanent actors.
+
+TYPE: Command, Non-Ref
+RETURNS: Actor
+THEME: Actor Creation
+COMPARE: generatePersonTemporary, blendPreset
+
+EXAMPLE:
+    Actor = generatePerson()  // OR Actor = generatePerson(easterneuropean, twenties, fitness_model)
+    Actor.dress()
+    Actor.show(2)
+    
+    exchangeContact(Actor) // this will succeed because this is a permanent actor
+    

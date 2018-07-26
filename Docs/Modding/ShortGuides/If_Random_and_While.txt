@@ -1,0 +1,89 @@
+If, Random and While need to be ended with EndIf, EndRandom and EndWhile respectively, with the correct indentations.
+
+## INCORRECT:
+    If count > 2
+    If count > 3
+    count *= 2
+    Else
+    count /= 2
+    Endif
+    count += 1
+    
+## CORRECT:
+    If count > 2
+        If count > 3
+            count *= 2
+        Else
+            count /= 2
+        Endif
+        count += 1
+    Endif
+
+'If' is used to check a condition or a set of conditions, if matched then the lines immediately below the 'If' line are executed, if not:
+    - It jumps to the next 'Elseif' line and check the conditions there.
+    - If there is no 'Elseif' or if none of the 'Elseif's matched, it jumps to 'Else' and execute the lines below it.
+    - If there's no 'Else', then nothing is executed
+    - Between 'If' and 'Endif', there can be as many 'Elseif's as you want, but only one 'Else'.
+    - One something matches, or if nothing is matched and there's no 'Else', it jumps to the line below 'Endif'
+    
+EXAMPLE:
+    If 1 > 2  //false so no african person is generated, instead it jumps to the next Elseif
+        Actor = generatePerson(african)
+    Elseif 2 < 3 //false again so no eastern european is generated either, it jumps to the next Elseif
+        Actor = generatePerson(easterneuropean)
+    Elseif 5 > 2 //true so an east asian is generated, it then ignores the rest and jump after the 'Endif' to dress the actor
+        Actor = generatePerson(eastasian)
+    Else  //since the above elseif already matched, this Else is ignored
+        Actor = generatePerson(southasian)
+    Endif
+    
+    Actor.dress()
+    
+To connect conditions into a set of conditions, '&&' is used for 'and' and '||' is used for 'or'. The square brackets [] are used to group conditions
+EXAMPLE:
+    If [1 < 2 && 2 < 3] || [6 > 7 && 8 > 10]  //this returns true because the first half is true (both its conditions are true) and there's an || in the middle so even when the second half is false, the whole condition set is still true
+    
+You can also use the ! sign in front of a bool variable or a condition function to return the opposite of what that variable or function would normally return, for example 
+    If !MyBool && isModEnabled(vin_VanillaPorn) && !Player.isDating() // this would match if MyBool is false, vin_VanillaPorn is enabled and the player is not in a relationship
+    
+To compare two floats, you can use == (equal), != (not equal), > (larger than), >= (larger than or equal), < (less than), <= (less than or equal)
+    
+'While' is similar to 'If', except:
+    - With 'If', if the conditions are matched, the lines are executed once. With 'While', as long as the conditions remain matched, the lines are executed again and again in a loop until the conditions no longer matched.
+    - There's no 'Else' or 'Elseif' counterparts for 'While'
+    - It can cause the game to freeze if you haven't implemented a way for the conditions to become unmatched eventually (indefinite While loop)
+    
+EXAMPLE: generate 10 temporary actors who come up to say hi to the player one by one
+    count = 0
+    While count < 10
+        Actor = generatePersonTemporary()
+        Actor.dress()
+        Actor.show(2)
+        Actor(Happy):: "Hello, <Player.name>!"
+        count += 1 //without this line, the loop will continue forever will remain less than 10 forever
+    Endwhile
+    
+Special Dialogue Choice Condition. A single number as a condition checks for the last choice the player pressed on.
+
+EXAMPLE: 
+    "Invite <CurrentCompanion.name> inside?"
+    0:: "Yes"
+    1:: "No"
+            // not entirely sure why, but an empty line here is crucial - it looks neater anyway
+    If 0 // instead if just '0', can also be written as 'choice == 0'
+        Player(Happy):: "Hey, do you want to come in?"
+    Else
+        Player(Happy):: "Goodbye darling!"
+    Endif
+    
+Using Random simply allows you to randomly pick one of the lines between Random and EndRandom to execute
+
+EXAMPLE:
+    Random
+        Actor = generatePerson(african)
+        Actor = generatePerson(eastasian)
+        Actor = generatePerson(easterneuropean)
+        Actor = generatePerson(southasian)
+    EndRandom
+    
+In the above example, the race of the actor generated will be chosen randomly, with each option having an equal 25% chance

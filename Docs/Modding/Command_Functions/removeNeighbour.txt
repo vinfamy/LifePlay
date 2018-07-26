@@ -1,0 +1,13 @@
+Actor.removeNeighbour()
+
+USE:
+Remove this actor from the list of your neighbours. Will remain acquaintance at least though.
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Housing
+COMPARE: addNeighbour, isNeighbour, getSpecific(Neighbour)
+
+EXAMPLE:
+    John(Sad):: "Goodbye, we're moving to another apartment."
+    John.removeNeighbour()

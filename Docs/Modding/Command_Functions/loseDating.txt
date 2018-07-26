@@ -1,0 +1,13 @@
+loseDating()
+
+USE:
+Break up with current boyfriend / girlfriend. All affairs and SO's friends are cleared and become acquaintances.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Relationships
+COMPARE: setDating, isDating, getSpecific(Dating), getSpecific(ExDating)
+
+EXAMPLE:
+    "It's over. He broke up with me!"
+    loseDating()

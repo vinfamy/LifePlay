@@ -1,0 +1,17 @@
+Actor.isContactExchanged()
+
+USE:
+Check if the actor has exchanged numbers with the player.
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Acquaintance
+COMPARE: blockContact, exchangeContact
+
+EXAMPLE:
+    If John.isContactExchanged()
+        John(Happy):: "Well, you have my number. Just call me if you need anything else."
+    Else
+        John(Happy):: "Actually, why don't we exchange numbers. So that you'll know how to reach me if you need anything else."
+        exchangeContact(John)
+    Endif

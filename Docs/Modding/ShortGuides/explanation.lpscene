@@ -1,0 +1,45 @@
+LPScene holds the script of a scene, a random event that occurs when the player is performing an action provided all of its conditions are met. Most scenes follow the skeleton below:
+
+WHAT: all, -sleep, -nap  // what actions can trigger this scene, use their IDs, or alternatively, use all, followed by a bunch -action to exclude
+WHERE: home  // for list of wheres, check All_wheres.txt and use their IDs specifically, or alternatively, use all, followed by a bunch -action to exclude
+WHEN: 0 - 24  //you can also do things like '22 - 3'
+WHO: Actor = getSpecific(ExDating); If !Actor.isContactExchanged() && Random(20, 100) < Actor:rapportwithplayer   // could simply be 'none', or could be one or multiple parts, including at least one that 'gets' an actor using getSpecific() or getPerson(). There's also an option for the last part to be an If function which could be anything but is recommended to be related to the actors you just grabbed. If one of the getSpecific() or getPerson() functions fail to get an appropriate actor, or if the actors found don't match the conditions in the final 'If' part, then the scene is ignored
+OTHER: isAtHome()  // just a normal If function without the word 'If'
+
+    SceneStart()  // this brings up the scene UI
+    
+    // YOUR MAIN SCRIPT GOES HERE
+    
+    SceneEnd() // this closes down the scene UI and delete all actors generated / 'gotten' during the scene from memory after saving their data (whether modified or not during the scene) back into their respetive lpcharacters
+    timeout(200, ex_wants_to_be_friend) //not necessary, but you might want to timeout a scene for x hours after it gets triggered. Otherwise, it will get too repetitive and bore the player to death.
+    
+The main script contains lines that can be roughly divided into two types:
+- Display scene description, dialogues and dialogue options
+- Everything else, i.e. code to generate actors, to modify stat, etc
+
+The second type you can learn about in the Docs\Functions folder as well the Assignment_Operators, If_Random_and_While, Stats_and_Random and Variable_Types documents. The display stuffs is as follows:
+
+## Scene Description: i.e. text that tells the story that is not spoken by anyone
+    "Scene description goes here."
+    
+## Dialogue: text that is spoken by someone:
+    Structure:
+        ActorVariable(Mood):: "Dialogue content" // with (Mood) optional - full list of moods can be found in All_moods.txt
+    For example:
+        Player(Sad):: "I miss you, <CurrentCompanion.name>."
+        // If you're wondering what the heck is in the <>, check Interpolating.txt.
+    
+## Options: options for the player to click on to proceed
+    Structure:
+        Index:: Conditions:: "Option text"  // with the Conditions optional and without the 'If' at the start
+    For example:
+        "<Interviewer.name> is asking for sex in exchange for this job!"
+        0:: perversion > 30:: "Accept <Interviewer.his_or_her> proposal"   // This option will be greyed out unless the player's perversion is over 30
+        1:: "Turn it down"
+        
+        If 0
+            Sex(Player, Interviewer)
+        Else
+            Player(Angry):: "No fucking way!"
+        Endif
+

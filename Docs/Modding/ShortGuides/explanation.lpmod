@@ -1,0 +1,12 @@
+Lpmods hold header information about a mod. You can make a new folder inside Content\Modules for your mod. But that mod will not be recognized by the mod manager until you create a lpmod file for it. Without a lpmod file, all the rest of the files in that folder will not be read.
+
+Lpmod is basically the equivalent of an esp file in Bethesda's games.
+
+Lpmod follows a rigid structure as follows:
+
+MODULE_UNIQUEID: vin_NTR  // unique ID for the mod, must match the subfolder's name under Content\Modules
+MODULE_NAME: Official Netorare Module
+MODULE_AUTHOR: Vinfamy
+MODULE_LINK: www.loverslab.com
+MODULE_DESCRIPTION: Netorare, cuckoldry, being cheated on - aka the most divisive fetish on the internet
+MODULE_REQUIREMENTS: vin_VanillaRealistic  // unique IDs of the prerequisite mods, without all these mods enabled, this mod cannot be enabled.
