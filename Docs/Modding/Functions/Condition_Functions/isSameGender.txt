@@ -1,8 +1,0 @@
-Actor1.isSameGender(Actor2) returns bool
-
-Check if the two actors are the same gender
-
-EXAMPLE:
-    If John.isSameGender(Jack)
-        "They're both <John.male_or_female>."
-    Endif

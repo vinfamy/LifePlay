@@ -1,7 +1,0 @@
-GlobalVariable.clearGlobal()
-
-Delete this global variable completely.
-
-EXAMPLE:
-    SugarDaddy.clearGlobal()
-    FloatVariable = SugarDaddy.getGlobal() // will now return 0

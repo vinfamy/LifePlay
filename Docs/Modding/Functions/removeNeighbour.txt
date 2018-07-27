@@ -1,7 +1,0 @@
-Actor.removeNeighbour()
-
-Remove this actor from the list of your neighbours. Will remain acquaintance at least though.
-
-EXAMPLE:
-    John(Sad):: "Goodbye, we're moving to another apartment."
-    John.removeNeighbour()

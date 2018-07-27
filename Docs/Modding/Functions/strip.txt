@@ -1,7 +1,0 @@
-Actor.strip()
-
-Strip this actor of all clothes
-
-EXAMPLE:
-    Player.strip()
-    "I'm nude now ..."

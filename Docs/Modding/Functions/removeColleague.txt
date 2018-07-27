@@ -1,7 +1,0 @@
-Actor.removeColleague()
-
-Remove this actor from the list of colleague. Will remain acquaintance at least though.
-
-EXAMPLE:
-    John(Sad):: "I'm leaving the company."
-    John.removeColleage()
