@@ -6,7 +6,7 @@ Clear all affairs commited while in this current relationship. This is done auto
 TYPE: Command, Non-Ref
 RETURNS: /
 THEME: Relationships
-COMPARE: isAffair, loseDating
+COMPARE: isAffair, loseDating, getSpecific(Affair)
 
 EXAMPLE:
     Dating(Crying):: "Alright, after everything we've been through, I guess I can forgive you this time ..."

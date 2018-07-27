@@ -6,7 +6,7 @@ Check if you have commited an affair with this actor while with your current boy
 TYPE: Condition, Reference
 RETURNS: bool
 THEME: Relationships
-COMPARE: forgiveAffairs
+COMPARE: forgiveAffairs, getSpecific(Affair)
 
 EXAMPLE:
     If John.isAffair()

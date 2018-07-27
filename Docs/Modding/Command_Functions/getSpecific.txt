@@ -4,7 +4,7 @@ getSpecific(float variable)
 
 USE:
 Get a specific person in your current game.
-Available keywords are: Dating, Dating_Friend, Boss, Colleague, Neighbour, PT, ExDating, Landlord, CurrentBabyDaddy, Impregnated
+Available keywords are: Dating, Dating_Friend, Boss, Colleague, Neighbour, PT, ExDating, Landlord, CurrentBabyDaddy, Impregnated, Affair
 
 Alternatively, you can input an ID number or a float variable containing it to get the actor with that ID.
 

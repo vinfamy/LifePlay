@@ -20,7 +20,7 @@ Overview of command and condition functions, by theme
 	
 - Clothes
 	dress, strip, dressWedding
-	isEquipped
+	isEquipped, isVisible
 	
 - Companions
 	endDate, getCompanion, startDate
@@ -40,8 +40,8 @@ Overview of command and condition functions, by theme
 	isAsexual, isInterestedIn
 	
 - Housing
-	addNeighbour, getRent, loseHome, moveHome, removeNeighbour, setLandlord, setLivingWithPlayer, setRent
-	isAtHome, isLandlord, isNeighbour, livesWithPlayer
+	addNeighbour, getRent, loseHome, loseHomeDating, moveHome, removeNeighbour, setLandlord, setLivingWithPlayer, setRent
+	DatingHasHome, isAtHome, isLandlord, isNeighbour, livesWithPlayer, 	PlayerHasHome
 	getSpecific(Neighbour), getSpecific(Landlord)
 
 - Identity
@@ -55,7 +55,7 @@ Overview of command and condition functions, by theme
 
 - Location
 	moveTo, setBackground, WHERE
-	isAtHome
+	isAtDatingHome, isAtHome
 	
 - Looks
 	blendPreset, randomizeFace, randomizeHairs
@@ -73,16 +73,16 @@ Overview of command and condition functions, by theme
 	getSpecific(CurrentBabyDaddy), getSpecific(Impregnated)
 
 - Relationships
-	forgiveAffairs, loseDating, setDating, getMarried, Divorce, dressWedding
-	isAffair, isDating, isMarried
-	getSpecific(Dating), getSpecific(ExDating)
+	Divorce, dressWedding, forgiveAffairs, getMarried, loseDating, loseHomeDating, setDating
+	DatingHasHome, isAffair, isAtDatingHome, isDating, isMarried
+	getSpecific(Dating), getSpecific(ExDating), getSpecific(Affair)
 	
 - Scenes
-	hide, show, sceneEnd, sceneStart, setBackground, timeout, timeoutprecise, closeEyes, WHAT, WHEN, WHERE
+	closeEyes, hide, sceneEnd, sceneStart, setBackground, show, timeout, timeoutprecise, WHAT, WHEN, WHERE
 	ForcedTrigger
 	
 - Sex
-	Sex, SexNoAffair, Filter, TalkNonConsensual
+	Filter, Sex, SexNoAffair, TalkNonConsensual
 	
 - Special Characters
 	losePT, setPT

@@ -1,0 +1,23 @@
+Actor.isVisible(slot)
+
+USE:
+Check if an actor is wearing any clothes in a certain 'slot'. Will return false if it's an underwear hidden under other clothes. The slots are:
++Outerwear
++Headwear
++Eyewear
++Top
++Top_Under
++Bottom
++Bottom_Under
++Foot
++Foot_Under
+
+TYPE: Condition, Reference
+RETURNS: Bool
+THEME: Clothes
+COMPARE: isEquipped, dress, strip
+
+EXAMPLE:
+	If Actor.isVisible(Top_Under) && Actor.isVisible(Bottom_Under)
+		"I walked in on <Actor.name> wearing nothing but her underwear."
+	Endif

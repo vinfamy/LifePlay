@@ -1,0 +1,18 @@
+DatingHasHome()
+
+USE:
+Checks to see if the player's significant other lives in their own apartment.
+
+TYPE: Condition, non-Ref
+RETURNS: bool
+THEME: Housing, Relationships
+COMPARE: PlayerHasHome, isAtHome, isAtDatingHome, loseHomeDating
+
+EXAMPLE:
+
+	If !PlayerHasHome()
+		Player:: "I can't afford to rent my own apartment."
+		If DatingHasHome()
+			Player:: "Maybe I can move in with my girlfriend instead?"
+		Endif
+	Endif

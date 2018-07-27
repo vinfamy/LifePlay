@@ -1,0 +1,16 @@
+isPlayerMarried()
+
+USE:
+checks if the player is married
+
+TYPE: Condition, non-Ref
+RETURNS: bool
+THEME: Relationships
+COMPARE: isMarried, isDating
+
+EXAMPLE:
+	If isPlayerMarried()
+        Player(Crying):: "I cannot put up with this abusive marriage any longer ..."
+		Divorce()
+		loseDating()
+	Endif

@@ -1,0 +1,18 @@
+isAtDatingHome()
+
+USE:
+Checks if player is at significant other's home rather than their own. (The WHERE : home trigger catches both)
+
+TYPE: Condition, non-Ref
+RETURNS: bool
+THEME: location, Relationships
+COMPARE: isAtHome, WHERE
+
+EXAMPLE:
+
+	SO::"Well, I have an early day tomorrow so..."
+	If isAtDatingHome()
+		Player:: "OK, I'll just grab my things and go home."
+	Else
+		Player:: "OK, I'll walk you to the door."
+	Endif
