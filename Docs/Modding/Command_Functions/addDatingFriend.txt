@@ -1,0 +1,13 @@
+Actor.addDatingFriend()
+
+USE:
+Add this actor to the list of your significant other's friends. Can be found later with getSpecific(Dating_Friend)
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Acquaintance
+COMPARE: removeDatingFriend, isDatingFriend
+
+EXAMPLE:
+    John(Happy):: "Hi there, I'm your boyfriend's friend."
+    John.addDatingFriend()

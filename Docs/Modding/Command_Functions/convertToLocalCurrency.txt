@@ -1,0 +1,16 @@
+Float.convertToLocalCurrency()
+
+USE
+Converts a dollar value to the local currency for the home city in string format.
+
+TYPE: Command, non-Ref (syntax is ref-like)
+RETURNS: String, expressing the number in local currency
+THEME: Money
+COMPARE: getRent, getSalary, setRent, setSalary
+
+EXAMPLE:
+    Salary = 3000
+    SalaryConverted = Salary.convertToLocalCurrency()
+    "My salary is <SalaryConverted>."  // will show up as 'My salary is £ 2000.'
+	
+	SalaryConverted = Salary.convertToLocalCurrency(true)

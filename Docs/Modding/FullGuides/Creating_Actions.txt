@@ -1,0 +1,37 @@
+CREATING ACTIONS
+
+Actions are the activities you can choose from when you click on a building. You add them to your mod with an .lpaction file.
+
+Let's look at an example: 
+
+ACTION_UNIQUEID: have_a_meal_in
+ACTION_NAME: Have a meal
+WHERE: home, work
+WHEN: 5.30 - 22.30
+MINUTES: 40 - 90
+TIMEOUT_MINUTES: 180
+ALSO_TIMEOUT: have_a_snack_in, have_a_snack, have_a_meal_in
+EFFECTS: stock_meal -1 (START), mood +3 (END), energy +15 (DURATION), mood -1 (INTERRUPTED)
+CONDITIONS: stock_meal >= 0.8 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:
+
+1. ACTION_UNIQUEID is the ID for the action. Scenes use this to figure out if they should be triggered during this action or not.
+2. ACTION_NAME is how the action is displayed in the list of choices for the building.
+3. WHERE contains the locations where the action is available. See Docs/Modding/Lists/All_wheres.txt
+4. WHEN contains a time range during which the action is available. This can also roll over from one day to the next: 22 - 4
+5. MINUTES gives you a range to specify or randomize how long the action should take.
+6. TIMEOUT_MINUTES makes it impossible to have the same action again for a specific number of minutes.
+7. ALSO_TIMEOUT contains the IDs of other actions that should also time out for the time stated in TIMEOUT_MINUTES.
+8. EFFECTS contains the effect the action should have on the player's stats. Different flags, between parentheses, mean different things here:
+	START: the effect is applied when the action begins
+	END: the effect is applied when the action ends
+	DURATION: the effect is gradually applied during the action. If the action is aborted early, that means part of the effect has been applied.
+	INTERRUPTED: the effect is applied when the action is interrupted
+	BUFF:minutes : this effect is applied for a certain amount of minutes, for example
+		attractiveness +5 (BUFF:300)
+9. CONDITIONS contains additional conditions (beyond WHERE and WHEN) that need to be true for the action to be available. This is currently limited to checking the value of stats, marked with (STAT_COMPARE). 
+10. MOVE_FIRST contains a bool that checks if the player should be moved to the location first before performing the action. 
+11. SCENE_ALWAYS lists a scene ID that should immediately trigger when the action is started. It's best to limit this use to action files of your own, rather than modifications of someone else's.
+12. ANIMATION lists animations that should play while the action lasts. Hardly any animations are available for this, but eg sleep.lpaction comes with such an anim.

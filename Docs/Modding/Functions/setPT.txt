@@ -1,7 +1,0 @@
-Actor.setPT()
-
-Make this person your personal trainer. Current personal trainer is no longer PT and becomes acquaintance.
-
-EXAMPLE:
-    "<John.name> agreed to train me."
-    John.setPT()

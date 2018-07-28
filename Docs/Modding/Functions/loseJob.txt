@@ -1,8 +1,0 @@
-loseJob()
-
-The player stops working at their current company. Set salary to 0. Boss and colleagues become acquantainces.
-
-EXAMPLE:
-    Boss(Angry):: "That's enough. You're fired!"
-    loseJob()
-    "I need to find a new place to work now."

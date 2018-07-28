@@ -1,8 +1,0 @@
-Actor.isDatingFriend() returns bool
-
-Check if the actor is a friend of your significant other
-
-EXAMPLE:
-    If John.isDatingFriend()
-        John(Happy):: "Nice to meet you at last, <Player.name>. <Dating.name> can't stop talking about you."
-    Endif

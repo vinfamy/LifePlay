@@ -1,0 +1,14 @@
+Actor.isAffair()
+
+USE:
+Check if you have commited an affair with this actor while with your current boyfriend / girlfriend.
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Relationships
+COMPARE: forgiveAffairs, getSpecific(Affair)
+
+EXAMPLE:
+    If John.isAffair()
+        John(Flirty):: "Oh baby, your stupid boyfriend has no idea what we've done."
+    Endif

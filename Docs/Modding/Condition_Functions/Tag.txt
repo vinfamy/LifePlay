@@ -1,0 +1,14 @@
+Tag(tag1, tag2, ..., tagN)
+
+USE:
+(Used for lpdesc and lptalk files) Check if the current animation contains ALL of the tags specified.
+
+TYPE: Condition, non-Ref
+RETURNS: bool
+THEME: sex talk
+COMPARE:
+
+EXAMPLE:
+    Tag(Hugging, NonSexual, Couple)
+    // To check if the current animation contains ANY of the tags specified, use this instead:
+    Tag(Hugging) || Tag(NonSexual) || Tag(Couple)

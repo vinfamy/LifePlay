@@ -1,0 +1,16 @@
+moveHome()
+
+USE:
+Move into the current building and make it your new home. Remember to use SetLandlord() and SetRent() separately.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Housing
+COMPARE: loseHome, setLandlord, setRent
+
+EXAMPLE:
+    "I signed the contract."
+    moveHome()
+    Rent = 1000
+    Landlord.setLandlord()
+    Rent.setRent()

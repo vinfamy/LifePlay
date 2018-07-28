@@ -1,0 +1,13 @@
+blockContact(Actor)
+
+USE:
+Remove this person from your contact list.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Acquaintance
+COMPARE: exchangeContact, isContactExchanged
+
+EXAMPLE:
+    "This guy is a stalker. This is enough."
+    blockContact(John)

@@ -1,0 +1,14 @@
+Actor.isLandlord()
+
+USE:
+Check if the actor is your landlord.
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Housing
+COMPARE: setLandlord, getSpecific(Landlord)
+
+EXAMPLE:
+    If John.isLandlord()
+        John(Angry):: "Hey, there has been a noise complaint about you."
+    Endif

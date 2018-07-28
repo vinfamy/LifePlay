@@ -1,0 +1,17 @@
+timeoutActorPrecise(hours, sceneID, actor1, ..., actorN)
+
+USE:
+Combination of timeoutPrecise and timeoutActor. Puts a scene on cooldown for exactly the amount of hours specified, but limited to the stated actor(s) who will not pass the scene's WHO condition.
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Scenes
+COMPARE: timeout, timeoutPrecise, timeoutActor
+
+EXAMPLE:
+	Friend(Happy)::"Well, I'm off to Barbados for a week. Bye!"
+	Player(Happy)::"Have a good time!"
+	
+	sceneEnd
+	
+	timeoutActorPrecise(156, call_invite, Friend)

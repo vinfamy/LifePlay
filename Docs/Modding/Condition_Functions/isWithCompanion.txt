@@ -1,0 +1,14 @@
+isWithCompanion()
+
+USE:
+Check if the player is currently hanging out with a companion.
+
+TYPE: Condition, non-Ref
+RETURNS: bool
+THEME: Companions
+COMPARE: getCompanion, startDate, endDate, "CurrentCompanion" global var
+
+EXAMPLE:
+    If isWithCompanion()
+        "I'm currently with <CurrentCompanion.name>."
+    Endif

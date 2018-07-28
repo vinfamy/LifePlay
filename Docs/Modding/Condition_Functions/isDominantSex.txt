@@ -1,0 +1,14 @@
+Actor1.isDominantSex(Actor2)
+
+USE:
+Check if the one actor would take a dominant role in a sexual relationship with another actor. This doesn't take into account sexual orientation. The rule is male is dominant to female, female with penis dominant to female with vagina. When it's male-male or female-female, it compares the masochist / submissive stat, the actor with lower masochist is dominant. Useful for mostly gender-related roles (opening doors, who walks who home etc)
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Gender, Dominance
+COMPARE: isMale, isSameGender
+
+EXAMPLE:
+    If John.isDominantSex(Player)
+        "A <John.guy_or_girl> approached me and introduced <John.himself_or_herself> as <John.name>."
+    Endif

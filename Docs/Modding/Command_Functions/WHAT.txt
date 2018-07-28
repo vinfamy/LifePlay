@@ -1,0 +1,20 @@
+WHAT
+
+USE:
+WHAT is mostly used to enter a condition at the top of a scene, affecting its random triggering depending on what the player's doing.
+However, it can also be used as a command in the rest of the scene script, returning the player's current activity.
+Available actionIDs can be found in the different files contained in the "Actions" folder in modules.
+
+TYPE: Condition, non-Ref
+RETURNS: actionID (string)
+THEME: Scenes, Activity
+COMPARE: WHAT, WHEN
+
+EXAMPLE:
+	If WHAT == socialize && WHERE == nightclub
+		"It shouldn't be surprising that when you talk to random strangers at a nightclub, somebody will think you're just hitting on people."
+		Jealous = generatePerson()
+		Jealous.dress()
+		Jealous.show()
+		Jealous(Angry)::"Stay away from my <Player.boyfriend_or_girlfriend>, you <Player.creep_or_skank>!"
+	Endif

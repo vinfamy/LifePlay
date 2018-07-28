@@ -1,8 +1,0 @@
-Actor.isLandlord() returns bool
-
-Check if the actor is your landlord.
-
-EXAMPLE:
-    If John.isLandlord()
-        John(Angry):: "Hey, there has been a noise complaint about you."
-    Endif

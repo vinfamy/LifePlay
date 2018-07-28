@@ -1,7 +1,0 @@
-Actor.removeDatingFriend()
-
-Remove this actor from the list of your significant other's friends. Will remain acquaintance at least though.
-
-EXAMPLE:
-    John(Sad):: "Your boyfriend is an asshole. I'm no longer his friend."
-    John.removeDatingFriend()

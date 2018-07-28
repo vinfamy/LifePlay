@@ -1,0 +1,19 @@
+loseHome()
+
+USE:
+The player moves out of their current home. Set rent to 0. Landlord and neighbours become acquantainces.
+If the player's SO has a home, they'll move in with them instead.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Housing
+COMPARE: moveHome, PlayerHasHome, DatingHasHome
+
+EXAMPLE:
+    Landlord(Angry):: "That's enough. You're evicted!"
+    loseHome()
+    "I need to find a new place to live now."
+	
+	Dating = getSpecific(Dating)
+	"I accepted <Dating.name>'s offer. It would be a good experience living together. Besides, I can save quite a bit of money on rent."
+	loseHome()

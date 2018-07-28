@@ -1,0 +1,14 @@
+Actor.hide()
+
+USE:
+Hide the actor from the player's view. Opposite to show().
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Actor Removal, Scenes
+COMPARE: show
+
+EXAMPLE:
+    Actor.show(2)
+    "<Actor.name> said hi then quickly left."
+    Actor.hide()

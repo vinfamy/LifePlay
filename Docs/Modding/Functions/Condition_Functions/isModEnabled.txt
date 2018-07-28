@@ -1,8 +1,0 @@
-isModEnabled(ModID) returns bool
-
-Check if a mod, identified by its ID, is enabled.
-
-EXAMPLE:
-    If isModEnabled(vin_VanillaPorn)
-        "Some really silly porn plot is going to happen!"
-    Endif

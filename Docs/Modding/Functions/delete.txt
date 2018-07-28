@@ -1,3 +1,0 @@
-Actor.Delete()
-
-Force remove this actor from current memory. Used in rare cases where SceneEnd() (which does this automatically to all actors used in the scene) isn't called.

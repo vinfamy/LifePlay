@@ -1,0 +1,23 @@
+moveTo(place)
+
+USE:
+Instantly move the player (and possible companion) to this place. Currently there are only three places: Home, Home_Dating, Work
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Location
+COMPARE: setBackground
+
+EXAMPLE:
+    "Where should I go?"
+    0:: "Home"
+    1:: "My boyfriend's place"
+    2:: "The office"
+    
+    If 0
+        moveTo(home)
+    Elseif 1
+        moveTo(home_dating)
+    Else
+        moveTo(work)
+    Endif

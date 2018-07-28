@@ -1,0 +1,15 @@
+getSalary()
+
+USE:
+Get the current salary into a float variable.
+
+TYPE: Command, Non-Ref
+RETURNS: Float
+THEME: Job, Money
+COMPARE: setSalary, convertToLocalCurrency
+
+EXAMPLE
+    Salary = getSalary()
+    Salary *= 1.2
+    Salary.setRent()
+    "Yay, my salary was increased by 20%."

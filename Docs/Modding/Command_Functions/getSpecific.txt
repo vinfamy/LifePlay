@@ -1,0 +1,27 @@
+getSpecific(keyword)
+getSpecific(float)
+getSpecific(float variable)
+
+USE:
+Get a specific person in your current game.
+Available keywords are: Dating, Dating_Friend, Boss, Colleague, Neighbour, PT, ExDating, Landlord, CurrentBabyDaddy, Impregnated, Affair
+
+Alternatively, you can input an ID number or a float variable containing it to get the actor with that ID.
+
+TYPE: Command, Non-Ref
+RETURNS: Actor
+THEME: Actor Loading
+COMPARE: getPerson, getID, setGlobal, getGlobal, isValid
+
+EXAMPLE:
+    SO = getSpecific(Dating)  // get my boyfriend / girlfriend
+	if SO.isValid
+		// I actually have a bf/gf
+	endif
+	
+    Actor5 = getSpecific(5) // get the fifth generated actor in this current game
+    
+    ID = SugarDaddy.getGlobal()
+    If ID != 0
+        SugarDaddyActor = getSpecific(ID)  // get the sugar daddy via the float variable
+    Endif

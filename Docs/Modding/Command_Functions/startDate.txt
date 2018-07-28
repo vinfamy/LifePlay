@@ -1,0 +1,13 @@
+Actor.startDate()
+
+USE:
+Start hanging out with this person (make them your current companion)
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Companions
+COMPARE: endDate, isWithCompanion
+
+EXAMPLE:
+    "I decided to hang out with <John.name> today."
+    John.startDate()

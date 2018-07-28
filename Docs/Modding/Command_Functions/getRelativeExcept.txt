@@ -1,0 +1,13 @@
+getRelativeExcept(keyword, ..., keyword)
+
+USE: 
+Retrieves an actor who is related to the player, but isn't tagged by the listed keyword(s).
+
+TYPE: Command, non-Ref
+RETURNS: Actor
+THEME: Family, Actor Loading
+COMPARE: getRelative
+
+EXAMPLE:
+
+	WHO: Actor = getRelativeExcept(GrandParent) // returns a relative who isn't a grandparent of the player

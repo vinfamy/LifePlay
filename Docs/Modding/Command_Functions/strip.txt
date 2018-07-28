@@ -1,0 +1,13 @@
+Actor.strip()
+
+USE:
+Strip this actor of all clothes
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Clothes
+COMPARE: dress
+
+EXAMPLE:
+    Player.strip()
+    "I'm nude now ..."

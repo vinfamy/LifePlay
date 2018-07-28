@@ -1,0 +1,98 @@
+Overview of command and condition functions, by theme
+
+- Acquaintance
+	addDatingFriend, blockContact, exchangeContact, removeDatingFriend
+	isContactExchanged, isDatingFriend
+	getSpecific(Dating_Friend)
+	
+- Activity
+	WHAT
+
+- Actor Creation
+	blendPreset, generatePerson, generatePersonTemporary, makePermanent
+	
+- Actor Loading
+	getCompanion, getID, getPerson, getRelative, getRelativeExcept, getSpecific, show
+	isValid
+
+- Actor Removal
+	delete, hide
+	
+- Clothes
+	dress, strip, dressWedding
+	isEquipped, isVisible
+	
+- Companions
+	endDate, getCompanion, startDate
+	isWithCompanion
+	
+- Dominance
+	isDominantSex
+	
+- Family
+	getRelative, getRelativeExcept
+	isRelative
+	
+- Gender
+	isDominantSex, isMale, isSameGender
+	
+- Gender Preference
+	isAsexual, isInterestedIn
+	
+- Housing
+	addNeighbour, getRent, loseHome, loseHomeDating, moveHome, removeNeighbour, setLandlord, setLivingWithPlayer, setRent
+	DatingHasHome, isAtHome, isLandlord, isNeighbour, livesWithPlayer, 	PlayerHasHome
+	getSpecific(Neighbour), getSpecific(Landlord)
+
+- Identity
+	getID
+	isPlayer, isSameAs, isValid
+	
+- Job
+	addColleague, getSalary, loseJob, moveJobs, removeColleague, setBoss, setSalary
+	isBoss, isColleague, isNeighbour
+	getSpecific(Boss), getSpecific(Colleague)
+
+- Location
+	moveTo, setBackground, WHERE
+	isAtDatingHome, isAtHome
+	
+- Looks
+	blendPreset, randomizeFace, randomizeHairs
+	
+- Math
+	Random
+
+- Mods
+	isModEnabled
+	
+- Money
+	convertToLocalCurrency, getRent, getSalary, setRent, setSalary
+	
+- Pregnancy
+	getSpecific(CurrentBabyDaddy), getSpecific(Impregnated)
+
+- Relationships
+	Divorce, dressWedding, forgiveAffairs, getMarried, loseDating, loseHomeDating, setDating
+	DatingHasHome, isAffair, isAtDatingHome, isDating, isMarried
+	getSpecific(Dating), getSpecific(ExDating), getSpecific(Affair)
+	
+- Scenes
+	closeEyes, hide, sceneEnd, sceneStart, setBackground, show, timeout, timeoutprecise, WHAT, WHEN, WHERE
+	ForcedTrigger
+	
+- Sex
+	Filter, Sex, SexNoAffair, TalkNonConsensual
+	
+- Special Characters
+	losePT, setPT
+	getSpecific(PT)
+	
+- Stats
+	blendPreset
+	
+- Time
+	passTime, WHEN
+	
+- Variables
+	clearGlobal, getGlobal, getID, setGlobal

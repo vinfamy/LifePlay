@@ -1,0 +1,14 @@
+isModEnabled(ModID)
+
+USE:
+Check if a mod, identified by its ID in its .lpmod file, is enabled.
+
+TYPE: Condition, non-Ref
+RETURNS: bool
+THEME: Mods
+COMPARE:
+
+EXAMPLE:
+    If isModEnabled(vin_VanillaPorn)
+        "Some really silly porn plot is going to happen!"
+    Endif

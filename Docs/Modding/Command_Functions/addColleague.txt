@@ -1,0 +1,13 @@
+Actor.addColleague()
+
+USE:
+Add this actor to the list of colleagues. Can be found later with getSpecific(Colleague)
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Job
+COMPARE: removeColleague, isColleague
+
+EXAMPLE:
+    John(Happy):: "Hi there, I just got hired."
+    John.addColleague()

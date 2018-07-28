@@ -1,0 +1,13 @@
+getMarried()
+
+USE:
+Call this function to marry the player to their current bf/gf. This doesn't trigger a wedding scene, but flags them as being married.
+
+TYPE: Command, non-Ref
+RETURNS: /
+THEME: Relationships
+COMPARE: setDating, isMarried, Divorce, DressWedding, getSpecific(Dating)
+
+EXAMPLE:
+	Priest::"I now pronounce you man and wife."
+	getMarried()

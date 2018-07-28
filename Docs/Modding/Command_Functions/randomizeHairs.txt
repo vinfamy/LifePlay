@@ -1,0 +1,16 @@
+Actor.randomizeHairs()
+
+USE:
+Randomize the actor's hair and pubic hair. Commonly called after blendpreset (which might change the gender which resets the actor to the default face and hair for that gender)
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Looks
+COMPARE: randomizeFace, blendPreset
+
+EXAMPLE:
+    // We want a male bodybuilder
+    Bodybuilder = generatePerson()  // just so that we get the random stats etc, but this might generate a female
+    Bodybuilder.blendPreset(bodybuilder)  // if the above is female, then this will reset face and hair to the default male face and hair
+    Actor.randomizeFace()
+    Actor.randomizeHairs()

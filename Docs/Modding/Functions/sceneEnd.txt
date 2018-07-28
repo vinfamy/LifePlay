@@ -1,3 +1,0 @@
-sceneEnd()
-
-End the scene and return to map view. This will also clear all actors (except player and current companion from memory) after saving them back into their lpcharacters.

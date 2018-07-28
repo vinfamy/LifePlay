@@ -1,0 +1,13 @@
+exchangeContact(Actor)
+
+USE:
+Exchange numbers with this actor.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Acquaintance
+COMPARE: blockContact, isContactExchanged
+
+EXAMPLE:
+    "We exchanged numbers and parted ways."
+    exchangeContact(John)

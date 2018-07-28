@@ -1,0 +1,14 @@
+getPerson(optional bool)
+
+USE:
+Get a random person in your current game (i.e. could be anyone that has been created with GeneratePerson() or GeneratePersonTemporary() then MakePermanent() ). Optional bool parameters to filter for whether their contact has been exchanged to you or not.
+
+TYPE: Command, Non-Ref
+RETURNS: Actor
+THEME: Actor Loading
+COMPARE: getSpecific
+
+EXAMPLE:
+    Actor = getPerson()  // get anyone
+    Actor = getPerson(true) // get someone who has exchanged numbers with me
+    Actor = getPerson(false)  // get someone whose number I don't have

@@ -1,0 +1,27 @@
+GETTING STARTED
+
+LifePlay content is both moddable ('modification') and modular ('module'): even the 'official' content is really 'just a mod'.
+
+A mod consists of a folder that goes into the LifePlay/Content/Modules folder.
+
+At the very least it should contain an .lpmod file, which contains its basic meta-information:
+MODULE_UNIQUEID: vin_NTR  // unique ID for the mod, must match the mod folder's name under Content\Modules
+MODULE_NAME: Official Netorare Module
+MODULE_AUTHOR: Vinfamy
+MODULE_LINK: www.loverslab.com
+MODULE_DESCRIPTION: Netorare, cuckoldry, being cheated on - aka the most divisive fetish on the internet
+MODULE_REQUIREMENTS: vin_VanillaRealistic  // The UniqueID of mods that are needed in order for this one to work. If your mod refers to another's stats, actions, scenes etc, you need to fill this in.
+
+The most easily moddable content consists of:
+- Scenes, which are in .lpscene files. These are the virtual-novel type story situations that potentially lead to sex. See Docs/Modding/FullGuides/Writing_Scenes.txt
+- Actions, which are in .lpaction files. These are the activities you can choose when you click on a building. See Docs/Modding/FullGuides/Creating_Actions.txt
+- Descriptions, which are in .lpdesc files. These are the narrations that appear in the top right corner during a sex scene. See Docs/Modding/FullGuides/Writing_Sex_Text.txt
+- DirtyTalks, which are in .lptalk files. These are dialogue lines floating near characters during sex scenes.See Docs/Modding/FullGuides/Writing_Sex_Text.txt
+- Stats, which are in .lpstat files. They contain stats that the player and/or NPCs have, and are consulted in other file types. See Docs/Modding/ShortGuides/explanation.lpstat
+- Characters, which are in .lpcharacter files. They are generated in-game when characters are created, and you can also export them when in the character creation menu. They can contain a variety of information. When placed inside a mod folder, they can be used as character presets by the player and by Scene scripts that generate or modify characters. See Docs/Modding/FullGuides/Creating_Presets.txt
+
+It's definitely best to write and edit such files in a text editor that is good for coding and scripting. Avoid word processors such as Microsoft Word like the plague. These docs contain a syntax highlighter for Notepad++, so unless you prefer Atom or something, you should probably use NP++. It's free.
+
+How you organize these files inside your own mod is really up to you. The vin_Base module's way of organizing them in folders by file type is a pretty good standard to follow though.
+
+If two mods contain the exact same file in the same place, the one lowest in the load order wins. You can manage the load order in-game with the mod manager (ctrl-M).

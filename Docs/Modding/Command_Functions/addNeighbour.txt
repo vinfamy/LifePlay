@@ -1,0 +1,13 @@
+Actor.addNeighbour()
+
+USE:
+Add this actor to the list of neighbours. Can be found later with getSpecific(Neighbour)
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Housing
+COMPARE: removeNeighbour, isNeighbour
+
+EXAMPLE:
+    John(Happy):: "Hi there, I'm new here. Just moved in."
+    John.addNeighbour()
