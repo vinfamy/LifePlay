@@ -1,0 +1,28 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+	SceneStart()
+    choice = 0
+    Player.strip()
+    While choice < 4
+        "You can test the new 'body changes with stat' feature here. Make sure you have turned the feature on in Esc > Settings menu."
+        0:: fitness < 100:: "Increase fitness by 1"
+        1:: fitness > 0:: "Decrease fitness by 1"
+        2:: muscle < 100:: "Increase muscle by 1"
+        3:: muscle > 0:: "Decrease muscle by 1"
+        4:: "Stop testing"
+        
+        If 0
+            fitness += 1
+        Elseif 1
+            fitness -= 1
+        Elseif 2
+            muscle += 1
+        Elseif 3
+            muscle -= 1
+        Endif
+    Endwhile
+	SceneEnd()

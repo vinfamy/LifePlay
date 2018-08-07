@@ -1,7 +1,7 @@
 WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 9 - 12
-WHO: Actor = getRelative(); If Actor.isMale() && Actor.livesWithPlayer() && Player.isInterestedIn(Actor) && Random(0, 500) < Actor:perversion
+WHO: Actor = getRelative(); If Actor.isMale() && Actor.livesWithPlayer() && Player.isInterestedIn(Actor) && Random(0, 500) < Actor:perversion && Actor:incest < 90
 OTHER: isAtHome()
 
     SceneStart()

@@ -1,7 +1,7 @@
 WHAT: play_a_video_game
 WHERE: PC
 WHEN: 9 - 22
-WHO: Actor = getRelative(Sibling, StepSibling, Cousin); If Actor.livesWithPlayer() && Random(0, 300) < Actor:intelligence && Actor:rapportwithplayer > 10
+WHO: Actor = getRelative(Sibling, StepSibling, Cousin); If Actor.livesWithPlayer() && Random(0, 300) < Actor:intelligence && Actor:rapportwithplayer > 10 && Actor:incest < 90
 OTHER: Random(0, 300) < intelligence
 
     SceneStart()

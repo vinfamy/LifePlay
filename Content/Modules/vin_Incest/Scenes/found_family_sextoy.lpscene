@@ -1,7 +1,7 @@
 WHAT: do_housework
 WHERE: home
 WHEN: 8 - 21
-WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Actor.isInterestedIn(Player) && Random(30, 500) < Actor:perversion
+WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Actor.isInterestedIn(Player) && Random(30, 500) < Actor:perversion && Actor:incest < 90
 OTHER: isAtHome()
 
     SceneStart()

@@ -1,7 +1,7 @@
 WHAT: watch_TV, watch_a_movie_in
 WHERE: home
 WHEN: 8 - 21
-WHO: Actor = getRelative(Child, StepChild); If Actor.livesWithPlayer() && Player.isInterestedIn(Actor)
+WHO: Actor = getRelative(Child, StepChild); If Actor.livesWithPlayer() && Player.isInterestedIn(Actor) && Actor:incest < 90
 OTHER: isAtHome() && Player.isMale() && Random(30, 500) < perversion
 
     SceneStart()

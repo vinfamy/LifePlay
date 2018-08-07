@@ -1,7 +1,7 @@
 WHAT: watch_tv
 WHERE: home
 WHEN: 0-24
-WHO: Actor = getRelative(Sibling, Cousin); If Actor.isInterestedIn(Player) && Random(30, 300) < Actor:intelligence
+WHO: Actor = getRelative(Sibling, Cousin); If Actor.isInterestedIn(Player) && Random(30, 300) < Actor:intelligence && Actor:incest < 90
 OTHER: isAtHome() && Random(30, 300) < intelligence
 
     SceneStart()
