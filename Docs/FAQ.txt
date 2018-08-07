@@ -1,0 +1,59 @@
+1. Dev questions
+	1.1. Why don't we have feature X yet?
+	1.2. Are you going to add feature X?
+2. Gameplay questions
+	2.1. What do I do? Where do I go?
+	2.2. I don't have a place to live!
+	2.3. How do I find a residential building, bar, hotel, etc.?
+	2.4. How do I change a building's type?
+3. Tech questions
+	3.1. I can't bring up the console!
+	3.2. How do I change or add to the content?
+
+1. Dev questions
+
+1.1. Why don't we have X yet?
+
+Because it hasn't been made yet. Perhaps you can help out? 
+Creating content for LifePlay is easy to do, and because it's meant to be a moddable game, it's not just the developer who can do it. See the Docs/Modding folder to learn how.
+
+1.2. Are you going to add X?
+
+Quite possibly. It may take a while though. Other things need adding too!
+
+2. Gameplay questions
+
+2.1. What do I do? Where do I go?
+
+The idea is that you live the life of the character you're playing. There is no one story, and no other background to the player character than what you imagine yourself. You can tweak your character's looks and stats, potentially give them relatives via the contacts menu (ctrl-P), make sure to load up content modules that fit your tastes (ctrl-M), and take it from there. 
+
+You should probably find a place to live, and get an income so you can pay for expenses. Or you could just sleep in hotels and hope money'll drop from the sky. Suit yourself ;)
+
+2.2. I don't have a place to live!
+
+Find a residential building during work hours, click on it, and select "arrange a viewing". This'll then give you the option to rent an apartment, or not.
+
+2.3. How do I find a residential building, bar, hotel, etc.?
+
+Hover the mouse over a building and ideally, an icon should show up telling you what type of building it is. Buildings with a question mark haven't been given a type yet.
+You can also click on the magnifying glass icon to the left, leave the search field blank, then click on the icon so you can choose from a variety of building types to choose from. The search results will try to display them based on how far you have to walk.
+
+2.4. How do I change a building's name or type?
+
+Some maps have far more detailed information on buildings than others, and it's also always possible you want to insert or change a building type because you just want to. To do that, you just click on any building, and select "edit building". 
+
+Changes to a building on a map carry over to any new game you start on that same map, so perhaps you shouldn't change buildings on one game that could be your other game's character's home or job?
+
+3. Tech Questions
+
+3.1. I can't bring up the console!
+
+Ordinarily you bring up the console with #
+Due to different keyboard mappings throughout the world, though, the key to use may differ for you. You can change the key in Config/DefaultInput.ini, look for the line:
+	+ActionMappings=(ActionName="TestScenes",Key=#,bShift=False,bCtrl=False,bAlt=False,bCmd=False)
+
+3.2. How do I change or add to the content?
+
+Intel on how to write or edit scenes is found in the Docs/Modding folder. It mostly deals with the scripting language at the moment, in a noob-friendly way, and focuses on adding scenes, actions, stats, character presets, sex descriptions and sex talk. These are the easiest to change: a simple text editor is all you need, and the documentation is noob-friendly.
+
+(Not ready to say anything useful about asset creation...)

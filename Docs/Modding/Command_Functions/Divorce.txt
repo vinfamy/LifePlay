@@ -1,0 +1,15 @@
+Divorce()
+
+USE:
+This command undoes the marriage between player and their husband/wife. It will revert their status to being boyfriend(s)/girlfriend(s) though, so you probably want to follow up with loseDating().
+
+TYPE: Command, non-Ref
+RETURNS: /
+THEME: Relationships
+COMPARE: getMarried, isMarried, loseDating
+
+EXAMPLE:
+	Official:: "Sign here and here and here and here... Initial here and here and here... Very well, everything's in order."
+	Player(Disgusted):: "About damn time!"
+	Divorce()
+	loseDating()

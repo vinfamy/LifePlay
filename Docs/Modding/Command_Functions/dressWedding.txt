@@ -1,0 +1,14 @@
+Actor.dressWedding()
+
+USE:
+This command puts the actor in a wedding dress or suit.
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Relationships
+COMPARE: getMarried, dress
+
+EXAMPLE:
+	"It took quite a bit of doing, getting into that corset, but I finally was good to go, and ready to step down the aisle."
+	setBackground(place_of_worship)
+	Player.dressWedding()

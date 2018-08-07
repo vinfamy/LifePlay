@@ -1,0 +1,18 @@
+Actor.livesWithPlayer()
+
+USE:
+Returns true if the actor lives with the player, ie in the same apartment, not the same building (that'd be a neighbour).
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Housing
+COMPARE: isNeighbour
+
+EXAMPLE:
+
+	Parent = getRelative(Parent)
+	if Parent.isValid()
+		if Parent.livesWithPlayer()
+			Player(Sad)::"I still live with my <Parent.dad_or_mom>."
+		endif
+	endif

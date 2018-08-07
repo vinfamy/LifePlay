@@ -1,0 +1,13 @@
+GlobalVariableName.clearGlobal()
+
+USE:
+Delete this global variable completely.
+
+TYPE: Command, Non-Ref (but syntax is ref-like)
+RETURNS: /
+THEME: Variables
+COMPARE: getGlobal, setGlobal
+
+EXAMPLE:
+    SugarDaddy.clearGlobal()
+    FloatVariable = SugarDaddy.getGlobal() // will now return 0

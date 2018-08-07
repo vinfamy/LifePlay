@@ -1,0 +1,21 @@
+Filter(Tag)
+
+USE:
+Limit a sex scene to animations that have the specified tag.
+
+TYPE: Command, non-Ref
+RETURNS: /
+THEME: Sex
+COMPARE: TalkNonConsensual
+
+EXAMPLE:
+
+	"A while later in front of her place."
+	Player(Flirty)::"Baby, since I just took you to that fancy place and all, maybe I could... come inside?"
+	Girlfriend(Offended)::"Hey, what do you take me for? I don't put out just for a meal!"
+	Player(Shy)::"I know you don't, I mean, I didn't think you would, but... please, being around you drives me nuts! I'm about to burst!"
+	Girlfriend(Annoyed)::"Oh, alright then. But there's no way we're actually doing 'it' tonight! A quick shake and then I'm off to bed, and you're off to yours!"
+	setBackground(home)
+	Player.strip()
+	Filter(Handjob)
+	Sex(Player, Girlfriend)

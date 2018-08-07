@@ -1,0 +1,9 @@
+sceneStart()
+
+USE:
+Start the scene and open the scene UI
+
+TYPE: Command, non-Ref
+RETURNS: /
+THEME: Scenes
+COMPARE: sceneEnd, setBackground

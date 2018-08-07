@@ -1,0 +1,13 @@
+endDate()
+
+USE:
+End the current 'date', i.e. get rid of the current companion.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Companions
+COMPARE: startDate
+
+EXAMPLE:
+    "We already hung out for the whole afternoon. It's time to separate."
+    endDate()

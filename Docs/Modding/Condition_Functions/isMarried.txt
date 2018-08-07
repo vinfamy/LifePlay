@@ -1,0 +1,17 @@
+Actor.isMarried()
+
+USE:
+Returns true if the calling actor is married.
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Relationships
+COMPARE: isDating
+
+EXAMPLE:
+	Parent = getRelative(Parent)
+	If Parent.isValid()
+		If !Parent.isMarried()
+			"Ever since my <Parent.mom_or_dad> left <Parent.o>, my <Parent.dad_or_mom> hasn't been the same."
+		Endif
+	Endif

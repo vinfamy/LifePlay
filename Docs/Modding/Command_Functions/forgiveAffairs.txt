@@ -1,0 +1,13 @@
+forgiveAffairs()
+
+USE:
+Clear all affairs commited while in this current relationship. This is done automatically when SetDating().
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Relationships
+COMPARE: isAffair, loseDating, getSpecific(Affair)
+
+EXAMPLE:
+    Dating(Crying):: "Alright, after everything we've been through, I guess I can forgive you this time ..."
+    forgiveAffairs()

@@ -1,0 +1,16 @@
+loseHomeDating()
+
+USE:
+Your SO moves out of their home, and in with you.
+
+TYPE: Command, non-Ref
+RETURNS: /
+THEME: Relationships, Housing
+COMPARE: loseHome, moveHome, isAtDatingHome, PlayerHasHome, DatingHasHome
+
+EXAMPLE:
+	
+	SO = getSpecific(Dating)
+	Player:: "Babe, why don't you just come live with me?"
+	SO:: "Sure, that's a great idea!"
+	loseHomeDating()

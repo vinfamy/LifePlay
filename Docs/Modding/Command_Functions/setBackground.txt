@@ -1,0 +1,13 @@
+setBackground(where)
+
+USE:
+Set the background image. Check all_where.txt for full list. This is also important for dress() which decides how to dress the actor appropriately based on the background (suits for work, sport clothes for sports_centre etc)
+
+TYPE: Command, non-Ref
+RETURNS: /
+THEME: Scenes, Location
+COMPARE: sceneStart, dress
+
+EXAMPLE:
+    setBackground(work)
+    Player.dress()  // player will put on professional clothes

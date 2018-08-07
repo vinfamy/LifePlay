@@ -1,0 +1,14 @@
+Actor1.isSameGender(Actor2)
+
+USE:
+Check if the two actors are the same gender
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Gender
+COMPARE: isMale, isDominantSex, isInterestedIn
+
+EXAMPLE:
+    If John.isSameGender(Jack)
+        "They're both <John.male_or_female>."
+    Endif

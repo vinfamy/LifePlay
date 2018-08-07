@@ -1,0 +1,13 @@
+timeoutPrecise(hours, sceneid1, sceneid2, ..., sceneidN)
+
+USE:
+Timeout these scenes for x hours so that they won't trigger again. The number of hours is fixed and not affected by the scene frequency setting.
+
+TYPE: Command, non-Ref
+RETURNS: /
+THEME: Scenes
+COMPARE: timeout, timeoutActor, timeoutActorPrecise
+
+Example:
+    "I just celebrated my birthday."
+    timeoutPrecise(8760, birthday)  // it will be my birthday again exactly this time next year

@@ -1,0 +1,18 @@
+timeoutActor(hours, sceneID, Actor1, ..., ActorN)
+
+USE:
+Similar to timeout, except only for one particular scene. It puts a cooldown on the scene for x hours (adjusted by the scene frequency setting), but only for one or more specified actors, who won't get selected by the WHO condition of the scene.
+
+TYPE: Command, non-Ref
+RETURNS: /
+THEME: Scenes
+COMPARE: timeout, timeoutPrecise, timeoutActorPrecise
+
+EXAMPLE:
+
+	Player(Angry)::"Stop calling me so many times a day!"
+	Contact(Offended)::"Uh... Ok, I guess. Catch you tomorrow, maybe?"
+	
+	sceneEnd()
+	
+	timeoutActor(24, call_invite, Contact)

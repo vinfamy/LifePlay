@@ -1,7 +1,0 @@
-timeoutPrecise(hours, sceneid1, sceneid2, ..., sceneidN)
-
-Timeout these scenes for x hours so that they won't trigger again. The number of hours is fixed and not affected by the scene frequency setting.
-
-Example:
-    "I just celebrated my birthday."
-    timeoutPrecise(8760, birthday)  // it will be my birthday again exactly this time next year

@@ -1,0 +1,20 @@
+Actor.isRelative()
+
+USE:
+returns true if the calling actor is a relative of the player's
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Family
+COMPARE: getRelative, getRelativeExcept
+
+EXAMPLE:
+	"Should I make a pass at <Actor.name>?"
+	0:: "Yes"
+	1:: "No"
+	
+	If 0
+		If Actor.isRelative()
+			Actor(Disgusted):: "Ew, sick!"
+		Endif
+	Endif

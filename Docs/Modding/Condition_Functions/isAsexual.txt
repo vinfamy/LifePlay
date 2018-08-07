@@ -1,0 +1,14 @@
+Actor.isAsexual()
+
+USE:
+returns true if the actor doesn't have any of the gender preferences "interested in male", "interested in female", or "interested in trans".
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Gender Preference
+COMPARE: isInterestedIn
+
+EXAMPLE
+	If !Actor.isAsexual() && !Actor.isInterestedIn(Player) && Player.isMale()
+		"<Actor.name> is probably a lesbian."
+	Endif

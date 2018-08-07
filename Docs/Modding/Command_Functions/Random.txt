@@ -1,0 +1,17 @@
+Random(float, float)
+
+USE:
+returns a random float number between the entered float parameters. Commonly used to influence the chance a condition is true based on an actor stat.
+
+TYPE: Command, non-Ref
+RETURNS: float
+THEME: Math
+COMPARE: 
+
+EXAMPLE:
+	attrBonus = Random(1,5)
+	Actor:attrtoplayer += attrBonus
+	
+	If Random(30, 100) > attractiveness // condition is only possible if attractiveness is higher than 30, and more likely to happen the higher attractiveness is
+	
+	If Random(50,300) < Actor:perversion // only possible perversions is higher than 50, but only has a 20% chance of happening

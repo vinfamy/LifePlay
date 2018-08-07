@@ -1,0 +1,17 @@
+Actor.closeEyes(bool)
+
+USE:
+force actor to close or open their eyes
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Scenes
+COMPARE:
+
+EXAMPLE:
+
+	Masseuse::"Just lie down and relax."
+	Player.CloseEyes(true)
+	
+	Mom(Angry)::"Hey, wake up, sleepy head! You're about to be late for work!"
+	Player.CloseEyes(false)

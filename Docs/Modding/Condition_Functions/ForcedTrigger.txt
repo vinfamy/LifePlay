@@ -1,0 +1,26 @@
+ForcedTrigger()
+
+USE:
+Returns whether a scene was force triggered with an action that has the SCENE_ALWAYS field filled (which overrides the conditions at the top of a scene). Use it to know if the scene was consciously triggered by the player or randomly triggered.
+
+TYPE: Condition, non-Ref
+RETURNS: bool
+THEME: Scenes
+COMPARE: sceneStart
+
+EXAMPLE:
+	The "organize_a_house_party.lpaction" file has the following field filled:
+		SCENE_ALWAYS: house_party
+		
+	And the house_party.lpscene consults it like this:
+		PlayerHosting = ForcedTrigger()
+
+		sceneStart()
+
+		If PlayerHosting
+			"My preparations are all done. It's time to welcome the guests!"
+			Player(Happy):: "Come in, everyone! Don't be shy. Everything's ready."
+		Else
+			"My phone rang! It's <Host.name>. I wonder what <Host.he_or_she> is calling me for?"
+			...
+		Endif

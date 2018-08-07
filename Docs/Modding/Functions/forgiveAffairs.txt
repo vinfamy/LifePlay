@@ -1,7 +1,0 @@
-forgiveAffairs()
-
-Clear all affairs commited while in this current relationship. This is done automatically when SetDating().
-
-EXAMPLE:
-    Dating(Crying):: "Alright, after everything we've been through, I guess I can forgive you this time ..."
-    forgiveAffairs()

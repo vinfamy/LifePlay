@@ -1,0 +1,14 @@
+Actor.isNeighbour()
+
+USE:
+Check if the actor is one of your neighbours.
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Housing
+COMPARE: addNeighbour, removeNeighbour, getSpecific(Neighbour)
+
+EXAMPLE:
+    If John.isNeighbour()
+        John(Happy):: "Hey, I'm your neighbour. Nice to meet you!"
+    Endif

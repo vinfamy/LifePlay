@@ -1,9 +1,0 @@
-GlobalVariable.getGlobal() returns float
-
-Get the value of a global variable into a float variable. If there's no global variable under such name, returns 0.
-
-EXAMPLE:
-    SugarDaddyID = SugarDaddyGV.getGlobal()
-    If SugarDaddy != 0
-        SugarDaddyActor = getSpecific(SugarDaddyID)
-    Endif

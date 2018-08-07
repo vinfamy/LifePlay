@@ -1,0 +1,14 @@
+Actor.isBoss()
+
+USE
+Check if the actor is the player's boss.
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Job
+COMPARE: setBoss, moveJobs, getSpecific(Boss)
+
+EXAMPLE:
+    If John.isBoss()
+        John(Angry):: "You're fired!"
+    Endif

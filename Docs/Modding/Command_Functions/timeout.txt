@@ -1,0 +1,14 @@
+timeout(hours, sceneid1, sceneid2, ..., sceneidN)
+
+USE:
+Timeout these scenes for x hours so that they won't trigger again. The number of hours is adjusted by the scene frequency setting however.
+
+TYPE: Command, non-Ref
+RETURNS: /
+THEME: Scenes
+COMPARE: timeoutprecise, timeoutActor, timeoutActorPrecise
+
+EXAMPLE:
+    "I just met someone. I don't want to meet another person for a while."
+	
+    timeout(20, meet_new_person)  // could be more or less than 20 hours depending on the scene frequency setting

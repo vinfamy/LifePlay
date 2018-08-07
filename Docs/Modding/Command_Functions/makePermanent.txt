@@ -1,0 +1,18 @@
+Actor.makePermanent()
+
+USE:
+This turns a temporary actor (generatePersonTemporary) into a permanent actor that persists after the current scene ends. Does nothing if called on an already permanent actor.
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Actor Creation
+COMPARE: generatePersonTemporary, generatePerson
+
+EXAMPLE:
+    // Generate someone who is into the player's gender
+    InterestedPerson = generatePersonTemporary()
+    While !InterestedPerson.isInterestedIn(Player)
+        InterestedPerson = generatePersonTemporary()   // use this instead of GeneratePerson() because otherwise there would be too many (depending how many loops it takes to generate oen that's into the player) permanent actors who appear out of nowhere.
+    Endwhile
+    InterestedPerson.makePermanent()  // now that an interested person is generated, we can make them permanent now.
+    

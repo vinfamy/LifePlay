@@ -1,0 +1,14 @@
+Actor.isColleague()
+
+USE:
+Check if the actor is one of the player's colleagues.
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Job
+COMPARE: addColleague, removeColleague, getSpecific(Colleague)
+
+EXAMPLE:
+    If John.isColleague()
+        John(Happy):: "Hey, wanna go for lunch?"
+    Endif

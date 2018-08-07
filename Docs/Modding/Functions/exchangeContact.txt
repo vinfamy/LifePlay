@@ -1,7 +1,0 @@
-exchangeContact(Actor)
-
-Exchange numbers with this actor.
-
-EXAMPLE:
-    "We exchanged numbers and parted ways."
-    exchangeContact(John)

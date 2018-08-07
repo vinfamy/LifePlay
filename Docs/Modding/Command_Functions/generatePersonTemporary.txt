@@ -1,0 +1,20 @@
+generatePersonTemporary()
+generatePersonTemporary(preset1, preset2, ..., presetN)
+
+USE:
+Generate a new actor. If nothing inside the bracket: completely random actor. Or you can specify the presets to blend into this new actor.
+
+The actor generated using this method will be temporary at first (unless you call MakePermanent() on them later on), meaning they will be deleted with no traces left (not even in a lpcharacter) after the current scene ends. Useful for loops and for one-off actors like thiefs and prostitutes. Also, your adultery with a temporary actor will never be caught!
+
+TYPE: Command, Non-Ref
+RETURNS: Actor
+THEME: Actor Creation
+COMPARE: generatePerson, blendPreset, makePermanent
+
+EXAMPLE:
+    Actor = generatePersonTemporary()  // OR Actor = generatePersonTemporary(easterneuropean, twenties, fitness_model)
+    Actor.dress()
+    Actor.show(2)
+    
+    exchangeContact(Actor) // this will fail because this is a temporary actor that will be lost forever after the current scene ends. You need to call MakePermanent first.
+    

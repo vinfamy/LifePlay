@@ -1,0 +1,17 @@
+getCompanion()
+
+USE:
+Get the current companion. Not entirely necessary as the current companion has a special variable "CurrentCompanion" that is always available.
+
+TYPE: Command, non-Ref
+RETURNS: Actor
+THEME: Companions
+COMPARE: isWithCompanion
+
+EXAMPLE:
+    Actor = getCompanion()
+    Actor.dress()
+    
+    // is the same as
+    
+    CurrentCompanion.dress()

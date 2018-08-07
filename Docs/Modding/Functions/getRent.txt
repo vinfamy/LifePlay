@@ -1,9 +1,0 @@
-getRent() returns Float
-
-Get the current rent into a float variable.
-
-EXAMPLE
-    Rent = getRent()
-    Rent *= 1.2
-    Rent.setRent()
-    "Damn, the rent was increased by 20%."

@@ -1,0 +1,40 @@
+CREATING PRESETS
+
+1. Intro
+
+Presets are used in scene scripts to create characters according to specific intel on body morphs, hair, skin, eyes, stats, gender and sexual preferences. They can also be used by players during character generation, or when they edit an existing character's appearance.
+
+Character presets are really character files (.lpcharacter). The game creates such files for every character it generates, and stores them in Content/Saves, according to your save slot, whenever you perform a save. In the meantime, they're held in Content/Saves/_session.
+
+2. Exporting from game
+
+When you first create your character on starting a new game, you can choose to export it, at any time, to a file and folder of your choosing under Content/Modules. You can do the same when you edit an existing character via the Contacts menu. 
+
+When you export your own character, this happens before you can set your stats in the menu that follows, so stat information will not be entered into the file you create. Typically, it'll also only contain any information that deviates from the default character (Content/Saves/Default).
+
+Full information for your, or any other character, can still be found in Content/Saves. Simply copy a file of a character from there to your mod's folder to be able to have a 'full' file.
+
+
+3. Editing an .lpcharacter file
+
+All intel fields in an exported file will have only 1 value, with a 100% chance of that value being true. After all, the character you made or edited, really did have that single value set on them.
+
+If you want to use it as a preset, however, you may want to randomize certain information. You do this by 
+	- replacing a single float value with a numeric range:
+		eg
+		SKIN Skin_Age: 100% 0.031212
+		can become
+		SKIN Skin_Age: 100% 0.4=>0.7
+	
+	- replacing any single value by a weighted list of values:
+		eg
+		INFO Interested_In_Men: 100% false
+		can become
+		INFO Interested_In_Men: 70% false, 30% true
+		
+A lot of what's in an .lpcharacter file should be fairly easy to adjust: 
+	- INFO and STAT shouldn't give you any problems
+	- skin, hair and eye color involve looking up RGB values somewhere and converting them to a float value between 0 and 1
+	- stipulating race, hair type, beard type etc may involve exporting a few different characters to figure out the ID of those things (or looking inside the game's content with the Unreal Editor)
+	
+The only thing that'll be hard to predict is probably the thing you're most likely to want to know more about: face and body morph data. I can't help you there. You'll need to see it in-game to know what works and what doesn't.

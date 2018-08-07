@@ -1,0 +1,20 @@
+Sex(Actor1, Actor2, ..., ActorN)
+
+
+USE:
+Start a sex scene involving these actors. If the player is involved, it will also check whether the player is cheating or not and add to the affair list accordingly.
+The order in which roles are given to actors for the sex scene (important for descriptions and dirtytalk) depends largely on gender and domincance. Males are given roles before transsexuals, then women. Between people of the same gender, the most dominant one (lowest submission stat) is given a role first.
+However, the order of the actor parameters to the Sex() function matters somewhat in group sex: Sex(Male1, Player, Male2) will be different from Sex(Male2, Player, Male1).
+
+TYPE: Command, non-Ref
+RETURNS: /
+THEME: Sex
+COMPARE: SexNoAffair
+
+EXAMPLE:
+    Boss(Happy):: "Baby, let's fuck!"
+    Sex(Boss, Player)
+    
+    If Boss.isAffair()  // if you are in a relationship with someone else, this will return true after sex
+        "I cheated on my boyfriend with my boss."
+    Endif

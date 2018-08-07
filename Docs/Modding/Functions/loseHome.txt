@@ -1,8 +1,0 @@
-loseHome()
-
-The player moves out of their current home. Set rent to 0. Landlord and neighbours become acquantainces.
-
-EXAMPLE:
-    Landlord(Angry):: "That's enough. You're evicted!"
-    loseHome()
-    "I need to find a new place to live now."

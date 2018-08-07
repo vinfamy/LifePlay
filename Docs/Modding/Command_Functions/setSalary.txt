@@ -1,0 +1,16 @@
+Floatvar.setSalary()
+
+USE: 
+Set this as your current salary.
+
+TYPE: Command, Non-Ref (ref-like syntax)
+RETURNS: /
+THEME: Job, Money
+COMPARE: getSalary, moveJobs
+
+EXAMPLE:
+    "I signed the contract."
+    moveJobs()
+    Salary = 2000
+    Interviewer.setBoss()
+    Salary.setSalary())
