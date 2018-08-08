@@ -1,0 +1,13 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    setBackground(shower)
+    filter(shower)
+    Player.strip()
+    Sex(Player)
+    
+    SceneEnd()

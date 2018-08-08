@@ -8,6 +8,8 @@ OTHER: isAtHome()
     SceneStart()
     Player.strip()    
     setBackground(home)
+    Filter(Solo)
+    Sex(Player)
     Player(Pain):: "God damn it! This feels so good ..."
     Player(Embarassed):: "What? Who's there?"
     "I was enjoying a bit of alone time when suddenly I heard a noise. I thought someone might be peeping on me!"

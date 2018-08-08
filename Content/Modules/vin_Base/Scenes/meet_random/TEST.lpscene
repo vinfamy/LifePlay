@@ -4,29 +4,18 @@ WHEN: 0-24
 WHO: none
 OTHER: none
 
-	SceneStart()
-    Actor1 = generatePersonTemporary()
-    While !Actor1.isMale()
-        Actor1 = generatePersonTemporary()
-    Endwhile
-    
-    Actor2 = generatePersonTemporary()
-    While !Actor2.isMale()
-        Actor2 = generatePersonTemporary()
-    Endwhile
-
-    Actor3 = generatePersonTemporary()
-    While !Actor3.isMale()
-        Actor3 = generatePersonTemporary()
-    Endwhile    
+	SceneStart()  
     
 	"Hello"
 	0:: "Yes"
 	1:: "No"
 	
 	If 0
-		Sex(Actor1, Actor2, Actor3)
+        setBackground(shower)
+        Filter(Shower)
+		Sex(Player)
 	Else
 		"No"
 	Endif
+    "Masturbation done"
 	SceneEnd()

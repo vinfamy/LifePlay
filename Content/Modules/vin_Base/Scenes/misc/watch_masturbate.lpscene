@@ -1,0 +1,11 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    filter(solo)
+    Sex(Player)
+    
+    SceneEnd()

@@ -23,6 +23,9 @@ OTHER: isAtHome()
         "My curiousity got the better of me and I just had to see this ..."
         Actor.strip()
         Actor.show(2)
+        Filter(Solo)
+		Sex(Actor)
+        Actor.show(2)
         Actor(Crying):: "Yes, yes, yes!"
         "Wow, <Actor.he_or_she> is really into it. It must have been a while since <Actor.he_or_she> last had sex. <Actor.He_or_She> is my <Actor.relationship> so I really shouldn't feel like this but ... I'm getting very aroused ... In fact, as much as the thought is so wrong on so many different levels, I can't help but wish I have the courage to slam open the door right now and come join <Actor.him_or_her> in <Actor.his_or_her> bed ..."
     Endif
