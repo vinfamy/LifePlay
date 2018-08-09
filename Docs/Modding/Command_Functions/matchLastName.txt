@@ -1,0 +1,13 @@
+Actor.matchLastName(Actor2)
+
+USE:
+Change Actor's last name to match that of Actor2
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: NPC-NPC
+COMPARE: 
+
+EXAMPLE:
+    Eli.matchLastName(Jack)
+    "Eli just got married. She took her husband Jack's last name"

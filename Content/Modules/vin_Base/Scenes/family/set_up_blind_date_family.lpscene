@@ -1,7 +1,7 @@
 WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
 WHERE: all
 WHEN: 17 - 20
-WHO: Actor = getRelative(Sibling, Cousin, StepSibling); Actor2 = getPerson(true); If !Actor2.isDating() && Actor.isInterestedIn(Actor2) && Actor2.isInterestedIn(Actor) && Actor:rapportwithplayer > 20 && Actor2:rapportwithplayer > 20
+WHO: Actor = getRelative(Sibling, Cousin, StepSibling); Actor2 = getPerson(true); If !Actor.hasRelationship(Dating, Spouses) && !Actor2.hasRelationship(Dating, Spouses) && !Actor2.isDating() && Actor.isInterestedIn(Actor2) && Actor2.isInterestedIn(Actor) && Actor:rapportwithplayer > 20 && Actor2:rapportwithplayer > 20
 OTHER: none
 
     SceneStart()
@@ -18,7 +18,8 @@ OTHER: none
         If Random(0, 100) < interpersonal
             "I managed to talk them into going on a blind date with each other, which apparently went quite well. Who knows? This could be the start of something special."
             Actor:rapportwithplayer += Random(0, 5)
-            Actor2:rapportwithplayer += Random(0, 5)           
+            Actor2:rapportwithplayer += Random(0, 5)
+            addNpcRelationship(Dating, Actor, Actor2)
         Else    
             "Despite my best efforts, I couldn't quite get them to agree to a blind date."
             mood -= 5

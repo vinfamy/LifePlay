@@ -7,13 +7,18 @@ OTHER: IsAtHome() && perversion < Random(0, 30)*Random(0, 1)
     SceneStart()
     Actor.dress()
     Actor.show(2)
-    Actor2 = generatePersonTemporary()
-    While !Actor.isInterestedIn(Actor2)
+    Actor2 = Actor.getRelatedPerson(Dating, Spouses)
+    If !Actor2.isValid()
         Actor2 = generatePersonTemporary()
-    Endwhile
+        While !Actor.isInterestedIn(Actor2)
+            Actor2 = generatePersonTemporary()
+        Endwhile
+        Actor2.makePermanent()
+        addNpcRelationship(Dating, Actor, Actor2)
+    Endif
     Actor2.dress()
     Actor2.show(3)
-    "My <Actor.relationship> is such a <Actor.player_or_slut>. <Actor.He_or_She> just took home yet another <Actor2.guy_or_girl>."
+    "My <Actor.relationship> has such a high sex drive. <Actor.He_or_She> is getting it on with <Actor.his_or_her> <Actor2.boyfriend_or_girlfriend> again."
     0:: "Peep on them"
     1:: "Maybe not"
     

@@ -1,0 +1,18 @@
+removeNpcRelationship(Actor1, Actor2, ..., ActorN)
+
+
+USE:
+Remove any relationships between 2 or more NPCs.
+
+TYPE: Command, non-Ref
+RETURNS: /
+THEME: NPC-NPC
+COMPARE: addNPCRelationship, hasRelationship
+
+EXAMPLE:
+    addNpcRelationship(Dating, John, Maria)
+    "John and Maria have started dating. What a matchmaker I was!"
+
+    "A few months later ..."
+    removeNpcRelationship(John, Maria)
+    "Oh no, they broke up ..."

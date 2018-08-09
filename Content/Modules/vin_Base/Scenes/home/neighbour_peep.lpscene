@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: home
 WHEN: 0 - 24
-WHO: Actor = getSpecific(Neighbour); If Random(50, 500) < Actor:perversion 
+WHO: Actor = getSpecific(Neighbour); If !Actor.isAsexual() && Random(50, 500) < Actor:perversion 
 OTHER: isAtHome()
 
     SceneStart()
@@ -22,7 +22,15 @@ OTHER: isAtHome()
         "My curiousity got the better of me and I just had to see this ..."
         If Random(0, 100) < sneak
             "Luckily, my neighbour didn't quite close <Actor.his_or_her> door completely shut - probably too busy with fooling around with <Actor.his_or_her> partner to pay attention to the door. With my sneaking talent, I managed to get a pretty good view of what was going on ..."
-            Actor2 = generatePersonTemporary()
+            Actor2 = Actor.getRelatedPerson(Dating, Spouses)
+            If !Actor2.isValid()
+                Actor2 = generatePersonTemporary()
+                While !Actor.isInterestedIn(Actor2)
+                    Actor2 = generatePersonTemporary()
+                Endwhile
+                Actor2.makePermanent()
+                addNpcRelationship(Dating, Actor, Actor2)
+            Endif
             Sex(Actor, Actor2)
             arousal += Random(0, 30)
             Actor.show(2)

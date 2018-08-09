@@ -278,6 +278,11 @@ OTHER: !isPlayerMarried()
             Master.hide()
             setBackground(home)
             "And that's it - it's official, we're married! <CurrentCompanion.name> is now my dear <CurrentCompanion.husband_or_wife>. The rest of the wedding ceremony went without issues, although honestly, both of us couldn't wait for it to end and the guests to leave so that we can begin our intimate wedding night."
+            If CurrentCompanion.isDominantSex(Player)
+                Player.matchLastName(CurrentCompanion)
+            Else
+                CurrentCompanion.matchLastName(Player)
+            Endif
             getMarried()
             Sex(Player, CurrentCompanion)
             If PlayerHasHome() && DatingHasHome()

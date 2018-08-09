@@ -20,7 +20,7 @@ Colleague5.dress()
 If 0
     setBackground(restaurant)
     "I decided to go alone, expecting plenty of attention from the singles from work."
-    If Colleague1:attractiontoplayer > Random(0, 25) && !Colleague1.isContactExchanged() 
+    If Colleague1:attractiontoplayer > Random(0, 25) && !Colleague1.isContactExchanged() && !Colleague1.hasRelationship(Spouses, Dating)
         Colleague1.show(2)
         "<Colleague1.name> was pleasantly surprised that I was alone and asked for my number?"
         0:: "Yes"
@@ -31,7 +31,7 @@ If 0
         Endif
     Endif
     
-    If Colleague2:attractiontoplayer > Random(0, 25) && !Colleague2.isContactExchanged() 
+    If Colleague2:attractiontoplayer > Random(0, 25) && !Colleague2.isContactExchanged() && !Colleague2.hasRelationship(Spouses, Dating)
         Colleague2.show(2)
         "<Colleague2.name> was pleasantly surprised that I was alone and asked for my number?"
         0:: "Yes"
@@ -42,7 +42,7 @@ If 0
         Endif
     Endif
     
-    If Colleague3:attractiontoplayer > Random(0, 25) && !Colleague3.isContactExchanged() 
+    If Colleague3:attractiontoplayer > Random(0, 25) && !Colleague3.isContactExchanged() && !Colleague3.hasRelationship(Spouses, Dating)
         Colleague3.show(2)
         "<Colleague3.name> was pleasantly surprised that I was alone and asked for my number?"
         0:: "Yes"
@@ -53,7 +53,7 @@ If 0
         Endif
     Endif
 
-    If Colleague4:attractiontoplayer > Random(0, 25) && !Colleague4.isContactExchanged() 
+    If Colleague4:attractiontoplayer > Random(0, 25) && !Colleague4.isContactExchanged() && !Colleague4.hasRelationship(Spouses, Dating)
         Colleague4.show(2)
         "<Colleague4.name> was pleasantly surprised that I was alone and asked for my number?"
         0:: "Yes"
@@ -64,7 +64,7 @@ If 0
         Endif
     Endif
 
-    If Colleague5:attractiontoplayer > Random(0, 25) && !Colleague5.isContactExchanged() 
+    If Colleague5:attractiontoplayer > Random(0, 25) && !Colleague5.isContactExchanged() && !Colleague5.hasRelationship(Spouses, Dating)
         Colleague5.show(2)
         "<Colleague5.name> was pleasantly surprised that I was alone and asked for my number?"
         0:: "Yes"

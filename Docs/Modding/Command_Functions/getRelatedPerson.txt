@@ -1,0 +1,30 @@
+Actor.getRelatedPerson(Type1, Type2, ..., TypeN)
+
+
+USE:
+Get a single NPC with a relationship of the specified type or another with the specified NPC. The list for 'Type' is:
+- Dating
+- Spouses
+- Siblings
+- ParentChild
+- Cousins
+- BossEmployee
+- Colleagues
+
+TYPE: Command, non-Ref
+RETURNS: Actor
+THEME: NPC-NPC
+COMPARE: getRelatedPeople
+
+EXAMPLE:
+    WHO: Dating = getSpecific(Dating); InLaw = Dating.getRelatedPerson(ParentChild)
+    // For a scene related to the in laws perhaps
+    
+    JohnsSO = John.getRelatedPerson(Spouses, Dating)  
+    If JohnsSO.isValid()
+        JohnsSO.show(3)
+        JohnsSO.dress()
+        "John's sweetheart arrives. We can swing now!"
+    Else
+        "John is single."
+    Endif

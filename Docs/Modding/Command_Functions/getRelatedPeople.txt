@@ -1,0 +1,25 @@
+getRelatedPeople(Type1, Type2, ..., TypeN)
+
+
+USE:
+Get a group of NPCs with special relationship of specific type or another with each other. The actor variable you give will receive a number suffix starting from 0 when the actors are returned. The list for 'Type' is:
+- Dating
+- Spouses
+- Siblings
+- ParentChild
+- Cousins
+- BossEmployee
+- Colleagues
+This is mostly useful for the 'WHO' conditions of a scene.
+
+TYPE: Command, non-Ref
+RETURNS: Actor
+THEME: NPC-NPC
+COMPARE: getRelatedPerson
+
+EXAMPLE:
+    WHO: Actor = getRelatedPeople(Dating, Spouses); If Actor0:attractiveness > 70 && Actor1:attractiveness > 70
+    // Find a couple who are both hot
+    
+    WHO: Actor = getRelatedPeople(Siblings); If Actor2.isValid()
+    // Find a family with at least 3 siblings

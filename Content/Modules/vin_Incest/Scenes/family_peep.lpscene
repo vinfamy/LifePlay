@@ -24,13 +24,18 @@ OTHER: isAtHome()
         If Random(0, 100) < sneak
             Actor:incest += Random(0, 2)
             "Luckily, my <Actor.relationship> didn't quite close <Actor.his_or_her> door completely shut - probably too busy with fooling around with <Actor.his_or_her> partner to pay attention to the door. With my sneaking talent, I managed to get a pretty good view of what was going on ..."
-            Actor2 = generatePersonTemporary()
-            While !Actor.isInterestedIn(Actor2)
+            Actor2 = Actor.getRelatedPerson(Dating, Spouses)
+            If !Actor2.isValid()
                 Actor2 = generatePersonTemporary()
-            Endwhile
+                While !Actor.isInterestedIn(Actor2)
+                    Actor2 = generatePersonTemporary()
+                Endwhile
+                Actor2.makePermanent()
+                addNpcRelationship(Dating, Actor, Actor2)
+            Endif
             Sex(Actor, Actor2)
             arousal += Random(0, 30)
-            "This is so wrong, I know. <Actor.He_or_She> is my <Actor.relationship> after all ... but for some reason, I'm getting so excited watching <Actor.he_or_she> getting it on with this stranger. In fact, as much as the thought is quite fucked up, I can't help but imagine myself in the place of the lucky <Actor2.guy_or_girl> ..."
+            "This is so wrong, I know. <Actor.He_or_She> is my <Actor.relationship> after all ... but for some reason, I'm getting so excited watching <Actor.he_or_she> getting it on with <Actor.his_or_her> <Actor2.boyfriend_or_girlfriend>. In fact, as much as the thought is quite fucked up, I can't help but imagine myself in the place of the lucky <Actor2.guy_or_girl> ..."
             
             Actor.show(2)
             Actor2.show(3)

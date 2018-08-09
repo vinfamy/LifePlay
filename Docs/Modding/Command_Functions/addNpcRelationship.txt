@@ -1,0 +1,30 @@
+addNpcRelationship(Type, Actor1, Actor2, ..., ActorN)
+
+
+USE:
+Add (or change if a relationship already exists) a relationship between 2 or more NPCs. The list for 'Type' is:
+- Dating (2 actors only)
+- Spouses (2 actors only)
+- Siblings
+- ParentChild (2 actors only, parent is Actor1, child is Actor2)
+- Cousins
+- BossEmployee (2 actors only, Boss is Actor1, employee is Actor2)
+- Colleagues
+
+TYPE: Command, non-Ref
+RETURNS: /
+THEME: NPC-NPC
+COMPARE: removeNPCRelationship, hasRelationship
+
+EXAMPLE:
+    addNpcRelationship(Dating, John, Maria)
+    "John and Maria have started dating. What a matchmaker I was!"
+    "A few months later ..."
+    addNPCRelationship(Spouses, John, Maria) // The 'dating' relationship will be upgraded to spouses
+    
+    Jack:: "Have you met my brother, Jason?"
+    addNpcRelationship(Siblings, Jack, Jason)
+    "A few days later ... in a seperate scene perhaps"
+    Jack:: "Here's my sister, Natalie."
+    addNPCRelationship(Siblings, Jack, Natalie)
+    "The game will now also recognize Jason and Natalie as siblings."

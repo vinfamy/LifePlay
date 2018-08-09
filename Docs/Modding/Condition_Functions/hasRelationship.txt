@@ -1,0 +1,23 @@
+Actor.hasRelationship(Type1, Type2, ..., TypeN)
+
+USE:
+Checks to see if this NPC is already in a special relationship of a specific type or another with any another NPC. The list for 'Type':
+- Dating
+- Spouses
+- Siblings
+- ParentChild
+- Cousins
+- BossEmployee
+- Colleagues
+
+TYPE: Condition, non-Ref
+RETURNS: bool
+THEME: NPC-NPC
+COMPARE: addNPCRelationship, removeNPCRelationship
+
+EXAMPLE:
+    If John.hasRelationship(Dating, Spouses)  || John.isDating()
+        "John is taken, ladies ..."
+    Else
+        "John is available, ladies!"
+    Endif

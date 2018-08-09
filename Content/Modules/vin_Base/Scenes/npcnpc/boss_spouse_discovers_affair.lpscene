@@ -1,0 +1,5 @@
+
+
+    SleepingWithBoss = SleepingWithBoss.getGlobal()
+
+    If SleepingWithBoss == 1 ; 0 is not sleeping

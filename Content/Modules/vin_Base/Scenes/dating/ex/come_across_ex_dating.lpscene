@@ -1,19 +1,24 @@
 WHAT: all, -sleep_hotel, -nap_hotel, -go_to_the_bathroom
 WHERE: all, -home, -work
 WHEN: 0 - 24
-WHO: Actor = getSpecific(ExDating); If Actor:masochist < 0
+WHO: Actor = getSpecific(ExDating); If !Actor.isAsexual() && Actor:masochist < 0
 OTHER: none
 
     SceneStart()
     "I was just walking when I spotted a familiar figure hand in hand with someone else."
     Actor.dress()
     Actor.show(2)
-    NewDating = generatePersonTemporary()
-    While !Actor.isInterestedIn(NewDating)
+    NewDating = Actor.getRelatedPerson(Dating, Spouses)
+    If !NewDating.isValid()
         NewDating = generatePersonTemporary()
-    Endwhile
+        While !Actor.isInterestedIn(NewDating)
+            NewDating = generatePersonTemporary()
+        Endwhile
+        NewDating.makePermanent()
+        addNpcRelationship(Dating, Actor, NewDating)
+    Endif
     NewDating.dress()
-    NewDating.show(2)
+    NewDating.show(3)
     "It's my ex <Actor.name>! <Actor.He_or_She> recognized me right away. To rub salt into the injury, <Actor.he_or_she> suddenly leaned over and kissed the <NewDating.man_or_woman> <Actor.he_or_she> was with. It must be <Actor.his_or_her> new <NewDating.boyfriend_or_girlfriend>."
     0:: masochist < 50:: "Ignore"
     1:: "Cry"

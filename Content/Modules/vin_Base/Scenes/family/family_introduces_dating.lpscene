@@ -1,7 +1,7 @@
 WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 9 - 20
-WHO: Actor = getRelative(Sibling, StepSibling, Child, StepChild, Cousin); If !Actor.isAsexual() && Actor:rapportwithplayer > 10 && Random(0, 500) < Actor:attractiveness + Actor:interpersonal && Actor:perversion < Random(0, 100)*Random(0, 1)*Random(0, 1)
+WHO: Actor = getRelative(Sibling, StepSibling, Child, StepChild, Cousin); If !Actor.isAsexual() && !Actor.hasRelationship(Spouses, Dating) && Actor:rapportwithplayer > 10 && Random(0, 500) < Actor:attractiveness + Actor:interpersonal && Actor:perversion < Random(0, 100)*Random(0, 1)*Random(0, 1)
 OTHER: IsAtHome()
 
     SceneStart()
@@ -11,6 +11,8 @@ OTHER: IsAtHome()
     While !Actor.isInterestedIn(Actor2)
         Actor2 = generatePersonTemporary()
     Endwhile
+    Actor2.makePermanent()
+    addNpcRelationship(Dating, Actor, Actor2)
     Actor(Happy):: "Here's <Actor2.name>, my new <Actor2.boyfriend_or_girlfriend>."
     Actor2.dress()
     Actor2.show(3)

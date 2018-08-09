@@ -1,7 +1,7 @@
 WHAT: all, -sleep, -nap. -sleep_hotel, -nap_hotel
 WHERE: all
 WHEN: 9 - 22
-WHO: Actor = getRelative(Sibling, StepSibling, Cousin, Child, StepChild); If Random(50, 300) < Actor:perversion && !Actor.isAsexual() && Actor:rapportwithplayer > 20
+WHO: Actor = getRelative(Sibling, StepSibling, Cousin, Child, StepChild); If Actor.hasRelationship(Dating) && Random(50, 300) < Actor:perversion && !Actor.isAsexual() && Actor:rapportwithplayer > 20
 OTHER: Random(50, 500) < intelligence
 
     SceneStart()
@@ -9,11 +9,9 @@ OTHER: Random(50, 500) < intelligence
     Actor.show(2)
     Actor(Embarassed):: "I have an emergency that I need your help with, but please promise you won't tell anyone. It's embarassing!"
     Player(Surprised):: "I promise. What is it?"
-    Actor2 = generatePersonTemporary()
-    While !Actor.isInterestedIn(Actor2)
-        Actor2 = generatePersonTemporary()
-    Endwhile
+    Actor2 = Actor.getRelatedPerson(Dating)
     Actor2.dress()
+    removeNpcRelationship(Actor, Actor2)
     Actor(Embarassed):: "You remember <Actor2.name>? I broke up with <Actor2.him_or_her> today. <Actor2.He_or_She> was so upset that <Actor2.he_or_she> uploaded a sex tape of us onto PornHub to take revenge on me ..."
     Actor(Crying):: "The video already has a few thousands views. Please do something to take it down, before my reputation is destroyed ..."
     Player(Angry):: "Oh god, what a horrible situation ... I'll work on getting it removed right away! Don't worry, I'll sort it out. And I won't tell anyone."

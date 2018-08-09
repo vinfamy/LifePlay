@@ -1,21 +1,12 @@
 WHAT: none
 WHERE: none
 WHEN: 0-24
-WHO: none
+WHO: Actor = getSpecific(Landlord); Actor2 = getRelative()
 OTHER: none
 
 	SceneStart()  
     
 	"Hello"
-	0:: "Yes"
-	1:: "No"
-	
-	If 0
-        setBackground(shower)
-        Filter(Shower)
-		Sex(Player)
-	Else
-		"No"
-	Endif
-    "Masturbation done"
+    addNpcRelationship(Cousins, Actor, Actor2)
+    "Bye"
 	SceneEnd()

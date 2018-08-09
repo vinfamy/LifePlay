@@ -1,19 +1,24 @@
 WHAT: all, -sleep_hotel, -nap_hotel
 WHERE: all, -home
 WHEN: 8 - 22
-WHO: Actor = getRelative(Cousin, Sibling, Child, StepSibling, StepChild); If Actor:rapportwithplayer > 30 && Random(0, 500) < Actor:masochist - Actor:martial
+WHO: Actor = getRelative(Cousin, Sibling, Child, StepSibling, StepChild); If !Actor.isAsexual() && Actor:rapportwithplayer > 30 && Random(0, 500) < Actor:masochist - Actor:martial
 OTHER: Random(0, 500) < martial - masochist
 
     SceneStart()
     "My phone is ringing. It's my <Actor.relationship>, <Actor.name>. I wonder what <Actor.he_or_she> is calling me for ..."
     Actor.dress()
     Actor.show(2)
-    Actor2 = generatePersonTemporary()
-    While !Actor2.isInterestedIn(Actor)
+    Actor2 = Actor.getRelatedPerson(Dating, Spouses)
+    If !Actor2.isValid()
         Actor2 = generatePersonTemporary()
-    Endwhile
+        While !Actor.isInterestedIn(Actor2)
+            Actor2 = generatePersonTemporary()
+        Endwhile
+        Actor2.makePermanent()
+        addNpcRelationship(Dating, Actor, Actor2)
+    Endif
     livesWithMe = Actor.livesWithPlayer()
-    Actor(Crying):: "My <Actor2.boyfriend_or_girlfriend> ... <Actor2.he_or_she> got all psycho and hit me again!"
+    Actor(Crying):: "It's my <Actor2.boyfriend_or_girlfriend> <Actor2.name> ... <Actor2.he_or_she> got all psycho and hit me again!"
     0:: "Console <Actor.him_or_her> on the phone"
     1:: livesWithMe:: "Rush home to confront <Actor.name>'s <Actor2.boyfriend_or_girlfriend>"
     2:: !livesWithMe:: "Rush to <Actor.name>'s place to confront <Actor.his_or_her> <Actor2.boyfriend_or_girlfriend>"
@@ -51,7 +56,8 @@ OTHER: Random(0, 500) < martial - masochist
         Player(Sad):: "Let's get out of here, <Actor.name>. You have suffered enough in the hands of this <Actor2.asshole_or_bitch>."
         Actor2.hide()
         "A few hours later ..."
-        Actor(Happy):: "Thank you for standing up for me and being there for me. I feel so much better now with you here. You're right. I deserve so much better than that <Actor2.asshole_or_bitch> of a <Actor.boyfriend_or_girlfriend>. I'll be strong and break up with <Actor.him_or_her>."
+        Actor(Happy):: "Thank you for standing up for me and being there for me. I feel so much better now with you here. You're right. I deserve so much better than that <Actor2.asshole_or_bitch> of a <Actor2.boyfriend_or_girlfriend>. I'll be strong and break up with <Actor2.him_or_her>."
+        removeNpcRelationship(Actor, Actor2)
     Endif
     
     SceneEnd()

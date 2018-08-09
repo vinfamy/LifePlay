@@ -5,12 +5,19 @@ WHO: Dating = getSpecific(Dating); DatingFriend = getSpecific(Dating_Friend); If
 OTHER: isAtHome() && Random(0, 1000) < perversion + DatingFriend:attractiontoplayer
 
     SceneStart()
-
-    FriendSO = generatePersonTemporary()
-    While !Dating.isInterestedIn(FriendSO) 
+    FriendSO = DatingFriend.getRelatedPerson(Spouses, Dating)
+    If !FriendSO.isValid()
         FriendSO = generatePersonTemporary()
-    Endwhile
-    FriendSO.makePermanent()
+        While !Dating.isInterestedIn(FriendSO)
+            FriendSO = generatePersonTemporary()
+        Endwhile
+        FriendSO.makePermanent()
+        addNpcRelationship(Dating, DatingFriend, FriendSO)
+    Endif
+    
+    If !FriendSO.isContactExchanged()
+        exchangeContact(FriendSO)
+    Endif
 
     Dating.dress()
     DatingFriend.dress()
