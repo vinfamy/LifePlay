@@ -1,0 +1,51 @@
+WHAT: work_hourly
+WHERE: hotel
+WHEN: 0 - 24
+WHO: none
+OTHER: perversion < Random(0, 100) && masochist < 0
+
+    SceneStart()
+    Player(Happy):: "Housekeeper!"
+    Actor = generatePersonTemporary()
+    While !Actor.isInterestedIn(Player)
+        Actor = generatePersonTemporary()
+    Endwhile
+    Actor.dress()
+    Actor:: "Coming!"
+    Actor.show(2)
+    Actor(Happy):: "Oh, you must be the housekeeper. Come right in!"
+    Player(Happy):: "Thank you. This should only take 15 minutes."
+    Actor.hide()
+    
+    "I proceeded to clean the room, starting from the bathroom."
+    "The moment I stepped out of the bathroom to clean the rest of the room though, I was greeted by an interesting sight ..."
+    Actor.strip()
+    Actor.show(2)
+    Player(Embarassed):: "Excuse me ... why are you naked?"
+    Actor(Flirty):: "You know: You're such a sight to behold - I couldn't help myself. Why don't we have some fun? I'll make it extra worthwhile for you - much more so than earning lousy wages cleaning rooms ..."
+    0:: "Accept"
+    1:: "Storm off"
+    
+    If 0
+        Player(Flirty):: "Oh well, I'm kinda short on money right now ... so I guess it's your lucky day. But don't think I'm the type that does this to all guests."
+        perversion += Random(0, 1)
+        Sex(Actor, Player)
+        money += Random(100, 500)
+        Actor.show(2)
+        Player.show(0)
+        Actor2 = generatePersonTemporary()
+        While !Actor2.isInterestedIn(Player)
+            Actor2 = generatePersonTemporary()
+        Endwhile
+        Actor2.show(3)
+        "Out of corner of my eye, I noticed some naked <Actor2.guy_or_girl> masturbating to us ..."
+        Actor(Flirty):: "Don't mind <Actor2.him_or_her>. It's my cuck <Actor2.husband_or_wife>. This is one of our biggest fantasies ... Thanks for fulfiling it."
+        Sex(Actor2)
+        masochist -= Random(0, 5)
+    Else
+        Actor.hide()
+        "I stormed off from the pervert's room. Oh god, I really hate my job! Lousy money and creepy guests ..."
+        masochist -= Random(0, 0.5)
+    Endif
+    SceneEnd()
+    timeout(500, maid_bull)

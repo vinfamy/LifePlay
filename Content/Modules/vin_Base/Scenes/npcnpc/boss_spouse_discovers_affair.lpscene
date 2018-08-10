@@ -1,5 +1,18 @@
-
+WHAT: all
+WHERE: work
+WHEN: 18 - 22
+WHO: Boss = getSpecific(Boss); Actor = getRelatedPerson(Spouses); If Random(0, 80)*Random(0, 1) > Boss:intelligence
+OTHER: none
 
     SleepingWithBoss = SleepingWithBoss.getGlobal()
-
-    If SleepingWithBoss == 1 ; 0 is not sleeping
+    If SleepingWithBoss == 1
+        timeout(4000, boss_spouse_discovers_affair)
+        timeout(2000, affair_with_boss)
+        Actor:rapportwithplayer -= 100
+        SceneStart()
+        Boss.dress()
+        Boss.show(2)
+        Boss(Embarassed):: "Baby, I think my <Actor.husband_or_wife> is starting to suspect us ... Let's keep our affair on the down low for a while ..."
+        SceneEnd()
+    Endif
+    timeout(100, boss_spouse_discovers_affair)

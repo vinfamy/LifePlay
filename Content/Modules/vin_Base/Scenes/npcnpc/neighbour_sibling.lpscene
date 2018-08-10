@@ -1,0 +1,33 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 8 - 20
+WHO: Actor = getSpecific(Neighbour); If !Actor.hasRelationship(Siblings) && Random(20, 100) < Actor:rapportwithplayer
+OTHER: isAtHome() && !isWithCompanion()
+
+    SceneStart()
+    "I was walking past my neighbour <Actor.name>'s apartment. There seemed to be more people there than usual. Some sort of family gathering perhaps."
+    dice = Random(0, 100)
+    Actor2 = Actor.generatePersonMatchRace()
+    Actor2.matchLastName(Actor)
+    Actor2.dress()
+    addNpcRelationship(Siblings, Actor, Actor2)
+    If dice < 30
+        Actor3 = Actor.generatePersonMatchRace()
+        Actor3.matchLastName(Actor)
+        Actor3.dress()
+        addNpcRelationship(Siblings, Actor, Actor3)    
+    Endif
+    
+    Actor.dress()
+    Actor.show(4)
+    Actor(Happy):: "<Player.name>, come over, let me introduce you to my <Actor2.brother_or_sister>, <Actor2.name>. <Actor2.name>, this is my neighbour <Player.name>."
+    If dice < 30
+        Actor(Happy):: "And also my <Actor3.brother_or_sister>, <Actor3.name>."
+        Actor3.show(2)
+        Actor3(Happy):: "Hey there. Good to meet you. Sorry if we made too much noise."
+    Endif
+    Actor2.show(3)
+    Actor2(Happy):: "Nice to meet you, <Player.name>."
+    Player(Happy):: "Nice to meet you too."
+    SceneEnd()
+    timeout(350, neighbour_sibling, neighbour_child)

@@ -1,0 +1,34 @@
+WHAT: all
+WHERE: work
+WHEN: 17 - 21
+WHO: Actor = getSpecific(Colleague); If !Actor.hasRelationship(Siblings) && Random(20, 100) < Actor:rapportwithplayer
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(4)
+    "That was a long day at work. It's time to head home. <Actor.name> was also heading out - <Actor.he_or_she> told me <Actor.he_or_she> was taking <Actor.his_or_her> family out for dinner tonight and they should already be waiting outside our building."
+    setBackground(street)
+    dice = Random(0, 100)
+    Actor2 = Actor.generatePersonMatchRace()
+    Actor2.matchLastName(Actor)
+    Actor2.dress()
+    addNpcRelationship(Siblings, Actor, Actor2)
+    If dice < 30
+        Actor3 = Actor.generatePersonMatchRace()
+        Actor3.matchLastName(Actor)
+        Actor3.dress()
+        addNpcRelationship(Siblings, Actor, Actor3)    
+    Endif
+    Actor(Happy):: "<Player.name>, let me introduce you to my <Actor2.brother_or_sister>, <Actor2.name>."
+    If dice < 30
+        Actor(Happy):: "And also my <Actor3.brother_or_sister>, <Actor3.name>."
+        Actor3.show(2)
+        Actor3(Happy):: "Hey there. Good to meet you."
+    Endif
+    Actor2.show(3)
+    Actor2(Happy):: "Nice to meet you, <Player.name>."
+    Player(Happy):: "Nice to meet you too."
+
+    SceneEnd()
+    timeout(250, colleague_sibling)

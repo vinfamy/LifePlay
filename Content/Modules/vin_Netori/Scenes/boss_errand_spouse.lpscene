@@ -1,0 +1,53 @@
+WHAT: all
+WHERE: work
+WHEN: 8 - 20 
+WHO: Actor = getSpecific(Boss); Actor1 = Actor.getRelatedPerson(Spouses, Dating)
+OTHER: Random(0, 100)*Random(0, 1) > jobexperience
+
+    SceneStart()
+    "My boss sent me on an errand to deliver some documents to <Actor.his_or_her> private home. I couldn't really turn it down but to be honest, it's a pain in the ass ... I'm not paid to be someone's personal delivery <Player.boy_or_girl>."
+    setBackground(street)
+    Actor1.dress()
+    Actor1.show(2)
+    Actor1(Happy):: "You're delivering something for my <Actor.husband_or_wife>? Come right in!"
+    "It's my boss's <Actor1.husband_or_wife> that opens the door."
+    setBackground(home)
+    "I delivered the documents as required. I probably should start heading back to the office."
+    0:: "Head back"
+    1:: "Make my move on my boss's <Actor1.husband_or_wife>"
+    
+    If 1
+        If Actor1.isInterestedIn(Player) && Random(0, 50) < Actor1:perversion + Actor1:attractiontoplayer
+            "My boss's <Actor1.husband_or_wife> seemed quite receptive to my advances. I may be onto something here ..."
+            Actor1:attractiontoplayer += Random(0, 5)
+            If Random(50, 200) < Actor1:perversion + Actor1:attractiontoplayer
+                Actor1(Flirty):: "You know, my <Actor.husband_or_wife> <Actor.name> has been neglecting me recently ... always so busy at work."
+                Actor1(Flirty):: "Maybe <Actor.he_or_she> sent you here deliberately ... to satisfy my needs."
+                0:: "Go for it"
+                1:: "No way"
+                
+                If 0
+                    "Sweet revenge ... I'm banging my boss's <Actor1.husband_or_wife>! Serves <Actor.him_or_her> right for sending me on pointless errands."
+                    Sex(Player, Actor1)
+                    perversion += Random(0, 2)
+                    masochist -= Random(0, 2)
+                    Actor1:attractiontoplayer += Random(0, 10)
+                    If !Actor1.isContactExchanged()
+                        exchangeContact(Actor1)
+                    Endif
+                Else
+                    "On second thought, I value my job too much to take this risk. Let's just get the hell out of here before the boss suspects me."
+                    Actor1:attractiontoplayer -= Random(0, 10)
+                Endif
+            Else
+                "After a bit of flirting, I headed back to the office. Last thing I want is for the boss to suspect me for taking so long."
+            Endif
+        Else
+            "Unfortunately, my boss's <Actor1.husband_or_wife> was having none of my flirting ... Let's just hope the boss won't hear about this ..."
+            jobperformance -= Random(0, 3)
+            Actor:rapportwithplayer -= Random(0, 3)
+        Endif
+    Endif
+    
+    SceneEnd()
+    timeout(200, boss_errand_spouse, boss_errand_child)

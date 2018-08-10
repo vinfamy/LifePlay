@@ -1,0 +1,43 @@
+WHAT: work_hourly
+WHERE: hotel
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(0, 400) < attractiveness && perversion < Random(0, 100) && masochist < 0
+
+    SceneStart()
+    "Damn it! Just as I was about to finish my shift, an angry customer went to the reception to complain about their dirty room and demanded we clean it again. <Player.He_or_She> then headed out."
+    Player(Happy):: "Housekeeper!"
+    Actor = generatePersonTemporary()
+    While !Actor.isInterestedIn(Player)
+        Actor = generatePersonTemporary()
+    Endwhile
+    Actor.dress()
+    Actor:: "Coming!"
+    Actor.show(2)
+    Actor(Happy):: "Oh, you must be the housekeeper. Come right in! Sorry, my <Player.husband_or_wife> is difficult sometimes."
+    Player(Happy):: "Thank you. This should only take 15 minutes."
+    Actor.hide()
+    
+    "I proceeded to clean the room, starting from the bathroom."
+    "The moment I stepped out of the bathroom to clean the rest of the room though, I was greeted by an interesting sight ..."
+    Actor.strip()
+    Actor.show(2)
+    Player(Embarassed):: "Excuse me ... why are you naked?"
+    Actor(Flirty):: "You know: You're such a sight to behold - I couldn't help myself. Why don't we have some fun? My <Player.husband_or_wife> will be out for a while, and <Player.he_or_she> never gets <Player.hard_or_wet> anymore anyway. Blaming <Player.his_or_her> low sex drive on the dirty hotel room won't change that ..."
+    0:: "Accept"
+    1:: "Storm off"
+    
+    If 0
+        Player(Flirty):: "Oh well, thanks to your annoying <Player.husband_or_wife>'s complaints, I'm having to work overtime. Might as well make the most of it ..."
+        "Yeah, the customer is king ... but karma is a bitch!"
+        perversion += Random(0, 1)
+        Sex(Actor, Player)
+        masochist -= Random(0, 5)
+    Else
+        Actor.hide()
+        "I stormed off from the room. What a weird couple ..."
+        masochist -= Random(0, 0.5)
+    Endif
+
+    SceneEnd()
+    imeout(500, maid_revenge)

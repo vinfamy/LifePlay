@@ -1,0 +1,34 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 17 - 21
+WHO: Actor = getSpecific(Dating); If !Actor.isColleague() && !Actor.isBoss() && !Actor.hasRelationship(BossEmployee) && Actor:attractiontoplayer > 10 && Random(30, 200) < Actor:interpersonal
+OTHER: !isWithCompanion()
+
+    SceneStart()
+    "I wonder what <Actor.boyfriend_or_girlfriend> is up to this evening. I should call <Actor.him_or_her>."
+    Player(Happy):: "Baby, where are you? When will you be back from work?"
+    Actor:: "Work's already done, honey. But I'm having a few drinks with my colleagues at the bar next to my office. You can come join us if you want?"
+    0:: "Join them"
+    1:: "No thanks"
+    
+    If 0
+        setBackground(work)
+        Actor.dress()
+        Actor2 = generatePerson()
+        Actor2:age += Random(0, 40)
+        Actor2.randomizeFace()
+        Actor2.randomizeHairs()
+        Actor2.dress()
+        addNpcRelationship(BossEmployee, Actor2, Actor)
+        setBackground(bar)
+        Actor.show(4)
+        
+        Actor(Happy):: "Baby, let me introduce you to my boss, <Actor2.name>."
+        Actor2.show(3)
+        Actor2(Happy):: "Nice to meet you finally, <Player.name>. <Actor.name> couldn't stop talking about you even at work."
+        Player(Happy):: "Nice to meet you too."
+    Else
+        Player(Happy):: "That's okay, baby. You guys have fun!"
+    Endif
+    SceneEnd()
+    timeout(200, dating_boss, dating_colleague)

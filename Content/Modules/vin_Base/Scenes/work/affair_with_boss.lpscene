@@ -51,4 +51,4 @@ OTHER: perversion > 20 && Random(0, 100) < 0.1*perversion
     Endif
 
     SceneEnd()
-    // timeout(100, affair_with_boss)
+    timeout(100, affair_with_boss)

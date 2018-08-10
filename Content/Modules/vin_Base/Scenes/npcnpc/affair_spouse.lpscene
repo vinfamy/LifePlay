@@ -1,0 +1,31 @@
+WHAT: all,
+WHERE: all, -home, -hotel, -work
+WHEN: 17 - 21
+WHO: Actor = getSpecific(Affair); If !Actor.isAsexual() && !Actor.hasRelationship(Dating, Spouses) && Actor.isContactExchanged() && Random(20, 100) < Actor:perversion && Random(0, 100) < Actor:age
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(4)
+    setBackground(street)
+    Actor2 = generatePersonTemporary()
+    While !Actor.isInterestedIn(Actor2)
+        Actor2 = generatePersonTemporary()
+    Endwhile
+    Actor2.makePermanent()
+    Actor2.matchLastName(Actor)
+    Actor2:age => Actor:age + Random(-10, 10)
+    Actor2.randomizeHairs()
+    Actor2.randomizeFace()
+    Actor2.dress()
+    addNpcRelationship(Spouses, Actor, Actor2)
+    Actor(Happy):: "Ah, is that you, <Player.name>? What are the chances that I would find you here."
+    "It's <Actor.name>, someone who I have slept with ..."
+    Actor(Happy):: "Come, let me introduce you to my <Actor2.husband_or_wife>, <Actor2.name>."
+    Actor2.show(3)
+    Actor2(Happy):: "Nice to meet you, <Player.name>."
+    Player(Sad):: "Nice to meet you too."
+    "The cheek of <Actor.him_or_her> ... introducing <Actor.his_or_her> <Actor2.husband_or_wife> to a secret lover as if nothing happened."
+
+    SceneEnd()
+    timeout(1000, affair_spouse)

@@ -1,0 +1,39 @@
+WHAT: all
+WHERE: work
+WHEN: 12 - 20
+WHO: Ex = getSpecific(ExDating); If !Ex.isColleague() && !Ex.isBoss() && !Ex.hasRelationship(BossEmployee)
+OTHER: Random(0, 200) < jobexperience
+
+    SceneStart()
+    "I was sent to an industry conference today. The day was uneventful until ..."
+    Actor = generatePerson()
+    Actor:age => Ex:age + Random(10, 40)
+    Actor.randomizeFace()
+    Actor.randomizeHairs()
+    addNpcRelationship(BossEmployee, Actor, Ex)
+    Actor.dress()
+    Actor.show(2)
+    Actor(Happy):: "I'm <Actor.name>. Nice to meet you. I'm the managing director of ..."
+    "Wait, isn't that where my ex <Ex.name> works. Could this be <Ex.his_or_her> boss?"
+    Player(Surprised):: "Do you know <Ex.name> <Ex.name_last> by any chance?"
+    Actor(Happy):: "Of course, that's one of my junior employees. Do you know <Ex.name> then?"
+    0:: "Yeah ..."
+    1:: "<Ex.name> is my ex"
+    
+    If 0
+        Player(Embarassed):: "Yeah, just an acquaintance. I don't know <Ex.him_or_her> that well to be honest."
+    Else
+        Player(Sad):: "We used to be in a relationship ..."
+        "I don't even know why I was being so honest about it. My admission made the conversation awkward real quick ..."
+        Actor:attractiontoplayer -= Random(0, 40)
+    Endif
+    "We continued the conversation for a little while. The conference is winding down now ..."
+    0:: "Exchange business cards"
+    1:: "Maybe not"
+    
+    If 0
+        "Before we went our separate ways, we exchanged business cards."
+        exchangeContact(Actor)
+    Endif
+    SceneEnd()
+    timeout(1000, ex_boss, ex_sibling)

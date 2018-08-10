@@ -1,0 +1,32 @@
+WHAT: all
+WHERE: work
+WHEN: 8 - 19
+WHO: Actor = getSpecific(Boss); If Actor:age > 40 && !Actor.hasRelationship(ParentChild)
+OTHER: none
+
+    SceneStart()
+    Actor2 = Actor.generatePersonMatchRace()
+    Actor2.matchLastName(Actor)
+    Actor2:age => Actor:age - Random(20, 40)
+    Actor2.randomizeHairs()
+    Actor2.randomizeFace()
+    Actor2.dress()
+    addNpcRelationship(ParentChild, Actor, Actor2)
+    Actor2.show(2)
+    "Today my boss's <Actor2.son_or_daughter> <Actor2.name> joined the company for a short-term internship. Nepotism at its best!"
+    0:: "Get close to <Actor2.name>"
+    1:: "Who cares?"
+    
+    If 0
+        If !Actor2.isInterestedIn(Player) || Actor2:attractiontoplayer > 20
+            "Over the course of <Actor2.name>'s internship, I managed to get quite close to <Actor2.him_or_her>. We even exchanged numbers to hang out outside of work. Let's hope <Actor2.he_or_she> will put in a few good words for me in front of the boss."
+            exchangeContact(Actor2)
+            jobperformance += Random(0, 5)
+        Else
+            "Unfortunately, the arrogant <Actor2.prince_or_princess> had no time for company with a lowly peasant like me. <Actor2.He_or_She> probably thought I was trying to hit on <Actor2.him_or_her> too. Let's just hope <Actor.he_or_she> won't bad-mouth me in front of the boss ..."
+            jobperformance -= Random(0, 10)
+        Endif
+    Endif
+    
+    SceneEnd()
+    timeout(1000, boss_child)

@@ -1,0 +1,27 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 8 - 20
+WHO: Actor = getSpecific(Neighbour); If !Actor.isAsexual() && !Actor.hasRelationship(Spouses, Dating) && Random(20, 100) < Actor:rapportwithplayer
+OTHER: isAtHome() && !isWithCompanion()
+
+    SceneStart()
+    "I was walking past my neighbour <Actor.name>'s apartment. <Actor.He_or_She> was with someone."
+    Actor2 = generatePersonTemporary()
+    While !Actor.isInterestedIn(Actor2)
+        Actor2 = generatePersonTemporary()
+    Endwhile
+    Actor2.makePermanent()
+    Actor2:age => Actor:age + Random(-10, 10)
+    Actor2.randomizeHairs()
+    Actor2.randomizeFace()
+    Actor2.dress()
+    addNpcRelationship(Dating, Actor, Actor2)
+    
+    Actor.dress()
+    Actor.show(4)
+    Actor(Happy):: "<Player.name>, come over, let me introduce you to my <Actor2.boyfriend_or_girlfriend>, <Actor2.name>. <Actor2.name>, this is my neighbour <Player.name>."
+    Actor2.show(3)
+    Actor2(Happy):: "Nice to meet you, <Player.name>."
+    Player(Happy):: "Nice to meet you too."
+    SceneEnd()
+    timeout(350, neighbour_spouse, neighbour_dating)

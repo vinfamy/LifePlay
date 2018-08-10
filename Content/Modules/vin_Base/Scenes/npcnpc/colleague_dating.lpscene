@@ -1,0 +1,30 @@
+WHAT: all
+WHERE: work
+WHEN: 17 - 21
+WHO: Actor = getSpecific(Colleague); If !Actor.isAsexual() && !Actor.hasRelationship(Dating, Spouses) && Random(20, 100) < Actor:rapportwithplayer
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(4)
+    setBackground(street)
+    Actor2 = generatePersonTemporary()
+    While !Actor.isInterestedIn(Actor2)
+        Actor2 = generatePersonTemporary()
+    Endwhile
+    Actor2.makePermanent()
+    Actor2:age => Actor:age + Random(-10, 10)
+    Actor2.randomizeHairs()
+    Actor2.randomizeFace()
+    Actor2.dress()
+    addNpcRelationship(Dating, Actor, Actor2)
+
+    "That was a long day at work. It's time to head home. My colleague <Actor.name> was also heading out - <Actor.he_or_she> told me <Actor.he_or_she> was going out with <Actor.his_or_her> <Actor2.boyfriend_or_girlfriend> for dinner tonight and <Actor2.he_or_she> should already be waiting outside our building."
+
+    Actor(Happy):: "<Player.name>, let me introduce you to my <Actor2.boyfriend_or_girlfriend>, <Actor2.name>."
+    Actor2.show(3)
+    Actor2(Happy):: "Nice to meet you, <Player.name>."
+    Player(Happy):: "Nice to meet you too."
+
+    SceneEnd()
+    timeout(250, colleague_spouse, colleague_dating)
