@@ -1,0 +1,28 @@
+WHAT: all, -go_to_the_bathroom
+WHERE: all, -toilets, -PC, -office
+WHEN: 0-24
+WHO: Companion = getCompanion(); If CurrentCompanion.isDating() && CurrentCompanion:attractiontoplayer > 40
+OTHER: !OpenRelationship() && Random(50, 100) < perversion
+
+    SceneStart()
+    CurrentCompanion.show(2)
+    
+    "Being quite open-minded, I sometimes feel a traditional relationship is too restricted. The commitment and the possessiveness just don't feel right. Should I propose to my <CurrentCompanion.boyfriend_or_girlfriend> that we open up our relationship? So that I can sleep with whoever I want and <CurrentCompanion.name> can also sleep with whoever <CurrentCompanion.he_or_she> wants."
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        If Random(100, 300) < CurrentCompanion:attractiontoplayer + CurrentCompanion:perversion + CurrentCompanion:masochist
+            CurrentCompanion(Flirty):: "You know what, honey? I have been feeling the same. Let's just make sure we tell each other all the dirty details!"
+            startOpenRelationship()
+        Else
+            CurrentCompanion(Angry):: "What on earth are you on about? Open up our relationship? No way! I can't bear the thought of you sleeping with other <CurrentCompanion.men_or_women> freely."
+            CurrentCompanion:attractiontoplayer -= Random(0, 2)
+        Endif
+    Else
+        "Nope, it may sound nice in theory but jealousy would kill our relationship."
+    Endif
+    
+    endDate()
+    SceneEnd()
+    timeout(300, open_relationship)

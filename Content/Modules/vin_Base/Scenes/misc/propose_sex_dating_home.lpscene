@@ -1,0 +1,33 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24 
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Actor = getCompanion()
+    If !Actor.isValid() || !Actor.isDating()
+        Actor = getSpecific(Dating)
+    Endif
+    Actor.dress()
+    Actor.show(2)
+    If isTimingOut(propose_sex_dating_home)
+        "I'd better not ask for sex again so soon after last time! <Actor.name> is my <Actor.boyfriend_or_girlfriend>, not my personal sex slave."
+    Else
+        "The best thing about living together as a couple is that sex is much easier to come by ... Should I propose making love with <Actor.name> now?"
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            If Random(0, 50) < Actor:attractiontoplayer + interpersonal + Actor:perversion
+                Actor(Flirty):: "My <Player.handsome_or_beautiful> <Player.boyfriend_or_girlfriend> is in need? Well, then I have no choice but fulfil my duty then ..."
+                Sex(Actor, Player)
+                perversion += Random(0, 0.05)
+            Else
+                Actor(Sad):: "Sorry baby, but I'm not in the mood right now ..."
+            Endif
+            timeout(12, propose_sex_dating_home)
+        Endif
+    Endif
+    
+    SceneEnd()

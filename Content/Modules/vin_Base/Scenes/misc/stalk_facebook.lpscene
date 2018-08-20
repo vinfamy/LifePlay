@@ -1,0 +1,37 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24 
+WHO: none
+OTHER: none
+
+    SceneStart()
+    If isTimingOut(stalk_facebook)
+        "I don't feel like doing more online stalking for now ... Maybe I'll be in the mood again in an hour or two."
+    Else
+        Actor = getSpecific(Impregnated)
+        "Should I try to look for <Actor.name> online? The first time we met, I didn't quite manage to get <Actor.his_or_her> contacts."
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            intelligence += Random(0, 0.1)
+            If Random(0, 100) < intelligence
+                "Ah, found <Actor.him_or_her>!"
+                Actor.dress()
+                Actor.show(2)
+                "Let's send a friend request to <Actor.him_or_her>."
+                "An hour later ..."
+                If Random(0, 75) < Actor:attractiontoplayer || Random(0, 75) < Actor:rapportwithplayer || Actor:intelligence < Random(0, 50)
+                    "<Actor.name> accepted my friend request on Facebook. I knew I left a good first impression!"
+                    exchangeContact(Actor)
+                Else
+                    "Still no response ... <Actor.He_or_She> probably ignored my request."
+                Endif
+            Else
+                "Damn, I've spent hours trying to find <Actor.name> among the billions of Facebook users, to no avail. I think I'll just give up."
+            Endif
+            timeout(2, stalk_facebook)
+        Endif
+    Endif
+    
+    SceneEnd()

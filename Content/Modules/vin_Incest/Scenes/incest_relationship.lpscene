@@ -1,0 +1,63 @@
+WHAT: all
+WHERE: all
+WHEN: 0-24
+WHO: Actor = getCompanion(); If CurrentCompanion.isRelative() && CurrentCompanion:incest > 90 && Player.isInterestedIn(Actor) && CurrentCompanion.isInterestedIn(Player) && !CurrentCompanion.hasRelationship(Spouses, Dating)
+OTHER: !Player.isDating()
+
+    SceneStart()
+    CurrentCompanion.show(2)
+
+    passTime(0.2, 0.5)
+
+    "I know <Actor.name> is my <Actor.relationship> but we already crossed all sort of boundaries and tasted all the forbidden fruit. I think I've fallen in love with my own <Actor.relationship>. However, have I ever imagined <CurrentCompanion.him_or_her> as my <CurrentCompanion.boyfriend_or_girlfriend>?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "I have fallen in love with <CurrentCompanion.him_or_her> and I don't care that <Actor.he_or_she> is my <Actor.relationship> and I don't care what others think - they can call it incest if they want. But is this the right time when I should have the courage to ask <CurrentCompanion.him_or_her> to be my <CurrentCompanion.boyfriend_or_girlfriend>?"
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            Player(Anxious):: "Listen, can we talk privately for a bit?"
+            CurrentCompanion(Curious):: "Of course, <Player.name>. What is it?"
+            
+            If interpersonal < 50
+                "Alright, this is the moment. <Player.name>, you can do this! Be brave. Keep calm ... Keep calm ... Don't screw this up!"
+            Endif
+            
+            Player(Happy):: "You know, although we haven't known each other for too long, I have grown quite fond of you and I hope you feel the same ..."
+            Player(Happy):: "If so, I would love nothing more than to take our relationship to the next level and be able to call you my <CurrentCompanion.boyfriend_or_girlfriend>."
+            CurrentCompanion(Surprised):: "<Player.name>! I ..."                
+            CurrentCompanion(Happy):: "You're my <Actor.callplayer> but I think I've fallen in love with you, <Player.name>. Of course I'll be your <CurrentCompanion.boyfriend_or_girlfriend>!"
+            mood += 100
+            
+            "So we embraced and kissed, treasuring our first moment as a couple."
+            0:: [IsModEnabled(vin_VanillaPorn) && perversion > Random(0, 50)]|| [IsModEnabled(vin_VanillaRealistic) && WHERE == home]:: "Celebrate with sex, right here"
+            1:: "Continue our date"
+            
+            If 0
+                Player(Wink):: "Baby, I just thought of the perfect way to celebrate the start of our romance!"
+                CurrentCompanion(Flirty):: "I think I know exactly what you mean!"
+                Sex(Player, CurrentCompanion)
+                perversion += Random(0, 0.5)
+                CurrentCompanion.show(2)
+                "After having sex, we continued our date, now as a new couple."
+            Else
+                "We continued our date, now as a new couple."
+            Endif
+            Actor2 = generatePerson()
+            Actor2.cloneFrom(Actor)
+            Actor.deletePerson()
+            exchangeContact(Actor2)
+            Actor2.setDating()
+            loseHomeDating()
+        Else
+            "No, it's still too early. I want to get to know <CurrentCompanion.name> a bit more at least ..."
+        Endif
+    Else
+        "Nope, we might have had sex, but a relationship is too far. That's just asking for jail time."
+    Endif
+
+    SceneEnd()
+    timeout(300, incest_relationship)

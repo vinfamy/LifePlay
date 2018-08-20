@@ -31,7 +31,7 @@ OTHER: isAtHome()
             1:: "Turn <Peeping.him_or_her> down"
             
             If 0
-                Sex(Peeping, Actor)
+                Sex(Peeping, Player)
                 Peeping:incest += Random(0, 5)
             Endif        
         Endif

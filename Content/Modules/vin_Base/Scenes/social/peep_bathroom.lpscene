@@ -16,8 +16,8 @@ OTHER: Random(0, 100) < 0.1 || [Random(0, 100) < 5 && WHERE == nightclub]
             perversion += Random(0, 0.5)
             "Live pornography? Hell yeah, sign me up!"
             "I stood up on top of the toilet seat cover and started peeping at them."
-            Guy = generatePerson()
-            Girl = generatePerson()
+            Guy = generatePersonTemporary()
+            Girl = generatePersonTemporary()
             Sex(Guy, Girl)
             arousal += Random(0, 30)
             Guy.show(2)
