@@ -1,0 +1,60 @@
+WHAT: all
+WHERE: all
+WHEN: 20-4
+WHO: Actor = getCompanion(); If Player.isInterestedIn(Actor) && perversion - Actor:perversion > 40 && [Actor:attractiontoplayer > 10 || Actor:incest > 30]
+OTHER: none
+
+    SceneStart()
+    setBackground(street)
+    "<Actor.name> is such an innocent <Actor.guy_or_girl>. I reckon a little visit to that secret alley where couples come to have public sex could help <Actor.him_or_her> open up a bit ..."
+    0:: "Take <Actor.him_or_her> to a dark alley"
+    1:: "Not a good idea"
+    
+    If 0
+        "A while later ..."
+        Actor(Surprised):: "<Player.name>, where are you taking me to? This doesn't look safe ..."
+        Player(Flirty):: "Come on. Trust me. I'm here to protect you."
+        If Random(0, 200) < interpersonal + Actor:attractiontoplayer + Actor:incest + Actor:perversion + Actor:masochist 
+            Actor(Embarassed):: "Fine ... I trust you."
+            Actor:masochist += Random(0, 0.25)
+            Actor:perversion += Random(0, 0.25)
+            Actor(Shocked):: "Wait, are those two people ... having sex?"
+            Couple1 = generatePersonTemporary()
+            Couple2 = generatePersonTemporary()
+            While Couple2.isSameGender(Couple1)
+                Couple2 = generatePersonTemporary()
+            Endwhile
+            Actor.hide()
+            Player.hide()
+            Sex(Couple1, Couple2)
+            Couple1.hide()
+            Couple2.hide()
+            Player.show(0)
+            Actor.show(4)
+            "<Actor.name> is clearly turned on by the steamy intercourses unfolding in front of <Actor.him_or_her>. Maybe it's my chance to get lucky?"
+            0:: "Try to make out with <Actor.him_or_her>"
+            1:: "Maybe not"
+            
+            If 0
+                Player(Flirty):: "You're sweating a lot, <Actor.name>. Seeing these couples go at it is turning you on, isn't it?"
+                Player(Kiss):: "..."
+                If Random(100, 300) < interpersonal + Actor:attractiontoplayer + Actor:incest + Actor:perversion + Actor:masochist
+                    Actor(Kiss):: "..."
+                    Sex(Player, Actor)
+                    Actor:perversion += Random(0, 1)
+                    Actor.dress()
+                Else
+                    Actor(Angry):: "Get off me! I'm not that easy!"
+                Endif
+            Endif
+        Else
+            Actor(Angry):: "Hey, where are you taking me? No way I'm going in there!"
+            masochist -= Random(0, 0.25)
+            Actor:attractiontoplayer -= Random(0, 0.5)
+        Endif
+    Else
+        "Let's take this slow ... No way <Actor.he_or_she> would agree to go in such a place."
+    Endif
+    
+    SceneEnd()
+    timeout(200, co_ag_publicsex)

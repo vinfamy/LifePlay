@@ -1,8 +1,8 @@
 WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
 WHERE: all
 WHEN: 0 - 24
-WHO: Actor = getSpecific(ExDating); If !Actor.isMale() && Actor:masochist > 0 && Actor:martial < 50
-OTHER: Player.isMale() && Random(0, 100) < martial && Random(-100, -20) > masochist
+WHO: Actor = getSpecific(ExDating); If !Actor.isMale() && Actor:masochist > 0 && Actor:martial < 50 && Player.isMale() && Random(0, 100) < martial && Random(-100, -20) > masochist
+OTHER: none
 
     SceneStart()
     Actor.dress()

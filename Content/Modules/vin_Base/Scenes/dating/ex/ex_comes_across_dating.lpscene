@@ -24,4 +24,4 @@ OTHER: isWithCompanion() && CurrentCompanion.isDating()
     Endif
     
     SceneEnd()
-    timeout(200, ex_comes_across_dating)
+    timeout(1000, ex_comes_across_dating)

@@ -1,0 +1,40 @@
+WHAT: gamble
+WHERE: all
+WHEN: 0 - 24
+WHO: Actor = getCompanion(); If Random(50, 200) < Actor:attractiveness
+OTHER: isModEnabled(vin_NTR) && intelligence < Random(0, 80)*Random(0, 1)
+
+    SceneStart()
+    "Oh no, I have rotten lucky today. I have lost all my money."
+    Actor2 = generatePersonTemporary()
+    Actor2.dress()
+    Actor2.show(2)
+    Actor2(Evil):: "You lost it all. I think it's time you pay up!"
+    Actor2(Flirty):: "Or alternatively, I wouldn't say no if you offer the body of your <Actor.handsome_or_pretty> friend here to pay for your debt instead."
+    0:: "Pay up"
+    1:: "Convince <Actor.name> to sacrifice"
+
+    If 0
+        paying = true
+        Actor:rapportwithplayer += Random(0, 2)
+        masochist -= Random(0, 2)
+    Else
+        masochist += Random(0, 2)
+        If Random(100, 500) < interpersonal + Actor:attractiontoplayer + Actor:rapportwithplayer + Actor:perversion
+            Actor(Crying):: "I guess I have to save you ... I care about you, I don't want you to go broke. But you must promise to give up gambling from now!"
+            Sex(Actor2, Actor)
+            paying = false
+        Else
+            Actor(Furious):: "Do you have no shame? How could you ask me to be a mere object to exchange around?"
+            paying = true
+        Endif
+        Actor:attractiontoplayer -= Random(0, 5)
+        Actor:rapportwithplayer -= Random(0, 5)
+    Endif
+    
+    If paying
+        "I have no choice but to pay up ..."
+        money -= Random(1000, 10000)
+    Endif
+    SceneEnd()
+    timeout(2000, gamble_with_date)

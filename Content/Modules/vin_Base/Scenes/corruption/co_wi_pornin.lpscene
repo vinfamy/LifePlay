@@ -1,0 +1,30 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 17-24
+WHO: Actor = getRelative(Sibling, StepSibling, Cousin, Child, StepChild); Actor2 = Actor.getRelatedPerson(Dating); If Actor.livesWithPlayer() && Actor2:perversion - Actor:perversion > 40
+OTHER: isAtHome()
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor2.dress()
+    Actor2.show(3)
+    "My <Actor.relationship> is lying in <Actor.his_or_her> bed with <Actor.his_or_her> <Actor2.boyfriend_or_girlfriend> watching something on <Actor.his_or_her> TV screen."
+    "Wait, is that ... porn they're watching? That looks like far too much skin showing to be an innocent movie surely."
+    "What influence this <Actor2.guy_or_girl> is having on my <Actor.relationship>! <Actor.name> has always been such an innocent <Actor.guy_or_girl>."
+    0:: "Sabotage them"
+    1:: "Leave it"
+    
+    If 0
+        "That <Actor2.sleazy_or_slutty> <Actor2.asshole_or_bitch> is trying to corrupt my innocent <Actor.relationship>? Not happening under my watch!"
+        "I went ahead and switched off electricity in the apartment."
+        "Now, let's pretend it's nothing to do with me."
+        Player(Angry):: "Damn it, power cut again! Looks like I'll have to wash these clothes by hand then."
+        Actor2:rapportwithplayer -= Random(0, 2)
+    Else
+        "Nothing wrong with a couple watching porn together ..."
+        masochist += Random(0, 1)
+        Actor:perversion += Random(0, 0.5)
+    Endif
+    SceneEnd()
+    timeout(500, co_wi_pornin)

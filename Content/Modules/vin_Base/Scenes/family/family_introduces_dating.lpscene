@@ -12,6 +12,9 @@ OTHER: IsAtHome()
         Actor2 = generatePersonTemporary()
     Endwhile
     Actor2.makePermanent()
+    If Actor:perversion < 40 && Random(0, 100) < 50
+        Actor2:perversion += Random(0, 100)
+    Endif
     addNpcRelationship(Dating, Actor, Actor2)
     Actor(Happy):: "Here's <Actor2.name>, my new <Actor2.boyfriend_or_girlfriend>."
     Actor2.dress()

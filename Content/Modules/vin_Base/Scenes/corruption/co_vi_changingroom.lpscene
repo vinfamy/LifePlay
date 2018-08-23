@@ -1,0 +1,28 @@
+WHAT: all
+WHERE: department_store, clothes
+WHEN: 8-22
+WHO: Actor = getCompanion(); If Actor.isInterestedIn(Player) && [Actor:attractiontoplayer > 10 || Actor:incest > 30]
+OTHER: none
+
+    SceneStart()
+    Actor.hide()
+    "Hmm, let's try these clothes on. Don't want to buy them only to find out they don't fit."
+    "I need to take off my current clothes first."
+    Player.strip()
+    Actor.show(2)
+    Actor(Flirty):: "Damn it baby, trying out clothes with the door unlocked - you got me all horny. Mind if I join you in there?"
+    0:: "Let <Actor.him_or_her> in"
+    1:: "Turn <Actor.him_or_her> down"
+    
+    If 0
+        "I can't believe I would end up having sex in a public changing room ..."
+        Sex(Actor, Player)
+        perversion += Random(0, 2)
+        Actor:attractiontoplayer += Random(0, 0.5)
+        Actor.dress()
+    Else
+        Player(Angry):: "What are you doing? Get out now!"
+        Actor:attractiontoplayer -= Random(0, 0.25)
+    Endif
+    SceneEnd()
+    timeout(200, co_vi_changingroom)

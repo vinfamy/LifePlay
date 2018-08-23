@@ -1,0 +1,34 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 8-24
+WHO: Actor = getPerson(true); If Actor.isInterestedIn(Player) && Actor:perversion - perversion > 40 && Actor:attractiontoplayer > 30
+OTHER: none
+
+    SceneStart()
+    "It's my phone. I've got a new message."
+    Player(Shocked):: "What the hell!?"
+    Actor.show(2)
+    "<Actor.name> sent me <Actor.his_or_her> nude ..."
+    0:: "Say nothing"
+    1:: "Tell <Actor.him_or_her> off"
+    
+    If 0
+        perversion += Random(0, 0.25)
+        "That night ..."
+        setBackground(home)
+        "I know it's not the classiest thing to do, but for some reasons, I couldn't help but think about <Actor.name>'s nude photo ..."
+        0:: "Masturbate to it"
+        1:: "Resist the temptation"
+        
+        If 0
+            perversion += Random(0, 0.5)
+            "I guess nobody needs to know about this ..."
+            Filter(Solo)
+            Sex(Player)
+        Endif
+    Else
+        "I immediately texted <Actor.name>, making it clear that sending such a photo is totally inappropriate and not welcome."
+        Actor:attractiontoplayer -= Random(0, 1)
+    Endif
+    SceneEnd()
+    timeout(200, co_vi_dickpic)

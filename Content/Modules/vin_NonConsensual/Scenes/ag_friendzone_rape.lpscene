@@ -1,8 +1,8 @@
 WHAT: all
 WHERE: all
 WHEN: 0 - 24
-WHO: Actor = getCompanion(); If !Actor.isRelative() && !Actor.isMale() && Actor:attractiontoplayer < 10 && Player.isInterestedIn(Actor) && Random(70, 300) < Actor:attractiveness && !Actor.isDating()
-OTHER: Player.isMale()
+WHO: Actor = getCompanion(); If !Actor.isRelative() && !Actor.isMale() &&  !Actor.isDating()
+OTHER: Player.isInterestedIn(Actor) && Actor:attractiontoplayer < 10 && Random(70, 300) < Actor:attractiveness && Player.isMale()
 
     SceneStart()
     "<Actor.name> is smoking hot ... What a shame that <Actor.he_or_she> doesn't seem to be into me at all ... I feel stuck in the friend zone."

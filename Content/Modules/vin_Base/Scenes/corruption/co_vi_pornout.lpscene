@@ -1,0 +1,43 @@
+WHAT: all
+WHERE: all
+WHEN: 8-24
+WHO: Actor = getCompanion(); If Actor.isInterestedIn(Player) && Actor:perversion - perversion > 40 && [Actor:attractiontoplayer > 10 || Actor:incest > 30]
+OTHER: none
+
+    SceneStart()
+    setBackground(street)
+    
+    "I was hanging out with <Actor.name> when <Actor.he_or_she> insisted that I followed <Actor.him_or_her> somewhere. I have a feeling that <Actor.he_or_she> is up to no good ..."
+    "A while later ..."
+    "I knew it! My <Actor.sleazy_or_slutty> date is trying to take me to a cinema showing X-rated movies ..."
+    0:: "Refuse to go in"
+    1:: "It's just a movie"
+    
+    If 0
+        Player(Angry):: "Hey, who do you take me for? No way I'm going in there!"
+        "The cheek of <Actor.him_or_her> ... taking a classy <Player.gentleman_or_lady> like me to this fifthy establishment."
+        masochist -= Random(0, 0.25)
+        Actor:attractiontoplayer -= Random(0, 0.5)
+    Else
+        Player(Embarassed):: "Fine ... I guess since we're already here, watching a movie won't hurt."
+        perversion += Random(0, 0.5)
+        setBackground(cinema)
+        "I must admit: the sex scenes are steamy ... I'm feeling so aroused now. And it doesn't help that all the couples around are already getting all intimate. Let's just make sure <Actor.name> doesn't notice my rising arousal or my classy image will be ruined."
+        Actor(Flirty):: "You're sweating a lot, <Player.name>. This movie is turning you on, isn't it?"
+        "Damn it! I couldn't hide it from <Actor.him_or_her>."
+        Actor(Kiss):: "..."
+        "<Actor.name> is trying to make out with me ... It's also clear that <Actor.he_or_she> is looking for more than a kiss."
+        0:: "Let it happen"
+        1:: "Stop right there"
+        
+        If 0
+            Player(Kiss):: "..."
+            Sex(Actor, Player)
+            perversion += Random(0, 2)
+            Actor.dress()
+        Else
+            Player(Embarassed):: "Let's get out this place. I don't feel comfortable with all of this."
+        Endif
+    Endif
+    SceneEnd()
+    timeout(200, co_vi_pornout)

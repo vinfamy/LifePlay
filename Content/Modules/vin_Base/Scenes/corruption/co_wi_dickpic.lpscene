@@ -1,0 +1,26 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 8-20
+WHO: Actor = getRelative(Sibling, StepSibling, Cousin, Child, StepChild); Actor2 = Actor.getRelatedPerson(Dating); If Actor.livesWithPlayer() && Actor2:perversion - Actor:perversion > 40
+OTHER: isAtHome()
+
+    SceneStart()
+    "What's that sound? Ah, it's my <Actor.relationship> <Actor.name>'s phone. <Actor.He_or_She> must have forgotten it on the table ..."
+    "Wait, is that a nude pic? Let me see ..."
+    Actor2.show(2)
+    "It is ... It's that <Actor2.sleazy_or_slutty> <Actor2.guy_or_girl> <Actor2.name> that <Actor.name> has been seeing ..."
+    0:: "Text back to intimidate <Actor2.name>"
+    1:: "Put the phone back"
+
+    If 0
+        "That <Actor2.sleazy_or_slutty> <Actor2.asshole_or_bitch> is trying to corrupt my innocent <Actor.relationship>? Not happening under my watch!"
+        Player(Angry):: "Hey, it's <Actor.name>'s <Actor.callplayer> here! Stop sending my <Actor.relationship> these filthy pictures, will you? Or I'll beat you up!"
+        Actor2:rapportwithplayer -= Random(0, 2)
+    Else
+        "Perverted gifts in a relationship are normal. Nothing to worry about."
+        masochist += Random(0, 1)
+        Actor:perversion += Random(0, 0.5)
+    Endif
+    
+    SceneEnd()
+    timeout(500, co_wi_dickpic)

@@ -34,4 +34,4 @@ OTHER: none
     Endif
     
     SceneEnd()
-    timeout(500, come_across_ex_dating)
+    timeout(1500, come_across_ex_dating)

@@ -1,0 +1,93 @@
+WHAT: all
+WHERE: all
+WHEN: 17-23
+WHO: Actor = getCompanion(); If Actor.isInterestedIn(Player) && Actor:perversion - perversion > 40 && [Actor:attractiontoplayer > 10 || Actor:incest > 30]
+OTHER: none
+
+    SceneStart()
+    setBackground(street)
+    
+    "I was hanging out with <Actor.name> when <Actor.he_or_she> insisted that I followed <Actor.him_or_her> to <Actor.his_or_her> a house party a friend of <Actor.his_or_her> is hosting tonight."
+    0:: "Refuse"
+    1:: "Go to the house party"
+    
+    If 0
+        Player(Sad):: "Sorry, I'm not in the mood for parting today ... You guys have fun!"
+        Actor:attractiontoplayer -= Random(0, 0.5)
+        endDate()
+    Else
+        Player(Happy):: "Okay, let's go to your friend's house party then."
+        setBackground(home)
+        
+        Guest1 = generatePersonTemporary()
+        Guest1.dress()
+        Guest1.show(2)
+
+        Guest2 = generatePersonTemporary()
+        Guest2.dress()
+        Guest2.show(3)
+        
+        Actor(Happy):: "<Player.name>, meet my friends <Guest1.name> and <Guest2.name>!"
+        Player(Happy):: "Nice to meet you both!"
+        "An hour later ..."
+        "This house party isn't so bad ..."
+        intoxication += Random(0, 100)
+        Actor(Wink):: "Guys, let's play some strip poker!"
+        0:: "Join them"
+        1:: "Go home"
+        
+        If 0
+            Player(Embarassed):: "Okay then ... Let's play."
+            Actor(Flirty):: "Remember our usual rules: If anyone loses a round but has no clothes left, they have to touch themselves a bit for everyone else's enjoyment."
+            Guest1(Happy):: "Deal!"
+            Guest2(Happy):: "Sounds good to me."
+            "Damn it, it's too late to chicken out now ..."
+            round = 0
+            perversion += Random(0, 0.5)
+            masochist += Random(0, 0.25)
+            While choice == 0 && round < 10
+                "What should I do?"
+                0:: "Play another round"
+                1:: "Stop playing"
+            
+                If 0
+                    round += 1
+                    Random
+                        Loser = Player
+                        Loser = Actor
+                        Loser = Guest1
+                        Loser = Guest2
+                    endRandom
+                    Loser(Sad):: "Damn, I lost!"
+                    If Loser.isNaked()
+                        "No clothes left ... Some solo action it is then ..."
+                        Player.hide()
+                        Actor.hide()
+                        Guest1.hide()
+                        Guest2.hide()
+                        Filter(Solo)
+                        Sex(Loser)
+                        Player.show(0)
+                        Actor.show(4)
+                        Guest1.show(2)
+                        Guest2.show(3)
+                        Loser:perversion += Random(0, 0.25)                       
+                        Actor.dress()
+                    Else
+                        Loser(Embarassed):: "Off this goes then ..."
+                        Loser.stripOne()
+                        Loser:perversion += Random(0, 0.1)
+                    Endif
+                Endif
+            Endwhile
+            Actor(Happy):: "I think that's enough strip poker for tonight ... Thank you all for participating!"
+            "Eventually the party winded down and everyone went home."
+            Actor.dress()
+        Else
+            Player(Sad):: "I'd rather not ... I think I'd better get going now. Thank you for inviting me to this house party."
+            "Who does <Actor.he_or_she> take me for? Getting naked in front of a bunch of people I've just met over some poker - no way!"
+            endDate()
+        Endif
+    Endif
+    SceneEnd()
+    timeout(500, co_vi_strippoker)

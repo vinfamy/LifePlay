@@ -1,0 +1,43 @@
+WHAT: watch_a_movie_in
+WHERE: home
+WHEN: 8-24
+WHO: Actor = getCompanion(); If Actor.isInterestedIn(Player) && Actor:perversion - perversion > 40 && [Actor:attractiontoplayer > 10 || Actor:incest > 30]
+OTHER: isAtHome()
+
+    SceneStart()
+    Actor(Happy):: "That's a good movie. But I've got something even better."
+    Player(Surprised):: "Oh, have you? Let's watch it then."
+    "<Actor.name> took out a DVD from <Actor.his_or_her> bag and put it in the DVD player."
+    "The intro starts. The movie title is 'The Private Gladiator' ..."
+    "Hmm, I watched the one with Russell Crowe ... Maybe this is a sequel ..."
+    "A few minutes later ..."
+    "Oh no, this is clearly a porn parody. I can't believe that <Actor.name> tricked me into watching this obscene content."
+    0:: "Continue watching anyway"
+    1:: "Turn off the TV"
+    
+    If 0
+        "I don't want to come across as a prude ... Let's just bear this. It's only a movie, right ..."
+        "Half an hour later ..."
+        "I must admit: the sex scenes are steamy ... I'm feeling so aroused now. Let's make sure <Actor.name> doesn't notice that or my classy image will be ruined."
+        perversion += Random(0, 0.5)
+        Actor(Flirty):: "You're sweating a lot, <Player.name>. This movie is turning you on, isn't it?"
+        "Damn it! I couldn't hide it from <Actor.him_or_her>."
+        Actor(Kiss):: "..."
+        "<Actor.name> is trying to make out with me ... It's also clear that <Actor.he_or_she> is looking for more than a kiss."
+        0:: "Let it happen"
+        1:: "Stop right there"
+        
+        If 0
+            Player(Kiss):: "..."
+            Sex(Actor, Player)
+            perversion += Random(0, 1)
+            Actor.dress()
+        Else
+            "This is escalating way too quickly. I need to walk away and calm down."
+        Endif
+    Else    
+        Player(Angry):: "Hey, not cool! I'm not watching this sort of stuff with you."
+        Actor:attractiontoplayer -= Random(0, 1)
+    Endif
+    SceneEnd()
+    timeout(200, co_vi_pornin)

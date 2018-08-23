@@ -1,0 +1,55 @@
+WHAT: watch_a_movie
+WHERE: cinema
+WHEN: 0-24
+WHO: none
+OTHER: isWithCompanion() && CurrentCompanion.isInterestedIn(Player) && [[!CurrentCompanion.isRelative() && CurrentCompanion:attractiontoplayer > 30] || CurrentCompanion:incest > 50] && Random(50, 200) < Actor:perversion
+
+    SceneStart()
+    "I'm watching a movie with <CurrentCompanion.name>. It's really dark in here."
+    "What's that? <CurrentCompanion.name> is carassing my thigh. What a pervert!"
+    0:: "Grope <CurrentCompanion.him_or_her> back"
+    1:: "Ignore"
+    2:: "Walk out"
+    
+    If 0
+        "I decided to respond in kind and get handsy with my date and started caressing <CurrentCompanion.his_or_her> thighs."
+        "<CurrentCompanion.name> was clearly delighted by my receptive mood and increased <CurrentCompanion.his_or_her> intensity caressing me as well."
+        Player(Kiss):: "..."
+        CurrentCompanion(Kiss):: "..."
+        "Eventually, we started making out, right there in the theatre."
+        CurrentCompanion:attractiontoplayer += Random(0, 2)
+        0:: "Stop it there"
+        1:: perversion > 5:: "Invite <CurrentCompanion.him_or_her> home"
+        2:: isModEnabled(vin_VanillaPorn) && perversion > 50:: "Have sex right here"
+        
+        If 0
+            "That's enough. We should stop before a fellow cinema goer spots our shameless public display of affection."
+        Elseif 1
+            "I whispered into <CurrentCompanion.his_or_her> ear, suggesting that we go back to my place."
+            "<CurrentCompanion.name> nodded and soon enough, I was leading <CurrentCompanion.him_or_her> back to my apartment."
+            moveTo(home)
+            setBackground(home)
+            "As soon as we were inside, the passion became too much to resist any longer."
+            Sex(CurrentCompanion, Player)
+            perversion += Random(0, 0.25)
+            CurrentCompanion:attractiontoplayer += Random(0, 2)
+            CurrentCompanion:incest += Random(0, 2)
+            Endif
+        Else
+            "I whispered into <CurrentCompanion.his_or_her> ear, suggesting that we get much more intimate right here in the cinema."
+            "<CurrentCompanion.name> nodded and soon enough, we were undressing each other right there in the cinema."
+            Sex(CurrentCompanion, Player)
+            perversion += Random(0, 1)
+            CurrentCompanion:attractiontoplayer += Random(0, 2)
+            CurrentCompanion:incest += Random(0, 2)
+        Endif
+    Elseif 2
+        Player(Angry):: "What do you think you're doing, pervert?"
+        CurrentCompanion:attractiontoplayer -= Random(0, 2)
+        CurrentCompanion:incest -= Random(0, 2)
+        CurrentCompanion:rapportwithplayer -= Random(0, 2)       
+        endDate()
+    Endif
+    
+    SceneEnd()
+    timeout(48, cinema_with_date_passive)

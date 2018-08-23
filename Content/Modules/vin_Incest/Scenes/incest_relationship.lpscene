@@ -1,8 +1,8 @@
 WHAT: all
 WHERE: all
 WHEN: 0-24
-WHO: Actor = getCompanion(); If CurrentCompanion.isRelative() && CurrentCompanion:incest > 90 && Player.isInterestedIn(Actor) && CurrentCompanion.isInterestedIn(Player) && !CurrentCompanion.hasRelationship(Spouses, Dating)
-OTHER: !Player.isDating()
+WHO: Actor = getCompanion(); If CurrentCompanion.isRelative() && CurrentCompanion:incest > 85 && Player.isInterestedIn(Actor) && CurrentCompanion.isInterestedIn(Player) && !CurrentCompanion.hasRelationship(Spouses, Dating)
+OTHER: !Player.isDating() || [isModEnabled(vin_Polyamorous) && OpenRelationship()]
 
     SceneStart()
     CurrentCompanion.show(2)
@@ -33,7 +33,7 @@ OTHER: !Player.isDating()
             mood += 100
             
             "So we embraced and kissed, treasuring our first moment as a couple."
-            0:: [IsModEnabled(vin_VanillaPorn) && perversion > Random(0, 50)]|| [IsModEnabled(vin_VanillaRealistic) && WHERE == home]:: "Celebrate with sex, right here"
+            0:: "Celebrate with sex, right here"
             1:: "Continue our date"
             
             If 0
@@ -48,10 +48,14 @@ OTHER: !Player.isDating()
             Endif
             Actor2 = generatePerson()
             Actor2.cloneFrom(Actor)
+            Actor2:attrationtoplayer => Random(0, 100)
+            Actor2:incest => 0
             Actor.deletePerson()
             exchangeContact(Actor2)
             Actor2.setDating()
             loseHomeDating()
+            Actor2.blockNpcRelationships()
+            endDate()
         Else
             "No, it's still too early. I want to get to know <CurrentCompanion.name> a bit more at least ..."
         Endif

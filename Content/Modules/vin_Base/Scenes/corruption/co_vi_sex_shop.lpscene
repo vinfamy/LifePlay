@@ -1,0 +1,58 @@
+WHAT: all
+WHERE: all
+WHEN: 8-24
+WHO: Actor = getCompanion(); If Actor.isInterestedIn(Player) && Actor:perversion - perversion > 40 && [Actor:attractiontoplayer > 10 || Actor:incest > 30]
+OTHER: none
+
+    SceneStart()
+    setBackground(street)
+    "I was hanging out with <Actor.name> when <Actor.he_or_she> insisted that I followed <Actor.him_or_her> to some shop. I have a feeling that <Actor.he_or_she> is up to no good ..."
+    "A while later ..."
+    "I knew it! My <Actor.sleazy_or_slutty> date is trying to take me to a sex shop ..."
+    0:: "Refuse to go in"
+    1:: "A little look won't hurt"
+    
+    If 0
+        Player(Angry):: "Hey, who do you take me for? No way I'm going in there!"
+        "The cheek of <Actor.him_or_her> ... taking a classy <Player.gentleman_or_lady> like me to this fifthy establishment."
+        masochist -= Random(0, 0.25)
+        Actor:attractiontoplayer -= Random(0, 0.5)
+    Else
+        Player(Embarassed):: "Fine ... I guess since we're already here, a little look around won't hurt."
+        perversion += Random(0, 0.25)
+        setBackground(department_store)
+        "<Actor.name> is clearly in <Actor.his_or_her> element in this shop. The shopkeeper greeted <Actor.him_or_her> as if <Actor.he_or_she> is a regular customer."
+        Actor(Flirty):: "Why don't you take a seat over the counter over there and try this toy, <Player.beautiful_or_handsome>? I'll be happy to buy it for you if you find it ... satisfactory."
+        "What the hell? <Actor.name> wants me to try this <Player.Fleshlight_or_dildo> right here, in front of all the sex shop customers?"
+        0:: "No way!"
+        1:: "Alright ..."
+        
+        If 0
+            Player(Angry):: "In your dream I will do that! A self-respecting <Player.man_or_woman> like me doesn't have any use for such toys, let alone try it in public."
+        Else
+            "Playing with a sex toy in the middle of the sex shop in front of everyone ... It's shameless, degrading yet so ... tempting."
+            masochist += Random(0, 0.25)
+            perversion += Random(0, 0.5)
+            "I took the <Player.Fleshlight_or_dildo> off <Actor.name>'s hand, walked towards the counter, sat down, took off my <Player.pants_or_panties> and started playing with it."
+            Player(Pain):: "Ah ..."
+            "Damn this thing does feel so good ..."
+            Player(Pain):: "Ahhhhhh Ahhhhhh Ahhhhhh"
+            "My moaning has attracted the attention all the other customers who now circle around me to enjoy the show ..."
+            "As I was nearing orgasm, <Actor.name> came closer and started to caress my sensitive spot. It's clear <Actor.he_or_she> wants a grand finale for this little sexy show <Actor.he_or_she> somehow convinced me to put on."
+            0:: "Let <Actor.him_or_her>"
+            1:: "This is going too far ..."
+            
+            If 0
+                "The <Player.Fleshlight_or_dildo> has got me all hot and bothered ... I really need a <Actor.man_or_woman>'s touch now ... As shameless as doing it in front of all the sex shop customers is."
+                Sex(Actor, Player)
+                perversion += Random(0, 1)
+                Actor.dress()
+            Else
+                arousal += Random(0, 50)
+                "Playing with a sex toy in public is shameless enough ... no way I'm having intercourse right here."
+            Endif
+        Endif
+    Endif
+    
+    SceneEnd()
+    timeout(200, co_vi_sex_shop)

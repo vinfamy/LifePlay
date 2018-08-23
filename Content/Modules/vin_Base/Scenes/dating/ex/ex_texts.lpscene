@@ -25,4 +25,4 @@ OTHER: none
     Endif
     
     SceneEnd()
-    timeout(48, ex_texts)
+    timeout(200, ex_texts)

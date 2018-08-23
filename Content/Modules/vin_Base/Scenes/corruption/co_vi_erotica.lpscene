@@ -1,0 +1,34 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 8-20
+WHO: Actor = getPerson(true); If Actor.isInterestedIn(Player) && Actor:perversion - perversion > 40 && Actor:attractiontoplayer > 30
+OTHER: isAtHome()
+
+    SceneStart()
+    "Hmm, what's this? I've got a parcel delivered to me!"
+    "It's a gift from <Actor.name> ... 'I hope you enjoy this book. I surely did.'"
+    "That's weird ... <Actor.name> is not exactly a scholar. Let's unpack it ..."
+    "It's an erotic book!"
+    0:: "Thank <Actor.name> for the gift"
+    1:: "Tell <Actor.him_or_her> off"
+    
+    If 0
+        perversion += Random(0, 0.25)
+        "As much as it's a perverted gift ... It's a gift after all. I can't be so rude."
+        "I texted <Actor.name> to thank <Actor.him_or_her> for the gift."
+        "That night ..."
+        "I know it's not the classiest thing to do, but for some reasons, I couldn't help but think about <Actor.name>'s sleazy gift ..."
+        0:: "Read the erotica"
+        1:: "Resist the temptation"
+        
+        If 0
+            perversion += Random(0, 0.25)
+            "I guess nobody needs to know about this ... I'm only reading this for its ... artistic value."
+        Endif
+    Else
+        "I immediately texted <Actor.name>, making it clear such a gift is totally inappropriate and not welcome."
+        Actor:attractiontoplayer -= Random(0, 1)
+    Endif
+    
+    SceneEnd()
+    timeout(200, co_vi_erotica)

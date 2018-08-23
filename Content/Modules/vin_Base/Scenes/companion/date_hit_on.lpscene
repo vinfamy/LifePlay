@@ -1,0 +1,26 @@
+WHAT: all
+WHERE: all, -home
+WHEN: 0-24
+WHO: Actor = getCompanion(); If Random(50, 200) < Actor:attractiveness
+OTHER: none
+
+    SceneStart()
+    Actor2 = generatePersonTemporary()
+    Actor2.dress()
+    Actor2.show(2)
+    Actor2(Flirty):: "Aren't you an eye-candy? What's your name? I'm <Actor2.name>. Let's go out some time."
+    "What a <Actor2.sleazy_or_slutty> <Actor2.asshole_or_bitch>! Trying to pick up <Actor.name> just like that while completely ignoring me. As if I wasn't even there!"
+    0:: "Shut <Actor2.name> down"
+    1:: "Ignore"
+    
+    If 0
+        Player(Angry):: "Fuck off! <Actor.He_or_She>'s taken!"
+        Actor:attractiontoplayer += Random(0, 2)
+        masochist -= Random(0, 1)
+    Else
+        "No point making a big deal of this ... <Actor.name> is the type of <Actor.guy_or_girl> that gets a lot of attention anyway."
+        Actor:attractiontoplayer -= Random(0, 2)
+        masochist += Random(0, 1)
+    Endif
+    SceneEnd()
+    timeout(24, date_hit_on)

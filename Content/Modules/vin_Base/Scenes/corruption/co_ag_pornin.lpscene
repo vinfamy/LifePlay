@@ -1,0 +1,46 @@
+WHAT: watch_a_movie_in
+WHERE: home
+WHEN: 8-24
+WHO: Actor = getCompanion(); If Player.isInterestedIn(Actor) && perversion - Actor:perversion > 40 && [Actor:attractiontoplayer > 10 || Actor:incest > 30]
+OTHER: isAtHome()
+
+    SceneStart()
+    "I've just finished watching a movie with <Actor.name>, which reminded me that I happened to have a porn dvd in my bag right now ..."
+    0:: "Trick <Actor.him_or_her> into watching it together"
+    1:: "Maybe not"
+    
+    If 0
+        Player(Happy):: "That's a good movie. But I've got something even better."
+        Actor(Surprised):: "Oh, have you? Let's watch it then."
+        "I took out the DVD from my bag and put it in the DVD player."
+        "A few minutes later ..."
+        "The first sex scene is starting. It should be obvious now what kind of movie this is. Let's see how <Actor.name> reacts ..."        
+        If Random(0, 200) < interpersonal + Actor:attractiontoplayer + Actor:incest + Actor:perversion + Actor:masochist
+            "To my pleasant surprise, <Actor.name> didn't seem to mind and continued watching ..."
+            Actor:perversion += Random(0, 0.5)
+            "Half an hour later ..."
+            "<Actor.name> is clearly turned on by the steamy sex scenes unfolding in front of <Actor.him_or_her>. Maybe it's my chance to get lucky?"
+            0:: "Try to make out with <Actor.him_or_her>"
+            1:: "Maybe not"
+            
+            If 0
+                Player(Flirty):: "You're sweating a lot, <Actor.name>. This movie is turning you on, isn't it?"
+                Player(Kiss):: "..."
+                If Random(100, 300) < interpersonal + Actor:attractiontoplayer + Actor:incest + Actor:perversion + Actor:masochist
+                    Actor(Kiss):: "..."
+                    Sex(Actor, Player)
+                    Actor:perversion += Random(0, 1)
+                    Actor.dress()
+                Else
+                    Actor(Angry):: "Get off me! I'm not that easy!"
+                Endif
+            Endif
+        Else    
+            Actor(Angry):: "Hey, not cool! I'm not watching this sort of stuff with you."
+            Actor:attractiontoplayer -= Random(0, 1)
+        Endif
+    Else
+        "Knowing <Actor.name>, <Actor.he_or_she> would surely walk out the minute <Actor.he_or_she> realizes it's a porn movie."
+    Endif
+    SceneEnd()
+    timeout(200, co_ag_pornin)

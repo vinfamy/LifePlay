@@ -1,0 +1,25 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 8-20
+WHO: Actor = getRelative(Sibling, StepSibling, Cousin, Child, StepChild); Actor2 = Actor.getRelatedPerson(Dating); If Actor.livesWithPlayer() && Actor2:perversion - Actor:perversion > 40
+OTHER: isAtHome()
+
+    SceneStart()
+    "Hmm, what's this? It's a parcel for my <Actor.relationship> <Actor.name> ..."
+    "It's a gift from <Actor.his_or_her> <Actor2.boyfriend_or_girlfriend> <Actor2.name> ... 'I hope you enjoy this book. I surely did.'"
+    "Let me guess: it's not exactly the Bible that <Actor2.sleazy_or_slutty> <Actor2.guy_or_girl> is sending my <Actor.relationship>, is it? I'm getting curious now. Let's unpack it ..."
+    "It's an erotic book!"
+    0:: "Throw it away"
+    1:: "Repack it"
+
+    If 0
+        "That <Actor2.sleazy_or_slutty> <Actor2.asshole_or_bitch> is trying to corrupt my innocent <Actor.relationship>? Not happening under my watch!"
+        Actor2:rapportwithplayer -= Random(0, 2)
+    Else
+        "Perverted gifts in a relationship are normal. Nothing to worry about."
+        masochist += Random(0, 1)
+        Actor:perversion += Random(0, 0.5)
+    Endif
+    
+    SceneEnd()
+    timeout(500, co_wi_erotica)

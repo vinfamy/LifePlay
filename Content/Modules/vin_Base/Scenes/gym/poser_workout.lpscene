@@ -1,4 +1,4 @@
-WHAT: do_cardio, lift_weight
+WHAT: do_cardio, lift_weights
 WHERE: sports_centre
 WHEN: 0 - 24
 WHO: none

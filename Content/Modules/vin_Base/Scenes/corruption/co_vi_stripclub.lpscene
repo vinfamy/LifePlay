@@ -1,0 +1,78 @@
+WHAT: all
+WHERE: all
+WHEN: 20-3
+WHO: Actor = getCompanion(); If Actor.isInterestedIn(Player) && Actor:perversion - perversion > 40 && [Actor:attractiontoplayer > 10 || Actor:incest > 30]
+OTHER: none
+
+    SceneStart()
+    setBackground(street)
+    
+    "I was hanging out with <Actor.name> when <Actor.he_or_she> insisted that I followed <Actor.him_or_her> somewhere. I have a feeling that <Actor.he_or_she> is up to no good ..."
+    "A while later ..."
+    "I knew it! My <Actor.sleazy_or_slutty> date is trying to take me to a stripclub ..."
+    0:: "Refuse to go in"
+    1:: "It's just naked people dancing, right?"
+    
+    If 0
+        Player(Angry):: "Hey, who do you take me for? No way I'm going in there!"
+        "The cheek of <Actor.him_or_her> ... taking a classy <Player.gentleman_or_lady> like me to this fifthy establishment."
+        masochist -= Random(0, 0.25)
+        Actor:attractiontoplayer -= Random(0, 0.5)
+    Else
+        Player(Embarassed):: "Fine ... I guess since we're already here, let's see what all the fuss is about."
+        perversion += Random(0, 0.5)
+        setBackground(nightclub)
+        Stripper = generatePersonTemporary()
+        While !Player.isSameGender(Stripper)
+            Stripper = generatePersonTemporary()
+        Endwhile
+        
+        Stripper2 = generatePersonTemporary()
+        While !Player.isSameGender(Stripper2)
+            Stripper2 = generatePersonTemporary()
+        Endwhile
+        Stripper.blendPreset(twenties)
+        Stripper2.blendPreset(twenties)
+        
+        If Stripper.isMale()
+            Stripper.blendPreset(bodybuilder)
+        Else
+            Stripper.blendpreset(hourglass1_F)
+        Endif
+        Stripper.randomizeFace()
+        Stripper.randomizeHairs()
+        
+        If Stripper2.isMale()
+            Stripper2.blendPreset(bodybuilder)
+        Else
+            Stripper2.blendpreset(hourglass1_F)
+        Endif
+        Stripper2.randomizeFace()
+        Stripper2.randomizeHairs()
+        
+        Stripper.show(2)
+        Stripper2.show(3)
+        
+        "Wow, these strippers are impressive I must say ..."
+        Actor(Wink):: "You see how the professionals do it? I bet you can't take off your clothes as seductively as they can ..."
+        0:: "Of course I can!"
+        1:: "I'm not a stripper"
+        
+        If 0
+            Player(Angry):: "Of course I can! Do you think I'm not sexy enough?"
+            "I might not be able to pole dance, but taking off my clothes and looking sexy doing it? Of course I can do that."
+            perversion += Random(0, 1)
+            While !Player.isNaked()
+                "Off this goes ..."
+                Player.stripOne()
+            Endwhile
+            Player(Angry):: "Happy now? Are you still doubting my ability?"
+            Actor(Flirty):: "Not anymore, darling. You didn't see that coming from you."
+            "Oh god, did I just do that? One minute I'm a classy <Player.gentleman_or_lady>, the next I'm a stripper ... Was it my competitiveness and ego or was it my inner slut?"
+        Else
+            Player(Irritated):: "Well, that's why they're strippers and I'm not."
+            "Nice try, <Actor.name>. Better luck next time though."
+        Endif
+    Endif
+    SceneEnd()
+    timeout(200, co_vi_stripclub)

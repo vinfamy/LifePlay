@@ -1,8 +1,8 @@
 WHAT: go_to_the_bathroom
 WHERE: sports_centre
 WHEN: 0 - 24
-WHO: none
-OTHER: Player.isMale() && Random(50, 1000) < perversion
+WHO: Actor2 = getPerson(); If !isWithCompanion() && Player.isMale() && Random(50, 1000) < perversion
+OTHER: none
 
     SceneStart()
     "The gym is so empty today. Maybe I should peep on the female locker room?"

@@ -1,0 +1,36 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getSpecific(Dating); If Actor:attractiontoplayer > 0
+OTHER: isAtDatingHome() && Random(50, 300) < perversion + sneak
+
+    SceneStart()
+    "That's the sound of water running. My <Actor.boyfriend_or_girlfriend> <Actor.name> must be using the shower."
+    0:: "Peep on <Actor.him_or_her>"
+    1:: "I'd rather do something else now"
+    
+    If 0
+        Actor.show(2)
+        setBackground(shower)
+        Filter(Shower)
+        arousal += Random(0, 20)
+        Sex(Actor)
+        Actor.show(2)
+        Player.show(0)
+        "Wow that was hot watching <Actor.him_or_her>. I'm <Actor.his_or_her> <Player.boyfriend_or_girlfriend> after all, maybe I can just join <Actor.him_or_her>?"
+        0:: "Join in"
+        1:: "Leave"
+        
+        If 0
+            Player(Flirty):: "Damn it baby, taking the shower with the door unlocked - you got me all horny. Mind if I join you in there?"            
+            If Random(0, 200) < interpersonal + Actor:attractiontoplayer + Actor:perversion
+                Sex(Player, Actor)
+                Actor:perversion += Random(0, 0.5)
+                Actor:attractiontoplayer += Random(0, 0.5)
+            Else
+                Actor(Sad):: "Sorry baby, but I'm not in the mood."
+                Actor:attractiontoplayer -= Random(0, 0.25)
+            Endif
+    Endif
+    SceneEnd()
+    timeout(100, co_ag_shower)

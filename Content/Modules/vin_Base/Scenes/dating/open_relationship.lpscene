@@ -1,7 +1,7 @@
 WHAT: all, -go_to_the_bathroom
 WHERE: all, -toilets, -PC, -office
 WHEN: 0-24
-WHO: Companion = getCompanion(); If CurrentCompanion.isDating() && CurrentCompanion:attractiontoplayer > 40
+WHO: Companion = getCompanion(); If CurrentCompanion.isDating() && CurrentCompanion:attractiontoplayer > 20
 OTHER: !OpenRelationship() && Random(50, 100) < perversion
 
     SceneStart()

@@ -1,0 +1,25 @@
+WHAT: bathe
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getSpecific(Dating); If Random(75, 300) < Actor:attractiontoplayer + Actor:perversion
+OTHER: isAtDatingHome()
+
+    SceneStart()
+    setBackground(shower)
+    Filter(Shower)
+    Sex(Player)
+    Actor.show(2)
+    Actor(Flirty):: "Damn it baby, taking the shower with the door unlocked - you got me all horny. Mind if I join you in there?"
+    0:: "Let <Actor.him_or_her> in"
+    1:: "Turn <Actor.him_or_her> down"
+    
+    If 0
+        Sex(Actor, Player)
+        perversion += Random(0, 0.5)
+        Actor:attractiontoplayer += Random(0, 0.5)
+    Else
+        Player(Sad):: "Sorry baby, but I'm not in the mood."
+        Actor:attractiontoplayer -= Random(0, 0.25)
+    Endif
+    SceneEnd()
+    timeout(100, co_vi_shower)

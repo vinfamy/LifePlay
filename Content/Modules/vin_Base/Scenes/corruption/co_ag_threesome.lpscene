@@ -1,0 +1,48 @@
+WHAT: all
+WHERE: all, -home
+WHEN: 17-22
+WHO: Actor = getCompanion(); Actor2 = getSpecific(Dating); If !Actor.isRelative() && Actor.isInterestedIn(Player) && perversion - Actor:perversion > 40 && Actor:attractiontoplayer > 10 && Actor2:attractiontoplayer > 10
+OTHER: OpenRelationship()
+
+    SceneStart()
+    setBackground(street)
+    
+    "<Actor.name> is such an innocent <Actor.guy_or_girl>. I reckon my <Actor2.boyfriend_or_girlfriend> and I could seduce <Actor.him_or_her> into a threesome and help <Actor.him_or_her> open up a bit ..."
+    0:: "Invite <Actor.name> over for 'dinner'"
+    1:: "Not a good idea"
+    
+    If 0
+        If Random(0, 200) < interpersonal + Actor:attractiontoplayer + Actor:incest + Actor:perversion + Actor:masochist
+            Actor:masochist += Random(0, 0.25)
+            Actor:perversion += Random(0, 0.25)
+            setBackground(home)
+            Actor2.dress()
+            Actor2.show(2)
+            Actor(Happy):: "Nice to see you again, <Actor2.name>."
+            Actor2(Happy):: "The pleasure is all mine, <Actor.name>. Come in, dinner's ready!"
+            "An hour later ..."
+            Actor(Happy):: "Thank you for dinner, you two. I think I'd better get going."
+            Player(Flirty):: "You wouldn't leave before finishing dessert, would you?"
+            Actor(Confused):: "What do you mean? We just had cake, didn't we?"
+            Player(Flirty):: "I mean this dessert ..."
+            Player(Kiss):: "..."
+            Actor(Angry):: "<Player.name>! What are you doing? Your <Actor2.boyfriend_or_girlfriend> is right here!"
+            Actor2(Kiss):: "..."
+            Actor2(Flirty):: "Don't worry about it, honey. Just sit back and relax. My <Player.boyfriend_or_girlfriend> and I talked about this - we're in an open relationship you see ..."
+            If Random(100, 300) < interpersonal + Actor:attractiontoplayer + Actor:incest + Actor:perversion + Actor:masochist
+                Actor(Kiss):: "..."
+                Sex(Player, Actor, Actor2)
+                perversion += Random(0, 3)
+                Actor.dress()
+            Else
+                Actor(Embarassed):: Sorry, I don't feel comfortable with all of this. You two should go find someone else."
+                endDate()
+            Endif
+        Else
+            Actor(Sad):: "Sorry, but I've eaten."
+            Actor:masochist -= Random(0, 0.25)
+            Actor:attractiontoplayer -= Random(0, 0.25)
+        Endif
+    Endif
+    SceneEnd()
+    timeout(500, co_ag_threesome)

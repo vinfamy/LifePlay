@@ -1,0 +1,48 @@
+WHAT: all
+WHERE: all
+WHEN: 8-24
+WHO: Actor = getCompanion(); If Player.isInterestedIn(Actor) && perversion - Actor:perversion > 40 && [Actor:attractiontoplayer > 10 || Actor:incest > 30]
+OTHER: none
+
+    SceneStart()
+    setBackground(street)
+    "<Actor.name> is such an innocent <Actor.guy_or_girl>. I reckon a little visit to my favorite X-rated cinema could help <Actor.him_or_her> open up a bit ..."
+    0:: "Take <Actor.him_or_her> to a porn cinema"
+    1:: "Not a good idea"
+    
+    If 0
+        "A while later ..."
+        Actor(Surprised):: "<Player.name>, where are you taking me to? Wait, is this cinema showing ... adult movies?"
+        Player(Flirty):: "Come on. You're an adult - you are missing out by not watching these pieces of art ..."
+        If Random(0, 200) < interpersonal + Actor:attractiontoplayer + Actor:incest + Actor:perversion + Actor:masochist 
+            Actor(Embarassed):: "Fine ... I guess since we're already here, watching a movie won't hurt."
+            Actor:perversion += Random(0, 0.5)
+            setBackground(cinema)
+            "Half an hour later ..."
+            "<Actor.name> is clearly turned on by the steamy sex scenes unfolding in front of <Actor.him_or_her>. And it certainly helps that all the couples around us are already getting all intimate. Maybe it's my chance to get lucky?"
+            0:: "Try to make out with <Actor.him_or_her>"
+            1:: "Maybe not"
+            
+            If 0
+                Player(Flirty):: "You're sweating a lot, <Actor.name>. This movie is turning you on, isn't it?"
+                Player(Kiss):: "..."
+                If Random(100, 300) < interpersonal + Actor:attractiontoplayer + Actor:incest + Actor:perversion + Actor:masochist
+                    Actor(Kiss):: "..."
+                    Sex(Actor, Player)
+                    Actor:perversion += Random(0, 1)
+                    Actor.dress()
+                Else
+                    Actor(Angry):: "Get off me! I'm not that easy!"
+                Endif
+            Endif
+        Else
+            Actor(Angry):: "Hey, who do you take me for? No way I'm going in there!"
+            masochist -= Random(0, 0.25)
+            Actor:attractiontoplayer -= Random(0, 0.5)
+        Endif
+    Else
+        "Let's take this slow ... No way <Actor.he_or_she> would agree to go in such a place."
+    Endif
+    
+    SceneEnd()
+    timeout(200, co_ag_pornout)

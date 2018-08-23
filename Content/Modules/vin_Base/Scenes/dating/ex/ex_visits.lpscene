@@ -86,4 +86,4 @@ OTHER: isAtHome()
     Endif
     
     SceneEnd()
-    timeout(96, ex_visits)
+    timeout(400, ex_visits)

@@ -1,8 +1,8 @@
 WHAT: all, -go_to_the_bathroom
 WHERE: bar, nightclub
 WHEN: 21 - 4
-WHO: none
-OTHER: Player.isMale() && Random(40, 500) < perversion && Random(-100, 0) > masochist
+WHO: Actor2 = getPerson(); If !isWithCompanion() && Player.isMale() && Random(40, 500) < perversion && Random(-100, 0) > masochist
+OTHER: none
 
     SceneStart()
     Actor = generatePersonTemporary()

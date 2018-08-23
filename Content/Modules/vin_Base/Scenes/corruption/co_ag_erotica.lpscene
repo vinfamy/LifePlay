@@ -1,0 +1,32 @@
+WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
+WHERE: all
+WHEN: 8-20
+WHO: Actor = getPerson(true); If Player.isInterestedIn(Actor) && perversion - Actor:perversion > 40 && Actor:attractiveness > 60
+OTHER: Random(65, 300) < perversion
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    "<Actor.name> is a <Actor.handsome_or_beautiful> <Actor.guy_or_girl> yet <Actor.he_or_she> is so innocent. Maybe a perverted gift like an erotic book would encourage <Actor.him_or_her> to open up <Actor.his_or_her> mind a bit ..."
+    0:: "Send <Actor.name> this gift"
+    1:: "That's a bad idea"
+    
+    If 0
+        money -= Random(10, 40)
+        "Later that day ..."       
+        If Random(0, 200) < interpersonal + Actor:attractiontoplayer + Actor:incest + Actor:perversion + Actor:masochist
+            Actor:perversion += Random(0, 0.25)
+            "<Actor.name> just texted me to thank me for the gift. Maybe <Actor.he_or_she> is not so innocent after all ..."           
+            If Random(0, 250) < interpersonal + Actor:attractiontoplayer + Actor:incest + Actor:perversion + Actor:masochist
+                Actor:perversion += Random(0, 0.25)
+            Endif
+        Else
+            "<Actor.name> texted me, making it clear such a gift is totally inappropriate and not welcome. Damn, I screwed up big time here."
+            Actor:attractiontoplayer -= Random(0, 1)
+        Endif
+    Else
+        "That's a stupid idea. <Actor.name> is far too self-righteous to ever accept such a gift."
+    Endif
+    
+    SceneEnd()
+    timeout(200, co_ag_erotica)

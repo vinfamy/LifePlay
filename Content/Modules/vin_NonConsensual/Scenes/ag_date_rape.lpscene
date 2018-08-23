@@ -1,8 +1,8 @@
 WHAT: all, -go_to_the_bathroom
 WHERE: bar, nightclub
 WHEN: 21 - 4
-WHO: Actor = getCompanion(); If !Actor.isRelative() && !Actor.isDating() && !Actor.isMale() && Random(50, 200) < Actor:attractiveness && Actor:attractiontoplayer < 10
-OTHER: Player.isMale() && Random(40, 500) < perversion && Random(-100, 0) > masochist
+WHO: Actor = getCompanion(); If !Actor.isRelative() && !Actor.isDating() && !Actor.isMale()
+OTHER: Random(50, 200) < Actor:attractiveness && Actor:attractiontoplayer < 10 && Player.isMale() && Random(40, 500) < perversion && Random(-100, 0) > masochist
 
     SceneStart()
     Actor.dress()
@@ -41,6 +41,7 @@ OTHER: Player.isMale() && Random(40, 500) < perversion && Random(-100, 0) > maso
             SexNoAffair(Player, Actor)
             Actor:rapportwithplayer => -100
             Actor:attractiontoplayer => -100
+            endDate()
             blockContact(Actor)
         Else
             Player(Angry):: "I'm not Bill Cosby! What kind of bartender are you?"

@@ -1,8 +1,8 @@
 WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 0 - 24
-WHO: Actor = getSpecific(Dating); Actor2 = getPerson(true); If !Actor.isMale() && Actor:perversion < Random(0, 100)*Random(0, 1) && Random(50, 200) < Actor2:perversion && Random(50, 200) < Actor2:rapportwithplayer
-OTHER: isModEnabled(vin_NTR) && Player.isMale() && Random(50, 100) < masochist && Random(80, 500) < perversion
+WHO: Actor = getSpecific(Dating); Actor2 = getPerson(true); If !Actor.isMale() && Actor2.isMale() && Random(50, 200) < Actor2:rapportwithplayer && isModEnabled(vin_NTR) && Actor:perversion < Random(0, 100)*Random(0, 1) && Random(50, 200) < Actor2:perversion && Player.isMale() && Random(50, 100) < masochist && Random(80, 500) < perversion
+OTHER: none
 
     SceneStart()
     "<Actor2.name> is one of my best friends and I can tell <Actor2.he_or_she> really finds my <Actor.boyfriend_or_girlfriend> <Actor.name> attractive. I don't mind it so much really. In fact, my biggest fantasy is to watch <Actor2.name> fuck <Actor.name>. There's no way <Actor.name> would ever agree to that willingly though ..."

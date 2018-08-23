@@ -41,7 +41,7 @@ Else
         Friend:: "Oh? That's a shame. I'll see you around then."
     Endif
     
-    timeout(2, call_invite)
+    timeout(6, call_invite)
 Endif
 
 sceneEnd()

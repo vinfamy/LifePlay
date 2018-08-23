@@ -1,0 +1,56 @@
+WHAT: all
+WHERE: all, -home
+WHEN: 20-4
+WHO: Actor = getCompanion(); If Actor.isInterestedIn(Player) && Actor:perversion - perversion > 40 && [Actor:attractiontoplayer > 10 || Actor:incest > 30]
+OTHER: none
+
+    SceneStart()
+    setBackground(street)
+    
+    "I was hanging out with <Actor.name> when <Actor.he_or_she> insisted that I followed <Actor.him_or_her> somewhere. I have a feeling that <Actor.he_or_she> is up to no good ..."
+    "A while later ..."
+    "I knew it! My <Actor.sleazy_or_slutty> date is trying to take me to some dark alley. It couldn't possibly look any dodgier ..."
+    0:: "Refuse to go in"
+    1:: "I trust <Actor.him_or_her>"
+    
+    If 0
+        Player(Angry):: "Hey, where are you taking me? No way I'm going in there!"
+        "The cheek of <Actor.him_or_her> ... taking a classy <Player.gentleman_or_lady> like me to some dark alley."
+        masochist -= Random(0, 0.25)
+        Actor:attractiontoplayer -= Random(0, 0.5)
+    Else
+        masochist += Random(0, 0.25)
+        perversion += Random(0, 0.25)
+        "Wait, are those two people ... having sex?"
+        Couple1 = generatePersonTemporary()
+        Couple2 = generatePersonTemporary()
+        While Couple2.isSameGender(Couple1)
+            Couple2 = generatePersonTemporary()
+        Endwhile
+        Actor.hide()
+        Player.hide()
+        Sex(Couple1, Couple2)
+        Couple1.hide()
+        Couple2.hide()
+        Player.show(0)
+        Actor.show(4)
+        "Oh god, as it turns out, this seems to an alley where couples come to have sex ... I was immediately surrounded by the sound of passionate moaning."
+        "I must admit though, seeing so many people enjoying public sex here is making me so aroused now. Let's just make sure <Actor.name> doesn't notice my rising arousal or my classy image will be ruined."
+        Actor(Flirty):: "You're sweating a lot, <Player.name>. Seeing these couples go at it is turning you on, isn't it?"
+        "Damn it! I couldn't hide it from <Actor.him_or_her>."
+        Actor(Kiss):: "..."
+        "<Actor.name> is trying to make out with me ... It's also clear that <Actor.he_or_she> is looking for more than a kiss."
+        0:: "Let it happen"
+        1:: "Stop right there"
+        
+        If 0
+            Player(Kiss):: "..."
+            Sex(Actor, Player)
+            perversion += Random(0, 2)
+            Actor.dress()
+        Else
+            Player(Embarassed):: "Let's get out this dark alley. I don't feel comfortable with all of this."
+        Endif
+    Endif
+    SceneEnd()
+    timeout(200, co_vi_publicsex)

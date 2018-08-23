@@ -1,0 +1,42 @@
+WHAT: all, -sleep, -sleep_hotel
+WHERE: all, -work
+WHEN: 9-23
+WHO: Friend = getPerson(true); If Friend.isInterestedIn(Player) && Random(70, 100) < Friend:perversion && Random(30, 100) < Friend:attractiontoplayer
+OTHER: !IsWithCompanion() && perversion < 35
+
+    sceneStart()
+    Friend.dress()
+
+    "My phone rang ... It's <Friend.name> calling."
+    Friend.show(2)
+    Dating = Friend.IsDating()
+    Friend(Flirty):: "Hey <Player.beautiful_or_handsome>, are you missing me already? Listen, I've got to see that sexy <Player.body_or_ass> of yours again today! It's a shame you don't know what to do with it ... Maybe I can teach you a thing or two when we meet."
+    "Go on a date with <Friend.name>?"
+    0:: "Yes"
+    1:: "No"
+
+    If 0
+        Player:: "Of course. I'll see you in a bit!"
+        If Dating
+            Friend:: "See you soon, darling!"
+        Else
+            Friend:: "See you soon!"
+        Endif
+        passTime(0.25, 1)
+        Friend.StartDate()
+        timeout(12, call_invite_co, call_invite)
+        perversion += Random(0, 0.5)
+    Else
+        If Dating
+            Player:: "Not today, love. Call me again soon though ..."
+            Friend:: "Okay, baby. I'll see you later then."
+            Friend:attractiontoplayer -= Random(0, 1)
+        Else
+            Player:: "Sorry, I'm busy today. Maybe next time ..."
+            Friend:: "Oh? That's a shame. I'll see you around then."
+        Endif
+        
+        timeout(6, call_invite_co, call_invite)
+    Endif
+
+    sceneEnd()

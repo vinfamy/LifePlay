@@ -1,0 +1,34 @@
+WHAT: all
+WHERE: all, -home
+WHEN: 8-24
+WHO: Actor = getRelative(Sibling, StepSibling, Cousin, Child, StepChild); Actor2 = Actor.getRelatedPerson(Dating); If Actor2:perversion - Actor:perversion > 40
+OTHER: none
+
+    SceneStart()
+    setBackground(street)
+    Actor.dress()
+    Actor.show(2)
+    Actor2.dress()
+    Actor2.show(3)
+    "Wait, isn't that my <Actor.relationship> <Actor.name>? <Actor.He_or_She> is with that <Actor2.boyfriend_or_girlfriend> of <Actor.his_or_her>."
+    "They're heading into a small street - I know this one. There's a well-known X-rated cinema in there!"
+    0:: "Try to stop them"
+    1:: "Do nothing"
+    
+    If 0
+        "That <Actor2.sleazy_or_slutty> <Actor2.asshole_or_bitch> is trying to corrupt my innocent <Actor.relationship>? This will not do at all!"
+        Player(Happy):: "Oh hi there <Actor.name>, fancy seeing you here!"
+        Actor(Happy):: "Nice to see you here, <Actor.callplayer>! You've met my <Actor2.boyfriend_or_girlfriend> <Actor2.name>, right?"
+        Player(Sarcastic):: "Yes, I've met <Actor2.him_or_her>. Anyway, I'm sure <Actor2.name> here is taking you to that classy restaurant near here for a fancy meal - I won't bother you guys any longer."
+        Actor2(Embarassed):: "... Oh yes, of course, that's where I'm taking <Actor.him_or_her>."
+        Actor(Happy):: "Wow, that sounds nice. You should have just told me then, rather than acting all mysterious our whole trip here."
+        Actor2(Embarassed):: "Oh well, it was supposed to be a surprise ... but your <Actor.callplayer> here clearly knows the town so well ..."
+        Actor2:rapportwithplayer -= Random(0, 2)
+    Else
+        "It's their freedom to do whatever they want as a couple. Besides, I find <Actor.name> far too naive and innocent sometimes, opening up <Actor.his_or_her> mind a bit could only do some good for <Actor.him_or_her>."
+        Actor:perversion += Random(0, 2)
+        masochist += Random(0, 1)
+    Endif
+    
+    SceneEnd()
+    timeout(1000, co_wi_pornout)
