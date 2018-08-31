@@ -1,12 +1,7 @@
 WHAT: none
 WHERE: none
 WHEN: 0-24
-WHO: Actor = getSpecific(Landlord); Actor2 = getRelative()
+WHO: none
 OTHER: none
 
-	SceneStart()  
-    
-	"Hello"
-    addNpcRelationship(Cousins, Actor, Actor2)
-    "Bye"
-	SceneEnd()
+	SceneStart()

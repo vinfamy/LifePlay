@@ -7,14 +7,6 @@ public class ModdingExtra : ModuleRules
 	public ModdingExtra(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
-		
-		PublicIncludePaths.AddRange(
-			new string[] {
-				"ModdingExtra/Public"
-				
-				// ... add public include paths required here ...
-			}
-			);
 				
 		
 		PrivateIncludePaths.AddRange(

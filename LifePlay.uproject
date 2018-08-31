@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "4.18",
+	"EngineAssociation": "4.20",
 	"Category": "",
 	"Description": "",
 	"Modules": [
@@ -17,89 +17,6 @@
 		},
 		{
 			"Name": "SteamVR",
-			"Enabled": false
-		},
-		{
-			"Name": "OculusVR",
-			"Enabled": false
-		},
-		{
-			"Name": "OnlineSubsystemIOS",
-			"Enabled": false,
-			"SupportedTargetPlatforms": [
-				"IOS",
-				"TVOS"
-			]
-		},
-		{
-			"Name": "OnlineSubsystemNull",
-			"Enabled": false
-		},
-		{
-			"Name": "OnlineSubsystemGooglePlay",
-			"Enabled": false,
-			"SupportedTargetPlatforms": [
-				"Android"
-			]
-		},
-		{
-			"Name": "OnlineSubsystemUtils",
-			"Enabled": false
-		},
-		{
-			"Name": "OnlineSubsystem",
-			"Enabled": false
-		},
-		{
-			"Name": "MobilePatchingUtils",
-			"Enabled": false
-		},
-		{
-			"Name": "HTML5Networking",
-			"Enabled": false
-		},
-		{
-			"Name": "MobileLauncherProfileWizard",
-			"Enabled": false
-		},
-		{
-			"Name": "TcpMessaging",
-			"Enabled": false
-		},
-		{
-			"Name": "UdpMessaging",
-			"Enabled": false
-		},
-		{
-			"Name": "AlembicImporter",
-			"Enabled": false
-		},
-		{
-			"Name": "SpeedTreeImporter",
-			"Enabled": false
-		},
-		{
-			"Name": "AndroidDeviceProfileSelector",
-			"Enabled": false
-		},
-		{
-			"Name": "IOSDeviceProfileSelector",
-			"Enabled": false
-		},
-		{
-			"Name": "LinuxDeviceProfileSelector",
-			"Enabled": false
-		},
-		{
-			"Name": "ExampleDeviceProfileSelector",
-			"Enabled": false
-		},
-		{
-			"Name": "AppleARKit",
-			"Enabled": false
-		},
-		{
-			"Name": "AndroidPermission",
 			"Enabled": false
 		}
 	],

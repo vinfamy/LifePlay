@@ -170,11 +170,8 @@ void UStreetMapComponent::GenerateCollision()
 	}
 
 	// Rebuild the body setup
-#if WITH_EDITOR || WITH_RUNTIME_PHYSICS_COOKING
 	StreetMapBodySetup->InvalidatePhysicsData();
-#endif
 	StreetMapBodySetup->CreatePhysicsMeshes();
-
 	UpdateNavigationIfNeeded();
 }
 
@@ -618,7 +615,7 @@ void UStreetMapComponent::UpdateNavigationIfNeeded()
 {
 	if (bCanEverAffectNavigation || bNavigationRelevant)
 	{
-		UNavigationSystem::UpdateComponentInNavOctree(*this);
+		FNavigationSystem::UpdateComponentData(*this);
 	}
 }
 

@@ -26,7 +26,7 @@ OTHER: !Player.isDating() || [isModEnabled(vin_Polyamorous) && OpenRelationship(
                 "Alright, this is the moment. <Player.name>, you can do this! Be brave. Keep calm ... Keep calm ... Don't screw this up!"
             Endif
             
-            Player(Happy):: "You know, although we haven't known each other for too long, I have grown quite fond of you and I hope you feel the same ..."
+            Player(Happy):: "You know, although you're my <CurrentCompanion.relationship>, my passion for you has crossed all forbidden boundaries and I hope you feel the same ..."
             Player(Happy):: "If so, I would love nothing more than to take our relationship to the next level and be able to call you my <CurrentCompanion.boyfriend_or_girlfriend>."
             CurrentCompanion(Surprised):: "<Player.name>! I ..."                
             CurrentCompanion(Happy):: "You're my <Actor.callplayer> but I think I've fallen in love with you, <Player.name>. Of course I'll be your <CurrentCompanion.boyfriend_or_girlfriend>!"
@@ -57,7 +57,7 @@ OTHER: !Player.isDating() || [isModEnabled(vin_Polyamorous) && OpenRelationship(
             Actor2.blockNpcRelationships()
             endDate()
         Else
-            "No, it's still too early. I want to get to know <CurrentCompanion.name> a bit more at least ..."
+            "Nope, we might have had sex, but a relationship is too far. That's just asking for jail time."
         Endif
     Else
         "Nope, we might have had sex, but a relationship is too far. That's just asking for jail time."
