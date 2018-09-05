@@ -1,0 +1,93 @@
+WHAT: all
+WHERE: home
+WHEN: 17 - 23
+WHO: Dating = getSpecific(Dating)
+OTHER: !isWithCompanion() && masochist + perversion > Random(0, 200)
+
+    SceneStart()
+    "I love <Dating.name> very much, but have I ever fantasized about <Dating.him_or_her> going on a date with another <Player.man_or_woman> and then going home with <Player.him_or_her>?"
+    0:: "Yes"
+    1:: "No"
+
+    If 0
+        "I must admit: the thought of watching <Dating.name> getting it on with another <Player.man_or_woman> without me there really turns me on."
+        masochist += Random(0, 1)
+        perversion += Random(0, 0.5)
+        "But am I ready to do something about it?"
+        0:: "Discuss my fantasy with <Dating.name>"
+        1:: "No way"
+        
+        If 0
+            "Yes, I should probably talk to <Dating.name> about it."
+            "That night ..."
+            Dating.dress()
+            Sex(Player, Dating)
+            Dating.show(2)
+            Dating(Flirty):: "Baby, that was such pleasure you gave me."
+            Player(Flirty):: "Love, I have something to confess to you ..."
+            "I took advantage of our pillow talk to share with <Dating.name> my deepest fantasy of being cuckolded ..."
+            If Random(0, 55) < Dating:perversion
+                Dating(Flirty):: "You naughty <Player.boy_or_girl>! Fancy yourself as a generous <Dating.boyfriend_or_girlfriend> sharer, don't you? Fine then, if that's what turns you on, I can give it a try. Just make sure to find me a cute <Player.boy_or_girl> to date and go home with, okay?"
+                "We then went on to discuss potential candidates."
+                chooseContact()
+                Bull = getSpecific(chooseContact)
+                While !Dating.isInterestedIn(Bull)
+                    "<Dating.name> doesn't seem interested in someone like <Bull.name>. Let's think of someone else."
+                    chooseContact()
+                    Bull = getSpecific(chooseContact)
+                Endwhile
+                
+                If Bull.isValid()
+                    "After a while, <Dating.name> confesses that <Dating.he_or_she> has always had a crush on <Bull.name>. I also agree that <Bull.name> would be a good candidate for the date."
+                    "With our plan in motion, I approached and managed to convince <Bull.name> to participate in our little perverted adventure."
+                    "The all important day is here ..."
+                    Dating.dress()
+                    Player(Happy):: "Wow, you look beautiful, darling. I'm sure your date <Bull.name> will be delighted to see you like this."
+                    Dating(Happy):: "Of course <Bull.he_or_she> will be. I only make this effort of dressing up for my lucky date, never for you ... Anyway, I'm heading out to see <Bull.name> now. You stay home and be a good <Player.boyfriend_or_girlfriend>, okay?"
+                    Player(Wink):: "Have fun, baby. Remember to tell me all the dirty details once you're back."
+                    Dating.hide()
+                    "<Dating.name> headed off while I stayed back at home, for what seemed like centuries. I couldn't help but get turned out imagining what my <Dating.boyfriend_or_girlfriend>'s lucky date is getting from <Dating.name> right this moment, while I just sit here, 'helpless'."
+                    "A few hours later ..."
+                    "Still no signs of <Dating.name> coming back ... <Dating.he_or_she> is probably already in <Bull.name>'s bed by now, making passionate love."
+                    "A few more hours passed ..."
+                    Dating.show(2)
+                    masochist += Random(0, 2)
+                    perversion += Random(0, 1)
+                    Dating(Flirty):: "Honey, I'm back. That was amazing. <Bull.name> was such a <Bull.gentleman_or_lady> throughout the date, but once we got to the bedroom, <Bull.he_or_she> really showed that <Bull.he_or_she> knowed how to fuck."
+                    0:: "Tell me more ..."
+                    1:: "You should take a shower"
+                    
+                    If 0
+                        Dating(Flirty):: "A true cuck - I see ... You want to know all the dirty details, don't you? Okay, I'll tell you."
+                        Bull.dress()
+                        Sex(Bull, Dating)
+                        Bull.hide()
+                        Dating.show(2)
+                        "Wow, hearing from <Dating.name> how <Bull.name> fucked <Dating.him_or_her> so thoroughly is the hottest thing ever. I'm so turned on now ... Maybe <Dating.name> could help with that ... <Dating.he_or_she> is still my <Dating.boyfriend_or_girlfriend> after all."
+                        0:: "Have sex"
+                        1:: "Go to sleep"
+                        
+                        If 0
+                            Sex(Player, Dating)
+                        Endif
+                    Endif
+                    Dating:attractiontoplayer += Random(0, 2)
+                    timeout(500, cuckold_date)
+                Else
+                    "Unfortunately, we couldn't quite agree on who <Dating.name> would want to fuck. Oh well, at least now I know <Dating.he_or_she> is interested in fulfiling this fantasy of mine."
+                Endif
+            Else
+                Dating(Angry):: "What? You want me to sleep with another <Player.man_or_woman>. That's digusting. How could you even consider it? Do you not love me anymore?"
+                Dating:attractiontoplayer -= Random(0, 2)
+                "There's no point pursuing this anymore. There's no way I can get <Dating.name> to agree to this."
+                timeout(500, cuckold_date)
+            Endif 
+        Else
+            "Sometimes, fantasies should just remain fantasies ..."
+        Endif
+    Else
+        "No way. That thought breaks my heart. I would never be cool with that."
+    Endif
+
+    timeout(200, cuckold_date)
+    SceneEnd()

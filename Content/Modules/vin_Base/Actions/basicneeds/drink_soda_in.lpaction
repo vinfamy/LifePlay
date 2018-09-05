@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: drink_soda_in
 ACTION_NAME: Drink soda
-WHERE: home, work
+WHERE: home, work, fraternity
 WHEN: 0 - 24
 MINUTES: 1 - 5
 TIMEOUT_MINUTES: 20

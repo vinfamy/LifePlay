@@ -31,6 +31,7 @@ OTHER: isAtDatingHome() && Random(50, 300) < perversion + sneak
                 Actor(Sad):: "Sorry baby, but I'm not in the mood."
                 Actor:attractiontoplayer -= Random(0, 0.25)
             Endif
+        Endif
     Endif
     SceneEnd()
     timeout(100, co_ag_shower)

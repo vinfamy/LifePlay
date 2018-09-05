@@ -1,0 +1,20 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    If isStudent()
+        "Should I try to join this <Player.fraternity_or_sorority>?"
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            "I applied and got accepted."
+            moveFraternity()
+        Endif
+    Else
+        "I'm not enrolled on any degree courses at the university. I cannot join a <Player.fraternity_or_sorority> until I do so."
+    Endif
+    SceneEnd()

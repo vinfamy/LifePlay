@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: practice_singing
 ACTION_NAME: Practice singing
-WHERE: home
+WHERE: home, fraternity
 WHEN: 0 - 24
 MINUTES: 5 - 20
 TIMEOUT_MINUTES: 30

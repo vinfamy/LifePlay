@@ -8,6 +8,7 @@ OTHER: Random(0, 200) < jobexperience
     "I was sent to an industry conference today. The day was uneventful until ..."
     Actor = Ex.generatePersonMatchRace()
     Actor:age => Ex:age + Random(-10, 10)
+    Actor:age += 1
     Actor.randomizeFace()
     Actor.randomizeHairs()
     Actor.matchLastName(Ex)

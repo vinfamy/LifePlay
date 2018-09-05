@@ -14,6 +14,7 @@ OTHER: none
     Endwhile
     Actor2.makePermanent()
     Actor2:age => Actor:age + Random(-10, 10)
+    Actor2:age += 1
     Actor2.randomizeHairs()
     Actor2.randomizeFace()
     Actor2.dress()

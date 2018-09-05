@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: put_on_makeup
 ACTION_NAME: Put on makeup
-WHERE: home, work, nightclub, bar, restaurant, hotel, toilets
+WHERE: home, work, nightclub, bar, restaurant, hotel, toilets, fraternity
 WHEN: 0 - 24
 MINUTES: 5 - 30
 TIMEOUT_MINUTES: 300

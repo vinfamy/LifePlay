@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: groom
 ACTION_NAME: Groom
-WHERE: home, work
+WHERE: home, work, fraternity
 WHEN: 0 - 24
 MINUTES: 3 - 15
 TIMEOUT_MINUTES: 180

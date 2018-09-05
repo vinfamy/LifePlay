@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: deliver_lectures
+ACTION_NAME: Deliver a lecture
+WHERE: university:work
+WHEN: 0 - 24
+MINUTES: 60 - 150
+TIMEOUT_MINUTES: 
+ALSO_TIMEOUT: 
+EFFECTS: interpersonal +0.1 (DURATION), jobexperience +0.1 (DURATION), intelligence +0.025 (DURATION), mood -0.5 (DURATION)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

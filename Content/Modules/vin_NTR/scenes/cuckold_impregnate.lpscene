@@ -1,0 +1,90 @@
+WHAT: all
+WHERE: home
+WHEN: 17 - 23
+WHO: Dating = getSpecific(Dating); If !Dating.isMale() && !Dating.isPregnant()
+OTHER: !isWithCompanion() && masochist + perversion > Random(0, 200)
+
+    SceneStart()
+    "I love <Dating.name> very much and we've been trying for a child for a while now but I just can't seem to get <Dating.him_or_her> pregnant. Maybe I can get a more fertile man to do it?"
+    0:: "Yes"
+    1:: "No"
+
+    If 0
+        "I must admit: the thought of watching <Dating.name> getting knocked up by another man really turns me on."
+        masochist += Random(0, 2)
+        perversion += Random(0, 1)
+        "But am I ready to do something about it?"
+        0:: "Discuss my idea with <Dating.name>"
+        1:: "No way"
+        
+        If 0
+            "Yes, I should probably talk to <Dating.name> about it."
+            "That night ..."
+            Dating.dress()
+            Dating.show(2)
+            Player(Flirty):: "Love, I have something to confess to you ..."
+            "I went ahead and told <Dating.name> my plan ..."
+            If Random(0, 70) < Dating:perversion
+                Dating:perversion += Random(0, 1)
+                Dating(Flirty):: "You naughty <Player.boy_or_girl>! Fancy yourself as a true cuckold raising another man's child, don't you? Fine then, if you're cool with that, who am I to complain? Let's make sure to find me a man with good genes to fuck, okay? I only want the best traits for 'our' child."
+                "We then went on to discuss potential candidates."
+
+                chooseContact()
+                Bull = getSpecific(chooseContact)
+                While !Bull.isMale() && !Bull.isTrans()
+                    "<Bull.name> doesn't have a dick to impregnate <Dating.name>! We should think about someone else."
+                    chooseContact()
+                    Bull = getSpecific(chooseContact)
+                Endwhile
+                
+                If Bull.isValid()
+                    Bull.dress()
+                    Bull.show(3)
+                    "After a while, <Dating.name> confesses that <Dating.he_or_she> has always had a crush on <Bull.name> and wouldn't mind 'our' child to share some of his good traits." 
+                    
+                    "Do I also agree that <Bull.name> would be a good candidate? If not, we would need to put off this discussion to another day."
+                    0:: "Ask <Bull.name> to knock <Dating.name> up"
+                    1:: "Let's leave this for now"
+                    
+                    If 0
+                        Bull.hide()
+                        "With our plan in motion, I approached and managed to convince <Bull.name> to participate in our little perverted adventure."
+                        "The all important day is here ..."
+                        Bull.dress()
+                        Bull.show(3)
+                        "<Dating.name>, <Bull.name> and I had dinner at my apartment, before <Dating.name> took <Bull.name>'s hand and led <Bull.him_or_her> into the bedroom, ready to be knocked up."
+                        Player.hide()
+                        Sex(Bull, Dating)
+                        masochist += Random(0, 4)
+                        perversion += Random(0, 2)
+                        Bull.hide()
+                        Dating.show(2)
+                        Player.show(0)
+                        "After the sex, <Bull.name> got up and left without saying a word, as agreed beforehand. That was a sensual experience like no other to watch my <Dating.boyfriend_or_girlfriend> being <Dating.pleasured_or_defilled> and hopefully impregnated by another <Bull.man_or_woman>."
+                        Dating:attractiontoplayer += Random(0, 2)
+                        Dating.impregnate()
+                        timeout(500, cuckold_impregnate)
+                    Else
+                        "<Bull.name> won't be a good candidate. Let's come back to this discussion on another day, and hopefully we can come to an agreement in a more suitable father for the child."
+                        timeout(100, cuckold_impregnate)
+                    Endif
+                Else
+                    "Unfortunately, we couldn't quite agree on who <Dating.name> would want to fuck. Oh well, at least now I know <Dating.he_or_she> is interested in fulfiling this fantasy of mine."
+                    timeout(200, cuckold_impregnate)
+                Endif
+            Else
+                Dating(Angry):: "What? You want me to carry another man's child. That's digusting. How could you even consider it? Do you not love me anymore?"
+                Dating:attractiontoplayer -= Random(0, 2)
+                "There's no point pursuing this anymore. There's no way I can get <Dating.name> to agree to this."
+                timeout(1000, cuckold_impregnate)
+            Endif 
+        Else
+            "Sometimes, fantasies should just remain fantasies ..."
+            timeout(200, cuckold_impregnate)
+        Endif
+    Else
+        "No way. That thought breaks my heart. I would never be cool with that."
+        timeout(500, cuckold_impregnate)
+    Endif
+
+    SceneEnd()

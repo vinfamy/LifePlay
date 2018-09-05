@@ -1,0 +1,16 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "Do I want to apply for a degree course at this university?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "I applied and got accepted."
+        moveSchools()
+    Endif
+    SceneEnd()

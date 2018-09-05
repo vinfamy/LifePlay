@@ -1,7 +1,7 @@
 WHAT: all, -go_to_the_bathroom
 WHERE: all, -toilets, -PC, -office
 WHEN: 0-24
-WHO: Companion = getCompanion(); If !CurrentCompanion.isRelative() && !CurrentCompanion.hasRelationship(Spouses, Dating) && CurrentCompanion.IsInterestedIn(Player) && Player.IsInterestedIn(CurrentCompanion) && CurrentCompanion:attractiontoplayer > Random(30, 60)
+WHO: Companion = getCompanion(); If !CurrentCompanion.isRelative() && !CurrentCompanion.isDating() && !CurrentCompanion.hasRelationship(Spouses, Dating) && CurrentCompanion.IsInterestedIn(Player) && Player.IsInterestedIn(CurrentCompanion) && CurrentCompanion:attractiontoplayer > Random(30, 60)
 OTHER: !Player.isDating() || [isModEnabled(vin_Polyamorous) && OpenRelationship()]
 
 SceneStart()

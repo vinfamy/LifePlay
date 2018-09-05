@@ -29,14 +29,17 @@ If 0
         If Random(0, 70) < Dating:perversion
             Dating(Flirty):: "You naughty <Player.boy_or_girl>! Fancy yourself as more of a voyeur, don't you? Fine then, if that's what turns you on, I can give it a try. Just make sure to find me a cute <Player.boy_or_girl> to fuck, okay?"
             "We then went on to discuss potential candidates."
-            Bull = getPerson(true)
-            While Bull.isValid() && !Dating.isInterestedIn(Bull)
-                Bull = getPerson(true)
+            chooseContact()
+            Bull = getSpecific(chooseContact)
+            While !Dating.isInterestedIn(Bull)
+                "<Dating.name> doesn't seem interested in someone like <Bull.name>. Let's think of someone else."
+                chooseContact()
+                Bull = getSpecific(chooseContact)
             Endwhile
             
             If Bull.isValid()
                 "After a while, <Dating.name> confesses that <Dating.he_or_she> has always had a crush on <Bull.name>. I also agree that <Bull.name> would be a good candidate."
-                "With our plan in motion, I approached and managed to convince <Bull.name> in participate in our little perverted adventure."
+                "With our plan in motion, I approached and managed to convince <Bull.name> to participate in our little perverted adventure."
                 "The all important day is here ..."
                 Bull.dress()
                 Bull.show(3)

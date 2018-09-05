@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: all, -work
 WHEN: 8 - 20
-WHO: Actor = getCompanion(); If !Actor.isRelative() && !Actor.isAsexual() && !Actor.isDating() && !Actor.hasRelationship(Siblings) && Random(20, 100) < Actor:rapportwithplayer
+WHO: Actor = getCompanion(); If !Actor.isRelative() && !Actor.isAsexual() && !Actor.isDating() && !Actor.isExRelative() && !Actor.hasRelationship(Siblings) && Random(20, 100) < Actor:rapportwithplayer
 OTHER: none
 
     SceneStart()

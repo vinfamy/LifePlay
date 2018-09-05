@@ -8,6 +8,7 @@ OTHER: none
     Actor2 = Actor.generatePersonMatchRace()
     Actor2.matchLastName(Actor)
     Actor2:age => Actor:age - Random(20, 40)
+    Actor2:age += 1
     Actor2.randomizeHairs()
     Actor2.randomizeFace()
     Actor2.dress()

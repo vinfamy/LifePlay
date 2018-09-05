@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: do_light_exercises
 ACTION_NAME: Do light exercises
-WHERE: sports_centre, home
+WHERE: sports_centre, home, fraternity
 WHEN: 0 - 24
 MINUTES: 15 - 30
 TIMEOUT_MINUTES: 60

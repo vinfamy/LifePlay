@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: watch_a_movie_in
 ACTION_NAME: Watch a movie
-WHERE: home
+WHERE: home, fraternity
 WHEN: 0 - 24
 MINUTES: 90 - 180
 TIMEOUT_MINUTES: 0

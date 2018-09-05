@@ -17,6 +17,7 @@ OTHER: none
         "The best thing about living together as a couple is that sex is much easier to come by ... Should I propose making love with <Actor.name> now?"
         0:: "Yes"
         1:: "No"
+        2:: "<Actor.name> is not my only lover ..."
         
         If 0
             If Random(0, 50) < Actor:attractiontoplayer + interpersonal + Actor:perversion
@@ -27,6 +28,11 @@ OTHER: none
                 Actor(Sad):: "Sorry baby, but I'm not in the mood right now ..."
             Endif
             timeout(12, propose_sex_dating_home)
+        Elseif 2
+            Actor2 = getSpecific(Dating)
+            "Luckily for me, <Actor2.name> is also around. Being polyamorous is the best thing ever!"
+            Sex(Player, Actor, Actor2)
+            perversion += Random(0, 0.075)
         Endif
     Endif
     

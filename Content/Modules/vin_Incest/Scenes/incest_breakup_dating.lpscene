@@ -1,0 +1,21 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0-24
+WHO: Actor = getRelative(); Actor2 = Actor.getRelatedPerson(Spouses, Dating); If Actor.livesWithPlayer() && Random(75, 100) < Actor:incest
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor2.dress()
+    Actor2.show(3)
+    
+    Actor2(Furious):: "You're digusting! I can't believe you're sleeping around with your own <Actor.callplayer>! It's over - I'm breaking up with you!"
+    Actor(Angry):: "It's your loss!"
+    Actor2.hide()
+    
+    removeNpcRelationship(Actor, Actor2)
+    "My <Actor.relationship> is now officially single ... maybe it's my chance to take our forbidden affair to the next level ..."
+    
+    SceneEnd()
+    timeout(500, incest_breakup_dating)

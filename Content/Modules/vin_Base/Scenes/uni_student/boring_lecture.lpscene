@@ -1,0 +1,9 @@
+WHAT: all
+WHERE: university:school
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "What a boring lecture!"
+    SceneEnd()

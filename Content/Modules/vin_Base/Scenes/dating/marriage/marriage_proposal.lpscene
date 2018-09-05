@@ -14,7 +14,12 @@ OTHER: !isPlayerMarried()
         1:: "No"
         
         If 0
-            "I can definitely see myself spending the rest of my days with <CurrentCompanion.him_or_her> indeed. But is this the right time to have the courage to propose to <CurrentCompanion.him_or_her>?"
+            If CurrentCompanion.isExRelative()
+                "Even though we're related and incest is both frowned upon and forbidden, I cannot help but see myself spending the rest of my days with <CurrentCompanion.him_or_her> as my life partner."            
+            Else
+                "I can definitely see myself spending the rest of my days with <CurrentCompanion.him_or_her> indeed."
+            Endif
+            "But is this the right time to have the courage to propose to <CurrentCompanion.him_or_her>?"
             0:: "Yes"
             1:: "No"
             
@@ -39,13 +44,21 @@ OTHER: !isPlayerMarried()
                     "So we embraced and kissed, treasuring our first moment as an engaged couple."
                     Sex(Player, CurrentCompanion)
                 Else
-                    CurrentCompanion(Surprised):: "<Player.name> ... I love you too ... but I'm not quite ready for marriage yet. We're too young for that."
+                    If CurrentCompanion.isExRelative()
+                        CurrentCompanion(Surprised):: "<Player.name> ... I love you too ... but I'm not sure a marriage will ever be possible. We're related after all ... and incest is illegal in this country."                    
+                    Else
+                        CurrentCompanion(Surprised):: "<Player.name> ... I love you too ... but I'm not quite ready for marriage yet. We're too young for that."
+                    Endif
                     "And ... I've been rejected ... My heart is broken and I don't know how to feel about this ... We're still a couple, although this rejection has put some serious doubt on the strength of our relationship."
                     mood -= 100
                     CurrentCompanion:attractiontoplayer -= Random(0, 20)
                 Endif
             Else
-                "No, it's still too early. I want to spend more time in a relationship with <CurrentCompanion.name> before thinking about the next step ..."
+                If CurrentCompanion.isExRelative()
+                    "No way we could get away with getting married. We're already playing around with the law with our current incest relationship."
+                Else
+                    "No, it's still too early. I want to spend more time in a relationship with <CurrentCompanion.name> before thinking about the next step ..."
+                Endif
             Endif
         Else
             "Nope, I don't see <CurrentCompanion.name> as <CurrentCompanion.husband_or_wife> material."
@@ -259,6 +272,9 @@ OTHER: !isPlayerMarried()
             
             setBackground(biergarten)
             "The most important day of my life is here ..."
+            If CurrentCompanion.isExRelative()
+                "Registering this marriage with the government is a no-goer - incest is illegal in this country so that would just send us straight to jail ... Still, we wanted to have a proper wedding, so we only invited guests who met us after we became a couple and had no idea we were related. The vow master also had no idea ..."
+            Endif
             Player.show(0)
             CurrentCompanion.show(1)
             Master.show(3)

@@ -1,10 +1,11 @@
 WHAT: all
 WHERE: all, -work
 WHEN: 8 - 20
-WHO: Actor = getCompanion(); If Actor.isDating() && !Actor.hasRelationship(Siblings) && Random(20, 100) < Actor:attractiontoplayer
+WHO: Actor = getCompanion(); If Actor.isDating() && !Actor.isExRelative() && !Actor.hasRelationship(Siblings) && Random(20, 100) < Actor:attractiontoplayer
 OTHER: !isPlayerMarried()
 
     SceneStart()
+    
     dice = Random(0, 100)
     Actor2 = Actor.generatePersonMatchRace()
     Actor2.matchLastName(Actor)

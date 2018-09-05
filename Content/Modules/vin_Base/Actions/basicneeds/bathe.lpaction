@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: bathe
 ACTION_NAME: Bathe
-WHERE: home, sports_centre
+WHERE: home, sports_centre, fraternity
 WHEN: 0 - 24
 MINUTES: 5 - 30
 TIMEOUT_MINUTES: 180

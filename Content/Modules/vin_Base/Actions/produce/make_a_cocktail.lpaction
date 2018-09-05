@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: make_a_cocktail
 ACTION_NAME: Make a cocktail
-WHERE: home
+WHERE: home, fraternity
 WHEN: 0 - 24
 MINUTES: 2 - 10
 TIMEOUT_MINUTES: 0

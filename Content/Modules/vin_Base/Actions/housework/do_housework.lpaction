@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: do_housework
 ACTION_NAME: Do housework
-WHERE: home
+WHERE: home, fraternity
 WHEN: 0 - 24
 MINUTES: 60 - 120
 TIMEOUT_MINUTES: 10000

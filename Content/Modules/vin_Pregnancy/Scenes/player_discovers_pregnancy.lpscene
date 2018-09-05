@@ -16,7 +16,9 @@ OTHER: none
     "The paternity test shows that <Actor.name> is the father of the unborn baby."
     If Actor.isRelative()
         "Or more precisely ... my own <Actor.relationship> is the father of the growing soul inside me!"
-        "We did something forbidden and extremely risky that led to this baby. We can now only hope that the truth will never come out and the baby will somehow turn out to be healthy physically and mentally." 
+        "We did something forbidden and extremely risky that led to this baby. We can now only hope that the truth will never come out and the baby will somehow turn out to be healthy physically and mentally."
+    Elseif Actor.isExRelative()
+        "As much as I'm happy to carry <Actor.name>'s child, <Actor.he_or_she> and I are biologically related after all ... Let's hope the baby will turn out to be healthy physically and mentally."        
     Endif    
     SceneEnd()
     

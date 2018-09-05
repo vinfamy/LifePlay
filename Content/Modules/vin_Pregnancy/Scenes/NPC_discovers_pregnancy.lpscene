@@ -10,10 +10,13 @@ OTHER: none
     Actor.show(2)
     Actor(Sad):: "<Player.name>, we need to talk ..."
     Player(Happy):: "Sure, what is it?"
-    Actor(Sad):: "I'm pregnant ... with your child."
-    "The evidence from the paternity test is undeniable. I'm the father of <Actor.name>'s unborn baby."
+    Actor(Sad):: "<Player.name>, I'm pregnant ..."   
     If Actor.isRelative()
+        "The evidence from the paternity test is undeniable. I'm the father of <Actor.name>'s unborn baby."
         "Or more precisely ... of my own <Actor.relationship>'s unborn baby!"
         "We did something forbidden and extremely risky that led to this baby. We can now only hope that the truth will never come out and the baby will somehow turn out to be healthy physically and mentally." 
+    Elseif Actor.isExRelative()
+        "The evidence from the paternity test is undeniable. I'm the father of <Actor.name>'s unborn baby."
+        "As much as I'm happy about the news, <Actor.name> and I are biologically related after all ... Let's hope the baby will turn out to be healthy physically and mentally."
     Endif    
     SceneEnd()

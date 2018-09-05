@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: read_a_book_in
 ACTION_NAME: Read a book
-WHERE: home
+WHERE: home, fraternity
 WHEN: 0 - 24
 MINUTES: 45 - 90
 TIMEOUT_MINUTES: 0

@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: drink_coffee_in
 ACTION_NAME: Drink coffee
-WHERE: home, work
+WHERE: home, work, fraternity
 WHEN: 0 - 24
 MINUTES: 5 - 20
 TIMEOUT_MINUTES: 120

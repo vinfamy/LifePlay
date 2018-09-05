@@ -106,4 +106,4 @@ OTHER: isAtHome() && intelligence > Random(0, 100)
     Endif
     
     SceneEnd()
-    timeout(200, neighbour_fixes)
+    timeout(1000, neighbour_fixes, family_fixes)

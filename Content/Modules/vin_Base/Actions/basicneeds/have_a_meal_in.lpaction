@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: have_a_meal_in
 ACTION_NAME: Have a meal
-WHERE: home, work
+WHERE: home, work, fraternity
 WHEN: 5.30 - 22.30
 MINUTES: 40 - 90
 TIMEOUT_MINUTES: 180

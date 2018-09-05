@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: attend_lectures
+ACTION_NAME: Attend a lecture
+WHERE: university:school
+WHEN: 0 - 24
+MINUTES: 60 - 150
+TIMEOUT_MINUTES: 
+ALSO_TIMEOUT: 
+EFFECTS: interpersonal +0.05 (DURATION), jobexperience +0.025 (DURATION), intelligence +0.1 (DURATION), mood -1 (DURATION)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

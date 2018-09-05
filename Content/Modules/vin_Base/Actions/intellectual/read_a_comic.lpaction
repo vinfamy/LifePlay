@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: read_a_comic
 ACTION_NAME: Read a comic
-WHERE: home
+WHERE: home, fraternity
 WHEN: 0 - 24
 MINUTES: 30 - 60
 TIMEOUT_MINUTES: 0

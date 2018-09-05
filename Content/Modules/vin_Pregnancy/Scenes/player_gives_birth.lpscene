@@ -14,5 +14,10 @@ OTHER: none
     "It was a painful experience, but thankfully, everything went smoothly in the end. Nothing beats the feeling of being a new mom."
     energy -= 100
     mood += 100
-    children += 1
+    Actor = Player.generateRelativeMatchRace()
+    Actor.setRelativeType(Child)
+    "It's a <Actor.boy_or_girl>! What should I name my <Actor.son_or_daughter>?"
+    Actor.enterFirstName()
+    Actor:age => 0
+
     SceneEnd()

@@ -1,7 +1,7 @@
 WHAT: all, -sleep, -home
 WHERE: home
 WHEN: 8 - 19
-WHO: Actor = getSpecific(Dating); If !Actor.hasRelationship(ParentChild) && Random(35, 100) < Actor:attractiontoplayer
+WHO: Actor = getSpecific(Dating); If !Actor.hasRelationship(ParentChild) && !Actor.isExRelative() && Random(35, 100) < Actor:attractiontoplayer
 OTHER: isAtDatingHome() && !isWithCompanion() && !isPlayerMarried()
 
     SceneStart()

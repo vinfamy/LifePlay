@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: sleep
 ACTION_NAME: Sleep
-WHERE: home
+WHERE: home, fraternity
 WHEN: 0 - 24
 MINUTES: 360 - 600
 TIMEOUT_MINUTES: 1200
