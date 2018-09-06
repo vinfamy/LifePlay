@@ -1,0 +1,21 @@
+WHAT: attend_lectures
+WHERE: university:school
+WHEN: 0-24
+WHO: Actor = getSpecific(Lecturer); If Random(70, 100) < Actor:interpersonal
+OTHER: none
+
+    SceneStart()
+    dressFormal()
+    Actor.dress()
+    Actor.show(2)
+    "What an interesting lecture! I love this <Actor.Major> class. The lecturer, Dr <Actor.name_last>, is not only knowledgeable but also has a great sense of humour."
+    0:: "Just pay attention"
+    1:: "Ask questions"
+    
+    If 1
+        "I decided to contribute to the class even more by asking good questions. Dr <Actor.name_last> is clearly happy that one of <Actor.his_or_her> students are so passionate about the subject matter."
+        Actor:rapportwithplayer += Random(0, 2)
+        intelligence += Random(0, 0.25)
+    Endif
+    SceneEnd()
+    timeout(48, interesting_lecture)

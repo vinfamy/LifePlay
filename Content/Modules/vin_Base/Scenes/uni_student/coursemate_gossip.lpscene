@@ -1,0 +1,28 @@
+WHAT: all
+WHERE: university:school
+WHEN: 0-24
+WHO: Actor = getSpecific(Lecturer); Actor2 = getSpecific(Coursemate); If Actor2.isInterestedIn(Actor) && Actor2:rapportwithplayer < 50
+OTHER: none
+
+    SceneStart()
+    Actor2.dress()
+    Actor2.show(3)
+    dressFormal()
+    Actor.dress()
+    Actor.show(2)
+
+    "Wait, is that my coursemate <Actor2.name> and Dr <Actor.name_last> walking together back to <Actor.his_or_her> office?"
+    0:: "Gossip"
+    1:: "No big deal"
+    
+    If 0
+        "Could they be having an affair? Having sex with a lecturer, <Actor2.name> is such a <Actor2.stud_or_slut>!"
+        "I decided to spread the rumour to the rest of the course, which <Actor2.name> firmly denied."
+        Actor:rapportwithplayer -= Random(0, 2.5)
+        Actor2:rapportwithplayer -= Random(0, 5)
+    Else
+        "Who cares? <Actor.name> is probably just asking for help with coursework."
+    Endif
+    
+    SceneEnd()
+    timeout(200, coursemate_gossip)

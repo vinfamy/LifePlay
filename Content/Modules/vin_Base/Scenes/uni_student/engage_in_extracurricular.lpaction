@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: engage_in_extracurricular
+ACTION_NAME: Engage in extracurricular activities
+WHERE: university:school
+WHEN: 0 - 24
+MINUTES: 30 - 60
+TIMEOUT_MINUTES: 
+ALSO_TIMEOUT: 
+EFFECTS: interpersonal +0.025 (DURATION), fitness +0.01 (DURATION), mood +1 (DURATION)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

@@ -1,0 +1,31 @@
+WHAT: attend_lectures
+WHERE: university:school
+WHEN: 0-24
+WHO: Actor = getSpecific(Lecturer); If !Actor.isContactExchanged() && intelligence > Random(50, 100)
+OTHER: none
+
+    SceneStart()
+    dressFormal()
+    Actor.dress()
+    Actor.show(2)
+    "This <Actor.Major> class is one of my favourites. It's a subject matter I'm really passionate about and a possible topic for my final thesis. However, I feel like what Dr <Actor.name_last> is teaching in class is too basic to ensure everyone can get up to speed - I want the more advanced stuffs!"
+    0:: "Ask Dr <Actor.name_last> for help"
+    1:: "Find advanced books in the library"
+    
+    If 0
+        "I decided to come up to Dr <Actor.name_last> after class and showed my interest in more advanced reading materials about the subject matter."
+        Actor(Happy):: "I think these book recommendations should keep you occupied for a while. If you have any questions or fail to understand anything while reading these, you can come see me during my office hours and I'll be happy to help."
+        0:: "Can I ask you questions via text instead?"
+        1:: "Thank you!"
+        
+        If 0
+            If Random(0, 200) < Actor:attractiontoplayer + Actor:rapportwithplayer + Actor:perversion + interpersonal
+                Actor(Happy):: "Well, that's quite an unprofessional form of communication with a student, but I guess it's efficient. Fine, you can contact me via this number."
+                exchangeContact(Actor)
+            Else
+                Actor(Surprised):: "That's rather ... inappropriate. As I said, just come see me in my office if you need me."
+            Endif        
+        Endif
+    Endif
+    SceneEnd()
+    timeout(200, teachers_pet)

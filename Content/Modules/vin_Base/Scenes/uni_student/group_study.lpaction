@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: group_study
+ACTION_NAME: Study in a group
+WHERE: university:school, fraternity, library
+WHEN: 0 - 24
+MINUTES: 30 - 60
+TIMEOUT_MINUTES: 
+ALSO_TIMEOUT: 
+EFFECTS: interpersonal +0.01 (DURATION), intelligence +0.025 (DURATION), mood -0.1 (DURATION)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

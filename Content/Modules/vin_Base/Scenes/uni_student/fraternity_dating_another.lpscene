@@ -1,0 +1,28 @@
+WHAT: all, -sleep, -nap
+WHERE: fraternity
+WHEN: 0-24
+WHO: Actor = getSpecific(Fraternity); If !Actor.isDating() && !Actor.isAsexual() && !Actor.hasRelationship(Spouses, Dating)
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor2 = generatePersonTemporary()
+    While !Actor.isInterestedIn(Actor2)
+        Actor2 = generatePersonTemporary()
+    Endwhile
+    Actor2.makePermanent()
+    Actor2:age => Random(18, 22)
+    Actor2.randomizeHairs()
+    Actor2.randomizeFace()
+    Actor2.setDifferentMajor()
+    Actor2.dress()
+    Actor2.show(3)
+    
+    "<Actor.Brother_or_Sister> <Actor.name> has been hanging out with this <Actor2.name> <Actor2.guy_or_girl> studying <Actor2.Major> a lot these days ... I wonder if they are an item now ..."
+    0:: "Good for them"
+    1:: "That's a shame"
+
+    addNpcRelationship(Dating, Actor, Actor2)
+    SceneEnd()
+    timeout(1000, fraternity_dating_another)

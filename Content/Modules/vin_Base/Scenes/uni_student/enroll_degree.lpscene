@@ -5,12 +5,70 @@ WHO: none
 OTHER: none
 
     SceneStart()
-    "Do I want to apply for a degree course at this university?"
+    Tuition = 500*CostOfLiving
+    TuitionConverted = Tuition.convertToLocalCurrency(true)
+    "Do I want to apply for a degree course at this university? Thanks to the government's restrictions, the tuition for all courses work out at around <TuitionConverted> per month."
     0:: "Yes"
     1:: "No"
     
     If 0
-        "I applied and got accepted."
         moveSchools()
+        Tuition.setTuition()
+        "Yeah, the education is worth that money. I can get a once-in-a-lifetime experience and a much better job after I graduate."
+        "Now, what should I go for as my major?"
+        chooseMajor()
+        setMajor()
+        setBackground(home)
+        "A month later ..."
+        "My application was successful. I cannot wait to start the course!"
+        dressFormal()
+        setBackground(bar)
+        Player.dress()
+        "The Department of <Player.Major> organized a welcome drink event a day before the course's start date. I just had to go, this is the perfect chance to meet my coursemates and lecturers."
+        Total = Random(10, 25)
+        count = 0
+        While count < Total
+            Actor = generatePerson()
+            If Random(0, 100) < 95
+                Actor:age => Random(18, 22)
+                Actor.randomizeHairs()
+                Actor.randomizeFace()
+            Endif
+            Actor.setSameMajor()
+            Actor.dress()
+            Actor.show(2)
+            "A future coursemate approached me."
+            Actor(Happy):: "Hi there, I'm <Actor.name>. Nice to meet you!"
+            Player(Happy):: "Nice to meet you, <Actor.name>. I'm <Player.name>."
+            0:: "Offer to add <Actor.him_or_her> on Facebook"
+            1:: "Just chat"
+            
+            If 0
+                "Before we ended our conversation, I made sure to befriend <Actor.name> on Facebook for easy contact in the future."
+                exchangeContact(Actor)
+            Endif
+            Actor.hide()
+            Actor.saveandDelete()
+            count += 1
+        Endwhile
+        
+        Total = Random(5, 8)
+        count = 0
+        While count < Total
+            Actor = generatePerson()
+            Actor:age => Random(27, 70)
+            Actor.randomizeHairs()
+            Actor.randomizeFace()
+            Actor.setSubject()
+            Actor.dress()
+            Actor.show(2)
+            "One of my future lecturers approached me."
+            Actor(Happy):: "Hi there, I'm Dr <Actor.name> <Actor.name_last>. I teach the <Actor.major> module."
+            Player(Happy):: "Nice to meet you, Dr <Actor.name_last>. I'm <Player.name>. I'm looking forward to your class."
+            Actor.hide()
+            Actor.saveandDelete()        
+            count += 1
+        Endwhile
+        "Eventually, the event winded down. I'm glad to have met many of my coursemates and lecturers. I cannot wait for my first day tomorrow."
     Endif
     SceneEnd()

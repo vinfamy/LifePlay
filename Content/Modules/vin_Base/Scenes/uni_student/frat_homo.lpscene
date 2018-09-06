@@ -1,0 +1,29 @@
+WHAT: all, -sleep, -nap
+WHERE: fraternity
+WHEN: 0-24
+WHO: Actor = getSpecific(Fraternity); If Actor.isInterestedIn(Player) && Player.isInterestedIn(Actor) && Random(20, 70) < Actor:attractiontoplayer  && Random(50, 100) < Actor:attractiveness
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    "<Actor.name> and I are left alone in the chapter house today, watching TV together. Everyone else went on a trip. I must admit: I'm quite attracted to <Actor.name>, even though we're sworn <Actor.brothers_or_sisters>. Worse, I think <Actor.name> feels the same way for me."
+    0:: "Kiss <Actor.him_or_her>"
+    1:: "We can't be <Player.gay_or_lesbians>"
+    
+    If 0
+        Player(Kiss):: "..."
+        Actor(Kiss):: "..."
+        "Things are escalating very quickly ..."
+        0:: "Let it happen"
+        1:: "Stop it there"
+        
+        If 0
+            Sex(Player, Actor)
+        Endif
+    Else
+        "I'm not sure how the other <Player.brothers_or_sisters> will react to homosexuality within the <Player.fraternity_or_sorority> ... We could be kicked out of the house! Let's just keep these desires in check for now."
+    Endif
+    
+    SceneEnd()
+    timeout(200, frat_homo)

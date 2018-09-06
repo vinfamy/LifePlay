@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: participate_in_greek
+ACTION_NAME: Attend social events
+WHERE: fraternity
+WHEN: 0 - 24
+MINUTES: 30 - 60
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: interpersonal +0.3 (END), mood +3 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

@@ -1,0 +1,56 @@
+WHAT: all
+WHERE: fraternity
+WHEN: 0 - 24
+WHO: Actor = getSpecific(Fraternity); If !Actor.isDating() && !Actor.isAsexual() && Random(50, 300) < Actor:perversion 
+OTHER: isAtHome()
+
+    SceneStart()
+
+    "What's that sound? If it is what I think it is, then <Actor.brother_or_sister> <Actor.name> is getting very intimate with a lover. They are moaning very loudly."
+    0:: "Ignore"
+    1:: masochist < 50:: "Complain"
+    2:: "Peep"
+
+    If 0
+        "Good for <Actor.him_or_her> I guess. Sex is an essential part of Greek life!"
+    Elseif 1
+        Player(Angry):: "For god's sake, keep it down. I'm trying to study here."
+        masochist -= Random(0, 1)
+    Else
+        perversion += Random(0, 0.5)
+        "My curiousity got the better of me and I just had to see this ..."
+        If Random(0, 70) < sneak
+            "Luckily, <Actor.name> didn't quite close <Actor.his_or_her> door completely shut - probably too busy with fooling around with <Actor.his_or_her> partner to pay attention to the door. With my sneaking talent, I managed to get a pretty good view of what was going on ..."
+            Actor2 = Actor.getRelatedPerson(Dating, Spouses)
+            If !Actor2.isValid()
+                Actor2 = generatePersonTemporary()
+                While !Actor.isInterestedIn(Actor2)
+                    Actor2 = generatePersonTemporary()
+                Endwhile
+            Endif
+            Sex(Actor, Actor2)
+            arousal += Random(0, 30)
+            Actor.show(2)
+            Actor2.show(3)
+            Player.show(0)
+            "That was hot. But it looks like they're already ready for another round ..."
+            0:: "Offer to join them"
+            1:: "Enough"
+            
+            If 0
+                Player(Flirty):: "Looks like you guys are having some fun there? Mind if I join?"
+                Actor(Flirty):: "Of course, my <Player.brother_or_sister>. Come on and join us then, what are you waiting for?"
+                Sex(Actor, Actor2, Player)
+                Actor:rapportwithplayer += Random(0, 10)
+                Actor:attractiontoplayer += Random(0, 10)
+                Player:perversion += Random(0, 1)
+            Else
+                "I should get out of here before I get caught."
+            Endif
+        Else
+            "Unfortunately for me, their doors were fully closed and all the curtains were pulled down. There's no way I can get a look in ..."
+        Endif
+    Endif
+
+    SceneEnd()
+    timeout(100, fraternity_peep)

@@ -1,9 +1,23 @@
-WHAT: all
+WHAT: attend_lectures
 WHERE: university:school
 WHEN: 0-24
-WHO: none
+WHO: Actor = getSpecific(Lecturer); If Actor:interpersonal < Random(0, 45)
 OTHER: none
 
     SceneStart()
-    "What a boring lecture!"
+    dressFormal()
+    Actor.dress()
+    Actor.show(2)
+    "What a boring lecture! I hate this <Actor.Major> class. The lecturer, Dr <Actor.name_last>, is knowledgeable but just rubbish at teaching."
+    0:: "Try to focus"
+    1:: "Play with my phone"
+    
+    If 0
+        "Let's just try my best to concentrate here. Boring or not, I don't want to fail this class."
+        mood -= Random(0, 25)
+    Else
+        "Damn it, I give up! There's no way I can concentrate with Dr <Actor.name_last>'s monotone voice. Let's just play with my phone a bit, saving myself from falling asleep at least!"
+        intelligence -= Random(0, 0.25)
+    Endif
     SceneEnd()
+    timeout(48, boring_lecture)

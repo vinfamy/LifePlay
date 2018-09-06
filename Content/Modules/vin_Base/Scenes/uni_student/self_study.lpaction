@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: self_study
+ACTION_NAME: Do some self-study
+WHERE: university:school, home, fraternity, library
+WHEN: 0 - 24
+MINUTES: 30 - 60
+TIMEOUT_MINUTES: 
+ALSO_TIMEOUT: 
+EFFECTS: jobexperience +0.01 (DURATION), intelligence +0.025 (DURATION), mood -0.25 (DURATION)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

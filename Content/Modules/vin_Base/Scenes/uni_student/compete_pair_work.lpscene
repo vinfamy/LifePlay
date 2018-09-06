@@ -1,0 +1,24 @@
+WHAT: attend_lectures
+WHERE: university:school
+WHEN: 0-24
+WHO: Actor = getSpecific(Coursemate); Actor2 = getSpecific(Coursemate); If Actor:rapportwithplayer > 0 && Actor2:rapportwithplayer > 0
+OTHER: Random(0, 100) < intelligence
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor2.dress()
+    Actor2.show(3)
+    "We were just handed an assignment by the lecturer, to be done in pairs. Two of my classmates <Actor.name> and <Actor2.name>, are both asking me to work with them ..."
+    0:: "Work with <Actor.name>"
+    1:: "Work with <Actor2.name>"
+    
+    If 0
+        Actor:rapportwithplayer += Random(0, 2)
+        Actor2:rapportwithplayer -= Random(0, 2)
+    Else
+        Actor2:rapportwithplayer += Random(0, 2)
+        Actor:rapportwithplayer -= Random(0, 2)    
+    Endif
+    SceneEnd()
+    timeout(200, compete_pair_work)
