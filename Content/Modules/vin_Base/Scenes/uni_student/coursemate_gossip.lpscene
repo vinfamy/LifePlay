@@ -1,7 +1,7 @@
 WHAT: all
-WHERE: university:school
+WHERE: university:school, university:work
 WHEN: 0-24
-WHO: Actor = getSpecific(Lecturer); Actor2 = getSpecific(Coursemate); If Actor2.isInterestedIn(Actor) && Actor2:rapportwithplayer < 50
+WHO: Actor = getSpecific(Lecturer); Actor2 = getSpecific(Coursemate); If !Actor.isDating() && !Actor2.isDating() && Actor2.isInterestedIn(Actor) && Actor2:rapportwithplayer < 50
 OTHER: none
 
     SceneStart()
@@ -11,13 +11,23 @@ OTHER: none
     Actor.dress()
     Actor.show(2)
 
-    "Wait, is that my coursemate <Actor2.name> and Dr <Actor.name_last> walking together back to <Actor.his_or_her> office?"
+    If WHERE == university:school
+        "Wait, is that my coursemate <Actor2.name> and Dr <Actor.name_last> walking together back to <Actor.his_or_her> office?"
+    Else
+        "Wait, is that my student <Actor2.name> and Dr <Actor.name_last> walking together back to <Actor.his_or_her> office?"
+    Endif
+    "What should I do?"
     0:: "Gossip"
     1:: "No big deal"
     
     If 0
-        "Could they be having an affair? Having sex with a lecturer, <Actor2.name> is such a <Actor2.stud_or_slut>!"
-        "I decided to spread the rumour to the rest of the course, which <Actor2.name> firmly denied."
+        If WHERE == university:school
+            "Could they be having an affair? Having sex with a lecturer, <Actor2.name> is such a <Actor2.stud_or_slut>!"
+            "I decided to spread the rumour to the rest of the course, which <Actor2.name> firmly denied."
+        Else
+            "Could they be having an affair? Having sex with a student, <Actor.name> is such a <Actor.stud_or_slut>!"
+            "I decided to spread the rumour to the rest of the Department, which <Actor.name> firmly denied."        
+        Endif
         Actor:rapportwithplayer -= Random(0, 2.5)
         Actor2:rapportwithplayer -= Random(0, 5)
     Else

@@ -1,5 +1,5 @@
 WHAT: all
-WHERE: university:school
+WHERE: university:school, university:work
 WHEN: 0-24
 WHO: Actor = getSpecific(Coursemate); Actor2 = getSpecific(Coursemate); If !Actor.isDating() && !Actor2.isDating() && Actor.isInterestedIn(Actor2) && Actor2.isInterestedIn(Actor) && !Actor.hasRelationship(Spouses, Dating) && !Actor2.hasRelationship(Spouses, Dating) && Actor:attractiontoplayer < 40 && Actor2:attractiontoplayer < 40
 OTHER: none
@@ -9,7 +9,12 @@ OTHER: none
     Actor.show(2)
     Actor2.dress()
     Actor2.show(3)
-    "Two of my classmates <Actor.name> and <Actor2.name> have been seen together an awful lot these days, inside and outside of class ... I wonder if they are an item now ..."
+    If WHERE == university:school
+        "Two of my classmates <Actor.name> and <Actor2.name> have been seen together an awful lot these days, inside and outside of class ... I wonder if they are an item now ..."
+    Else
+        "Two of my students <Actor.name> and <Actor2.name> have been seen together an awful lot these days in class ... I wonder if they are an item now ..."        
+    Endif
+    "How should I feel about this?"
     0:: "Good for them"
     1:: "That's a shame"
 

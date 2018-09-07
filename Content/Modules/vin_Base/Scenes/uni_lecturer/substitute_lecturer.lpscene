@@ -1,0 +1,23 @@
+WHAT: all
+WHERE: university:work
+WHEN: 8 - 18
+WHO: Actor = getSpecific(Lecturer); If Actor:rapportwithplayer > 10
+OTHER: none
+
+    SceneStart()
+    dressFormal()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Happy):: "<Player.name>, could you perhaps cover for me for the <Actor.Major> class later today? I've got to run. Something urgent popped up."
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        Player(Happy):: "Of course, I'll be happy to help."
+        Actor:rapportwithplayer += Random(0, 2.5)
+    Else
+        Player(Sad):: "Sorry, I have another class at that time. You should ask another lecturer perhaps?"
+        Actor:rapportwithplayer -= Random(0, 2)
+    Endif
+    SceneEnd()
+    timeout(350, substitute_lecturer)

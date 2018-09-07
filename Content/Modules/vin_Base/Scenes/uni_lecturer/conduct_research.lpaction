@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: conduct_research
+ACTION_NAME: Conduct research
+WHERE: university:work
+WHEN: 0 - 24
+MINUTES: 60 - 150
+TIMEOUT_MINUTES: 
+ALSO_TIMEOUT: 
+EFFECTS: intelligence +0.1 (DURATION), mood -0.25 (DURATION)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

@@ -1,0 +1,20 @@
+WHAT: deliver_lectures
+WHERE: university:work
+WHEN: 0-24
+WHO: none
+OTHER: Random(70, 100) < interpersonal
+
+    SceneStart()
+    "I'm having a great time with this class. I've become quite a popular lecturer with the students with my charisma and smart jokes."
+    0:: "Continue being light-hearted"
+    1:: "Stick more to the teaching material"
+    
+    If 0
+        "It's great to feel popular. As for actual knowledge, I'm sure they can fill any gaps with their reading at home."
+        interpersonal += Random(0, 0.25)
+    Else
+        "That's enough joking around for now. I'm not here to win a popularity contest. Let's spend more time on the actual teaching material."
+        intelligence += Random(0, 0.25)
+    Endif
+    SceneEnd()
+    timeout(100, realize_interesting_lecture)

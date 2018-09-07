@@ -1,0 +1,54 @@
+WHAT: all
+WHERE: university:work
+WHEN: 0-24
+WHO: Actor = getSpecific(Lecturer); Actor2 = getSpecific(Lecturer); If !Actor.isDating() && !Actor2.isDating() && Actor2.isInterestedIn(Actor) && Actor.isInterestedIn(Actor2) && Actor:perversion + Actor2:perversion > Random(75, 150)
+OTHER: none
+
+    SceneStart()
+    dressFormal()
+    Actor2.dress()
+    Actor2.show(3)
+
+    Actor.dress()
+    Actor.show(2)
+
+    "Wait, is that my colleagues Dr <Actor2.name_last> and Dr <Actor.name_last> walking together back to <Actor.his_or_her> office?"
+    "What should I do?"
+    0:: "Follow them"
+    1:: "No big deal"
+    
+    If 0
+        "Could they be having an affair? Who says that academics have boring sex lives?"
+        "What should I do now?"
+        0:: "Peep"
+        1:: "Leave it"
+        
+        If 0
+            If Random(0, 100) < sneak
+                "Luckily, they forgot to lock the door behind them, leaving me an easy opening to have a peek."
+                Sex(Actor, Actor2)
+                Actor.hide()
+                Actor2.hide()
+                Player.show(0)
+            Else
+                "Unfortunately, they locked the door as soon as they went inside the office and I couldn't see a thing."
+            Endif
+        Endif
+        
+        "Now, what should I do about what I saw?"
+        0:: "Tell everyone"
+        1:: "Stay silent"
+        
+        If 0
+            "I decided to spread the rumour to the rest of the Department, which <Actor.name> firmly denied."        
+            Actor:rapportwithplayer -= Random(0, 5)
+            Actor2:rapportwithplayer -= Random(0, 10)
+        Else
+            "Let's be honest: I would totally bang a fellow lecturer in the my office myself if I have the chance. I feel for <Actor2.name> here. Let's not destroy their career."
+        Endif
+    Else
+        "Who cares? They're probably just writing a research paper together."
+    Endif
+    
+    SceneEnd()
+    timeout(1000, lecturer_affair)

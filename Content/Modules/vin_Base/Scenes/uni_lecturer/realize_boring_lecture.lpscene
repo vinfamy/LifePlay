@@ -1,0 +1,20 @@
+WHAT: deliver_lectures
+WHERE: university:work
+WHEN: 0-24
+WHO: none
+OTHER: interpersonal < Random(0, 45)
+
+    SceneStart()
+    "Damn, I'm having real difficulty explaining this complicated subject to the students. I can tell they are all bored out of their mind by now."
+    0:: "Try some humour"
+    1:: "Just stick to the teaching material"
+    
+    If 0
+        "I decided to liven up the lecture with some small jokes to wake the students up."
+        interpersonal += Random(0, 0.25)
+    Else
+        "I'm a lecturer, not a stand-up comedian. I'm here to teach, whether they can absorb the knowledge or not is their problem."
+        intelligence += Random(0, 0.25)
+    Endif
+    SceneEnd()
+    timeout(100, realize_boring_lecture)

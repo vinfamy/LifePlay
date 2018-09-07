@@ -1,0 +1,16 @@
+WHAT: all
+WHERE: university:school
+WHEN: 8 - 20
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "A lecturer decided to give us a few book chapters and countless papers to read before the next lecture. There's no way I can read them all!"
+    0:: "Try my best"
+    1:: "Just give up"
+    
+    If 0
+        intelligence += Random(0, 0.25)
+    Endif
+    SceneEnd()
+    timeout(200, too_much_reading)

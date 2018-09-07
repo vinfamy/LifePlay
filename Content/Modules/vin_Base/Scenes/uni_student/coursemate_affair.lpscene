@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: university:school
 WHEN: 0-24
-WHO: Actor = getSpecific(Lecturer); Actor2 = getSpecific(Coursemate); If Actor2.isInterestedIn(Actor) && Actor.isInterestedIn(Actor2) && Actor:perversion + Actor2:perversion > Random(75, 150)
+WHO: Actor = getSpecific(Lecturer); Actor2 = getSpecific(Coursemate); If !Actor.isDating() && !Actor2.isDating() && Actor2.isInterestedIn(Actor) && Actor.isInterestedIn(Actor2) && Actor:perversion + Actor2:perversion > Random(75, 150)
 OTHER: none
 
     SceneStart()
@@ -11,12 +11,22 @@ OTHER: none
     Actor.dress()
     Actor.show(2)
 
-    "Wait, is that my coursemate <Actor2.name> and Dr <Actor.name_last> walking together back to <Actor.his_or_her> office?"
+    If WHERE == university:school
+        "Wait, is that my coursemate <Actor2.name> and Dr <Actor.name_last> walking together back to <Actor.his_or_her> office?"
+    Else
+        "Wait, is that my student <Actor2.name> and Dr <Actor.name_last> walking together back to <Actor.his_or_her> office?"
+    Endif
+    "What should I do?"
     0:: "Follow them"
     1:: "No big deal"
     
     If 0
-        "Could they be having an affair? Having sex with a lecturer, <Actor2.name> is such a <Actor2.stud_or_slut>!"
+        If WHERE == university:school
+            "Could they be having an affair? Having sex with a lecturer, <Actor2.name> is such a <Actor2.stud_or_slut>!"
+        Else
+            "Could they be having an affair? Having sex with a student, <Actor.name> is such a <Actor.stud_or_slut>!"
+        Endif
+        "What should I do now?"
         0:: "Peep"
         1:: "Leave it"
         
@@ -37,11 +47,19 @@ OTHER: none
         1:: "Stay silent"
         
         If 0
-            "I decided to tell everyone in the course about what I saw, which <Actor2.name> firmly denied."
+            If WHERE == university:school
+                "I decided to spread the rumour to the rest of the course, which <Actor2.name> firmly denied."
+            Else
+                "I decided to spread the rumour to the rest of the Department, which <Actor.name> firmly denied."        
+            Endif
             Actor:rapportwithplayer -= Random(0, 5)
             Actor2:rapportwithplayer -= Random(0, 10)
         Else
-            "Let's be honest: I would totally bang a lecturer myself if I have the chance. I feel for <Actor2.name> here. Let's not destroy <Actor2.his_or_her> reputation and Dr <Actor.name_last>'s career."
+            If WHERE == university:school
+                "Let's be honest: I would totally bang a lecturer myself if I have the chance. I feel for <Actor2.name> here. Let's not destroy <Actor2.his_or_her> reputation and Dr <Actor.name_last>'s career."
+            Else
+                "Let's be honest: I would totally bang a student myself if I have the chance. I feel for <Actor.name> here. Let's not destroy <Actor.his_or_her> career and <Actor2.name>'s reputation."            
+            Endif
         Endif
     Else
         "Who cares? <Actor.name> is probably just asking for help with coursework."

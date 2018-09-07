@@ -1,0 +1,28 @@
+WHAT: deliver_lectures
+WHERE: university:work
+WHEN: 0-24
+WHO: Actor = getSpecific(Coursemate); If !Actor.isDating() && Random(20, 100) < Actor:attractiontoplayer
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    "One of my students <Actor.name> is clearly checking me out ... I think <Actor.he_or_she> might have a crush on me."
+    0:: "Flirt with my eyes"
+    1:: "Avoid eye contact"
+    
+    If 0
+        "I made sure that <Actor.name> knows the feeling is mutual, literally tearing <Actor.his_or_her> clothes off with my eyes for the whole lecture."
+        Actor:attractiontoplayer += Random(0, 2)
+        If !isContactExchanged() && Actor:attractiontoplayer > 35
+            "After class ..."
+            "I was packing my stuffs up after class when <Actor.name> passed by and dropped a piece of paper on my table, winked at me and walked off."
+            "It's <Actor.his_or_her> number with the message 'Text me!'. <Actor.He_or_She> isn't shy, is <Actor.he_or_she>?"
+            exchangeContact(Actor)
+        Endif
+    Else
+        "<Actor.name> is probably just one of those college <Actor.chavs_or_sluts> that took a <Actor.fraternity_or_sorority> bet on banging a lecturer. Let's not fall for this."
+        Actor:attractiontoplayer -= Random(0, 2)
+    Endif
+    SceneEnd()
+    timeout(100, student_crush)

@@ -1,0 +1,25 @@
+WHAT: conduct_research
+WHERE: university:work
+WHEN: 0-24
+WHO: Actor = getSpecific(Lecturer); Actor2 = getSpecific(Lecturer); If Actor:rapportwithplayer > 0 && Actor2:rapportwithplayer > 0
+OTHER: Random(0, 100) < intelligence
+
+    SceneStart()
+    dressFormal()
+    Actor.dress()
+    Actor.show(2)
+    Actor2.dress()
+    Actor2.show(3)
+    "Two of my colleagues, <Actor.name> and <Actor2.name>, are both asking me to work with them on a research project ... I don't have the time to commit to both though."
+    0:: "Work with <Actor.name>"
+    1:: "Work with <Actor2.name>"
+    
+    If 0
+        Actor:rapportwithplayer += Random(0, 2)
+        Actor2:rapportwithplayer -= Random(0, 2)
+    Else
+        Actor2:rapportwithplayer += Random(0, 2)
+        Actor:rapportwithplayer -= Random(0, 2)    
+    Endif
+    SceneEnd()
+    timeout(200, compete_research_partner)
