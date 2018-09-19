@@ -1,7 +1,7 @@
 WHAT: sleep, nap
 WHERE: home
 WHEN: 22 - 4
-WHO: Actor2 = getRelative(); If !Actor.isMale() && Actor.livesWithPlayer() && Random(60, 500) < Actor:attractiveness
+WHO: Actor2 = getRelative(); If !Actor2.isMale() && Actor2.livesWithPlayer() && Random(60, 500) < Actor2:attractiveness
 OTHER: isModEnabled(vin_NTR) && intelligence < Random(0, 100)*Random(0, 1)
 
     SceneStart()

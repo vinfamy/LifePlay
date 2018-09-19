@@ -5,3 +5,7 @@ WHO: none
 OTHER: none
 
 	SceneStart()
+    Player.dress(Doctor-Coat_F)
+    Player.dress(Nurse-Dress_F)
+    "Hello!"
+    SceneEnd()

@@ -1,0 +1,7 @@
+Abdomen_Mass-Tone_max-min:2.0
+Waist_Size_max:1.0
+Torso_Mass-Tone_max-min:0.2
+Torso_BreastMass-AureolaSize_max-max:1.0
+Torso_BreastMass-BreastTone-Mass-Tone_max-min-min-max:0.2
+
+Maximum Fat Retention After Pregnancy:0.4

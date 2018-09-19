@@ -1,0 +1,63 @@
+WHAT: all
+WHERE: home
+WHEN: 17 - 23
+WHO: Dating = getSpecific(Dating); If Dating:attractiontoplayer > 20 && Dating:masochist + Dating:perversion > Random(0, 200)
+OTHER: !isWithCompanion()
+
+    SceneStart()
+    Dating.dress()
+    Dating.show(2)
+    Dating(Flirty):: "Baby, that was such pleasure you gave me."
+    Dating(Flirty):: "Love, I have something to confess to you ..."
+    "<Dating.name> took advantage of our pillow talk to share with me <Dating.his_or_her> deepest fantasy of being cuckolded and allowing me to go on a date with another lover and go home with <Dating.him_or_her>..."
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        Player(Flirty):: "You naughty <Dating.boy_or_girl>! Fancy yourself as more of a voyeur, don't you? Fine then, if that's what turns you on, I can give it a try. Just make sure to find me a cute <Dating.boy_or_girl> to go on a date and go home with, okay?"
+        "We then went on to discuss potential candidates."
+        chooseContact()
+        Bull = getSpecific(chooseContact)
+        While !Bull.isInterestedIn(Player)
+            "<Bull.name> doesn't seem interested in someone like me. Let's think of someone else."
+            chooseContact()
+            Bull = getSpecific(chooseContact)
+        Endwhile
+        
+        If Bull.isValid()
+            "After a while, I confess that I have always had a crush on <Bull.name>. <Dating.name> also agrees that <Bull.name> would be a good candidate."
+            "With our plan in motion, I approached and managed to convince <Bull.name> to participate in our little perverted adventure."
+            "The all important day is here ..."
+            Player.dress()
+            Dating(Happy):: "Wow, you look beautiful, darling. I'm sure your date <Bull.name> will be delighted to see you like this."
+            Player(Happy):: "Of course <Bull.he_or_she> will be. I only make this effort of dressing up for my lucky date, never for you ... Anyway, I'm heading out to see <Bull.name> now. You stay home and be a good <Dating.boyfriend_or_girlfriend>, okay?"
+            Dating(Wink):: "Have fun, baby. Remember to tell me all the dirty details once you're back."
+            Dating.hide()
+            
+            Bull.dress()
+            Bull.show(2)
+            Bull(Happy):: "You look beautiful ... It's my pleasure to be your date tonight."
+            "So just like that, <Bull.name> and I began our date ..."
+            setBackground(restaurant)
+            "<Bull.name> first took me to a fancy dinner at a fine restaurant."
+            setBackground(bar)
+            "Followed by a visit to a classy bar."
+            setBackground(nightclub)
+            "Then a whole lot of intimate dancing and making out in a nightclub."
+            setBackground(home)
+            "<Bull.name> was such a <Bull.gentleman_or_lady> throughout the date, but once we got to the bedroom, <Bull.he_or_she> really showed that <Bull.he_or_she> knowed how to fuck."
+            SexNoAffair(Bull, Player)
+            Dating:masochist += Random(0, 2)
+            Dating:perversion += Random(0, 1)
+            perversion += Random(0, 1)
+        Else
+            "Unfortunately, we couldn't quite agree on who I would want to fuck."
+        Endif
+    Else
+        Player(Angry):: "What? You want me to sleep with another <Dating.man_or_woman>. That's digusting. How could you even consider it? Do you not love me anymore?"
+        Dating:attractiontoplayer -= Random(0, 2)
+        timeout(500, cheater_cuckold_date)
+    Endif
+
+    timeout(200, cheater_cuckold_date)
+    SceneEnd()

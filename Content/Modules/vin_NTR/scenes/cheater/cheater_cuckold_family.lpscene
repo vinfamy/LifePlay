@@ -1,0 +1,51 @@
+WHAT: all
+WHERE: home
+WHEN: 17 - 23
+WHO: Dating = getSpecific(Dating); Bull = Dating.getRelatedPerson(ParentChild); If Dating:age > Bull:age && Dating:attractiontoplayer > 20 && Dating:masochist + Dating:perversion > Random(0, 200)
+OTHER: !isWithCompanion() && isModEnabled(vin_Incest)
+
+    SceneStart()
+    Dating.dress()
+    Dating.show(2)
+    Dating(Flirty):: "Baby, that was such pleasure you gave me."
+    Dating(Flirty):: "Love, I have something to confess to you ..."
+    "<Dating.name> took advantage of our pillow talk to share with me <Dating.his_or_her> deepest fantasy of being cuckolded and watching me with another lover ... <Dating.his_or_her> own <Bull.son_or_daughter> <Bull.name>!"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        Player(Flirty):: "You naughty <Dating.boy_or_girl>! Fancy yourself as more of a voyeur, don't you? Fine then, if that's what turns you on, I can give it a try."
+        "With our plan in motion, <Dating.name> managed to convince <Bull.name> to participate in our little perverted adventure."
+        "The all important day is here ..."
+        Bull.dress()
+        Bull.show(3)
+        "<Dating.name>, <Bull.name> and I had dinner at our apartment, before <Bull.name> took my hand and led me into the bedroom."
+        Dating.hide()
+        SexNoAffair(Bull, Player)
+        Dating:masochist += Random(0, 2)
+        Dating:perversion += Random(0, 1)
+        If !Player.isMale() && [Bull.isMale() || Bull.isTrans()] && !Player.isPregnant() && Random(0, 100) < 30
+            Player.impregnate()
+        Endif
+        perversion += Random(0, 1)
+        Bull.show(2)
+        "That was hot making my <Dating.boyfriend_or_girlfriend> watch me fuck <Dating.his_or_her> own <Bull.son_or_daughter>. But maybe it's time I should allow <Dating.name> to join in now."
+        0:: "Have a threesome"
+        1:: "Nope"
+        
+        If 0
+           Sex(Bull, Player, Dating)
+           perversion += Random(0, 1)
+        Endif
+        Bull.hide()
+        Dating.show(2)
+        Player.show(0)
+        "After the sex, <Bull.name> got up and left without saying a word, as agreed beforehand. That was a sensual experience like no other making my <Dating.boyfriend_or_girlfriend> watch me being <Player.pleasured_or_defilled> by <Dating.his_or_her> own <Bull.son_or_daughter>."
+    Else
+        Player(Angry):: "What? You want me to sleep with your own <Bull.son_or_daughter>? That's digusting. How could you even consider it? Do you not love me anymore?"
+        Dating:attractiontoplayer -= Random(0, 2)
+        timeout(1000, cheater_cuckold_family)
+    Endif
+
+    timeout(200, cheater_cuckold_family)
+    SceneEnd()
