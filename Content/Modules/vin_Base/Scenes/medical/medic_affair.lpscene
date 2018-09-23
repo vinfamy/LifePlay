@@ -1,0 +1,53 @@
+WHAT: all
+WHERE: hospital:work
+WHEN: 0-24
+WHO: Actor = getSpecific(Doctor, Nurse); Actor2 = getSpecific(Doctor, Nurse); If !Actor.isDating() && !Actor2.isDating() && Actor2.isInterestedIn(Actor) && Actor.isInterestedIn(Actor2) && Actor:perversion + Actor2:perversion > Random(75, 150)
+OTHER: none
+
+    SceneStart()
+    Actor2.dressUniform()
+    Actor2.show(3)
+
+    Actor.dressUniform()
+    Actor.show(2)
+
+    "Wait, is that my colleagues <Actor2.job> <Actor2.name_last> and <Actor.job> <Actor.name_last> walking together towards a storeroom?"
+    "What should I do?"
+    0:: "Follow them"
+    1:: "No big deal"
+    
+    If 0
+        "Could they be having an affair? Who says that doctors and nurses work too much and have boring sex lives?"
+        "What should I do now?"
+        0:: "Peep"
+        1:: "Leave it"
+        
+        If 0
+            If Random(0, 100) < sneak
+                "Luckily, they forgot to lock the door behind them, leaving me an easy opening to have a peek."
+                Sex(Actor, Actor2)
+                Actor.hide()
+                Actor2.hide()
+                Player.show(0)
+            Else
+                "Unfortunately, they locked the door as soon as they went inside the storeroom and I couldn't see a thing."
+            Endif
+        Endif
+        
+        "Now, what should I do about what I saw?"
+        0:: "Tell everyone"
+        1:: "Stay silent"
+        
+        If 0
+            "I decided to spread the rumour to the rest of the hospital's staff, which <Actor.name> firmly denied."        
+            Actor:rapportwithplayer -= Random(0, 5)
+            Actor2:rapportwithplayer -= Random(0, 10)
+        Else
+            "Let's be honest: I would totally bang a colleague myself if I have the chance. I feel for <Actor2.name> here. Let's not destroy their career."
+        Endif
+    Else
+        "Who cares? They're probably just looking for some medical supplies together."
+    Endif
+    
+    SceneEnd()
+    timeout(500, medic_affair)

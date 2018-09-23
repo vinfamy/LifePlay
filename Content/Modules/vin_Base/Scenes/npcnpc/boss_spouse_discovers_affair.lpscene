@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: work
 WHEN: 18 - 22
-WHO: Boss = getSpecific(Boss); Actor = getRelatedPerson(Spouses); If Random(0, 80)*Random(0, 1) > Boss:intelligence
+WHO: Boss = getSpecific(Boss); Actor = Boss.getRelatedPerson(Spouses); If Random(0, 80)*Random(0, 1) > Boss:intelligence
 OTHER: none
 
     SleepingWithBoss = SleepingWithBoss.getGlobal()

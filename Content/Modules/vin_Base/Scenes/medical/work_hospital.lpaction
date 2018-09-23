@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: work_hospital
+ACTION_NAME: Work
+WHERE: hospital:work
+WHEN: 0 - 24
+MINUTES: 60 - 150
+TIMEOUT_MINUTES: 
+ALSO_TIMEOUT: 
+EFFECTS: interpersonal +0.05 (DURATION), jobexperience +0.1 (DURATION), intelligence +0.1 (DURATION), mood -1 (DURATION)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:

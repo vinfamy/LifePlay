@@ -1,0 +1,71 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Tuition = [750 + [intelligence*20]]*CostOfLiving*2
+    TuitionConverted = Tuition.convertToLocalCurrency(true)
+    TuitionNurse = [750 + [intelligence*20]]*CostOfLiving*1.25
+    TuitionNurseConverted = TuitionNurse.convertToLocalCurrency(true)
+    "Do I want to apply for a medical career at this hospital? They are offering average salaries per month of <TuitionConverted> for a doctor and <TuitionNurseConverted> for a nurse."
+    0:: "Apply for the doctor job"
+    1:: "Apply for the nurse job"
+    2:: "Look elsewhere"
+    
+    If choice < 2
+        moveJobs()
+        "Yeah, it's a good career to save people's lives and make a living out of it."
+        setBackground(home)
+        "A month later ..."
+        "My application was successful. I cannot wait to start the job!"
+        If 0
+            Player.SetJob(Doctor)
+            Tuition.setSalary()
+            Player.dressUniform()
+        Else
+            Player.SetJob(Nurse)
+            TuitionNurse.setSalary()
+            Player.dressUniform()
+        Endif        
+
+        setBackground(hospital)
+        "The Hospital organized a welcome reception a day before my first day. I just had to go, this is the perfect chance to meet my new colleagues."
+        Total = Random(3, 10)
+        count = 0
+        While count < Total
+            Actor = generatePerson()
+            Actor:age => Random(25, 60)
+            Actor.randomizeHairs()
+            Actor.randomizeFace()
+            Actor.SetJob(Doctor)
+            Actor.dressUniform()
+            Actor.show(2)
+            "A doctor approached me."
+            Actor(Happy):: "Good evening, <Player.name>. I'm Dr <Actor.name_last>, but you can call me <Actor.name>. It's my pleasure to meet you!"
+            Player(Happy):: "Nice to meet you, <Actor.name>."
+            exchangeContact(Actor)
+            Actor.hide()
+            Actor.saveandDelete()
+            count += 1
+        Endwhile
+        
+        Total = Random(5, 13)
+        count = 0
+        While count < Total
+            Actor = generatePerson()
+            Actor.SetJob(Nurse)
+            Actor.dressUniform()
+            Actor.show(2)
+            "A nurse approached me."
+            Actor(Happy):: "Hi there, I'm <Actor.name>. I work here as a nurse."
+            Player(Happy):: "Nice to meet you,<Actor.name>. I'm <Player.name>. I'm looking forward to working with you."
+            exchangeContact(Actor)
+            Actor.hide()
+            Actor.saveandDelete()        
+            count += 1
+        Endwhile
+        "Eventually, the event winded down. I'm glad to have met many of my colleagues. I cannot wait for my first day tomorrow."
+    Endif
+    SceneEnd()

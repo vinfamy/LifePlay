@@ -1,0 +1,44 @@
+WHAT: all
+WHERE: hospital:work
+WHEN: 0-24
+WHO: none
+OTHER: !Player.isAsexual()
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    Actor.show(2)
+    "I'm doing cancer screening with a patient, who was asked to strip down. I know I should stay professional, but I can't help but notice that the patient is far too comfortable naked in front of me and is making all sort of moves on me. <Actor.He_or_She> must be another one with fantasies of sleeping with a <Player.job>."
+    0:: "I don't mind too much ..."
+    1:: "Ew ..."
+    
+    If 0
+        "The patient is quite hot so I don't mind the flirting too much. I wish I could touch <Actor.his_or_her> body right now ... Wait, I can! At least I have all the medical excuses to, and it's just me and <Actor.him_or_her> in this room right now. Besides, <Actor.he_or_she> looks like <Actor.he_or_she> might welcome it."
+        0:: "Feel <Actor.him_or_her> up a bit"
+        1:: "Stay professional"
+        
+        If 0
+            "I took advantage of the cancer screening to get more than my fair share of touchy-feely. <Actor.He_or_She> seemed delighted by my response and brazenness."
+            perversion += Random(0, 0.25)
+            arousal += Random(0, 20)
+        Endif
+        
+        "The examination is now done. I should ask the patient to put <Actor.his_or_her> clothes on. But damn, <Actor.he_or_she> is clearly not too keen on doing that ... still eye-banging me."
+        0:: "Ask <Actor.name> to get dressed"
+        1:: "Give in to the temptation"
+        
+        If 0
+            Actor.dress()
+            "The patient put <Actor.his_or_her> clothes back on, clearly disappointed. I then wrapped it up and welcomed the next patient."
+        Else
+            "Damn it, I can't take this anymore. I decided to give in, grabbed <Actor.him_or_her> and started making out."
+            Player(Kiss):: "..."
+            Actor(Kiss):: "..."
+            "The patient is clearly keen on getting down and dirty with <Actor.his_or_her> <Player.job>. Well, I'm certainly ready too."
+            Sex(Player, Actor)
+            perversion += Random(0, 0.5)
+        Endif
+    Else
+        "Ew ... definitely not my type. Let's get this over and done with before I go blind from having to stare at this sloopy body for too long."
+    Endif
+    SceneEnd()
+    timeout(100, patient_crush)
