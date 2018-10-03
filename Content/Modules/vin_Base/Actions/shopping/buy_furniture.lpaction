@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: buy_furniture
+ACTION_NAME: Buy furniture
+WHERE: doityourself, furniture, marketplace
+WHEN: 0 - 24
+MINUTES: 1 - 1
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT:
+EFFECTS: 
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: buy_furniture
+ANIMATION:   

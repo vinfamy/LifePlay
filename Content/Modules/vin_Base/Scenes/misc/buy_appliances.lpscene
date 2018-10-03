@@ -1,0 +1,71 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    PreciseModify()
+    choice = 1
+    While choice > 0
+        "What do I want to buy?"
+        0:: "Nothing"
+        1:: "Computer"
+        2:: "TV"
+        3:: "Washing machine"
+        4:: "Tumble dryer"
+        5:: "Sink"
+        6:: "Toilet"
+        7:: "Oven and stoves"
+        8:: "Microwave"
+        9:: "Refrigerator"
+        10:: "Air-conditioner"
+        11:: "Sound system"
+        12:: "Game console"
+        13:: "DVD player"
+        
+        
+        If 0
+            "I've got enough home appliances for now."
+        Else
+            If 1 || 7 || 10
+                Price = 250*CostofLiving*Random(0.8, 1.2)                
+            Elseif 2 || 6 || 9
+                Price = 150*CostofLiving*Random(0.8, 1.2)
+            Elseif 3 || 4 || 5 || 8 || 11 || 12 || 13
+                Price = 75*CostofLiving*Random(0.8, 1.2)            
+            Endif
+            
+            Price1 = Price*Random(1.5, 2.5)
+            Price2 = Price*Random(4, 10)
+            
+            PriceConvertered = Price.convertToLocalCurrency(false)
+            Price1Convertered = Price1.convertToLocalCurrency(false)
+            Price2Convertered = Price2.convertToLocalCurrency(false)
+            
+            "There are so many options. Which should I go for?"
+            0:: "Budget product for <PriceConvertered>"
+            1:: "Mid-range product for <Price1Convertered>"
+            2:: "State-of-the-art product for <Price2Convertered>"
+            3:: "None"
+            
+            If 3
+                "On second thought, I have better use for my money."
+            Else
+                "This should fit in with my needs and budget."
+                If 0
+                    appliance_value += Price
+                    money -= Price
+                Elseif 1
+                    appliance_value += Price1
+                    money -= Price1
+                Else
+                    appliance_value += Price2
+                    money -= Price2
+                Endif           
+            Endif
+            choice = 14
+        Endif       
+    Endwhile
+    
+    SceneEnd()

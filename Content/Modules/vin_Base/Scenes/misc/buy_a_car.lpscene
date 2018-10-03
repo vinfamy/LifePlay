@@ -37,7 +37,7 @@ OTHER: none
         3:: money + car_value >= Price3:: "2015 Hyundai Sonata for <Price3C>"
         4:: money + car_value >= Price4:: "2017 Audi A4 for <Price4C>"
         5:: money + car_value >= Price5:: "2018 Tesla Model S for <Price5C>"
-        6:: money + car_value >= Price6:: "2018 Aston Martin DB11 S for <Price6C>"
+        6:: money + car_value >= Price6:: "2001 Lamborghini Diablo for <Price6C>"
         7:: money + car_value >= Price7:: "2018 Rolls-Royce Phantom for <Price7C>"
         8:: "Buy nothing"
         

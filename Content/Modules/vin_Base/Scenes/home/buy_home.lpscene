@@ -1,0 +1,29 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+    
+    SceneStart()
+    "I have rented this place for a while and gotten used to calling it home. I think I can now afford to buy it for good."
+    0:: "Enquire about purchase price"
+    1:: "Nothing wrong with renting"
+    
+    If 0
+        Rent = getRent()
+        Price = Rent*120
+        PriceConverted = Price.convertToLocalCurrency(true)
+        "The landlord is prepared to sell the home at <PriceConverted>."
+        0:: "Go for it"
+        1:: "That's too expensive"
+        
+        If 0
+            money => money - Price
+            Zero = 0
+            Zero.setRent()
+            Player.setLandlord()
+            "I now own my home ... It's a wonderful feeling and now I don't have to worry about paying rent each month."
+            mood += Random(0, 100)
+        Endif
+    Endif
+    SceneEnd()

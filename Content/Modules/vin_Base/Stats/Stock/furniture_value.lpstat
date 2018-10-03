@@ -1,0 +1,9 @@
+STAT_ID: furniture_value
+STAT_NAME: Value of my furniture
+PLAYER_ONLY: true
+HIGHER_BETTER: true
+STAT_MIN: 0
+STAT_MAX:
+DAILY_CHANGE: -1
+DEFAULT_VALUE: 0
+NPC_ONLY: false

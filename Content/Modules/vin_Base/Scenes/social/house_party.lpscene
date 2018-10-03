@@ -10,6 +10,81 @@ PlayerHosting = ForcedTrigger()
 sceneStart()
 
 If PlayerHosting
+    "Should I hand-pick guests for the party? Or should I just make a public event on Facebook that allows my friends to bring their friends along?"
+    0:: "Hand-pick guests"
+    1:: "I'd rather meet new people"
+    
+    If 0
+        "Who should be my first guest?"
+        selectNPC()
+        Guest1 = getSelectedNPC()
+        If !Guest1.isValid()
+            "I can't quite decide on who to invite."
+        Elseif Guest1:rapportwithplayer > 0 || Guest1:attractiontoplayer > 0
+            Guest1.hide()
+            "<Guest1.name> happily accepted my invitation."
+        Else
+            Guest1.hide()
+            "<Guest1.name> turned down my invitation. Oh well ..."
+            Guest1.delete()
+        Endif
+        
+        "Who else should I invite?"
+        selectNPC()
+        Guest2 = getSelectedNPC()
+        If !Guest2.isValid()
+            "I can't quite decide on who to invite."
+        Elseif Guest2:rapportwithplayer > 0 || Guest2:attractiontoplayer > 0
+            Guest2.hide()
+            "<Guest2.name> happily accepted my invitation."
+        Else
+            Guest2.hide()
+            "<Guest2.name> turned down my invitation. Oh well ..."
+            Guest2.delete()
+        Endif
+        
+        "Who else should I invite?"
+        selectNPC()
+        Guest3 = getSelectedNPC()
+        If !Guest3.isValid()
+            "I can't quite decide on who to invite."
+        Elseif Guest3:rapportwithplayer > 0 || Guest3:attractiontoplayer > 0
+            Guest3.hide()
+            "<Guest3.name> happily accepted my invitation."
+        Else
+            Guest3.hide()
+            "<Guest3.name> turned down my invitation. Oh well ..."
+            Guest3.delete()
+        Endif
+        
+        "Who else should I invite?"
+        selectNPC()
+        Guest4 = getSelectedNPC()
+        If !Guest4.isValid()
+            "I can't quite decide on who to invite."
+        Elseif Guest4:rapportwithplayer > 0 || Guest4:attractiontoplayer > 0
+            Guest4.hide()
+            "<Guest4.name> happily accepted my invitation."
+        Else
+            Guest4.hide()
+            "<Guest4.name> turned down my invitation. Oh well ..."
+            Guest4.delete()
+        Endif
+        
+        "Who else should I invite?"
+        selectNPC()
+        Guest5 = getSelectedNPC()
+        If !Guest5.isValid()
+            "I can't quite decide on who to invite."
+        Elseif Guest5:rapportwithplayer > 0 || Guest5:attractiontoplayer > 0
+            Guest5.hide()
+            "<Guest5.name> happily accepted my invitation."
+        Else
+            Guest5.hide()
+            "<Guest5.name> turned down my invitation. Oh well ..."
+            Guest5.delete()
+        Endif
+    Endif
     "My preparations are all done. It's time to welcome the guests!"
     Player(Happy):: "Come in, everyone! Don't be shy. Everything's ready."
 Else
@@ -36,57 +111,67 @@ Else
     Endif
 Endif
 
-If PlayerHosting || Accepted  
-    Random
-        Guest1 = getPerson()
-        Guest1 = generatePerson()
-    endRandom
-    If !Guest1.isValid()
-        Guest1 = generatePerson()
+If PlayerHosting || Accepted
+    If !Guest1.isValid() 
+        Random
+            Guest1 = getPerson()
+            Guest1 = generatePerson()
+        endRandom
+        If !Guest1.isValid()
+            Guest1 = generatePerson()
+        Endif
     Endif
     Guest1.dress()
     "<Guest1.name> showed up."
     Guest1.show(1)
-
-    Random
-        Guest2 = getPerson()
-        Guest2 = generatePerson()
-    endRandom
-    If !Guest2.isValid()
-        Guest2 = generatePerson()
+    
+    If !Guest2.isValid() 
+        Random
+            Guest2 = getPerson()
+            Guest2 = generatePerson()
+        endRandom
+        If !Guest2.isValid()
+            Guest2 = generatePerson()
+        Endif
     Endif
     Guest2.dress()
     "<Guest2.name> came in."
     Guest2.show(2)
-
-    Random
-        Guest3 = getPerson()
-        Guest3 = generatePerson()
-    endRandom
-    If !Guest3.isValid()
-        Guest3 = generatePerson()
+    
+    If !Guest3.isValid() 
+        Random
+            Guest3 = getPerson()
+            Guest3 = generatePerson()
+        endRandom
+        If !Guest3.isValid()
+            Guest3 = generatePerson()
+        Endif
     Endif
     Guest3.dress()
     "<Guest3.name> arrived."
     Guest3.show(3)
-
-    Random
-        Guest4 = getPerson()
-        Guest4 = generatePerson()
-    endRandom
-    If !Guest4.isValid()
-        Guest4 = generatePerson()
+    
+    If !Guest4.isValid() 
+        Random
+            Guest4 = getPerson()
+            Guest4 = generatePerson()
+        endRandom
+        If !Guest4.isValid()
+            Guest4 = generatePerson()
+        Endif
     Endif
     Guest4.dress()
     "Another guest invited was <Guest4.name>."
     Guest4.show(4)
 
-    Random
-        Guest5 = getPerson()
-        Guest5 = generatePerson()
-    endRandom
-    If !Guest5.isValid()
-        Guest5 = generatePerson()
+    If !Guest5.isValid() 
+        Random
+            Guest5 = getPerson()
+            Guest5 = generatePerson()
+        endRandom
+        If !Guest5.isValid()
+            Guest5 = generatePerson()
+        Endif
     Endif
     Guest5.dress()
     "<Guest5.name> was the final guest to arrive at the party."

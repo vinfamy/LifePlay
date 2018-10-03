@@ -32,6 +32,7 @@ If 0
     Charm = false
     Seduce = false
     LoweredPrice = false
+    Bought = false
     Vanilla = IsModEnabled(vin_VanillaRealistic)
     
     While choice > 1
@@ -41,6 +42,7 @@ If 0
         2:: !Knowledge && !Seduce:: "Use your knowledge to negotiate"
         3:: !Charm && !Seduce:: "Use your charm to haggle"
         4:: !Seduce:: "Use your sex appeal"
+        5:: !Bought:: "Offer to buy"
         
         If 0
             "I decided to sign the lease at the current rent. It wasn't too bad a deal after all."
@@ -48,7 +50,27 @@ If 0
             Landlord.setLandlord()
             Rent.setRent()            
         Elseif 1
-            "It was too expensive at this current rent so I had no choice but to look elsewhere. I thanked the landlord for his time and left."            
+            "It was too expensive at this current rent so I had no choice but to look elsewhere. I thanked the landlord for his time and left."
+        Elseif 5
+            Bought = true
+            Player(Happy):: "Actually, I think I can afford to buy the home outright."
+            Price = Rent*120
+            PriceConverted = Price.convertToLocalCurrency(true)
+            Landlord(Surprised):: "Oh really? You know what: I'm prepared to sell it to you at <PriceConverted>."
+            0:: "Go for it"
+            1:: "That's too expensive"
+            
+            If 0
+                MoveHome()
+                money => money - Price
+                Zero = 0
+                Zero.setRent()
+                Player.setLandlord()
+                "I now own my home ... It's a wonderful feeling and now I don't have to worry about paying rent each month."
+                mood += Random(0, 100)
+            Else
+                choice = 5
+            Endif
         Elseif 2 && Random(0,100)*Difficulty < intelligence
             "I used my research about the market rate of rent in the surrounding area to show the landlord that I had alternatives."
             Rent /= 1.1

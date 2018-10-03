@@ -1,0 +1,64 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    PreciseModify()
+    choice = 1
+    While choice > 0
+        "What do I want to buy?"
+        0:: "Nothing"
+        1:: "Bed and linen set"
+        2:: "Dining table and chairs"
+        3:: "Wardrobe"
+        4:: "Home office desk and chair"
+        5:: "Coffee table & sofa"
+        6:: "Pool table"
+        7:: "Decorations"
+        
+        If 0
+            "I've got enough furniture for my home for now."
+        Else
+            If 1
+                Price = 150*CostofLiving*Random(0.8, 1.2)
+            Elseif 2 || 3 || 4 || 6
+                Price = 75*CostofLiving*Random(0.8, 1.2)           
+            Elseif 5 || 7
+                Price = 100*CostofLiving*Random(0.8, 1.2)
+            Endif
+            
+            Price1 = Price*Random(1.5, 2.5)
+            Price2 = Price*Random(4, 10)
+            
+            PriceConvertered = Price.convertToLocalCurrency(false)
+            Price1Convertered = Price1.convertToLocalCurrency(false)
+            Price2Convertered = Price2.convertToLocalCurrency(false)
+            
+            "There are so many options. Which should I go for?"
+            0:: "Budget product for <PriceConvertered>"
+            1:: "Mid-range product for <Price1Convertered>"
+            2:: "Luxury product for <Price2Convertered>"
+            3:: "None"
+            
+            If 3
+                "On second thought, I have better use for my money."
+            Else
+                "This should fit in with my needs and budget."
+                If 0
+                    furniture_value += Price
+                    money -= Price
+                Elseif 1
+                    furniture_value += Price1
+                    money -= Price1
+                Else
+                    furniture_value += Price2
+                    money -= Price2
+                Endif           
+            Endif
+            choice = 8
+        Endif       
+    Endwhile
+    
+    SceneEnd()

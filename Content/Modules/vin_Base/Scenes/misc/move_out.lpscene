@@ -11,14 +11,25 @@ OTHER: none
         1:: "No"
         
         If 0
-            "This apartment just wasn't for me. I decided to terminate my lease contract with the landlord."
+            Rent = getRent()
+            If Rent > 0
+                "This apartment just wasn't for me. I decided to terminate my lease contract with the landlord."
+            Else
+                Difficulty = Random(0.25, 2)
+                Salary = getSalary()
+                Rent = Random(800, 1500)*CostOfLiving+Difficulty*Salary*0.25
+                Price = Rent*120
+                PriceConverted = Price.convertToLocalCurrency(true)
+                "I managed to sell the place for <PriceConverted>."
+                money => money + Price
+            Endif
             "Time to find a new place to live."
             loseHome()
         Else
             "On second thought, I don't hate this place that much."
         Endif
     Else
-        "I'm not renting this home! There's no lease contract to terminate. I can stay or leave as I see fit."
+        "I'm not renting this home! There's no lease contract to terminate."
     Endif
     
     SceneEnd()

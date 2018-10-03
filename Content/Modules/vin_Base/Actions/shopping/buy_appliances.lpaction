@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: buy_appliances
+ACTION_NAME: Buy home appliances
+WHERE: computer, department_store, electronics, doityourself, marketplace
+WHEN: 0 - 24
+MINUTES: 1 - 1
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT:
+EFFECTS: 
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: buy_appliances
+ANIMATION:   

@@ -1,5 +1,5 @@
 ACTION_UNIQUEID: move_out
-ACTION_NAME: Terminate lease
+ACTION_NAME: Move out
 WHERE: home
 WHEN: 0 - 24
 MINUTES: 1 - 1
