@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: take_over_business
+ACTION_NAME: Take over the business
+WHERE: alcohol, bag, bakery, bar, beauty, beverages, bicycle, biergarten, books, butcher, cafe, car, chemist, cinema, clothes, coffee, computer, confectionery, convenience, copyshop, cosmestics, deli, doityourself, electronics, fast_food, florist, furniture, gift, greengrocer, hairdresser, hotel, ice_cream, jewellery, laundry, mobile_phone, motorcycle, musical_instrument, newsagent, nightclub, optician, outdoor, pet, pharmacy, photo, pub, restaurant, seafood, shoes, sports, sports_centre, stationery, supermarket, tea, theatre, tobacco, toys, variety_store, travel_agency
+WHEN: 0 - 24
+MINUTES: 1 - 1
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT:
+EFFECTS: 
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: take_over_business
+ANIMATION:   

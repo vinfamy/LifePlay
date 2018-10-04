@@ -1,0 +1,10 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "I have closed down this business."
+    stopBusiness()
+    SceneEnd()

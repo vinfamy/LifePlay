@@ -1,0 +1,21 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+
+    SceneStart()
+    Rent = calculateRent()
+    RentConverted = Rent.convertToLocalCurrency(true)
+    "The rent of this property for commercial use is <RentConverted> per month, and the current tenant is not renewing. Lease it?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "I signed the lease on the property and took over the business."
+        "What should I name this business?"
+        enterBusinessName()
+        startBusiness()
+    Endif
+    SceneEnd()

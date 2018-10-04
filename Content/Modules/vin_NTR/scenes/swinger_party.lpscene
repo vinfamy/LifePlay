@@ -1,0 +1,233 @@
+WHAT: all
+WHERE: all
+WHEN: 19 - 24
+WHO: Dating = getSpecific(Dating); If Dating.isDating() && Dating:perversion > 70 && Dating:attractiontoplayer > 30
+OTHER: none
+
+    SceneStart()
+    
+    Dating.dress()
+    Dating.show(4)
+    
+    "<Dating.name> and I are very open sexually with each other. Should I suggest to <Dating.him_or_her> that we arrange a swinger party to add some spice to our relationship?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        Dating(Flirty):: "Of course baby, that would be quite something different."
+        "So we agreed on some ground rules for the night, the most important of which is that we must both agree on which couple we would swing with."
+        "Now it's time to pick which couples to invite"
+        0:: "Hand-pick the guests myself"
+        1:: "Let <Dating.name> do it"
+        
+        If 0
+            "Who should be the first couple I invite? (Pick an NPC from your contact list who your <Dating.boyfriend_or_girlfriend> might want to bang, and who has a significant other you might want to bang)."
+            Dating.hide()
+            selectNPC()
+            Guest1 = getSelectedNPC()
+            If !Guest1.isValid()
+                "I can't quite decide on who to invite."
+            Elseif Guest1:perversion > 50 && [Guest1:rapportwithplayer > 0 || Guest1:attractiontoplayer > 0]
+                Guest1.hide()
+                Guest1_SO = Guest1.getRelatedPerson(Dating, Spouses)
+                If Guest1_SO.isValid()
+                    "<Guest1.name> happily accepted my invitation and will bring <Guest1.his_or_her> <Guest1_SO.boyfriend_or_girlfriend> <Guest1_SO.name> along."
+                Else
+                    "<Guest1.name> is a bad choice for a swinger party. <Guest1.He_or_She> is single!"
+                    Guest1.delete()
+                Endif
+            Else
+                Guest1.hide()
+                "<Guest1.name> turned down my invitation. Oh well ..."
+                Guest1.delete()
+            Endif
+            
+            "Who should be the next couple I invite?"
+            selectNPC()
+            Guest2 = getSelectedNPC()
+            If !Guest2.isValid()
+                "I can't quite decide on who to invite."
+            Elseif Guest2:perversion > 50 && [Guest2:rapportwithplayer > 0 || Guest2:attractiontoplayer > 0]
+                Guest2.hide()
+                Guest2_SO = Guest2.getRelatedPerson(Dating, Spouses)
+                If Guest2_SO.isValid()
+                    "<Guest2.name> happily accepted my invitation and will bring <Guest2.his_or_her> <Guest2_SO.boyfriend_or_girlfriend> <Guest2_SO.name> along."
+                Else
+                    "<Guest2.name> is a bad choice for a swinger party. <Guest2.He_or_She> is single!"
+                    Guest2.delete()
+                Endif
+            Else
+                Guest2.hide()
+                "<Guest2.name> turned down my invitation. Oh well ..."
+                Guest2.delete()
+            Endif
+                        
+            "Who should be the next couple I invite?"
+            selectNPC()
+            Guest3 = getSelectedNPC()
+            If !Guest3.isValid()
+                "I can't quite decide on who to invite."
+            Elseif Guest3:perversion > 50 && [Guest3:rapportwithplayer > 0 || Guest3:attractiontoplayer > 0]
+                Guest3.hide()
+                Guest3_SO = Guest3.getRelatedPerson(Dating, Spouses)
+                If Guest3_SO.isValid()
+                    "<Guest3.name> happily accepted my invitation and will bring <Guest3.his_or_her> <Guest3_SO.boyfriend_or_girlfriend> <Guest3_SO.name> along."
+                Else
+                    "<Guest3.name> is a bad choice for a swinger party. <Guest3.He_or_She> is single!"
+                    Guest3.delete()
+                Endif
+            Else
+                Guest3.hide()
+                "<Guest3.name> turned down my invitation. Oh well ..."
+                Guest3.delete()
+            Endif
+        Endif
+        
+        If !Guest1.isValid()
+            Guest1 = generatePersonTemporary()
+            While !Guest1.isInterestedIn(Dating)
+                Guest1 = generatePersonTemporary()
+            Endwhile
+            
+            Guest1_SO = generatePersonTemporary()
+            While !Player.isInterestedIn(Guest1_SO)
+                Guest1_SO = generatePersonTemporary()
+            Endwhile
+            "As I couldn't decide on anyone myself for the first couple, <Dating.name> went ahead and invited a couple <Dating.he_or_she> knew, called <Guest1.name> and <Guest1_SO.name>."
+        Endif
+
+        If !Guest2.isValid()
+            Guest2 = generatePersonTemporary()
+            While !Guest2.isInterestedIn(Dating)
+                Guest2 = generatePersonTemporary()
+            Endwhile
+            
+            Guest2_SO = generatePersonTemporary()
+            While !Player.isInterestedIn(Guest2_SO)
+                Guest2_SO = generatePersonTemporary()
+            Endwhile
+            "As I couldn't decide on anyone myself for the second couple, <Dating.name> went ahead and invited a couple <Dating.he_or_she> knew, called <Guest2.name> and <Guest2_SO.name>."
+        Endif
+        
+        If !Guest3.isValid()
+            Guest3 = generatePersonTemporary()
+            While !Guest3.isInterestedIn(Dating)
+                Guest3 = generatePersonTemporary()
+            Endwhile
+            
+            Guest3_SO = generatePersonTemporary()
+            While !Player.isInterestedIn(Guest3_SO)
+                Guest3_SO = generatePersonTemporary()
+            Endwhile
+            "As I couldn't decide on anyone myself for the third couple, <Dating.name> went ahead and invited a couple <Dating.he_or_she> knew, called <Guest3.name> and <Guest3_SO.name>."
+        Endif            
+
+        "A few days later ..."
+        setBackground(home)
+        
+        Player.strip()
+        Dating.strip()
+        Dating.show(4)
+        "Here it is: our swinger party and it's full of good-looking nude couples we invited. So many choices for us."
+        0:: "Sabotage protection"
+        1:: "Let's keep everyone safe"
+        
+        If 0
+            "Little do the guests know: this is about to turn into a massive impregnation party."
+            Impreg = true
+        Else
+            "Let's make sure everyone is protected and we have a safe swinger party without long-lasting consequences."
+            Impreg = false
+        Endif
+        
+        "<Guest1.name> and <Guest1_SO.name> was the first couple to arrive."
+        Guest1.show(2)
+        Guest1_SO.show(3)
+
+        "<Guest2.name> and <Guest2_SO.name> arrived."
+        Guest1.hide()
+        Guest1_SO.hide()
+        Guest2.show(2)
+        Guest2_SO.show(3)
+
+        "<Guest3.name> and <Guest3_SO.name> arrived."
+        Guest2.hide()
+        Guest2_SO.hide()
+        Guest3.show(2)
+        Guest3_SO.show(3)
+
+        "Everyone is here and we start to mingle."
+        Guest3.hide()
+        Guest3_SO.hide()
+
+        "Let's be honest: we're not here for a classy cocktail reception ... It's time to decide which couple we would swing with tonight. As the host, we get the first pick, the other two couples not chosen by us will swing with each other."
+        0:: "<Guest1.name> and <Guest1_SO.name>"
+        1:: "<Guest2.name> and <Guest2_SO.name>"
+        2:: "<Guest3.name> and <Guest3_SO.name>"
+        
+        If 0
+            FuckMe = Guest1_SO
+            FuckDating = Guest1
+            
+            Reject1 = Guest2
+            Reject2 = Guest2_SO
+            Reject3 = Guest3
+            Reject4 = Guest3_SO
+        Elseif 1
+            FuckMe = Guest2_SO
+            FuckDating = Guest2
+            
+            Reject1 = Guest1
+            Reject2 = Guest1_SO
+            Reject3 = Guest3
+            Reject4 = Guest3_SO        
+        Else
+            FuckMe = Guest3_SO
+            FuckDating = Guest3
+            
+            Reject1 = Guest2
+            Reject2 = Guest2_SO
+            Reject3 = Guest1
+            Reject4 = Guest1_SO        
+        Endif
+        
+        Dating.hide()
+        SexNoAffair(Player, FuckMe)
+        Player.hide()
+        FuckMe.hide()
+        Sex(FuckDating, Dating)
+        
+        If Impreg
+            If !Player.isMale() && [FuckMe.isMale() || FuckMe.isTrans()]
+                Player.impregnate()
+            Elseif !FuckMe.isMale() && [Player.isMale() || Player.isTrans()]
+                FuckDating.makePermanent()
+                FuckMe.makePermanent()
+                FuckMe.impregnate()
+            Endif
+            
+            If !Dating.isMale() && [FuckDating.isMale() || FuckDating.isTrans()]
+                Dating.impregnate()
+            Endif
+        Endif
+        
+        FuckDating.hide()
+        Dating.hide()
+        Sex(Reject1, Reject4)
+        Reject1.hide()
+        Reject4.hide()
+        
+        Sex(Reject3, Reject2)
+        Reject3.hide()
+        Reject2.hide()
+        
+        "Eventually, the party winded down. Everyone was exhausted but very very satisfied indeed."
+        If Impreg
+            "I have a funny feeling that a baby or two was conceived tonight thanks to my sabotage effort."
+        Endif
+    Else
+        "Maybe not, some fantasies should remain fantasies."
+    Endif
+    
+    SceneEnd()
+    timeout(200, swinger_party)

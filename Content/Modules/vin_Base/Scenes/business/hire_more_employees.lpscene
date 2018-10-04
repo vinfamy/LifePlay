@@ -1,0 +1,104 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    dressFormal()
+    Actor = generatePersonTemporary()
+    "Someone called <Actor.name> <Actor.name_last> applied for the position. The CV and cover letter looks promising enough. Should I invite <Actor.him_or_her> to an interview?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        Actor.dress()
+        Actor.show(2)
+        
+        Actor(Happy):: "It's a pleasure to meet you, <Player.Mr_or_Ms> <Player.name_last>."
+        Player(Happy):: "Pleasure is all mine. Please, take a seat ... Now, shall we begin the interview?"
+        "Half an hour later ..."
+        If Actor:interpersonal < 25
+            "<Actor.name> is completely charmless and terrible at getting <Actor.his_or_her> point across ... I can't imagine how <Actor.he_or_she> would be able to communicate with customers and colleagues."
+        Elseif Actor:interpersonal < 50
+            "<Actor.name> isn't the most confident candidates I've seen. <Actor.He_or_She> was clearly nervous the whole interview."
+        Elseif Actor:interpersonal < 75
+            "<Actor.name> comes across as your average <Actor.Joe_or_Jane>, confident enough without being particularly articulate."
+        Else
+            "<Actor.name> is extremely well spoken. <Actor.His_or_Her> confidence clearly shone through. I bet <Actor.he_or_she> would be a hit with both customers and colleagues."
+        Endif
+        
+        If Actor:intelligence < 25
+            "<Actor.name> seems a brainless idiot that knows absolutely nothing about anything."
+        Elseif Actor:intelligence < 50
+            "<Actor.name> isn't the brightest candidate I've seen, but again, I'm not looking to hire a rocket scientist."
+        Elseif Actor:intelligence < 75
+            "<Actor.name> seems fairly intelligent and has a decent knowledge of what the job involves."
+        Else
+            "<Actor.name> comes across as a smart cookie and has clearly done <Actor.his_or_her> homework on the role being offered."
+        Endif
+        
+        If Actor:perversion > 75
+            "I couldn't help but notice <Actor.name> was trying to flirt with me the whole time. Trying to seduce me into giving <Actor.him_or_her> the job clearly ..."  
+        Elseif Actor:perversion > 50
+            "It could just be my imagination but I think <Actor.name> was flirting with me a bit. Maybe <Actor.he_or_she> thought some mild seduction might give <Actor.him_or_her> an edge over the other candidates?"
+        Endif
+        
+        Sex = false
+        "What is my decision on this?"
+        0:: "Hire <Actor.him_or_her>"
+        1:: "Reject <Actor.him_or_her>"
+        2:: "Offer to hire <Actor.him_or_her> in exchange for sex"
+        
+        If 0
+            Hired = true
+        Elseif 1
+            Player(Sad):: "I'm sorry but you didn't quite match the profile of the candidate we're looking for. All the best for the future."
+            Actor(Sad):: "Thank you for the opportunity."
+            Hired = false
+        Else
+            Player(Sad):: "I'm sorry but you didn't quite match the profile of the candidate we're looking for ..."
+            Player(Flirty):: "But I could be convinced to change my mind ..."
+            "I then proceeded to caress <Actor.his_or_her> thigh, making clear the deal being offered on the table."
+            If Random(30, 90) < Actor:perversion
+                Actor(Flirty):: "I really need this job ... so alright ..."
+                Sex(Player, Actor)
+                Player.show(0)
+                Actor.show(2)
+                Sex = true
+                Hired = true
+            Else
+                Actor(Angry):: "What are you doing? Get your hand off me, you pervert!"
+                Hired = false
+                "<Actor.name> stormed off from the interview room. I really screwed up here."
+                If Random(50, 1000) < Actor:intelligence
+                    "To make matters worse, <Actor.name> went straight to the press accusing me of sexual harassment. My company's reputation was damaged severely by this PR disaster."
+                Endif
+            Endif
+        Endif
+        
+        If Hired
+            Player(Happy):: "Congratulations! We'll be more than happy for you to join the team. We'll send a job offer very soon."
+            Actor(Happy):: "Thank you so much! I'll eagerly wait for the offer."
+            Actor.hide()
+            Salary = Random(800, 1200)*CostOfLiving
+            SalaryConverted = Salary.convertToLocalCurrency(true)
+            
+            "<Actor.name> is asking for a monthly salary of <SalaryConverted>."
+            0:: "Give <Actor.him_or_her> what <Actor.he_or_she> wants"
+            1:: "Offer a low-ball salary"
+            
+            If 0 || Sex || Random(0, 50) < bargain
+                If 1
+                    Salary *= 0.8
+                Endif
+                Actor.makePermanent()
+                "<Actor.name> accepted the offer and started immediately."
+                Actor.addEmployee(Salary)
+                exchangeContact(Actor)
+            Else
+                "To my surprise, <Actor.name> turned down my cheeky offer. Maybe I overestimated my company's appeal?"
+            Endif
+        Endif
+    Endif
+    SceneEnd()

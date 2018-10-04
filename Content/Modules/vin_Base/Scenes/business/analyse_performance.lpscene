@@ -1,0 +1,107 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Revenue = calculateRevenue()
+    RevenueC = Revenue.convertToLocalCurrency(true)
+    "Estimated gross revenue for this month is <RevenueC>."
+    Rent = calculateRent()
+    RentC = Rent.convertToLocalCurrency(true)
+    "Rent for the property is at <RentC>"
+    Wages = calculateWages()
+    WagesC = Wages.convertToLocalCurrency(true)
+    "Wages for all employees total around <WagesC>."
+    Expenses = calculateExpenses()
+    ExpensesC = Expenses.convertToLocalCurrency(true)
+    "Other expenses are projected at <ExpensesC>."
+    Profit = Revenue - Rent - Wages - Expenses
+    ProfitC = Profit.convertToLocalCurrency(true)
+    ProfitMargin = Profit / Revenue
+    "In the end, estimated net profit works out at <ProfitC> for this month." 
+    "Dig deeper into the performance data?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "In terms of marketing ..."
+        If brand < 25
+            "Your company's brand is virtually unknown. Most customers don't recognize it at all."
+        Elseif brand < 50
+            "Your company's brand is somewhat recognizable. Still, your brand isn't strong enough to be the deciding factor in the customers' minds."
+        Elseif brand < 75
+            "Your company's brand is strong. The majority of customers have heard of you and associated your brand with quality."
+        Else
+            "Your company is a household name. Everyone knows who you are and trusts the quality of your products."
+        Endif
+        
+        If business_reputation < 25
+            "This business is virtually unknown locally. You need to promote it more."
+        Elseif business_reputation < 50
+            "A fair percentage of local customers know about this business, but have yet to try it out." 
+        Elseif business_reputation < 75
+            "This business is fairly well-known locally and has its fair share of repeat customers."
+        Else
+            "This business is a true local favourite and has its own legion of loyal customers."
+        Endif
+        
+        "In terms of labour ..."       
+        If business_staffnumber < 30
+            "This business is severely understaffed. You need to hire more people right away."
+        Elseif business_staffnumber < 60
+            "This business still needs quite a few more employees to operate at an acceptable level"
+        Elseif business_staffnumber < 90
+            "This business is managing okay, although it's still somewhat understaffed."
+        Elseif business_staffnumber < 120
+            "The business seems to have just the right number of employees to handle everything."
+        Elseif business_staffnumber < 150
+            "The business is running smoothly, but there are too many employees on the premise at times."
+        Else
+            "The business seems to have more employees than customers - it seems an inefficient waste."
+        Endif
+        
+        If business_staffintelligence < 25
+            "This business is full of clueless idiots ... might as well fire the whole staff."
+        Elseif business_staffintelligence < 50
+            "Your employees are fairly incompetent right now, but might improve with more training."
+        Elseif business_staffintelligence < 75
+            "Your employees are quite decent at their jobs, although there are room for improvements."
+        Else
+            "This business is a well-oiled machine. Your employees know their shit and do their jobs well."
+        Endif
+        
+        If business_staffinterpersonal < 25
+            "Your entirely staff are socially inept. They could barely communicate with customers and among themselves."
+        Elseif business_staffinterpersonal < 50
+            "Team communication and customer service are both quite poor, but might improve with training."
+        Elseif business_staffinterpersonal < 75
+            "Your employees work together okay as a team and deliver decent customer service."
+        Else
+            "Your employees show excellent level of teamwork and take good care of your customers."
+        Endif
+        
+        "In terms of suppliers ..."
+        If interpersonal < 25   
+            "You're hopeless at negotiating with suppliers. They rip you off on a regular basis."
+        Elseif interpersonal < 50
+            "You're quite uncomfortable dealing with suppliers, but you won't be the first business owner with that problem."
+        Elseif interpersonal < 75
+            "You do a decent enough job negotiating supplier contracts. The business is paying market rate for most things, you reckon."
+        Else
+            "You're a excellent negotiator and have won the business a lot of cost-savings."
+        Endif
+        
+        If bargain < 25
+            "Your company is a new kid on the block and frequently gets bullied by suppliers."
+        Elseif bargain < 50
+            "Your company still has no bargaining power against the big suppliers, but smaller boutiques are quite happy to welcome your business."
+        Elseif bargain < 75
+            "Your company now has some leverage in negotiating with suppliers. Still, you're not considered one of their most important customers."
+        Else
+            "Your company has immense purchasing power. Most suppliers would do anything to work with you." 
+        Endif
+    Endif
+    
+    SceneEnd()
