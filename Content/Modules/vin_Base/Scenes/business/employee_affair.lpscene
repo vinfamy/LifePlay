@@ -1,0 +1,55 @@
+WHAT: all
+WHERE: alcohol:business, bag:business, bakery:business, bar:business, beauty:business, beverages:business, bicycle:business, biergarten:business, books:business, butcher:business, cafe:business, car:business, chemist:business, cinema:business, clothes:business, coffee:business, computer:business, confectionery:business, convenience:business, copyshop:business, cosmestics:business, deli:business, doityourself:business, electronics:business, fast_food:business, florist:business, furniture:business, gift:business, greengrocer:business, hairdresser:business, hotel:business, ice_cream:business, jewellery:business, laundry:business, mobile_phone:business, motorcycle:business, musical_instrument:business, newsagent:business, nightclub:business, optician:business, outdoor:business, pet:business, pharmacy:business, photo:business, pub:business, restaurant:business, seafood:business, shoes:business, sports:business, sports_centre:business, stationery:business, supermarket:business, tea:business, theatre:business, tobacco:business, toys:business, variety_store:business, travel_agency:business
+WHEN: 0-24
+WHO: Actor = getSpecific(Employee); Actor2 = getSpecific(Employee); If !Actor.isDating() && !Actor2.isDating() && Actor2.isInterestedIn(Actor) && Actor.isInterestedIn(Actor2) && Actor:perversion + Actor2:perversion > Random(75, 150)
+OTHER: none
+
+    SceneStart()
+    Actor2.dress()
+    Actor.dress()
+    Actor2.show(3)
+    Actor.show(2)
+
+    "Wait, is that my employees <Actor2.name> and <Actor.name> walking together towards a storeroom?"
+    "What should I do?"
+    0:: "Follow them"
+    1:: "No big deal"
+    
+    If 0
+        "Could they be having an affair? In the middle of their shift, no less!"
+        "What should I do now?"
+        0:: "Peep"
+        1:: "Leave it"
+        
+        If 0
+            If Random(0, 100) < sneak
+                "Luckily, they forgot to lock the door behind them, leaving me an easy opening to have a peek."
+                Sex(Actor, Actor2)
+                Actor.hide()
+                Actor2.hide()
+                Player.show(0)
+            Else
+                "Unfortunately, they locked the door as soon as they went inside the storeroom and I couldn't see a thing."
+                "Still, I could hear sounds of moaning. It was obvious what they were doing in there."
+            Endif
+        Endif
+        
+        "Now, what should I do about what I saw?"
+        0:: "Fire them"
+        1:: "Stay silent"
+        
+        If 0
+            "I decided to fire their asses for this unacceptable behaviour at work."        
+            Actor:rapportwithplayer -= Random(0, 50)
+            Actor2:rapportwithplayer -= Random(0, 50)
+            Actor.removeEmployee()
+            Actor2.removeEmployee()
+        Else
+            "Let's be honest: I has my own sex at work fantasies. They're valuable employees for the company nevertheless."
+        Endif
+    Else
+        "Who cares? They're probably just looking for some supplies together."
+    Endif
+    
+    SceneEnd()
+    timeout(200, employee_affair)

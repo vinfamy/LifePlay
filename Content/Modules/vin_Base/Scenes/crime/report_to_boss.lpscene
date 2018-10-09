@@ -1,0 +1,401 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Actor = getSpecific(Criminal)
+    dressFormal()
+    If Actor.isValid()
+        setBackground(restaurant)
+        Boss = getSpecific(CrimeBoss)
+        Boss.dress()
+        Boss.show(2)
+        Player(Happy):: "Boss, I'm here for the next heist."
+        If isTimingOut(report_to_boss)
+            Boss(Angry):: "You have some <Player.balls_or_galls> coming back here so soon after screwing up so badly last time."
+            Boss(Angry):: "I'm not sure I can continue to trust you."
+            Boss(Angry):: "Fine ... come back in a few days and I might have something for you."
+        Else
+            Boss(Evil):: "And I have something for you. I suggest you get to it immediately."
+            Actor.dress()
+            Actor.show(3)
+            Boss(Evil):: "<Actor.name> will be your partner for this. Try not to get you both busted, will you?"
+            
+            Random
+                Job = 0 // Bank robbery
+                Job = 1 // Debt Collection
+                Job = 2 // Kidnapping
+                Job = 3 // Assassination
+                Job = 4 // Diamond
+                Job = 5 // Official Sex Tape
+            endRandom
+            
+            If Job == 0 // BANK ROBBERY 
+                Boss(Evil):: "We found out that a bank branch is holding an unusually large reverse of cash. The security there is lackluster."
+                Boss(Evil):: "You're going there and you're going to rob it, plain and simple."
+                Boss(Evil):: "Just scare them bank employees shitless and take the money. Beat them up if they're stubborn but I don't want to hear about any murders, okay?"
+                Player(Evil):: "Of course, Boss. I won't disappoint you."
+                Boss.hide()
+                Actor.show(4)
+                Actor(Evil):: "Let's go, <Player.name>. No time to waste before the bank's management grows a brain and adds more security,"
+                setBackground(bank)
+                Actor2 = generatePersonTemporary()
+                Actor2.dress()
+                Actor2.show(2)
+                Actor(Evil):: "That must be the branch manager. Let's get this party started!"
+                Player(Evil):: "Hands up! Everyone, hands up or I'll shoot each and everyone here."
+                Player(Evil):: "Now you, hand over all the cash! Or things are getting ugly right quick."
+                If Actor2:masochist > 0
+                    Actor2(Scared):: "Please, don't shoot. I'll get the money you want ..."
+                    "Well, that was easy ..."
+                    
+                    Outcome = 1
+                Else
+                    Actor2(Furious):: "I'm not giving up without a fight, thug!"
+                    "The foolish bank manager threw <Actor2.himself_or_herself> forward and tried to tackle me."
+                    0:: "Shoot <Actor2.him_or_her>"
+                    1:: "Beat <Actor2.him_or_her> up"
+                    
+                    If 0
+                        "Pow!"
+                        Actor2.hide()
+                        "I shot the bank manager in the head in cold blood. The gunshot was followed by screams all around me"
+                        Player(Furious):: "Who else wants to join the fool in Hell? Hand over the money, now!"
+                        
+                        Outcome = 2
+                    Else
+                        If martial < Actor2:martial
+                            "Unfortunately, the branch manager turned out to be a handful and <Actor2.he_or_she> managed to knock me off my gun."
+                            "Worse, there's now the sound of police siren coming. Someone must have taken advantage of the chaos of the brawl to call the cops."
+                            Actor(Scared):: "Fuck! The cops are here. Let's get out of here!"
+                            
+                            Outcome = 3
+                        Else
+                            Player(Evil):: "Don't try to be the hero next time!"
+                            Actor2.hide()
+                            "The branch manager was no match for me in a fight."
+                            Player(Furious):: "Anybody else wants to be a hero? Hand over the money, now!"
+                            
+                            Outcome = 1
+                        Endif
+                    Endif
+                Endif
+                
+                Actor2.hide()
+                setBackground(restaurant)
+                
+                Boss.show(2)
+                If Outcome == 1
+                    Boss(Evil):: "A job well done. Couldn't have done it any more perfectly myself. Here's your share."
+                    money += Random(1000, 3000)
+                Elseif Outcome == 2
+                    Boss(Angry):: "You did a job, but I would have preferred that you didn't kill the branch manager. I can't take the piss out of the cops too much."
+                    Boss(Angry):: "Here's your share. Remember to follow my instructions to the letter next time if you want a bigger share."
+                    money += Random(500, 1000)
+                Else
+                    Boss(Furious):: "You two idiots! How could you have screwed that up so badly? You bring shame to our Family. Now, get the fuck out of my sight before I shoot both of you up."
+                    mood -= Random(0, 50)
+                    timeout(200, report_to_boss)
+                Endif
+                
+            Elseif Job == 1 // DEBT COLLECTION
+                Boss(Evil):: "One of the local business owners have been paying us for years for protection ... With the increased presence of the cops in the area, the owner has become a bit too ... bold and stopped paying."
+                Boss(Evil):: "You will go there and show that piece of shit how foolish it is to not honor an arrangement with our Family."
+                
+                Player(Evil):: "Of course, Boss. I won't disappoint you."
+                Boss.hide()
+                Actor.show(4)
+                Actor(Evil):: "Let's go, <Player.name>. No time to waste for such an easy task"
+                Random
+                    setBackground(bar)
+                    setBackground(nightclub)
+                    setBackground(alcohol)
+                    setBackground(tobacco)
+                endRandom
+                Actor2 = generatePersonTemporary()
+                Actor2.dress()
+                Actor2.show(2)
+                Actor(Evil):: "That must be the owner. I'll keep guard at the door to warn you of any cops! You go there and beat <Actor2.him_or_her> up."
+                Actor.hide()
+                Player(Furious):: "I'll teach you a lesson for not paying your dues on time!"
+                If martial > Actor2:martial
+                    Actor2(Crying):: "Enough! Enough! I'll pay. Tell <Boss.name> I'm sorry."
+                    outcome = 1
+                Else
+                    "Unfortunately, the <Actor2.bastard_or_bitch> turned out to be a handful and <Actor2.he_or_she> managed to knock me out. Thankfully, <ACtor.name> was there to save my ass in the end."
+                    outcome = 2
+                Endif
+
+                Actor2.hide()
+                setBackground(restaurant)
+                Boss.show(2)
+                
+                If outcome == 1
+                    Boss(Evil):: "Well done. That should teach <Actor2.him_or_her> not to mess with us again! Here's your reward."
+                    money += Random(100, 500)              
+                Else
+                    Boss(Furious):: "Useless cunt! That piece of shit is probably laughing at us even more now! You bring dishonor to our Family!"
+                    mood -= Random(0, 50)
+                    timeout(200, report_to_boss)                    
+                Endif
+                
+            Elseif Job == 2 // KIDNAPPING
+                dressFormal()
+                Actor2 = generatePersonTemporary()
+                Actor2:age => Random(18, 25)
+                Actor2.randomizeFace()
+                Actor2.randomizeHairs()
+                Boss(Evil):: "The <Actor2.heir_or_heiress> to one of the biggest business empires in the city is a party animal who frequents high-society bars and nightclubs late into the night."
+                Boss(Evil):: "You will go find <Actor2.him_or_her> and kidnap <Actor2.him_or_her>. I bet the rich daddy would pay any price to have the spoit <Actor.brat_or_slut> back."
+                
+                Player(Evil):: "Of course, Boss. I won't disappoint you."
+                Boss.hide()
+                Actor.show(4)
+                Actor(Evil):: "Let's go, <Player.name>. I've been tracking <Actor2.him_or_her> down for months. I know exactly where <Actor2.he_or_she>'s right now"
+                setBackground(bar)
+                Actor2.dress()
+                Actor2.show(2)
+                Actor(Evil):: "That's the target, sitting by the bar. <Actor2.He_or_She> has two bodyguards with <Actor2.him_or_her> though. There's a perfect spot behind the bar for ambush. I will be waiting for you to lure <Actor2.him_or_her> out there! Try to earn <Actor2.his_or_her> trust ... or lust."
+                Actor.hide()
+                Player(Happy):: "Excuse me, was there anyone sitting here?"
+                Actor2(Happy):: "No ... go ahead."
+                Player(Happy):: "I'm <Player.Brett_or_Alexandra> by the way."
+                0:: "Act cool"
+                1:: "Try to seduce <Actor2.him_or_her>"
+                
+                "Half an hour later ..."
+                If 0 && Random(0, 100) < Actor2:rapportwithplayer + interpersonal
+                    Actor2(Surprised):: "Wow! That's amazing that you already traveled so much all over the world."
+                    Actor2(Sad):: "My father would never allow me that freedom ..."
+                    "<Actor2.name> totally bought into the stories I've been telling <Actor2.him_or_her> to make me look like the coolest human on earth. It's time to act."
+                    Player(Happy):: "You know what? I can't take you traveling around the world with me, but I have some good stuffs in my car right now ... I'll be happy to get high with you."
+                    Actor2(Sad):: "I don't know ... my father wouldn't allow me to go anywhere without these bodyguards."
+                    Player(Happy):: "Come on! Don't be so boring ..."
+                    "Peer pressure is the true downfall of rich kids ..."
+                    Actor2(Happy):: "What the hell ... Fine! Let's get out of here before my useless bodyguards notice."
+                    outcome = 1
+                Elseif 1 && Random(0, 100) < Actor2:attractiontoplayer + Actor2:perversion
+                    Actor2(Flirty):: "Oh gosh, you're such a <Player.handsome_or_beautiful> <Player.guy_or_girl>. It must be my lucky night ..."
+                    Player(Flirty):: "While your bodyguards aren't paying attention, how about us sneaking out of here and I'll give you a night to remember."
+                    Actor2(Flirty):: "You're so naughty and direct ... I like that."
+                    outcome = 1
+                Else
+                    Actor2(Sad):: "Sorry, but I've got to go ... Nice to have met you."
+                    "Damn, my charm offensive didn't work at all. <Actor2.name> clearly couldn't wait to get away from me."
+                    outcome = 2
+                Endif
+                
+                If outcome == 1
+                    Actor2.show(4)
+                    setBackground(street)
+                    Actor.show(2)
+                    Actor(Evil):: "Well, well, well, you managed to lure the rich kid out here after all ..."
+                    Actor2(Surprised):: "Who's this, <Player.Brett_or_Alexandra>? What's going on here?"
+                    Actor2(Pain):: "Ah....."
+                    Actor2.hide()
+                    Actor(Evil):: "That should shut you up ... Now, let's throw <Actor2.him_or_her> onto the van and drive back to HQ."
+                    Player(Evil):: "Good night, little <Actor2.prince_or_princess>."
+                    
+                    Actor.hide()
+                    setBackground(restaurant)
+                    Boss.show(2)
+                    Boss(Evil):: "A job well done. Couldn't have done it any more perfectly myself. Here's your share of the ransom."
+                    money += Random(500, 1000)
+                Else
+                    Actor2.hide()
+                    setBackground(restaurant)
+                    Boss.show(2)
+                    Boss(Angry):: "I'm extremely disappointed in your showing today. Go away and have a long hard look at yourself!"
+                    timeout(200, report_to_boss)
+                Endif
+                
+            Elseif Job == 3 // ASSASINATION
+                Boss(Evil):: "Our Family unfortunately had a traitor recently who has been selling us out to the cops."
+                Boss(Evil):: "You will go find and kill that piece of shit. Let them all remember that the Oath of the Family must never be broken."
+                
+                Player(Evil):: "Of course, Boss. I won't disappoint you."
+                Boss.hide()
+                Actor.show(4)
+                Actor(Evil):: "Let's go, <Player.name>. I can't wait to see that traitor dead myself."
+                setBackground(street)
+                Actor2 = generatePersonTemporary()
+                Actor2.dress()
+                Actor2.show(2)
+                Actor(Evil):: "That's the target, walking down a dark alley ... as if <Actor2.he_or_she> is asking to be an easy target. I'll keep guard here to warn you of any cops! You sneak behid <Actor2.him_or_her> and once within range, shoot the <Actor2.bastard_or_bitch> to death, okay?"
+                Actor.hide()
+                "Alright, I must be very quiet here as to not alert <Actor2.him_or_her> ..."
+                "Just a few more steps and it will be perfect range for a headshot ..."
+                If Random(0, 100) < sneak
+                    "Perfect ... It's time to end this."
+                    "Pow!"
+                    Actor2.hide()
+                    "Perfect headshot ... the traitor was sent straight to Hell. Now, let's get out of here before the cops arrive."
+                    
+                    setBackground(restaurant)
+                    Boss.show(2)
+                    Boss(Evil):: "A job well done. Here's your reward. That should serve as a warning to anyone thinking about betraying our Family."
+                    money += Random(500, 1000)                    
+                Else
+                    Actor2(Furious):: "Help! Somebody help!"
+                    Actor2.hide()
+                    "Pow!"
+                    "Damn it, I wasn't sneaky enough. The target was alerted and immediately ran off. In panic, I completely misfired my shot."
+                    Actor.hide()
+                    
+                    setBackground(restaurant)
+                    Boss.show(2)
+                    Boss(Furious):: "I should have known you would screw up. Let's hope this hasn't emboldened the traitors within our ranks."
+                    timeout(200, report_to_boss)                 
+                Endif
+                
+            Elseif Job == 4 // DIAMOND
+                Boss(Evil):: "A priceless jewel is currently on exhibition at a museum on the other side of town."
+                Boss(Evil):: "You will break into the museum after hours, steal it and leave a note. I imagine the press coverage of this incident would give us the notoriety for a few new recruits."
+                
+                Player(Evil):: "Of course, Boss. I won't disappoint you."
+                Boss.hide()
+                Actor.hide()
+                setBackground(art)
+                "There's the jewel ... A guard is right nearby though."
+                "Alright, I must be very quiet here as to not alert the guard ..."
+                "Just a few more steps and I can grab it ..."
+                If Random(0, 100) < sneak
+                    "Gotcha!"
+                    "Let's just leave this note as the Boss asked me to."
+                    
+                    setBackground(restaurant)
+                    Boss.show(2)
+                    Boss(Evil):: "A job well done. Here's your reward."
+                    money += Random(500, 1000)                    
+                Else
+                    Player(Scared):: "Shit ..."
+                    "Damn it, I wasn't sneaky enough. The guard was alerted and immediately chased after me. In panic, I had no choice but run to escape."
+                    Actor.hide()
+                    
+                    setBackground(restaurant)
+                    Boss.show(2)
+                    Boss(Furious):: "I should have known you would screw up. Useless <Player.bastard_or_bitch>, couldn't even handle a simple theft mission."
+                    timeout(200, report_to_boss)                 
+                Endif
+                
+            Elseif Job == 5 // SEX TAPE
+                Actor2 = generatePersonTemporary()
+                Boss(Evil):: "One of the district chiefs have been a pain in the ass for us recently. Newly elected, the scum is rather over-zealous with combating organized crime."
+                Boss(Evil):: "Thankfully, no-one is perfect and 'the conservative hero on a God's mission' has actually been having an extra-marital affair ..."
+                Boss(Evil):: "If you were to take pictures of some of the steamy actions, we would be able to use them to blackmail the chief into looking the other way from our activities ..."
+                
+                Player(Evil):: "Of course, Boss. I won't disappoint you."
+                Boss.hide()
+                Actor.show(4)
+                Actor(Evil):: "Let's go, <Player.name>. I know exactly where <Actor2.he_or_she> usually meets <Actor2.his_or_her> lover."
+                setBackground(hotel)
+
+                Actor2.dress()
+                Actor2.show(2)
+                Actor3 = generatePersonTemporary()
+                Actor3.dress()
+                Actor3.show(3)
+                Actor(Evil):: "That's the district chief and <Actor2.his_or_her> lover ... not so discreet, eh? I'll keep guard here! You sneak behind them and follow them to their room and once they get down and dirty, snap a few lovely family photos, okay?"
+                Actor.hide()
+                "Alright, I must be very quiet here as to not alert <Actor2.him_or_her> ..."
+                "Just a few more steps to their bedroom ..."
+                If Random(0, 100) < sneak
+                    setBackground(home)
+                    "Perfect ... ."
+                    Player.hide()
+                    Sex(Actor2, Actor3)
+                    Actor2.strip()
+                    Actor2.show(2)
+                    Actor3.strip()
+                    Actor3.show(3)
+                    
+                    Player.show(0)
+                    "Plenty of blackmail material ... The Boss would be very pleased."
+                    Actor2.hide()
+                    Actor3.hide()
+                    
+                    setBackground(restaurant)
+                    Boss.show(2)
+                    Boss(Evil):: "A job well done. Here's your reward. These compromising photos should keep the <Actor2.bastard_or_bitch> off our asses for good."
+                    money += Random(500, 1000)                    
+                Else
+                    Actor2(Scared):: "<Actor3.name>, I think we're being followed. Let's meet another night."
+                    Actor2.hide()
+                    Actor3.hide()
+
+                    "Damn it, I wasn't sneaky enough. The target was alerted."
+                    Actor.hide()
+                    
+                    setBackground(restaurant)
+                    Boss.show(2)
+                    Boss(Furious):: "Damn it, I should have known better than trusting you!"
+                    timeout(200, report_to_boss)                 
+                Endif           
+            Endif
+        Endif
+    Else
+        "Am I seriously considering joining the Mafia?"
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            "My mind is made up. Let's go and find the local Mafia boss."
+            setBackground(restaurant)
+            Boss = getSpecific(CrimeBoss)
+            If Boss.isValid()
+                Boss.dress()
+                Boss.show(2)
+                Boss(Evil):: "So, thought it over? Ready to take the oath to join the Family?"
+            Else
+                Boss = generatePerson()
+                Boss:age += 20
+                Boss.randomizeHairs()
+                Boss.randomizeFace()
+                Boss:attractiontoplayer => -100
+                Boss.setCrimeBoss()
+                Boss.dress()
+                Boss.show(2)
+                Boss(Evil):: "So, you want to join our Family? Have you actually thought this through or are you just another wasting my time?"
+                Boss(Evil):: "Remember, the oath of allegiance to our Family is an oath till death. Once you're part of the Family, you're always one of us. If you want out, we'll hunt you down and make sure you die a painful death. Wouldn't want to risk you working with the government against us, would we?"
+                Boss(Evil):: "We look after each other. If you ever get busted on the job, we'll make sure you won't end up in prison. Although if you're useless enough to get caught frequently, maybe we'll just leave you rot ..."
+                Boss(Evil):: "And most importantly: you do the job and get the share that I decide to give you, no arguments or negotiations."
+                Boss(Evil):: "So, still interested?"
+            Endif
+            
+            "Join the Mafia? As the boss said, there's no coming back from this decision. Once I'm in, death is the only way out."
+            0:: "Yes"
+            1:: "No"
+            
+            If 0
+                Player(Happy):: "I'll be honored to swear my life to the Family, <Boss.Sir_or_Madam>."
+                Boss(Happy):: "Finally! Let's not waste any more time and get your initiation over and done with, shall we?"
+                "My initiation ritual first involves me being led into the presence of other Mafia members and presented by the Boss. The Family's strict rules were read out before my finger was pricked with a needle by the Bos. A few drops of my blood were spilled on a card bearing the Family's patron saint, which was then set on fire. The burning card is passed rapidly from hand to hand, while I took the oath of loyalty to the Family."
+                "Now that I'm officially a member of the family, let's introduce myself to the rest."
+                Boss.hide()
+                exchangeContact(Boss)
+                
+                Total = Random(3, 10)
+                count = 0
+                While count < Total
+                    Actor = generatePerson()
+                    Actor.addCriminal()
+                    Actor.dress()
+                    Actor.show(2)
+                    "A gang member approached me."
+                    Actor(Evil):: "So, you're the new <Player.boy_or_girl>? Watch yourself out there, novice. I'm <Actor.name>. Maybe we can work together sometimes."
+                    Player(Happy):: "I won't let the Family down, <Actor.name>."
+                    exchangeContact(Actor)
+                    Actor.hide()
+                    Actor.saveandDelete()
+                    count += 1
+                Endwhile
+            Else
+                Player(Scared):: "Can I ... think this over, <Boss.Sir_or_Madam>?"
+                Boss(Angry):: "Piss off then. If you're such an indecisive coward, you're probably not suited for our kind of business."
+            Endif
+        Endif          
+    Endif
+    
+    SceneEnd()

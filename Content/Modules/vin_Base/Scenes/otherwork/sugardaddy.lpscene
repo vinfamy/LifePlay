@@ -2,7 +2,7 @@ WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
 WHERE: all
 WHEN: 16 - 22
 WHO: none
-OTHER: !isWithCompanion() && jobexperience > 60
+OTHER: !isWithCompanion() && [jobexperience > 60 || money > 20000]
 
     SceneStart()
     SugarBabe = SugarBabe.getGlobal()    
@@ -50,6 +50,9 @@ OTHER: !isWithCompanion() && jobexperience > 60
                     Actor = generatePersonTemporary()
                 Endwhile
                 Actor.blendPreset(twenties)
+                If Actor:age > age
+                    Actor:age => 18
+                Endif
                 Actor.randomizeFace()
                 Actor.randomizeHairs()
                 

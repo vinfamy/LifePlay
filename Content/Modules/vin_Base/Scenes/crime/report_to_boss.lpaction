@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: report_to_boss
+ACTION_NAME: Report to the Boss
+WHERE: crime
+WHEN: 0 - 24
+MINUTES: 30 - 60
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: 
+CONDITIONS:
+MOVE_FIRST: false
+SCENE_ALWAYS: report_to_boss
+ANIMATION:   

@@ -1,0 +1,9 @@
+WHAT: train_customer_service
+WHERE: alcohol:business, bag:business, bakery:business, bar:business, beauty:business, beverages:business, bicycle:business, biergarten:business, books:business, butcher:business, cafe:business, car:business, chemist:business, cinema:business, clothes:business, coffee:business, computer:business, confectionery:business, convenience:business, copyshop:business, cosmestics:business, deli:business, doityourself:business, electronics:business, fast_food:business, florist:business, furniture:business, gift:business, greengrocer:business, hairdresser:business, hotel:business, ice_cream:business, jewellery:business, laundry:business, mobile_phone:business, motorcycle:business, musical_instrument:business, newsagent:business, nightclub:business, optician:business, outdoor:business, pet:business, pharmacy:business, photo:business, pub:business, restaurant:business, seafood:business, shoes:business, sports:business, sports_centre:business, stationery:business, supermarket:business, tea:business, theatre:business, tobacco:business, toys:business, variety_store:business, travel_agency:business
+WHEN: 0 - 24
+WHO: Actor = getSpecific(Employee); If Actor:interpersonal < interpersonal && Actor:interpersonal < 100
+OTHER: none
+
+    Actor:interpersonal += interpersonal*0.005
+    Actor.saveAndDelete()
+    timeout(2, train_customer_service)
