@@ -1,11 +1,10 @@
-WHAT: whore_out
-WHERE: sexwork
+WHAT: whore_out, whore_out_brothel
+WHERE: sexwork, brothel
 WHEN: 0 - 24
 WHO: none
 OTHER: Random(0, 150)*Random(0, 150) < attractiveness*attractiveness
 
     SceneStart()
-    setBackground(street)
     Actor = generatePersonTemporary()
     Actor.dress()
     Actor.show(2)
@@ -20,8 +19,12 @@ OTHER: Random(0, 150)*Random(0, 150) < attractiveness*attractiveness
         Player(Sad):: "Sorry, but I'm not working right now ..."
     Elseif choice*attractiveness > Actor:intelligence + Actor:interpersonal
         Actor(Flirty):: "It looks like we have a deal, darling."
-        "Soon enough, I was following <Actor.him_or_her> to a nearby motel room."
-        setBackground(home)
+        If WHERE == brothel
+            "Soon enough, I was following <Actor.him_or_her> to one of the brothel's rooms."
+        Else
+            "Soon enough, I was following <Actor.him_or_her> to a nearby motel room."
+            setBackground(home)
+        Endif
         Sex(Actor, Player)
         money += Random(100, 500)/choice
     Else

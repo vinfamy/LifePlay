@@ -1,0 +1,48 @@
+WHAT: all
+WHERE: all, -work
+WHEN: 8 - 22
+WHO: none
+OTHER: Random(1, 300) < modelfame + fitness
+
+    SceneStart()
+    
+    "A lingerie brand wants to book me to model for one of their new collections ..."
+    0:: "Turn down the offer"
+    1:: "Rip them off"
+    2:: "Offer a fair price"
+    3:: "Give them a bargain"
+    
+    If 0
+        Player(Sad):: "Sorry, but I'm not comfortable modeling lingerie ..."
+    Elseif 3 || Random(0, 100) < choice*modelfame
+        "The company accepted my demands."
+        setbackground(modeling)
+        "The day of the shoot ..."
+        Actor = generatePersonTemporary()
+        Actor.dress()
+        Actor.show(2)
+        
+        Player.strip()
+        Player.dressExcept(Outerwear, Top, Bottom, Foot, Headwear, Eyewear)
+        Actor(Happy):: "That's it ... perfect."
+        Player.strip()
+        Player.dressExcept(Outerwear, Top, Bottom, Foot, Headwear, Eyewear)
+        Actor(Happy):: "Put more emotions into it ... there you go."
+        Player.strip()
+        Player.dressExcept(Outerwear, Top, Bottom, Foot, Headwear, Eyewear)
+        Actor(Happy):: "A bit more to the left ... that's perfect."
+        Player.strip()
+        Player.dressExcept(Outerwear, Top, Bottom, Foot, Headwear, Eyewear)
+        Actor(Happy):: "Yup, that's how you do it. This is going to look so great!"
+        
+        money += Random(250, 1000)/choice
+        modelfame += 0.25
+        perversion += 0.25
+        
+        "Aside from my agreed pay, they also let me keep the lingerie I did the photoshoots in."
+    Else
+        "Unfortunately, the lingerie designer considered my rate too high and hired another model for the job instead."
+    Endif
+    
+    SceneEnd()
+    timeout(24, photoshoot_lingerie)

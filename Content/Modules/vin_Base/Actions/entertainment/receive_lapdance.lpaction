@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: receive_lapdance
+ACTION_NAME: Receive a lapdance
+WHERE: stripclub
+WHEN: 0 - 24
+MINUTES: 15 - 30
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:  money -100 (START), mood +20 (END), mood -10 (INTERRUPTED), arousal +20 (DURATION)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: all, -home
 WHEN: 17-22
-WHO: Actor = getCompanion(); Actor2 = Actor.getRelatedPerson(Spouses, Dating); If !Actor.isRelative() && Actor.isInterestedIn(Player) && Actor:perversion - perversion > 40 && Actor:attractiontoplayer > 10
+WHO: Actor = getCompanion(); Actor2 = Actor.getRelatedPerson(Spouses, Dating); If !Actor.isRelative() && Actor.isInterestedIn(Player) && Actor:perversion > 70 && Actor:attractiontoplayer > 10
 OTHER: none
 
     SceneStart()

@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: watch_stripping
+ACTION_NAME: Enjoy the show
+WHERE: stripclub
+WHEN: 0 - 24
+MINUTES: 30 - 60
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:  money -50 (START), mood +10 (END), mood -3 (INTERRUPTED), arousal +10 (DURATION)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

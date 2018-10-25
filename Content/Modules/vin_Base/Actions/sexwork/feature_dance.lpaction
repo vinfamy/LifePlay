@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: feature_dance
+ACTION_NAME: Feature-dance
+WHERE: stripclub
+WHEN: 0 - 24
+MINUTES: 30 - 60
+TIMEOUT_MINUTES: 
+ALSO_TIMEOUT: 
+EFFECTS: perversion +0.1 (END), mood -0.5 (DURATION), energy -5 (DURATION), money +300 (END)
+CONDITIONS: pornfame > 30 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:   

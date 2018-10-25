@@ -1,0 +1,16 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "Am I sure I want to quit my job at the University?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "Teaching and research wasn't the career for me."
+        quitLecturing()
+    Endif
+    SceneEnd()

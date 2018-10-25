@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: look_for_porn_shoot
+ACTION_NAME: Look for a shoot
+WHERE: sexwork
+WHEN: 0 - 24
+MINUTES: 120 - 360
+TIMEOUT_MINUTES: 720
+ALSO_TIMEOUT:
+EFFECTS: 
+CONDITIONS: pornfame > 0 (STAT_COMPARE)
+MOVE_FIRST: false
+SCENE_ALWAYS: porn_shoot, porn_shoot_threesome
+ANIMATION:   

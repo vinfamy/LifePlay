@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: interact_with_Instagram_followers
+ACTION_NAME: Interact with Instagram fans
+WHERE: modeling
+WHEN: 0 - 24
+MINUTES: 40 - 120
+TIMEOUT_MINUTES:
+ALSO_TIMEOUT: 
+EFFECTS: modelfame +0.02 (END)
+CONDITIONS: modelfame > 0 (STAT_COMPARE)
+MOVE_FIRST: false
+SCENE_ALWAYS:
+ANIMATION:   

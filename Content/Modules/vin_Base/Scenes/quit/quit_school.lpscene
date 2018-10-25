@@ -1,0 +1,16 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "Am I sure I want to drop out of college?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "College life wasn't for me."
+        quitSchool()
+    Endif
+    SceneEnd()

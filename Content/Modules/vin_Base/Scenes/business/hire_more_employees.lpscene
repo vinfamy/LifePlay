@@ -10,6 +10,7 @@ OTHER: none
     "Someone called <Actor.name> <Actor.name_last> applied for the position. The CV and cover letter looks promising enough. Should I invite <Actor.him_or_her> to an interview?"
     0:: "Yes"
     1:: "No"
+    2:: "Headhunt someone I know instead"
     
     If 0
         Actor.dress()
@@ -98,6 +99,41 @@ OTHER: none
                 exchangeContact(Actor)
             Else
                 "To my surprise, <Actor.name> turned down my cheeky offer. Maybe I overestimated my company's appeal?"
+            Endif
+        Endif
+    Elseif 2
+        Actor.delete()
+        "Who do I think would be interested in working for my company?"
+        selectNPC()
+        Actor = getSelectedNPC()
+        If Actor.isRelative()
+            "Bad idea. It's not good for the business to be accused of nepotism and create a toxic atmosphere within the workforce. This would do more harm than good."
+        Elseif Actor.isBoss()
+            "I can't hire my boss as my employee!"
+        Else
+            Actor.dress()
+            Actor.show(2)
+            
+            If Actor.isDating() || Random(0, 150) < Actor:rapportwithplayer + interpersonal
+                Actor(Happy):: "Hmm, it's an interesting opportunity and I quite like my current job. I'll have to think about it ..."
+                Salary = Random(800, 1200)*CostOfLiving
+                SalaryConverted = Salary.convertToLocalCurrency(true)
+                "<Actor.name> is asking for a monthly salary of <SalaryConverted>."
+                0:: "Give <Actor.him_or_her> what <Actor.he_or_she> wants"
+                1:: "Offer a low-ball salary"
+                
+                If 0 || Actor.isDating() || Random(0, 50) < bargain
+                    If 1
+                        Salary *= 0.8
+                    Endif
+                    "<Actor.name> accepted the offer and started immediately."
+                    Actor.addEmployee(Salary)
+                    exchangeContact(Actor)
+                Else
+                    "To my surprise, <Actor.name> turned down my cheeky offer. Maybe I overestimated my company's appeal?"
+                Endif                
+            Else
+                Actor(Sad):: "Thank you for the offer, but I'm not really interested in the position."
             Endif
         Endif
     Endif

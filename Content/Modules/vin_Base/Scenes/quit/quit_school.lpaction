@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: quit_school
+ACTION_NAME: Drop out of college
+WHERE: university:school
+WHEN: 0 - 24
+MINUTES: 1 - 1
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: 
+CONDITIONS:
+MOVE_FIRST: false
+SCENE_ALWAYS: quit_school
+ANIMATION:   

@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: quit_lecturing
+ACTION_NAME: Quit job
+WHERE: university:work
+WHEN: 0 - 24
+MINUTES: 1 - 1
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: 
+CONDITIONS:
+MOVE_FIRST: false
+SCENE_ALWAYS: quit_lecturing
+ANIMATION:   

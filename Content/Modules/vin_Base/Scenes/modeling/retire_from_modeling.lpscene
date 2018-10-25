@@ -1,0 +1,19 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "Am I sure about quitting my modeling career?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "I wasn't making that much money. It's a cutthroat industry and there's so much competition to get noticed."
+        modelfame => 0
+    Else
+        "On second thought, maybe I just need more patience. One day, I'll become a supermodel."
+    Endif
+    
+    SceneEnd()

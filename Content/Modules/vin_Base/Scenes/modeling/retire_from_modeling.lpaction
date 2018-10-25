@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: retire_from_modeling
+ACTION_NAME: Retire from modeling
+WHERE: modeling
+WHEN: 0 - 24
+MINUTES: 1 - 1
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: 
+CONDITIONS: modelfame > 0 (STAT_COMPARE)
+MOVE_FIRST: false
+SCENE_ALWAYS: retire_from_modeling
+ANIMATION:   

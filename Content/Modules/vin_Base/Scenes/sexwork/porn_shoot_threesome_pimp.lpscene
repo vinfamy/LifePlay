@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: all, -work
 WHEN: 8 - 18
-WHO: Actor3 = getSpecific(Prostitute); If Random(1, 1000) < Actor3:pornfame
+WHO: Actor3 = getSpecific(Prostitute); If Random(1, 300) < Actor3:pornfame
 OTHER: none
 
     SceneStart()

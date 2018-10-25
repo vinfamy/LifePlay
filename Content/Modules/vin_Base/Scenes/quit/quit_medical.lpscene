@@ -1,0 +1,16 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "Am I sure I want to quit my job at the hospital?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "Medicine wasn't the career for me."
+        quitMedical()
+    Endif
+    SceneEnd()

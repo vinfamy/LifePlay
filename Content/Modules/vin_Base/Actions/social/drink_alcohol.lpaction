@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: drink_alcohol
 ACTION_NAME: Drink alcohol
-WHERE: nightclub, bar, pub, restaurant, cafe, hotel
+WHERE: nightclub, bar, pub, restaurant, cafe, hotel, stripclub, brothel
 WHEN: 0 - 24
 MINUTES: 5 - 20
 TIMEOUT_MINUTES: 0

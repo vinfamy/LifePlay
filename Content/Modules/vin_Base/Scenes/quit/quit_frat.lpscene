@@ -1,0 +1,16 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "Am I sure I want out of my <Player.fraternity_or_sorority>?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "Greek life wasn't for me. It's time to focus on academic performance and less on socializing."
+        quitFraternity()
+    Endif
+    SceneEnd()

@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: look_for_shoot
+ACTION_NAME: Look for a shoot
+WHERE: modeling
+WHEN: 0 - 24
+MINUTES: 120 - 360
+TIMEOUT_MINUTES: 720
+ALSO_TIMEOUT:
+EFFECTS: 
+CONDITIONS: modelfame > 0 (STAT_COMPARE)
+MOVE_FIRST: false
+SCENE_ALWAYS: photoshoot, photoshoot_lingerie, photoshoot_nude
+ANIMATION:   

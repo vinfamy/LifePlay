@@ -10,7 +10,11 @@ OTHER: IsAtHome() && arousal > 50 && perversion > 30
     1:: "No"
     
     If 0
-        "I did some digging on the internet and found a hooker that does outcalls and is within my budget."
+        If WHERE == brothel
+            "After looking around, I found a hooker that is within my budget."
+        Else
+            "I did some digging on the internet and found a hooker that does outcalls and is within my budget."            
+        Endif
         Actor = generatePersonTemporary()
         While !Player.isInterestedIn(Actor)
             Actor = generatePersonTemporary()       
@@ -31,7 +35,11 @@ OTHER: IsAtHome() && arousal > 50 && perversion > 30
         2:: "Get another one for a threesome"
         
         If 0
-            "In no time at all, the hooker arrived and we got it on immediately."
+            If WHERE == brothel
+                "I guided the hooker into one of the brothel's bedrooms and we got it on right away."
+            Else
+                "In no time at all, the hooker arrived and we got it on immediately."
+            Endif
             Sex(Player, Actor)
             perversion += Random(0, 0.5)
             money -= Random(100, 300)
@@ -53,7 +61,12 @@ OTHER: IsAtHome() && arousal > 50 && perversion > 30
             Actor2.dress()
             Actor2.show(3)
             
-            "In no time at all, the two prostitutes arrived and we got it on immediately."
+            If WHERE == brothel
+                "I guided the two prostitutes into one of the brothel's bedrooms and we got it on right away."
+            Else            
+                "In no time at all, the two prostitutes arrived and we got it on immediately."
+            Endif
+            
             Sex(Player, Actor, Actor2)
             perversion += Random(0, 1)
             money -= Random(200, 600)

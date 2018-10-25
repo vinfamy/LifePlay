@@ -2,7 +2,7 @@ WHAT: all
 WHERE: all, -work
 WHEN: 8 - 18
 WHO: none
-OTHER: Random(1, 1000) < pornfame
+OTHER: Random(1, 300) < pornfame
 
     SceneStart()
     Actor = generatePersonTemporary()
