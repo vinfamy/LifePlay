@@ -1,7 +1,7 @@
 WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
 WHERE: all
 WHEN: 8-20
-WHO: Actor = getPerson(true); If Player.isInterestedIn(Actor) && perversion - Actor:perversion > 40 && Actor:attractiveness > 60
+WHO: Actor = getPerson(true); If !Actor.isRelative() && Player.isInterestedIn(Actor) && perversion - Actor:perversion > 40 && Actor:attractiveness > 60
 OTHER: Random(65, 300) < perversion
 
     SceneStart()

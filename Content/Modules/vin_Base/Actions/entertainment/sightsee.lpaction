@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: sightsee 
 ACTION_NAME: Sight-see
-WHERE: art, biergarten, cafe, community_centre, department_store, florist, garden_centre, hotel, jewellery, library, marketplace, place_of_worship, prison, pub, restaurant, sports_centre, theatre
+WHERE: art, biergarten, cafe, community_centre, department_store, florist, garden_centre, hotel, jewellery, library, marketplace, place_of_worship, pub, restaurant, sports_centre, theatre
 WHEN: 6 - 19
 MINUTES: 30 - 60
 TIMEOUT_MINUTES: 

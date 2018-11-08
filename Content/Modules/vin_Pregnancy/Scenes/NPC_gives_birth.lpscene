@@ -28,6 +28,7 @@ OTHER: none
         "It's a <Actor2.boy_or_girl>! What should I name my <Actor2.son_or_daughter>?"
         Actor2.enterFirstName()
         Actor2:age => 0
+        Player:children += 1
         
         mood += 100
         SceneEnd()

@@ -145,7 +145,10 @@ MORPH Torso_ToracicCurve_max: 100% 1.395375
 MORPH Torso_Vshape_min: 100% 0.062977
 MORPH Waist_Size_min: 100% 0.443618
 MORPH Wrists_Size_max: 100% 0.024699
+PENIS Length_Max: 100% 0.225126
 PENIS Length_Min: 100% 0.301706
+PENIS Girth_Max: 100% 0.308267
+PENIS Ball_Max: 100% 0.977416
 PENIS Ball_Min: 100% 0.31666
 
 //Hair
@@ -171,7 +174,7 @@ SKIN Skin_Color_G: 100% 0.04
 SKIN Skin_Color_B: 100% 0.02
 SKIN Skin_Color_A: 100% 0.8
 SKIN Skin_Roughness: 100% 0.999985
-SKIN Skin_Oil: 100% 0.391461
+SKIN Skin_Oil: 100% 0.5
 SKIN Skin_Fresnel: 100% 0.274514
 SKIN Skin_Age: 100% 0.103576
 SKIN Skin_Sagging: 100% 0.0
@@ -189,10 +192,10 @@ STAT martial: 100% 4.553361
 STAT masochist: 100% -86.700035
 STAT muscle: 100% 96.136353
 STAT music: 100% 62.199772
-STAT perversion: 100% 44.987335
+STAT perversion: 100% 100.0
 STAT pornfame: 100% 0.0
 STAT sneak: 100% 34.946747
-STAT attractiontoplayer: 100% -7.910545
+STAT attractiontoplayer: 100% 100.0
 STAT rapportwithplayer: 100% -5.0
-STAT arousal: 100% 13.104648
-STAT intoxication: 100% 18.231756
+STAT arousal: 100% 1.492355
+STAT intoxication: 100% 0.092312

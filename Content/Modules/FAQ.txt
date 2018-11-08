@@ -1,0 +1,68 @@
+Where is my home?
+You start each new game homeless. You need to find a house (green house icon on your map, or you can press Ctrl + F to search for it), click on it during working hours, and select 'Arrange a viewing'.
+///
+How do I get a job?
+There are many career paths in the game, although the office job has the most content. Find a black office chair icon on your map (you can press Ctrl + F to search for offices), click on it during working hours, and select 'Attend an interview'.
+///
+How do I control the map view?
+You can move around with the directional keys or WASD. You can zoom in and out with your mouse scroll wheel. You can rotate the map by holding your Middle Mouse button while moving your mouse around.
+///
+I favorited a place. Now what?
+You can right click on your portrait (bottom right corner of your screen) to bring up all your favorited places and acess them quickly.
+///
+Are all the actions related to specific building?
+Nope. Right click anywhere on the screen will bring up a menu with actions you can do anywhere.
+///
+How do I control the sex scene camera?
+You can zoom in and out with your mouse scroll wheel. You can rotate your view by holding your Middle Mouse button while moving your mouse around.
+///
+A sex scene was triggered but the characters are just embracing ... What do I do now?
+Left click anywhere on the screen to bring up the sex action menu.
+///
+How do I speed up sex scene animations?
+Increase/ decrease animating speed with Numpad + or Numpad -, this will keep animating speed constant. If you want to manually animate (like in SuperDeepThroat), holding your Right Mouse button (or holding down Ctrl) while moving your mouse back and forth.
+///
+What's my objective? What should I do now?
+The game is a non-linear life simulation RPG. There's no 'go there, do that, unlock that sex scene' like most indie adult games. Just do things and take actions that you think make sense for your character and scenes will trigger naturally, allowing you to make certain decisions in life.  
+///
+How do I enable incest?
+Incest is an optional module that is disabled by default. Ctrl + M > Tick 'Official Incest Module' > Confirm. Then go into your Contacts menu (hotkey P) > Add Relative. You can edit this relative's appearance and stat and click on the 'Brother'/'Sister' text next to their name to change their relationship type to you.
+///
+How do I trigger incest scenes?
+Spend a lot of time at home and there will be many scenes that trigger with your live-in relatives. You won't be banging right away, but it will start with subtle suggestive scenes while the incest tension increases between you two. Once it gets to a high level, sex will happen. If you're impatient, you can go into Contacts menu (hotkey P), find the relative > Edit Stat > increase incest tension to 100.
+///
+How do I enable rape?
+Rape is an optional module that is disabled by default. Ctrl + M > Tick 'Official Non-Consensual Module' > Confirm.
+///
+How do I enable NTR?
+NTR is an optional module that is disabled by default. Ctrl + M > Tick 'Official NTR Module' > Confirm
+///
+How do I get (someone) pregnant?
+First, make sure you Ctrl + M and check that the Pregnancy module is enabled. Then Ctrl + T and make sure your fertility stat is higher than 0 (this is the base chance of you conceiving/impregnating). Then have sex and make sure it ended with a creampie (final position before 'Cumming' message should be a vaginal penetration animation). Conceiving is a roll of a dice and not all actors are valid parents, however, you can Esc > Settings > Tick 'Pregnancy Notifications' to get more behind-the-scenes info whenever you have sex.
+///
+I swear half of the NPCs generated are overweight. I'm all for realism but god damn it's a porn game after all.
+Esc > Customize NPC Distribution > make them all fitness models if you want
+///
+The character models are so ugly. The uncanny valley is real!
+I'm a coder by trade and have to rely on others for character models. The same guy that made these models is making a new set of more detailed models which hopefully I can use for the game when they are done. For now, if you cannot stand the models, go Esc > Settings > tick Toon Shading to turn the game into a fake-2d Borderlands-style graphics - this helps with the uncanny valley. It's also important to remain realistic: the game is being made by one dude working part-time (at least for now, until my Patreon grows to a liveable income), don't expect AAA graphics! Also, don't compare the models with the Daz3d ones used in RenPy/ RPGMaker game, these Daz3d models are not for real time rendering - there's a huge difference between taking minutes or hours to render one still image and rendering 60 frames per second - that level of photorealistic details are just not meant for in realtime rendering, not unless it's a game for only extremely beefy PCs anyway.
+///
+The animations are so shite!
+Again, I'm a coder by trade, not exactly the best at animating. I do know some of the best sex animators from my LoversLab connection though. Maybe one day, when my Patreon grows enough to have a decent budget, I can then commission animations made by these pros.
+///
+Performance is really bad. I get really low FPS.
+Esc > Settings > try to lower the graphic settings, especially the 'Post Process Quality'. Also, make sure you don't abuse the 'Randomize Unknown Buildings' in the Select City menu and set too high percentages.
+///
+Where do I report bugs and make suggestions?
+Anywhere I'm on: my Patreon page, Discord, LoversLab, F95, Fenoxo, ULMF, or directly to Github. I check all regularly.
+///
+Where can I learn to mod the game?
+Check the Docs/Modding folder included in every release of the game
+///
+I'm a bit of a completionist. Where can I get a list of all scenes to know which one I haven't triggered?
+Go to LifePlay/Content/Modules and search for 'lpscene'. Open each lpscene file with any text editor to show its conditions and content.
+///
+How do I test / force-trigger a scene?
+Note down the scene's filename (without the .lpscene bit). Go in game > press ~# (or Insert, or the tilde button under Esc) > type in the scene name > Enter.
+///
+How do I try to sleep with someone?
+There are many scenes that lead to sex in the game, depending on various conditions. A good way to start is to go into the Contacts menu (hotkey P) > Invite out.

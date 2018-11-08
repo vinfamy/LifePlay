@@ -1,0 +1,9 @@
+MORPH Fantasy_TeethVampire_max: 100% 1.0
+MORPH Fantasy_TeethVampire_min: 100% 0.0
+
+
+// Skin
+SKIN Skin_Color_R: 100% 0.9=>1.0
+SKIN Skin_Color_G: 100% 0.9=>1.0
+SKIN Skin_Color_B: 100% 0.9=>1.0
+SKIN Skin_Color_A: 100% 1.0

@@ -1,0 +1,38 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "Who do I want dead?"
+    selectNPC()
+    Actor2 = getSelectedNPC()
+    Actor2.dress()
+    Actor2.show(2)
+    "Do I hate <Actor2.name> so much that I want <Actor2.him_or_her> dead?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "I started planning for the murder ..."
+        setBackground(street)
+        "That's <Actor2.name>, walking down a dark alley ... as if <Actor2.he_or_she> is asking to be an easy target. I just need to sneak behid <Actor2.him_or_her> and once within range, shoot the <Actor2.bastard_or_bitch> to death. Easy enough."
+        "Alright, I must be very quiet here as to not alert <Actor2.him_or_her> ..."
+        "Just a few more steps and it will be perfect range for a headshot ..."
+        If Random(0, 100) < sneak
+            "Perfect ... It's time to end this."
+            "Pow!"
+            Actor2.hide()
+            Actor2.deletePerson()
+            "Perfect headshot ... the <Actor2.bastard_or_bitch> was sent straight to Hell. Now, let's get out of here before the cops arrive."                 
+        Else
+            Actor2(Furious):: "Help! Somebody help!"
+            Actor2.hide()
+            "Pow!"
+            "Damn it, I wasn't sneaky enough. <Actor2.name> was alerted and immediately ran off. In panic, I completely misfired my shot. Thankfully, <Actor2.name> didn't see my face."
+        Endif
+    Else
+        "<Actor2.name> is intolerable, but I'm not a murderer."
+    Endif
+    SceneEnd()

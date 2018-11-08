@@ -1,7 +1,7 @@
 WHAT: bathe
 WHERE: home
 WHEN: 0 - 24
-WHO: Actor = getSpecific(Dating); If Random(75, 300) < Actor:attractiontoplayer + Actor:perversion
+WHO: Actor = getSpecific(Dating); If !Actor.isRelative() && Random(75, 300) < Actor:attractiontoplayer + Actor:perversion
 OTHER: isAtDatingHome()
 
     SceneStart()

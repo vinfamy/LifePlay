@@ -1,0 +1,23 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    setBackground(office)
+    "I've been arrested, awaiting trial for my crimes."
+    0:: "Accept my fate"
+    1:: "Be represented by the world's best lawyer (cheat)"
+
+    If 0
+        "The court-appointed lawyer didn't do me much good. I got the expected sentence and was sent on my way to jail."
+        imprison()
+        SceneEnd()
+        setBackground(prison)
+    Else
+        "My world-class lawyer turned everything around and I was eventually cleared of all charges. I'm a free <Player.man_or_woman> again!"
+        sentence => 0
+        SceneEnd()
+    Endif
+    

@@ -1,0 +1,14 @@
+// Morphs
+MORPH Fantasy_EarsPointRotation_max: 100% 0.1=>0.2
+MORPH Fantasy_EarsPointRotation_min: 100% 0.0
+MORPH Fantasy_EarsPointedUp_max: 100% 0.1=>0.2
+MORPH Fantasy_EarsPointed_max: 100% 0.2=>0.4
+MORPH Fantasy_EarsPointed_min: 100% 0.0
+MORPH Fantasy_TeethOrc_max: 100% 1.0
+
+
+// Skin
+SKIN Skin_Color_R: 100% 0.0=>0.3
+SKIN Skin_Color_G: 100% 1.0
+SKIN Skin_Color_B: 100% 0.0=>0.3
+SKIN Skin_Color_A: 100% 1.0

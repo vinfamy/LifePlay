@@ -2,7 +2,7 @@ WHAT: all
 WHERE: all, -work
 WHEN: 8 - 22
 WHO: none
-OTHER: Random(1, 300) < modelfame + attractiveness
+OTHER: Random(1, 150) < modelfame && Random(30, 100) < attractiveness
 
     SceneStart()
     
@@ -34,10 +34,16 @@ OTHER: Random(1, 300) < modelfame + attractiveness
         money += Random(250, 1000)/choice
         modelfame += 0.25
         
-        "Aside from my agreed pay, they also let me keep the clothes I did the photoshoots in."
+        "Aside from my agreed pay, they also offered to let me keep the clothes I did the photoshoots in."
+        0:: "Keep the clothes also"
+        1:: "Just take the money"
+        
+        If 1
+            removeAddedClothes()
+        Endif
     Else
         "Unfortunately, the company considered my rate too high and hired another model for the job instead."
     Endif
     
     SceneEnd()
-    timeout(24, photoshoot)
+    timeout(48, photoshoot)

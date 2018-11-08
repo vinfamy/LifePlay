@@ -52,4 +52,4 @@ OTHER: Random(1, 200) < modelfame
     Endif
     
     SceneEnd()
-    timeout(24, photoshoot_nude)
+    timeout(48, photoshoot_nude)

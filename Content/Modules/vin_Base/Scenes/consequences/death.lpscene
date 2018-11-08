@@ -1,0 +1,34 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    If isWithCompanion()
+        currentCompanion.hide()
+    Endif
+    "I was rushed to a hospital on an ambulance as I began to lose consciousness. My last thought was about how very bad decisions in life led me down this path and what I could have done differently"
+    0:: "Black out"
+    
+    Player.hide()
+    setBackground(hospital)
+    "Maybe this emergency room is where I depart from this life."
+    0:: "The surgeons tried in vain ..."
+    1:: "A miracle happened (cheat)"
+    
+    If 0
+        "The surgeons tried their best, but the operation was ultimately unsuccessful. My life was over ..."
+        "GAME OVER!"
+        0:: "Load last save"
+        1:: "Revive my character (cheat)"
+        
+        If 0
+            sceneEndLoadLastSave()
+        Else
+            sceneEnd()
+        Endif
+    Else
+        "The heart stopped beating for minutes, but somehow I was revived. Even the doctors told me afterwards that it was a medical miracle."
+        SceneEnd()
+    Endif

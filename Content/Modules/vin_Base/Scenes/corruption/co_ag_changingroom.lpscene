@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: department_store, clothes
 WHEN: 8-22
-WHO: Actor = getCompanion(); If Actor.isInterestedIn(Player) && [Actor:attractiontoplayer > 10 || Actor:incest > 30]
+WHO: Actor = getCompanion(); If !Actor.isRelative() && Actor.isInterestedIn(Player) && [Actor:attractiontoplayer > 10 || Actor:incest > 30]
 OTHER: Random(30, 100) < perversion
 
     SceneStart()

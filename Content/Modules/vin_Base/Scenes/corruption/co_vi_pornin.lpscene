@@ -1,7 +1,7 @@
 WHAT: watch_a_movie_in
 WHERE: home
 WHEN: 8-24
-WHO: Actor = getCompanion(); If Actor.isInterestedIn(Player) && Actor:perversion > 70 && [Actor:attractiontoplayer > 10 || Actor:incest > 30]
+WHO: Actor = getCompanion(); If !Actor.isRelative() && Actor.isInterestedIn(Player) && Actor:perversion > 70 && [Actor:attractiontoplayer > 10 || Actor:incest > 30]
 OTHER: isAtHome()
 
     SceneStart()

@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: murder_someone
+ACTION_NAME: Murder someone
+WHERE: crime
+WHEN: 0 - 24
+MINUTES: 1 - 1
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: 
+CONDITIONS:
+MOVE_FIRST: false
+SCENE_ALWAYS: murder_someone
+ANIMATION:   

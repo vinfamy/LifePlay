@@ -19,5 +19,6 @@ OTHER: none
     "It's a <Actor.boy_or_girl>! What should I name my <Actor.son_or_daughter>?"
     Actor.enterFirstName()
     Actor:age => 0
+    Player:children += 1
 
     SceneEnd()
