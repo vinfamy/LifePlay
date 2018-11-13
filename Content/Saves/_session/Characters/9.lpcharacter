@@ -174,7 +174,7 @@ SKIN Skin_Color_G: 100% 0.04
 SKIN Skin_Color_B: 100% 0.02
 SKIN Skin_Color_A: 100% 0.8
 SKIN Skin_Roughness: 100% 0.999985
-SKIN Skin_Oil: 100% 0.5
+SKIN Skin_Oil: 100% 0.391461
 SKIN Skin_Fresnel: 100% 0.274514
 SKIN Skin_Age: 100% 0.103576
 SKIN Skin_Sagging: 100% 0.0
@@ -197,5 +197,5 @@ STAT pornfame: 100% 0.0
 STAT sneak: 100% 34.946747
 STAT attractiontoplayer: 100% 100.0
 STAT rapportwithplayer: 100% -5.0
-STAT arousal: 100% 1.492355
-STAT intoxication: 100% 0.092312
+STAT arousal: 100% 28.795151
+STAT intoxication: 100% 0.032295

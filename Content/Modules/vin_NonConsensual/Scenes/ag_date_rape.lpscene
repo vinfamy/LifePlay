@@ -43,6 +43,31 @@ OTHER: Random(50, 200) < Actor:attractiveness && Actor:attractiontoplayer < 10 &
             Actor:attractiontoplayer => -100
             endDate()
             blockContact(Actor)
+            
+            If Random(0, 100) < 20
+                setBackground(home)
+                "Sure enough, the cops promptly arrived at my home a few days later to arrest me."
+                "'Hands in the air, now!'"
+                0:: "Run"
+                1:: "Surrender"
+                
+                If 0
+                    If Random(0, 100) < fitness
+                        "I managed to lose the cops. Phew, that was close."
+                    Else
+                        Player(Angry):: "You're not taking me alive."
+                        "Pow!"
+                        Player.hide()
+                        "A cop fired his gun. It was a perfect shot ..."
+                        followUp(death)
+                    Endif
+                Else
+                    Player(Scared):: "Please, don't shoot!"
+                    "I put my hands up and surrendered to the overwhelming number of cops."
+                    sentence => 1825
+                    followUp(imprisoned)
+                Endif                
+            Endif
         Else
             Player(Angry):: "I'm not Bill Cosby! What kind of bartender are you?"
             Actor2.hide()

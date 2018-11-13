@@ -1,0 +1,29 @@
+WHAT: all
+WHERE: prison
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "Judging from the sounds of moaning, the inmate in the cell next door is having some sexy alone time."
+    0:: "Peep"
+    1:: "No big deal"
+    
+    If 0
+        "Thankfully, there's a tiny hole between the cells that gives me great view of what's going on."
+        Actor = generatePersonTemporary()
+        Filter(Solo)
+        Sex(Actor)
+        Actor.show(2)
+        Player.show(0)
+        "<Actor.He_or_She> must be feeling lonely ... To be fair, so am I ..."
+        0:: "Offer to 'comfort' each other"
+        1:: "Nah"
+        
+        If 0
+            "I found the right opportunity to make the offer to <Actor.name>. Eventually, <Actor.he_or_she> accepted."
+            Sex(Actor, Player)
+        Endif
+    Endif
+    SceneEnd()
+    timeout(100, prison_sex)

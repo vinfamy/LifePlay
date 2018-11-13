@@ -1,7 +1,7 @@
 ACTION_UNIQUEID: meditate
 ACTION_NAME: Meditate
-WHERE: place_of_worship
-WHEN: 6 - 19
+WHERE: place_of_worship, prison
+WHEN: 0 - 24
 MINUTES: 30 - 60 
 TIMEOUT_MINUTES: 500
 ALSO_TIMEOUT: 

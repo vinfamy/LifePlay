@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: escape_from_prison
+ACTION_NAME: Escape from prison
+WHERE: prison
+WHEN: 0 - 24
+MINUTES: 1 - 1
+TIMEOUT_MINUTES: 1440
+ALSO_TIMEOUT: 
+EFFECTS: 
+CONDITIONS:
+MOVE_FIRST: false
+SCENE_ALWAYS: escape_from_prison
+ANIMATION:   

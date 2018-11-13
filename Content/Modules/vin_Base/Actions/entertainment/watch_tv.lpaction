@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: watch_tv
 ACTION_NAME: Watch TV
-WHERE: home, fraternity
+WHERE: home, fraternity, prison
 WHEN: 0 - 24
 MINUTES: 30 - 60
 TIMEOUT_MINUTES: 0

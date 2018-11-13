@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: read_a_book
 ACTION_NAME: Read a book
-WHERE: library
+WHERE: library, prison
 WHEN: 7 - 22
 MINUTES: 45 - 90
 TIMEOUT_MINUTES: 0

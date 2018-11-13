@@ -61,7 +61,33 @@ OTHER: none
                     
                     Actor:rapportwithplayer => -100
                     blockContact(Actor)
-                    "<Actor.name> was an idiot. <Actor.He_or_She> never reported me to the police or even my <Actor2.boyfriend_or_girlfriend>, but <Actor.he_or_she> blocked my phone and avoided speaking to me ever since, to <Actor2.name>'s confusion." 
+
+                    If Random(0, 100) < 20
+                        setBackground(home)
+                        "Sure enough, the cops promptly arrived at my home a few days later to arrest me."
+                        "'Hands in the air, now!'"
+                        0:: "Run"
+                        1:: "Surrender"
+                        
+                        If 0
+                            If Random(0, 100) < fitness
+                                "I managed to lose the cops. Phew, that was close."
+                            Else
+                                Player(Angry):: "You're not taking me alive."
+                                "Pow!"
+                                Player.hide()
+                                "A cop fired his gun. It was a perfect shot ..."
+                                followUp(death)
+                            Endif
+                        Else
+                            Player(Scared):: "Please, don't shoot!"
+                            "I put my hands up and surrendered to the overwhelming number of cops."
+                            sentence => 1825
+                            followUp(imprisoned)
+                        Endif
+                    Else
+                        "<Actor.name> was an idiot. <Actor.He_or_She> never reported me to the police or even my <Actor2.boyfriend_or_girlfriend>, but <Actor.he_or_she> blocked my phone and avoided speaking to me ever since, to <Actor2.name>'s confusion."                    
+                    Endif
                 Endif
             Endif 
         Else

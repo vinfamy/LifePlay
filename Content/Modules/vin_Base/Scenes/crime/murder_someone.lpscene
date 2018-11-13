@@ -30,7 +30,32 @@ OTHER: none
             Actor2(Furious):: "Help! Somebody help!"
             Actor2.hide()
             "Pow!"
-            "Damn it, I wasn't sneaky enough. <Actor2.name> was alerted and immediately ran off. In panic, I completely misfired my shot. Thankfully, <Actor2.name> didn't see my face."
+            "Damn it, I wasn't sneaky enough. <Actor2.name> was alerted and immediately ran off. In panic, I completely misfired my shot."
+            If Random(0, 100) < sneak
+                "Thankfully, <Actor2.name> didn't see my face."
+            Else
+                "Sure enough, the cops promptly arrived at the scene."
+                "'Hands in the air, now!'"
+                0:: "Run"
+                1:: "Surrender"
+                
+                If 0
+                    If Random(0, 100) < fitness
+                        "I managed to lose the cops. Phew, that was close."
+                    Else
+                        Player(Angry):: "You're not taking me alive."
+                        "Pow!"
+                        Player.hide()
+                        "A cop fired his gun. It was a perfect shot ..."
+                        followUp(death)
+                    Endif
+                Else
+                    Player(Scared):: "Please, don't shoot!"
+                    "I put my hands up and surrendered to the overwhelming number of cops."
+                    sentence => 1825
+                    followUp(imprisoned)
+                Endif
+            Endif
         Endif
     Else
         "<Actor2.name> is intolerable, but I'm not a murderer."

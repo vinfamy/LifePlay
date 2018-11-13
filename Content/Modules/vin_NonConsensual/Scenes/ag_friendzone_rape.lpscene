@@ -55,7 +55,31 @@ OTHER: Player.isInterestedIn(Actor) && Actor:attractiontoplayer < 10 && Random(7
                     
                     Actor:rapportwithplayer => -100
                     blockContact(Actor)
-                    "I was lucky to avoid jail time as <Actor.name> never reported me to the police, perhaps thinking about our past friendship, but <Actor.he_or_she> blocked me and never wanted to see me again. One thing for sure: I did nothing to make <Actor.name> fall in love with me." 
+                    If Random(0, 100) < 85
+                        "I was lucky to avoid jail time as <Actor.name> never reported me to the police, perhaps thinking about our past friendship, but <Actor.he_or_she> blocked me and never wanted to see me again. One thing for sure: I did nothing to make <Actor.name> fall in love with me."
+                    Else
+                        "Sure enough, the cops promptly arrived at the scene."
+                        "'Hands in the air, now!'"
+                        0:: "Run"
+                        1:: "Surrender"
+                        
+                        If 0
+                            If Random(0, 100) < fitness
+                                "I managed to lose the cops. Phew, that was close."
+                            Else
+                                Player(Angry):: "You're not taking me alive."
+                                "Pow!"
+                                Player.hide()
+                                "A cop fired his gun. It was a perfect shot ..."
+                                followUp(death)
+                            Endif
+                        Else
+                            Player(Scared):: "Please, don't shoot!"
+                            "I put my hands up and surrendered to the overwhelming number of cops."
+                            sentence => 1825
+                            followUp(imprisoned)
+                        Endif
+                    Endif
                 Endif
             Endif             
             endDate()

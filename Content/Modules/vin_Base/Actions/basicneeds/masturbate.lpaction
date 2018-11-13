@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: masturbate
 ACTION_NAME: Masturbate
-WHERE: home, fraternity
+WHERE: home, fraternity, prison
 WHEN: 0 - 24
 MINUTES: 10 - 40
 TIMEOUT_MINUTES: 360

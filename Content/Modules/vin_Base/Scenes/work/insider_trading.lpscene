@@ -26,11 +26,37 @@ If 0
         Boss(Furious):: "Also, there are a few agents waiting for you ..."
         Boss.hide()
         loseJob()
-        setBackground(street)
-        "The extent of my crime wasn't enough to send me to prison, but that was the only saving grace. Not only did I lose my job, I was ordered by the court to pay back all the money I earned illegally from the trade. I also lost a lot of money in legal fees, and my reputation in the industy was forever damaged. It's a lot harder to get a decent job now ..."
-        jobexperience -= Random(0, 50)
-        money -= Random(1000, 20000)
-        mood -= 100
+        
+        If Random(0, 100) < 80
+            setBackground(street)
+            "The extent of my crime wasn't enough to send me to prison, but that was the only saving grace. Not only did I lose my job, I was ordered by the court to pay back all the money I earned illegally from the trade. I also lost a lot of money in legal fees, and my reputation in the industy was forever damaged. It's a lot harder to get a decent job now ..."
+            jobexperience -= Random(0, 50)
+            money -= Random(1000, 20000)
+            mood -= 100
+        Else
+            setBackground(home)
+            "Sure enough, the cops promptly arrived at my home to arrest me."
+            "'Hands in the air, now!'"
+            0:: "Run"
+            1:: "Surrender"
+            
+            If 0
+                If Random(0, 100) < fitness
+                    "I managed to lose the cops. Phew, that was close."
+                Else
+                    Player(Angry):: "You're not taking me alive."
+                    "Pow!"
+                    Player.hide()
+                    "A cop fired his gun. It was a perfect shot ..."
+                    followUp(death)
+                Endif
+            Else
+                Player(Scared):: "Please, don't shoot!"
+                "I put my hands up and surrendered to the overwhelming number of cops."
+                sentence => 1825
+                followUp(imprisoned)
+            Endif            
+        Endif
     Endif
     timeout(30000, insider_trading)
 Else

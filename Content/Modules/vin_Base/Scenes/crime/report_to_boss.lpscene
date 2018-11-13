@@ -83,21 +83,41 @@ OTHER: none
                     Endif
                 Endif
                 
-                Actor2.hide()
-                setBackground(restaurant)
-                
-                Boss.show(2)
                 If Outcome == 1
+                    Actor2.hide()
+                    setBackground(restaurant)                
+                    Boss.show(2)
                     Boss(Evil):: "A job well done. Couldn't have done it any more perfectly myself. Here's your share."
                     money += Random(1000, 3000)
                 Elseif Outcome == 2
+                    Actor2.hide()
+                    setBackground(restaurant)                
+                    Boss.show(2)
                     Boss(Angry):: "You did a job, but I would have preferred that you didn't kill the branch manager. I can't take the piss out of the cops too much."
                     Boss(Angry):: "Here's your share. Remember to follow my instructions to the letter next time if you want a bigger share."
                     money += Random(500, 1000)
-                Else
-                    Boss(Furious):: "You two idiots! How could you have screwed that up so badly? You bring shame to our Family. Now, get the fuck out of my sight before I shoot both of you up."
-                    mood -= Random(0, 50)
-                    timeout(200, report_to_boss)
+                Elseif Random(0, 100) < 20
+                    "Sure enough, the cops promptly arrived at the scene."
+                    "'Hands in the air, now!'"
+                    0:: "Run"
+                    1:: "Surrender"
+                    
+                    If 0
+                        If Random(0, 100) < fitness
+                            "I managed to lose the cops. Phew, that was close."
+                        Else
+                            Player(Angry):: "You're not taking me alive."
+                            "Pow!"
+                            Player.hide()
+                            "A cop fired his gun. It was a perfect shot ..."
+                            followUp(death)
+                        Endif
+                    Else
+                        Player(Scared):: "Please, don't shoot!"
+                        "I put my hands up and surrendered to the overwhelming number of cops."
+                        sentence => 3650
+                        followUp(imprisoned)
+                    Endif
                 Endif
                 
             Elseif Job == 1 // DEBT COLLECTION
@@ -127,18 +147,35 @@ OTHER: none
                     "Unfortunately, the <Actor2.bastard_or_bitch> turned out to be a handful and <Actor2.he_or_she> managed to knock me out. Thankfully, <ACtor.name> was there to save my ass in the end."
                     outcome = 2
                 Endif
-
-                Actor2.hide()
-                setBackground(restaurant)
-                Boss.show(2)
                 
                 If outcome == 1
+                    Actor2.hide()
+                    setBackground(restaurant)
+                    Boss.show(2)
                     Boss(Evil):: "Well done. That should teach <Actor2.him_or_her> not to mess with us again! Here's your reward."
                     money += Random(100, 500)              
-                Else
-                    Boss(Furious):: "Useless cunt! That piece of shit is probably laughing at us even more now! You bring dishonor to our Family!"
-                    mood -= Random(0, 50)
-                    timeout(200, report_to_boss)                    
+                Elseif Random(0, 100) < 20
+                    "Sure enough, the cops promptly arrived at the scene."
+                    "'Hands in the air, now!'"
+                    0:: "Run"
+                    1:: "Surrender"
+                    
+                    If 0
+                        If Random(0, 100) < fitness
+                            "I managed to lose the cops. Phew, that was close."
+                        Else
+                            Player(Angry):: "You're not taking me alive."
+                            "Pow!"
+                            Player.hide()
+                            "A cop fired his gun. It was a perfect shot ..."
+                            followUp(death)
+                        Endif
+                    Else
+                        Player(Scared):: "Please, don't shoot!"
+                        "I put my hands up and surrendered to the overwhelming number of cops."
+                        sentence => 365
+                        followUp(imprisoned)
+                    Endif                 
                 Endif
                 
             Elseif Job == 2 // KIDNAPPING
@@ -244,10 +281,29 @@ OTHER: none
                     "Damn it, I wasn't sneaky enough. The target was alerted and immediately ran off. In panic, I completely misfired my shot."
                     Actor.hide()
                     
-                    setBackground(restaurant)
-                    Boss.show(2)
-                    Boss(Furious):: "I should have known you would screw up. Let's hope this hasn't emboldened the traitors within our ranks."
-                    timeout(200, report_to_boss)                 
+                    If Random(0, 100) < 20
+                        "Sure enough, the cops promptly arrived at the scene."
+                        "'Hands in the air, now!'"
+                        0:: "Run"
+                        1:: "Surrender"
+                        
+                        If 0
+                            If Random(0, 100) < fitness
+                                "I managed to lose the cops. Phew, that was close."
+                            Else
+                                Player(Angry):: "You're not taking me alive."
+                                "Pow!"
+                                Player.hide()
+                                "A cop fired his gun. It was a perfect shot ..."
+                                followUp(death)
+                            Endif
+                        Else
+                            Player(Scared):: "Please, don't shoot!"
+                            "I put my hands up and surrendered to the overwhelming number of cops."
+                            sentence => 1825
+                            followUp(imprisoned)
+                        Endif
+                    Endif            
                 Endif
                 
             Elseif Job == 4 // DIAMOND
@@ -274,10 +330,29 @@ OTHER: none
                     "Damn it, I wasn't sneaky enough. The guard was alerted and immediately chased after me. In panic, I had no choice but run to escape."
                     Actor.hide()
                     
-                    setBackground(restaurant)
-                    Boss.show(2)
-                    Boss(Furious):: "I should have known you would screw up. Useless <Player.bastard_or_bitch>, couldn't even handle a simple theft mission."
-                    timeout(200, report_to_boss)                 
+                    If Random(0, 100) < 20
+                        "Sure enough, the cops promptly arrived at the scene."
+                        "'Hands in the air, now!'"
+                        0:: "Run"
+                        1:: "Surrender"
+                        
+                        If 0
+                            If Random(0, 100) < fitness
+                                "I managed to lose the cops. Phew, that was close."
+                            Else
+                                Player(Angry):: "You're not taking me alive."
+                                "Pow!"
+                                Player.hide()
+                                "A cop fired his gun. It was a perfect shot ..."
+                                followUp(death)
+                            Endif
+                        Else
+                            Player(Scared):: "Please, don't shoot!"
+                            "I put my hands up and surrendered to the overwhelming number of cops."
+                            sentence => 365
+                            followUp(imprisoned)
+                        Endif
+                    Endif               
                 Endif
                 
             Elseif Job == 5 // SEX TAPE

@@ -1,0 +1,23 @@
+WHAT: all
+WHERE: prison
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "Judging from the sounds of moaning, the inmate in the cell next door is having some intimate time with their spouse during a conjugal visit."
+    0:: "Peep"
+    1:: "Good for them"
+    
+    If 0
+        If Random(0, 100) < sneak
+            "Thankfully, there's a tiny hole between the cells that gives me great view of what's going on."
+            Actor = generatePersonTemporary()
+            Actor2 = generatePersonTemporary()
+            Sex(Actor, Actor2)
+        Else
+            "Between the thick walls of the prison cells, there's no way I could get a look in."
+        Endif
+    Endif
+    SceneEnd()
+    timeout(100, prison_npcsex)

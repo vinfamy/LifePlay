@@ -1,0 +1,21 @@
+WHAT: all
+WHERE: prison
+WHEN: 0-24
+WHO: none
+OTHER: Random(0, 100) > energy + mood
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    Actor.dressGuard()
+    Actor.show(2)
+    "One of the guards is offering preferential treatment in exchange for sex with <Player.male_or_female> inmates like me. Some of the other inmates already took <Actor.him_or_her> up on the offer, getting much better food and much easier labour as the result."
+    0:: "Accept the deal"
+    1:: "Endure the harsh conditions"
+    
+    If 0
+        mood += 25
+        energy += 50
+        Sex(Actor, Player)
+    Endif
+    SceneEnd()
+    timeout(200, prison_sexguard)

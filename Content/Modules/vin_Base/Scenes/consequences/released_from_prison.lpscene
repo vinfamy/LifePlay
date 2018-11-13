@@ -1,0 +1,12 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "I served my sentence. Today is my release day."
+    setBackground(street)
+    "That's it. I'm a free <Player.man_or_woman> again!"
+    endPrison()
+    SceneEnd()

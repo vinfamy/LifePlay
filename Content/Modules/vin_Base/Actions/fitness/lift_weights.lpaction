@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: lift_weights
 ACTION_NAME: Lift weights
-WHERE: sports_centre
+WHERE: sports_centre, prison
 WHEN: 0 - 24
 MINUTES: 30 - 60
 TIMEOUT_MINUTES: 1200

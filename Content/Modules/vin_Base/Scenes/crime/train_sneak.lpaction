@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: train_sneak
 ACTION_NAME: Learn sneaking techniques
-WHERE: crime
+WHERE: crime, prison
 WHEN: 0 - 24
 MINUTES: 60 - 120
 TIMEOUT_MINUTES: 0

@@ -1,9 +1,9 @@
 ACTION_UNIQUEID: write_creatively
 ACTION_NAME: Write creatively
-WHERE: home, fraternity
+WHERE: home, fraternity, prison
 WHEN: 0 - 24
 MINUTES: 60 - 180
-TIMEOUT_MINUTES: 1000
+TIMEOUT_MINUTES: 0
 ALSO_TIMEOUT: 
 EFFECTS: mood +5 (END), intelligence +0.1 (DURATION), mood -2 (INTERRUPTED)
 CONDITIONS:

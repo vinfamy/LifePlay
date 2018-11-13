@@ -1,0 +1,45 @@
+WHAT: all
+WHERE: prison
+WHEN: 8-22
+WHO: Actor = getSpecific(Dating); If Random(0, 200) < Actor:attractiontoplayer
+OTHER: none
+
+    SceneStart()
+    "In prison, I'm only allowed the occasional conjugal visit from my <Actor.boyfriend_or_girlfriend> <Actor.name>."
+    Actor.dress()
+    Actor.show(2)
+    Actor(Happy):: "Baby, I miss you! I can't wait for the day you can come home."
+    0:: "Just talk"
+    1:: "Have sex"
+    
+    If 1
+        Sex(Player, Actor)
+        Actor:attractiontoplayer += Random(0, 1)
+        
+        If Random(0, 100) < 10 && isModEnabled(vin_NTR)
+            Player.show(0)
+            Actor.show(2)
+            Actor2 = generatePersonTemporary()
+            Actor2.dressGuard()
+            Actor2.show(3)
+            Actor2(Evil):: "Having some fun there, I see?"
+            "It's a guard. What does <Actor2.he_or_she> want now?"
+            Actor2(Evil):: "Listen, sex isn't exactly allowed in these conjugal visits anymore. Would be a shame if this gets reported and you'll never get any visits again, wouldn't it?"
+            Player(Angry):: "Cut the crap, <Actor2.name>. What do you want?"
+            Actor2(Flirty):: "Let's cut to the chase then: you two got me quite turned on, I need to release now ... on your <Actor.boyfriend_or_girlfriend>."
+            0:: "Okay ..."
+            1:: "Fuck you!"
+            
+            If 0
+                masochist += Random(0, 1)
+                Sex(Actor2, Actor)
+            Else
+                masochist -= Random(0, 1)
+                Actor2(Angry):: "Then I suggest you get used to never seeing your <Actor.boyfriend_or_girlfriend> again!"
+                timeout(2000, prison_conjugal)            
+            Endif
+        Endif
+    Endif    
+    
+    SceneEnd()
+    timeout(200, prison_conjugal)

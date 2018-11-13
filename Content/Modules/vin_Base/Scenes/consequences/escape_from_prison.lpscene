@@ -1,0 +1,50 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "Am I sure I want to attempt a prison break?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "My preparations are complete. I'm ready. Just waiting for the right opportunity, it would be suicide attempting a Hollywood prison break."
+        setBackground(street)
+        "I and a few other inmates were transported out of the prison's guards for some hard labour. This is the perfect opportunity. Today is the day I earn my freedom back."
+        0:: "Sneak away"
+        
+        "I took advantage of a careless moment of the guards to simply sneak away from the labour site."
+        If Random(30, 1000) < sneak
+            "Just a bit more and I'll be out of their sights."
+            "That's it. I'm out of sight. Let's get the hell out of here."
+            "My prison escape was successful. I'm a free <Player.man_or_woman> again!"
+            endPrison()
+        Else
+            "'<Player.name_last> is escaping! Stop <Player.him_or_her>!'"
+            "Oh no, one of the prison guards noticed me and shouted out for help. One of them even pulled out his gun."
+            0:: "Run!"
+            1:: "Surrender"
+            
+            If 0
+                Player(Furious):: "You won't catch me alive!"
+                "I switched on my gear and ran as fast as humanly possible."
+                If Random(30, 500) < fitness
+                    "And I did it! The prison guards were long left behind. Usain Bolt would be proud of that run!"
+                    "My prison escape was close, but ultimately successful. I'm a free <Player.man_or_woman> again!"
+                    endPrison()                    
+                Else
+                    "Pow!"
+                    Player.hide()
+                    "A guard fired his gun ... it was a perfect shot, right through my chest."
+                    followup(death)
+                Endif
+            Else
+                Player(Sad):: "Please, don't shoot. I surrender!"
+                "My prison escape was a complete failure. All it did was to add some time to my sentence. Oh well, at least I keep myself alive to try another day."
+                sentence *= 1.15
+            Endif
+        Endif
+    Endif
+    SceneEnd()

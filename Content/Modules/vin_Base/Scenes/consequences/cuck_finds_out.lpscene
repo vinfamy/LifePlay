@@ -1,0 +1,31 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: Actor = getSpecific(Impregnated); Actor2 = Actor.getRelatedPerson(Dating, Spouses)
+OTHER: none
+
+    SceneStart()
+    "By sleeping with <Actor2.name>, I have made <Actor2.him_or_her> cheat on <Actor2.his_or_her> <Actor.boyfriend_or_girlfriend> <Actor.name>. I don't know if I should feel guilty or victorious."
+    "Let's just hope <Actor.name> will never find out or this could get messy."
+    
+    If 0 < 1 // Random(100, 500) < Actor:interpersonal + Actor:intelligence
+        removeNpcRelationship(Actor, Actor2)
+        blockContact(Actor)
+        Actor:rapportwithplayer -= 200
+        setBackground(home)
+        Actor.dress()
+        Actor(Angry):: "Open the fucking door!"
+        Actor.show(2)
+        Player(Surprised):: "What's the matter, <Actor.name>? You look angry."
+        If Actor:masochist < -85
+            Actor(Furious):: "You fucked my <Actor2.boyfriend_or_girlfriend>! Now die, <Player.scum_or_bitch>!"
+            "Pow!"
+            followUp(death)
+        Else
+            Actor(Furious):: "You fucked my <Actor2.boyfriend_or_girlfriend>! I should just kill you, <Player.scum_or_bitch>!"
+            Actor(Angry):: "But I won't lower myself to deal with the likes of you. You both adulterers could fuck off from my life!"
+        Endif
+    Endif
+    
+    SceneEnd()
+    

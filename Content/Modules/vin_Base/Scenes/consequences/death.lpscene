@@ -5,6 +5,7 @@ WHO: none
 OTHER: none
 
     SceneStart()
+    setBackground(hospital)
     If isWithCompanion()
         currentCompanion.hide()
     Endif
@@ -12,7 +13,6 @@ OTHER: none
     0:: "Black out"
     
     Player.hide()
-    setBackground(hospital)
     "Maybe this emergency room is where I depart from this life."
     0:: "The surgeons tried in vain ..."
     1:: "A miracle happened (cheat)"

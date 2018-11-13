@@ -1,7 +1,7 @@
 ACTION_UNIQUEID: pray
 ACTION_NAME: Pray
-WHERE: place_of_worship
-WHEN: 6 - 19
+WHERE: place_of_worship, prison
+WHEN: 0 - 24
 MINUTES: 5 - 20 
 TIMEOUT_MINUTES: 60
 ALSO_TIMEOUT: 
