@@ -1,0 +1,63 @@
+WHAT: all
+WHERE: all
+WHEN: 0 - 24
+WHO: Actor = getCompanion(); If Actor.isDating() && Actor.isMale() && Actor:attractiontoplayer > 0
+OTHER: !Player.isMale() && Random(0, 200) < perversion
+
+    SceneStart()
+    setBackground(home)
+    "<Actor.name> has been such a wonderful <Actor.boyfriend_or_girlfriend> for me ... Recently I have thought about a perfect surprise present for <Actor.him_or_her>."
+    0:: "Organize a passionate night with <Actor.him_or_her> and other girls."
+    1:: "Forget it"
+    
+    If 0
+        perversion += Random(0, 0.5)
+        "Who is the first girl I should invite?"
+        selectNPC()
+        Actor2 = getSelectedNPC()
+        If !Actor2.isValid() || Actor2.isMale()
+            "I couldn't quite find any girl I know that would be interested, so I arranged for a hooker instead."
+            Actor2 = generatePersonTemporary()
+            While Actor2.isMale()
+                Actor2 = generatePersonTemporary()       
+            Endwhile        
+            Random
+                Actor2.blendPreset(twenties)
+                Actor2.blendPreset(thirties)
+            EndRandom        
+            Actor2.randomizeHairs()
+            Actor2.randomizeFace()            
+        Endif
+        Actor2.dress()
+        Actor2.show(3)
+        
+        "Who is the second girl I should invite?"
+        selectNPC()
+        Actor3 = getSelectedNPC()
+        If !Actor3.isValid() || Actor3.isMale()
+            "I couldn't quite find any girl I know that would be interested. Anyway, a threesome should be plenty to please <Actor.name>."
+            SexNoAffair(Actor, Player, Actor2)
+            Actor:attractiontoplayer += Random(0, 5)
+        Else
+            Actor3.dress()
+            Actor3.show(4)
+            
+            "Who is the third girl I should invite?"
+            selectNPC()
+            Actor4 = getSelectedNPC()
+            If !Actor4.isValid() || Actor4.isMale()
+                "I couldn't quite find any girl I know that would be interested. Anyway, a foursome should be plenty to please <Actor.name>."
+                SexNoAffair(Actor, Player, Actor2, Actor3)
+                Actor:attractiontoplayer += Random(0, 7.5)
+            Else
+                Actor4.dress()
+                Actor4.show(5)
+                
+                "I've got plenty of beautiful women for <Actor.name>. Let's make this an unforgettable night for <Actor.him_or_her>"
+                SexNoAffair(Actor, Player, Actor2, Actor3, Actor4)
+                Actor:attractiontoplayer += Random(0, 10)                
+            Endif           
+        Endif        
+    Endif
+    SceneEnd()
+    timeout(500, surprise_for_dating)

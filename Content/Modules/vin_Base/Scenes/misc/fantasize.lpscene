@@ -1,20 +1,71 @@
 WHAT: masturbate, sleep, sleep_hotel, nap, nap_hotel
 WHERE: all
 WHEN: 0 - 24
-WHO: Actor = getPerson(); If Player.isInterestedIn(Actor) && !Actor.isDating() && Actor:attractiveness > 90 && Actor:attractiontoplayer < 10
-OTHER: Random(0, 1000) < perversion
+WHO: none
+OTHER: Random(0, 200) < perversion && arousal > 10
 
     SceneStart()
-    Actor.dress()
-    Actor.show(2)
-    "I have a pretty big crush on <Actor.name> ... Unfortunately for me, <Actor.he_or_she> is out of my league and doesn't seem to pay any attention to me. It never hurts to fantasize a bit though ..."
-    0:: "Fantasize about sex with <Actor.name>"
-    1:: "Resist the urge"
+    "Sometimes I cannot help but fantasize about having sex with ..."
+    0:: "Someone"
+    1:: "Think of something else"
     
     If 0
-        SexNoAffair(Player, Actor)
-        perversion += Random(0, 0.25)
-        arousal += 50
+        "Who is my crush?"
+        selectNPC()
+        Actor = getSelectedNPC()
+        If Actor.isValid()
+            Actor.dress()
+            Actor.show(2)
+            "I have a pretty big crush on <Actor.name> ... Unfortunately for me, <Actor.he_or_she> is out of my league and doesn't seem to pay any attention to me. It never hurts to fantasize a bit though ..."
+            0:: "Fantasize about sex with <Actor.name>"
+            1:: "Fantasize about group sex with <Actor.name>"
+            2:: "Resist the urge"
+            
+            If 0
+                SexNoAffair(Player, Actor)
+                perversion += Random(0, 0.25)
+                arousal += 25
+            Elseif 1
+                "Who else would be participating in my fantasy orgy?"
+                selectNPC()
+                Actor2 = getSelectedNPC()
+                Actor2.dress()
+                Actor2.show(3)
+                
+                0:: "Fantasize about sex with <Actor.name> and <Actor2.name>"
+                1:: "Actually, my fantasy has more people involved ..."
+                
+                If 0
+                    SexNoAffair(Player, Actor, Actor2)
+                    perversion += Random(0, 0.35)
+                    arousal += 25              
+                Else
+                    "Who else would be participating in my fantasy orgy?"
+                    selectNPC()
+                    Actor3 = getSelectedNPC()
+                    Actor3.dress()
+                    Actor3.show(4)
+                    
+                    0:: "Fantasize about sex with <Actor.name>, <Actor2.name> & <Actor3.name>"
+                    1:: "Actually, my fantasy has even more people involved ..."
+                    
+                    If 0
+                        SexNoAffair(Player, Actor, Actor2, Actor3)
+                        perversion += Random(0, 0.45)
+                        arousal += 25              
+                    Else
+                        "Who else would be participating in my fantasy orgy?"
+                        selectNPC()
+                        Actor4 = getSelectedNPC()
+                        Actor4.dress()
+                        Actor4.show(5)
+                        SexNoAffair(Player, Actor, Actor2, Actor3, Actor4)
+                        perversion += Random(0, 0.5)
+                        arousal += 25              
+                    Endif            
+                Endif
+            Endif
+        Endif
     Endif
     SceneEnd()
     timeout(72, fantasize)

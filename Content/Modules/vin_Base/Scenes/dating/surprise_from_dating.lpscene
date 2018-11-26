@@ -1,0 +1,62 @@
+WHAT: all
+WHERE: all
+WHEN: 0 - 24
+WHO: Actor = getCompanion(); If Actor.isDating() && !Actor.isMale() && Actor:attractiontoplayer > 30 && Random(30, 100) < Actor:perversion
+OTHER: Player.isMale()
+
+    SceneStart()
+    Actor(Flirty):: "Baby, you have been such a wonderful <Player.boyfriend_or_girlfriend> for me ... Recently I have thought about a perfect surprise present for you."
+    Player(Flirty):: "I like where this is going ... What is it, baby?"
+    Actor(Flirty):: "How would you enjoy being reverse-gangbanged by some of my most beautiful female friends? I have to be there of course."
+    0:: "Yessssssssssssssssssssss!!!!!!"
+    1:: "The only <Actor.man_or_woman> I ever want is you"
+    
+    If 0
+        setBackground(home)
+        "The best night of my life is here ... Let's see who <Actor.name> has so kindly invited for my pleasure."
+        perversion += Random(0, 0.5)
+        Actor2 = getSpecific(Dating_Friend)
+        If !Actor2.isValid() || Actor2.isMale()
+            Actor2 = generatePersonTemporary()
+            While Actor2.isMale()
+                Actor2 = generatePersonTemporary()       
+            Endwhile        
+            Random
+                Actor2.blendPreset(twenties)
+                Actor2.blendPreset(thirties)
+            EndRandom        
+            Actor2.randomizeHairs()
+            Actor2.randomizeFace()            
+        Endif
+        Actor2.dress()
+        Actor2.show(3)
+        "<Actor2.name> is one of <Actor.name>'s best friends."
+        
+        Actor3 = getSpecific(Dating_Friend)
+        If !Actor3.isValid() || Actor3.isMale()
+            "Three is a crowd!"
+            SexNoAffair(Actor, Player, Actor2)
+            Actor:attractiontoplayer += Random(0, 5)
+        Else
+            Actor3.dress()
+            Actor3.show(1)
+            
+            "<Actor3.name> is another of <Actor.name>'s hot friends. Maybe <Actor.name> did notice me checking her friend out after all." 
+            Actor4 = Actor.getRelatedPerson(Siblings)
+            If !Actor4.isValid() || Actor4.isMale()
+                "That's it. This is the foursome I've always dreamed about."
+                SexNoAffair(Actor, Player, Actor2, Actor3)
+                Actor:attractiontoplayer += Random(0, 7.5)
+            Else
+                Actor4.dress()
+                Actor4.show(5)
+                
+                "No way!!! <Actor.name> somehow managed to talk <Actor.his_or_her> own <Actor4.brother_or_sister> <Actor4.name> into doing this!"
+                "Isn't this every <Player.man_or_woman>'s ultimate fantasy?"
+                SexNoAffair(Actor, Player, Actor2, Actor3, Actor4)
+                Actor:attractiontoplayer += Random(0, 10)                
+            Endif           
+        Endif        
+    Endif
+    SceneEnd()
+    timeout(500, surprise_from_dating)

@@ -32,7 +32,7 @@ OTHER: IsAtHome() && arousal > 50 && perversion > 30
         "Should I arrange to have sex with this hooker?"
         0:: "Yes"
         1:: "No"
-        2:: "Get another one for a threesome"
+        2:: "Get another one"
         
         If 0
             If WHERE == brothel
@@ -49,7 +49,7 @@ OTHER: IsAtHome() && arousal > 50 && perversion > 30
             "Nah, <Actor.he_or_she> isn't my type."
         Else
             Actor2 = generatePersonTemporary()
-            While !Player.isInterestedIn(Actor)
+            While !Player.isInterestedIn(Actor2)
                 Actor2 = generatePersonTemporary()       
             Endwhile        
             Random
@@ -61,18 +61,93 @@ OTHER: IsAtHome() && arousal > 50 && perversion > 30
             Actor2.dress()
             Actor2.show(3)
             
-            If WHERE == brothel
-                "I guided the two prostitutes into one of the brothel's bedrooms and we got it on right away."
-            Else            
-                "In no time at all, the two prostitutes arrived and we got it on immediately."
-            Endif
+            "Should I arrange to have sex with these hookers?"
+            0:: "Yes"
+            1:: "No"
+            2:: "Get another one"
             
-            Sex(Player, Actor, Actor2)
-            perversion += Random(0, 1)
-            money -= Random(200, 600)
-            Actor.show(2)
-            Actor2.show(3)
-            "I paid the hookers and we parted ways. Good service that was!"            
+            If 0                
+                If WHERE == brothel
+                    "I guided the two prostitutes into one of the brothel's bedrooms and we got it on right away."
+                Else            
+                    "In no time at all, the two prostitutes arrived and we got it on immediately."
+                Endif
+                
+                Sex(Player, Actor, Actor2)
+                perversion += Random(0, 1)
+                money -= Random(200, 600)
+                Actor.show(2)
+                Actor2.show(3)
+                "I paid the hookers and we parted ways. Good service that was!"
+            Elseif 2
+                Actor3 = generatePersonTemporary()
+                While !Player.isInterestedIn(Actor3)
+                    Actor3 = generatePersonTemporary()       
+                Endwhile        
+                Random
+                    Actor3.blendPreset(twenties)
+                    Actor3.blendPreset(thirties)
+                EndRandom        
+                Actor3.randomizeHairs()
+                Actor3.randomizeFace()            
+                Actor3.dress()
+                Actor3.show(4)
+                
+                "Should I arrange to have sex with these hookers?"
+                0:: "Yes"
+                1:: "No"
+                2:: "Get another one"
+                
+                If 0                
+                    If WHERE == brothel
+                        "I guided the three prostitutes into one of the brothel's bedrooms and we got it on right away."
+                    Else            
+                        "In no time at all, the three prostitutes arrived and we got it on immediately."
+                    Endif
+                    
+                    Sex(Player, Actor, Actor2, Actor3)
+                    perversion += Random(0, 1)
+                    money -= Random(300, 900)
+                    Actor.show(2)
+                    Actor2.show(3)
+                    Actor3.show(4)
+                    "I paid the hookers and we parted ways. Good service that was!"
+                Elseif 2
+                    Actor4 = generatePersonTemporary()
+                    While !Player.isInterestedIn(Actor4)
+                        Actor4 = generatePersonTemporary()       
+                    Endwhile        
+                    Random
+                        Actor4.blendPreset(twenties)
+                        Actor4.blendPreset(thirties)
+                    EndRandom        
+                    Actor4.randomizeHairs()
+                    Actor4.randomizeFace()            
+                    Actor4.dress()
+                    Actor4.show(5)
+                    
+                    "Should I arrange to have sex with these hookers?"
+                    0:: "Yes"
+                    1:: "No"
+                    
+                    If 0                
+                        If WHERE == brothel
+                            "I guided the four prostitutes into one of the brothel's bedrooms and we got it on right away."
+                        Else            
+                            "In no time at all, the four prostitutes arrived and we got it on immediately."
+                        Endif
+                        
+                        Sex(Player, Actor, Actor2, Actor3, Actor4)
+                        perversion += Random(0, 1)
+                        money -= Random(400, 1200)
+                        Actor.show(2)
+                        Actor2.show(3)
+                        Actor3.show(4)
+                        Actor4.show(5)
+                        "I paid the hookers and we parted ways. Good service that was!"
+                    Endif
+                Endif
+            Endif
         Endif
     Else
         "No way. I'm not so desperate that I have to pay to get laid."

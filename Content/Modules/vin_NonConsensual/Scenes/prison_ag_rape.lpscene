@@ -1,0 +1,51 @@
+WHAT: all
+WHERE: prison
+WHEN: 0 - 24
+WHO: none
+OTHER: Player.isMale() && Random(20, 100) < perversion
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    While Actor.isMale()
+        Actor = generatePersonTemporary()
+    Endwhile
+    Actor.show(2)
+    Actor.dress()
+    Random
+        "<Actor.name> is some Criminology student doing an internship in my prison. Weak and naive - an easy target."
+        "<Actor.name> is the new girl, serving time for some white-collar financial crimes. First time in prison - in fact, probably first time being out of a city - an easy target."
+        "<Actor.name> is the new warden. Inexperienced and still far too kind-hearted - an easy target."
+        "<Actor.name> is the new girl, serving time for illegal prostitution. I'm sure being fucked hard is not anything new to this whore."
+    EndRandom
+    "What should do with <Actor.him_or_her>
+    0:: "Rape <Actor.him_or_her>"
+    1:: "No"
+    
+    If 0
+        "In prison, rape means power."
+        "Taking <Actor.him_or_her> completely by surprise, I grabbed the beautiful <Actor.woman_or_man> by the <Actor.dick_or_pussy> from behind."
+        If martial < Actor:martial
+            Player(Pain):: "Ah!"
+            Actor(Angry):: "That should teach you!"
+        Else
+            "The element of surprise was too great. <Actor.He_or_She> was overwhelmed before <Actor.he_or_she> could even react to the assault."
+            Actor(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
+            "<Actor.His_or_Her> cries for help went unheard in the dark prison cell and <Actor.he_or_she> had no choice but endure it all at my hand."
+            Filter(Aggressive)
+            TalkNonConsensual()
+            SexNoAffair(Player, Actor)
+            
+            Actor.hide()
+            If Random(0, 100) < Actor:intelligence
+                "Unfortunately for me, after what happened, <Actor.name> went straight to the head warden to report the assault."
+                "I got some extra sentence ... was it really worth it?"
+                sentence *= 1.2
+            Else
+                "Fortunately, the whore was probably too embarassed to admit that <Actor.he_or_she> has been raped. The assault went unreported and I got away with it."
+            Endif
+        Endif
+    Else
+        "Nah, I don't want to spend the rest of my life rotting away in this prison. Not worth it."
+    Endif
+    SceneEnd()
+    timeout(200, prison_ag_rape)

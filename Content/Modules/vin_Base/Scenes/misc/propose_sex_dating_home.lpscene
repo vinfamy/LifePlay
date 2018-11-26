@@ -14,10 +14,11 @@ OTHER: none
     If isTimingOut(propose_sex_dating_home)
         "I'd better not ask for sex again so soon after last time! <Actor.name> is my <Actor.boyfriend_or_girlfriend>, not my personal sex slave."
     Else
-        "The best thing about living together as a couple is that sex is much easier to come by ... Should I propose making love with <Actor.name> now?"
+        Actor2 = getSpecific(Dating)
+        "The best thing about being in a steady relationship is that sex is much easier to come by ... Should I propose making love with <Actor.name> now?"
         0:: "Yes"
         1:: "No"
-        2:: "<Actor.name> is not my only lover ..."
+        2:: Actor2.isValid():: "<Actor.name> is not my only lover ..."
         
         If 0
             If Random(0, 50) < Actor:attractiontoplayer + interpersonal + Actor:perversion
@@ -29,10 +30,35 @@ OTHER: none
             Endif
             timeout(12, propose_sex_dating_home)
         Elseif 2
-            Actor2 = getSpecific(Dating)
+            Actor3 = getSpecific(Dating)
+            Actor2.dress()
+            Actor2.show(3)
             "Luckily for me, <Actor2.name> is also around. Being polyamorous is the best thing ever!"
-            Sex(Player, Actor, Actor2)
-            perversion += Random(0, 0.075)
+            0:: "Have a threesome"
+            1:: Actor3.isValid():: "I still have more lovers!"
+            
+            If 0
+                Sex(Player, Actor, Actor2)
+                perversion += Random(0, 0.075)
+            Else
+                Actor4 = getSpecific(Dating)
+                Actor3.dress()
+                Actor3.show(4)
+                "Luckily for me, <Actor3.name> is also around. Being polyamorous is the best thing ever!"
+                0:: "Have a foursome"
+                1:: Actor4.isValid():: "I still have more lovers!"
+                
+                If 0
+                    Sex(Player, Actor, Actor2, Actor3)
+                    perversion += Random(0, 0.075)
+                Else
+                    Actor4.dress()
+                    Actor4.show(5)
+                    "Luckily for me, <Actor4.name> is also around. Being polyamorous is the best thing ever!"
+                    Sex(Player, Actor, Actor2, Actor3, Actor4)
+                    perversion += Random(0, 0.075)               
+                Endif           
+            Endif
         Endif
     Endif
     
