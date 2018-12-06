@@ -27,7 +27,7 @@ OTHER: none
         "Damn it! I couldn't hide it from <Actor.him_or_her>."
         Actor(Kiss):: "..."
         "<Actor.name> is trying to make out with me ... It's also clear that <Actor.he_or_she> is looking for more than a kiss."
-        0:: "Let it happen"
+        0:: perversion > 30:: "Let it happen"
         1:: "Stop right there"
         
         If 0

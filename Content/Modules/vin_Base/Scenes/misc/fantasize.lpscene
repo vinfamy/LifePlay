@@ -10,6 +10,7 @@ OTHER: Random(0, 200) < perversion && arousal > 10
     1:: "Think of something else"
     
     If 0
+        blockPregnancy()
         "Who is my crush?"
         selectNPC()
         Actor = getSelectedNPC()

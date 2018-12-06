@@ -33,7 +33,7 @@ OTHER: none
         "This house party isn't so bad ..."
         intoxication += Random(0, 100)
         Actor(Wink):: "Guys, let's play some strip poker!"
-        0:: "Join them"
+        0:: perversion > 15:: "Join them"
         1:: "Go home"
         
         If 0

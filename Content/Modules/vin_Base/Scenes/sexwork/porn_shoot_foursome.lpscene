@@ -5,36 +5,69 @@ WHO: none
 OTHER: Random(1, 300) < pornfame
 
     SceneStart()
-    "A porn director wants to book me for a reverse gangbang scene."
-    If Player.isMale()
-        Actor = generatePersonTemporary()
-        While Actor.isMale()
-            Actor = generatePersonTemporary()  
-        Endwhile
-        Actor.dress()
-        Actor.show(2)
-    Else
-        Actor = generatePersonTemporary()
-        While !Actor.isMale()
-            Actor = generatePersonTemporary()  
-        Endwhile
-        Actor.dress()
-        Actor.show(2)    
-    Endif
-    
-    Actor2 = generatePersonTemporary()
-    While Actor2.isMale()
+    If Random(0, 100) < 50
+        "A porn director wants to book me for a reverse gangbang scene."
+        If Player.isMale()
+            Actor = generatePersonTemporary()
+            While Actor.isMale()
+                Actor = generatePersonTemporary()  
+            Endwhile
+            Actor.dress()
+            Actor.show(2)
+        Else
+            Actor = generatePersonTemporary()
+            While !Actor.isMale()
+                Actor = generatePersonTemporary()  
+            Endwhile
+            Actor.dress()
+            Actor.show(2)    
+        Endif
+        
         Actor2 = generatePersonTemporary()
-    Endwhile
-    Actor2.dress()
-    Actor2.show(3)
+        While Actor2.isMale()
+            Actor2 = generatePersonTemporary()
+        Endwhile
+        Actor2.dress()
+        Actor2.show(3)
 
-    Actor3 = generatePersonTemporary()
-    While Actor3.isMale()
         Actor3 = generatePersonTemporary()
-    Endwhile
-    Actor3.dress()
-    Actor3.show(4)
+        While Actor3.isMale()
+            Actor3 = generatePersonTemporary()
+        Endwhile
+        Actor3.dress()
+        Actor3.show(4)
+    Else
+        "A porn director wants to book me for a gangbang scene."
+        If Player.isMale()
+            Actor = generatePersonTemporary()
+            While Actor.isMale()
+                Actor = generatePersonTemporary()  
+            Endwhile
+            Actor.dress()
+            Actor.show(2)
+        Else
+            Actor = generatePersonTemporary()
+            While !Actor.isMale()
+                Actor = generatePersonTemporary()  
+            Endwhile
+            Actor.dress()
+            Actor.show(2)    
+        Endif
+        
+        Actor2 = generatePersonTemporary()
+        While !Actor2.isMale()
+            Actor2 = generatePersonTemporary()
+        Endwhile
+        Actor2.dress()
+        Actor2.show(3)
+
+        Actor3 = generatePersonTemporary()
+        While !Actor3.isMale()
+            Actor3 = generatePersonTemporary()
+        Endwhile
+        Actor3.dress()
+        Actor3.show(4)    
+    Endif
 
     "My co-stars would be <Actor.name>, <Actor2.name> and <Actor3.name> ..."
     0:: "Turn down the offer"

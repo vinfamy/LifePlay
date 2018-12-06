@@ -1,0 +1,82 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    setBackground(street)
+    "Should I attempt a home invasion?"
+    0:: "Yes"
+    1:: "No"
+    
+    "That house looks like it's got some valuables inside."
+    If Random(0, 100) < sneak
+        setBackground(home)
+        "I found a way into the house without getting detected."
+        Actor = generatePersonTemporary()
+        Actor.show(2)
+        Actor.closeEyes(true)
+        "The owner is fast asleep. What a shock it will be for <Actor.him_or_her> to wake up to a cleared-out home tomorrow!"
+        0:: "Grab some valuables quickly and run"
+        1:: "Try to take everything"
+        2:: isModEnabled(vin_NonConsensual) && !Actor.isMale() && Player.isMale():: "The home owner is kinda hot ..."
+        
+        If 0
+             "I grabbed any valuables in sight as quickly as possible and got out of there as soon as I can. Can't risk the home owner waking up."
+             money += Random(100, 250)
+        Elseif 1
+            If Random(0, 150) < sneak
+                "I took my time to clear out the house of absolutely everything remotely valuable. It should be worth the effort ... and the extra risk."
+                money += Random(250, 500)            
+            Else
+                Actor.closeEyes(false)
+                Actor(Surprised):: "What? Who are you? Help!!!! Thief!"
+                0:: "Run"
+                
+                If Random(0, 100) < fitness
+                    "Thankfully, I made a safe escape before the cops arrived. That was close, phew ..."
+                Else
+                    "I tried to run, but the cops arrived too quickly and arrested me."
+                    sentence => 730
+                    followUp(imprisoned)
+                Endif
+            Endif
+        Else
+            "I couldn't help but notice how hot the home owner is ... Maybe it's my lucky day."
+            0:: "Rape <Actor.him_or_her>"
+            1:: "Just grab some valuables quickly"
+            
+            If 0
+                filter(Aggressive)
+                TalkNonConsensual()
+                SexNoAffair(Player, Actor)
+                Actor.hide()
+                
+                If Random(0, 150) < sneak
+                    "That was something else. Enjoy waking up tomorrow with a belly full of cum, whore!"
+                    money += Random(100, 250)            
+                Else
+                    Actor.show(2)
+                    Actor.closeEyes(false)
+                    Actor(Surprised):: "What? Who are you? Help!!!! Rapist!"
+                    0:: "Run"
+                    
+                    If Random(0, 100) < fitness
+                        "Thankfully, I made a safe escape before the cops arrived. That was close, phew ..."
+                    Else
+                        "I tried to run, but the cops arrived too quickly and arrested me."
+                        sentence => 2920
+                        followUp(imprisoned)
+                    Endif
+                Endif           
+            Else
+                money += Random(100, 250)
+            Endif
+        Endif
+    Else
+        "Unfortunately for me, despite my best efforts, I couldn't find a way into the house without alerting the owners, who promptly called the cops."
+        "I couldn't risk getting caught. Let's get out of here before the cops arrive."
+    Endif
+    
+    SceneEnd()

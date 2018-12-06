@@ -1,0 +1,15 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: Actor = getSpecific(Impregnated)
+OTHER: none
+
+    If !Actor.isMale()
+        SceneStart()
+        Actor.endPregnancy()
+        Actor.dress()
+        Actor.show(2)
+        
+        "<Actor.name> has recently given birth to a cute baby. Her baby photos are all over Facebook."
+        SceneEnd()
+    Endif

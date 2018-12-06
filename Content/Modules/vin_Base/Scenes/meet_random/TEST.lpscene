@@ -5,36 +5,33 @@ WHO: none
 OTHER: none
 
 	SceneStart()
-    0:: "MFFF"
-    1:: "MFFFF"
+    Player.strip()
+    "Which scene to play?"
+    0:: "MMMF"
+    1:: "MMMMF"
     
     Actor = generatePersonTemporary()
-    While Actor.isMale()
+    While !Actor.isMale()
         Actor = generatePersonTemporary()
     Endwhile
     
     Actor2 = generatePersonTemporary()
-    While Actor2.isMale()
+    While !Actor2.isMale()
         Actor2 = generatePersonTemporary()
     Endwhile
 
     Actor3 = generatePersonTemporary()
-    While Actor3.isMale()
+    While !Actor3.isMale()
         Actor3 = generatePersonTemporary()
     Endwhile
-    
-    Actor.dress()
-    Actor2.dress()
-    Actor3.dress()
 
     If 0
         Sex(Player, Actor, Actor2, Actor3)
     Elseif 1
         Actor4 = generatePersonTemporary()
-        While Actor4.isMale()
+        While !Actor4.isMale()
             Actor4 = generatePersonTemporary()
         Endwhile
-        Actor4.dress()
         Sex(Player, Actor, Actor2, Actor3, Actor4)
-    Endwhile
+    Endif
     SceneEnd()

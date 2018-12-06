@@ -25,7 +25,7 @@ OTHER: none
         Actor(Flirty):: "Why don't you take a seat over the counter over there and try this toy, <Player.beautiful_or_handsome>? I'll be happy to buy it for you if you find it ... satisfactory."
         "What the hell? <Actor.name> wants me to try this <Player.Fleshlight_or_dildo> right here, in front of all the sex shop customers?"
         0:: "No way!"
-        1:: "Alright ..."
+        1:: perversion > 30:: "Alright ..."
         
         If 0
             Player(Angry):: "In your dream I will do that! A self-respecting <Player.man_or_woman> like me doesn't have any use for such toys, let alone try it in public."
