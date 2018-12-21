@@ -1,0 +1,114 @@
+WHAT: all
+WHERE: all
+WHEN: 19 - 24
+WHO: none
+OTHER: isWithCompanion() && CurrentCompanion.isDating() && CurrentCompanion.isExRelative() && perversion > 30 && CurrentCompanion:perversion > 30 && CurrentCompanion:attractiontoplayer > 30
+
+    SceneStart()
+    
+    "I opened my email inbox, only to be greeted by a message from an unknown contact. The email is titled 'You're not alone.'"
+    "Curiousity got the better of me and I opened the email. It turns out that there is a secret society of couples in the same boat as us: those who love each other but are also related by blood. They're inviting us to join one of their swingers' parties."
+    "Should I suggest to <CurrentCompanion.name> that we come to this special event to add some spice to our relationship?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        CurrentCompanion(Flirty):: "Of course baby, that would be quite something different."
+        "So we agreed on some ground rules for the night, the most important of which is that we must both agree on which couple we would swing with."
+        "A few days later ..."
+        setBackground(nightclub)
+        
+        Player.strip()
+        CurrentCompanion.strip()
+        "We're at the secret value and it's full of good-looking nude couples, some of whom clearly look related. So many choices for us."
+        
+        HadSex = false
+        While !HadSex
+            MyFuck = generatePersonTemporary()
+            While !Player.isInterestedIn(MyFuck)
+                MyFuck = generatePersonTemporary()
+            Endwhile           
+            DatingFuck = MyFuck.generatePersonTemporaryMatchRace()
+            While !CurrentCompanion.isInterestedIn(DatingFuck)
+                DatingFuck = MyFuck.generatePersonTemporaryMatchRace()
+            Endwhile
+            If Random(0, 100) < 50
+                Random
+                    DatingFuck:age -= Random(18, 30)
+                    DatingFuck:age += Random(18, 30)
+                endRandom
+                DatingFuck.randomizeHairs()
+                DatingFuck.randomizeFace()
+            Endif
+
+            "A couple approached us and introduced themselves as <MyFuck.name> and <DatingFuck.name>."    
+            MyFuck.show(2)
+            DatingFuck.show(3)
+            If MyFuck:age - DatingFuck:age > 18
+                Random
+                    "As well as being lovers, <MyFuck.name> is also <DatingFuck.name>'s <MyFuck.father_or_mother>."
+                    "As well as being lovers, <MyFuck.name> is also <DatingFuck.name>'s <MyFuck.uncle_or_aunt>."
+                endRandom
+            Elseif MyFuck:age - DatingFuck:age < -18
+                Random
+                    "In addition to being lovers, <MyFuck.name> is also <DatingFuck.name>'s <MyFuck.son_or_daughter>."
+                    "In addition to being lovers, <MyFuck.name> is also <DatingFuck.name>'s <MyFuck.nephew_or_niece>."
+                endRandom
+            Else
+                Random
+                    "In addition to being lovers, <MyFuck.name> is also <DatingFuck.name>'s <MyFuck.brother_or_sister>."            
+                    "In addition to being lovers, <MyFuck.name> is also <DatingFuck.name>'s <MyFuck.stepbrother_or_stepsister>."            
+                    "In addition to being lovers, <MyFuck.name> is also <DatingFuck.name>'s cousin."                           
+                endRandom
+            Endif
+            "We spent some time chatting and sharing sexy stories, mostly involving how our forbidden relationships came to be. <MyFuck.name> clearly seemed to be into me. Should I suggest to <CurrentCompanion.name> that we swing with <MyFuck.name> and <DatingFuck.name>?"
+            0:: "Yes"
+            1:: "No"
+            2:: "End the night"
+            
+            If 0
+                "I whispered into my <CurrentCompanion.boyfriend_or_girlfriend>'s ear my approval of <MyFuck.name> and asking <CurrentCompanion.him_or_her> what <CurrentCompanion.he_or_she> thinks of <DatingFuck.name>."
+                CurrentCompanion(Flirty):: "Alright baby, let's do this."
+                "We discussed our intention with the other couple, setting out a bunch of ground rules. Pretty soon, we swapped partners and started kissing. <CurrentCompanion.name> and <DatingFuck.name> got it on in no time at all."
+                Sex(CurrentCompanion, DatingFuck)
+                CurrentCompanion.hide()
+                DatingFuck.hide()
+                "Wow, it was hot watching my <CurrentCompanion.boyfriend_or_girlfriend> fuck another <DatingFuck.man_or_woman>, but it's my turn now and <MyFuck.name> knows it."
+                Sex(Player, MyFuck)
+                MyFuck.hide()
+                CurrentCompanion.hide()
+                perversion += Random(0, 1)
+                "Wow that was amazing. But do we have the energy to go on for the whole night?"
+                0:: "Yes"
+                1:: "I'm exhausted already"
+                
+                If 0
+                    perversion += Random(0, 1)
+                    Sex(Player, MyFuck, CurrentCompanion)
+                    Sex(CurrentCompanion, DatingFuck, Player)
+                    Sex(Player, MyFuck, DatingFuck)
+                Endif
+                Player.show(0)
+                CurrentCompanion.show(5)
+                MyFuck.show(2)
+                DatingFuck.show(3)
+
+                "What an amazing night that was. What an experience! And what a way to add spice to our relationship."
+                CurrentCompanion:attractiontoplayer += Random(0, 5)
+                HadSex = true
+            Elseif 1
+                "I don't really find <MyFuck.name> attractive. Let's find another couple."
+            Else
+                "Unfortunately, we never found a suitable couple to swing with and went home disappointed and hornier than before."
+                HadSex = true
+            Endif
+            
+            MyFuck.hide()
+            DatingFuck.hide()
+        Endwhile
+    Else
+        "Maybe not, we may be in an incest relationship, but we're not ready to meet other couples like us yet, let alone join in a full-blown incest swingers' party."
+    Endif
+    
+    SceneEnd()
+    timeout(400, incest_swinger_club)

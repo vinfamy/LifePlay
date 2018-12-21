@@ -7,31 +7,21 @@ OTHER: none
 	SceneStart()
     Player.strip()
     "Which scene to play?"
-    0:: "MMMF"
-    1:: "MMMMF"
+    0:: "Anal"
+    1:: "Sleeping"
     
     Actor = generatePersonTemporary()
-    While !Actor.isMale()
+    While Actor.isSameGender(Player)
         Actor = generatePersonTemporary()
-    Endwhile
-    
-    Actor2 = generatePersonTemporary()
-    While !Actor2.isMale()
-        Actor2 = generatePersonTemporary()
-    Endwhile
-
-    Actor3 = generatePersonTemporary()
-    While !Actor3.isMale()
-        Actor3 = generatePersonTemporary()
     Endwhile
 
     If 0
-        Sex(Player, Actor, Actor2, Actor3)
+        Filter(Anal)
     Elseif 1
-        Actor4 = generatePersonTemporary()
-        While !Actor4.isMale()
-            Actor4 = generatePersonTemporary()
-        Endwhile
-        Sex(Player, Actor, Actor2, Actor3, Actor4)
+        Filter(Sleeping)
+        TalkNonConsensual()
+        Actor.closeEyes(true)
     Endif
+    
+    Sex(Player, Actor)
     SceneEnd()

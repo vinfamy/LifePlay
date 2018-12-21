@@ -1,0 +1,74 @@
+WHAT: sleep, nap
+WHERE: home
+WHEN: 5 - 12
+WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Actor:incest > 80 && !Actor.isSameGender(Player)
+OTHER: IsAtHome()
+
+    SceneStart()
+    Actor.show(2)
+    TalkNonConsensual()
+    filter(Sleeping)
+    If Player.isMale()
+        Player.closeEyes(true)
+        Actor(Flirty):: "My dear <Actor.callplayer>, you look so cute while you sleep. I couldn't help myself. You wouldn't mind if I fuck you in your sleep, would you? After all, we have already tasted the forbidden fruit before."
+        "What is this? Is this a dream?"
+        0:: "Stay in your 'dream'"
+        1:: "Wake up and stop my <Actor.relationship>"
+        
+        If 0
+            Actor:incest += Random(0, 5)
+            "If this is a dream, I never want to wake up ..."
+            perversion += Random(0, 0.25)
+            Player.closeEyes(true)
+            Sex(Player, Actor)
+            Player.closeEyes(true)
+            
+            Actor.show(2)
+            "Now that the sweet little incest dream is over, maybe it's time to wake up?"
+            0:: "Wake up for round two"
+            1:: "Get some extra sleep"
+            
+            If 0
+                Player.closeEyes(false)
+                TalkNonConsensual()
+                Sex(Player, Actor)
+            Endif
+        Else
+            Player.closeEyes(false)
+            Player(Sad):: "<Actor.relationship>, we should stop doing this! It's wrong."
+            Actor:incest -= Random(0, 2.5)
+        Endif
+    Else
+        Actor.closeEyes(true)
+        "My <Actor.relationship> looks so hot asleep like that, and I'm feeling really horny. Should I give <Actor.him_or_her> a morning surprise? It's no big deal, we already tasted the forbidden fruit before."
+        0:: "Pleasure my <Actor.relationship>"
+        1:: "Let the poor <Actor.man_or_woman> sleep"
+        
+        If 0
+            perversion += Random(0, 0.5)
+            Actor.closeEyes(true)
+            Sex(Actor, Player)
+
+            Actor.show(2)
+            Actor.closeEyes(true)
+            If Random(0, 50) < perversion - sneak
+                Actor.closeEyes(false)
+                Actor:incest += Random(0, 5)
+                Actor(Flirty):: "Wow, this is a pleasant surprise: my <Actor.callplayer> taking care of my needs even while I'm asleep."
+                0:: "Ready for round two?"
+                1:: "It's getting late. We should get ready."
+                
+                If 0
+                    TalkNonConsensual()
+                    Sex(Actor, Player)
+                Endif
+            Else
+                "I somehow managed to make <Actor.him_or_her> cum without waking <Actor.him_or_her> up! I can already imagine <Actor.his_or_her> surprise waking up later on."
+            Endif
+        Else
+            "Nah, <Actor.he_or_she> needs some rest. We'll do it another time."
+        Endif
+    Endif
+
+    timeout(96, incest_sleeping_sex)
+    SceneEnd()

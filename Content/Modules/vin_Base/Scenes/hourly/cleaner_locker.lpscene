@@ -13,7 +13,7 @@ OTHER: Random(0, 100) < 1
     
     If 0
         "A peek wouldn't hurt ... People who go to gyms probably enjoy others looking at their bodies anyway."
-        perversion += Rando(0, 0.25)
+        perversion += Random(0, 0.25)
         If Random(50, 125) < Actor:perversion + Actor:attractiontoplayer
             Actor(Flirty):: "Getting an eyeful, aren't you? You know, there's no-one else here - you can do a lot more than watching."
             0:: isModEnabled(vin_VanillaPorn) && perversion > 30:: "Have sex"

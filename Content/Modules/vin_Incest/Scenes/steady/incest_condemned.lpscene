@@ -1,0 +1,31 @@
+WHAT: all
+WHERE: all
+WHEN: 0 - 24
+WHO: Actor = getSpecific(Dating); Actor2 = getPerson(true); If Actor.isExRelative() && Actor2:rapportwithplayer > 20
+OTHER: none
+
+    SceneStart()
+    Actor2.dress()
+    Actor2.show(2)
+    "I think <Actor2.name> is starting to suspect that my relationship with my <Actor.relationship> is quite a bit more than a family one."
+    0:: "Unashamedly show affection to <Actor.name> in front of <Actor2.name>"
+    1:: "Tone it down a bit"
+    
+    If 0
+        Actor:attractiontoplayer += Random(0, 2.5)
+        If Random(0, 100) < Actor:perversion
+            "To our pleasant surprise, <Actor2.name> seems open-minded enough not to mind our show of affection. Maybe one day we can just admit to <Actor2.him_or_her> about the incest relationship and <Actor2.he_or_she> would just accept it?"
+            Actor2:attractiontoplayer += Random(0, 5)
+            Actor2:rapportwithplayer += Random(0, 10)
+        Else
+            "My show of forbidden affection to <Actor.name> clearly made <Actor2.name> uncomfortable. Oh well, <Actor2.he_or_she> can judge us as much as <Actor2.he_or_she> wants, it's not going to change who we are."
+            Actor2:attractiontoplayer -= Random(0, 5)
+            Actor2:rapportwithplayer -= Random(0, 10)
+        Endif
+    Else
+        Actor:attractiontoplayer -= Random(0, 1)
+        "Let's be safe here: I love <Actor.name>, but it's not worth destroying all other relationships in my life for flaunting some PDA. Society judges incest harshly still."
+    Endif
+    
+    SceneEnd()
+    timeout(100, incest_condemned)

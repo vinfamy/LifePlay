@@ -47,8 +47,9 @@ OTHER: !Player.isDating() || [isModEnabled(vin_Polyamorous) && OpenRelationship(
                 "We continued our date, now as a new couple."
             Endif
             Actor2 = generatePerson()
+            Actor2.setExRelative(Actor)
             Actor2.cloneFrom(Actor)
-            Actor2:attrationtoplayer => Random(0, 100)
+            Actor2:attrationtoplayer => Random(40, 100)
             Actor2:incest => 0
             Actor.deletePerson()
             exchangeContact(Actor2)

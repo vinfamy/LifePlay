@@ -18,7 +18,7 @@ SceneStart()
             Actor = getPerson()
             Actor = generatePersonTemporary()
         EndRandom
-        While !Actor.isValid() || !Actor.isIntereredIn(Player)
+        While !Actor.isValid() || !Actor.isInterestedIn(Player)
             Actor = generatePersonTemporary()
             Actor:perversion += 30
         EndWhile

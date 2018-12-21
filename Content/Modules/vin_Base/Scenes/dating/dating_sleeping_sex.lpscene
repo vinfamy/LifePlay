@@ -1,0 +1,72 @@
+WHAT: sleep, nap
+WHERE: home
+WHEN: 5 - 12
+WHO: Actor = getSpecific(Dating); If Actor:attractiontoplayer > 0 && !Actor.isSameGender(Player)
+OTHER: IsAtDatingHome()
+
+    SceneStart()
+    Actor.show(2)
+    TalkNonConsensual()
+    filter(Sleeping)
+    If Player.isMale()
+        Player.closeEyes(true)
+        Actor(Flirty):: "Baby, you look so cute while you sleep. I couldn't help myself. You wouldn't mind if I fuck you in your sleep, would you?"
+        "What is this? Is this a dream?"
+        0:: "Stay in your 'dream'"
+        1:: "Wake up and stop <Actor.name>"
+        
+        If 0
+            "If this is a dream, I never want to wake up ..."
+            perversion += Random(0, 0.25)
+            Player.closeEyes(true)
+            Sex(Player, Actor)
+            Player.closeEyes(true)
+            
+            Actor.show(2)
+            "Now that the sweet little dream is over, maybe it's time to wake up?"
+            0:: "Wake up for round two"
+            1:: "Get some extra sleep"
+            
+            If 0
+                Player.closeEyes(false)
+                TalkNonConsensual()
+                Sex(Player, Actor)
+            Endif
+        Else
+            Player.closeEyes(false)
+            Player(Sad):: "Sorry baby, but I'm not in the mood."
+        Endif
+    Else
+        Actor.closeEyes(true)
+        "My <Actor.boyfriend_or_girlfriend> is still asleep, but I'm feeling really horny. Should I give <Actor.him_or_her> a morning surprise?"
+        0:: "Pleasure <Actor.name>"
+        1:: "Let the poor <Actor.man_or_woman> sleep"
+        
+        If 0
+            perversion += Random(0, 0.5)
+            Actor.closeEyes(true)
+            Sex(Actor, Player)
+
+            Actor.show(2)
+            Actor.closeEyes(true)
+            If Random(0, 50) < perversion - sneak
+                Actor.closeEyes(false)
+                Actor:attractiontoplayer += Random(0, 2)
+                Actor(Flirty):: "Wow, this is a pleasant surprise: my <Player.boyfriend_or_girlfriend> taking care of my needs even while I'm asleep."
+                0:: "Ready for round two?"
+                1:: "It's getting late. We should get ready."
+                
+                If 0
+                    TalkNonConsensual()
+                    Sex(Actor, Player)
+                Endif
+            Else
+                "I somehow managed to make <Actor.him_or_her> cum without waking <Actor.him_or_her> up! I can already imagine <Actor.his_or_her> surprise waking up later on."
+            Endif
+        Else
+            "Nah, <Actor.he_or_she> needs some rest. We'll do it another time."
+        Endif
+    Endif
+
+    timeout(96, dating_sleeping_sex)
+    SceneEnd()

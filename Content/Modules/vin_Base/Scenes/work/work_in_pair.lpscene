@@ -5,7 +5,7 @@ WHO: Colleague = getSpecific(Colleague)
 OTHER: Random(0, 100) < 0.02*intelligence
 
 SceneStart()
-setBackgroung(work)
+setBackground(work)
 Colleague.dress()
 Colleague.show(2)
 
