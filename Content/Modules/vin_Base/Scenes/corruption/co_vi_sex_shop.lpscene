@@ -11,7 +11,7 @@ OTHER: none
     "I knew it! My <Actor.sleazy_or_slutty> date is trying to take me to a sex shop ..."
     0:: "Refuse to go in"
     1:: "A little look won't hurt"
-    
+
     If 0
         Player(Angry):: "Hey, who do you take me for? No way I'm going in there!"
         "The cheek of <Actor.him_or_her> ... taking a classy <Player.gentleman_or_lady> like me to this fifthy establishment."
@@ -22,11 +22,11 @@ OTHER: none
         perversion += Random(0, 0.25)
         setBackground(department_store)
         "<Actor.name> is clearly in <Actor.his_or_her> element in this shop. The shopkeeper greeted <Actor.him_or_her> as if <Actor.he_or_she> is a regular customer."
-        Actor(Flirty):: "Why don't you take a seat over the counter over there and try this toy, <Player.beautiful_or_handsome>? I'll be happy to buy it for you if you find it ... satisfactory."
+        Actor(Flirty):: "Why don't you take a seat over the counter over there and try this toy, <Player.handsome_or_beautiful>? I'll be happy to buy it for you if you find it ... satisfactory."
         "What the hell? <Actor.name> wants me to try this <Player.Fleshlight_or_dildo> right here, in front of all the sex shop customers?"
         0:: "No way!"
         1:: perversion > 30:: "Alright ..."
-        
+
         If 0
             Player(Angry):: "In your dream I will do that! A self-respecting <Player.man_or_woman> like me doesn't have any use for such toys, let alone try it in public."
         Else
@@ -41,7 +41,7 @@ OTHER: none
             "As I was nearing orgasm, <Actor.name> came closer and started to caress my sensitive spot. It's clear <Actor.he_or_she> wants a grand finale for this little sexy show <Actor.he_or_she> somehow convinced me to put on."
             0:: "Let <Actor.him_or_her>"
             1:: "This is going too far ..."
-            
+
             If 0
                 "The <Player.Fleshlight_or_dildo> has got me all hot and bothered ... I really need a <Actor.man_or_woman>'s touch now ... As shameless as doing it in front of all the sex shop customers is."
                 Sex(Actor, Player)
@@ -53,6 +53,6 @@ OTHER: none
             Endif
         Endif
     Endif
-    
+
     SceneEnd()
     timeout(200, co_vi_sex_shop)

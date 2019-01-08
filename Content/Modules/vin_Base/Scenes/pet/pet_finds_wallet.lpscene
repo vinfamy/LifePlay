@@ -1,0 +1,34 @@
+WHAT: all
+WHERE: all, -home, -work
+WHEN: 0-24
+WHO: Actor = getCompanionCreature(); If Random(0, 200) < Actor:intelligence
+OTHER: none
+
+    SceneStart()
+    Actor:: "Wuff! Wuff! Wuff!"
+    "<Actor.name> seems to be barking for my attention and is asking me to follow <Actor.him_or_her>."
+    0:: "Follow <Actor.his_or_her> lead"
+    1:: "Maybe not"
+    
+    If 0
+        setBackground(street)
+        Player(Happy):: "Fine, I'll follow you. You'd better not bring me to anywhere dangerous!"
+        "A few moments later ..."
+        "Hmm, what's this that <Actor.name>?"
+        Player(Happy):: "Ah, someone dropped their wallet. Good <Actor.boy_or_girl>!"
+        0:: "Take the cash"
+        1:: "Hand it in to a police station"
+        
+        If 0
+            "I feel slightly guilty, but I need the money."
+            money += Random(20, 200)
+            Player(Evil):: "Well done, <Actor.boy_or_girl>. Keeping sniffing out lost wallets like this and we'll be fifthy rich in no time."
+        Else
+            "I feel good about doing this. It's the right thing to do."
+            mood += Random(0, 40)
+        Endif
+    Else
+        "No way, the last thing I want right now is to be led to a dead body or something."
+    Endif
+    SceneEnd()
+    timeout(48, pet_finds_wallet)

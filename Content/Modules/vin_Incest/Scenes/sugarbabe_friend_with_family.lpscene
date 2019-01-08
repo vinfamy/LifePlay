@@ -3,7 +3,7 @@ WHERE: all
 WHEN: 17 - 21
 WHO: Actor = getRelative(Child, StepChild, Sibling, StepSibling, Cousin); If Actor.isInterestedIn(Player) && Random(150, 1000) < Actor:perversion + Actor:attractiveness && Actor:incest > 10
 OTHER: none
-    
+
     SugarParent = SugarBabe.getGlobal()
     If SugarParent > 0
         SceneStart()
@@ -17,7 +17,7 @@ OTHER: none
         Sugar(Flirty):: "You know I love it when you fuck my brain out ... but I also love to watch. I have a hot friend who I'd love for you to enjoy in front of me ..."
         0:: "Yes"
         1:: "No"
-        
+
         If 0
             Player(Flirty):: "That's a pleasant surprise, darling. How thoughtful of you! Sharing is caring."
             "<Sugar.name> then said that <Said.he_or_she> would organize everything."
@@ -30,14 +30,14 @@ OTHER: none
             Actor(Shocked):: "What the fuck!"
             Player(Shocked):: "No fucking way!"
             "My sugarbabe's friend turned out to be my <Actor.relationship>. Something straight out of a porn parody just happened to me ..."
-            Actor(Shocked):: "<Actor.Callplayer>, you're the sugardaddy!? I didn't know you resorted to this for sex."
+            Actor(Shocked):: "<Actor.Callplayer>, you're the <Player.sugardaddy_or_sugarmommy>!? I didn't know you resorted to this for sex."
             Sugar(Surprised):: "What? You're <Player.his_or_her> <Actor.relationship>? I had no idea. I'm so sorry, <Player.Daddy_or_Momma> ..."
             Player(Embarassed):: "I think I'll just leave. Oh god, this is so fucked up!"
             Actor(Angry):: "What? You're just gonna leave? You've been fucking my best friend all this time but would not bother to even touch me. Am I not as sexy as <Actor.him_or_her>?"
             Actor(Happy):: "I'll have to prove that I'm more important to you than just some random sugarbabe by fucking me harder than you ever fucked <Sugar.him_or_her>."
             0:: "Yes"
             1:: "No"
-            
+
             If 0
                 Player(Sad):: "This is so wrong ... but if you give me an ultimatum like that ..."
                 Sex(Actor, Player)
@@ -45,11 +45,11 @@ OTHER: none
                 Sex(Actor, Player, Sugar)
             Else
                 Player(Angry):: "Are you for real right now? You're my <Actor.relationship> for God's sake! I can't sleep with you. Who cares about your besties rivalry?"
-                Actor:rapportwithplayer -= Random(0, 50)           
+                Actor:rapportwithplayer -= Random(0, 50)
             Endif
         Else
             Player(Sad):: "I'm sorry, Darling. I only want you. I don't even know or care to sleep with this friend of yours."
-        Endif        
+        Endif
         SceneEnd()
         timeout(1000, sugarbabe_friend_with_family)
     Endif

@@ -1,22 +1,26 @@
 WHAT: all
 WHERE: home
 WHEN: 8 - 21
-WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Player.isInterestedIn(Actor) && Actor.isInterestedIn(Player) && Random(10, 300) < Actor:rapportwithplayer
+WHO: Actor = getRelative(); Dating = Actor.getRelatedPerson(Dating); If Actor.livesWithPlayer() && Dating.isValid() && !Dating.isSameAs(Player) && Player.isInterestedIn(Actor) && Actor.isInterestedIn(Player) && Random(10, 300) < Actor:rapportwithplayer
 OTHER: isAtHome()
 
     SceneStart()
     Actor.dress()
     Actor.show(2)
-    Player(Annoyed):: "Why do you keep going out with that <Player.guy_or_girl>? A <Actor.handsome_or_beautiful> <Actor.man_or_woman> like you could do so much better than <Player.him_or_her>!"
+    Player(Annoyed):: "Why do you keep going out with that <Dating.name>? A <Actor.handsome_or_beautiful> <Actor.man_or_woman> like you could do so much better than <Dating.him_or_her>!"
     Actor(Annoyed):: "I don't know why you have become so possessive of me these days ... It's getting weird!"
-    "Maybe <Actor.he_or_she>'s right ... I can't stand the thought of <Actor.him_or_her> with another <Player.man_or_woman> ... But why?"
+    If Dating.isSameGender(Player)
+        "Maybe <Actor.he_or_she>'s right ... I can't stand the thought of <Actor.him_or_her> with another <Dating.man_or_woman> ... But why?"
+    Else
+        "Maybe <Actor.he_or_she>'s right ... I can't stand the thought of <Actor.him_or_her> with another, much less a <Dating.man_or_woman> ... But why?"
+    Endif
     0:: "I'm just protective of <Actor.him_or_her>!"
     1:: "I'm secretly attracted to <Actor.him_or_her> ..."
-    
+
     If 0
         "I just want to make sure that <Actor.he_or_she>'s safe."
     Else
-        "Could it be that deep inside, I harbors forbidden desires for my own <Actor.relationship> ? And in reality, am I just jealous of <Actor.his_or_her> <Player.boyfriend_or_girlfriend>?"
+        "Could it be that deep inside, I harbors forbidden desires for my own <Actor.relationship> ? And in reality, am I just jealous of <Actor.his_or_her> <Dating.boyfriend_or_girlfriend>?"
         Actor:incest += Random(0, 2)
     Endif
     SceneEnd()

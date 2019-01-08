@@ -1,0 +1,46 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "What type of pets am I thinking about adopting?"
+    0:: "A dog"
+    1:: "(More animals in future updates)"
+    2:: "Actually, I'm not ready for the responsibility"
+    
+    If 2
+        "Having a pet is a big commitment. I'm far too busy to take care of an animal right now."
+    Else
+        choice = 0
+        While choice == 0
+            Actor = generateCreatureTemporary()
+            Actor.show(2)
+            "The only dog breed up for adoption is a Whippet, a medium-size breed from England, descending from greyhounds. Frequently used as racing dogs, whippets are the fastest accelerating dog in the world."
+            "The pet shop owner tells me that more breeds will come in a 'future update'..."
+            "This particular one is a <Actor.Male_or_Female> dog."
+            If !Actor.isMale()
+                "Being female, the dog obviously has no penis. This could prevent some future embarassment because the male dogs sometimes get too ... excited."
+            Endif
+            "Should I adopt this Whippet?"
+            0:: "Look for another dog"
+            1:: "Adopt this one"
+            2:: "Actually, I'm not ready for a pet right now"
+        
+            If 0
+                Actor.delete()
+            Elseif 1
+                Actor.makePermanent()
+                "I completed all the paperwork and paid the adoption fees."
+                money -= Random(100, 200)
+                "It's now time to name my new pet:"
+                Actor.enterFirstName()
+                Player(Happy):: "Alright, I think I'll call you <Actor.name> from now on."
+                "With everything done, I took my new loyal companion back home."
+            Elseif 2
+                "Having a pet is a big commitment. I'm far too busy to take care of an animal right now."          
+            Endif
+        Endwhile
+    Endif   
+    SceneEnd()

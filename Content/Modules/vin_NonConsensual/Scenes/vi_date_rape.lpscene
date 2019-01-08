@@ -6,10 +6,10 @@ OTHER: !Player.isMale() && !Player.isDating()
 
     SceneStart()
     "It's been a decent date with <Actor.name> I guess. <Actor.He_or_She> is a bit handsy though, but I'm giving <Actor.him_or_her> none of it."
-    Actor(Happy):: "You're the most beautiful <Player.girl_or_guy> I've ever been on a date with. I'd love nothing more than being able to buy you a drink."
+    Actor(Happy):: "You're the most beautiful <Player.guy_or_girl> I've ever been on a date with. I'd love nothing more than being able to buy you a drink."
     0:: "Yes"
     1:: "No"
-    
+
     If 0
         "Ah, what a charming <Actor.gentleman_or_lady>!"
         Player(Happy):: "Of course! I'd love to have a drink with you."

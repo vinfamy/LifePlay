@@ -5,23 +5,21 @@ WHO: none
 OTHER: none
 
 	SceneStart()
-    Player.strip()
-    "Which scene to play?"
-    0:: "Anal"
-    1:: "Sleeping"
+    "Get a dog?"
+    0:: "Yes"
+    1:: "No"
     
-    Actor = generatePersonTemporary()
-    While Actor.isSameGender(Player)
-        Actor = generatePersonTemporary()
-    Endwhile
+
 
     If 0
-        Filter(Anal)
-    Elseif 1
-        Filter(Sleeping)
-        TalkNonConsensual()
-        Actor.closeEyes(true)
+        Actor = generateCreatureTemporary(Dogs)
+        Actor.show(2)
+        Actor2 = generateCreatureTemporary(Dogs)
+        Actor2.show(3)
+        Actor3 = generateCreatureTemporary(Dogs)
+        Actor3.show(4)
+        Actor4 = generateCreatureTemporary(Dogs)
+        Actor4.show(5)
+        Actor:: "Wuff! Wuff! Wuff!"
     Endif
-    
-    Sex(Player, Actor)
     SceneEnd()

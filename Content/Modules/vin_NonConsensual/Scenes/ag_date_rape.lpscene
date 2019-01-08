@@ -10,9 +10,9 @@ OTHER: Random(50, 200) < Actor:attractiveness && Actor:attractiontoplayer < 10 &
     "Wow, what a beautiful <Actor.guy_or_girl> my date <Actor.name> is. Should I offer <Actor.him_or_her> a drink?"
     0:: "Yes"
     1:: "No"
-    
+
     If 0
-        Player(Happy):: "Wow, you're the most beautiful <Player.girl_or_guy> I've ever been on a date with. I'd love nothing more than being able to buy you a drink."
+        Player(Happy):: "Wow, you're the most beautiful <Actor.guy_or_girl> I've ever been on a date with. I'd love nothing more than being able to buy you a drink."
         Actor(Happy):: "Of course! I'd love to have a drink with you."
         Actor2 = generatePersonTemporary()
         Actor2.dress()
@@ -23,7 +23,7 @@ OTHER: Random(50, 200) < Actor:attractiveness && Actor:attractiontoplayer < 10 &
         Actor2(Evil):: "... unless you're smart enough to cheat. For a generous tip, I can put some special powder in <Actor.his_or_her> Margarita that will guarantee you score tonight ... Come on buddy, you're the underdog - only a fool would play fair here."
         0:: "Spike the drink"
         1:: "No way"
-        
+
         If 0
             money -= Random(200, 500)
             masochist -= Random(0, 2)
@@ -43,14 +43,14 @@ OTHER: Random(50, 200) < Actor:attractiveness && Actor:attractiontoplayer < 10 &
             Actor:attractiontoplayer => -100
             endDate()
             blockContact(Actor)
-            
+
             If Random(0, 100) < 20
                 setBackground(home)
                 "Sure enough, the cops promptly arrived at my home a few days later to arrest me."
                 "'Hands in the air, now!'"
                 0:: "Run"
                 1:: "Surrender"
-                
+
                 If 0
                     If Random(0, 100) < fitness
                         "I managed to lose the cops. Phew, that was close."
@@ -66,7 +66,7 @@ OTHER: Random(50, 200) < Actor:attractiveness && Actor:attractiontoplayer < 10 &
                     "I put my hands up and surrendered to the overwhelming number of cops."
                     sentence => 1825
                     followUp(imprisoned)
-                Endif                
+                Endif
             Endif
         Else
             Player(Angry):: "I'm not Bill Cosby! What kind of bartender are you?"

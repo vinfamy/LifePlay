@@ -1,0 +1,33 @@
+WHAT: all
+WHERE: all, -home, -work
+WHEN: 0-24
+WHO: Actor = getCompanionCreature(); If Random(50, 200) < Actor:martial
+OTHER: none
+
+    SceneStart()
+    Actor2 = generatePersonTemporary()
+    Actor2.dress()
+    Actor2.show(2)
+    Actor2(Angry):: "Damn, I hate dogs. Dumb and annoying animals."
+    "The <Actor2.asshole_or_bitch> just sucker-kicked <Actor.name>. Seriously, what's <Actor2.his_or_her> problem?"
+    Actor:: "Wuff! Wuff! Wuff!"
+    "<Actor.name> responded in kind ... by taking a bite out of <Actor2.his_or_her> leg."
+    Actor2(Pain):: "Ahhhhhhhhhhhhhhhh ..."
+    Actor2(Furious):: "Fuck this rabid dog! How dare you bite me? You there, how could you let your stupid dog bite people like this?"
+    0:: "Apologize"
+    1:: "Defend <Actor.name>"
+    
+    If 0
+        Player(Scared):: "Oh my god! I'm so sorry."
+        Player(Angry):: "Bad doggy! You'd better behave yourself before I put a mouth guard on you."
+        masochist += Random(0, 2)
+        Actor:rapportwithplayer -= Random(0, 2)
+        Actor:attractiontoplayer -= Random(0, 2)        
+    Else
+        Player(Angry):: "You deserved that! You provoked <Actor.him_or_her>! Fuck off!"
+        masochist -= Random(0, 1)
+        Actor:rapportwithplayer += Random(0, 2)
+        Actor:attractiontoplayer += Random(0, 2)
+    Endif
+    SceneEnd()
+    timeout(100, pet_bites)

@@ -1,0 +1,27 @@
+WHAT: all
+WHERE: home
+WHEN: 0-24
+WHO: Actor = getCreature(); If Random(0, 200) < Actor:interpersonal 
+OTHER: isAtHome()
+
+    SceneStart()
+    Actor.show(2)
+    "<Actor.name> is wagging <Actor.his_or_her> tail. <Actor.He_or_She> seems to be in a playful mood."
+    0:: "Play with <Actor.him_or_her>"
+    1:: "Not now"
+    
+    If 0
+        Player(Happy):: "Good boy! Come here ..."
+        Actor:rapportwithplayer += Random(0, 2)
+        Actor:attractiontoplayer += Random(0, 2)
+        Actor:interpersonal += Random(0, 2)
+        Player:mood += Random(0, 20)
+    Else
+        Player(Angry):: "Not now! Go play somewhere else!"
+        Actor:rapportwithplayer -= Random(0, 2)
+        Actor:attractiontoplayer -= Random(0, 2)
+        Actor:interpersonal -= Random(0, 2)
+    Endif
+
+    SceneEnd()
+    timeout(72, pet_comforting)

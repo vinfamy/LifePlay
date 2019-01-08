@@ -7,15 +7,15 @@ OTHER: !Player.isMale() && Random(40, 500) < attractiveness
     SceneStart()
     Actor = generatePersonTemporary()
     While !Actor.isMale()
-        Actor = generatePersonTemporary()    
+        Actor = generatePersonTemporary()
     Endwhile
     Actor.dress()
     Actor.show(2)
     "I was just hanging out at the bar when a stranger approached me."
-    Actor(Happy):: "I'm sorry if this is all too sudden. But you're the most beautiful <Player.girl_or_guy> I've ever seen. I'd love nothing more than being able to buy you a drink."
+    Actor(Happy):: "I'm sorry if this is all too sudden. But you're the most beautiful <Player.guy_or_girl> I've ever seen. I'd love nothing more than being able to buy you a drink."
     0:: "Yes"
     1:: "No"
-    
+
     If 0
         "Ah, what a charming <Actor.gentleman_or_lady>!"
         Player(Happy):: "Of course! I'd love to have a drink with you."

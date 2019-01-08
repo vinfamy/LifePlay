@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: visit_the_vet
+ACTION_NAME: Visit the vet
+WHERE: veterinary, hospital, clinic
+WHEN: 0 - 24
+MINUTES: 30 - 60
+TIMEOUT_MINUTES: 15
+ALSO_TIMEOUT: 
+EFFECTS:
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: visit_the_vet
+ANIMATION:   

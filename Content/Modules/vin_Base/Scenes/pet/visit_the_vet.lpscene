@@ -1,0 +1,23 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    If isWithCompanionCreature()
+        "Do I want to visit the vet with <CurrentCompanion.name>?"
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            "It cost quite a bit but <CurrentCompanion.name> came out of the session looking as healthy as ever."
+            money -= Random(50, 200)
+            CurrentCompanion:fitness += Random(0, 50)
+        Else
+            "<CurrentCompanion.name> seems fine. No need to waste money."
+        Endif
+    Else
+        "I'm not taking any pets with me. I can't visit the vet."
+    Endif
+    SceneEnd()

@@ -1,18 +1,38 @@
 WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 0 - 24
-WHO: Actor = getSpecific(Neighbour); If Actor:masochist < Random(-100, 0) 
+WHO: Actor = getSpecific(Neighbour); If Actor:masochist < Random(-100, 0)
 OTHER: isAtHome()
+
+    Dating = Actor.getRelatedPerson(Dating, Spouses)
+    If !Dating.isValid()
+        Dating = generatePersonTemporary()
+        While !Actor.isInterestedIn(Dating)
+            Dating = generatePersonTemporary()
+        Endwhile
+        Dating.makePermanent()
+        addNpcRelationship(Dating, Actor, Dating)
+    Endif
 
     SceneStart()
     Actor.dress()
     Actor.show(2)
-    
+
     "I was walking just outside my apartment when I spotted my neighbour <Actor.name> sitting on the stairs, looking quite depressed."
     Player(Surprised):: "<Actor.name>? What are you doing out here all alone?"
     Actor(Sad):: "It's nothing. Don't worry ..."
     Player(Happy):: "Come on, it's okay. You can tell me."
-    Actor(Sad):: "It's just that ... my <Actor.girlfriend_or_boyfriend> and I, we had an argument again."
+
+    If Actor.isMarried()
+        If Actor.isSameGender(Dating)
+            Actor(Sad):: "It's just that ... my partner and I, we had an argument again."
+        Else
+            Actor(Sad):: "It's just that ... my <Dating.husband_or_wife> and I, we had an argument again."
+        Endif
+    Else
+        Actor(Sad):: "It's just that ... my <Dating.boyfriend_or_girlfriend> and I, we had an argument again."
+    Endif
+
     0:: "Wish <Actor.him_or_her> luck"
     1:: "Invite <Actor.him_or_her> inside"
 
@@ -25,11 +45,11 @@ OTHER: isAtHome()
         "I opened my apartment door and invited <Actor.name> in."
         Actor:rapportwithplayer += Random(0, 5)
         Actor:attractiontoplayer += Random(0, 5)
-        
-        choice = -1    
+
+        choice = -1
         ate = false
         hadSex = false
-            
+
         While choice < 5
             Kissed = false
             "What should I suggest to <Actor.name> that we do?"
@@ -39,7 +59,7 @@ OTHER: isAtHome()
             3:: "Drink alcohol"
             4:: !hadSex:: "Kiss <Actor.him_or_her>"
             5:: "Politely ask <Actor.him_or_her> to leave"
-            
+
             If 5
                 "We said goodbye and went our ways."
             Else
@@ -67,7 +87,7 @@ OTHER: isAtHome()
                     "Should I let this escalate further?"
                     0:: "Make out"
                     1:: "Stop"
-                    
+
                     If 0
                         If Actor.isInterestedIn(Player) && [Actor.IsDominantSex(Player) || Actor:attractiontoplayer + Actor:perversion > Random(50, 200) || Actor:intoxication > 80]
                             "Our kiss got more and more steamy and soon we were making out, our hands all over each other."
@@ -84,12 +104,22 @@ OTHER: isAtHome()
                     Endif
                 Elseif Random(0, 100) < 20
                     Actor(Happy):: "I've gotta go now. Thank you for inviting me in."
-                    Player(Happy):: "Alright. Thank you for staying. Goodbye! Good luck with your <Actor.girlfriend_or_boyfriend>."
+
+                    If Actor.isMarried()
+                        If Actor.isSameGender(Dating)
+                            Player(Happy):: "Alright. Thank you for staying. Goodbye! Good luck with your partner."
+                        Else
+                            Player(Happy):: "Alright. Thank you for staying. Goodbye! Good luck with your <Dating.husband_or_wife>."
+                        Endif
+                    Else
+                        Player(Happy):: "Alright. Thank you for staying. Goodbye! Good luck with your <Actor.boyfriend_or_girlfriend>."
+                    Endif
+
                     "We parted ways."
-                    choice = 5            
-                Endif        
+                    choice = 5
+                Endif
             Endif
-        Endwhile        
+        Endwhile
     Endif
 
     SceneEnd()

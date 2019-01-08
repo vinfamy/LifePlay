@@ -9,25 +9,25 @@ OTHER: none
     "<Actor.name> is such an innocent <Actor.guy_or_girl>. I reckon a little visit to my favorite sex shop could help <Actor.him_or_her> open up a bit ..."
     0:: "Take <Actor.him_or_her> to a sex shop"
     1:: "Not a good idea"
-    
+
     If 0
         "A while later ..."
         Actor(Surprised):: "<Player.name>, where are you taking me to? Wait, is this a ... sex shop?"
         Player(Flirty):: "Come on. I swear you'll find many interesting things to discover in there. Trust me ..."
-        If Random(0, 200) < interpersonal + Actor:attractiontoplayer + Actor:incest + Actor:perversion + Actor:masochist 
+        If Random(0, 200) < interpersonal + Actor:attractiontoplayer + Actor:incest + Actor:perversion + Actor:masochist
             Actor(Embarassed):: "Fine ... I guess since we're already here, a little look around won't hurt."
             Actor:perversion += Random(0, 0.25)
             setBackground(department_store)
             "Now that we're inside, should I just let <Actor.name> look around a bit or should I push a bit more and handpick a sex toy for <Actor.him_or_her> to try?"
             0:: "Convince <Actor.name> to try out a <Actor.Fleshlight_or_dildo>"
             1:: "Just let <Actor.him_or_her> explore on <Actor.his_or_her> own"
-            
+
             If 0
                 "Hmm, let me see ..."
                 "Yup, this one should do."
-                Player(Flirty):: "Why don't you take a seat over the counter over there and try this toy, <Actor.beautiful_or_handsome>? I'll be happy to buy it for you if you find it ... satisfactory."
-                "Damn, have I gone too far here? Am I truly expecting a classy <Actor.man_or_lady> like <Actor.name> to try this <Actor.Fleshlight_or_dildo> right here, in front of all the sex shop customers?"                
-                If Random(0, 250) < interpersonal + Actor:attractiontoplayer + Actor:incest + Actor:perversion + Actor:masochist 
+                Player(Flirty):: "Why don't you take a seat over the counter over there and try this toy, <Actor.handsome_or_beautiful>? I'll be happy to buy it for you if you find it ... satisfactory."
+                "Damn, have I gone too far here? Am I truly expecting a classy <Actor.man_or_lady> like <Actor.name> to try this <Actor.Fleshlight_or_dildo> right here, in front of all the sex shop customers?"
+                If Random(0, 250) < interpersonal + Actor:attractiontoplayer + Actor:incest + Actor:perversion + Actor:masochist
                     Actor:masochist += Random(0, 0.25)
                     Actor:perversion += Random(0, 0.5)
                     "To my surprise, <Actor.name> actually took the <Actor.Fleshlight_or_dildo> off my hand, walked towards the counter, sat down, took off <Actor.his_or_her> <Actor.pants_or_panties> and started playing with it."
@@ -37,10 +37,10 @@ OTHER: none
                     "<Actor.name> is clearly nearing orgasm now ... should I try to get lucky or just leave <Actor.him_or_her> to finish alone?"
                     0:: "Touch <Actor.him_or_her>"
                     1:: "Let <Actor.him_or_her> enjoy <Actor.himself_or_herself>"
-                    
+
                     If 0
-                        "I came closer and started to caress <Actor.name>'s sensitive spot. I made it clear that I wanted a grand finale for this little sexy show I somehow convinced <Actor.him_or_her> to put on."                       
-                        If Random(100, 300) < interpersonal + Actor:attractiontoplayer + Actor:incest + Actor:perversion + Actor:masochist 
+                        "I came closer and started to caress <Actor.name>'s sensitive spot. I made it clear that I wanted a grand finale for this little sexy show I somehow convinced <Actor.him_or_her> to put on."
+                        If Random(100, 300) < interpersonal + Actor:attractiontoplayer + Actor:incest + Actor:perversion + Actor:masochist
                             "The <Actor.Fleshlight_or_dildo> has got <Actor.name> all hot and bothered ... <Actor.He_or_She> signalled to me that <Actor.he_or_she> really needed a <Player.man_or_woman>'s touch now ..."
                             Sex(Player, Actor)
                             Actor:perversion += Random(0, 1)
@@ -63,6 +63,6 @@ OTHER: none
     Else
         "Let's take this slow ... No way <Actor.he_or_she> would agree to go in such a place."
     Endif
-    
+
     SceneEnd()
     timeout(200, co_ag_sex_shop)

@@ -1,0 +1,27 @@
+WHAT: all
+WHERE: all, -home, -work
+WHEN: 0-24
+WHO: Actor = getCompanionCreature(); If Random(0, 200) < Actor:interpersonal + Actor:fitness
+OTHER: none
+
+    SceneStart()
+    Actor.show(2)
+    "<Actor.name> is wagging <Actor.his_or_her> tail. <Actor.He_or_She> seems to be in a mood to play fetch."
+    0:: "Play catch with <Actor.him_or_her>"
+    1:: "Not now"
+    
+    If 0
+        Player(Happy):: "Good boy! There, fetch that ..."
+        Actor:rapportwithplayer += Random(0, 1)
+        Actor:attractiontoplayer += Random(0, 1)
+        Actor:interpersonal += Random(0, 1)
+        Player:mood += Random(0, 5)
+    Else
+        Player(Angry):: "Not now! We should start heading home!"
+        Actor:rapportwithplayer -= Random(0, 1)
+        Actor:attractiontoplayer -= Random(0, 1)
+        Actor:interpersonal -= Random(0, 1)
+    Endif
+
+    SceneEnd()
+    timeout(24, pet_plays_fetch)

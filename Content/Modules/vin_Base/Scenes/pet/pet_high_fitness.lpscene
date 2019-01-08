@@ -1,0 +1,14 @@
+WHAT: all
+WHERE: home
+WHEN: 0-24
+WHO: Actor = getCreature(); If Random(70, 100) < Actor:fitness 
+OTHER: isAtHome()
+
+    SceneStart()
+    Actor.show(2)
+    "<Actor.name> seems so healthy and energetic recently. Those visits to the vet really pay off."
+    "I can tell that <Actor.he_or_she> is appreciative of my good care."
+    Actor:rapportwithplayer += Random(0, 5)
+    Actor:attractiontoplayer += Random(0, 5)
+    SceneEnd()
+    timeout(200, pet_high_fitness, pet_low_fitness)
