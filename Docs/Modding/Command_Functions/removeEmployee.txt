@@ -1,0 +1,15 @@
+Actor.removeEmployee()
+
+USE: 
+Fire this employee
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Business
+COMPARE: removeEmployee
+EXAMPLE:
+    "I decided to fire their asses for this unacceptable behaviour at work."        
+    Actor:rapportwithplayer -= Random(0, 50)
+    Actor2:rapportwithplayer -= Random(0, 50)
+    Actor.removeEmployee()
+    Actor2.removeEmployee()

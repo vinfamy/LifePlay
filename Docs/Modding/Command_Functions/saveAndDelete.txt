@@ -1,0 +1,9 @@
+Actor.saveAndDelete()
+
+USE:
+Force remove this actor from current memory, but saves any (stat) changes made to them in this scene first. Used for party scenes to avoid bloating.
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Actor Removal
+COMPARE: delete, deletePerson

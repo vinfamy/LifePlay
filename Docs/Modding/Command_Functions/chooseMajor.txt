@@ -1,0 +1,14 @@
+chooseMajor()
+
+USE:
+Pick the Major for the player, both for teaching and studying. Must be followed by setMajor(). The majors available are hardcoded in the GI file.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: University
+COMPARE: setMajor
+
+EXAMPLE:
+    chooseMajor()
+    setMajor()
+    "I just selected my <Player.Major> as my major."

@@ -1,0 +1,13 @@
+endOpenRelationship()
+
+USE:
+Revert your current relationship/ marriage back into a normal closed one (there are now cheating consequences).
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Relationships
+COMPARE: startOpenRelationship
+
+EXAMPLE:
+    startOpenRelationship()
+    Sex(Player, NotMyGF) // This will NOT be the same as SexNoAffair, your GF could catch you and get upset

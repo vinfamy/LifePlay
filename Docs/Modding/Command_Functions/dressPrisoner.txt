@@ -1,0 +1,9 @@
+Actor.dressPrisoner()
+
+USE: 
+Dress the person in prison outfit (3d assets not made yet, so this actually just calls normal Dress instead).
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Consequences
+COMPARE: dress, dresUniform, dressGuard

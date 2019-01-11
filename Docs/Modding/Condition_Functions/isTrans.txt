@@ -1,0 +1,15 @@
+Actor.isTrans()
+
+USE:
+Check if the actor is transexual.
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Gender
+COMPARE: isMale()
+
+EXAMPLE:
+    If !Dating.isMale() && [Bull.isMale() || Bull.isTrans()] && !Dating.isPregnant() && Random(0, 100) < 30
+        Dating.impregnate()
+    Endif 
+

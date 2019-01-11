@@ -1,0 +1,29 @@
+WHAT: all
+WHERE: home
+WHEN: 0-24
+WHO: none
+OTHER: Random(10, 100) < perversion
+
+    SceneStart()
+    Actor2 = generatePersonTemporary()
+    While Actor2.isMale()
+        Actor2 = generatePersonTemporary()
+    Endwhile
+    Actor = generateCreatureTemporary()
+    Actor2.show(2)
+    Actor.show(3)
+    
+    "While browsing the web, I came across a popup ad that shows a woman having sex with an animal  ... What the hell?"
+    0:: "Click on it"
+    1:: "No way"
+    
+    If 0
+        "My curiousity got the better of me and I clicked on the popup."
+        perversion += Random(0, 2)
+        Sex(Actor, Actor2)
+        arousal += Random(25, 50)
+    Else
+        "It's disgusting. Besides, that link is probably full of virus."
+    Endif
+    SceneEnd()
+    timeout(72, bestiality_porn)

@@ -1,0 +1,55 @@
+WHAT: all
+WHERE: all, -work
+WHEN: 8 - 18
+WHO: none
+OTHER: !Player.isMale() && Random(1, 100) < pornfame
+
+    SceneStart()
+    Actor = generateCreatureTemporary()
+    Actor.show(2)
+    "A porn director wants to book me for a bestiality scene ... Highly illegal to shoot porn with an animal, mind you, but he was willing to compensate me handsomely for my troubles. Niche porn always makes the most money." 
+    "I have more negotiating power than usual as the number of girls willing to do these types of scenes is much smaller than normal scenes."
+    0:: "Turn down the offer"
+    1:: "Rip the director off"
+    2:: "Offer a fair price"
+    3:: "Give the director a bargain"
+    
+    If 0
+        Player(Sad):: "Sorry, but I'm not interested in that sort of thing ..."
+    Elseif 3 || Random(0, 50) < choice*pornfame
+        "The porn director accepted my demands and soon enough we were meeting at the shoot location that we agreed on. They had people keeping an eye out of the cops the whole time."
+        Random
+            setBackground(home)
+            setBackground(bar)
+            setBackground(hairdresser)
+            setBackground(cafe)
+            setBackground(clothes)
+            setBackground(dentist)
+            setBackground(doctor)
+            setBackground(hotel)
+            setBackground(laundry)
+            setBackground(marketplace)
+            setBackground(musical_instrument)
+            setBackground(nightclub)
+            setBackground(work)
+            setBackground(place_of_worship)
+            setBackground(police)
+            setBackground(prison)
+            setBackground(pub)
+            setBackground(restaurant)
+            setBackground(shoes)
+            setBackground(sports_centre)
+            setBackground(supermarket)
+            setBackground(theatre)
+            setBackground(toilets)
+        endRandom
+        Sex(Actor, Player)
+        money += Random(1000, 4000)/choice
+        pornfame += 1
+        perversion += 0.5
+    Else
+        "No way, that's way above the market rate, even for this type of shoots! You have too high an opinion of yourself, honey. You should ask the other pornstars how much they charge."
+    Endif
+    
+    SceneEnd()
+    timeout(150, bestiality_porn_shoot)

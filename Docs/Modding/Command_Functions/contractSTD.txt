@@ -1,0 +1,14 @@
+contractSTD()
+
+USE: 
+Give the player STD
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Consequences
+COMPARE:
+EXAMPLE:
+    contactSTD()
+    "Oh no, I have a STD."
+
+

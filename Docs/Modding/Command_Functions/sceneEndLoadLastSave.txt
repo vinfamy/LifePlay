@@ -1,0 +1,21 @@
+sceneEndLoadLastSave()
+
+USE: 
+End the current scene and loads the last save. Used for game-over.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Consequences
+COMPARE: sceneEnd
+EXAMPLE:
+    "GAME OVER!"
+    0:: "Load last save"
+    1:: "Revive my character (cheat)"
+    
+    If 0
+        sceneEndLoadLastSave()
+    Else
+        sceneEnd()
+    Endif
+
+

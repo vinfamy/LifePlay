@@ -1,0 +1,17 @@
+Actor.generatePersonMatchRace()
+
+USE: 
+Generate a new actor that matches the racial preset of another person (for example, to generate a relative of an NPC). The actor generated using this method will be permanent right away, meaning they will remain after the current scene ends and are usable for some functions that only work with permanent actors.
+
+TYPE: Command, Ref
+RETURNS: Actor
+THEME: Actor Creation
+COMPARE: generatePerson
+
+EXAMPLE:
+    Actor = Actor2.generatePersonMatchRace()  // If Actor2 is east asian, Actor will also be east asian
+    Actor.dress()
+    Actor.show(2)
+    
+    exchangeContact(Actor) // this will succeed because this is a permanent actor
+    

@@ -1,0 +1,13 @@
+moveSchools()
+
+USE:
+Enroll into the current building and make it your new university
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: University
+COMPARE: moveFraternity
+
+EXAMPLE:
+    moveSchools()
+    "I'm now a student at this university"

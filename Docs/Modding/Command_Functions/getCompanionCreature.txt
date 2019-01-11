@@ -1,0 +1,15 @@
+getCompanionCreature()
+
+USE: 
+Get the current companion, but only if they are a creature.
+
+TYPE: Command, Non-Ref
+RETURNS: Actor
+THEME: Companion
+COMPARE: getCompanion, getCompanionAny
+
+EXAMPLE:
+    WHO: Actor = getCompanionCreature(); If Random(0, 200) < Actor:intelligence
+
+
+

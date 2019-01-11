@@ -1,0 +1,14 @@
+quitLecturing()
+
+USE: 
+Quit your lecturing job
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: University
+COMPARE: moveSchools()
+EXAMPLE:
+    "Teaching and research wasn't the career for me."
+    quitLecturing()
+
+

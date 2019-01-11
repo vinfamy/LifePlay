@@ -1,0 +1,14 @@
+FloatVar.setTuition()
+
+USE:
+Set this as your current monthly tuition fees.
+
+TYPE: Command, non-Ref (ref-like syntax)
+RETURNS: /
+THEME: University, Money
+COMPARE: setRent, setFraternityFees
+
+EXAMPLE:
+    Tuition = 1000
+    Tuition.setTuition()
+    "I agreed to pay $1000 per month for tuition"

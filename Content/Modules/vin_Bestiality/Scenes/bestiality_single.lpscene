@@ -1,0 +1,34 @@
+WHAT: all
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getCreature(); Actor2 = getSpecific(ExDating); If Actor.isMale() && Actor2.isMale()
+OTHER: !Player.isMale() && isAtHome() && !Player.isDating() && Random(0, 50) < perversion && Random(0, 100) < arousal 
+
+    SceneStart()
+    Actor.show(2)
+    "After the past breakups, I'm starting to get tired of men ..."
+    0:: "Only my dog is forever faithful to me"
+    1:: "There must still be good men out there"
+    
+    If 0
+        "All the while these men were breaking my heart, only <Actor.name> never let me down. <Actor.He_or_She> never complains, is a good listener and most importantly, doesn't run after every hot chicks he comes across."
+        0:: "Well, <Actor.name> even has a dick too ..."
+        1:: "Still, I need a man for sex! My dog can't replace that."
+        
+        If 0
+            "Maybe <Actor.name> can take care of my more intimate needs too ..."
+            0:: "Yes, who needs a boyfriend when you have a dog?"
+            1:: "Ew, what the hell am I thinking about?"
+            
+            If 0
+                Player(Flirty):: "Come here boy, remember that time when you interrupted me and <Actor2.name> having sex? Why don't you show that loser how 'fucking like animals' is really done."
+                Actor:: "Woff! Woff! Woff!"
+                Sex(Actor, Player)
+                perversion += Random(0, 2)
+                Actor:attractiontoplayer += Random(0, 2)
+            Endif
+        Endif
+    Endif
+    
+    SceneEnd()
+    timeout(100, bestiality_single)

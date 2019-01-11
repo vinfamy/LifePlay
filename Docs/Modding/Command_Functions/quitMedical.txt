@@ -1,0 +1,14 @@
+quitMedical()
+
+USE: 
+Leave your medical career
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Work
+COMPARE: setJob()
+EXAMPLE:
+    "Medicine wasn't the career for me."
+    quitMedical()
+
+

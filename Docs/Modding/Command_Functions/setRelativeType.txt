@@ -1,0 +1,13 @@
+Actor.setRelativeType(Type)
+
+USE:
+Set which type of relative this person is (must already be a relative actor, not a normal NPC). Used for giving birth.
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Relationships
+COMPARE: generateRelativeMatchRace
+
+EXAMPLE:
+    Actor2 = Actor.generateRelativeMatchRace()
+    Actor2.setRelativeType(Child)

@@ -1,0 +1,14 @@
+isTimingOut(sceneID)
+
+USE:
+Check if the specified is still in cooldown period and shouldn't be triggered again yet.
+
+TYPE: Condition, Non-Ref
+RETURNS: bool
+THEME: Scenes
+COMPARE:
+
+EXAMPLE:
+    If isTimingOut(stalk_facebook)
+        "I don't feel like doing more online stalking for now ... Maybe I'll be in the mood again in an hour or two."
+    Endif

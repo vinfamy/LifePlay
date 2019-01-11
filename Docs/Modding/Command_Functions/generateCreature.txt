@@ -1,0 +1,15 @@
+generateCreature(optional_Race)
+
+USE: 
+Generate a new permanent creature NPC.
+
+TYPE: Command, Non-Ref
+RETURNS: Actor
+THEME: Actor Creation
+COMPARE: generateCreatureTemporary
+
+EXAMPLE:
+    Actor = generateCreature(Dogs)
+    "<Actor.name> is my new dog."
+
+

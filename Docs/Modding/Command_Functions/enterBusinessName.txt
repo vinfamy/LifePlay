@@ -1,0 +1,16 @@
+enterBusinessName()
+
+USE: 
+Displays a text box so that the player can type in this business's name.
+
+TYPE: Command, Ref
+RETURNS: /
+THEME: Business
+COMPARE: startBusiness()
+
+EXAMPLE:
+    "I signed the lease on the property and took over the business."
+    "What should I name this business?"
+    enterBusinessName()
+    startBusiness()
+    

@@ -1,0 +1,15 @@
+Actor.setSubject()
+
+USE:
+Pick a random subject for a lecturer to teach that matches their major.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: University
+COMPARE: setSameMajor()
+
+EXAMPLE:
+    "I'm teaching History."
+    Actor.setSameMajor()
+    Actor.setSubject()
+    "Actor is teaching Roman History."

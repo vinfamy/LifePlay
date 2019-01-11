@@ -1,0 +1,16 @@
+startBusiness()
+
+USE: 
+Make the current building your business.
+
+TYPE: Command, Ref
+RETURNS: /
+THEME: Business
+COMPARE: stopBusiness()
+
+EXAMPLE:
+    "I signed the lease on the property and took over the business."
+    "What should I name this business?"
+    enterBusinessName()
+    startBusiness()
+    

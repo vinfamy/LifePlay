@@ -1,0 +1,14 @@
+quitCrime()
+
+USE: 
+Leave your crime family
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Crime
+COMPARE: setCrimeBoss()
+EXAMPLE:
+    "Let's move on and forget about my dark past. I'll just have to hope that my old boss would consider me too insignificant an loose end to hunt down."
+    quitCrime()
+
+

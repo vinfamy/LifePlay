@@ -1,0 +1,13 @@
+openRelationship()
+
+USE:
+Check if the player is in an open relationship
+
+TYPE: Condition, Non-Ref
+RETURNS: bool
+THEME: Relationships
+COMPARE:
+
+EXAMPLE:
+    OTHER: !OpenRelationship() && Random(50, 100) < perversion
+

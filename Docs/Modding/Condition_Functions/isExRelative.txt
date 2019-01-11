@@ -1,0 +1,15 @@
+Actor.isExRelative()
+
+USE:
+Check if the actor is actually your relative who became a lover.
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Relationships
+COMPARE: setExRelative()
+
+EXAMPLE:
+    If Actor.isExRelative()
+        "<Actor.name> and I are related after all so I would be lying if I said I wasn't concerned. Thankfully, the baby turned out to be healthy both physically and mentally. Maybe God changes his mind about incest?"       
+    Endif   
+

@@ -1,0 +1,17 @@
+Actor.addCriminal()
+
+USE: 
+Make this person part of your crime family.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Crime
+COMPARE: setCrimeBoss
+EXAMPLE:
+    Actor = generatePerson()
+    Actor.addCriminal()
+    Actor.dress()
+    Actor.show(2)
+    "A gang member approached me."
+    Actor(Evil):: "So, you're the new <Player.boy_or_girl>? Watch yourself out there, novice. I'm <Actor.name>. Maybe we can work together sometimes."
+

@@ -1,0 +1,14 @@
+getSelectedNPC()
+
+USE:
+Choose a person from your contacts by leaving the scene temporarily and opening the Contacts menu. Must be preceded by selectNPC(). Basically superior to chooseContact() unless you really don't want to take the player out of the scene even temporarily.
+
+TYPE: Command, Non-Ref
+RETURNS: Actor
+THEME: Acquaintance
+COMPARE: chooseContact()
+
+EXAMPLE:
+    "Who should be my first guest?"
+    selectNPC()
+    Guest1 = getSelectedNPC()

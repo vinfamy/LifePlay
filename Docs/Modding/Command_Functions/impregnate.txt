@@ -1,0 +1,12 @@
+Actor.impregnate()
+
+USE:
+Force impregnate someone. Works even without sex!
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Pregnancy
+COMPARE:
+
+Example:
+    Player.impregnate() // Oh no, I'm Virgin Mary now.

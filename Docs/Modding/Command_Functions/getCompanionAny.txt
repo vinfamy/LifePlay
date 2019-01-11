@@ -1,0 +1,15 @@
+getCompanionAny()
+
+USE: 
+Get the current companion, regardless of whether they are human or not.
+
+TYPE: Command, Non-Ref
+RETURNS: Actor
+THEME: Companion
+COMPARE: getCompanion, getCompanionCreature
+
+EXAMPLE:
+    WHO: Companion = getCompanionAny()
+
+
+

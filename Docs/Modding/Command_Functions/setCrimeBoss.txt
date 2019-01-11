@@ -1,0 +1,16 @@
+Actor.setCrimeBoss()
+
+USE: 
+Make this person the boss of your crime family.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Crime
+COMPARE: addCriminal
+EXAMPLE:
+    Boss.setCrimeBoss()
+    Boss.dress()
+    Boss.show(2)
+    Boss(Evil):: "So, you want to join our Family? Have you actually thought this through or are you just another wasting my time?"
+
+

@@ -1,0 +1,23 @@
+WHAT: all
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getCreature(); If Actor.isMale() && Random(50, 100) < Actor:perversion
+OTHER: !Player.isMale() && isAtHome()
+
+    SceneStart()
+    "<Actor.name> has spotted an erection all day, which is getting quite worrying. <Actor.He_or_She> is clearly in some discomfort. They always say 'If your erection doesn't go away, go see a doctor'. This must apply to dogs also."
+    0:: "Take <Actor.him_or_her> to the vet"
+    1:: perversion > 50:: "Take care of the erection the 'traditional' way"
+    
+    If 0
+        setBackground(veterinary)
+        Actor.show(2)
+        "The vet took care of <Actor.name>'s uncomfortable issue. Maybe some medicine did the trick ... or maybe the vet just jerked him off. I don't wanna know."
+    Else
+        Sex(Actor, Player)
+        perversion += Random(0, 2)
+        Actor:attractiontoplayer += Random(0, 2)        
+    Endif
+    
+    SceneEnd()
+    timeout(100, bestiality_boner)

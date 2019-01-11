@@ -1,0 +1,15 @@
+chooseContact()
+
+USE:
+Choose a person from your contact by displaying a option menu while staying in the scene. Must be followed by getSpecific(chooseContact). Probably inferior to selectNPC() unless you really don't want to take the player out of the scene even temporarily.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Acquaintance
+COMPARE: selectNPC()
+
+EXAMPLE:
+    Dating(Flirty):: "You naughty <Player.boy_or_girl>! Fancy yourself as a generous <Dating.boyfriend_or_girlfriend> sharer, don't you? Fine then, if that's what turns you on, I can give it a try. Just make sure to find me a cute <Player.boy_or_girl> to date and go home with, okay?"
+    "We then went on to discuss potential candidates."
+    chooseContact()
+    Bull = getSpecific(chooseContact)

@@ -1,0 +1,15 @@
+Actor.enterFirstName()
+
+USE: 
+Displays a text box so that the player can type in this character's first name. Used for naming children and pets.
+
+TYPE: Command, Ref
+RETURNS: Actor
+THEME: Actor Creation
+COMPARE:
+
+EXAMPLE:
+    "It's now time to name my new pet:"
+    Actor.enterFirstName()
+    Player(Happy):: "Alright, I think I'll call you <Actor.name> from now on."
+    

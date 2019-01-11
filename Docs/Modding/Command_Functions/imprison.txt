@@ -1,0 +1,14 @@
+imprison()
+
+USE: 
+Send the player to prison.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Consequences
+COMPARE: endPrison
+EXAMPLE:
+    "The court-appointed lawyer didn't do me much good. I got the expected sentence and was sent on my way to jail."
+    imprison()
+
+

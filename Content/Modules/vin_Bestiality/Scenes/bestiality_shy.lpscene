@@ -1,0 +1,27 @@
+WHAT: all
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getCreature(); If Actor.isMale()
+OTHER: !Player.isMale() && isAtHome() && !Player.isDating() && Random(0, 50) > interpersonal && Random(10, 50) < arousal  && perversion > 30
+
+    SceneStart()
+    "I must admit I'm not the most confident woman on Earth, and find it hard to get men's attention."
+    "Unlike my party animal female friends, sex is quite hard to come by and when it does, it's with fellow inexperienced social rejects who usually end up being quite disappointing in bed."
+    Actor.show(2)
+    Actor:: "Wuff! Wuff! Wuff!"
+    Player(Happy):: "What's the matter, boy? Hungry?"
+    "Suddenly, an idea popped up in my head, a highly forbidden desire ..."
+    "Damn it, I can't seriously be thinking about this, can I? Has my lack of decent sex driven me mad?"
+    0:: "Have sex with <Actor.name> ..."
+    1:: "I'm not that desperate!"
+    
+    If 0
+        "I mean ... <Actor.name> must be better in bed than most of the men I've been with. It's part of <Actor.his_or_her> instincts after all ... Besides, he couldn't care less about me not being a popular girl."
+        Player(Flirty):: "Sorry boy, you were just in the right place at the right time, barking like that just as I was thinking about sex ..."
+        Sex(Actor, Player)
+        perversion += Random(0, 2)
+        Actor:attractiontoplayer += Random(0, 2)
+    Endif
+    
+    SceneEnd()
+    timeout(100, bestiality_shy)

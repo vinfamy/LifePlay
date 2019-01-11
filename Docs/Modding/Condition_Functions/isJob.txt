@@ -1,0 +1,15 @@
+Actor.isJob()
+
+USE:
+Check if actor is a doctor or a nurse
+
+TYPE: Condition, Referenece
+RETURNS: bool
+THEME: Job
+COMPARE: setJob
+
+EXAMPLE:
+    If Actor.isJob(Doctor)
+        "Hi, Dr <Actor.name_last>."
+    Endif 
+

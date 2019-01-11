@@ -1,0 +1,13 @@
+calculateWages()
+
+USE: 
+Calculate the wages for the current building.
+
+TYPE: Command, Ref
+RETURNS: FloatVar
+THEME: Business
+COMPARE: calculateRent, calculateRevenue, calculateExpenses
+EXAMPLE:
+    Wages = calculateWages()
+    WagesC = Wages.convertToLocalCurrency(true)
+    "Wages for all employees total around <WagesC>."

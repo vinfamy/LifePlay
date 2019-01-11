@@ -1,0 +1,14 @@
+Actor.setDifferentMajor()
+
+USE:
+Set the Major for the NPC to be a random subject but not the same as the player, both for teaching and studying.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: University
+COMPARE: setMajor(), setSameMajor()
+
+EXAMPLE:
+    "I'm studying History"
+    Actor.setSameMajor()
+    "<Actor.name> is not my classmate."

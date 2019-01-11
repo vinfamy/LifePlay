@@ -1,0 +1,15 @@
+endPrison()
+
+USE: 
+Remove the player from prison.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Consequences
+COMPARE: imprison
+EXAMPLE:
+    "And I did it! The prison guards were long left behind. Usain Bolt would be proud of that run!"
+    "My prison escape was close, but ultimately successful. I'm a free <Player.man_or_woman> again!"
+    endPrison()    
+
+

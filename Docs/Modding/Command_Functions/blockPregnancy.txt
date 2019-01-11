@@ -1,0 +1,16 @@
+blockPregnancy()
+
+USE: 
+Block all pregnancies for all sex scenes in this current scene.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Pregnancy
+COMPARE: impregnate
+EXAMPLE:
+    blockPregnancy()
+    "This is a dream ..."
+    Sex(Player, Actor) // No pregnancies can result from this sex scene
+    
+
+

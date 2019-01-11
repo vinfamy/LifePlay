@@ -1,0 +1,42 @@
+WHAT: masturbate, sleep, sleep_hotel, nap, nap_hotel
+WHERE: all
+WHEN: 0 - 24
+WHO: Actor2 = getCreature(); If Actor2.isMale()
+OTHER: Random(0, 200) < perversion && arousal > 10
+
+    SceneStart()
+    Actor2.show(3)
+    "Sometimes I cannot help but notice how well-endowed <Actor2.name> is and fantasize about <Actor2.him_or_her> inside a woman I know ..."
+    0:: "Just some harmless fantasies"
+    1:: "Think of something else"
+    
+    If 0
+        blockPregnancy()
+        "Who is the lucky lady being hummed by my dog in my wild fantasy?"
+        selectNPC()
+        Actor = getSelectedNPC()
+        While !Actor.isValid() || Actor.isMale() || Actor.isCreature()
+            "Nope, that's not it, my fantasy involves <Actor2.name> knotting a human woman."
+            selectNPC()
+            Actor = getSelectedNPC()
+        Endwhile
+        
+        Actor.dress()
+        Actor.show(2)
+        "The idea of <Actor.name> having sex with an animal really turns me on."
+        
+        0:: "Fantasize about sex between <Actor.name> and <Actor2.name>"
+        1:: "Resist the urge"
+        
+        If 0
+            If Actor.isDating()
+                "Maybe I'm a bit of a cuck after all, fantasizing about my <Actor.boyfriend_or_girlfriend> having sex with my own pet."
+                masochist += Random(0, 2)
+            Endif
+            SexNoAffair(Actor2, Actor)
+            perversion += Random(0, 1)
+            arousal += Random(25, 50)
+        Endif
+    Endif
+    SceneEnd()
+    timeout(72, fantasize_bestiality, fantasize_bestiality_self)

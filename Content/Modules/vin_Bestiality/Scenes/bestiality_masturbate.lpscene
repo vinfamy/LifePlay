@@ -1,0 +1,28 @@
+WHAT: masturbate
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getCreature(); If Actor.isMale() && Random(20, 100) < Actor:perversion
+OTHER: !Player.isMale() && isAtHome()
+
+    SceneStart()
+    Player.strip()
+    Player(Pain):: "Ah ... Ah ... Yes! Yes! Yes! I'm cumming ..."
+    "I've gotten so good with my hand ..."
+    Actor.show(2)
+    Actor:: "Wuff! Wuff! Wuff!"
+    Player(Angry):: "<Actor.name>, bad doggy! Get out of here. I'm .... taking care of business, can't you see?."
+    Player(Shocked):: "Wait, is that red veiny thing a boner?"
+    "Was <Actor.he_or_she> watching me masturbating and getting turned on? Is this one of those 'why don't you give me a hand, baby?' moments?"
+    0:: "Get up"
+    1:: "That dick does look tasty ..."
+    
+    If 1
+        Player(Flirty):: "Bit of a pervert of a dog are you? Fine, why don't you come and help me with my needs?"
+        Actor:: "Wuff! Wuff! Wuff!"
+        Sex(Actor, Player)
+        perversion += Random(0, 2)
+        Actor:attractiontoplayer += Random(0, 2)
+    Endif
+    
+    SceneEnd()
+    timeout(100, bestiality_masturbate)

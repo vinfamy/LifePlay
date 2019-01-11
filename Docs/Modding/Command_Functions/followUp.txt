@@ -1,0 +1,16 @@
+followUp(SceneID)
+
+USE: 
+Start another scene immediately after this current scene finishes
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Consequences
+COMPARE:
+EXAMPLE:
+    Dating(Furious):: "You betrayed me, you humilated me ... now you die!"
+    "Pow!"
+    Player.hide()
+    followUp(death)
+
+

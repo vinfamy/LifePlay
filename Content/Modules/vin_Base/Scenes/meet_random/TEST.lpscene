@@ -5,13 +5,14 @@ WHO: none
 OTHER: none
 
 	SceneStart()
-    "Get a dog?"
+    "Fuck your dog?"
     0:: "Yes"
     1:: "No"
+    2:: "Test positions"
     
 
 
-    If 0
+    If 2
         Actor = generateCreatureTemporary(Dogs)
         Actor.show(2)
         Actor2 = generateCreatureTemporary(Dogs)
@@ -21,5 +22,7 @@ OTHER: none
         Actor4 = generateCreatureTemporary(Dogs)
         Actor4.show(5)
         Actor:: "Wuff! Wuff! Wuff!"
+    Elseif 0
+        Sex(CurrentCompanion, Player)
     Endif
     SceneEnd()

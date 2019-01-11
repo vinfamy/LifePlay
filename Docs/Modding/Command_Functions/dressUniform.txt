@@ -1,0 +1,16 @@
+Actor.dressUniform()
+
+USE:
+Put on appropriate uniform for this person's profession, only Doctor and Nurse for now.
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Clothes
+COMPARE: dressFormal, dressWedding
+
+EXAMPLE:
+    Actor.SetJob(Doctor)
+    Actor.dressUniform()
+
+
+

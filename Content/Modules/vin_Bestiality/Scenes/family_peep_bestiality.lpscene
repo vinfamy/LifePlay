@@ -1,0 +1,52 @@
+WHAT: all
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getRelative(); Actor2 = getCreature(); If !Actor.isMale() && Actor.livesWithPlayer() && Random(50, 500) < Actor:perversion
+OTHER: isModEnabled(vin_NTR) && isModEnabled(vin_Incest) && isAtHome()
+
+    SceneStart()
+
+    "What's that sound? If it is what I think it is, then my <Actor.relationship> is getting very intimate with a lover. They seem to be fucking like animals and <Actor.he_or_she>'s moaning very loudly."
+    0:: "Ignore"
+    1:: masochist < 50:: "Complain"
+    2:: "Peep"
+
+    If 0
+        "Good for <Actor.him_or_her> I guess. I can't ban my <Actor.relationship> from sex!"
+    Elseif 1
+        Player(Angry):: "For god's sake, keep it down. Do you want the entire building to know what you're up to?"
+        Actor:rapportwithplayer -= Random(0, 5)
+        masochist -= Random(0, 1)
+    Else
+        perversion += Random(0, 0.5)
+        Actor:incest += Random(0, 1)
+        "My curiousity got the better of me and I just had to see this ..."
+        Actor:incest += Random(0, 2)
+        "Luckily, my <Actor.relationship> didn't quite close <Actor.his_or_her> door completely shut - probably too busy with fooling around with <Actor.his_or_her> partner to pay attention to the door. With my sneaking talent, I managed to get a pretty good view of what was going on ..."
+        "Wait, what the fuck!?"
+        Sex(Actor2, Actor)
+        arousal += Random(0, 30)
+        "This is so wrong, I know. <Actor.He_or_She> is my <Actor.relationship> after all ... but for some reason, I'm getting so excited watching <Actor.he_or_she> getting it on with my own dog. I had no idea <Actor.he_or_she> is up to these sorts of stuff. I wonder how many times has <Actor2.name> already hummed the crap out of my <Actor.relationship>. Is this why <Actor2.name> needs so much feeding every day?"
+        
+        Actor.show(2)
+        Actor2.show(3)
+        Player.show(0)
+        "It looks like they're already ready for another round ..."
+        0:: "Offer to join them"
+        1:: "Enough"
+        
+        If 0
+            Player(Flirty):: "Looks like you guys are having some fun there? As I'm the only who adopted the dog and raised him, I think I'm entitled to join in?"
+            Actor(Flirty):: "I didn't realize how much of a pervert my <Actor.callplayer> is ... Come on and join me then, what are you waiting for?"
+            Sex(Actor, Player)
+            Actor:incest += Random(0, 50)
+            If !Player.isMale()
+                Sex(Actor2, Player)
+            Endif
+        Else
+            "I should get out of here before I get caught."
+        Endif
+    Endif
+
+    SceneEnd()
+    timeout(300, family_peep_bestiality)

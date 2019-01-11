@@ -1,0 +1,18 @@
+removeAddedClothes()
+
+USE: 
+Remove all clothes from your inventory that were added during this scene. Used for modelling shoots.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Clothes
+COMPARE: dress, dressExcept
+EXAMPLE:
+    "Aside from my agreed pay, they also offered to let me keep the clothes I did the photoshoots in."
+    0:: "Keep the clothes also"
+    1:: "Just take the money"
+    
+    If 1
+        removeAddedClothes()
+    Endif
+

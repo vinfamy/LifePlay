@@ -1,0 +1,14 @@
+stopBusiness()
+
+USE: 
+Make the current building no longer your business.
+
+TYPE: Command, Ref
+RETURNS: /
+THEME: Business
+COMPARE: startBusiness()
+
+EXAMPLE:
+    "I have closed down this business."
+    stopBusiness()
+    

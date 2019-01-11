@@ -1,0 +1,13 @@
+calculateRevenue()
+
+USE: 
+Calculate the revenue for the current building.
+
+TYPE: Command, Ref
+RETURNS: FloatVar
+THEME: Business
+COMPARE: calculateRent, calculateWages, calculateExpenses
+EXAMPLE:
+    Revenue = calculateRevenue()
+    RevenueC = Revenue.convertToLocalCurrency(true)
+    "Estimated gross revenue for this month is <RevenueC>."

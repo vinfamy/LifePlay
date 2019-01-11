@@ -1,0 +1,15 @@
+Actor.cloneFrom(Actor2)
+
+USE: 
+Make an actor identical to another actor (stats, appearance, names, sexual preferences, etc). Used in incest_relationship.lpscene to switch between relative and normal NPC statuses.
+
+TYPE: Command, Ref
+RETURNS: Actor
+THEME: Actor Creation
+COMPARE: generatePersonMatchRace()
+
+EXAMPLE:
+    Actor2.cloneFrom(Actor)  // Actor2 is now a duplicate of Actor
+    Actor.deletePerson() // Bye bye, your clone has replaced you
+    Actor2.dress()
+    Actor2.show(2)    

@@ -1,0 +1,16 @@
+Actor.randomizeSexy()
+
+USE: 
+Randomze dick and tits for this character
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Actor Creation
+COMPARE: randomizeHairs, randomizeFace
+EXAMPLE:
+    Actor.randomizeSexy()
+    "You're as flat as a LCD screen"
+    Actor.randomizeSexy()
+    "Wow, those are big watermelons!"    
+
+

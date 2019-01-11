@@ -1,0 +1,15 @@
+isStudent()
+
+USE:
+Check if the player is a student.
+
+TYPE: Condition, Non-Ref
+RETURNS: bool
+THEME: University
+COMPARE:
+
+EXAMPLE:
+    If isStudent()
+        "I'm a student!"
+    Endif 
+

@@ -1,0 +1,13 @@
+moveFraternity()
+
+USE:
+Move into the current building and make it your new fraternity / sorrority
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: University
+COMPARE: moveSchools
+
+EXAMPLE:
+    moveFraternity()
+    "I'm now a brother of this frat house."

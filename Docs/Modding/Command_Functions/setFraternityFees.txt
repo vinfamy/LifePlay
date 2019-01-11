@@ -1,0 +1,14 @@
+FloatVar.setFraternityFees()
+
+USE:
+Set this as your current monthly fraternity fees.
+
+TYPE: Command, non-Ref (ref-like syntax)
+RETURNS: /
+THEME: University, Money
+COMPARE: setRent, setFraternityFees
+
+EXAMPLE:
+    FratFee = 1000
+    FratFee.setFraternityFees()
+    "I agreed to pay $1000 per month for fraternity fees"

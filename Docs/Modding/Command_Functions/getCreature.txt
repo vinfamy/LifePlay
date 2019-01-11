@@ -1,0 +1,15 @@
+getCreature()
+
+USE: 
+Get a random creature NPC. This function is very simple right now with the first implementation of creature NPCs, but it will most likely evolve over time.
+
+TYPE: Command, Non-Ref
+RETURNS: Actor
+THEME: Creature
+COMPARE: getCompanionCreature
+
+EXAMPLE:
+    Actor = getCreature(); If Random(70, 100) < Actor:fitness   
+
+
+

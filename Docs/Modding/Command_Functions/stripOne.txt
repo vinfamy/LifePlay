@@ -1,0 +1,13 @@
+Actor.stripOne()
+
+USE:
+Strip this actor of a single currently equipped piece of clothes (but still follows logical order, so no stripping underwear before outerwear etc). Used for strip poker.
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Clothes
+COMPARE: dress
+
+EXAMPLE:
+    Player.stripOne()
+    "That's the shirt off"

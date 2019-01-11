@@ -1,0 +1,9 @@
+Actor.DeletePerson()
+
+USE:
+Force remove this actor completely from the game. They will no longer be called on in scenes or accessible from the Contacts menu. Used in rare cases to kill off characters or characters moving to a new city etc ...
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Actor Removal
+COMPARE: hide, makePermanent, delete

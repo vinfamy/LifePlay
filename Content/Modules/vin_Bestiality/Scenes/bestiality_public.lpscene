@@ -1,0 +1,31 @@
+WHAT: all
+WHERE: all, -home
+WHEN: 0 - 24
+WHO: Actor = getCompanionCreature(); If Actor.isMale() && Random(0, 100) < Actor:perversion
+OTHER: !Player.isMale() && isAtHome()
+
+    SceneStart()
+    "I was walking <Actor.name> around when I notice <Actor.he_or_she> is spotting a sizable erection. <Actor.He_or_She> is clearly in some discomfort. They always say 'If your erection doesn't go away, go see a doctor'. This must apply to dogs also."
+    0:: "Take <Actor.him_or_her> to the vet"
+    1:: perversion > 60:: "'Take care' of the erection myself asap"
+    2:: perversion > 40:: "'Take care' of the erection myself, but go home first"
+    
+    If 0
+        setBackground(veterinary)
+        Actor.show(2)
+        "The vet took care of <Actor.name>'s uncomfortable issue. Maybe some medicine did the trick ... or maybe the vet just jerked him off. I don't wanna know."
+    Else
+        If 1
+            setBackground(street)
+            "We found an isolated alley. Making sure noone is around, I got down to business."            
+        Else
+            setBackground(home)
+            "I don't want to be arrested for bestiality, let's go home first to find some privacy."
+        Endif
+        Sex(Actor, Player)
+        perversion += Random(0, 2)
+        Actor:attractiontoplayer += Random(0, 2)        
+    Endif
+    
+    SceneEnd()
+    timeout(100, bestiality_public)

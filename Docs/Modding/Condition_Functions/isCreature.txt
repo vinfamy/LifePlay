@@ -1,0 +1,15 @@
+Actor.isCreature()
+
+USE:
+Check if the actor is a creature and not human
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Creature
+COMPARE: isRelative
+
+EXAMPLE:
+    If !Actor.isCreature()
+        Actor.dress()
+    Endif 
+

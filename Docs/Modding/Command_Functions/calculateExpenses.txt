@@ -1,0 +1,13 @@
+calculateExpenses()
+
+USE: 
+Calculate the expenses for the current building.
+
+TYPE: Command, Ref
+RETURNS: FloatVar
+THEME: Business
+COMPARE: calculateRent, calculateRevenue, calculateWages
+EXAMPLE:
+    Expenses = calculateExpenses()
+    ExpensesC = Expenses.convertToLocalCurrency(true)
+    "Other expenses are projected at <ExpensesC>."

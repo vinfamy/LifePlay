@@ -1,0 +1,14 @@
+quitFraternity()
+
+USE: 
+Drop out of the fraternity
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: University
+COMPARE: moveFraternity()
+EXAMPLE:
+    "Greek life wasn't for me. It's time to focus on academic performance and less on socializing."
+    quitFraternity()
+
+

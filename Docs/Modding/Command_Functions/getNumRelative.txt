@@ -1,0 +1,11 @@
+getNumRelatives()
+
+USE: 
+Counts the total number of relative NPCs in the game (your relatives, not NPC's relatives).
+
+TYPE: Command, Non-Ref
+RETURNS: FloatVAR
+THEME: Relationships
+COMPARE: getRelative
+
+

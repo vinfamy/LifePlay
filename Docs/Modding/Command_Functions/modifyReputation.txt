@@ -1,0 +1,12 @@
+modifyReputation(floatvar)
+
+USE: 
+Change the local reputation of this business
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Business
+COMPARE:
+EXAMPLE:
+    Change = 0.5
+    ModifyReputation(Change)

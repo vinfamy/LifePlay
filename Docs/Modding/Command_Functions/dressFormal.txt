@@ -1,0 +1,18 @@
+dressFormal()
+
+USE:
+Use this to toggle the 'dress code' of the scene.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Clothes
+COMPARE: dressWedding(), dress()
+
+EXAMPLE:
+    dressFormal()
+    Actor.dress()
+    Actor2.dress()
+    dressFormal()
+    Actor3.dress()
+    
+    "1 and 2 are wearing suits while 3 is looking like a bum"

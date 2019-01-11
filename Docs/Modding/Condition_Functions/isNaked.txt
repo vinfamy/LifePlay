@@ -1,0 +1,15 @@
+Actor.isNaked()
+
+USE:
+Check if the actor is completely without any clothes
+
+TYPE: Condition, Reference
+RETURNS: bool
+THEME: Clothes
+COMPARE:
+
+EXAMPLE:
+    While !Player.isNaked()
+        "Off this goes ..."
+        Player.stripOne()
+    Endwhile

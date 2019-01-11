@@ -1,0 +1,18 @@
+generateCreatureTemporary(optional_Race)
+
+USE: 
+Generate a new temporary (until you call MakePermanent) creature NPC.
+
+TYPE: Command, Non-Ref
+RETURNS: Actor
+THEME: Actor Creation
+COMPARE: generateCreature
+
+EXAMPLE:
+    Actor = generateCreatureTemporary(Dogs)
+    While Actor.isMale()
+        Actor = generateCreatureTemporary(Dogs)    
+    Endwhile
+    "<Actor.name> is my new bitch, literally."
+
+

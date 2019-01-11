@@ -1,0 +1,13 @@
+startOpenRelationship()
+
+USE:
+Make your current relationship/ marriage an open one (no cheating consequences and unlocks a number of scenes). Resets when you end this current relationship and any new relationship will start off as closed.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Relationships
+COMPARE: endOpenRelationship
+
+EXAMPLE:
+    startOpenRelationship()
+    Sex(Player, NotMyGF) // This will now be the same as SexNoAffair

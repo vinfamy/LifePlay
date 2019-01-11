@@ -1,0 +1,9 @@
+blockNPCRelationships(Actor)
+
+USE:
+Prevents this person from ever having NPC-NPC relationships. Mainly used for ex-relative bf/gf so that your gf/ former sister doesn't introduce you to her brother that you apparently haven't met
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: NPC-NPC
+COMPARE: addNPCRelationship

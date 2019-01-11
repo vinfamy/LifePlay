@@ -1,0 +1,13 @@
+Actor.addEmployee(Salary)
+
+USE: 
+Make this person an employee at the specified salary at the current building.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: Business
+COMPARE: removeEmployee
+EXAMPLE:
+    Salary = 2000
+    "<Actor.name> accepted the offer and started immediately."
+    Actor.addEmployee(Salary)

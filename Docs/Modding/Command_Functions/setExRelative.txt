@@ -1,0 +1,16 @@
+Actor.setExRelative(Actor2)
+
+USE: 
+Make this normal NPC remember that they used to be related to the player.
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Relationships
+COMPARE: getRelative
+
+EXAMPLE:
+    Actor2.cloneFrom(Actor)
+    Actor2.setExRelative(Actor)
+
+
+

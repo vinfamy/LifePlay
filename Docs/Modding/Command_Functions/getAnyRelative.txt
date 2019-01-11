@@ -1,0 +1,13 @@
+getAnyRelative(Relationship)
+
+USE: 
+Get any relative including underage ones. Used for parenting scenes.
+
+TYPE: Command, Non-Ref
+RETURNS: Actor
+THEME: Relationships
+COMPARE: getRelative
+EXAMPLE:
+    WHO: Actor = getAnyRelative(Child); If Actor:age < 18
+
+

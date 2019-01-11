@@ -1,0 +1,14 @@
+quitSchool()
+
+USE: 
+Drop out of university
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: University
+COMPARE: moveSchools()
+EXAMPLE:
+    "College life wasn't for me."
+    quitSchool()
+
+

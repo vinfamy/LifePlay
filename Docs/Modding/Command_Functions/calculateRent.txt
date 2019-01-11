@@ -1,0 +1,13 @@
+calculateRent()
+
+USE: 
+Calculate the rent for the current building.
+
+TYPE: Command, Ref
+RETURNS: FloatVar
+THEME: Business
+COMPARE: calculateRevenue, calculateWages, calculateExpenses
+EXAMPLE:
+    Rent = calculateRent()
+    RentConverted = Rent.convertToLocalCurrency(true)
+    "The rent of this property for commercial use is <RentConverted> per month, and the current tenant is not renewing. Lease it?"

@@ -1,0 +1,13 @@
+Actor.setJob(Job)
+
+USE:
+Set the job for this NPC. Only Doctor and Nurse are available now
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: University
+COMPARE: chooseMajor()
+
+EXAMPLE:
+    Actor.setJob(Doctor)
+    "Good morning, Dr <Actor.name_last>"

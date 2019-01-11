@@ -1,0 +1,19 @@
+Actor.loadPreset(Preset1, Preset2, ..., PresetN)
+
+USE: 
+Load the preset(s) onto this character, resetting them to default first before doing so
+
+TYPE: Command, Reference
+RETURNS: /
+THEME: Actor Creation
+COMPARE: blendPreset
+
+EXAMPLE:
+    Actor.loadPreset(bodybuilder_F)
+    Random
+        Actor.loadPreset(hourglass_F) // Just a normal hourglass girl
+        Actor.blendPreset(hourglass_F) // There is still signs of the beefcake
+    EndRandom
+
+
+

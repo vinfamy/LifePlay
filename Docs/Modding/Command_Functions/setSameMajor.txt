@@ -1,0 +1,14 @@
+Actor.setSameMajor()
+
+USE:
+Set the Major for the NPC to be the same as the player, both for teaching and studying.
+
+TYPE: Command, Non-Ref
+RETURNS: /
+THEME: University
+COMPARE: setMajor(), setDifferentMajor()
+
+EXAMPLE:
+    "I'm studying History"
+    Actor.setSameMajor()
+    "<Actor.name> is my classmate."

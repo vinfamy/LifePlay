@@ -1,0 +1,15 @@
+isWithCompanionCreature()
+
+USE:
+Check if player is with a creature companion, returns false if with a human creature
+
+TYPE: Condition, Non-Ref
+RETURNS: bool
+THEME: Companions
+COMPARE: isWithCompanion
+
+EXAMPLE:
+    If isWithCompanionCreature()
+        "I'm taking the dog out for a walk"
+    Endif 
+
