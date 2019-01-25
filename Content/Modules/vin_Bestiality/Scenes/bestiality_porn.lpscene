@@ -20,8 +20,16 @@ OTHER: Random(10, 100) < perversion
     If 0
         "My curiousity got the better of me and I clicked on the popup."
         perversion += Random(0, 2)
-        Sex(Actor, Actor2)
         arousal += Random(25, 50)
+        If Random(0, 100) < 60
+            Sex(Actor, Actor2)
+        Else
+            Actor3 = generatePersonTemporary()
+            While Actor3.isMale()
+                Actor3 = generatePersonTemporary()
+            Endwhile
+            Sex(Actor, Actor2, Actor3)
+        Endif
     Else
         "It's disgusting. Besides, that link is probably full of virus."
     Endif

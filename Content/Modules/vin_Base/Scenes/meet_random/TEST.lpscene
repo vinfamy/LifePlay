@@ -23,6 +23,9 @@ OTHER: none
         Actor4.show(5)
         Actor:: "Wuff! Wuff! Wuff!"
     Elseif 0
-        Sex(CurrentCompanion, Player)
+        Actor = getSpecific(Dating)
+        Actor.show(2)
+        "<Actor.name> is my girlfriend"
+        Sex(CurrentCompanion, Player, Actor)
     Endif
     SceneEnd()

@@ -82,6 +82,7 @@ OTHER: isModEnabled(vin_NTR) && isAtHome() && isAtDatingHome()
                    Dating(Flirty):: "Wow, darling, you're full of surprises!"
                    Sex(DatingAffair, Player)
                    perversion += Random(0, 1)
+                   Sex(DatingAffair, Player, Dating)
                 Endif
             Endif
             Dating.show(2)

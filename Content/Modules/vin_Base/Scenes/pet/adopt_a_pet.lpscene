@@ -17,13 +17,11 @@ OTHER: none
         While choice == 0
             Actor = generateCreatureTemporary()
             Actor.show(2)
-            "The only dog breed up for adoption is a Whippet, a medium-size breed from England, descending from greyhounds. Frequently used as racing dogs, whippets are the fastest accelerating dog in the world."
-            "The pet shop owner tells me that more breeds will come in a 'future update'..."
             "This particular one is a <Actor.Male_or_Female> dog."
             If !Actor.isMale()
                 "Being female, the dog obviously has no penis. This could prevent some future embarassment because the male dogs sometimes get too ... excited."
             Endif
-            "Should I adopt this Whippet?"
+            "Should I adopt this dog?"
             0:: "Look for another dog"
             1:: "Adopt this one"
             2:: "Actually, I'm not ready for a pet right now"

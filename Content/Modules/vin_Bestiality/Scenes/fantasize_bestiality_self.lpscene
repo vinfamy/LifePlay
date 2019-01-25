@@ -6,14 +6,29 @@ OTHER: !Player.isMale() && Random(0, 150) < perversion
 
     SceneStart()
     Actor2.show(3)
+    blockPregnancy()
     "Sometimes I cannot help but notice how well-endowed <Actor2.name> is and fantasize about <Actor2.him_or_her> inside me for a wild passionate session ..."
     0:: "Fantasize about sex with <Actor2.name>"
-    1:: "Resist the urge"
+    1:: "Might as well fantasize about a threesome"
+    2:: "Resist the urge"
     
     If 0
         SexNoAffair(Actor2, Player)
         perversion += Random(0, 1)
         arousal += Random(25, 50)
+    Elseif 1
+        "Who am I thinking about joining this fantasy threesome?"
+        selectNPC()
+        Actor3 = getSelectedNPC()
+        While !Actor3.isValid() || Actor3.isMale() || Actor3.isCreature()
+            "Nope, that's not it, my fantasy involves <Actor2.name> knotting a human woman."
+            selectNPC()
+            Actor3 = getSelectedNPC()
+        Endwhile
+        
+        SexNoAffair(Actor2, Player, Actor3)
+        perversion += Random(0, 1)
+        arousal += Random(25, 50)    
     Endif
     SceneEnd()
     timeout(72, fantasize_bestiality_self, fantasize_bestiality)

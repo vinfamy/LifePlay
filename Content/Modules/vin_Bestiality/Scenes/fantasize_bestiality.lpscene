@@ -26,7 +26,8 @@ OTHER: Random(0, 200) < perversion && arousal > 10
         "The idea of <Actor.name> having sex with an animal really turns me on."
         
         0:: "Fantasize about sex between <Actor.name> and <Actor2.name>"
-        1:: "Resist the urge"
+        1:: "Might as well fantasize about a threesome"
+        2:: "Resist the urge"
         
         If 0
             If Actor.isDating()
@@ -34,6 +35,27 @@ OTHER: Random(0, 200) < perversion && arousal > 10
                 masochist += Random(0, 2)
             Endif
             SexNoAffair(Actor2, Actor)
+            perversion += Random(0, 1)
+            arousal += Random(25, 50)
+        Elseif 1
+            "Who is the other lucky lady being hummed by my dog in my wild fantasy?"
+            0:: !Player.IsMale():: "Me!"
+            1:: "Some girl I know"
+            
+            If 0
+                Actor3 = Player
+            Else
+                "Who am I thinking about?"
+                selectNPC()
+                Actor3 = getSelectedNPC()
+                While !Actor3.isValid() || Actor3.isMale() || Actor3.isCreature()
+                    "Nope, that's not it, my fantasy involves <Actor2.name> knotting a human woman."
+                    selectNPC()
+                    Actor3 = getSelectedNPC()
+                Endwhile
+            Endif
+            
+            SexNoAffair(Actor2, Actor, Actor3)
             perversion += Random(0, 1)
             arousal += Random(25, 50)
         Endif

@@ -19,7 +19,16 @@ OTHER: isAtDatingHome()
     Dating.dress()
     DatingAffair.strip()
     Dating.strip()
-    Sex(Dating, DatingAffair)
+    If Dating:perversion > Random(50, 100)
+        DatingAffair2 = generatePersonTemporary()
+        While !Dating.isInterestedIn(DatingAffair2) 
+            DatingAffair2 = generatePersonTemporary()
+        Endwhile
+        Sex(Dating, DatingAffair, DatingAffair2)
+        DatingAffair2.hide()
+    Else
+        Sex(Dating, DatingAffair)
+    Endif
     Player.show(0)
     Dating.show(2)
     DatingAffair.show(3)

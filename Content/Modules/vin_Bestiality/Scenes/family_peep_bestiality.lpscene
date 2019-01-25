@@ -41,7 +41,7 @@ OTHER: isModEnabled(vin_NTR) && isModEnabled(vin_Incest) && isAtHome()
             Sex(Actor, Player)
             Actor:incest += Random(0, 50)
             If !Player.isMale()
-                Sex(Actor2, Player)
+                Sex(Actor2, Player, Actor)
             Endif
         Else
             "I should get out of here before I get caught."

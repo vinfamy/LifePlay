@@ -43,7 +43,15 @@ OTHER: !Player.isMale() && Random(1, 100) < pornfame
             setBackground(theatre)
             setBackground(toilets)
         endRandom
-        Sex(Actor, Player)
+        If Random(0, 100) < 60
+            Sex(Actor, Player)
+        Else
+            Actor3 = generatePersonTemporary()
+            While Actor3.isMale()
+                Actor3 = generatePersonTemporary()
+            Endwhile
+            Sex(Actor, Player, Actor3)        
+        Endif
         money += Random(1000, 4000)/choice
         pornfame += 1
         perversion += 0.5

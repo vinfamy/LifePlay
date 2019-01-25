@@ -11,12 +11,23 @@ OTHER: none
     setBackground(hospital)
     "It's official: I'm pregnant! It's a strange feeling - I don't know if I should feel excited or terrified."
     Actor = getSpecific(CurrentBabyDaddy)
-    Actor.dress()
-    If Actor.isRelative()
-        "Or more precisely ... my own <Actor.relationship> is the father of the growing soul inside me!"
-        "We did something forbidden and extremely risky that led to this baby. We can now only hope that the truth will never come out and the baby will somehow turn out to be healthy physically and mentally."
-    Elseif Actor.isExRelative()
-        "As much as I'm happy to carry <Actor.name>'s child, <Actor.he_or_she> and I are biologically related after all ... Let's hope the baby will turn out to be healthy physically and mentally."        
-    Endif    
+
+    If Actor.isCreature()
+        "The DNA test results baffled all the doctors. While the child is expected to be born healthy and normal, it apparently shares some non-human DNA. The doctors didn't suspect much though, even apologizing for what must have been an error in their testing process."
+        Actor.show(2)
+        "Of course, I know better: the baby is no doubt the result of my pleasurable bestial adventures with <Actor.name>. I've been thoroughly bred like a bitch in heat, filled up with thick animal cum and this swolen belly is the outcome." 
+    Else
+        Actor.dress()
+        Actor.show(2)
+        "The DNA test shows that <Actor.name> is the father of the baby inside me."
+        
+        If Actor.isRelative()
+            "Or more precisely ... my own <Actor.relationship> is the father of the growing soul inside me!"
+            "We did something forbidden and extremely risky that led to this baby. We can now only hope that the truth will never come out and the baby will somehow turn out to be healthy physically and mentally."
+        Elseif Actor.isExRelative()
+            "As much as I'm happy to carry <Actor.name>'s child, <Actor.he_or_she> and I are biologically related after all ... Let's hope the baby will turn out to be healthy physically and mentally."        
+        Endif   
+    Endif
+ 
     SceneEnd()
     
