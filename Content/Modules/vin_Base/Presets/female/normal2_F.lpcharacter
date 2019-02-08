@@ -1,0 +1,9 @@
+// Info
+
+INFO Is_Male: 100% false
+INFO Interested_In_Men: 80% true, 20% false
+INFO Interested_In_Women: 65% false, 35% true
+INFO Interested_In_Transgender: 65% false, 35% true
+INFO First_Name: 0% a
+INFO Last_Name: 0% a
+INFO Genital: 95% Vagina, 5% Penis

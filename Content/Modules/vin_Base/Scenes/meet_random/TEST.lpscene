@@ -5,27 +5,41 @@ WHO: none
 OTHER: none
 
 	SceneStart()
-    "Fuck your dog?"
-    0:: "Yes"
-    1:: "No"
-    2:: "Test positions"
+    Player.strip()
+    "Hi bokonus, test your clothes?"
+    0:: "No"
+    1:: "One sided bra"
+    2:: "Two sided bra"
+    3:: "Walled bra"
+    4:: "Basic glasses"
+    5:: "Tiny miniskirt"
+    6:: "Gloves"
     
-
-
-    If 2
-        Actor = generateCreatureTemporary(Dogs)
-        Actor.show(2)
-        Actor2 = generateCreatureTemporary(Dogs)
-        Actor2.show(3)
-        Actor3 = generateCreatureTemporary(Dogs)
-        Actor3.show(4)
-        Actor4 = generateCreatureTemporary(Dogs)
-        Actor4.show(5)
-        Actor:: "Wuff! Wuff! Wuff!"
-    Elseif 0
-        Actor = getSpecific(Dating)
-        Actor.show(2)
-        "<Actor.name> is my girlfriend"
-        Sex(CurrentCompanion, Player, Actor)
+    If 1
+        Player.dress(OneSided-Small-Bra_F)
+        "New clothes"
+    Elseif 2
+        Player.dress(TwoSided-Small-Bra_F)
+        "New clothes"
+    Elseif 3
+        Player.dress(Walled-Small-Bra_F)
+        "New clothes"
+    Elseif 4
+        If Player.isMale()
+            Player.dress(Basic-Glasses)
+        Else
+            Player.dress(Basic-Glasses_F)        
+        Endif
+        "New clothes"
+    Elseif 5
+        Player.dress(Tiny-Miniskirt_F)
+        "New clothes"
+    Elseif 6
+        If Player.isMale()
+            Player.dress(Basic-Gloves)
+        Else
+            Player.dress(Basic-Gloves_F)        
+        Endif
+        "New clothes"        
     Endif
     SceneEnd()

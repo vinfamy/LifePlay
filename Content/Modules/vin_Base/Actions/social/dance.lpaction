@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: dance
 ACTION_NAME: Dance
-WHERE: nightclub
+WHERE: nightclub, bar, pub
 WHEN: 0 - 24
 MINUTES: 15 - 30
 TIMEOUT_MINUTES: 0

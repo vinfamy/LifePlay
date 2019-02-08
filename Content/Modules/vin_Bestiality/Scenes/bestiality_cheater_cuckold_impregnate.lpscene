@@ -1,0 +1,44 @@
+WHAT: all
+WHERE: home
+WHEN: 17 - 23
+WHO: Dating = getSpecific(Dating); Bull = getCreature(); If Bull.isMale() && Dating.isMale() && Dating:attractiontoplayer > 20 && Dating:masochist + Dating:perversion > Random(0, 200)
+OTHER: isModEnabled(vin_NTR) && !isWithCompanion() && !Player.isMale() && !Player.isPregnant()
+
+    SceneStart()
+    Dating.dress()
+    Dating.show(2)
+    Dating(Flirty):: "Love, I have something to confess to you ..."
+    Dating(Flirty):: "You know we've been trying in vain for a while for a child. I'm starting to think it's all down to me ... So many guys nowadays are infertile. Maybe food additives and modern society have made us all soft pussies not capable of impregnating a woman ... Maybe we should seek the help of a real breeder."
+    "<Dating.name> went ahead and told me <Dating.his_or_her> plan of getting me pregnant by another dick, a dog's dick ... Which sounds a lot like a long-held bestial cuckold fantasy of his"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0        
+        perversion += Random(0, 1)
+        Player(Flirty):: "You naughty <Dating.boy_or_girl>! Fancy yourself as a true cuckold raising a pet dog's child, don't you? Fine then, if you're cool with that, who am I to complain? You know <Bull.name> has been such a loyal companion to me, I wouldn't mind him fathering my child."        
+        If Bull.isValid()
+            Bull.show(3)
+            "<Bull.name> looks ready and eager to knock me up."
+            fertility => 100
+            Dating.hide()
+            SexNoAffair(Bull, Player)
+            Dating:masochist += Random(0, 4)
+            Dating:perversion += Random(0, 2)
+            Bull.hide()
+            Dating.show(2)
+            Player.show(0)
+            "That was a sensual experience like no other to  be <Dating.pleasured_or_defilled> and hopefully impregnated by my own dog while my <Dating.boyfriend_or_girlfriend> watch."
+            Dating:attractiontoplayer += Random(0, 2)
+            fertility => 2
+            timeout(500, bestiality_cheater_cuckold_impregnate)
+        Else
+            "Unfortunately, we couldn't quite agree on whose child I would want to carry."
+            timeout(200, bestiality_cheater_cuckold_impregnate)
+        Endif
+    Else
+        Player(Angry):: "What? You want me to get pregnant by a dog? That's digusting. How could you even consider it? Do you not love me anymore?"
+        Dating:attractiontoplayer -= Random(0, 2)
+        timeout(1000, bestiality_cheater_cuckold_impregnate)
+    Endif
+
+    SceneEnd()
