@@ -249,6 +249,9 @@ OTHER: none
                                         Performance += Random(0, 10)
                                         setBackground(home)
                                         "Let's not kid ourselves here! We both knew how this night was going to end up. As soon as we were inside, our hands were all over each other and we started a long and passionate makeout session."
+                                        If TfGame() && Boss.isMale()
+                                            "When I was a man I used to hold the moral high ground and somewhat looked down on women who use their bodies to get advantages in life. Here I am, offering my body in exchange of a job offer. I'm such a hypocrite after all."
+                                        Endif
                                         HadSex = true
                                         Sex(Boss, Player)
                                     Endif
@@ -267,6 +270,9 @@ OTHER: none
                         If 3
                             "I started rubbing my hand on <Boss.name>'s inner thigh."
                             Player(Flirty):: "I want you to know that I'll do anything to get this job ... anything. Especially for such a good-looking hiring manager as yourself."
+                            If TfGame() && Boss.isMale()
+                                "When I was a man I used to hold the moral high ground and somewhat looked down on women who use their bodies to get advantages in life. Here I am, offering my body in exchange of a job offer. I'm such a hypocrite after all."
+                            Endif
                             perversion += 0.5
                             If Interested && Flirt*(Boss.peversion + attractiveness) > Random(0, 400)
                                 "Checking first that no-one else was around, <Boss.he_or_she> sneakily pulled down the window shades and locked the interview room's door. <Boss.He_or_She> then approached me full of lust in <Boss.his_or_her> eyes."

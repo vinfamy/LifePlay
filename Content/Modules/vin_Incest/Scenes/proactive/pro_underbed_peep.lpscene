@@ -1,0 +1,92 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: Actor = getSpecific(PassedOn)
+OTHER: none
+
+    SceneStart()
+    setBackground(home)
+    Player.hide()
+    "I actually get quite a decent view from under the bed, as long as I stay quiet. All that is left to do is to wait for my <Actor.relationship> to come back to <Actor.his_or_her> room and do something 'interesting'."
+    If Actor.isValid()
+        Actor.dress()
+        Actor.show(2)
+        "After a while, my <Actor.relationship> returned to <Actor.his_or_her> room, completely unaware <Actor.he_or_she> is being spied on from under <Actor.his_or_her> bed."
+        "Time goes by ..."
+        "Ah, looks like <Actor.he_or_she> is about to get changed. Finally something interesting is happening!"
+        0:: "Watch"
+        1:: "Close my eyes"
+        
+        If 0
+            While !Actor.isNaked()
+                "Off that goes ..."
+                Actor.stripOne()
+            Endwhile
+            Actor:incest += Random(0, 2)
+            "Now naked, my <Actor.relationship> picked out an outfit to put on. Of course, I was hoping <Actor.he_or_she> would be debating fashion choices with <Actor.himself_or_herself> for as long as possible to allow me more time admire <Actor.him_or_her> in all <Actor.his_or_her> naked glory."
+            "First to come on is the underwear"
+            Actor.dressExcept(Outerwear, Top, Bottom, Foot, Headwear, Eyewear, Top_Under)
+            If !Actor.isMale()
+                "Next is the bra"
+                Actor.dressExcept(Outerwear, Top, Bottom, Foot, Headwear, Eyewear, Bottom_Under)
+            Endif
+            "<Actor.He_or_She> put on a nice top ..."
+            Actor.dressExcept(Outerwear, Bottom, Foot, Headwear, Eyewear, Bottom_Under, Top_Under)
+            "And finally ..."
+            Actor.dressExcept(Outerwear, Top, Foot, Headwear, Eyewear, Bottom_Under, Top_Under)   
+            Actor2 = Actor.getRelatedPerson(Dating, Spouses)                    
+            If Actor2.isValid() && isModEnabled(vin_NTR) && Random(0, 100) < Actor:perversion
+                Actor2.dress()
+                Actor2.show(3)
+                Actor2(Flirty):: "You look so sexy dressed like that, baby. I don't think I can help it any longer. Let's have a quickie before we go, love!"
+                Actor(Sad):: "I don't know ... You're in my apartment, you know. My <Actor.callplayer>'s bedroom is just across the hallway ... <Player.He_or_She> may hear us. Besides, aren't we in a hurry?"
+                Actor2(Flirty):: "Come on baby, <Player.he_or_she> is an adult. What's the matter if <Player.he_or_she> hears us? And we still have plenty of time for some fun."
+                Actor(Flirty):: "I guess you have a point ... Come here then."
+                "Damn, it's my <Actor.relationship>'s <Actor2.boyfriend_or_girlfriend> who is joining <Actor.him_or_her> in <Actor.his_or_her> bedroom ... Not sure how I feel about this ..."
+                0:: "Continue watching"
+                1:: "Enough ... I don't need to see this"
+                
+                If 0
+                    masochist += Random(0, 2)
+                    "It's a pleasant surprise actually ... The show just got a whole lot better!"
+                    Sex(Actor2, Actor)
+                    Actor:incest += Random(0, 1)
+                    Actor2.strip()
+                    Actor.strip()
+                    Actor2.show(3)
+                    Actor.show(2)
+                    
+                    "Wow, that was hot. I'm getting horny ... Maybe the lovely couple would be receptive to my emergence from under the bed now and it's my lucky day ..."
+                    0:: "Make my presence known"
+                    1:: "Wait for them to leave and sneak out"
+                    
+                    If 0
+                        Player(Happy):: "Surprise!"
+                        Player.show(0)
+                        Player(Flirty):: "Looks like you guys are having some fun there? Mind if I join?"
+                        If Random(50, 125) < Actor:incest + Actor:perversion
+                            Actor(Flirty):: "I didn't realize how much of a pervert my <Actor.callplayer> is ... Come on and join us then, what are you waiting for?"
+                            Sex(Actor, Player, Actor2)
+                            Actor:incest += Random(0, 50)
+                        Else
+                            Actor(Angry):: "What are you doing here, peeping Tom? Were you spying on me from under that bed this whole time? You're my <Actor.callplayer>, for God's sake!"
+                            Actor:rapportwithplayer -= Random(0, 3)
+                        Endif                         
+                    Endif
+                Else
+                    masochist += Random(0, 4)
+                    "Not sure I signed up for this when I decided to hide under this bed. I think I'll keep my eyes closed for this... I don't need to see <Actor2.name> fucking my <Actor.relationship>."
+                    "With me having to endure listening to all their moaning, they eventually finished fucking and actually got ready. My <Actor.relationship> then walked out with <Actor.his_or_her> lover, still unaware of cuckold torture <Actor.he_or_she> just put me under."
+                    "I took the opportunity to sneak out of the room. Never again! At least I got to see <Actor.name> get changed, but the second part of the show was anything but pleasurable."  
+                Endif                
+            Else
+                "Having got ready, my <Actor.relationship> walked out of <Actor.his_or_her> room, still unaware of the show <Actor.he_or_she> just put on for me."
+                "I took the opportunity to sneak out of the room. Damn it was hard to breath under that bed, but that show was worth it!"
+            Endif
+        Else
+            "Why the hell am I hiding under <Actor.his_or_her> bed then?"
+            "After a while, having got ready, my <Actor.relationship> walked out of <Actor.his_or_her> room, still unaware of my presence."
+            "I took the opportunity to sneak out of the room. Never again!"
+        Endif
+    Endif
+    SceneEnd()

@@ -1,0 +1,41 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: Actor = getSpecific(PassedOn)
+OTHER: none
+
+    SceneStart()
+    setBackground(home)
+    "I decided to take advantage of my <Actor.relationship>'s absence to snoop around <Actor.his_or_her> belongings."
+    If Random(0, 10000) < 20*Actor:perversion
+        "Wait, what the hell is this stain on my <Actor.relationship>'s sheet?"
+        0:: "<Actor.his_or_her> cum"
+        1:: "Who cares?"
+        
+        If 0
+            "Was <Actor.he_or_she> masturbating in <Actor.his_or_her> room, then couldn't help but ejaculate all over <Actor.his_or_her> sheet?"
+            Actor:incest += Random(0, 2)
+        Endif
+    Elseif Random(0, 10000) < 22*Actor:perversion
+        "Hmm, let's check inside <Actor.his_or_her> drawers"
+        "Wait, what's this book?"
+        "'Forbidden Affairs with My <Actor.Callplayer>' the title says ..."
+        "Wow, I would never have imagined that my <Actor.relationship> reads incest erotica. Is <Actor.he_or_she> fantasizing about me while reading this book?"
+        Actor:incest += Random(0, 4)
+    Elseif Random(0, 10000) < 24*Actor:perversion
+        "Hmm, what's this thing?"
+        "I know what it is ... It's a <Actor.Fleshlight_or_dildo>!"
+        "Wow, I would never have imagined that my <Actor.relationship> uses sextoys. I won't deny that this discovery turns me on so much."
+        Actor:incest += Random(0, 4)
+    Elseif Random(0, 10000) < 26*Actor:perversion   
+        "Oh, this is the drawer for <Actor.his_or_her> underwear ... maybe I should ..."
+        0:: "Take a pair of <Actor.boxers_or_panties>"
+        1:: "Leave it"
+
+        "I couldn't help it. I have fantasized about my <Actor.relationship> before. I should take these for my next masturbation session. It's just harmless fantasy, right? <Actor.He_or_She> won't notice one pair gone missing ..."
+        Actor:incest += Random(0, 4)       
+    Else
+        "Unfortunately I couldn't find anything interesting. Before long, I heard footsteps coming towards the room. I had to rush out of there before getting caught."
+    Elseif 
+
+    SceneEnd()

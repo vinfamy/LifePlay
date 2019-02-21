@@ -1,0 +1,88 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    If TfGame()
+        setBackground(home)
+        SceneStart()
+        OldPlayer = getSpecific(OldPlayer)
+        "I struggled hard to put on the women's clothes."
+        Player(Sad):: "I guess that has to do ..."
+        "No time to waste, let's head out to the hospital and hopefully end this nightmare right now..."
+        setBackground(street)
+        Actor = generatePersonTemporary()
+        While !Actor.isMale()
+            Actor = generatePersonTemporary()
+        Endwhile
+        Actor.dress()
+        Actor.show(2)
+        Actor(Flirty):: "..."
+        "Is that guy checking me out and eye-banging me? Ew ... this is so gay ..."
+        "Although to be fair, I would probably check out <Player.name> myself as a guy." 
+        "Let's learn from the girls that rejected me in the past and not give this guy any attention whatsover. I have more important things to do right now."
+        Actor.hide()
+        "Finally, I arrived at the hospital. I hope a doctor would be able to help me."
+        setBackground(hospital)
+        "A few hours later ..."
+        Actor:age += 20
+        Actor.randomizeFace()
+        Actor.dressExcept(Outerwear)
+        Actor.dress(Doctor-Coat_M)
+        Actor.show(2)
+        Actor(Sad):: "All your organs are fully female and healthy. No doctor is capable of performing such a perfect gender reassignment surgery ... You're a woman and have always been a woman and there's no evidence to suggest you were ever a man as you claimed."
+        Actor(Sad):: "We would suggest you seek help from psychiatrist for your gender dysphoria."
+        Actor.delete()
+        "And just like that, the doctor left, basically just politely calling me crazy and wasting his time ... I suspect he was only so patient and polite to me because I was now an attractive woman. If it had been <OldPlayer.name> 'Average Joe' <OldPlayer.name_last> in front of him, he would have told me to fuck off."
+        "Dejected and without any plans left, I slowly walked back home."
+        setBackground(street)
+        "Then it hit me: what's so bad about being a woman anyway?"
+        "I mean everyone seems to be much nicer to me. If it was <OldPlayer.name> screaming in his room this morning, people would just tell him to shut up. If it was <OldPlayer.name> walking down the street, no guy, or girl for that matter, would look at him twice ..."
+        "Wasn't I just wondering what life would be like a woman yesterday?"
+        "Didn't I come to this city to start a new life, a fresh start? This life, as <Player.name>, couldn't possibly be any 'fresher'."
+        "Maybe I will be more happy as a woman, as <Player.name>."
+        Actor = getSpecific(Dating)
+        If Actor.isValid()
+            setBackgroundCustom(livingroom)
+            Actor.makeInterested(Player)
+            Actor.dress()
+            Actor.show(2)
+            Actor(Happy):: "<Player.name>! You're back. You haven't responded to my texts all day. Is everything okay?"
+            "It's my <Actor.boyfriend_or_girlfriend> <Actor.name> ..."
+            "So even my own <Actor.boyfriend_or_girlfriend> has forgotten about me ... or should I say, forgotten about <OldPlayer.name>."
+            "<Actor.He_or_She>'s <Player.name>'s <Actor.boyfriend_or_girlfriend> now ... "
+            "Which is interesting ... I didn't even know <Actor.he_or_she> was into <Player.guys_or_girls>. I'm not sure I should feel jealous of <Player.name> ..."
+            "But if I'm truly <Player.name> now, I can't be jealous of myself, can I?"
+            Player(Sad):: "Sorry babe, I just had a long day and just want to get some early sleep. We'll hang out tomorrow, okay?" 
+            Actor.hide()
+        Endif
+        setBackground(home)
+        "Eventually, I'm back in my room ... I didn't even bother with dinner. Let's just head to bed."
+        Player.strip()
+        "Staring at my new naked woman's body, a thought comes to my mind ..."
+        0:: "Explore my new body"
+        1:: "Just get some sleep"
+        
+        If 0
+            "I suppose it's my body now, I might as well get used to it."
+            Filter(Solo)
+            Sex(Player)
+            perversion += Random(0, 1)
+            Player.show(0)
+        Endif
+        "Exhausted, I drifted off to sleep ..."
+        Player.closeEyes(true)
+        "Zzzzzzzzzzzzzzz ..."
+        "The next morning ..."
+        Player.closeEyes(false)
+        "It's a new day and ... I'm still a woman."
+        "I think I'm starting to accept that whatever magic was performed on me and everyone I know, I'm stuck in this female body and have no choice to make the most of it."
+        "Maybe I can make a better life as <Player.name> than <OldPlayer.name> ..."
+        "(From here, you can do whatever you want with your female character. Click on markers around the map to select buildings and choose from a list of actions to interact with them and guide <Player.name> through life as a woman)"
+        "(As a suggestion, maybe start by getting a job. LifePlay has many career paths but the office job (office chair icon) has the most content.)"
+        "(Conditional and random events will happen as you do things as part of your life, some will lead to sex.)"
+        "(Pay attention to the tutorial tooltips top-left of your screen which will explain the various mechanics of the game)"
+        SceneEnd()
+        ResetTutorials()
+    Endif   

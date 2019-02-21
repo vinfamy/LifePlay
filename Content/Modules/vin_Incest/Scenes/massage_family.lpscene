@@ -58,7 +58,7 @@ OTHER: isAtHome() && Random(30, 500) < perversion
 
             If NormalEnding
                 "A while later ..."
-                Actor(Happy):: "That was amazing, <Player.Relationship>! You're a good <Player.masseur_or_masseuse>."
+                Actor(Happy):: "That was amazing, <Actor.callplayer>! You're a good <Player.masseur_or_masseuse>."
                 Player:rapportwithplayer += Random(0, 2)
                 Actor:incest += Random(0, 2)
                 energy += Random(0, 30)

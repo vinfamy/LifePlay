@@ -1,0 +1,37 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: Actor = getSpecific(PassedOn)
+OTHER: none
+
+    SceneStart()
+    SneakGame()
+    If Random(0, 150) < Actor:perversion + sneak
+        "Fortunately for me, <Actor.he_or_she> didn't lock the door, allowing to sneak behind it to get a decent view of <Actor.him_or_her> in all <Actor.his_or_her> glory."
+        Actor.strip()
+        Actor.show(2)
+        setBackground(shower)
+        Filter(Shower)
+        Sex(Actor)
+        Actor.show(2)
+        Actor:incest += Random(0, 2)
+        If Actor:incest < 85
+            "As much as I'd love to join her in there, that's enough viewing for now. I should get out of there before I get caught."
+            arousal += Random(0, 20)
+        Else
+            "Considering we're already having an incesturous relationship, I'm sure my <Actor.relationship> wouldn't mind too much if I joined <Actor.him_or_her>."
+            0:: "Join <Actor.him_or_her>"
+            1:: "Leave"
+            
+            If 0
+                Sex(Actor, Player)
+                Actor:incest += Random(0, 5)
+            Endif
+        Endif
+    Else
+        "Unfortunately for me, my <Actor.relationship> locked the bathroom door. There's no way for me to have a look in."
+    Endif
+    sneak += Random(0, 0.5)
+    Actor:incest += Random(0, 1)
+    SceneEnd()
+    timeout(48, peep_family_shower)

@@ -8,7 +8,8 @@ OTHER: none
     "By sleeping with <Actor2.name>, I have made <Actor2.him_or_her> cheat on <Actor2.his_or_her> <Actor.boyfriend_or_girlfriend> <Actor.name>. I don't know if I should feel guilty or victorious."
     "Let's just hope <Actor.name> will never find out or this could get messy."
     
-    If 0 < 1 // Random(100, 500) < Actor:interpersonal + Actor:intelligence
+    If Random(100, 500) < Actor:interpersonal + Actor:intelligence
+        "A few days later ..."
         removeNpcRelationship(Actor, Actor2)
         blockContact(Actor)
         Actor:rapportwithplayer -= 200

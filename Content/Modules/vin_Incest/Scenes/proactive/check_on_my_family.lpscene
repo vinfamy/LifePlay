@@ -1,0 +1,284 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    If isAtHome()
+        AssignResidents()
+        Ongoing = true
+        While Ongoing
+            setBackgroundCustom(hallway)
+            "Which room should I check out?"
+            0:: "Bathroom"
+            1:: "Living room"
+            2:: "Kitchen"
+            3:: "Someone's bedroom"
+            4:: "Return to my room"
+            
+            If 4
+                "I decided to return to my room."
+                Ongoing = false
+            Elseif 0  // BATHROOM
+                Actor = getAssignee("bathroom")
+                If Actor.isValid()
+                    "I can hear the water running. I think it might be my <Actor.relationship> <Actor.name> in the shower."
+                    0:: "Peep"
+                    1:: "Leave"
+                    
+                    If 0
+                        Actor.passOn()
+                        followUp(pro_peep_family_shower)
+                        Ongoing = false
+                    Else
+                        "I'll just come back to use the bathroom later then."
+                    Endif
+                    Actor.saveandDelete(true)
+                Else
+                    "The bathroom is available. No-one else is using it."
+                    0:: "Use the toilet"
+                    1:: "Shower"
+                    2:: "Set up secret camera"
+                    3:: "Return to the hallway"
+                    
+                    If 0
+                        followUp(pro_family_bathroom_masturbates)
+                        Ongoing = false
+                    Elseif 1
+                        followUp(pro_family_peeps_shower)
+                        Ongoing = false
+                    Elseif 2
+                        followUp(pro_incest_shower_camera)
+                        Ongoing = false
+                    Else
+                        "I don't need to use the bathroom right now."
+                    Endif
+                Endif
+            Elseif 1 // LIVING ROOM
+                "I decided to head to the living room."
+                setBackgroundCustom(livingroom)
+                Actor = getAssignee("living room")
+                If Actor.isValid()
+                    "My <Actor.relationship> <Actor.name> is here."
+                    
+                    Actor2 = getAssignee("living room")
+                    If !Actor2.isValid() && Random(0, 100) < 20
+                        Actor2 = Actor.getRelatedPerson(Spouses, Dating)
+                    Endif
+                    If Actor2.isValid()
+                        Actor.dress()
+                        Actor.show(2)
+                        Actor2.dress()
+                        Actor2.show(3)
+                        If !Actor2.isRelative()
+                            "<Actor.His_or_Her> <Actor2.boyfriend_or_girlfriend> is with her."
+                        Else
+                            "My <Actor2.relationship> <Actor2.name> is with <Actor.him_or_her>."
+                            Actor3 = getAssignee("living room")
+                            If Actor3.isValid()
+                                "My <Actor3.relationship> <Actor3.name> is here too."
+                                Actor3.dress()
+                                Actor3.show(4)
+                                
+                                Actor4 = getAssignee("living room")
+                                If Actor4.isValid()
+                                    "Joining them in the living room is my <Actor4.relationship> <Actor4.name>."
+                                    Actor4.dress()
+                                    Actor4.show(5)                             
+                                Endif                            
+                            Endif
+                        Endif                        
+                        
+                        "What should I do?"
+                        0:: "Join them"
+                        1:: "Leave"
+                        
+                        If 0
+                            "I sat down on the couch with them and we watched some TV together. It was a good family bonding exercise."
+                            Actor:rapportwithplayer += Random(0, 2)
+                            Actor2:rapportwithplayer += Random(0, 2)
+                            Actor3:rapportwithplayer += Random(0, 2)
+                            Actor4:rapportwithplayer += Random(0, 2)
+                            Ongoing = false
+                        Else
+                            Actor.saveandDelete(true)
+                            Actor2.saveandDelete(true)
+                            Actor3.saveandDelete(true)
+                            Actor4.saveandDelete(true)
+                        Endif
+                    Else
+                        "My <Actor.relationship> looks kinda lonely there being alone in the living room. Maybe I should join <Actor.him_or_her> on the couch?"
+                        0:: "Yes"
+                        1:: "No"
+                        
+                        If 0
+                            Actor.passOn()
+                            followUp(pro_family_tv)
+                            Ongoing = false
+                        Endif
+                    Endif
+                Else
+                    "No-one is in the living room. I should go somewhere else."
+                Endif
+            Elseif 2 // KITCHEN
+                "Let's go to the kitchen."
+                setBackgroundCustom(kitchen)
+                Actor = getAssignee("kitchen")
+                If Actor.isValid()
+                    Actor.dress()
+                    Actor.show(2)
+                    "My <Actor.relationship> <Actor.name> is having dinner."
+                    
+                    Actor2 = getAssignee("kitchen")
+                    If !Actor2.isValid() && Random(0, 100) < 20
+                        Actor2 = Actor.getRelatedPerson(Spouses, Dating)
+                    Endif
+                    If Actor2.isValid()
+                        Actor2.dress()
+                        Actor2.show(3)
+                        If !Actor2.isRelative()
+                            "<Actor.His_or_Her> <Actor2.boyfriend_or_girlfriend> is with her."
+                            
+                        Else
+                            "My <Actor2.relationship> <Actor2.name> is with <Actor.him_or_her>."
+                            Actor3 = getAssignee("kitchen")
+                            If Actor3.isValid()
+                                "My <Actor3.relationship> <Actor3.name> is here too."
+                                Actor3.dress()
+                                Actor3.show(4)
+                                
+                                Actor4 = getAssignee("kitchen")
+                                If Actor4.isValid()
+                                    "Joining them at the kitchen table is my <Actor4.relationship> <Actor4.name>."
+                                    Actor4.dress()
+                                    Actor4.show(5)                             
+                                Endif                            
+                            Endif
+                        Endif                        
+                        
+                        "What should I do?"
+                        0:: "Join them"
+                        1:: "Leave"
+                        
+                        If 0
+                            "I sat down to join them and we had dinner together. Family dinners like this are so hard to come by these days with everyone being so busy."
+                            Actor:rapportwithplayer += Random(0, 2)
+                            Actor2:rapportwithplayer += Random(0, 2)
+                            Actor3:rapportwithplayer += Random(0, 2)
+                            Actor4:rapportwithplayer += Random(0, 2)
+                            Ongoing = false
+                        Else
+                            Actor.saveandDelete(true)
+                            Actor2.saveandDelete(true)
+                            Actor3.saveandDelete(true)
+                            Actor4.saveandDelete(true)
+                        Endif
+                    Else
+                        "My <Actor.relationship> looks kinda lonely there eating dinner alone. Maybe I should join <Actor.him_or_her>?"
+                        0:: "Yes"
+                        1:: "No"
+                        
+                        If 0
+                            Actor.passOn()
+                            followUp(pro_family_dinner)
+                            Ongoing = false
+                        Endif
+                    Endif
+                Else
+                    "No-one is in the kitchen. I should go somewhere else."
+                Endif
+            Else
+                "Whose room should I head to?"
+                chooseContact(LiveInRelatives)
+                Actor = getSpecific(chooseContact)
+                If Actor.isValid()
+                    ActorWhat = Actor.assignWhat()
+                    ActorWhere = Actor.assignWhere()
+                    If ActorWhere.isString("bedroom")
+                        "My <Actor.relationship> seems to be inside <Actor.his_or_her> room."
+                        If ActorWhat.isString("having sex") || ActorWhat.isString("masturbating")
+                            "Wait ... what's that sound? I recognize my <Actor.relationship>'s voice, but is <Actor.he_or_she> ... moaning?"
+                            0:: "Peep"
+                            1:: "Respect <Actor.his_or_her> privacy"
+                            
+                            If 0
+                                "My curiousity got the better out of me."
+                                Ongoing = false
+                                If ActorWhat.isString("having sex")
+                                    Actor.passOn()
+                                    followUp(pro_family_peep)
+                                    Ongoing = false
+                                Else
+                                    Actor.passOn()
+                                    followUp(pro_caught_family_masturbating)
+                                    Ongoing = false
+                                Endif
+                            Else
+                                "I'd better get out of here before my <Actor.relationship> comes out and accuses me of being a peeping pervert. That would be so embarassing."
+                            Endif
+                        Elseif ActorWhat.isString("sleeping")
+                            "It seems so quiet in there. My <Actor.relationship> must be sleeping already."
+                            0:: "Sneak inside"
+                            1:: "I probably should head to bed myself"
+                            
+                            If 0
+                                Ongoing = false
+                                Actor.passOn()
+                                followUp(pro_feel_up_bedroom)
+                            Else
+                                "I should let <Actor.him_or_her> rest."
+                            Endif
+                        Else
+                            "What should I do?"
+                            0:: "Knock"
+                            1:: "Return to the hallway"
+                            
+                            If 0
+                                "Knock knock ..."
+                                Actor:: "Who's there?"
+                                Player(Happy):: "It's me."
+                                Actor:: "One second, <Actor.callplayer>."
+                                Actor.passOn()
+                                followUp(pro_family_bedroom_chat)
+                                Ongoing = false
+                            Else
+                                "I don't need to talk to <Actor.his_or_her> right now."
+                            Endif                       
+                        Endif
+                    Else
+                        "My <Actor.relationship> doesn't seem to be inside <Actor.his_or_her> room."
+                        "<Actor.He_or_She> is probably <ActorWhat> in the <ActorWhere>."
+                        0:: "Snoop around <Actor.his_or_her> stuffs"
+                        1:: "Set up secret camera"
+                        2:: "Hide under <Actor.his_or_her> bed"
+                        3:: "Leave"
+                        
+                        If 0
+                            Actor.passOn()
+                            followUp(pro_snoop_around)
+                            Ongoing = false                        
+                        Elseif 1
+                            Actor.passOn()
+                            followUp(pro_incest_bedroom_camera)
+                            Ongoing = false
+                        Elseif 2
+                            Actor.passOn()
+                            If ActorWhere.isString("nightclub")
+                                followUp(pro_underbed_peep_drunk)
+                                Ongoing = false
+                            Else
+                                followUp(pro_underbed_peep)
+                                Ongoing = false                            
+                            Endif
+                        Endif
+                    Endif
+                    Actor.saveandDelete(true)
+                Endif
+            Endif
+        Endwhile
+    Else
+        "I'm not at home. My family doesn't live here."
+    Endif
+    
+    SceneEnd()

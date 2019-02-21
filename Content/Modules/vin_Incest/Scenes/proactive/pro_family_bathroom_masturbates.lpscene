@@ -1,0 +1,23 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: Actor = getRelative()
+OTHER: none
+
+    SceneStart()
+    setBackground(shower)
+    "I went in and did my thing. What a relief!"
+    If Actor.livesWithPlayer() && Random(10, 100) < Actor:perversion
+        "Wait, what the hell is this little bit of white liquid on the toilet bowl?"
+        0:: "My <Actor.relationship>'s ejaculate"
+        1:: "Who cares?"
+        
+        If 0
+            "I think I saw my <Actor.relationship> <Actor.name> coming out of the bathroom earlier. Was <Actor.he_or_she> masturbating in here? Maybe in a rush, <Actor.he_or_she> didn't quite manage to clean up every last drop ..."
+            If Player.isInterestedIn(Actor)
+                Actor:incest += Random(0, 4)
+            Endif
+        Endif
+    Endif
+    SceneEnd()
+    timeout(100, family_bathroom_masturbates)

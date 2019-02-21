@@ -1,0 +1,138 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: Actor = getSpecific(PassedOn)
+OTHER: none
+
+    SceneStart()
+    setBackground(home)
+    Player.hide()
+    "I actually get quite a decent view from under the bed, as long as I stay quiet. All that is left to do is to wait for my <Actor.relationship> to come back from <Actor.his_or_her> night out and do something 'interesting'."
+    If Actor.isValid()
+        Actor.dress()
+        Actor.show(2)
+        "After a while, my <Actor.relationship> returned home and back to <Actor.his_or_her> room, completely unaware <Actor.he_or_she> is being spied on from under <Actor.his_or_her> bed."
+        If Random(0, 50) < Actor:fitness - Actor:interpersonal
+            "Despite returning from a night out, <Actor.he_or_she> seems completely sober and normal. <Actor.He_or_She> probably didn't drink much, or was the designated driver or something."
+            "Ah, looks like <Actor.he_or_she> is about to get changed for bed. Finally something interesting is happening!"
+            0:: "Watch"
+            1:: "Close my eyes"
+            
+            If 0
+                While !Actor.isNaked()
+                    "Off that goes ..."
+                    Actor.stripOne()
+                Endwhile
+                Actor:incest += Random(0, 2)
+            Else
+                "Why the hell am I hiding under <Actor.his_or_her> bed then?"
+            Endif
+            "After a while, having got naked, my <Actor.relationship> went straight to bed, obviously tired from a night of partying and still unaware of my presence."
+            "I took the opportunity to sneak out of the room. Never again!"
+        Else
+            "The smell of alcohol quickly fills up the room. My <Actor.relationship> must have partied hard! <Actor.He_or_She> could barely walk."
+            If isModEnabled(vin_NTR) && !Actor.isAsexual() && Random(0, 100) < Actor:attractiveness
+                "Wait ... who the hell is that?"
+                Actor(Flirty):: "Come in babe ... I need to have you right now!" 
+                Actor2 = generatePersonTemporary()
+                While !Actor.isInterestedIn(Actor2)
+                    Actor2 = generatePersonTemporary()
+                Endwhile
+                Actor2.dress()
+                Actor2.show(3)
+                "Damn, my <Actor.relationship> took someone home ... I've never seen this <Actor2.guy_or_girl> before so must just be a random <Actor2.stud_or_chick> <Actor.he_or_she> picked up at the club."
+                0:: "Continue watching"
+                1:: "Enough ... I don't need to see this"
+                
+                If 0
+                    masochist += Random(0, 2)
+                    "It's a pleasant surprise actually ... Watching my own <Actor.relationship> having drunk sex with a stranger? Sign me up!"
+                    Sex(Actor2, Actor)
+                    Actor:incest += Random(0, 1)
+                    Actor2.strip()
+                    Actor.strip()
+                    Actor2.show(3)
+                    Actor.show(2)
+                    
+                    "Wow, that was hot. I'm getting horny ... Maybe our one-night-standers would be receptive to my emergence from under the bed now and it's my lucky day ..."
+                    0:: "Make my presence known"
+                    1:: "Wait for them to fall asleep and sneak out"
+                    
+                    If 0
+                        Player(Happy):: "Surprise!"
+                        Player.show(0)
+                        Player(Flirty):: "Looks like you guys are having some fun there? Mind if I join?"
+                        If Random(0, 75) < Actor:incest + Actor:perversion
+                            Actor(Flirty):: "I didn't realize how much of a pervert my <Actor.callplayer> is ... Come on and join us then, what are you waiting for?"
+                            "My <Actor.relationship> is clearly too drunk tonight to make clear decisions ..."
+                            Sex(Actor, Player, Actor2)
+                            Actor:incest += Random(0, 50)
+                        Else
+                            Actor(Angry):: "What are you doing here, peeping Tom? Were you spying on me from under that bed this whole time? You're my <Actor.callplayer>, for God's sake!"
+                            Actor:rapportwithplayer -= Random(0, 3)
+                        Endif                         
+                    Endif
+                Else
+                    masochist += Random(0, 4)
+                    "Not sure I signed up for this when I decided to hide under this bed. I think I'll keep my eyes closed for this... I don't need to see <Actor2.name> fucking my <Actor.relationship>."
+                    "With me having to endure listening to all their moaning, they eventually finished fucking and fell asleep right away, still smelling full of alcohol."
+                    "I took the opportunity to sneak out of the room. Never again!"  
+                Endif 
+            Else
+                "Suddenly, in all <Actor.his_or_her> drunkenness, my <Actor.relationship> started crying and talking to <Actor.himself_or_herself>..."
+                Actor(Crying):: "Fuck you! Who do think you are? You have no right to ignore me all night, then go home with my best friend like that!"
+                "Ah, looks like it's an unlucky night for my <Actor.relationship>."
+                "But could it be a lucky night for me ..."
+                0:: "Make my presence known"
+                1:: "Wait for <Actor.him_or_her> to fall asleep and sneak out"
+                
+                If 0
+                    Player(Happy):: "Well, that <Player.guy_or_girl> must be blind or retarded. Not only are you extremely beautiful, you're the coolest <Actor.guy_or_girl> on the planet too."
+                    Actor(Surprised):: "Oh <Actor.callplayer>, what the fuck? What are you doing hiding under my bed?"
+                    Actor(Sad):: "You know what. It's been a crazy night. I don't care anymore."
+                    Actor(Sad):: "You're just giving me compliments to cheer me up, aren't you? You don't actually believe a single word of that."
+                    0:: "It's an objective compliment"
+                    1:: "If I weren't your <Actor.callplayer>, I would date you"
+                    
+                    If 0
+                        Player(Happy):: "I swear: you're objectively attractiveness and interesting. That <Actor.girl_or_guy> is just a poor judge of character. I'm sure it won't be long before you find someone who appreciates you."
+                        Actor(Happy):: "Alright then, I believe you, <Player.Callplayer>. Thank you for being there for me. I feel so much better now ..."
+                        Actor:rapportwithplayer += Random(0, 5)
+                    Else
+                        Player(Flirty):: "Honestly, if I weren't your <Actor.callplayer>, I would totally date you myself!"
+                        Actor(Flirty):: "Why don't you prove it then? Kiss me!"
+                        0:: "What the fuck!"
+                        1:: "Anything to make you feel better"
+                        
+                        If 0
+                            Player(Angry):: "No, what the hell! I said if. I'm your <Actor.callplayer>. We can't kiss. You're drunk - you need to stop drinking."
+                            Actor(Crying):: "See? I'm ugly - nobody wants me. Now, get the fuck out of my room!"
+                        Else
+                            Player(Kiss):: "..."
+                            Actor(Kiss):: "..."
+                            Actor:incest += Random(0, 5)
+                            "I only intended it to be a brief kiss to prove a point, but <Actor.name> is refusing to let go. <Actor.His_or_Her> hands start rubbing my private parts. This reaction is hardly surprising: <Actor.he_or_she> is heartbroken, drunk and desperate to feel wanted."
+                            "What's more baffling is my own reaction to all this: I'm becoming extremely aroused ... at the thought of having sex with my own <Actor.relationship>! I really really need to stop this escalating any further."
+                            0:: arousal < 80:: "Stop <Actor.name>"
+                            1:: "Give in to desires"
+                            
+                            If 0
+                               "Enough! I pulled away from <Actor.name>, stood up and literally ran into my room, leaving my <Actor.relationship> still sobbing, feeling worthless." 
+                            Else
+                                "I can't take this anymore! This might be wrong and forbidden ... but the sexual tension is too much to resist anymore. <Actor.He_or_She> needs to feel wanted, and I'm about to satisfy that need."
+                                Sex(Player, Actor)
+                                Actor:incest += Random(0, 50)
+                                Actor.hide()
+                                "That's it. I had sex with my own <Actor.relationship>, an inexcusable act, yet as soon as it was over, I began justifying it in my mind that I was merely giving <Actor.him_or_her> the attention that <Actor.he_or_she> craved."
+                            Endif  
+                        Endif
+                    Endif               
+                Else
+                    "Not sure if I signed up for some drunken drama ..."
+                    "Eventually, my <Actor.relationship> falls asleep, tired from all the crying. <Actor.He_or_She> wasn't sober enough to even get changed for bed."
+                    "I took the opportunity to sneak out of the room. Never again!"
+                Endif
+            Endif
+        Endif
+    Endif
+    SceneEnd()

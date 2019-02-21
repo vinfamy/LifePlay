@@ -5,6 +5,7 @@ WHO: none
 OTHER: Random(0, 100) < 1
 
     SceneStart()
+
     Actor = generatePersonTemporary()
     While !Actor.isInterestedIn(Player)
         Actor = generatePersonTemporary()
@@ -13,10 +14,18 @@ OTHER: Random(0, 100) < 1
     While !Actor.isInterestedIn(Actor2)
         Actor2 = generatePersonTemporary()
     Endwhile
+
+    // Swap actors based on dominance, cos the event targets least dominant actor
+    If Actor.isDominantSex(Actor2)
+        TempActor = Actor2
+        Actor2 = Actor
+        Actor = TempActor
+    Endif
+
     Actor.dress()
     Actor2.dress()
     Actor.show(2)
-    Actor.show(3)
+    Actor2.show(3)
     Actor(Furious):: "(Angry shouting)"
     Actor2(Furious):: "(Angry shouting)"
     "The couple I was serving at the bar was arguing the whole time. The alcohol clearly made it worse. They are causing quite a scene."
@@ -24,7 +33,7 @@ OTHER: Random(0, 100) < 1
     "One of them stormed off and ran towards the bathroom, obviously not being able to hold back <Actor.his_or_her> tears."
     0:: "Check on <Actor.him_or_her>"
     1:: "Ignore"
-    
+
     If 0
         Actor2.hide()
         Actor.show(2)
@@ -35,7 +44,7 @@ OTHER: Random(0, 100) < 1
         0:: "Exchange numbers"
         1:: "Excuse myself"
         2:: isModEnabled(vin_VanillaPorn) && perversion > 30:: "Offer sex"
-        
+
         If 0
             Actor.makePermanent()
             Actor:attractiontoplayer += 10
@@ -44,11 +53,23 @@ OTHER: Random(0, 100) < 1
         Elseif 1
             "I told <Actor.name> that I needed to get back to work and excused myself."
         Else
-            Player(Flirty):: "You know ... I just thought of a perfect way for you to get revenge on your <Actor2.girlfriend_or_boyfriend>."
+            Player(Flirty):: "You know ... I just thought of a perfect way for you to get revenge on your <Actor2.boyfriend_or_girlfriend>."
             perversion += Random(0, 1)
             If Random(0, 100) < Actor:perversion + Actor:attractiontoplayer
                 Actor(Flirty):: "I think I know what you're talking about ... You know what? Screw my <Actor2.boyfriend_or_girlfriend> - let's do it."
                 Sex(Player, Actor)
+
+                Actor.show(2)
+                "Will you exchange number with <Actor.name>?"
+                0:: "Yes"
+                1:: "No"
+
+                If 0
+                    Actor.makePermanent()
+                    Actor:attractiontoplayer += 5
+                    "I must have make some impression to <Actor.name>. We exchanged numbers so we can hang at later date."
+                    exchangeContact(Actor)
+                Endif
             Else
                 Actor(Angry):: "Yet I thought for a moment there that you were a nice <Actor.guy_or_girl>. I'm pissed at my <Actor2.boyfriend_or_girlfriend>, but that doesn't mean you can take advantage of me!"
             Endif

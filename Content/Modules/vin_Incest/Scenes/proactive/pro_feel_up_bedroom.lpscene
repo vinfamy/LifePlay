@@ -1,0 +1,46 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: Actor = getSpecific(PassedOn)
+OTHER: none
+
+    SceneStart()
+    perversion += Random(0, 0.5)
+    Actor:incest += Random(0, 0.5)
+    "My curiousity got the better of me ..."
+    SneakGame()
+    If Random(0, 100) < sneak
+        "I managed to enter the room quietly enough that my <Actor.relationship> still stays asleep."
+        Actor.strip()
+        Actor.closeEyes(true)
+        Actor.show(2)
+        "Wow, my <Actor.relationship> is sleeping naked ... <Actor.He_or_She> is my <Actor.relationship> so I really shouldn't feel like this but ... I'm getting very aroused myself ... In fact, as much as the thought is so wrong on so many different levels, I can't help but wish I have the courage to come join <Actor.him_or_her> in <Actor.his_or_her> bed ... or maybe I can touch <Actor.him_or_her> just a little bit."
+        0:: "Feel <Actor.him_or_her> up"
+        1:: "No way"
+        
+        If 0
+            "A few touches wouldn't hurt."
+            Actor:incest += Random(0, 3)
+            If !Player.isMale() && Actor.isMale()
+                "Damn it, now I want more ..."
+                0:: "Fuck my sleeping <Actor.relationship>"
+                1:: "Resist the urge"
+                
+                If 0
+                    TalkNonConsensual()
+                    Filter(Sleeping)
+                    Actor.closeEyes(true)
+                    Sex(Player, Actor)
+                    Actor:incest += Random(0, 20)
+                Endif
+            Endif
+        Else
+            "I should not. If <Actor.he_or_she> wakes up, everything would be so messed up."
+        Endif
+    Else
+        Actor.show(2)
+        Actor(Angry):: "What the hell, <Actor.callplayer>! Is this some sort of prank? Get out of my room right now!"
+        Actor:rapportwithplayer -= Random(0, 2)
+    Endif
+    SceneEnd()
+    timeout(96, feel_up_bedroom)

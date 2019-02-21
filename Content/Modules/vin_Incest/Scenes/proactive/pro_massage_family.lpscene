@@ -1,0 +1,43 @@
+WHAT: none
+WHERE: none
+WHEN: 18 - 24
+WHO: Actor = getSpecific(PassedOn)
+OTHER: none
+
+    SceneStart()
+    Actor.show(2)
+    "Here I am with my <Actor.relationship> naked lying on <Actor.his_or_her> bed. I'm supposed to give <Actor.him_or_her> a relaxing massage but my own body is anything but relaxed right now."
+    0:: "Stay professional"
+    1:: "Massage <Actor.his_or_her> private parts"
+    
+    If 0
+        NormalEnding = true                        
+    Else
+        If Random(30, 85) > Actor:incest
+            NormalEnding = true
+            "My <Actor.relationship> moved my hand away from <Actor.his_or_her> private parts, clearly signalling that this was going too far."
+        Else
+            "Despite me rubbing <Actor.his_or_her> hot spot vigorously and making it clear that this isn't part of the normal massage routine, <Actor.he_or_she> said nothing and received receptive to my advances."
+            0:: "Give <Actor.him_or_her> a happy ending"
+            1:: "Stop it"
+            
+            If 0
+                Sex(Actor, Player)
+                NormalEnding = false
+                Actor:incest += Random(0, 50)
+            Else
+                "I moved my hand away from <Actor.his_or_her> sensitive spot. This was going too far."
+                NormalEnding = true
+            Endif
+        Endif
+    Endif
+    
+    If NormalEnding
+        "A while later ..."
+        Actor(Happy):: "That was amazing, <Actor.callplayer>! You're a good <Player.masseur_or_masseuse>."
+        Actor:rapportwithplayer += Random(0, 2)
+        Actor:incest += Random(0, 2)
+    Endif
+    
+    SceneEnd()
+    timeout(100, massage_family)

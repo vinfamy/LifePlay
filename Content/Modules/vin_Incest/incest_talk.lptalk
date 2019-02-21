@@ -1,0 +1,154 @@
+IsIncest()
+    We shouldn't be doing this ... It's so wrong! 
+    But it just feels so right!
+##
+IsIncest() && A1.isPlayer()
+    We shouldn't be doing this ... It's so wrong, you're my <A2.relationship>! 
+    But it just feels so right, my <A2.callplayer>!
+##
+IsIncest() && A2.isPlayer()
+    We shouldn't be doing this ... It's so wrong, you're my <A1.callplayer>! 
+    But it just feels so right, my <A1.relationship>!
+##
+IsIncest()
+    We should stop ... Our passion is forbidden! 
+    No, don't stop!
+##
+IsIncest() && A1.isPlayer()
+    We should stop ... Our passion is forbidden! I'm your <A2.callplayer> ...
+    No, don't stop!
+##
+IsIncest() && A2.isPlayer()
+    We should stop ... Our passion is forbidden! I'm your <A1.relationship> ...
+    No, don't stop!
+##
+IsIncest()
+    We should stop ... What will society think of us? 
+    No, don't stop! I don't care what they think.
+##
+IsIncest() && A1.isPlayer()
+    We should stop ... What will society think of us? You're my <A2.relationship>!
+    No, don't stop! I don't care what they think.
+##
+IsIncest() && A2.isPlayer()
+    We should stop ... What will society think of us? You're my <A2.callplayer>!
+    No, don't stop! I don't care what they think.
+##
+isIncest() && A1:age - A2:age < 5
+    You were always my first crush. No other <A2.guy_or_girl> could ever replace you.
+    And no other <A2.guy_or_girl> deserves you.
+##
+isIncest() && A1.isPlayer() && A2:incest > 90
+    I think I've fallen in love with my own <A2.relationship> ...
+    I don't care that you're my <A2.callplayer>: I love you! 
+##
+isIncest() && A2.isPlayer() && A1:incest > 90
+    I think I've fallen in love with my own <A1.callplayer> ...
+    I don't care that you're my <A1.relationship>: I love you! 
+##
+isIncest()
+    I hope this doesn't ruin our family.
+    No, it will just take our relationship to the next level.
+##
+isIncest() && A1.isPlayer()
+    Promise me, you'll still be my <A2.relationship> after this?
+    I'll be the best <A2.relationship> you could ever have ...
+##
+isIncest()
+    God, please forgive us for this sin.
+    It's not sinful. It's just natural attraction.
+##
+isIncest() && A1.isPlayer() && A2.hasRelationship(Spouses, Dating)
+    Aren't you seeing someone else?
+    I don't care: you, my <A2.callplayer> is my first love.
+##
+isIncest() && A2.isPlayer() && A1.hasRelationship(Spouses, Dating)   
+    I don't care: you, my <A1.callplayer> is my first love.
+    Aren't you seeing someone else?
+##
+isIncest() && A1.isPlayer() && A1.isDating()
+    I don't care: you, my <A2.relationship> is my first love.
+    Aren't you seeing someone else?
+##
+isIncest() && A2.isPlayer() && A2.isDating()  
+    Aren't you seeing someone else? 
+    I don't care: you, my <A1.relationship> is my first love.
+##
+isIncest() && A1.isPlayer()
+    You know: they could put us in jail for this.
+    I would risk anything to be your lover, my <A2.callplayer>.
+##
+isIncest() && A2.isPlayer()
+    You know: they could put us in jail for this.
+    I would risk anything to be your lover, my <A1.relationship>.
+##
+isIncest()
+    Not so loud ... Others could catch us!
+    We're not doing anything wrong: just what our bodies want.
+##
+isIncest()
+    You have no idea how long I have fantasized about this moment.
+    It doesn't have to be a fantasy anymore.
+##
+isIncest() && A1.isPlayer() && A2:age - A1:age < 18
+    I won't let those <A1.assholes_or_bitches> break my <A2.relationship>'s heart anymore.
+    Yes, take care of me, my <A2.callplayer>.
+##
+isIncest() && A2.isPlayer() && A2:age - A1:age < 18
+    I won't let those <A1.assholes_or_bitches> break my <A1.callplayer>'s heart anymore.
+    Yes, take care of me, my <A1.relationship>.
+##
+isIncest()
+    No other <A2.man_or_woman> makes me feel the same way you do.
+    That's because no other <A2.guy_or_girl> has this special blood bond we share.
+##
+isIncest()
+    No-one will ever understand our passion.
+    Forget about them! Just listen to our bodies.
+##
+isIncest() && A1.isPlayer()
+    You know, I've always wanted to be more than your <A2.callplayer>.
+    And I've always wanted to be more than your <A2.relationship>.
+##
+isIncest() && A2.isPlayer()
+    You know, I've always wanted to be more than your <A1.relationship>.
+    And I've always wanted to be more than your <A1.callplayer>.
+##
+isIncest() && A1.isPlayer()
+    You know, I've always thought of you as more than my <A2.relationship>.
+    And you've always been more than a <A2.callplayer> in my heart.
+##
+isIncest() && A2.isPlayer()
+    You know, I've always thought of you as more than my <A1.callplayer>.
+    And you've always been more than a <A1.relationship> in my heart.
+##
+isIncest() && [A2:age - A1:age < 3 || A1:age - A2:age < 31]
+    Remember when we used to share a room as kids.
+    Maybe we can now share the same bed as lovers.
+##
+isIncest() && A1.isPlayer()
+    Guilty as charged, my dear <A2.relationship>!
+    Don't think I haven't noticed you checking me out all these years, my perverted <A2.callplayer>!
+##
+isIncest() && A2.isPlayer()
+    Guilty as charged, my dear <A1.callplayer>!
+    Don't think I haven't noticed you checking me out all these years, my perverted <A1.relationship>!
+##
+isIncest() && Tag(Vaginal)
+    Don't worry. I'll pull out.
+    Don't cum in me ... We're related after all. We can't risk me getting pregnant.
+##
+*END* isIncest() && Tag(Vaginal)
+    I'm so sorry ... It was so good.
+    You promised you would pull out! We're related after all ... what if I get pregnant?
+##
+*END* isIncest() && Tag(Vaginal)
+    I'm sorry ... I couldn't hold it back. You were amazing.
+    You came in me? Are you crazy? We're related after all! We can't have a child together ...
+    
+
+
+
+
+     
+ 

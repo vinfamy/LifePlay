@@ -183,6 +183,9 @@ OTHER: none
                         If 0
                             If CurrentCompanion.isDating() || [CurrentCompanion.isInterestedIn(Player) && [CurrentCompanion.IsDominantSex(Player) || CurrentCompanion:attractiontoplayer + CurrentCompanion:perversion > Random(50, 200) || CurrentCompanion:intoxication > 80]]
                                 "Our kiss got more and more steamy and soon we were making out, our hands all over each other."
+                                If TfGame() && CurrentCompanion.isMale()
+                                    "I'm a man trapped inside a woman's body. I don't think I'm gay, but here I am, about to hook up with my male date."
+                                Endif
                                 hadSex = true
                                 Player:perversion += Random(0, 1)
                                 Sex(Player, CurrentCompanion)

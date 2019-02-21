@@ -1,0 +1,12 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Player.hide()
+    "Next, please choose which city your player lives in. By default, the game comes with the Central London map only. You can download more maps from the Mega folder link that is posted with all forum OPs about the game."
+    SceneEnd()
+    OpenMenu(City)
+    followUp(tf_aftercity)

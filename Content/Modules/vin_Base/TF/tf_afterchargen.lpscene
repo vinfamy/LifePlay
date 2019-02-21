@@ -1,0 +1,12 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Player.hide()
+    "Next, what is your character like as a person? The next screen will allow you to change his attributes."
+    SceneEnd()
+    OpenMenu(Stat)
+    followUp(tf_afterstat)

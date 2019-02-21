@@ -264,6 +264,7 @@ OTHER: none
                 Actor.hide()
                 "Alright, I must be very quiet here as to not alert <Actor2.him_or_her> ..."
                 "Just a few more steps and it will be perfect range for a headshot ..."
+                SneakGame()
                 If Random(0, 100) < sneak
                     "Perfect ... It's time to end this."
                     "Pow!"
@@ -317,6 +318,7 @@ OTHER: none
                 "There's the jewel ... A guard is right nearby though."
                 "Alright, I must be very quiet here as to not alert the guard ..."
                 "Just a few more steps and I can grab it ..."
+                SneakGame()
                 If Random(0, 100) < sneak
                     "Gotcha!"
                     "Let's just leave this note as the Boss asked me to."
@@ -376,6 +378,7 @@ OTHER: none
                 Actor.hide()
                 "Alright, I must be very quiet here as to not alert <Actor2.him_or_her> ..."
                 "Just a few more steps to their bedroom ..."
+                SneakGame()
                 If Random(0, 100) < sneak
                     setBackground(home)
                     "Perfect ... ."

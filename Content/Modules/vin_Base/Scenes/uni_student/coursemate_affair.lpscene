@@ -31,6 +31,7 @@ OTHER: none
         1:: "Leave it"
         
         If 0
+            SneakGame()
             If Random(0, 100) < sneak
                 "Luckily, they forgot to lock the door behind them, leaving me an easy opening to have a peek."
                 Sex(Actor, Actor2)

@@ -1,0 +1,116 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    setBackgroundCustom(hallway)
+    CameraBought  = CameraBought.getGlobal()
+    If CameraBought == 0
+        "I don't own a secret camera suitable for this. I should buy one."
+        0:: "Buy a secret cam"
+        1:: "It's a waste of money"
+        
+        If 0
+            setBackground(electronics)
+            "I decided to go to the local electronics store and buy one. It cost quite a bit so I hope it would work. The salesperson did warn me though that this wireless camera still needs its battery, which must be replaced quite regularly."
+            money -= Random(100, 300)
+            CameraBought.setGlobal(1)
+            "Let's head back to the bathroom to set it all up now."
+            CameraBought  = CameraBought.getGlobal()
+        Else
+            "Even if I want to peep on my family members, I prefer to do it the 'traditional' way ..."
+        Endif
+    Else
+        "Good thing I already own a camera and have had experience using it. This should be quick and easy."
+    Endif
+    
+    If CameraBought > 0
+        setBackground(shower)
+        "Let's set the camera up and insert a new battery."
+        If Random(0, 100) < intelligence
+            intelligence += Random(0, 0.5)
+            "Nice, it's all set up and connected to my laptop. Let's return to my room and start spying!"
+            setBackground(home)
+            "Voala, perfect view. All that is left to do is to wait for my poor victims to come inside the bathroom."
+            setBackground(shower)
+            Actor = getRelative()
+            Ongoing = true
+            While Actor.isValid() && Ongoing
+                If Actor.livesWithPlayer()
+                    Actor.dress()
+                    Actor.show(2)
+                    "Ah, looks like my <Actor.relationship> <Actor.name> just walked into the bathroom and is about to use the shower."
+                    0:: "Watch"
+                    1:: "Not <Actor.him_or_her>!"
+                    
+                    If 0
+                        Ongoing = false
+                        Actor.strip()                     
+                        Filter(Shower)
+                        Sex(Actor)
+                        Actor.show(2)
+                        Actor:incest += Random(0, 2)
+                        If Random(0, 100) < Actor:perversion
+                            "That was nice ... but I think the warm water running through <Actor.his_or_her> body has got my <Actor.relationship> all wet and hot. <Actor.He_or_She> started touching <Actor.himself_or_herself> ... and not just for cleaning."
+                            Filter(Solo)
+                            Sex(Actor)
+                            Actor.show(2)
+                            Actor:incest += Random(0, 2)
+                            
+                            If isModEnabled(vin_NTR) && Random(0, 100) < Actor:perversion
+                                Actor2 = Actor.getRelatedPerson(Dating, Spouses)
+                                If Actor2.isValid()
+                                    Actor2.show(3)
+                                    Actor2(Flirty):: "Someone is certainly horny? Mind if I join you?"
+                                    Actor(Sad):: "I don't know ... You're in my apartment, you know. My <Actor.callplayer>'s bedroom is just across the hallway ... <Player.He_or_She> may hear us."
+                                    Actor2(Flirty):: "Come on baby, <Player.he_or_she> is an adult. What's the matter if <Player.he_or_she> hears us?"
+                                    Actor(Flirty):: "I guess you have a point ... Come here then."
+                                    "Damn, it's my <Actor.relationship>'s <Actor2.boyfriend_or_girlfriend> who is joining <Actor.him_or_her> in the shower ... Not sure how I feel about this ..."
+                                    0:: "Continue watching"
+                                    1:: "Enough ... I don't need to see this"
+                                    
+                                    If 0
+                                        masochist += Random(0, 2)
+                                        "It's a pleasant surprise actually ... The show just got a whole lot better!"
+                                        Sex(Actor2, Actor)
+                                        Actor:incest += Random(0, 1)
+                                        Actor2.hide()
+                                    Else
+                                        "Not sure I signed up for this when I set up the camera. I think it's time to turn off the screen ... I don't need to see <Actor2.name> fucking my <Actor.relationship>."
+                                        masochist -= Random(0, 1)
+                                    Endif
+                                Endif
+                            Endif
+                        Endif
+                        "Wow, that was hot. I'm getting horny myself ... I think I need to release."
+                        0:: "Masturbate"
+                        1:: "Fantasize about joining my <Actor.relationship> in the shower"
+                        2:: "Resist my urges"
+                        
+                        If 0
+                            setBackground(home)
+                            Filter(Solo)
+                            Sex(Player)
+                            Actor:incest += Random(0, 1)
+                        Elseif 1
+                            blockPregnancy()
+                            SexNoAffair(Actor, Player)
+                            Actor:incest += Random(0, 2)                            
+                        Endif
+                    Endif
+                Endif
+                Actor.saveAndDelete()
+                If Ongoing
+                    Actor = getRelative()
+                Endif
+            Endwhile
+            "Eventually the camera's battery dies, I will need to replace the battery to continue spying. Anyway, I think that's enough high-tech peeping for now. I should also go retrieve the camera back to my room for now, or someone will notice it eventually." 
+        Else
+            "Before I could finish setting everything up, there's a knock on the door. Damn it, I couldn't risk staying here too much longer or someone might get suspicious."
+            "Let's just take the camera back to my room for now and wait for another opportunity to set this up."
+        Endif
+    Endif
+
+    SceneEnd()

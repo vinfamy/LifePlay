@@ -1,0 +1,47 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    If TfGame()
+        SceneStart()
+        setBackground(home)
+        OldPlayer = getSpecific(OldPlayer)
+        Player(Shocked):: "What the fuck? Who the hell is ..."
+        "At that moment, it finally hit me: the woman in the mirror is ME!"
+        Player(Furious):: "Nooooooooooooooooooooooooooooooooooooooooooooooooooo!"
+        "I screamed out in complete shock and horror, only to get even more shocked and horrified at how high-pitched and feminine my voice has become. Not only do I look like a woman, I also sound like a woman."
+        "It's 2019 so my reaction to everything is to of course take out my phone. I immediately clicked on Facebook."
+        "And to add the shock, I'm logged in as some '<Player.name> <Player.name_last>'. My hometown, alma mater and friendlist all remains the same, but I couldn't find a single photo or even mention of <OldPlayer.name> <OldPlayer.name_last> ... I searched for that name on Facebook, then Google, but no matches. It's like I has been erased from the internet, which I didn't know was even possible."
+        "Suddenly, I hear a knock on my door ..."
+        Actor = getRelative()
+        If Actor.isValid()
+            "It's my <Actor.relationship>, <Actor.name>."
+        Else
+            Actor = getSpecific(Landlord)
+            "It's my <Actor.landlord_or_landlady>, <Actor.name>."
+        Endif
+        Actor:: "Is everything okay in there, <Player.name>? I heard your scream! What's wrong?"
+        Player(Sad):: "It's fine. Don't worry ..."
+        "Shit, I shouldn't have said anything, how do I explain to <Actor.him_or_her> about my high-pitched voice?"
+        Actor:: "Okay then. Just let me know if anything is wrong, okay?"
+        "Wait, why isn't <Actor.he_or_she> surprised at my new voice? And, what did <Actor.he_or_she> just call me? <Player.name>? That's the same name on the Facebook profile I was logged into."
+        0:: "Maybe I AM <Player.name> now ..."
+        1:: "No way, I'm <OldPlayer.name>"
+        
+        If 0
+            "Maybe that's my name now ... maybe I'm a woman now ... somehow. And everyone seems to have always known me as a woman."
+            masochist += Random(0, 10)
+        Else
+            "I'm not <Player.name>. I'm not a woman for fuck's sake. This is all a cruel dream. I'll wake up from it and be <OldPlayer.name> again."
+        Endif
+        "Maybe I should go to a hospital and tell a doctor everything?"
+        "I suppose that's the only decent idea I have right now."
+        "Damn, I'm still naked ... I need to put on some clothes. None of my clothes would fit, but at least I can get this woman's body covered."
+        "I open my wardrobe and long and behold, none of my clothes were there ... Instead, it's full of women's clothes ... <Player.name>'s clothes ..."
+        "Damn it, seems like every trace of <OldPlayer.name> has been erased from my own apartment. Oh well, at least these clothes would fit this body."
+        SceneEnd()
+        OpenMenu(Inventory)
+        followUp(tf_afterinventory)
+    Endif

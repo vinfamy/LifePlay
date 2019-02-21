@@ -1,0 +1,40 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    If TfGame()
+        SceneStart()
+        setBackground(home)
+        "My first week in the new city went pretty well and I settled in fine, but I must admit I'm a bit disappointed ..."
+        "It's a new city, a new home but it's still more of the same mundane aspects of life."
+        "I'm not rich, not super attractive, famous nor even popular. Mr <Player.name> <Player.name_last> here is basically everyone's definition of an 'Average Joe'. Maybe I was naive to think that moving to a new city would make my boring life much more interesting."
+        "Don't get me wrong: I'm not depressed or suicidal at all - I'm just a guy struggling to find the meaning of life."
+        "Sometimes, I wonder what would happen if I wake up one morning as a completely different person ..."
+        "As a woman perhaps ..."
+        "I try to stop that thought as soon as it pops up and start laughing at myself."
+        "No, I absolutely don't want to go through gender reassignment surgery, although I must confess I have done some research about it out of curiousity and have nothing but respect for the transwomen who endure all the physical and mental pain of transitioning."
+        "But I definitely don't think I'm one of them - I'm not a woman trapped in a man's body, just a man who's bored with his life enough to be curious about how different life would be as a woman."
+        "Of course, I would never admit that curiousity to anyone, for fear of being called a tranny or a sissy."
+        "Anyway ..."
+        
+        "That's enough silly thought for today. I'm pretty exhausted after a long day of running errands. Let's head to bed early."
+        Player.strip()
+        Player.closeEyes(true)
+        "Zzzzzzzzzz"
+        
+        Player.hide()
+        SaveOldPlayer()
+        Player.changeSex()
+        "7 hours later ..."
+        "Wow that was some restful sleep - I needed that."
+        "Wait ... something feels different this morning."
+        "I moved my hand to wipe my eyes, only to notice something strange: My arms are a lot smaller, softer and completely hairless."
+        "What the hell!"
+        "I rushed to my bedroom's mirror and to my horror, a woman appears in front of my eyes."
+        "(What do you look like post-transformation? Remember to give yourself a female first name and tick the appropriate 'Interested In Gender' boxes you want your post-tf character to be into. You can choose to keep your penis or be fully female.)"
+        SceneEnd()
+        OpenMenu(Chargen)
+        followUp(tf_afterchargen2)
+    Endif

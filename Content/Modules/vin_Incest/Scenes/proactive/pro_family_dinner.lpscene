@@ -1,0 +1,115 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: Actor = getSpecific(PassedOn)
+OTHER: none
+
+    SceneStart()
+    setBackgroundCustom(kitchen)
+    Actor.dress()
+    Actor.show(2)
+    InRoom = true
+    Massage = false
+    Flirts = 0
+    Chats = 0
+    While InRoom
+        "I'm now having dinner in the kitchen with my <Actor.relationship>. What should I do?"
+        0:: "Chat"
+        1:: "Flirt subtly"
+        2:: "Flirt blatantly"
+        3:: "Touch <Actor.his_or_her> thigh"
+        4:: "Kiss <Actor.him_or_her>"
+        5:: !Massage:: "Offer a massage"
+        6:: "Go back to my room"
+        
+        If 6
+            "I think that's enough time spent with my <Actor.relationship>. Better do something else now."
+            InRoom = false
+        Else
+            If 0
+                If Chats > 5
+                    "I think that's enough chatting for now. The conversation is becoming quite boring."
+                Else
+                    "We just chat for a while about some innocuous topics."
+                    Actor:rapportwithplayer += Random(0, 1)
+                    Chats += 1
+                Endif
+            Elseif 1 || 2 || 3
+                If Flirts > 5
+                    "I think that's enough flirting for now. Even if <Actor.he_or_she>'s receptive to it, it must start to get pretty tiring for <Actor.him_or_her> by now."
+                Else
+                    If Random(0, 100)*choice < Actor:perversion + Actor:incest + interpersonal
+                        "My <Actor.relationship> seems receptive to my advances."
+                        Actor:incest += Random(0, 1)*choice
+                    Else
+                        "My flirting fails to impress my <Actor.relationship>."
+                        Actor:incest -= Random(0, 0.5)*choice
+                    Endif
+                    Flirts += 1
+                Endif
+            Elseif 4
+                InRoom = false
+                Player(Kiss):: "..."
+                Actor:incest += Random(0, 5)
+                If Random(0, 50) < Actor:incest
+                    Actor(Kiss):: "..."
+                    "Despite the forbidden nature of it all, my <Actor.relationsip> kissed me, <Actor.his_or_her> own <Actor.callplayer>, back."
+                    "But maybe we should stop ... this is so wrong ..."
+                    "Yet it feels so right!"
+                    0:: "Taste the forbidden fruit"
+                    1:: "Show some restrain"
+                    
+                    If 0
+                        Player(Flirty):: "You have no idea how long I have wanted to have you ..."
+                        If Random(30, 80) < Actor:incest
+                            Sex(Player, Actor)
+                            Actor:incest += Random(0, 40)
+                            perversion += Random(0, 1)
+                        Else
+                            Actor(Embarassed):: "No, no, we should stop. This is so wrong. I'm sorry!"
+                            "And just like that, my <Actor.relationship> stood up and ran back to <Actor.his_or_her> room."
+                            "Oh well, at least we both made our interests clear ..."                     
+                        Endif
+                    Else
+                        "We stopped making out, looked at each other briefly all blushed then without saying a word, my <Actor.relationship> stood up and ran back to <Actor.his_or_her> room."
+                    Endif
+                Else
+                    Actor(Shocked):: "What are you doing? You're my <Actor.callplayer>!"
+                    "And just like that, my <Actor.relationship> stood up and ran back to <Actor.his_or_her> room."
+                    "Oh well, at least I made my interest clear ..."
+                Endif
+            Else
+                Massage = true
+                If Random(0, 100) < Actor:rapportwithplayer + Actor:perversion + Actor:incest
+                    InRoom = false                    
+                    Actor(Happy):: "You know what? I'm feeling quite unwell actually, a massage might be worth a try."
+                    Player(Happy):: "Why don't you go lie down on your bed?"
+                    setBackground(home)
+                    "We finished up dinner and my <Actor.relationship> lied down on <Actor.his_or_her> bed, but <Actor.he_or_she> is fully clothed."
+                    0:: "Convince <Actor.Relationship> to strip down"
+                    1:: "Just give a massage like that"
+                    
+                    If 0
+                        Player(Happy):: "Why don't you strip down? Don't want your clothes to get all dirty ..."                  
+                        If Random(0, 100) < Actor:incest + Actor:perversion
+                            Actor(Happy):: "I guess you're right."
+                            Actor:incest += Random(0, 2)
+                            Actor.strip()
+                            "My <Actor.relationship> took her clothes off and lied back onto the bed."
+                            Actor.passOn()
+                            followUp(pro_massage_family)
+                        Else
+                            Actor(Angry):: "No way. I'm not getting naked in front of my own <Actor.callplayer>! Actually, you know what, this whole massage is a bad idea ..."
+                        Endif
+                    Else
+                        "I gave my fully clothed <Actor.relationship> a little massage."
+                        Actor(Happy):: "Wow, I feel much better now. Thank you, <Actor.callplayer>!"
+                        Actor:incest += Random(0, 1)
+                    Endif
+                Else
+                    Actor(Angry):: "No, thanks. I don't think that's very appropriate. I'm your <Actor.relationship> after all!"
+                Endif
+            Endif
+        Endif                                    
+    Endwhile
+    SceneEnd()

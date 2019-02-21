@@ -1,0 +1,43 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: Peeping = getRelative()
+OTHER: none
+
+
+    SceneStart()
+    Player.strip()
+    setBackground(shower)
+    Filter(Shower)
+    Sex(Player)
+    Player(Happy):: "Nothing feels better than a hot shower ..."
+    If Peeping.isInterestedIn(Player) && Peeping.livesWithPlayer() && Random(20, 100) < Peeping:perversion
+        Player(Embarassed):: "What? Who's there?"
+        "I was enjoying some relaxing time in the shower when suddenly I heard a noise. Someone must be peeping on me!"
+        0:: "Get dressed"
+        1:: "Continue showering"
+        
+        If 0 
+            Player.dress()
+            "I quickly put some clothes on and went looking around but couldn't find anyone. Whoever the peeping Tom was must have some quick feet."
+        Else
+            perversion += Random(0, 0.1)        
+            "I won't lie: The thought of someone watching me shower turned me on even further ... I might as well give my peeping Tom a show to remember"
+            Peeping:incest += Random(0, 4)
+            If Peeping:incest > 85
+                Peeping.dress()
+                Peeping.show(2)
+                "As it turned out, it was no other than my <Peep.relationship>, who had the cheek to come inside and offer to join me in the shower. Well ... it's not like we haven't already crossed all sorts of incesturous boundaries ..."
+                0:: "Have sex in the shower"
+                1:: "Turn <Peeping.him_or_her> down"
+                
+                If 0
+                    Sex(Peeping, Player)
+                    Peeping:incest += Random(0, 10)
+                Endif        
+            Endif
+        Endif
+    Endif
+    
+    timeout(48, family_peeps_shower)
+    SceneEnd()

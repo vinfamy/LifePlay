@@ -30,6 +30,7 @@ OTHER: isAtHome()
             
             If 0
                 "My curiousity got the better of me and I just had to check what's going on ..."
+                SneakGame()
                 If Random(0, 100) < sneak
                     Actor:incest += Random(0, 2)
                     "Luckily, my <Actor2.relationship> didn't quite close <Actor2.his_or_her> door completely shut. With my sneaking talent, I managed to get a pretty good view of what was going on ..."

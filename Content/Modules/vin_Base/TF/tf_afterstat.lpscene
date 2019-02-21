@@ -1,0 +1,14 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    setBackground(street)
+    Player.dress()
+    "I'm <Player.name> <Player.name_last>. Tired of my previous boring life, I decided to move to a new city for a new life."
+    "It's a big risk to take: I arrived here without any job offer or housing arrangements, but I'm sure I would figure these out eventually."
+    "In fact, I'm on my way to an apartment viewing that I arranged with a landlord right now ..."
+    "(Move your map view with WASD and hover your mouse around to find a green house icon and click on it, then select 'Arrange a viewing'. The TF story will continue as soon as you sign a lease contract with a landlord.)"
+    SceneEnd()

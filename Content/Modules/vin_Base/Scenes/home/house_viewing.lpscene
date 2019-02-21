@@ -48,7 +48,10 @@ If 0
             "I decided to sign the lease at the current rent. It wasn't too bad a deal after all."
             MoveHome()
             Landlord.setLandlord()
-            Rent.setRent()            
+            Rent.setRent()
+            If TfGame() && Player.isMale()
+                followUp(tf_afterlandlord)
+            Endif
         Elseif 1
             "It was too expensive at this current rent so I had no choice but to look elsewhere. I thanked the landlord for his time and left."
         Elseif 5
@@ -68,6 +71,9 @@ If 0
                 Player.setLandlord()
                 "I now own my home ... It's a wonderful feeling and now I don't have to worry about paying rent each month."
                 mood += Random(0, 100)
+                If TfGame() && Player.isMale()
+                    followUp(tf_afterlandlord)
+                Endif
             Else
                 choice = 5
             Endif
@@ -112,6 +118,9 @@ If 0
                 
                 If 1
                     Player:: "Surely you can change your mind and go even lower if I go down on you?"
+                    If TfGame() && Landlord.isMale()
+                        "When I was a man I used to hold the moral high ground and somewhat looked down on women who use their bodies to get advantages in life. Here I am, offering my body in exchange of rent discount. I'm such a hypocrite after all."
+                    Endif
                     If Landlord:perversion > Random(20, 100)
                         Landlord(Flirty):: "Oh? If that's on offer, then yes, perhaps I can change my mind indeed"
                         Sex(Landlord, Player)

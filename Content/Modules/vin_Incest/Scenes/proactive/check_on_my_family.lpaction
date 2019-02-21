@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: check_on_my_family
+ACTION_NAME: Spend time with family
+WHERE: home
+WHEN: 0 - 24
+MINUTES: 45 - 75 
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: check_on_my_family
+ANIMATION:   

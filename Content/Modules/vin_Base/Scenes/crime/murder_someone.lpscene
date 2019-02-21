@@ -20,6 +20,7 @@ OTHER: none
         "That's <Actor2.name>, walking down a dark alley ... as if <Actor2.he_or_she> is asking to be an easy target. I just need to sneak behid <Actor2.him_or_her> and once within range, shoot the <Actor2.bastard_or_bitch> to death. Easy enough."
         "Alright, I must be very quiet here as to not alert <Actor2.him_or_her> ..."
         "Just a few more steps and it will be perfect range for a headshot ..."
+        SneakGame()
         If Random(0, 100) < sneak
             "Perfect ... It's time to end this."
             "Pow!"
@@ -31,6 +32,7 @@ OTHER: none
             Actor2.hide()
             "Pow!"
             "Damn it, I wasn't sneaky enough. <Actor2.name> was alerted and immediately ran off. In panic, I completely misfired my shot."
+            SneakGame()
             If Random(0, 100) < sneak
                 "Thankfully, <Actor2.name> didn't see my face."
             Else

@@ -1,0 +1,28 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    If TfGame()
+        SceneStart()
+        setBackground(home)
+        "At least I got a place to live. About jobs, there seem to be plenty of opportunities in this city, but to be honest, I have been procastinating a bit and haven't applied for any. So I guess you can consider me 'between jobs' for now." 
+        "Good thing about that is I have plenty of time to explore the city a bit and get settled."
+        "My mind shifts to think about my loved ones. In moving to a new city, I ..."
+        0:: "left them all behind"
+        1:: "took them with me"
+        
+        If 0
+            "I wanted a true fresh start so I left my family, friends and lovers all behind in my hometown. Here I am, alone in a new city, knowing absolutely no-one."
+            followUp(tf_magic)
+            SceneEnd()
+        Else
+            "(In the next screen, use the 'Add Relative' and 'Add NPC' buttons to add your family members and significant other. Then click on the 'Sister/Brother' / 'Acquaintance' texts next to their names on the right to specify their relationship type to you)"
+            "(You can also use Edit Appearance and Edit Stat options on them)"
+            SceneEnd()
+            OpenMenu(Contacts)
+            followUp(tf_magic)
+        Endif
+    Endif
+    

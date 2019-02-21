@@ -10,6 +10,7 @@ OTHER: isAtHome() && Random(10, 300) < perversion
     1:: "Better not"
     
     If 0
+        SneakGame()
         If Random(0, 150) < Actor:perversion + sneak
             "Fortunately for me, <Actor.he_or_she> didn't lock the door, allowing to sneak behind it to get a decent view of <Actor.him_or_her> in all <Actor.his_or_her> glory."
             Actor.strip()

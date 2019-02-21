@@ -11,6 +11,7 @@ OTHER: none
     1:: "No"
     
     "That house looks like it's got some valuables inside."
+    SneakGame()
     If Random(0, 100) < sneak
         setBackground(home)
         "I found a way into the house without getting detected."
@@ -26,6 +27,7 @@ OTHER: none
              "I grabbed any valuables in sight as quickly as possible and got out of there as soon as I can. Can't risk the home owner waking up."
              money += Random(100, 250)
         Elseif 1
+            SneakGame()
             If Random(0, 150) < sneak
                 "I took my time to clear out the house of absolutely everything remotely valuable. It should be worth the effort ... and the extra risk."
                 money += Random(250, 500)            
@@ -52,7 +54,7 @@ OTHER: none
                 TalkNonConsensual()
                 SexNoAffair(Player, Actor)
                 Actor.hide()
-                
+                SneakGame()
                 If Random(0, 150) < sneak
                     "That was something else. Enjoy waking up tomorrow with a belly full of cum, whore!"
                     money += Random(100, 250)            

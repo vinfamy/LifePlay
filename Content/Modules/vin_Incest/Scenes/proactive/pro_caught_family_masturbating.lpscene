@@ -1,0 +1,43 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: Actor = getSpecific(PassedOn)
+OTHER: none
+
+    SceneStart()
+    perversion += Random(0, 0.5)
+    Actor:incest += Random(0, 1)
+    "I just had to see this ..."
+    SneakGame()
+    If Random(0, 100) < sneak
+        Actor.strip()
+        Actor.show(2)
+        Filter(Solo)
+        Sex(Actor)
+        Actor.show(2)
+        Actor(Crying):: "Yes, yes, yes!"
+        "Wow, <Actor.he_or_she> is really into it. It must have been a while since <Actor.he_or_she> last had sex. <Actor.He_or_She> is my <Actor.relationship> so I really shouldn't feel like this but ... I'm getting very aroused ... In fact, as much as the thought is so wrong on so many different levels, I can't help but wish I have the courage to slam open the door right now and come join <Actor.him_or_her> in <Actor.his_or_her> bed ..."
+        "Maybe I do have the courage for that ..."
+        0:: "Offer to join <Actor.him_or_her>"
+        1:: "Enough"
+        
+        If 0
+            Player.show(0)
+            Player(Flirty):: "Looks like you could do with some company, my dear <Actor.relationship>? Mind if I join?"
+            If Random(50, 150) < Actor:incest + Actor:perversion
+                Actor(Flirty):: "I didn't realize how much of a pervert my <Actor.callplayer> is ... Come on and join us then, what are you waiting for?"
+                Sex(Player, Actor)
+                Actor:incest += Random(0, 50)
+            Else
+                Actor(Angry):: "What are you doing here, peeping Tom? And what's up with that perverted proposal? You're my <Actor.callplayer>, for God's sake!"
+                Actor:rapportwithplayer -= Random(0, 3)
+            Endif
+        Else
+            "I should get out of here before I get caught."
+        Endif
+    Else
+        "Despite my best efforts, I couldn't get a look in."
+    Endif
+
+    SceneEnd()
+    timeout(48, caught_family_masturbating)
