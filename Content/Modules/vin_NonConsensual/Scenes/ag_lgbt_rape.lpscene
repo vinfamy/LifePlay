@@ -1,8 +1,8 @@
 WHAT: all
 WHERE: all
 WHEN: 0 - 24
-WHO: Actor = getCompanion(); If !Actor.isRelative() && !Actor.isMale() && !Actor.isInterestedIn(Player) 
-OTHER: Player.isInterestedIn(Actor) && Random(70, 300) < Actor:attractiveness && Player.isMale()
+WHO: Actor = getCompanion(); If !Actor.isRelative() && !Actor.isInterestedIn(Player) 
+OTHER: Player.isInterestedIn(Actor) && Random(70, 300) < Actor:attractiveness
 
     SceneStart()
     "<Actor.name> is smoking hot ... What a shame that <Actor.he_or_she> isn't into <Player.guys_or_girls> ..."
@@ -10,7 +10,7 @@ OTHER: Player.isInterestedIn(Actor) && Random(70, 300) < Actor:attractiveness &&
     1:: "I bet I can 'convert' <Actor.him_or_her>"
     
     If 0
-        "That's just <Actor.his_or_her> sexual orientation. I have to respect that. There are a million other straight <Actor.guys_or_girls> out there for me."
+        "That's just <Actor.his_or_her> sexual orientation. I have to respect that. There are a million other <Actor.guys_or_girls> out there for me."
     Else
         "<Actor.He_or_She> might not be into <Player.guys_or_girls> ... for now. I bet I can convert <Actor.him_or_her>."
         "Now, how am I supposed to do that?"

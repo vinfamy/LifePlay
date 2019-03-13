@@ -1,7 +1,7 @@
 WHAT: all, -sleep
 WHERE: home
 WHEN: 0-24
-WHO: Dating = getSpecific(Dating); Affair = getSpecific(Affair); If Dating:intelligence + Dating:interpersonal - Dating:masochist > Random(0, 500)*actionDuration
+WHO: Dating = getSpecific(Dating); Affair = getSpecific(Affair); If Dating:intelligence + Dating:interpersonal - Dating:masochist > Random(0, 1000)*actionDuration
 OTHER: none
 
     SceneStart()

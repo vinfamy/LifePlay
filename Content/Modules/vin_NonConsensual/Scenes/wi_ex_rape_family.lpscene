@@ -1,12 +1,12 @@
 WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 0 - 24
-WHO: Actor2 = getRelative(Sibling, StepSibling, Cousin, Child, StepChild); If Actor2.livesWithPlayer() && !Actor2.isMale() && Random(30, 100) < Actor2:masochist && Actor2:martial < 50
-OTHER: Player.isMale() && !isAtHome()
+WHO: Actor2 = getRelative(Sibling, StepSibling, Cousin, Child, StepChild); If !Actor2.isAsexual() && Actor2.livesWithPlayer() && Random(30, 100) < Actor2:masochist && Actor2:martial < 50
+OTHER: !isAtHome()
 
     SceneStart()
     Actor = generatePersonTemporary()
-    While !Actor.isMale()
+    While !Actor2.isInterestedIn(Actor)
         Actor = generatePersonTemporary()
     Endwhile
     Actor.dress()

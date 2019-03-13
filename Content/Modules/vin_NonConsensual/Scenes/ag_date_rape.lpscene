@@ -1,24 +1,29 @@
 WHAT: all, -go_to_the_bathroom
-WHERE: bar, nightclub
+WHERE: all
 WHEN: 21 - 4
-WHO: Actor = getCompanion(); If !Actor.isRelative() && !Actor.isDating() && !Actor.isMale()
-OTHER: Random(50, 200) < Actor:attractiveness && Actor:attractiontoplayer < 10 && Player.isMale() && Random(40, 500) < perversion && Random(-100, 0) > masochist
+WHO: Actor = getCompanion(); If !Actor.isDating()
+OTHER: Random(50, 200) < Actor:attractiveness && Actor:attractiontoplayer < 10 && Random(40, 500) < perversion && Random(-100, 0) > masochist
 
     SceneStart()
+    If WHERE == bar || WHERE == nightclub
+        arousal += 0.1
+    Else
+        setBackground(bar)
+    Endif
     Actor.dress()
     Actor.show(2)
-    "Wow, what a beautiful <Actor.guy_or_girl> my date <Actor.name> is. Should I offer <Actor.him_or_her> a drink?"
+    "Wow, what a <Actor.handsome_or_beautiful> <Actor.guy_or_girl> my date <Actor.name> is. Should I offer <Actor.him_or_her> a drink?"
     0:: "Yes"
     1:: "No"
 
     If 0
-        Player(Happy):: "Wow, you're the most beautiful <Actor.guy_or_girl> I've ever been on a date with. I'd love nothing more than being able to buy you a drink."
+        Player(Happy):: "Wow, you're the most <Actor.handsome_or_beautiful> <Actor.guy_or_girl> I've ever been on a date with. I'd love nothing more than being able to buy you a drink."
         Actor(Happy):: "Of course! I'd love to have a drink with you."
         Actor2 = generatePersonTemporary()
         Actor2.dress()
         Actor2.show(4)
         Actor2(Happy):: "One Margarita and one Gin & Tonic coming ..."
-        Actor2(Evil):: "Listen buddy, I can tell you're trying to get with that beautiful <Actor.guy_or_girl>. I must say though <Actor.he_or_she> is kinda out of your league to be honest ..."
+        Actor2(Evil):: "Listen buddy, I can tell you're trying to get with that <Actor.handsome_or_beautiful> <Actor.guy_or_girl>. I must say though <Actor.he_or_she> is kinda out of your league to be honest ..."
         "What the hell! What rotten luck I have to receive some unsolicited reality check from a bartender ..."
         Actor2(Evil):: "... unless you're smart enough to cheat. For a generous tip, I can put some special powder in <Actor.his_or_her> Margarita that will guarantee you score tonight ... Come on buddy, you're the underdog - only a fool would play fair here."
         0:: "Spike the drink"
@@ -71,7 +76,7 @@ OTHER: Random(50, 200) < Actor:attractiveness && Actor:attractiontoplayer < 10 &
         Else
             Player(Angry):: "I'm not Bill Cosby! What kind of bartender are you?"
             Actor2.hide()
-            "Having turned down the bartender's evil plan, I returned to the beautiful <Actor.guy_or_girl> with the drinks and we had a brief conversation."
+            "Having turned down the bartender's evil plan, I returned to the <Actor.handsome_or_beautiful> <Actor.guy_or_girl> with the drinks and we had a brief conversation."
             "It didn't lead anywhere and I didn't even manage to get <Actor.his_or_her> number. <Actor.He_or_She> was out of my league."
             "Oh well ... at least I didn't use dodgy methods to try to sleep with <Actor.him_or_her> and I'm proud of my decision."
         Endif

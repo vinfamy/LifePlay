@@ -2,11 +2,11 @@ WHAT: pickpocket
 WHERE: all
 WHEN: 0 - 24
 WHO: none
-OTHER: !Player.isMale() && Random(70, 100) < attractiveness && sneak < Random(0, 100)*Random(0, 1)*Random(0, 1)
+OTHER: Random(70, 100) < attractiveness && sneak < Random(0, 100)*Random(0, 1)*Random(0, 1)
 
     SceneStart()
     Actor = generatePersonTemporary()
-    While !Actor.isMale()
+    While !Player.isInterestedIn(Actor)
         Actor = generatePersonTemporary()
     Endwhile
     Actor.dress()

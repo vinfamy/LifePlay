@@ -2,12 +2,12 @@ WHAT: go_to_the_bathroom
 WHERE: nightclub, bar, toilets, community_centre
 WHEN: 0 - 24
 WHO: none
-OTHER: !Player.isMale() && Random(70, 1000) < attractiveness
+OTHER: Random(70, 1000) < attractiveness
 
     SceneStart()
     "Damn, this bathroom is so dirty. Worse, no-one else is here. Let's get this over and done with quick. I don't feel particularly safe in this cubicle, whose lock isn't even working."
     Actor = generatePersonTemporary()
-    While !Actor.isMale()
+    While !Player.isInterestedIn(Actor)
         Actor = generatePersonTemporary()
     Endwhile
     "All of a sudden, a stranger force opened the cubible door and grabbed me."

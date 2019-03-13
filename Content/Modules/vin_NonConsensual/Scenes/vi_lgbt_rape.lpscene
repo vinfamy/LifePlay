@@ -1,8 +1,8 @@
 WHAT: all
 WHERE: all
 WHEN: 0 - 24
-WHO: Actor = getCompanion(); If !Actor.isRelative() && Actor.isMale() && Actor.isInterestedIn(Player) && !Player.isInterestedIn(Actor) 
-OTHER: !Player.isMale() && Random(20, 100) < Actor:attractiontoplayer
+WHO: Actor = getCompanion(); If !Actor.isRelative() && Actor.isInterestedIn(Player) && !Player.isInterestedIn(Actor) 
+OTHER: Random(20, 100) < Actor:attractiontoplayer
 
     SceneStart()
     "I can tell <Actor.name> finds me attractive. Unfortunately for <Actor.him_or_her>, I'm just not into <Actor.guys_or_girls> ..."

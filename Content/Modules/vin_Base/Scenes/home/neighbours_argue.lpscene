@@ -14,6 +14,14 @@ OTHER: isAtHome()
         addNpcRelationship(Dating, Actor, Dating)
     Endif
 
+    SORefer = "<Dating.boyfriend_or_girlfriend>"
+    If Actor.isMarried()
+        SORefer = "<Dating.husband_or_wife>"
+    Endif
+    If Actor.isSameGender(Dating)
+        SORefer = "partner"
+    Endif
+
     SceneStart()
     Actor.dress()
     Actor.show(2)
@@ -22,16 +30,7 @@ OTHER: isAtHome()
     Player(Surprised):: "<Actor.name>? What are you doing out here all alone?"
     Actor(Sad):: "It's nothing. Don't worry ..."
     Player(Happy):: "Come on, it's okay. You can tell me."
-
-    If Actor.isMarried()
-        If Actor.isSameGender(Dating)
-            Actor(Sad):: "It's just that ... my partner and I, we had an argument again."
-        Else
-            Actor(Sad):: "It's just that ... my <Dating.husband_or_wife> and I, we had an argument again."
-        Endif
-    Else
-        Actor(Sad):: "It's just that ... my <Dating.boyfriend_or_girlfriend> and I, we had an argument again."
-    Endif
+    Actor(Sad):: "It's just that ... my <SORefer> and I, we had an argument again."
 
     0:: "Wish <Actor.him_or_her> luck"
     1:: "Invite <Actor.him_or_her> inside"
@@ -104,17 +103,7 @@ OTHER: isAtHome()
                     Endif
                 Elseif Random(0, 100) < 20
                     Actor(Happy):: "I've gotta go now. Thank you for inviting me in."
-
-                    If Actor.isMarried()
-                        If Actor.isSameGender(Dating)
-                            Player(Happy):: "Alright. Thank you for staying. Goodbye! Good luck with your partner."
-                        Else
-                            Player(Happy):: "Alright. Thank you for staying. Goodbye! Good luck with your <Dating.husband_or_wife>."
-                        Endif
-                    Else
-                        Player(Happy):: "Alright. Thank you for staying. Goodbye! Good luck with your <Actor.boyfriend_or_girlfriend>."
-                    Endif
-
+                    Player(Happy):: "Alright. Thank you for staying. Goodbye! Good luck with your <SORefer>."
                     "We parted ways."
                     choice = 5
                 Endif

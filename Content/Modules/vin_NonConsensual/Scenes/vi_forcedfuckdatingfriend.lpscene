@@ -1,8 +1,8 @@
 WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 0 - 24
-WHO: Actor = getSpecific(Dating); Actor2 = getSpecific(Dating_Friend); If Actor.isMale() && Random(50, 100) < Actor:masochist && Random(80, 1000) < Actor:perversion && Random(70, 200) < Actor2:perversion
-OTHER: !Player.isMale() && perversion < Random(0, 100)*Random(0, 1)
+WHO: Actor = getSpecific(Dating); Actor2 = getSpecific(Dating_Friend); If Random(50, 100) < Actor:masochist && Random(80, 1000) < Actor:perversion && Random(70, 200) < Actor2:perversion
+OTHER: perversion < Random(0, 100)*Random(0, 1)
 
     SceneStart()
     Actor.dress()

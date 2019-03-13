@@ -1,14 +1,11 @@
 WHAT: sleep, nap
 WHERE: home
 WHEN: 22 - 4
-WHO: Actor2 = getSpecific(Dating); If !Actor2.isMale() && Random(60, 500) < Actor2:attractiveness
+WHO: Actor2 = getSpecific(Dating); If Random(60, 500) < Actor2:attractiveness
 OTHER: isModEnabled(vin_NTR) && intelligence < Random(0, 100)*Random(0, 1)
 
     SceneStart()
     Actor = generatePersonTemporary()
-    While !Actor.isMale()
-        Actor = generatePersonTemporary()
-    Endwhile
     Actor(Evil):: "Wake up, whore. And prepare to get fucked!"
     Actor.show(2)
     Actor2.dress()

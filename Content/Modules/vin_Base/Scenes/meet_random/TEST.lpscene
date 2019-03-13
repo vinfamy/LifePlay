@@ -5,24 +5,25 @@ WHO: none
 OTHER: none
 
 	SceneStart()
-    setBackgroundCustom(sb_doctor_gynecologist)
-    "Hello, try sneak?"
+    setBackgroundCustom(livingroom) // sb_doctor_gynecologist
+    Actor = getSpecific(Dating)
+    Actor.show(2)
+    "It's my love <Actor.name>"
+    DaysPregnant = Actor.CountPregnancyDays()
+    "Pregnant for <DaysPregnant> days"
+    
+    "Hello, try rape?"
     0:: "Yes"
     1:: "No"
     
     If 0
-        SneakGame()
-        If Random(0, 100) < sneak
-            "Sneak passed"
-            SneakGame()
-            If Random(0, 100) < sneak
-                "Success again!"
-            Else
-                "Not so lucky this time"
-            Endif
-        Else
-            "Sneak failed"
-        Endif
+        Actor = generatePersonTemporary()
+        While !Player.isInterestedIn(Actor)
+            Actor = generatePersonTemporary()
+        Endwhile
+        Filter(Aggressive)
+        TalkNonConsensual()
+        SexNoAffair(Actor, Player)
     Endif
     
     SceneEnd()

@@ -6,14 +6,8 @@ OTHER: Random(0, 1000) < sneak
 
     SceneStart()
     Actor2 = generatePersonTemporary()
-    While Actor2.isMale()
-        Actor2 = generatePersonTemporary()    
-    Endwhile
     "What's that sound coming from the <Actor2.male_or_female> locker room? Is that ... a scream? I need to check it out, sounds like someone's in serious distress."
     Actor = generatePersonTemporary()
-    While !Actor.isMale()
-        Actor = generatePersonTemporary()
-    Endwhile
     Actor2.show(3)
     Actor.show(2)
     "Oh my god, someone is being sexually assaulted in the locker room's shower! I must do something!"

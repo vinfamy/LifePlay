@@ -1,14 +1,11 @@
 WHAT: sleep, nap
 WHERE: home
 WHEN: 22 - 4
-WHO: Actor2 = getRelative(); If !Actor2.isMale() && Actor2.livesWithPlayer() && Random(60, 500) < Actor2:attractiveness
+WHO: Actor2 = getRelative(); If Actor2.livesWithPlayer() && Random(60, 500) < Actor2:attractiveness
 OTHER: isModEnabled(vin_NTR) && intelligence < Random(0, 100)*Random(0, 1)
 
     SceneStart()
     Actor = generatePersonTemporary()
-    While !Actor.isMale()
-        Actor = generatePersonTemporary()
-    Endwhile
     Actor(Evil):: "Wake up, whore. And prepare to get fucked!"
     "What's going on? Oh no, it sounds like my <Actor2.relationship>'s bedroom has been invaded by a rapist."
     0:: "Stay in bed"

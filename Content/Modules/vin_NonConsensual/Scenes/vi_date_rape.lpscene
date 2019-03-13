@@ -1,8 +1,8 @@
 WHAT: all, -go_to_the_bathroom
 WHERE: bar, nightclub
 WHEN: 21 - 4
-WHO: Actor = getCompanion(); If !Actor.isRelative() && !Actor.isDating() && Actor.isMale() && Random(30, 200) < Actor:perversion && Random(-100, -30) > Actor:masochist && Random(30, 100) < Actor:attractiontoplayer
-OTHER: !Player.isMale() && !Player.isDating()
+WHO: Actor = getCompanion(); If !Actor.isRelative() && !Actor.isDating() && Random(30, 200) < Actor:perversion && Random(-100, -30) > Actor:masochist && Random(30, 100) < Actor:attractiontoplayer
+OTHER: !Player.isDating()
 
     SceneStart()
     "It's been a decent date with <Actor.name> I guess. <Actor.He_or_She> is a bit handsy though, but I'm giving <Actor.him_or_her> none of it."

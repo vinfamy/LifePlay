@@ -2,11 +2,11 @@ WHAT: all
 WHERE: prison
 WHEN: 0 - 24
 WHO: none
-OTHER: !Player.isMale() && Random(0, 100) < perversion
+OTHER: Random(0, 100) < perversion
 
     SceneStart()
     Actor = generatePersonTemporary()
-    While !Actor.isMale()
+    While !Player.isInterestedIn(Actor)
         Actor = generatePersonTemporary()
     Endwhile
     Actor.show(2)

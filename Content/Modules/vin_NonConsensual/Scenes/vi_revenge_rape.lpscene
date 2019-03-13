@@ -1,8 +1,8 @@
 WHAT: all
 WHERE: all, -home, -hotel
 WHEN: 22 - 4
-WHO: Actor = getPerson(); If Actor.isMale() && !Actor.isDating() && !Actor.isRelative() && Random(-100, -50) > Actor:rapportwithplayer && Random(50, 200) < Actor:perversion && Random(-100, -50) > Actor:masochist
-OTHER: !Player.isMale() && Random(50, 300) < attractiveness && intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)
+WHO: Actor = getPerson(); If !Actor.isDating() && !Actor.isRelative() && Random(-100, -50) > Actor:rapportwithplayer && Random(50, 200) < Actor:perversion && Random(-100, -50) > Actor:masochist
+OTHER: Random(50, 300) < attractiveness && intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)
 
     SceneStart()
     setBackground(street)

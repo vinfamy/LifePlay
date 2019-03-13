@@ -2,11 +2,11 @@ WHAT: all, -go_to_the_bathroom
 WHERE: bar, nightclub
 WHEN: 21 - 4
 WHO: none
-OTHER: !Player.isMale() && Random(40, 500) < attractiveness
+OTHER: Random(40, 500) < attractiveness
 
     SceneStart()
     Actor = generatePersonTemporary()
-    While !Actor.isMale()
+    While !Player.isInterestedIn(Actor)
         Actor = generatePersonTemporary()
     Endwhile
     Actor.dress()

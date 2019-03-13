@@ -1,7 +1,7 @@
 WHAT: go_to_the_bathroom
 WHERE: sports_centre
 WHEN: 0 - 24
-WHO: Actor2 = getPerson(); If !isWithCompanion() && Player.isMale() && Random(50, 1000) < perversion
+WHO: Actor2 = getPerson(); If !isWithCompanion() && Random(50, 1000) < perversion
 OTHER: none
 
     SceneStart()
@@ -11,7 +11,7 @@ OTHER: none
     
     If 0
         Actor = generatePersonTemporary()
-        While Actor.isMale()
+        While !Player.isInterestedIn(Actor)
             Actor = generatePersonTemporary()
         Endwhile
         Actor.show(2)

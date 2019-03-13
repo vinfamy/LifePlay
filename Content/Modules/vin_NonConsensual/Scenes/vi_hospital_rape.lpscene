@@ -2,11 +2,11 @@ WHAT: get_a_health_checkup
 WHERE: all
 WHEN: 0 - 24
 WHO: none
-OTHER: !Player.isMale() && Random(70, 1000) < attractiveness
+OTHER: Random(70, 1000) < attractiveness
 
     SceneStart()
     Actor = generatePersonTemporary()
-    While !Actor.isMale()
+    While !Player.isInterestedIn(Actor)
         Actor = generatePersonTemporary()      
     Endwhile
     Actor.dress()

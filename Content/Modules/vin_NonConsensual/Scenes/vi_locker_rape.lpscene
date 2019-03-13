@@ -2,13 +2,13 @@ WHAT: go_to_the_bathroom
 WHERE: sports_centre
 WHEN: 0 - 24
 WHO: none
-OTHER: !Player.isMale() && Random(70, 1000) < attractiveness
+OTHER: Random(70, 1000) < attractiveness
 
     SceneStart()
     Player.strip()
     "Damn, the locker room is empty today. Let's get this shower over and done with quick. I don't feel particularly safe."
     Actor = generatePersonTemporary()
-    While !Actor.isMale()
+    While !Player.isInterestedIn(Actor)
         Actor = generatePersonTemporary()
     Endwhile
     "All of a sudden, a stranger grabbed me by the <Player.dick_or_pussy> from behind."

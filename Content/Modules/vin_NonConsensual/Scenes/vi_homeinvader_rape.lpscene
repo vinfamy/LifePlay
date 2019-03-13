@@ -2,11 +2,11 @@ WHAT: sleep, nap
 WHERE: home
 WHEN: 22 - 4
 WHO: none
-OTHER: !Player.isMale() && Random(60, 500) < attractiveness && intelligence < Random(0, 100)*Random(0, 1)
+OTHER: Random(60, 500) < attractiveness && intelligence < Random(0, 100)*Random(0, 1)
 
     SceneStart()
     Actor = generatePersonTemporary()
-    While !Actor.isMale()
+    While !Player.isInterestedIn(Actor)
         Actor = generatePersonTemporary()
     Endwhile
     Actor.show(2)

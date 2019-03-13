@@ -8,15 +8,9 @@ OTHER: Random(0, 100) < 2 && intelligence < Random(0, 100)*Random(0, 1)*Random(0
     setBackground(street)
     "Damn it's dark in here. I shouldn't have gone for that shortcut just to save a few minutes. Too late to regret now - let's just walk fast and get the hell out of here - I don't feel safe."
     Actor = generatePersonTemporary()
-    While !Actor.isMale()
-        Actor = generatePersonTemporary()
-    Endwhile
     Actor.dress()
     Actor.show(2)
     Actor2 = generatePersonTemporary()
-    While Actor2.isMale()
-        Actor2 = generatePersonTemporary()
-    Endwhile
     Actor2.dress()
     Actor2.show(3)
     

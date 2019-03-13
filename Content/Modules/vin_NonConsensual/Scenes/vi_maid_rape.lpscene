@@ -2,12 +2,12 @@ WHAT: work_hourly
 WHERE: hotel
 WHEN: 0 - 24
 WHO: none
-OTHER: !Player.isMale() && Random(50, 1000) < attractiveness
+OTHER: Random(50, 1000) < attractiveness
 
     SceneStart()
     Player(Happy):: "Housekeeper!"
     Actor = generatePersonTemporary()
-    While !Actor.isMale()
+    While !Player.isInterestedIn(Actor)
         Actor = generatePersonTemporary()
     Endwhile
     Actor.dress()

@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: all, -home, -hotel
 WHEN: 22 - 4
-WHO: Actor2 = getCompanion(); Actor = getPerson(); If !Actor2.isMale() && Actor.isMale() && !Actor.isDating() && !Actor.isRelative() && Random(-100, -50) > Actor:rapportwithplayer && Random(50, 200) < Actor:perversion && Random(-100, -50) > Actor:masochist
+WHO: Actor2 = getCompanion(); Actor = getPerson(); If !Actor.isDating() && !Actor.isRelative() && Random(-100, -50) > Actor:rapportwithplayer && Random(50, 200) < Actor:perversion && Random(-100, -50) > Actor:masochist
 OTHER: intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)
 
     SceneStart()
