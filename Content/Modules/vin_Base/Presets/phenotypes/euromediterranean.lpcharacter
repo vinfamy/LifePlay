@@ -13,7 +13,7 @@ MORPH Pelvis_SizeX_max: 100% 0.14=>0.34
 
 
 // Skin
-SKIN Skin_Color_R: 100% 0.8
-SKIN Skin_Color_G: 100% 0.28
-SKIN Skin_Color_B: 100% 0.12
-SKIN Skin_Color_A: 100% 0.8
+SKIN Skin_Color_R: 100% 0.83
+SKIN Skin_Color_G: 100% 0.58
+SKIN Skin_Color_B: 100% 0.43
+SKIN Skin_Color_A: 100% 1.0

@@ -25,7 +25,7 @@ MORPH Nose_NostrilSizeY_min: 100% 0.00=>0.12
 
 
 // Skin
-SKIN Skin_Color_R: 100% 0.32
-SKIN Skin_Color_G: 100% 0.11
-SKIN Skin_Color_B: 100% 0.05
-SKIN Skin_Color_A: 100% 0.8
+SKIN Skin_Color_R: 100% 0.5
+SKIN Skin_Color_G: 100% 0.22
+SKIN Skin_Color_B: 100% 0.12
+SKIN Skin_Color_A: 100% 1.0

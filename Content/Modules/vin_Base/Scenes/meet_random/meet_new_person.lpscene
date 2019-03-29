@@ -2,7 +2,7 @@ WHAT: all, -pickpocket, -go_to_the_bathroom, -sleep, -sleep_hotel, -nap, -nap_ho
 WHERE: all, -PC, -fraternity
 WHEN: 0-24
 WHO: none
-OTHER: Random(0, 1) < interpersonal/800 || [ [WHAT == socialize || WHERE == nightclub] && Random(0, 1) < interpersonal/400] || [isWithCompanion() && Random(0, 1) < CurrentCompanion:interpersonal/400]
+OTHER: Random(0, 300) < interpersonal || [ [WHAT == socialize || WHERE == nightclub] && Random(0, 100) < interpersonal] || [isWithCompanion() && Random(0, 200) < CurrentCompanion:interpersonal]
 
 
 New_Person = generatePerson()

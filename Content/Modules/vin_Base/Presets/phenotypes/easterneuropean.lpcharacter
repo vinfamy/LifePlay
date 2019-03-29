@@ -30,7 +30,7 @@ MORPH Torso_Dorsi_max: 100% 0.08=>0.28
 
 
 // Skin
-SKIN Skin_Color_R: 100% 1.0
-SKIN Skin_Color_G: 100% 0.23
-SKIN Skin_Color_B: 100% 0.19
-SKIN Skin_Color_A: 100% 0.8
+SKIN Skin_Color_R: 100% 0.83
+SKIN Skin_Color_G: 100% 0.62
+SKIN Skin_Color_B: 100% 0.53
+SKIN Skin_Color_A: 100% 1.0

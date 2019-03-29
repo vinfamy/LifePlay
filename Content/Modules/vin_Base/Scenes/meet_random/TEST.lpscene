@@ -5,25 +5,10 @@ WHO: none
 OTHER: none
 
 	SceneStart()
-    setBackgroundCustom(livingroom) // sb_doctor_gynecologist
-    Actor = getSpecific(Dating)
-    Actor.show(2)
-    "It's my love <Actor.name>"
-    DaysPregnant = Actor.CountPregnancyDays()
-    "Pregnant for <DaysPregnant> days"
-    
-    "Hello, try rape?"
-    0:: "Yes"
-    1:: "No"
-    
-    If 0
+    setBackgroundCustom(work)
+    Actor = generatePersonTemporary()
+    While Actor.isMale()
         Actor = generatePersonTemporary()
-        While !Player.isInterestedIn(Actor)
-            Actor = generatePersonTemporary()
-        Endwhile
-        Filter(Aggressive)
-        TalkNonConsensual()
-        SexNoAffair(Actor, Player)
-    Endif
-    
+    Endwhile
+    Sex(Actor, Player)
     SceneEnd()

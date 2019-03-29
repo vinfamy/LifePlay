@@ -22,7 +22,7 @@ MORPH Nose_GlabellaPosZ_min: 100% 0.21428571428571433=>0.42000000000000004
 
 
 // Skin
-SKIN Skin_Color_R: 100% 1
-SKIN Skin_Color_G: 100% 0.38
-SKIN Skin_Color_B: 100% 0.22
-SKIN Skin_Color_A: 100% 0.8
+SKIN Skin_Color_R: 100% 0.83
+SKIN Skin_Color_G: 100% 0.58
+SKIN Skin_Color_B: 100% 0.43
+SKIN Skin_Color_A: 100% 1.0

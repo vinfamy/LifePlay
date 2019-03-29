@@ -34,7 +34,7 @@ MORPH Torso_Vshape_min: 100% 0.14285714285714282=>0.2799999999999999
 
 
 // Skin
-SKIN Skin_Color_R: 100% 0.02
-SKIN Skin_Color_G: 100% 0.0008
-SKIN Skin_Color_B: 100% 0.0003
-SKIN Skin_Color_A: 100% 0.8
+SKIN Skin_Color_R: 100% 0.3
+SKIN Skin_Color_G: 100% 0.15
+SKIN Skin_Color_B: 100% 0.08
+SKIN Skin_Color_A: 100% 1.0

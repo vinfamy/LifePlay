@@ -24,7 +24,7 @@ MORPH Nose_TipPosZ_min: 100% 0.08=>0.28
 MORPH Torso_Vshape_min: 100% 0.14=>0.34
 
 // Skin
-SKIN Skin_Color_R: 100% 0.1
-SKIN Skin_Color_G: 100% 0.04
-SKIN Skin_Color_B: 100% 0.02
-SKIN Skin_Color_A: 100% 0.8
+SKIN Skin_Color_R: 100% 0.3
+SKIN Skin_Color_G: 100% 0.15
+SKIN Skin_Color_B: 100% 0.08
+SKIN Skin_Color_A: 100% 1.0

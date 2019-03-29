@@ -37,7 +37,7 @@ MORPH Nose_BasePosZ_min: 100% 0.4714285714285714=>0.9239999999999998
 MORPH Nose_BaseSizeX_max: 100% 0.34285714285714286=>0.6719999999999999
 
 // Skin
-SKIN Skin_Color_R: 100% 0.16
-SKIN Skin_Color_G: 100% 0.04
-SKIN Skin_Color_B: 100% 0.02
-SKIN Skin_Color_A: 100% 0.8
+SKIN Skin_Color_R: 100% 0.5
+SKIN Skin_Color_G: 100% 0.22
+SKIN Skin_Color_B: 100% 0.12
+SKIN Skin_Color_A: 100% 1.0
