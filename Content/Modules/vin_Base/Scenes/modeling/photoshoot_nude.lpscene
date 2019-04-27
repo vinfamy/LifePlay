@@ -32,7 +32,7 @@ OTHER: Random(1, 200) < modelfame
         modelfame += 0.25
         perversion += 0.5
         
-        If Actor:perversion > 60 && Actor:pornfame == 0
+        If Actor:perversion > 60 && pornfame == 0
             Actor(Flirty):: "You know ... with a body like that, I'm sure you could make a killing in the porn industry."
             Actor(Flirty):: "One of my friends is a porn director. I can help you get into that world if you want?"
             0:: "Become a pornstar"

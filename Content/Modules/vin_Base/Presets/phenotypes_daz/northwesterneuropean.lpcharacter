@@ -1,0 +1,21 @@
+// Info
+INFO Is_Male: 100% false
+INFO Race: 100% Daz
+
+
+// Morphs
+MORPH Genesis8Female__Nose Style Germanic: 100% 0.8=>1.0
+MORPH Genesis8Female__Natalie Head: 100% 0.1=>0.2
+MORPH Genesis8FemaleEyelashes__Natalie Head: 100% 0.1=>0.2
+MORPH Genesis8Female__Julia Head: 100% 0.1=>0.2
+MORPH Genesis8FemaleEyelashes__Julia Head: 100% 0.1=>0.2
+MORPH Genesis8Female__Jennifer Head: 100% 0.1=>0.2
+MORPH Genesis8FemaleEyelashes__Jennifer Head: 100% 0.1=>0.2
+MORPH Genesis8Female__Diane Head: 100% 0.1=>0.2
+MORPH Genesis8FemaleEyelashes__Diane Head% 0.1=>0.2
+
+// Skin
+SKIN Skin_Color_R: 100% 0.83
+SKIN Skin_Color_G: 100% 0.62
+SKIN Skin_Color_B: 100% 0.53
+SKIN Skin_Color_A: 100% 1.0

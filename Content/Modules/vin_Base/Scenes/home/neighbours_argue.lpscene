@@ -1,7 +1,7 @@
 WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 0 - 24
-WHO: Actor = getSpecific(Neighbour); If Actor:masochist < Random(-100, 0)
+WHO: Actor = getSpecific(Neighbour); If !Actor.isAsexual() && Actor:masochist < Random(-100, 0)
 OTHER: isAtHome()
 
     Dating = Actor.getRelatedPerson(Dating, Spouses)

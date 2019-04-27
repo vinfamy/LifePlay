@@ -1,0 +1,22 @@
+// Info
+INFO Is_Male: 100% false
+INFO Race: 100% Daz
+
+
+// Morphs
+MORPH Genesis8Female__Nose Style Indian B: 100% 0.4=>0.5
+MORPH Genesis8Female__Nose Style Indian A: 100% 0.4=>0.5
+MORPH Genesis8Female__Rameesha Head: 100% 0.2=>0.3
+MORPH Genesis8FemaleEyelashes__Rameesha Head: 100% 0.2=>0.3
+MORPH Genesis8FemaleEyelashes__Kareena Head: 100% 0.2=>0.3
+MORPH Genesis8Female__Kareena Head: 100% 0.2=>0.3
+MORPH Genesis8Female__Faiza Head: 100% 0.2=>0.3
+MORPH Genesis8FemaleEyelashes__Faiza Head: 100% 0.2=>0.3
+
+
+
+// Skin
+SKIN Skin_Color_R: 100% 0.63
+SKIN Skin_Color_G: 100% 0.38
+SKIN Skin_Color_B: 100% 0.23
+SKIN Skin_Color_A: 100% 1.0

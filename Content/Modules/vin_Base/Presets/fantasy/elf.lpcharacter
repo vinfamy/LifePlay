@@ -4,3 +4,8 @@ MORPH Fantasy_EarsPointRotation_min: 100% 0.0
 MORPH Fantasy_EarsPointedUp_max: 100% 0.15=>0.4
 MORPH Fantasy_EarsPointed_max: 100% 0.3=>0.7
 MORPH Fantasy_EarsPointed_min: 100% 0.0
+MORPH Genesis8Female__PHMEarsElfLong: 100% 0.8=>1.2
+MORPH Genesis8Female__RFMC_Brows Rotates: 100% 0.8=>1.2
+MORPH Genesis8Female__RFMC_Brows Outer Heights (Alt): 100% 0.8=>1.2
+MORPH Genesis8Female__Eyes Slant In: 100% 0.8=>1.2
+MORPH Genesis8FemaleEyelashes__Eyes Slant In: 100% 0.8=>1.2

@@ -31,3 +31,6 @@ MORPH Torso_BreastMass-BreastTone-Mass-Tone_min-min-max-min: 100% 0.006696428571
 MORPH Torso_BreastMass-BreastTone-Mass-Tone_min-min-min-min: 100% 0.04687500000000001=>0.091875
 MORPH Torso_Mass-Tone_max-min: 100% 0.026785714285714312=>0.05250000000000005
 MORPH Torso_Mass-Tone_min-min: 100% 0.18750000000000003=>0.3675
+MORPH Genesis8Female__FBMBodySize: 100% 0.0=>0.3
+MORPH Genesis8Female__FBMBodyTone: 100% 0.0=>0.2
+MORPH Genesis8Female__FBMHeavy: 100% 0.0=>0.3

@@ -31,3 +31,6 @@ MORPH Torso_BreastMass-AureolaSize_max-min: 100% 0.1928571428571429=>0.378
 MORPH Torso_BreastMass-BreastScaleY_max-max: 100% 0.1928571428571429=>0.378
 MORPH Torso_BreastMass-BreastScaleY_max-min: 100% 0.1928571428571429=>0.378
 MORPH Waist_Size_min: 100% 0.34285714285714286=>0.6719999999999999
+MORPH Genesis8Female__CTRLFitness: 100% 0.3=>0.6
+MORPH Genesis8Female__CTRLBodybuilder: 100% 0.0=>0.2
+MORPH Genesis8Female__FBMVoluptuous: 100% 0.3=>0.6

@@ -79,8 +79,15 @@ MORPH Torso_ToracicCurve_max: 100% 0.32142857142857156=>0.6300000000000002
 MORPH Waist_Size_max: 100% 0.17142857142857143=>0.33599999999999997
 MORPH Wrists_Size_max: 100% 0.0535714285714287=>0.10500000000000025
 
+//Hair
+HAIR Hair_Thickness: 100% 0.8
+HAIR Hair_Color_R: 100% 0.8
+HAIR Hair_Color_G: 100% 0.8
+HAIR Hair_Color_B: 100% 0.8
+HAIR Hair_Color_A: 100% 1.0
+
 // Skin
-SKIN Skin_Age: 100% 0.4=>0.7
+SKIN Skin_Age: 100% 1.0
 
 // Stats
 STAT age: 100% 60=>69

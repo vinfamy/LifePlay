@@ -79,8 +79,15 @@ MORPH Waist_Size_max: 100% 0.20571428026471814=>0.4031999893188475
 MORPH Wrists_Size_max: 100% 0.06428571258272453=>0.12599999666214007
 
 
+//Hair
+HAIR Hair_Thickness: 100% 0.8
+HAIR Hair_Color_R: 100% 0.8
+HAIR Hair_Color_G: 100% 0.8
+HAIR Hair_Color_B: 100% 0.8
+HAIR Hair_Color_A: 100% 1.0
+
 // Skin
-SKIN Skin_Age: 100% 0.5=>1
+SKIN Skin_Age: 100% 1.0
 
 // Stats
 STAT age: 100% 70=>80

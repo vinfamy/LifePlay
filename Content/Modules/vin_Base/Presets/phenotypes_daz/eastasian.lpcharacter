@@ -1,0 +1,20 @@
+// Info
+INFO Is_Male: 100% false
+INFO Race: 100% Daz
+
+// Morphs
+MORPH Genesis8Female__Nose Style Asian C: 100% 0.2=>0.3
+MORPH Genesis8Female__Nose Style Asian B: 100% 0.2=>0.3
+MORPH Genesis8Female__Nose Style Asian A: 100% 0.2=>0.3
+MORPH Genesis8Female__Shu Head: 100% 0.2=>0.3
+MORPH Genesis8FemaleEyelashes__Shu Head: 100% 0.2=>0.3
+MORPH Genesis8Female__Nhung Head: 100% 0.2=>0.3
+MORPH Genesis8FemaleEyelashes__Nhung Head: 100% 0.2=>0.3
+MORPH Genesis8Female__Kumiko Head: 100% 0.2=>0.3
+MORPH Genesis8FemaleEyelashes__Kumiko Head: 100% 0.2=>0.3
+
+// Skin
+SKIN Skin_Color_R: 100% 0.73
+SKIN Skin_Color_G: 100% 0.48
+SKIN Skin_Color_B: 100% 0.33
+SKIN Skin_Color_A: 100% 1.0

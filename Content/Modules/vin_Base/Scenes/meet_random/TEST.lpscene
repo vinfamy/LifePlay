@@ -4,11 +4,5 @@ WHEN: 0-24
 WHO: none
 OTHER: none
 
-	SceneStart()
-    setBackgroundCustom(work)
-    Actor = generatePersonTemporary()
-    While Actor.isMale()
-        Actor = generatePersonTemporary()
-    Endwhile
-    Sex(Actor, Player)
-    SceneEnd()
+    // Player.dressWedding()
+    givePlayerDefaultClothes()

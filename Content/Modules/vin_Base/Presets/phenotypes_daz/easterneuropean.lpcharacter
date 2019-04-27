@@ -1,0 +1,18 @@
+// Info
+INFO Is_Male: 100% false
+INFO Race: 100% Daz
+
+
+// Morphs
+MORPH Genesis8Female__Nose Style Nordic: 100% 0.8=>1.0
+MORPH Genesis8Female__Anya Head: 100% 0.4=>0.5
+MORPH Genesis8FemaleEyelashes__Anya Head: 100% 0.4=>0.5
+MORPH Genesis8Female__Olga Head: 100% 0.4=>0.5
+MORPH Genesis8FemaleEyelashes__Olga Head: 100% 0.4=>0.5
+
+
+// Skin
+SKIN Skin_Color_R: 100% 0.93
+SKIN Skin_Color_G: 100% 0.72
+SKIN Skin_Color_B: 100% 0.63
+SKIN Skin_Color_A: 100% 1.0

@@ -125,7 +125,7 @@ OTHER: !Player.isDating() || [isModEnabled(vin_Polyamorous) && OpenRelationship(
                         "Those words were clearly said with a lot of reluctance, but at least I managed to keep <CurrentCompanion.name> in my life ... for now."
                     Else
                         CurrentCompanion(Offended):: "No, if I cannot have your heart, then I'd rather not have you in my life at all!"
-                        "Having said that, <CurrentCompanion.name> stormed off. Was that the last I've seen of <CurrentCompanion.him_or_her>?
+                        "Having said that, <CurrentCompanion.name> stormed off. Was that the last I've seen of <CurrentCompanion.him_or_her>?"
                         CurrentCompanion.hide()
                         setBackground(home)
                         "A few hours later ..."

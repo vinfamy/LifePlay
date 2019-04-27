@@ -1,0 +1,19 @@
+// Info
+INFO Is_Male: 100% false
+INFO Race: 100% Daz
+
+
+// Morphs
+MORPH Genesis8Female__Nose Style Roman: 100% 0.4=>0.5
+MORPH Genesis8Female__Nose Style Greek: 100% 0.4=>0.5
+MORPH Genesis8Female__Estell Head: 100% 0.4=>0.5
+MORPH Genesis8FemaleEyelashes__Estell Head: 100% 0.4=>0.5
+MORPH Genesis8Female__Cynthia Head: 100% 0.4=>0.5
+MORPH Genesis8FemaleEyelashes__Cynthia Head: 100% 0.4=>0.5
+
+
+// Skin
+SKIN Skin_Color_R: 100% 0.73
+SKIN Skin_Color_G: 100% 0.48
+SKIN Skin_Color_B: 100% 0.33
+SKIN Skin_Color_A: 100% 1.0

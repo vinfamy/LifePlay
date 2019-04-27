@@ -15,3 +15,4 @@ MORPH Arms_UpperarmMass-UpperarmTone_max-max: 100% 0.12857142857142861=>0.252000
 MORPH Arms_UpperarmMass-UpperarmTone_max-min: 100% 0.12857142857142861=>0.25200000000000006
 MORPH Legs_UpperlegsMass-UpperlegsTone_max-min: 100% 0.34285714285714286=>0.6719999999999999
 MORPH Legs_UpperlegInCurve_min: 100% 0.3857142857142858=>0.756
+MORPH Genesis8Female__FBMPearFigure: 100% 0.5=>1.0

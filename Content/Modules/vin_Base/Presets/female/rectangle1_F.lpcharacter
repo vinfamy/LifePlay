@@ -11,3 +11,5 @@ INFO Genital: 95% Vagina, 5% Penis
 // Morphs
 MORPH Pelvis_SizeX_min: 100% 0.2571428571428572=>0.504
 MORPH Torso_Vshape_min: 100% 0.30000000000000004=>0.588
+MORPH Genesis8Female__FBMPearFigure: 100% 0.2=>0.3
+MORPH Genesis8Female__FBMThin: 100% 0.3=>0.6
