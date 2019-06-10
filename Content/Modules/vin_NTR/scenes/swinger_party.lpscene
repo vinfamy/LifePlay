@@ -195,7 +195,7 @@ OTHER: none
         SexNoAffair(Player, FuckMe)
         Player.hide()
         FuckMe.hide()
-        Sex(FuckDating, Dating)
+        SexNoAffair(FuckDating, Dating)
         
         If Impreg
             If !Player.isMale() && [FuckMe.isMale() || FuckMe.isTrans()]
@@ -213,11 +213,11 @@ OTHER: none
         
         FuckDating.hide()
         Dating.hide()
-        Sex(Reject1, Reject4)
+        SexNoAffair(Reject1, Reject4)
         Reject1.hide()
         Reject4.hide()
         
-        Sex(Reject3, Reject2)
+        SexNoAffair(Reject3, Reject2)
         Reject3.hide()
         Reject2.hide()
         

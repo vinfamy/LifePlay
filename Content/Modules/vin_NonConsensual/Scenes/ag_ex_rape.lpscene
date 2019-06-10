@@ -15,7 +15,7 @@ OTHER: none
         Actor:masochist += Random(0, 2)
         Player(Angry):: "Open the door! Open the fucking door, you bitch!"
         If Random(20, 100) < Actor:masochist
-            masochist += Random(0, 2)
+            masochist -= Random(0, 2)
             "And just like that, the doors open. I knew it. My dominance never fails to get <Actor.name>'s heart racing and <Actor.his_or_her> brain fucked up and eventually, that alpha dominance gets <Actor.him_or_her> to do whatever I want. I may not be <Actor.his_or_her> <Player.boyfriend_or_girlfriend> anymore, but I never lost control of <Actor.him_or_her>."
             Player(Angry):: "What takes you so fucking long, you whore?"
             "She must know what's coming now ..."
@@ -24,9 +24,8 @@ OTHER: none
             "<Actor.He_or_She> did open the door for me after all ... Deep inside, <Actor.he_or_she> wanted this!"
             Filter(Aggressive)
             TalkNonConsensual()
-            Sex(Actor, Player)
+            Sex(Player, Actor)
             Actor.show(2)
-            mood => 0        
         Else
             "Damn it, <Actor.name> isn't home or so it seems. Maybe <Actor.he_or_she> is being smart and decides to stay silent and hide in <Actor.his_or_her> room."
             "Could it be possible that my control over <Actor.name> is finally breaking?"

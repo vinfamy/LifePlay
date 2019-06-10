@@ -1,11 +1,12 @@
 // Info
-INFO Is_Male: 100% false
 INFO Race: 100% Daz
 
 // Morphs
 MORPH Genesis8Female__Nose Style Nubian: 100% 0.8=>1.0
 MORPH Genesis8Female__Sabina Head: 100% 0.8=>1.0
 MORPH Genesis8FemaleEyelashes__Sabina Head: 100% 0.8=>1.0
+MORPH Genesis8Female__Tyler: 100% 0.7=>1.0
+MORPH Genesis8FemaleEyelashes__Tyler: 100% 0.7=>1.0
 
 // Skin
 SKIN Skin_Color_R: 100% 0.5

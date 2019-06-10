@@ -1,5 +1,5 @@
 STAT_ID: rapportwithplayer
-STAT_NAME: Rapport -> Me
+STAT_NAME: Rapport -> Me; How much this person likes you as a friend. Starting value is largely based on your interpersonal. Increase with sending gifts and dating activites. 
 PLAYER_ONLY: false
 HIGHER_BETTER: true
 STAT_MIN: -100

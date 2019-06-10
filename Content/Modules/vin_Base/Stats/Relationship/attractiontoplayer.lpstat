@@ -1,5 +1,5 @@
 STAT_ID: attractiontoplayer
-STAT_NAME: Attraction -> Me
+STAT_NAME: Attraction -> Me; How much this person wants to fuck you, -100 means this person isn't interested in your gender in general. Starting value is largely based on your attractiveness. Increase with sending flowers and dating activites. 
 PLAYER_ONLY: false
 HIGHER_BETTER: true
 STAT_MIN: -100

@@ -13,8 +13,10 @@ If WHERE == work
 Elseif WHERE == home
     If isAtHome()
         New_Person.addNeighbour()
+        "Is that a new neighbour moving in?"
     Else
         New_Person.addDatingFriend()
+        "Hmm, who's this? One of my boo's friends perhaps?"
     Endif
 Elseif WHERE == university:work || WHERE == university:school
     New_Person.setDifferentMajor()

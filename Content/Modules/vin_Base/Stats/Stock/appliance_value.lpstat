@@ -1,5 +1,5 @@
 STAT_ID: appliance_value
-STAT_NAME: Value of appliances
+STAT_NAME: Value of appliances; You can buy appliances from electronics shop to increase this. The higher this value, the higher your mood when spending time at home.
 PLAYER_ONLY: true
 HIGHER_BETTER: true
 STAT_MIN: 0

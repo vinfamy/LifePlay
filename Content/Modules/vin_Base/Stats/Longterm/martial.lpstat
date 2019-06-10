@@ -1,5 +1,5 @@
 STAT_ID: martial
-STAT_NAME: Martial
+STAT_NAME: Martial; How good you are at fighting. Used for fighting robbers, resisting or intiating assault 
 PLAYER_ONLY: false
 HIGHER_BETTER: true
 STAT_MIN: 0

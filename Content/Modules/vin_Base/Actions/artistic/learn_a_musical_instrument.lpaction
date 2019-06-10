@@ -6,7 +6,7 @@ MINUTES: 30 - 60
 TIMEOUT_MINUTES: 60
 ALSO_TIMEOUT: 
 EFFECTS: mood +1 (END), music +0.02 (DURATION), mood -0.5 (INTERRUPTED)
-CONDITIONS: musical_instrument >= 1 (STAT_COMPARE)
+CONDITIONS: stock_musicalinstrument >= 1 (STAT_COMPARE)
 MOVE_FIRST: true
 SCENE_ALWAYS:
 ANIMATION:   

@@ -1,5 +1,4 @@
 // Info
-INFO Is_Male: 100% false
 INFO Race: 100% Daz
 
 // Morphs
@@ -12,6 +11,8 @@ MORPH Genesis8Female__Nhung Head: 100% 0.2=>0.3
 MORPH Genesis8FemaleEyelashes__Nhung Head: 100% 0.2=>0.3
 MORPH Genesis8Female__Kumiko Head: 100% 0.2=>0.3
 MORPH Genesis8FemaleEyelashes__Kumiko Head: 100% 0.2=>0.3
+MORPH Genesis8Female__Jin: 100% 0.7=>1.0
+MORPH Genesis8FemaleEyelashes__Jin: 100% 0.7=>1.0
 
 // Skin
 SKIN Skin_Color_R: 100% 0.83

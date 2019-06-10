@@ -1,5 +1,5 @@
 STAT_ID: stock_petfood
-STAT_NAME: Pet food
+STAT_NAME: Pet food; How many you have in your inventory, buy more at shops.
 PLAYER_ONLY: true
 HIGHER_BETTER: true
 STAT_MIN: 0

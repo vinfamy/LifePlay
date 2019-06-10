@@ -1,5 +1,5 @@
 STAT_ID: muscle
-STAT_NAME: Muscle
+STAT_NAME: Muscle; How beefy you are. Not used as much as fitness
 PLAYER_ONLY: false
 HIGHER_BETTER: true
 STAT_MIN: 0

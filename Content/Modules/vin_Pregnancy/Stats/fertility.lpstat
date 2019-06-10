@@ -1,5 +1,5 @@
 STAT_ID: fertility
-STAT_NAME: Fertility
+STAT_NAME: Fertility; The % chance of impregnating / being impregnated per sex scene that ends in a 'creampie'.
 PLAYER_ONLY: true
 HIGHER_BETTER: no_difficulty_adjustment
 STAT_MIN: 0

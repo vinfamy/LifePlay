@@ -1,5 +1,5 @@
 WHAT: all
-WHERE: all, -home
+WHERE: all, -home, -stripclub
 WHEN: 20-3
 WHO: Actor = getRelative(Sibling, StepSibling, Cousin, Child, StepChild); Actor2 = Actor.getRelatedPerson(Dating); If Actor2:perversion - Actor:perversion > 40
 OTHER: none

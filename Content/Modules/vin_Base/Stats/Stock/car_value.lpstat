@@ -1,5 +1,5 @@
 STAT_ID: car_value
-STAT_NAME: Value of my car
+STAT_NAME: Value of my car; How expensive is your car? 0 if no car. With a more expensive car, you get a boost in both interpersonal and attractiveness.
 PLAYER_ONLY: true
 HIGHER_BETTER: true
 STAT_MIN: 0

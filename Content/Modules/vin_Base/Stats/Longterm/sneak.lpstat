@@ -1,5 +1,5 @@
 STAT_ID: sneak
-STAT_NAME: Sneak
+STAT_NAME: Sneak; How likely you are to get away with thieving and sneaking around. Makes the sneaking mini-game easier.
 PLAYER_ONLY: false
 HIGHER_BETTER: true
 STAT_MIN: 0

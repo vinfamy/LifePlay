@@ -1,5 +1,5 @@
 STAT_ID: dance
-STAT_NAME: Dance
+STAT_NAME: Dance; Your dancing skill, not used that much yet
 PLAYER_ONLY: false
 HIGHER_BETTER: true
 STAT_MIN: 0

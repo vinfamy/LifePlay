@@ -1,5 +1,5 @@
 STAT_ID: children
-STAT_NAME: Children
+STAT_NAME: Children; Number of kids you have. Not recommended to change this manually.
 PLAYER_ONLY: true
 HIGHER_BETTER: no_difficulty_adjustment
 STAT_MIN: 0

@@ -1,5 +1,4 @@
 // Info
-INFO Is_Male: 100% false
 INFO Race: 100% Daz
 
 
@@ -9,6 +8,8 @@ MORPH Genesis8Female__Anya Head: 100% 0.4=>0.5
 MORPH Genesis8FemaleEyelashes__Anya Head: 100% 0.4=>0.5
 MORPH Genesis8Female__Olga Head: 100% 0.4=>0.5
 MORPH Genesis8FemaleEyelashes__Olga Head: 100% 0.4=>0.5
+MORPH Genesis8Female__Matt: 100% 0.7=>1.0
+MORPH Genesis8FemaleEyelashes__Matt: 100% 0.7=>1.0
 
 
 // Skin

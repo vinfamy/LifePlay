@@ -7,6 +7,6 @@ TIMEOUT_MINUTES: 0
 ALSO_TIMEOUT: 
 EFFECTS: energy -10 (DURATION), martial +0.25 (DURATION), fitness +0.02 (DURATION), mood +2 (END), interpersonal +0.01 (END), attractiveness -0.01 (END)
 CONDITIONS:
-MOVE_FIRST: false
+MOVE_FIRST: true
 SCENE_ALWAYS:
 ANIMATION:  

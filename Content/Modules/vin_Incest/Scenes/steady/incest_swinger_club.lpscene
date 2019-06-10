@@ -70,11 +70,11 @@ OTHER: isWithCompanion() && CurrentCompanion.isDating() && CurrentCompanion.isEx
                 "I whispered into my <CurrentCompanion.boyfriend_or_girlfriend>'s ear my approval of <MyFuck.name> and asking <CurrentCompanion.him_or_her> what <CurrentCompanion.he_or_she> thinks of <DatingFuck.name>."
                 CurrentCompanion(Flirty):: "Alright baby, let's do this."
                 "We discussed our intention with the other couple, setting out a bunch of ground rules. Pretty soon, we swapped partners and started kissing. <CurrentCompanion.name> and <DatingFuck.name> got it on in no time at all."
-                Sex(CurrentCompanion, DatingFuck)
+                SexNoAffair(CurrentCompanion, DatingFuck)
                 CurrentCompanion.hide()
                 DatingFuck.hide()
                 "Wow, it was hot watching my <CurrentCompanion.boyfriend_or_girlfriend> fuck another <DatingFuck.man_or_woman>, but it's my turn now and <MyFuck.name> knows it."
-                Sex(Player, MyFuck)
+                SexNoAffair(Player, MyFuck)
                 MyFuck.hide()
                 CurrentCompanion.hide()
                 perversion += Random(0, 1)
@@ -84,9 +84,9 @@ OTHER: isWithCompanion() && CurrentCompanion.isDating() && CurrentCompanion.isEx
                 
                 If 0
                     perversion += Random(0, 1)
-                    Sex(Player, MyFuck, CurrentCompanion)
-                    Sex(CurrentCompanion, DatingFuck, Player)
-                    Sex(Player, MyFuck, DatingFuck)
+                    SexNoAffair(Player, MyFuck, CurrentCompanion)
+                    SexNoAffair(CurrentCompanion, DatingFuck, Player)
+                    SexNoAffair(Player, MyFuck, DatingFuck)
                 Endif
                 Player.show(0)
                 CurrentCompanion.show(5)

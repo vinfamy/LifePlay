@@ -1,5 +1,5 @@
 STAT_ID: perversion
-STAT_NAME: Perversion
+STAT_NAME: Perversion; How much of a pervert you are. High perversion unlocks many sexual situations.
 PLAYER_ONLY: false
 HIGHER_BETTER: no_difficulty_adjustment
 STAT_MIN: 0

@@ -1,5 +1,5 @@
 STAT_ID: money
-STAT_NAME: Money
+STAT_NAME: Money; How much money you have (in USD)? This is converted automatically to local currency for display in game.
 PLAYER_ONLY: true
 HIGHER_BETTER: true
 STAT_MIN: -10000000

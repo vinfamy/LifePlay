@@ -60,16 +60,18 @@ OTHER: none
         setBackground(home)
         "Eventually, I'm back in my room ... I didn't even bother with dinner. Let's just head to bed."
         Player.strip()
-        "Staring at my new naked woman's body, a thought comes to my mind ..."
-        0:: "Explore my new body"
-        1:: "Just get some sleep"
-        
-        If 0
-            "I suppose it's my body now, I might as well get used to it."
-            Filter(Solo)
-            Sex(Player)
-            perversion += Random(0, 1)
-            Player.show(0)
+        If !Player.isTrans()
+            "Staring at my new naked woman's body, a thought comes to my mind ..."
+            0:: "Explore my new body"
+            1:: "Just get some sleep"
+            
+            If 0
+                "I suppose it's my body now, I might as well get used to it."
+                Filter(Solo)
+                Sex(Player)
+                perversion += Random(0, 1)
+                Player.show(0)
+            Endif
         Endif
         "Exhausted, I drifted off to sleep ..."
         Player.closeEyes(true)

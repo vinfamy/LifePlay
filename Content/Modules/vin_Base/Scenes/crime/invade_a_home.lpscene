@@ -21,7 +21,7 @@ OTHER: none
         "The owner is fast asleep. What a shock it will be for <Actor.him_or_her> to wake up to a cleared-out home tomorrow!"
         0:: "Grab some valuables quickly and run"
         1:: "Try to take everything"
-        2:: isModEnabled(vin_NonConsensual) && !Actor.isMale() && Player.isMale():: "The home owner is kinda hot ..."
+        2:: isModEnabled(vin_NonConsensual):: "The home owner is kinda hot ..."
         
         If 0
              "I grabbed any valuables in sight as quickly as possible and got out of there as soon as I can. Can't risk the home owner waking up."

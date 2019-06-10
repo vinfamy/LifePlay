@@ -1,5 +1,5 @@
 STAT_ID: modelfame
-STAT_NAME: Model Fame
+STAT_NAME: Model Fame; How famous are you as a model? The more famous you are, the more often you will be booked for photoshoots. 0 if not a model.
 PLAYER_ONLY: true
 HIGHER_BETTER: true
 STAT_MIN: 0

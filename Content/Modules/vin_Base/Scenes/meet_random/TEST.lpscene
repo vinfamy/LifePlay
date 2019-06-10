@@ -4,5 +4,8 @@ WHEN: 0-24
 WHO: none
 OTHER: none
 
-    // Player.dressWedding()
-    givePlayerDefaultClothes()
+    SceneStart()
+    Actor = getSpecific(Dating)
+    Player.strip()
+    Sex(Player, Actor)
+    SceneEnd()

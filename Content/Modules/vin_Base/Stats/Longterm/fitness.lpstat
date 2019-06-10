@@ -1,5 +1,5 @@
 STAT_ID: fitness
-STAT_NAME: Fitness
+STAT_NAME: Fitness; How fit are you. Work out and eat healthy food to increase this. With high fitness, your energy depletes more slowly and fitness-conscious people will like you more.
 PLAYER_ONLY: false
 HIGHER_BETTER: true
 STAT_MIN: 0

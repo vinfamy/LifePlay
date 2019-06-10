@@ -1,5 +1,5 @@
 STAT_ID: energy
-STAT_NAME: Energy
+STAT_NAME: Energy; Depletes throughout the day, especially when doing physical activities. You can sleep, eat or drink to recover this.
 PLAYER_ONLY: true
 HIGHER_BETTER: true
 STAT_MIN: 0

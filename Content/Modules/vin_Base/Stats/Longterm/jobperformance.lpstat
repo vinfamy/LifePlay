@@ -1,5 +1,5 @@
 STAT_ID: jobperformance
-STAT_NAME: Job performance
+STAT_NAME: Job performance; With high job performance, you're more likely to gain promotion and raise. Just go to work at least 9-5 and make good choices during scenes and this should increase gradually.
 PLAYER_ONLY: true
 HIGHER_BETTER: true
 STAT_MIN: 0

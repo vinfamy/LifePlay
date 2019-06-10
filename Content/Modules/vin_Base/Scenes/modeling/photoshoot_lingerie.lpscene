@@ -21,6 +21,7 @@ OTHER: Random(1, 150) < modelfame && Random(30, 100) < fitness
         Actor = generatePersonTemporary()
         Actor.dress()
         Actor.show(2)
+        Actor(Happy):: "Here, put this on."
         
         Player.strip()
         Player.dressExcept(Outerwear, Top, Bottom, Foot, Headwear, Eyewear)

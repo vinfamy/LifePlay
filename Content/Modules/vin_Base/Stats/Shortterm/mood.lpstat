@@ -1,5 +1,5 @@
 STAT_ID: mood
-STAT_NAME: Mood
+STAT_NAME: Mood; You do everything better when you're happy. Mood depletes over time, most leisure activities (especially sex!) increase it.
 PLAYER_ONLY: true
 HIGHER_BETTER: true
 STAT_MIN: 0

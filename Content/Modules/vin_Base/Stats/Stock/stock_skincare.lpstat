@@ -1,5 +1,5 @@
 STAT_ID: stock_skincare
-STAT_NAME: Skincare
+STAT_NAME: Skincare; how many you have in your inventory, buy more at shops
 PLAYER_ONLY: true
 HIGHER_BETTER: true
 STAT_MIN: 0

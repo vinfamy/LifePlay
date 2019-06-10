@@ -1,5 +1,5 @@
 STAT_ID: age
-STAT_NAME: Age
+STAT_NAME: Age; How many years old is this person?
 PLAYER_ONLY: false
 HIGHER_BETTER: no_difficulty_adjustment
 STAT_MIN: 18

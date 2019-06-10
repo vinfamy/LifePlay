@@ -1,5 +1,4 @@
 // Info
-INFO Is_Male: 100% false
 INFO Race: 100% Daz
 
 
@@ -13,6 +12,9 @@ MORPH Genesis8Female__Jennifer Head: 100% 0.1=>0.2
 MORPH Genesis8FemaleEyelashes__Jennifer Head: 100% 0.1=>0.2
 MORPH Genesis8Female__Diane Head: 100% 0.1=>0.2
 MORPH Genesis8FemaleEyelashes__Diane Head% 0.1=>0.2
+MORPH Genesis8Female__Matt: 100% 0.7=>1.0
+MORPH Genesis8FemaleEyelashes__Matt: 100% 0.7=>1.0
+
 
 // Skin
 SKIN Skin_Color_R: 100% 0.83

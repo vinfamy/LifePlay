@@ -1,5 +1,5 @@
 STAT_ID: sentence
-STAT_NAME: Prison sentence
+STAT_NAME: Prison sentence; How many days left until your release from prison? 0 if not in prison.
 PLAYER_ONLY: true
 HIGHER_BETTER: no_difficulty_adjustment
 STAT_MIN: 0

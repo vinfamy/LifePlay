@@ -1,5 +1,5 @@
 STAT_ID: intelligence
-STAT_NAME: Intelligence
+STAT_NAME: Intelligence; How smart and knowledgeable you are. Affects job performance and chance of triggering certain scenes.
 PLAYER_ONLY: false
 HIGHER_BETTER: true
 STAT_MIN: 0

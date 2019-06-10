@@ -1,5 +1,5 @@
 STAT_ID: attractiveness
-STAT_NAME: Attractiveness
+STAT_NAME: Attractiveness; How hot you are. High attractiveness means more people will have higher starting attraction to you so you can get laid easier.
 PLAYER_ONLY: false
 HIGHER_BETTER: true
 STAT_MIN: 0

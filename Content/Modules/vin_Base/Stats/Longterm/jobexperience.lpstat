@@ -1,5 +1,5 @@
 STAT_ID: jobexperience
-STAT_NAME: Job experience
+STAT_NAME: Job experience; This allows you to get a higher salary job. Increase gradually when working.
 PLAYER_ONLY: true
 HIGHER_BETTER: true
 STAT_MIN: 0

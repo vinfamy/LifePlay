@@ -1,5 +1,5 @@
 STAT_ID: cooking
-STAT_NAME: Cooking
+STAT_NAME: Cooking; Your cooking skill, not used that much yet
 PLAYER_ONLY: false
 HIGHER_BETTER: true
 STAT_MIN: 0

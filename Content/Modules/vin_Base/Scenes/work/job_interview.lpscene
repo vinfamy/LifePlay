@@ -53,6 +53,7 @@ OTHER: none
                 "The day of the interview ..."
                 
                 Player.Dress()
+                "I hope I'm smartly dressed enough ..."
                 Boss = generatePerson()
 
                 If Random (0,1) < 0.7

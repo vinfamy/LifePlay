@@ -1,5 +1,5 @@
 WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
-WHERE: all
+WHERE: all, -stripclub
 WHEN: 21 - 24
 WHO: Actor = getRelative(Sibling, StepSibling, Cousin); If Random(60, 300) < Actor:perversion && Random(10, 200) < Actor:rapportwithplayer
 OTHER: none

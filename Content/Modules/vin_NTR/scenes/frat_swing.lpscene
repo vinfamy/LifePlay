@@ -35,7 +35,7 @@ OTHER: Random(40, 100) < perversion
                 "In no time at all, <Dating.name> and <FriendSO.name> were all over each other, while <DatingFriend.name> and I gladly enjoyed the show ..."
                 Player.hide()
                 DatingFriend.hide()
-                Sex(Dating, FriendSO)
+                SexNoAffair(Dating, FriendSO)
                 Dating.hide()
                 FriendSO.hide()
                 Player.show(0)
@@ -52,9 +52,9 @@ OTHER: Random(40, 100) < perversion
                 
                 If 0
                     perversion += Random(0, 1)
-                    Sex(Player, Dating, DatingFriend)
-                    Sex(Dating, FriendSO, Player)
-                    Sex(Player, DatingFriend, FriendSO)
+                    SexNoAffair(Player, Dating, DatingFriend)
+                    SexNoAffair(Dating, FriendSO, Player)
+                    SexNoAffair(Player, DatingFriend, FriendSO)
                 Endif
                 Player.show(0)
                 Dating.show(5)

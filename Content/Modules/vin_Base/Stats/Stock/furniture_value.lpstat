@@ -1,5 +1,5 @@
 STAT_ID: furniture_value
-STAT_NAME: Value of my furniture
+STAT_NAME: Value of my furniture; You can buy furniture from shops to increase this. The higher this value, the higher your energy recovery is when at home.
 PLAYER_ONLY: true
 HIGHER_BETTER: true
 STAT_MIN: 0

@@ -1,5 +1,5 @@
 WHAT: all
-WHERE: all
+WHERE: all, -stripclub
 WHEN: 20-3
 WHO: Actor = getCompanion(); If !Actor.isRelative() && Player.isInterestedIn(Actor) && perversion - Actor:perversion > 40 && [Actor:attractiontoplayer > 10 || Actor:incest > 30]
 OTHER: none

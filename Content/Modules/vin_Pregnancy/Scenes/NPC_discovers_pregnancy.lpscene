@@ -11,6 +11,7 @@ OTHER: none
     Actor(Sad):: "<Player.name>, we need to talk ..."
     Player(Happy):: "Sure, what is it?"
     Actor(Sad):: "<Player.name>, I'm pregnant ..."   
+    Actor:attractiontoplayer += 50
     If Actor.isRelative()
         "The evidence from the paternity test is undeniable. I'm the father of <Actor.name>'s unborn baby."
         "Or more precisely ... of my own <Actor.relationship>'s unborn baby!"

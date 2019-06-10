@@ -1,5 +1,5 @@
 STAT_ID: bargain
-STAT_NAME: Company's bargaining power
+STAT_NAME: Company's bargaining power; Only relavant if you're running your own business. The higher this value, the lower your business expenses will be.
 PLAYER_ONLY: true
 HIGHER_BETTER: true
 STAT_MIN: 0

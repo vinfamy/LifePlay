@@ -1,5 +1,5 @@
 STAT_ID: music
-STAT_NAME: Music
+STAT_NAME: Music; Your musical ability, not used that much yet
 PLAYER_ONLY: false
 HIGHER_BETTER: true
 STAT_MIN: 0
