@@ -5,7 +5,15 @@ WHO: none
 OTHER: none
 
     SceneStart()
-    Actor = getSpecific(Dating)
-    Player.strip()
-    Sex(Player, Actor)
+    "Hello"
+    Actor = generatePerson()
+    Actor.show(2)
+    Actor.dress()
+    "Show up"
+    "Yay"
     SceneEnd()
+    
+    // Actor = getSpecific(Dating)
+    // Player.strip()
+    // Sex(Player, Actor)
+    // SceneEnd()

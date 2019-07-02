@@ -1,42 +1,37 @@
 // Information
-INFO Is_Male: 100% false
-INFO Interested_In_Men: 100% true
-INFO Interested_In_Women: 100% false
+INFO Is_Male: 100% true
+INFO Interested_In_Men: 100% false
+INFO Interested_In_Women: 100% true
 INFO Interested_In_Transgender: 100% false
-INFO First_Name: 100% Briana
-INFO Last_Name: 100% G
+INFO First_Name: 100% Sean
+INFO Last_Name: 100% C
 INFO Race: 100% Daz
 INFO Genital: 100% Penis
 
 // Morphs
-MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.141651
-MORPH Genesis8Female__Nose Style Nordic: 100% 0.548152
-MORPH Genesis8Female__Nose Style Germanic: 100% 0.705982
-MORPH Genesis8Female__Nhung Head: 100% 0.673354
-MORPH Genesis8Female__Estell Head: 100% 0.000019
-MORPH Genesis8Female__Diane Head: 100% 0.38069
-MORPH Genesis8Female__Anya Head: 100% 0.366538
-MORPH Genesis8Female__PBMHipSize: 100% 0.508286
-MORPH Genesis8Female__PBMBreastsSmall: 100% 0.337596
-MORPH Genesis8Female__PBMBreastsDownwardSlope: 100% 0.835597
-MORPH Genesis8FemaleEyelashes__Nhung Head: 100% 0.673354
-MORPH Genesis8FemaleEyelashes__Estell Head: 100% 0.000019
-MORPH Genesis8FemaleEyelashes__Diane Head: 100% 0.38069
-MORPH Genesis8FemaleEyelashes__Anya Head: 100% 0.366538
-MORPH CerellaHR01_91257__SCLPropagatingHead: 100% 0.05
-MORPH CerellaHR01_91257__CTRLFaceOlderHD: 100% 0.141651
+MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.416932
+MORPH Genesis8Female__Mike: 100% 0.00016
+MORPH Genesis8Female__Matt: 100% 0.008637
+MORPH Genesis8Female__David: 100% 0.745339
+MORPH Genesis8Female__Brian: 100% 0.740683
+MORPH Genesis8FemaleEyelashes__Mike: 100% 0.00016
+MORPH Genesis8FemaleEyelashes__Matt: 100% 0.008637
+MORPH Genesis8FemaleEyelashes__David: 100% 0.745339
+MORPH Genesis8FemaleEyelashes__Brian: 100% 0.740683
+MORPH XY__Penis length: 100% -0.23433
+MORPH XY__Plums size: 100% -0.24962
+MORPH XY__Penis size: 100% -0.241523
+MORPH Everyday__CTRLFaceOlderHD: 100% 0.416932
 SCALE X: 100% 1.0
 SCALE Y: 100% 1.0
 SCALE Z: 100% 1.0
-PENIS TAB_Gen3F_27097__eroMeester 8: 100% 0.703223
-PENIS TAB_Gen3F_27097__Very Long: 100% 0.018532
 
 //Hair
-HAIR Hairstyle: 100% CerellaHR01_91257
-HAIR Hair_Thickness: 100% 0.914811
-HAIR Hair_Color_R: 100% 0.08
-HAIR Hair_Color_G: 100% 0.03
-HAIR Hair_Color_B: 100% 0.0
+HAIR Hairstyle: 100% Everyday
+HAIR Hair_Thickness: 100% 0.924302
+HAIR Hair_Color_R: 100% 0.2
+HAIR Hair_Color_G: 100% 0.2
+HAIR Hair_Color_B: 100% 0.2
 HAIR Hair_Color_A: 100% 0.8
 
 HAIR Brow_Color_R: 100% 0.0
@@ -45,10 +40,10 @@ HAIR Brow_Color_B: 100% 0.0
 HAIR Brow_Color_A: 100% 1.0
 
 // Skin
-SKIN Eye_Color_R: 100% 0.5
-SKIN Eye_Color_G: 100% 0.2
+SKIN Eye_Color_R: 100% 0.0
+SKIN Eye_Color_G: 100% 0.0
 SKIN Eye_Color_B: 100% 0.0
-SKIN Eye_Color_A: 100% 0.8
+SKIN Eye_Color_A: 100% 1.0
 SKIN Skin_Color_R: 100% 0.83
 SKIN Skin_Color_G: 100% 0.62
 SKIN Skin_Color_B: 100% 0.53
@@ -57,32 +52,33 @@ SKIN BHairColor_R: 100% 0.015
 SKIN BHairColor_G: 100% 0.003
 SKIN BHairColor_B: 100% 0.0
 SKIN BHairColor_A: 100% 0.8
-SKIN Skin_Roughness: 100% 0.530106
+SKIN Skin_Roughness: 100% 0.516984
 SKIN Skin_Oil: 100% 0.25
-SKIN Skin_Fresnel: 100% 0.684713
-SKIN Skin_Age: 100% 0.141651
+SKIN Skin_Fresnel: 100% 0.118046
+SKIN Skin_Age: 100% 0.416932
 SKIN Skin_Sagging: 100% 0.0
 SKIN Muscle_Tone: 100% 0.0
-SKIN BHairThickness: 100% 0.196492
-SKIN BHairstyle: 100% Pubes02
+SKIN BHairThickness: 100% 0.004965
+SKIN BHairstyle: 100% NoHair
+SKIN FHairstyle: 100% Facial_Hair__17_
 
 // Stats
 STAT incest: 100% 0.0
-STAT age: 100% 46.647755
-STAT attractiveness: 100% 10.19013
-STAT cooking: 100% 26.255074
-STAT dance: 100% 52.687462
-STAT fitness: 100% 87.662895
-STAT intelligence: 100% 47.492905
-STAT interpersonal: 100% 90.522171
-STAT martial: 100% 90.874962
-STAT masochist: 100% 42.802216
-STAT muscle: 100% 51.527451
-STAT music: 100% 44.522537
-STAT perversion: 100% 46.302681
+STAT age: 100% 60.370861
+STAT attractiveness: 100% 84.499649
+STAT cooking: 100% 58.229317
+STAT dance: 100% 79.357277
+STAT fitness: 100% 12.207404
+STAT intelligence: 100% 5.37431
+STAT interpersonal: 100% 59.431744
+STAT martial: 100% 20.358898
+STAT masochist: 100% -6.125061
+STAT muscle: 100% 53.132725
+STAT music: 100% 84.725487
+STAT perversion: 100% 71.450272
 STAT pornfame: 100% 0.0
-STAT sneak: 100% 36.603901
-STAT attractiontoplayer: 100% -16.592621
-STAT rapportwithplayer: 100% 26.887884
-STAT arousal: 100% 86.043892
-STAT intoxication: 100% 92.733543
+STAT sneak: 100% 61.409344
+STAT attractiontoplayer: 100% 98.0
+STAT rapportwithplayer: 100% 100.0
+STAT arousal: 100% 65.153969
+STAT intoxication: 100% 61.922054

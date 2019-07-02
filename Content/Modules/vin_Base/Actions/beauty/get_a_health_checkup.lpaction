@@ -3,7 +3,7 @@ ACTION_NAME: Get a health checkup
 WHERE: doctor, hospital
 WHEN: 0 - 24
 MINUTES: 90 - 180
-TIMEOUT_MINUTES: 240000
+TIMEOUT_MINUTES: 1440
 ALSO_TIMEOUT: 
 EFFECTS: money -200 (START), mood +1 (END), fitness +0.2 (END), mood -5 (INTERRUPTED)
 CONDITIONS:

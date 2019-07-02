@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: work
 WHEN: 8 - 18
-WHO: Colleague = getSpecific(Colleague)
+WHO: Colleague = getSpecific(Colleague); If !Colleague.isDating()
 OTHER: Random(0, 100) < 0.02*interpersonal
 
 
