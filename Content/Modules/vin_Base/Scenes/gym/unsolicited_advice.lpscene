@@ -9,7 +9,7 @@ Actor = generatePerson()
 Actor.dress()
 Actor.show(2)
 
-"I was getting on with my workout when a <Actor.guy_or_girl> approached me to point out my apparently poor form and give unsolicited advices. I'm pretty sure I'm doing fine though."
+"I was getting on with my workout when a <Actor.guy_or_girl> approached me to point out my apparently poor form and give unsolicited advice. I'm pretty sure I'm doing fine though."
 0:: "Ignore"
 1:: "Tell <Actor.him_or_her> to fuck off"
 

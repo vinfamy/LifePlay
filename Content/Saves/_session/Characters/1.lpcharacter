@@ -1,36 +1,27 @@
 // Information
-INFO Is_Male: 100% true
-INFO Interested_In_Men: 100% false
-INFO Interested_In_Women: 100% false
-INFO Interested_In_Transgender: 100% false
-INFO First_Name: 100% Ryan
-INFO Last_Name: 100% H
+INFO Is_Male: 100% false
+INFO Interested_In_Men: 100% true
+INFO Interested_In_Women: 100% true
+INFO Interested_In_Transgender: 100% true
+INFO First_Name: 100% Megan
+INFO Last_Name: 100% C
 INFO Race: 100% Daz
-INFO Genital: 100% Penis
+INFO Genital: 100% Vagina
 
 // Morphs
-MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.011269
-MORPH Genesis8Female__Ray: 100% 0.306517
-MORPH Genesis8Female__Matt: 100% 0.570236
-MORPH Genesis8Female__David: 100% 0.01114
-MORPH Genesis8FemaleEyelashes__Ray: 100% 0.306517
-MORPH Genesis8FemaleEyelashes__Matt: 100% 0.570236
-MORPH Genesis8FemaleEyelashes__David: 100% 0.01114
-MORPH XY__Penis length: 100% -0.181906
-MORPH XY__Plums size: 100% -0.23556
-MORPH XY__Penis size: 100% -0.175781
-MORPH Morley__CTRLFaceOlderHD: 100% 0.011269
+MORPH LongHair_22341__SCLNeckLength: 100% 0.7
+MORPH LongHair_22341__BackFull: 100% 0.25
 SCALE X: 100% 1.0
 SCALE Y: 100% 1.0
 SCALE Z: 100% 1.0
 
 //Hair
-HAIR Hairstyle: 100% Morley
-HAIR Hair_Thickness: 100% 1.742576
-HAIR Hair_Color_R: 100% 0.08
-HAIR Hair_Color_G: 100% 0.03
-HAIR Hair_Color_B: 100% 0.0
-HAIR Hair_Color_A: 100% 0.8
+HAIR Hairstyle: 100% LongHair_22341
+HAIR Hair_Thickness: 100% 1.0
+HAIR Hair_Color_R: 100% 0.020833
+HAIR Hair_Color_G: 100% 0.007495
+HAIR Hair_Color_B: 100% 0.003094
+HAIR Hair_Color_A: 100% 1.0
 
 HAIR Brow_Color_R: 100% 0.0
 HAIR Brow_Color_G: 100% 0.0
@@ -38,45 +29,44 @@ HAIR Brow_Color_B: 100% 0.0
 HAIR Brow_Color_A: 100% 1.0
 
 // Skin
-SKIN Eye_Color_R: 100% 0.0
-SKIN Eye_Color_G: 100% 0.0
-SKIN Eye_Color_B: 100% 0.0
-SKIN Eye_Color_A: 100% 1.0
+SKIN Eye_Color_R: 100% 0.078125
+SKIN Eye_Color_G: 100% 0.019379
+SKIN Eye_Color_B: 100% 0.002915
+SKIN Eye_Color_A: 100% 0.8
 SKIN Skin_Color_R: 100% 0.83
 SKIN Skin_Color_G: 100% 0.62
 SKIN Skin_Color_B: 100% 0.53
 SKIN Skin_Color_A: 100% 1.0
-SKIN BHairColor_R: 100% 0.005
-SKIN BHairColor_G: 100% 0.001
+SKIN BHairColor_R: 100% 0.015
+SKIN BHairColor_G: 100% 0.003
 SKIN BHairColor_B: 100% 0.0
-SKIN BHairColor_A: 100% 0.8
-SKIN Skin_Roughness: 100% 0.616169
+SKIN BHairColor_A: 100% 1.0
+SKIN Skin_Roughness: 100% 0.7
 SKIN Skin_Oil: 100% 0.25
-SKIN Skin_Fresnel: 100% 0.857875
-SKIN Skin_Age: 100% 0.011269
+SKIN Skin_Fresnel: 100% 0.1
+SKIN Skin_Age: 100% 0.0
 SKIN Skin_Sagging: 100% 0.0
 SKIN Muscle_Tone: 100% 0.0
-SKIN BHairThickness: 100% 0.753147
-SKIN BHairstyle: 100% JPBH78-TorsoNG-03
-SKIN FHairstyle: 100% NoHair
+SKIN BHairThickness: 100% 0.25
+SKIN BHairstyle: 100% NoHair
 
 // Stats
-STAT incest: 100% 0.0
-STAT age: 100% 33.144718
-STAT attractiveness: 100% 69.072548
-STAT cooking: 100% 46.482742
-STAT dance: 100% 41.401409
-STAT fitness: 100% 87.45079
-STAT intelligence: 100% 70.116272
-STAT interpersonal: 100% 69.997253
-STAT martial: 100% 45.786919
-STAT masochist: 100% 69.689011
-STAT muscle: 100% 40.223396
-STAT music: 100% 90.954315
-STAT perversion: 100% 34.586628
+STAT incest: 100% 1.212925
+STAT age: 100% 34.847984
+STAT attractiveness: 100% 53.07169
+STAT cooking: 100% 3.152562
+STAT dance: 100% 42.887661
+STAT fitness: 100% 25.965149
+STAT intelligence: 100% 3.241066
+STAT interpersonal: 100% 41.825615
+STAT martial: 100% 14.975433
+STAT masochist: 100% 56.797989
+STAT muscle: 100% 40.824612
+STAT music: 100% 41.511276
+STAT perversion: 100% 95.274796
 STAT pornfame: 100% 0.0
-STAT sneak: 100% 98.205513
-STAT attractiontoplayer: 100% -100.0
-STAT rapportwithplayer: 100% 22.884443
-STAT arousal: 100% 25.186058
-STAT intoxication: 100% 0.072939
+STAT sneak: 100% 16.873684
+STAT attractiontoplayer: 100% 100.0
+STAT rapportwithplayer: 100% 100.0
+STAT arousal: 100% 86.051743
+STAT intoxication: 100% 0.002686

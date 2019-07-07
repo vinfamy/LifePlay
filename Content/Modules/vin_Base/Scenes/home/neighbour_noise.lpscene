@@ -19,7 +19,7 @@ OTHER: isAtHome()
         "This is unacceptable. Does <Actor.name> realize how late it is?"
         Actor.dress()
         Actor.show(2)
-        Player(Angry):: "Could you please tune down the music? I'm trying to get some sleep here."
+        Player(Angry):: "Could you please turn down the music? I'm trying to get some sleep here."
         Actor(Sad):: "Oh sorry, I'll adjust the volume right away."
         masochist -= Random(0, 0.5)
         Actor:rapportwithplayer -= Random(0, 5)

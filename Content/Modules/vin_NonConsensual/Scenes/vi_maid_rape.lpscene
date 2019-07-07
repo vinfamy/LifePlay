@@ -2,7 +2,7 @@ WHAT: work_hourly
 WHERE: hotel
 WHEN: 0 - 24
 WHO: none
-OTHER: Random(50, 1000) < attractiveness
+OTHER: !isWithCompanion() && Random(50, 1000) < attractiveness
 
     SceneStart()
     Player(Happy):: "Housekeeper!"

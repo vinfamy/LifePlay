@@ -1,7 +1,7 @@
 WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 8 - 20
-WHO: Actor = getSpecific(Landlord); If !Actor.isAsexual() && !Actor.hasRelationship(Spouses, Dating) && Random(20, 100) < Actor:rapportwithplayer
+WHO: Actor = getSpecific(Landlord); If !Actor.isAsexual() && !Actor.isDating() && !Actor.hasRelationship(Spouses, Dating) && Random(20, 100) < Actor:rapportwithplayer
 OTHER: isAtHome() && !isWithCompanion()
 
     SceneStart()

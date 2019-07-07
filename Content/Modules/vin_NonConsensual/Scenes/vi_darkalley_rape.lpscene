@@ -2,7 +2,7 @@ WHAT: all
 WHERE: all, -home, -hotel
 WHEN: 22 - 4
 WHO: none
-OTHER: Random(50, 300) < attractiveness && intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)
+OTHER: !isWithCompanion() && Random(50, 300) < attractiveness && intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)
 
     SceneStart()
     setBackground(street)

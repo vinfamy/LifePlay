@@ -2,7 +2,7 @@ WHAT: all, -go_to_the_bathroom
 WHERE: bar, nightclub
 WHEN: 21 - 4
 WHO: none
-OTHER: Random(40, 500) < attractiveness
+OTHER: !isWithCompanion() && Random(40, 500) < attractiveness
 
     SceneStart()
     Actor = generatePersonTemporary()

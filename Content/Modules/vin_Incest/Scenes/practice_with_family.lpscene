@@ -40,14 +40,14 @@ OTHER: IsAtHome() && perversion < Random(0, 30)*Random(0, 1)
             1:: "Say nothing"
             
             If 0
-                "Maybe I can ask my <Actor.relationship> for advices. Surely I should feel more comfortable talking about such sensitive topics with family than with some random sexologist."
+                "Maybe I can ask my <Actor.relationship> for advice. Surely I should feel more comfortable talking about such sensitive topics with family than with some random sexologist."
                 If Actor:incest < 25
-                    "After I finally worked up the courage to ask my <Actor.relationship> for advices, <Actor.he_or_she> reluctantly gave me some advices. I could tell how uncomfortable <Actor.he_or_she> was though. I'm <Actor.his_or_her> own <Actor.callplayer> after all!"
+                    "After I finally worked up the courage to ask my <Actor.relationship> for advice, <Actor.he_or_she> reluctantly gave me some advice. I could tell how uncomfortable <Actor.he_or_she> was though. I'm <Actor.his_or_her> own <Actor.callplayer> after all!"
                 Elseif Actor:incest < 50
-                    "After I asked my <Actor.relationship> for advices, <Actor.he_or_she> was happy to give me some advices on how to improve my performance in bed. <Actor.He_or_She> seemed strangely comfortable talking about this despite me being <Actor.his_or_her> own <Actor.callplayer>!" 
+                    "After I asked my <Actor.relationship> for advice, <Actor.he_or_she> was happy to give me some advice on how to improve my performance in bed. <Actor.He_or_She> seemed strangely comfortable talking about this despite me being <Actor.his_or_her> own <Actor.callplayer>!" 
                     Actor:incest += Random(0, 1)
                 Elseif Actor:incest < 75
-                    "After I asked my <Actor.relationship> for advices, <Actor.he_or_she> was happy to give me some advices on how to improve my performance in bed. However, <Actor.he_or_she> also stressed that practice makes perfect and no amount of advices could replace real sexual experience with an actual person."
+                    "After I asked my <Actor.relationship> for advice, <Actor.he_or_she> was happy to give me some advice on how to improve my performance in bed. However, <Actor.he_or_she> also stressed that practice makes perfect and no amount of advice could replace real sexual experience with an actual person."
                     0:: "Do you know anyone I can practice with?"
                     1:: "Stay silent"
                     
@@ -75,7 +75,7 @@ OTHER: IsAtHome() && perversion < Random(0, 30)*Random(0, 1)
                         Endif
                     Endif
                 Else
-                    "After I asked my <Actor.relationship> for advices, <Actor.he_or_she> was happy to give me some advices on how to improve my performance in bed. However, <Actor.he_or_she> also stressed that practice makes perfect and no amount of advices could replace actual sexual experience with an actual person."
+                    "After I asked my <Actor.relationship> for advice, <Actor.he_or_she> was happy to give me some advice on how to improve my performance in bed. However, <Actor.he_or_she> also stressed that practice makes perfect and no amount of advice could replace actual sexual experience with an actual person."
                     0:: "Can I practice with you?"
                     1:: "Stay silent"
                     

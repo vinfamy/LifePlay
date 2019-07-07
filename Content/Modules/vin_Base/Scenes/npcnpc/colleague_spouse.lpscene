@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: work
 WHEN: 17 - 21
-WHO: Actor = getSpecific(Colleague); If !Actor.isAsexual() && !Actor.hasRelationship(Dating, Spouses) && Random(20, 100) < Actor:rapportwithplayer && Random(0, 100) < Actor:age
+WHO: Actor = getSpecific(Colleague); If !Actor.isAsexual() && !Actor.isDating() && !Actor.hasRelationship(Dating, Spouses) && Random(20, 100) < Actor:rapportwithplayer && Random(0, 100) < Actor:age
 OTHER: none
 
     SceneStart()

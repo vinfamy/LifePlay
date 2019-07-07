@@ -195,7 +195,7 @@ OTHER: none
                 3:: Porn && perversion > 40 && Flirt > 1:: "Offer sex"
                 
                 If 2
-                    Player(Wink):: "Please, call me. I would love to meet in a more casual setting ... for your wise 'career advices' and get to know you in a more 'personal' level."
+                    Player(Wink):: "Please, call me. I would love to meet in a more casual setting ... for your wise 'career advice' and get to know you in a more 'personal' level."
                     perversion += 0.05
                     If Interested && Flirt*(Boss.peversion + attractiveness) > Random(0, 200)
                         "Making sure first that no-one else was around, <Boss.he_or_she> sneakily took my number."

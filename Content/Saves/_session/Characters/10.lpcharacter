@@ -3,40 +3,32 @@ INFO Is_Male: 100% true
 INFO Interested_In_Men: 100% false
 INFO Interested_In_Women: 100% true
 INFO Interested_In_Transgender: 100% false
-INFO First_Name: 100% Nathan
-INFO Last_Name: 100% S
+INFO First_Name: 100% Joshua
+INFO Last_Name: 100% R
 INFO Race: 100% Daz
 INFO Genital: 100% Penis
 
 // Morphs
-MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.037115
-MORPH Genesis8Female__CTRLBodybuilder: 100% 0.130009
-MORPH Genesis8Female__Trey: 100% 0.62799
-MORPH Genesis8Female__Ryu: 100% 0.189836
-MORPH Genesis8Female__Raj: 100% 0.308393
-MORPH Genesis8Female__Jin: 100% 0.449534
-MORPH Genesis8Female__Christopher: 100% 0.124303
-MORPH Genesis8Female__FBMHeavy: 100% 0.181469
-MORPH Genesis8FemaleEyelashes__Trey: 100% 0.62799
-MORPH Genesis8FemaleEyelashes__Ryu: 100% 0.189836
-MORPH Genesis8FemaleEyelashes__Raj: 100% 0.308393
-MORPH Genesis8FemaleEyelashes__Jin: 100% 0.449534
-MORPH Genesis8FemaleEyelashes__Christopher: 100% 0.124303
-MORPH XY__Penis length: 100% -0.102724
-MORPH XY__Plums size: 100% -0.167635
-MORPH XY__Penis size: 100% -0.05426
-MORPH Morley__CTRLFaceOlderHD: 100% 0.037115
-MORPH Morley__CTRLBodybuilder: 100% 0.130009
-MORPH Morley__FBMHeavy: 100% 0.181469
+MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.02109
+MORPH Genesis8Female__CTRLFitness: 100% 0.913468
+MORPH Genesis8Female__Nose Style Asian C: 100% 0.565642
+MORPH Genesis8Female__Jin: 100% 0.721292
+MORPH Genesis8Female__Christopher: 100% 0.544383
+MORPH Genesis8FemaleEyelashes__Jin: 100% 0.721292
+MORPH Genesis8FemaleEyelashes__Christopher: 100% 0.544383
+MORPH XY__Penis length: 100% -0.114164
+MORPH XY__Plums size: 100% -0.194896
+MORPH XY__Penis size: 100% -0.108017
+MORPH Soldier__CTRLFitness: 100% 0.913468
 SCALE X: 100% 1.0
 SCALE Y: 100% 1.0
 SCALE Z: 100% 1.0
 
 //Hair
-HAIR Hairstyle: 100% Morley
-HAIR Hair_Thickness: 100% 1.409534
-HAIR Hair_Color_R: 100% 0.2
-HAIR Hair_Color_G: 100% 0.005
+HAIR Hairstyle: 100% Soldier
+HAIR Hair_Thickness: 100% 1.524772
+HAIR Hair_Color_R: 100% 1.0
+HAIR Hair_Color_G: 100% 0.2
 HAIR Hair_Color_B: 100% 0.0
 HAIR Hair_Color_A: 100% 0.8
 
@@ -50,41 +42,41 @@ SKIN Eye_Color_R: 100% 0.0
 SKIN Eye_Color_G: 100% 0.0
 SKIN Eye_Color_B: 100% 0.0
 SKIN Eye_Color_A: 100% 1.0
-SKIN Skin_Color_R: 100% 0.83
-SKIN Skin_Color_G: 100% 0.62
-SKIN Skin_Color_B: 100% 0.53
+SKIN Skin_Color_R: 100% 0.73
+SKIN Skin_Color_G: 100% 0.48
+SKIN Skin_Color_B: 100% 0.33
 SKIN Skin_Color_A: 100% 1.0
 SKIN BHairColor_R: 100% 0.015
 SKIN BHairColor_G: 100% 0.003
 SKIN BHairColor_B: 100% 0.0
 SKIN BHairColor_A: 100% 0.8
-SKIN Skin_Roughness: 100% 0.655232
+SKIN Skin_Roughness: 100% 0.485488
 SKIN Skin_Oil: 100% 0.25
-SKIN Skin_Fresnel: 100% 0.926572
-SKIN Skin_Age: 100% 0.037115
+SKIN Skin_Fresnel: 100% 0.063631
+SKIN Skin_Age: 100% 0.02109
 SKIN Skin_Sagging: 100% 0.0
 SKIN Muscle_Tone: 100% 0.0
-SKIN BHairThickness: 100% 0.702673
-SKIN BHairstyle: 100% JPBH78-TorsoNG-04
-SKIN FHairstyle: 100% Facial_Hair__8_
+SKIN BHairThickness: 100% 0.566195
+SKIN BHairstyle: 100% JPBH78-TorsoNG-01
+SKIN FHairstyle: 100% Facial_Hair__28_
 
 // Stats
 STAT incest: 100% 0.0
-STAT age: 100% 34.11179
-STAT attractiveness: 100% 28.156376
-STAT cooking: 100% 23.978394
-STAT dance: 100% 95.037689
-STAT fitness: 100% 16.995758
-STAT intelligence: 100% 63.637196
-STAT interpersonal: 100% 82.409134
-STAT martial: 100% 11.288796
-STAT masochist: 100% -29.569382
-STAT muscle: 100% 83.242287
-STAT music: 100% 75.218971
-STAT perversion: 100% 54.750206
+STAT age: 100% 27.107273
+STAT attractiveness: 100% 33.063755
+STAT cooking: 100% 35.731071
+STAT dance: 100% 19.275492
+STAT fitness: 100% 99.026459
+STAT intelligence: 100% 3.543199
+STAT interpersonal: 100% 3.949095
+STAT martial: 100% 75.05722
+STAT masochist: 100% 4.281746
+STAT muscle: 100% 77.574997
+STAT music: 100% 97.561577
+STAT perversion: 100% 77.249283
 STAT pornfame: 100% 0.0
-STAT sneak: 100% 40.882595
+STAT sneak: 100% 15.729239
 STAT attractiontoplayer: 100% -100.0
-STAT rapportwithplayer: 100% -4.733701
-STAT arousal: 100% 68.095955
-STAT intoxication: 100% 60.631119
+STAT rapportwithplayer: 100% -5.0
+STAT arousal: 100% 100.0
+STAT intoxication: 100% 4.74868

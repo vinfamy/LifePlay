@@ -1,39 +1,37 @@
 // Information
-INFO Is_Male: 100% true
-INFO Interested_In_Men: 100% false
-INFO Interested_In_Women: 100% true
+INFO Is_Male: 100% false
+INFO Interested_In_Men: 100% true
+INFO Interested_In_Women: 100% false
 INFO Interested_In_Transgender: 100% false
-INFO First_Name: 100% Derrick
-INFO Last_Name: 100% Q
+INFO First_Name: 100% Shelby
+INFO Last_Name: 100% C
 INFO Race: 100% Daz
-INFO Genital: 100% Penis
+INFO Genital: 100% Vagina
 
 // Morphs
-MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.054721
-MORPH Genesis8Female__Trey: 100% 0.177272
-MORPH Genesis8Female__Ryu: 100% 0.992876
-MORPH Genesis8Female__Damien: 100% 0.019009
-MORPH Genesis8Female__FBMHeavy: 100% 0.178195
-MORPH Genesis8Female__FBMBodyTone: 100% 0.13488
-MORPH Genesis8Female__FBMBodySize: 100% 0.080349
-MORPH Genesis8FemaleEyelashes__Trey: 100% 0.177272
-MORPH Genesis8FemaleEyelashes__Ryu: 100% 0.992876
-MORPH Genesis8FemaleEyelashes__Damien: 100% 0.019009
-MORPH XY__Penis length: 100% -0.238144
-MORPH XY__Plums size: 100% -0.249789
-MORPH XY__Penis size: 100% -0.243774
-MORPH Landis__CTRLFaceOlderHD: 100% 0.054721
-MORPH Landis__FBMHeavy: 100% 0.178195
-MORPH Landis__FBMBodySize: 100% 0.080349
+MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.043594
+MORPH Genesis8Female__CTRLFitness: 100% 0.449717
+MORPH Genesis8Female__CTRLBodybuilder: 100% 0.57127
+MORPH Genesis8Female__Nose Style Asian C: 100% 0.819965
+MORPH Genesis8Female__Nhung Head: 100% 0.864198
+MORPH Genesis8Female__PBMNipplesSize: 100% 0.990295
+MORPH Genesis8Female__PBMBreastsUpwardSlope: 100% 0.755486
+MORPH Genesis8Female__PBMBreastsSmall: 100% 0.75045
+MORPH Genesis8Female__PBMAreolaePerk: 100% 0.673574
+MORPH Genesis8FemaleEyelashes__Nhung Head: 100% 0.864198
+MORPH GeorginaHair_72382__SCLPropagatingHead: 100% 0.1
+MORPH GeorginaHair_72382__CTRLFaceOlderHD: 100% 0.043594
+MORPH GeorginaHair_72382__CTRLFitness: 100% 0.449717
+MORPH GeorginaHair_72382__CTRLBodybuilder: 100% 0.57127
 SCALE X: 100% 1.0
 SCALE Y: 100% 1.0
 SCALE Z: 100% 1.0
 
 //Hair
-HAIR Hairstyle: 100% Landis
-HAIR Hair_Thickness: 100% 1.604022
-HAIR Hair_Color_R: 100% 0.6
-HAIR Hair_Color_G: 100% 0.2
+HAIR Hairstyle: 100% GeorginaHair_72382
+HAIR Hair_Thickness: 100% 1.387268
+HAIR Hair_Color_R: 100% 0.3
+HAIR Hair_Color_G: 100% 0.1
 HAIR Hair_Color_B: 100% 0.0
 HAIR Hair_Color_A: 100% 0.8
 
@@ -43,45 +41,44 @@ HAIR Brow_Color_B: 100% 0.0
 HAIR Brow_Color_A: 100% 1.0
 
 // Skin
-SKIN Eye_Color_R: 100% 0.0
-SKIN Eye_Color_G: 100% 0.0
+SKIN Eye_Color_R: 100% 0.05
+SKIN Eye_Color_G: 100% 0.01
 SKIN Eye_Color_B: 100% 0.0
-SKIN Eye_Color_A: 100% 1.0
-SKIN Skin_Color_R: 100% 0.83
-SKIN Skin_Color_G: 100% 0.62
-SKIN Skin_Color_B: 100% 0.53
+SKIN Eye_Color_A: 100% 0.8
+SKIN Skin_Color_R: 100% 0.73
+SKIN Skin_Color_G: 100% 0.48
+SKIN Skin_Color_B: 100% 0.33
 SKIN Skin_Color_A: 100% 1.0
-SKIN BHairColor_R: 100% 0.026
-SKIN BHairColor_G: 100% 0.009
+SKIN BHairColor_R: 100% 0.015
+SKIN BHairColor_G: 100% 0.003
 SKIN BHairColor_B: 100% 0.0
 SKIN BHairColor_A: 100% 0.8
-SKIN Skin_Roughness: 100% 0.541978
+SKIN Skin_Roughness: 100% 0.496567
 SKIN Skin_Oil: 100% 0.25
-SKIN Skin_Fresnel: 100% 0.667318
-SKIN Skin_Age: 100% 0.054721
+SKIN Skin_Fresnel: 100% 0.089145
+SKIN Skin_Age: 100% 0.043594
 SKIN Skin_Sagging: 100% 0.0
 SKIN Muscle_Tone: 100% 0.0
-SKIN BHairThickness: 100% 0.963775
-SKIN BHairstyle: 100% NoHair
-SKIN FHairstyle: 100% Facial_Hair__6_
+SKIN BHairThickness: 100% 0.634907
+SKIN BHairstyle: 100% Pubes02
 
 // Stats
 STAT incest: 100% 0.0
-STAT age: 100% 28.190557
-STAT attractiveness: 100% 70.586258
-STAT cooking: 100% 18.53084
-STAT dance: 100% 38.932465
-STAT fitness: 100% 23.438215
-STAT intelligence: 100% 67.525253
-STAT interpersonal: 100% 88.299202
-STAT martial: 100% 79.320656
-STAT masochist: 100% 17.77092
-STAT muscle: 100% 74.364456
-STAT music: 100% 79.216896
-STAT perversion: 100% 19.336527
+STAT age: 100% 28.309883
+STAT attractiveness: 100% 88.729515
+STAT cooking: 100% 26.548052
+STAT dance: 100% 7.977539
+STAT fitness: 100% 45.759453
+STAT intelligence: 100% 35.963013
+STAT interpersonal: 100% 55.430771
+STAT martial: 100% 74.599442
+STAT masochist: 100% 82.000183
+STAT muscle: 100% 50.297558
+STAT music: 100% 6.219672
+STAT perversion: 100% 6.98912
 STAT pornfame: 100% 0.0
-STAT sneak: 100% 35.361797
-STAT attractiontoplayer: 100% -100.0
-STAT rapportwithplayer: 100% 32.471882
-STAT arousal: 100% 42.973114
-STAT intoxication: 100% 82.1894
+STAT sneak: 100% 62.871181
+STAT attractiontoplayer: 100% -9.234306
+STAT rapportwithplayer: 100% 45.095432
+STAT arousal: 100% 42.146065
+STAT intoxication: 100% 29.432049

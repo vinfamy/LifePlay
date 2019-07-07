@@ -17,14 +17,14 @@ If 0
     "It's none of my business. Besides, I don't want to come across as a know-it-all."
     masochist += Random(0, 0.5)
 Else
-    "I decided to give <Actor.him_or_her> some advices to improve <Actor.his_or_her> form and protect <Actor.himself_or_herself> from injuries."
+    "I decided to give <Actor.him_or_her> some advice to improve <Actor.his_or_her> form and protect <Actor.himself_or_herself> from injuries."
     masochist -= Random(0, 0.5)
     If Random(0, 100) < Actor:muscle
         Actor:rapportwithplayer -= Random(0, 5)
-        "However, <Actor.he_or_she> smirked at my advices and didn't seem to listen much."
+        "However, <Actor.he_or_she> smirked at my advice and didn't seem to listen much."
     Else
         Actor:rapportwithplayer += Random(0, 5)
-        "<Actor.He_or_She> thanked me for pointing out <Actor.his_or_her> bad form and followed my advices."
+        "<Actor.He_or_She> thanked me for pointing out <Actor.his_or_her> bad form and followed my advice."
     Endif
 Endif
 

@@ -2,7 +2,7 @@ WHAT: sleep, nap
 WHERE: home
 WHEN: 22 - 4
 WHO: none
-OTHER: Random(60, 500) < attractiveness && intelligence < Random(0, 100)*Random(0, 1)
+OTHER: !isWithCompanion() && Random(60, 500) < attractiveness && intelligence < Random(0, 100)*Random(0, 1)
 
     SceneStart()
     Actor = generatePersonTemporary()

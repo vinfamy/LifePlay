@@ -2,7 +2,7 @@ WHAT: go_to_the_bathroom
 WHERE: sports_centre
 WHEN: 0 - 24
 WHO: none
-OTHER: Random(70, 1000) < attractiveness
+OTHER: !isWithCompanion() && Random(70, 1000) < attractiveness
 
     SceneStart()
     Player.strip()

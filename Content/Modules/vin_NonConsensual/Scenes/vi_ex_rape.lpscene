@@ -2,7 +2,7 @@ WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 0 - 24
 WHO: Actor = getSpecific(ExDating); If Random(-100, -50) > Actor:masochist && Random(70, 200) < Actor:martial
-OTHER: isAtHome()
+OTHER: !isWithCompanion() && isAtHome()
 
     SceneStart()
     Actor.dress()

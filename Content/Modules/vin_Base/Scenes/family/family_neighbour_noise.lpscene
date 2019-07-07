@@ -10,9 +10,9 @@ OTHER: isAtHome()
     Actor.show(2)
     Actor(Angry):: "Excuse me ..."
     "It's my neighbour <Actor.name>. I wonder what <Actor.he_or_she> wants so late in the day."
-    Actor(Angry):: "Could you please tune down the music? I can't sleep. I swear - you do this every night!"
+    Actor(Angry):: "Could you please turn down the music? I can't sleep. I swear - you do this every night!"
     "It's not my music, but it's my <Actor2.relationship> <Actor2.name>, who has a pair of hi-tech loudspeakers."
-    0:: "Tell <Actor2.name> to tune down the music"
+    0:: "Tell <Actor2.name> to turn down the music"
     1:: "Defend <Actor2.name>"
 
     If 0

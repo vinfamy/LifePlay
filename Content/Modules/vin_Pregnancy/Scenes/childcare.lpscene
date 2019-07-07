@@ -276,11 +276,11 @@ OTHER: Random(0, 100) < 15 || [WHAT == childcare && Random(0, 100) < 50]
         Endif
     Elseif scene == 174 // loud music
         "<Actor.name> is playing extremely loud music. Worse still, the songs are all teen pop trash."
-        0:: "Tell <Actor.him_or_her> to tune it down"
+        0:: "Tell <Actor.him_or_her> to turn it down"
         1:: "Be cool"
         
         If 0
-            Player(Angry):: "Could you please tune the volume down? Do you want the whole neighborhood to complain about us?"
+            Player(Angry):: "Could you please turn the volume down? Do you want the whole neighborhood to complain about us?"
             Actor:rapportwithplayer -= Random(0, 0.5)
         Else
             Actor:music += Random(0, 0.5)
@@ -288,7 +288,7 @@ OTHER: Random(0, 100) < 15 || [WHAT == childcare && Random(0, 100) < 50]
     Elseif scene == 175 // dating
         Actor:: "<Player.Dad_or_Mom>, there's this <Actor.pretty_or_handsome> <Actor.girl_or_guy> at school ..."
         0:: "You're too young to be dating ..."
-        1:: "Give advices"
+        1:: "Give advice"
         
         If 0
             Actor:rapportwithplayer -= Random(0, 0.5)

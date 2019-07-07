@@ -37,13 +37,13 @@ OTHER: !Player.isDating() && IsAtHome() && arousal > 30 && perversion > 70
         Else
             Player(Embarassed):: "That's okay ... I guess you were just being curious. Sorry for doing it so loud!"
             Actor2(Embarassed):: "Compared to me, you are so much more experienced in bed. I have no idea what I'm doing. I'm embarassed of my terrible skills in the bedroom and wish I could be as good as you"
-            0:: "Give some advices"
+            0:: "Give some advice"
             1:: "Suggest that <Actor2.he_or_she> practice with <Actor.name>"
             2:: "Suggest that <Actor2.he_or_she> practice with me"
             3:: "End the conversation"
             
             If 0
-                "I decided to give my <Actor2.relationship> some advices. Surely <Actor2.he_or_she> should feel more comfortable talking about such sensitive topics with me than with some random sexologist."
+                "I decided to give my <Actor2.relationship> some advice. Surely <Actor2.he_or_she> should feel more comfortable talking about such sensitive topics with me than with some random sexologist."
                 Actor2:incest += Random(0, 1)
             Elseif 1
                 Player(Embarassed):: "Well, if you really don't have anyone to practice with, I guess you could try it out with my fuckbuddy that you saw earlier ..."                        
