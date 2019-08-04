@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: home
 WHEN: 17 - 23
-WHO: Dating = getRelative(Cousin, Sibling, Child, StepSibling, StepChild); Bull = getCreature(); If Bull.isMale() && !Dating.isMale() && !Dating.isPregnant()
+WHO: Dating = getRelative(Cousin, Sibling, Child, StepSibling, StepChild); Bull = getCreature(); If Bull.isCreatureType(Dog) && Bull.isMale() && !Dating.isMale() && !Dating.isPregnant()
 OTHER: !isWithCompanion() && perversion > Random(0, 100)
 
     SceneStart()

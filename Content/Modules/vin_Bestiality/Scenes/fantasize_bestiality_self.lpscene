@@ -2,14 +2,17 @@ WHAT: masturbate, sleep, sleep_hotel, nap, nap_hotel
 WHERE: all
 WHEN: 0 - 24
 WHO: Actor2 = getCreature(); If Actor2.isMale()
-OTHER: !Player.isMale() && Random(0, 150) < perversion
+OTHER: !Player.isMale() && Random(0, 75) < perversion
 
     SceneStart()
     Actor2.show(3)
+    If Actor2.isCreatureType(Horse)
+        setBackgroundCustom(stable)
+    Endif
     blockPregnancy()
     "Sometimes I cannot help but notice how well-endowed <Actor2.name> is and fantasize about <Actor2.him_or_her> inside me for a wild passionate session ..."
     0:: "Fantasize about sex with <Actor2.name>"
-    1:: "Might as well fantasize about a threesome"
+    1:: Actor2.isCreatureType(Dog):: "Might as well fantasize about a threesome"
     2:: "Resist the urge"
     
     If 0

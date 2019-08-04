@@ -43,7 +43,7 @@ OTHER: !Player.isMale() && Random(1, 100) < pornfame
             setBackground(theatre)
             setBackground(toilets)
         endRandom
-        If Random(0, 100) < 60
+        If Random(0, 100) < 60 || Actor.isCreatureType(Horse)
             Sex(Actor, Player)
         Else
             Actor3 = generatePersonTemporary()

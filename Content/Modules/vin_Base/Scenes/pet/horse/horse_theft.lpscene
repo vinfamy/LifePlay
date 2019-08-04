@@ -1,0 +1,64 @@
+WHAT: sleep, nap
+WHERE: home
+WHEN: 22 - 5
+WHO: Actor = getCreature(); If Actor.isCreatureType(Horse)
+OTHER: Random(0, 150)*Random(0, 1)*Random(0, 1) > intelligence + Actor:intelligence
+
+    SceneStart()
+    "What's that sound?"
+    Ransom = true
+    "Oh no, someone's trying to steal my horse!"
+    setBackgroundCustom(stable)
+    If Random(0, 100) < fitness
+        Player(Angry):: "Hey you! What do you think you're doing? Stop!"
+        0:: "Chase and fight the thief"
+        1:: "It's too dangerous"
+        
+        If 0
+            "You're not taking <Actor.name> without walking over my dead body!"
+            If Random(0, 100) < martial
+                "The horse thief certainly didn't expect to be confronted by a crazy horse owner. I was more than a match for him in a fight. The bastard eventually got knocked down."
+                "The cops arrived to arrest him, I'm officially a hero. Better still, my heroic act was witnessed by my horse."
+                Actor:rapportwithplayer += Random(0, 10)
+                Actor:attractiontoplayer += Random(0, 10)
+                Ransom = false
+            Else
+                Player(Pain):: "Ahhhhhhhh ...."
+                "Unfortunately, the horse thief had a knife and stabbed me before disappearing with my horse into the night."
+                Player:energy -= 100
+                Player:fitness -= Random(0, 10)
+                "A neighbour found me in a pool of blood and took me to the hospital ... "
+                setBackground(hospital)
+                "... where I eventually recovered"
+            Endif
+        Else
+            "The horse thief looks dangerous. Let's not risk my life over a horse ..."
+        Endif
+    Else
+        "Unfortunately, despite running as fast as I could, by the time I made it from my bedroom to the stable, the thief was long gone, taking <Actor.name> with him."
+    Endif
+    
+    If Ransom
+        setBackground(home)
+        "A few days later, I received a ransom note demanding a huge sum of money to get my horse back! The thief even threatened to kill <Actor.name> if I dare call the cops."
+        0:: "Pay up"
+        1:: "Call the cops"
+        
+        If 0
+            "I can't risk the life of my faithful equine companion ... Let's just accept the kidnapper's demand."
+            money -= Random(1000, 4000)
+            "He honored his agreement, and I woke up one morning with <Actor.name> back in the stable."
+        Else
+            "I don't have that much money. I have no choice but to call the cops."
+            If Random(0, 100) < 50
+                "Luckily, the cops did their job and retrieve <Actor.name> and arrest the thief before he could do any harm to my horse."
+                "At least my tax money pays off ..."
+            Else
+                "It turns out to be a disastrous decision. The cops were far from discreet in their investigation and the thief got wind of the fact I reported the incident to cops. <Actor.name>'s dead body was found a few days later and they never caught the thief who did it."
+                Actor.deletePerson()
+            Endif
+        Endif
+    Endif
+    
+    SceneEnd()
+    timeout(2000, horse_theft)

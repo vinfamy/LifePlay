@@ -2,7 +2,7 @@ WHAT: all
 WHERE: home
 WHEN: 0-24
 WHO: none
-OTHER: Random(10, 100) < perversion
+OTHER: Random(0, 70) < perversion
 
     SceneStart()
     Actor2 = generatePersonTemporary()
@@ -21,7 +21,7 @@ OTHER: Random(10, 100) < perversion
         "My curiousity got the better of me and I clicked on the popup."
         perversion += Random(0, 2)
         arousal += Random(25, 50)
-        If Random(0, 100) < 60
+        If Random(0, 100) < 60 || Actor.isCreatureType(Horse)
             Sex(Actor, Actor2)
         Else
             Actor3 = generatePersonTemporary()

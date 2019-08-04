@@ -1,0 +1,32 @@
+WHAT: all
+WHERE: all, -home, -work
+WHEN: 0-24
+WHO: Actor = getCompanionCreature(); If Actor.isCreatureType(Horse) && Random(50, 200) < Actor:martial
+OTHER: none
+
+    SceneStart()
+    Actor2 = generatePersonTemporary()
+    Actor2.dress()
+    Actor2.show(2)
+    Actor2(Sarcastic):: "Damn, is that a horse? Looks like someone is stuck in the medieval age."
+    "What a <Actor2.asshole_or_bitch>? Seriously, what's <Actor2.his_or_her> problem?"
+    "<Actor.name> responded in kind ... by kicking <Actor2.his_or_her> backside. The <Actor2.asshole_or_bitch> literally flew away with the force of the kick"
+    Actor2(Pain):: "Ahhhhhhhhhhhhhhhh ..."
+    Actor2(Furious):: "Fuck this horse! How dare you kick me? You there, how could you let your stupid horse kick people like this? I'm gonna get myself a personal injury lawyer."
+    0:: "Apologize"
+    1:: "Defend <Actor.name>"
+    
+    If 0
+        Player(Scared):: "Oh my god! I'm so sorry."
+        Player(Angry):: "Bad horse! I thought I already trained you not to kick people."
+        masochist += Random(0, 2)
+        Actor:rapportwithplayer -= Random(0, 2)
+        Actor:attractiontoplayer -= Random(0, 2)        
+    Else
+        Player(Angry):: "You deserved that! You provoked <Actor.him_or_her>! Fuck off!"
+        masochist -= Random(0, 1)
+        Actor:rapportwithplayer += Random(0, 2)
+        Actor:attractiontoplayer += Random(0, 2)
+    Endif
+    SceneEnd()
+    timeout(100, horse_kicks)

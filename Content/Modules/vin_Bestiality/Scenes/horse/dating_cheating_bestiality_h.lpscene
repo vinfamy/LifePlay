@@ -1,0 +1,130 @@
+WHAT: all
+WHERE: home
+WHEN: 0 - 24
+WHO: Dating = getSpecific(Dating); DatingAffair = getCreature(); If DatingAffair.isCreatureType(Horse) && !Dating.isMale() && Random(0, 3000) < Dating:perversion - 2*Dating:attractiontoplayer
+OTHER: isModEnabled(vin_NTR) && isAtHome() && isAtDatingHome()
+
+    SceneStart()
+    "Wait, what's that sound coming from the stable? Someone is ... moaning? Let's rush there now, maybe <DatingAffair.name> kicked someone?"
+    setBackgroundCustom(stable)
+    "What the fuck!"
+    Player.hide()
+    Sex(DatingAffair, Dating)
+    Player.show(0)
+    Dating.show(2)
+    DatingAffair.show(3)
+
+    "Oh no! My <Dating.boyfriend_or_girlfriend> is cheating on me ... with my own horse! I don't know how to feel about this ..."
+    0:: "I'm heartbroken"
+    1:: "I'm turned on"
+
+    If 0
+        "That <Dating.bastard_or_bitch> betrayed my trust for <Dating.him_or_her> and it broke my heart. All this time, I didn't realize how much of a degenerate <Dating.he_or_she>, having sex with an animal no less. It didn't look like <Dating.his_or_her> first time tasting the bestial pleasure either ..."
+        cuckold = false
+        mood -= Random(50, 100)
+    Else
+        "I felt strangely aroused by the image of my <Dating.boyfriend_or_girlfriend> being fucked so savagely by an animal ... the animal that I raise no less."
+        perversion += Random(0, 2)
+        cuckold = true
+    Endif
+
+    "What should I do?"
+    0:: "Stay silent"
+    1:: "Catch <Dating.him_or_her> red-handed"
+
+    If 0
+        "I decided to take no action. I quietly left and <Dating.name> never found out that I caught <Dating.him_or_her> in the unspeakable act."
+    Else
+        "I made my presence known to the adulterer and <Dating.his_or_her> beast lover ..."
+        Dating(Shocked):: "<Player.name>? Oh no ... Please, let me explain. This isn't what it looks like ..."
+        "<Dating.name> went on to make plenty of excuses for the affair, none of which were particularly convincing."
+        0:: "Dump <Dating.his_or_her> ass"
+        1:: "Forgive <Dating.him_or_her>"
+        2:: cuckold:: "Admit I enjoyed watching"
+        3:: "Kill both of them!"
+        
+        If 0
+            Player(Angry):: "Do you take me for a fool? Our relationship is over, you cheating degenerate <Dating.asshole_or_whore>. Bye!"            
+            If isPlayerMarried()
+                Player(Sad):: "I'm afraid this marriage isn't working ..."
+                "And just like that, I divorced that cheating <Dating.husband_or_wife> of mine ..."
+                mood -= 100
+                Divorce()
+                LoseDating()
+                If Player.isDominantSex(Dating) && money > 1000
+                    "Unfortunately for me, the court awarded half of my hard-earned fortune to <Dating.name> ... What a disaster of a marriage that was ..."
+                    money -= money*0.5
+                Endif        
+            Else
+                "And just like that, we broke up. A <Dating.boyfriend_or_girlfriend> like that was good riddance!"
+                LoseDating()
+                mood -= 50
+            Endif
+            blockContact(Dating)
+        Elseif 1
+            Player(Sad):: "I guess after everything we've been through, you deserve a final chance ..."
+            "I decided to forgive <Dating.him_or_her> and tried to save this relationship. I don't know if this trust is misplaced or not ..."
+            Dating:attractiontoplayer += Random(0, 30)
+        Elseif 2
+            Player(Flirty):: "I must admit ... I kinda enjoyed watching that ... I didn't know you harbor such bestial desires."
+            perversion += Random(0, 1)
+            Dating(Flirty):: "Oh, you did? You naughty <Player.boy_or_girl>! Come here, babe, I still have enough energy for another round!"
+            "I could never imagine that I would get sloppy second with my <Dating.boyfriend_or_girlfriend> from my own horse."
+            DatingAffair.hide()
+            Sex(Player, Dating)
+            Dating.show(2)
+            If !Player.isMale()
+                DatingAffair.show(3)
+                "Seeming embarrased by the whole situation, my horse slowly walked away."
+                0:: "Fuck the horse too"
+                1:: "Let <DatingAffair.him_or_her> leave"
+                
+                If 0
+                   Player(Flirty):: "<Dating.name>, you know what? You seemed to really enjoy yourself fucking a horse. Let me see for myself what the fuss is all about ..."
+                   Dating(Flirty):: "Wow, darling, you're full of surprises!"
+                   Sex(DatingAffair, Player)
+                   perversion += Random(0, 1)
+                Endif
+            Endif
+            Dating.show(2)
+            Player(Flirty):: "Wow, that was amazing, baby. I guess I could forgive you then if every night is like this ..."
+            Dating(Flirty):: "Oh baby, you're the best!"
+        Else
+            "I don't care about the consequences. I'm not getting humiliated by my own horse like this without getting revenge."
+            Player(Furious):: "Die, <Dating.scum_or_slut>!"
+            "Pow!"
+            Dating.hide()
+            Player(Furious):: "You fucked my <Dating.boyfriend_or_girlfriend>! I raised you. Die, animal!"
+            "Pow!"
+            DatingAffair.hide()
+            Dating.deletePerson()
+            DatingAffair.deletePerson()
+            
+            "The deed is done. I got my revenge in the form of two murders: one of a human, and one of an animal ..."
+            
+            "Sure enough, the cops promptly arrived at the scene."
+            "'Hands in the air, now!'"
+            0:: "Run"
+            1:: "Surrender"
+            
+            If 0
+                If Random(0, 100) < fitness
+                    "I managed to lose the cops. Phew, that was close."
+                Else
+                    Player(Angry):: "You're not taking me alive."
+                    "Pow!"
+                    Player.hide()
+                    "A cop fired his gun. It was a perfect shot ..."
+                    followUp(death)
+                Endif
+            Else
+                Player(Scared):: "Please, don't shoot!"
+                "I put my hands up and surrendered to the overwhelming number of cops."
+                sentence => 5125
+                followUp(imprisoned)
+            Endif
+        Endif
+    Endif
+
+    timeout(500, dating_cheating_bestiality_h)
+    SceneEnd()

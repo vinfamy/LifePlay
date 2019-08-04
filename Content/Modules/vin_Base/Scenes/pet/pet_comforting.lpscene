@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: home
 WHEN: 0-24
-WHO: Actor = getCreature(); If Random(0, 200) < Actor:interpersonal 
+WHO: Actor = getCreature(); If Actor.isCreatureType(Dog) && Random(0, 200) < Actor:interpersonal 
 OTHER: isAtHome()
 
     SceneStart()

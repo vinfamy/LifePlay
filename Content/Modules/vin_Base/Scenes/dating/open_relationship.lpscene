@@ -1,8 +1,8 @@
 WHAT: all, -go_to_the_bathroom
 WHERE: all, -toilets, -PC, -office
 WHEN: 0-24
-WHO: Companion = getCompanion(); If CurrentCompanion.isDating() && CurrentCompanion:attractiontoplayer > 20
-OTHER: !OpenRelationship() && Random(50, 100) < perversion
+WHO: Companion = getCompanion(); If CurrentCompanion.isDating() && CurrentCompanion:attractiontoplayer > 10
+OTHER: !OpenRelationship() && Random(0, 100) < perversion
 
     SceneStart()
     CurrentCompanion.show(2)
@@ -12,7 +12,7 @@ OTHER: !OpenRelationship() && Random(50, 100) < perversion
     1:: "No"
     
     If 0
-        If Random(100, 300) < CurrentCompanion:attractiontoplayer + CurrentCompanion:perversion + CurrentCompanion:masochist
+        If Random(50, 200) < CurrentCompanion:attractiontoplayer + CurrentCompanion:perversion + CurrentCompanion:masochist
             CurrentCompanion(Flirty):: "You know what, honey? I have been feeling the same. Let's just make sure we tell each other all the dirty details!"
             startOpenRelationship()
         Else
@@ -22,7 +22,5 @@ OTHER: !OpenRelationship() && Random(50, 100) < perversion
     Else
         "Nope, it may sound nice in theory but jealousy would kill our relationship."
     Endif
-    
-    endDate()
     SceneEnd()
     timeout(300, open_relationship)

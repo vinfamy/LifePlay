@@ -1,0 +1,55 @@
+WHAT: all, -pickpocket, -go_to_the_bathroom
+WHERE: all, -fraternity, -work
+WHEN: 0-24
+WHO: none
+OTHER: isWithCompanionCreature(); If CurrentCompanion.isCreatureType(Horse) && Random(0, 150) < CurrentCompanion:attractiveness
+
+
+    New_Person = generatePersonTemporary()
+    sceneStart()
+    New_Person.dress()
+    If WHERE == home
+        If isAtHome()
+            New_Person.addNeighbour()
+        Else
+            New_Person.addDatingFriend()
+        Endif
+    Elseif WHERE == university:work || WHERE == university:school
+        New_Person.setDifferentMajor()
+    Endif
+
+    New_Person.show(2)
+    New_Person(Excited):: "That's a beautiful horse. Can I rub its neck for a bit?"
+    0:: "Of course"
+    1:: "No, sorry"
+    
+    If 0
+        New_Person(Happy):: "Thank you!"
+        New_Person(Happy):: "What's <CurrentCompanion.his_or_her> name?"
+        0:: "Stay and chat"
+        1:: "End the conversation"
+        
+        If 0
+            Player(Happy):: "<CurrentCompanion.He_or_She> is <CurrentCompanion.name>. You seem to really love horses. I do too ... I'm <Player.name> by the way."
+            "And so I continued to engage in a friendly conversation with this chance encounter. <New_Person.He_or_She> introduced <New_Person.himself_or_herself> as <New_Person.name>. <New_Person.He_or_She> is clearly a horse enthusiast and just seems like an interesting person overall."
+            New_Person:rapportwithplayer += Random(0, 30)
+            New_Person:attractiontoplayer += Random(0, 30)
+            "Maybe we should exchange contacts so that we can hang out another day. We have got along very well so far."
+            0:: "Exchange numbers"
+            1:: "Maybe not"
+            
+            If 0
+                "We agreed to exchange contacts so that we can meet again. It's amazing how many new friends you can make by just walking around leading your beautiful horse."
+                New_Person.makePermanent()
+                exchangeContact(New_Person)
+            Endif
+        Else
+            Player(Happy):: "<CurrentCompanion.He_or_She> is <CurrentCompanion.name>. Sorry, but we've got to head back now."            
+        Endif
+    Else
+        New_Person(Sad):: "That's a shame ... I hope I didn't come across as weird or anything. I'm just too excited about horses sometimes."
+    Endif
+
+    sceneEnd()
+
+    timeout(4, meet_new_person_horse)

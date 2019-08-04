@@ -1,0 +1,27 @@
+WHAT: all, -sleep, -nap
+WHERE: all, -work
+WHEN: 6 - 18
+WHO: Actor = getCreature(); If Actor.isCreatureType(Horse)
+OTHER: none
+
+    SceneStart()
+    setBackgroundCustom(stable)
+    Actor.show(2)
+    "I'm training my horse today. Unfortunately, <Actor.name> seems more stubborn than usual and is having none of my instructions"
+    0:: "Be more assertive"
+    1:: "Show more patience"
+    
+    If 0
+        "I start raising my voice more, making sure my horse know who's in charge here."
+        masochist -= Random(0, 2)
+        Actor:attractiontoplayer -= Random(0, 2)
+        Actor:rapportwithplayer -= Random(0, 2)
+    Else
+        "It's just one of those days. Let's just show some more patience and be gentle and <Actor.he_or_she> should eventually start listening to my instructions."
+        masochist += Random(0, 2)
+        Actor:attractiontoplayer += Random(0, 2)
+        Actor:rapportwithplayer += Random(0, 2)
+    Endif
+    
+    SceneEnd()
+    timeout(200, horse_training)

@@ -2,9 +2,12 @@ WHAT: masturbate, sleep, sleep_hotel, nap, nap_hotel
 WHERE: all
 WHEN: 0 - 24
 WHO: Actor2 = getCreature(); If Actor2.isMale()
-OTHER: Random(0, 200) < perversion && arousal > 10
+OTHER: Random(0, 100) < perversion
 
     SceneStart()
+    If Actor2.isCreatureType(Horse)
+        setBackgroundCustom(stable)
+    Endif
     Actor2.show(3)
     "Sometimes I cannot help but notice how well-endowed <Actor2.name> is and fantasize about <Actor2.him_or_her> inside a woman I know ..."
     0:: "Just some harmless fantasies"
@@ -12,52 +15,67 @@ OTHER: Random(0, 200) < perversion && arousal > 10
     
     If 0
         blockPregnancy()
-        "Who is the lucky lady being hummed by my dog in my wild fantasy?"
+        "Who is the lucky lady being fucked in my wild fantasy?"
         selectNPC()
         Actor = getSelectedNPC()
-        While !Actor.isValid() || Actor.isMale() || Actor.isCreature()
-            "Nope, that's not it, my fantasy involves <Actor2.name> knotting a human woman."
+        count = 0
+        While count < 3 && [!Actor.isValid() || Actor.isMale() || Actor.isCreature()]
+            "Nope, that's not it, my fantasy involves <Actor2.name> fucking a human woman."
             selectNPC()
             Actor = getSelectedNPC()
+            count += 1
         Endwhile
         
-        Actor.dress()
-        Actor.show(2)
-        "The idea of <Actor.name> having sex with an animal really turns me on."
-        
-        0:: "Fantasize about sex between <Actor.name> and <Actor2.name>"
-        1:: "Might as well fantasize about a threesome"
-        2:: "Resist the urge"
-        
-        If 0
-            If Actor.isDating()
-                "Maybe I'm a bit of a cuck after all, fantasizing about my <Actor.boyfriend_or_girlfriend> having sex with my own pet."
-                masochist += Random(0, 2)
-            Endif
-            SexNoAffair(Actor2, Actor)
-            perversion += Random(0, 1)
-            arousal += Random(25, 50)
-        Elseif 1
-            "Who is the other lucky lady being hummed by my dog in my wild fantasy?"
-            0:: !Player.IsMale():: "Me!"
-            1:: "Some girl I know"
+        If count == 3
+            "I can't think of anyone right now."
+        Else
+            Actor.dress()
+            Actor.show(2)
+            "The idea of <Actor.name> having sex with an animal really turns me on."
+            
+            0:: "Fantasize about sex between <Actor.name> and <Actor2.name>"
+            1:: Actor2.isCreatureType(Dog):: "Might as well fantasize about a threesome"
+            2:: "Resist the urge"
             
             If 0
-                Actor3 = Player
-            Else
-                "Who am I thinking about?"
-                selectNPC()
-                Actor3 = getSelectedNPC()
-                While !Actor3.isValid() || Actor3.isMale() || Actor3.isCreature()
-                    "Nope, that's not it, my fantasy involves <Actor2.name> knotting a human woman."
+                If Actor.isDating()
+                    "Maybe I'm a bit of a cuck after all, fantasizing about my <Actor.boyfriend_or_girlfriend> having sex with my own pet."
+                    masochist += Random(0, 2)
+                Endif
+                SexNoAffair(Actor2, Actor)
+                perversion += Random(0, 1)
+                arousal += Random(25, 50)
+            Elseif 1
+                count = 0
+                "Who is the other lucky lady being fucked by my pet in my wild fantasy?"
+                0:: !Player.IsMale():: "Me!"
+                1:: "Some girl I know"
+                
+                If 0
+                    Actor3 = Player
+                Else
+                    "Who am I thinking about?"
                     selectNPC()
                     Actor3 = getSelectedNPC()
-                Endwhile
+                    While count < 3 && [!Actor3.isValid() || Actor3.isMale() || Actor3.isCreature()]
+                        "Nope, that's not it, my fantasy involves <Actor2.name> fucking a human woman."
+                        selectNPC()
+                        Actor3 = getSelectedNPC()
+                        count += 1
+                    Endwhile
+                Endif
+                
+                If count == 3
+                    "Can't think of anyone else right now."
+                    SexNoAffair(Actor2, Actor)
+                    perversion += Random(0, 1)
+                    arousal += Random(25, 50)                    
+                Else
+                    SexNoAffair(Actor2, Actor, Actor3)
+                    perversion += Random(0, 1)
+                    arousal += Random(25, 50)
+                Endif
             Endif
-            
-            SexNoAffair(Actor2, Actor, Actor3)
-            perversion += Random(0, 1)
-            arousal += Random(25, 50)
         Endif
     Endif
     SceneEnd()

@@ -1,0 +1,61 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getCreature(); If Actor.isCreatureType(Horse) && Random(0, 100)*Random(0, 1) > Actor:fitness
+OTHER: none
+
+    SceneStart()
+    setBackgroundCustom(stable)
+    Actor.show(2)
+    Random
+        "<Actor.name> has been suffering from a serious colic. I really need to call the vet to come over and have a look."
+        "<Actor.name> has been suffering from a severe degenerative joint. I really need to call the vet to come over and have a look."
+        "<Actor.name> has been suffering from arthritis. I really need to call the vet to come over and have a look."
+        "<Actor.name> has been suffering from laminitis. I really need to call the vet to come over and have a look."
+        "<Actor.name> has been suffering from encephalomyelitis. I really need to call the vet to come over and have a look."
+        "<Actor.name> has been suffering from a virus. I really need to call the vet to come over and have a look."
+        "<Actor.name> has been suffering from potomac fever. I really need to call the vet to come over and have a look."
+        "<Actor.name> has been suffering from azoturia. I really need to call the vet to come over and have a look."
+        "<Actor.name> has been suffering from botulism. I really need to call the vet to come over and have a look."
+    endRandom
+    "What should I do about this?"
+    0:: "Call the vet over"
+    1:: "Hope it goes away on its own"
+    
+    If 0
+        "This may be expensive but <Actor.name>'s wellbeing is more important."
+        Actor:fitness += Random(0, 5)
+        Actor:attractiontoplayer += Random(0, 10)
+        Actor:rapportwithplayer += Random(0, 10)
+        Actor.hide()
+        Actor2 = generatePersonTemporary()
+        Actor2.dress()
+        Actor2.show(2)
+        Actor2(Happy):: "That's it. Your horse should be fine now. Now about my compensation ..."
+        "What the hell! That's insane! My own medical bill isn't this expensive."
+        0:: "Suck it up and pay"
+        1:: "Suck the vet instead"
+        
+        If 0
+            Player(Sad):: "Alright ... such is the life of a horse owner. I might as well sign over my paycheck to the vets at this point."
+            money -= Random(200, 500)
+        Else
+            Player(Flirty):: "Maybe we could come up with something of an arrangement?"
+            If Random(0, 100) < attractiveness
+                Actor2(Flirty):: "Well, maybe there could be some alternative payment - only for a pretty equine lover like you."
+                Sex(Actor2, Player)
+                perversion += Random(0, 2)
+            Else
+                Actor2(Angry):: "I have no idea what you're talking about. I'm a professional and medical treatments for horses are supposed to be expensive."
+                "At this point, I have no other choice left but to pay up"
+                money -= Random(200, 500)
+            Endif
+        Endif
+    Else
+        "A vet visit is never cheap. I'm sure <Actor.name> can get better without any intervention."
+        Actor:fitness -= Random(0, 5)
+        Actor:attractiontoplayer -= Random(0, 10)
+        Actor:rapportwithplayer -= Random(0, 10)
+    Endif
+    SceneEnd()
+    timeout(3000, horse_medical_bill)

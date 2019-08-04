@@ -1,8 +1,8 @@
 WHAT: all
 WHERE: all
 WHEN: 19 - 24
-WHO: Dating = getCreature(); If Dating.isMale()
-OTHER: Random(65, 100) < perversion
+WHO: Dating = getCreature(); If Dating.isCreatureType(Dog) && Dating.isMale()
+OTHER: Random(45, 80) < perversion
 
     SceneStart()
     Dating.show(4)
@@ -26,7 +26,7 @@ OTHER: Random(65, 100) < perversion
                 "I can't quite decide on who to invite."
             Elseif Guest1:perversion > 50 && !Guest1.isMale()
                 Guest1.hide()
-                Guest1_SO = generateCreatureTemporary()
+                Guest1_SO = generateCreatureTemporary(dog)
                 If Guest1_SO.isValid()
                     "<Guest1.name> happily accepted my invitation and will bring her dog <Guest1_SO.name> along."
                 Else
@@ -46,7 +46,7 @@ OTHER: Random(65, 100) < perversion
                 "I can't quite decide on who to invite."
             Elseif Guest2:perversion > 50 && !Guest2.isMale()
                 Guest2.hide()
-                Guest2_SO = generateCreatureTemporary()
+                Guest2_SO = generateCreatureTemporary(dog)
                 If Guest2_SO.isValid()
                     "<Guest2.name> happily accepted my invitation and will bring <Guest2.his_or_her> dog <Guest2_SO.name> along."
                 Else
@@ -66,7 +66,7 @@ OTHER: Random(65, 100) < perversion
                 "I can't quite decide on who to invite."
             Elseif Guest3:perversion > 50 && !Guest3.isMale()
                 Guest3.hide()
-                Guest3_SO = generateCreatureTemporary()
+                Guest3_SO = generateCreatureTemporary(dog)
                 If Guest3_SO.isValid()
                     "<Guest3.name> happily accepted my invitation and will bring <Guest3.his_or_her> dog <Guest3_SO.name> along."
                 Else
@@ -86,7 +86,7 @@ OTHER: Random(65, 100) < perversion
                 Guest1 = generatePersonTemporary()
             Endwhile
             
-            Guest1_SO = generateCreatureTemporary()
+            Guest1_SO = generateCreatureTemporary(dog)
             "As I couldn't decide on anyone myself for the first couple, I went ahead and invited a couple that responded to my ad, <Guest1.name> and her dog <Guest1_SO.name>."
         Endif
 
@@ -96,7 +96,7 @@ OTHER: Random(65, 100) < perversion
                 Guest2 = generatePersonTemporary()
             Endwhile
             
-            Guest2_SO = generateCreatureTemporary()
+            Guest2_SO = generateCreatureTemporary(dog)
             "As I couldn't decide on anyone myself for the second couple, I went ahead and invited a couple that responded to my ad, <Guest2.name> and her dog <Guest2_SO.name>."
         Endif
         
@@ -106,7 +106,7 @@ OTHER: Random(65, 100) < perversion
                 Guest3 = generatePersonTemporary()
             Endwhile
             
-            Guest3_SO = generateCreatureTemporary()
+            Guest3_SO = generateCreatureTemporary(dog)
             "As I couldn't decide on anyone myself for the third couple, I went ahead and invited a couple that responded to my ad, <Guest3.name> and her dog <Guest3_SO.name>."
         Endif            
 

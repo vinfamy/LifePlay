@@ -1,0 +1,31 @@
+WHAT: all, -sleep, -nap
+WHERE: all
+WHEN: 6 - 12
+WHO: Actor = getCreature(); If Actor.isCreatureType(Horse)
+OTHER: none
+
+    SceneStart()
+    setBackgroundCustom(stable)
+    Actor.show(2)
+    "There's a horse show taking place today. Should I take <Actor.name> and participate?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "We went and had a fun time at the horse show. We weren't professional so didn't win anything but at least it was quality owner-horse bonding, despite some minor injuries suffered by both of us. I met and exchanged contacts with some cool fellow horse lovers too."
+        Actor:fitness -= Random(0, 5)
+        energy -= Random(25, 75)
+        Actor:attractiontoplayer += Random(0, 10)
+        Actor:rapportwithplayer += Random(0, 10)
+        count = 0
+        While count < 5
+            count += 1
+            Actor2 = generatePerson()
+            exchangeContact(Actor2)
+        Endwhile
+    Else
+        "Neither myself or my horse are in a condition for a horse show right now."
+    Endif
+    
+    SceneEnd()
+    timeout(500, horse_show)

@@ -7,15 +7,46 @@ OTHER: none
     SceneStart()
     "What type of pets am I thinking about adopting?"
     0:: "A dog"
-    1:: "(More animals in future updates)"
+    1:: "A horse"
     2:: "Actually, I'm not ready for the responsibility"
     
     If 2
         "Having a pet is a big commitment. I'm far too busy to take care of an animal right now."
+    Elseif 1
+        "I must keep in mind that a horse is much more expensive than a dog to adopt and to take care of."
+        choice = 0
+        While choice == 0
+            Actor = generateCreatureTemporary(Horse)
+            Actor.show(2)
+            "This particular horse is a <Actor.stallion_or_mare>."
+            If Actor.isMale()
+                "Being male, this horse obviously has a penis. This could cause some future embarassment because stallions sometimes get too ... excited."
+            Else
+                "Being female, this horse obviously has no penis. This could prevent some future embarassment because stallions sometimes get too ... excited."
+            Endif
+            "Should I adopt this horse?"
+            0:: "Look for another horse"
+            1:: "Adopt this one"
+            2:: "Actually, I'm not ready for a horse right now"
+        
+            If 0
+                Actor.delete()
+            Elseif 1
+                Actor.makePermanent()
+                "I completed all the paperwork and paid the adoption fees. I also needed to buy some gear and a stable near where I live."
+                money -= Random(3000, 5000)
+                "It's now time to name my new horse:"
+                Actor.enterFirstName()
+                Player(Happy):: "Alright, I think I'll call you <Actor.name> from now on."
+                "With everything done, I took my new equine companion back home."
+            Elseif 2
+                "Owning a horse is a big commitment, and very expensive. I'm far too busy to take care of an animal right now."          
+            Endif
+        Endwhile        
     Else
         choice = 0
         While choice == 0
-            Actor = generateCreatureTemporary()
+            Actor = generateCreatureTemporary(Dog)
             Actor.show(2)
             "This particular one is a <Actor.Male_or_Female> dog."
             If !Actor.isMale()

@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: home
 WHEN: 17 - 23
-WHO: Dating = getSpecific(Dating); Bull = getCreature(); If Bull.isMale() && Dating.isMale() && Dating:attractiontoplayer > 20 && Dating:masochist + Dating:perversion > Random(0, 200)
+WHO: Dating = getSpecific(Dating); Bull = getCreature(); If Bull.isCreatureType(Dog) && Bull.isMale() && Dating.isMale() && Dating:attractiontoplayer > 20 && Dating:masochist + Dating:perversion > Random(0, 200)
 OTHER: isModEnabled(vin_NTR) && !isWithCompanion() && !Player.isMale() && !Player.isPregnant()
 
     SceneStart()

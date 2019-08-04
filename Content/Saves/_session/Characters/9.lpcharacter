@@ -1,39 +1,44 @@
 // Information
-INFO Is_Male: 100% false
-INFO Interested_In_Men: 100% true
-INFO Interested_In_Women: 100% false
+INFO Is_Male: 100% true
+INFO Interested_In_Men: 100% false
+INFO Interested_In_Women: 100% true
 INFO Interested_In_Transgender: 100% false
-INFO First_Name: 100% Shelby
-INFO Last_Name: 100% C
+INFO First_Name: 100% Jordan
+INFO Last_Name: 100% T
 INFO Race: 100% Daz
-INFO Genital: 100% Vagina
+INFO Genital: 100% Penis
 
 // Morphs
-MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.043594
-MORPH Genesis8Female__CTRLFitness: 100% 0.449717
-MORPH Genesis8Female__CTRLBodybuilder: 100% 0.57127
-MORPH Genesis8Female__Nose Style Asian C: 100% 0.819965
-MORPH Genesis8Female__Nhung Head: 100% 0.864198
-MORPH Genesis8Female__PBMNipplesSize: 100% 0.990295
-MORPH Genesis8Female__PBMBreastsUpwardSlope: 100% 0.755486
-MORPH Genesis8Female__PBMBreastsSmall: 100% 0.75045
-MORPH Genesis8Female__PBMAreolaePerk: 100% 0.673574
-MORPH Genesis8FemaleEyelashes__Nhung Head: 100% 0.864198
-MORPH GeorginaHair_72382__SCLPropagatingHead: 100% 0.1
-MORPH GeorginaHair_72382__CTRLFaceOlderHD: 100% 0.043594
-MORPH GeorginaHair_72382__CTRLFitness: 100% 0.449717
-MORPH GeorginaHair_72382__CTRLBodybuilder: 100% 0.57127
+MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.009805
+MORPH Genesis8Female__Trey: 100% 0.001498
+MORPH Genesis8Female__Ray: 100% 0.114537
+MORPH Genesis8Female__Raj: 100% 0.074945
+MORPH Genesis8Female__Nose Style Nordic: 100% 0.937043
+MORPH Genesis8Female__Nose Style Germanic: 100% 0.448408
+MORPH Genesis8Female__Jin: 100% 0.232584
+MORPH Genesis8Female__Brian: 100% 0.895638
+MORPH Genesis8Female__FBMThin: 100% 0.652782
+MORPH Genesis8FemaleEyelashes__Trey: 100% 0.001498
+MORPH Genesis8FemaleEyelashes__Ray: 100% 0.114537
+MORPH Genesis8FemaleEyelashes__Raj: 100% 0.074945
+MORPH Genesis8FemaleEyelashes__Jin: 100% 0.232584
+MORPH Genesis8FemaleEyelashes__Brian: 100% 0.895638
+MORPH XY__Penis length: 100% 0.016076
+MORPH XY__Plums size: 100% 0.037066
+MORPH XY__Penis size: 100% 0.127611
+MORPH Morley__CTRLFaceOlderHD: 100% 0.002311
+MORPH Morley__FBMThin: 100% 0.652782
 SCALE X: 100% 1.0
 SCALE Y: 100% 1.0
 SCALE Z: 100% 1.0
 
 //Hair
-HAIR Hairstyle: 100% GeorginaHair_72382
-HAIR Hair_Thickness: 100% 1.387268
-HAIR Hair_Color_R: 100% 0.3
-HAIR Hair_Color_G: 100% 0.1
+HAIR Hairstyle: 100% Morley
+HAIR Hair_Thickness: 100% 1.195709
+HAIR Hair_Color_R: 100% 0.2
+HAIR Hair_Color_G: 100% 0.005
 HAIR Hair_Color_B: 100% 0.0
-HAIR Hair_Color_A: 100% 0.8
+HAIR Hair_Color_A: 100% 0.85
 
 HAIR Brow_Color_R: 100% 0.0
 HAIR Brow_Color_G: 100% 0.0
@@ -41,44 +46,45 @@ HAIR Brow_Color_B: 100% 0.0
 HAIR Brow_Color_A: 100% 1.0
 
 // Skin
-SKIN Eye_Color_R: 100% 0.05
-SKIN Eye_Color_G: 100% 0.01
+SKIN Eye_Color_R: 100% 0.0
+SKIN Eye_Color_G: 100% 0.0
 SKIN Eye_Color_B: 100% 0.0
-SKIN Eye_Color_A: 100% 0.8
-SKIN Skin_Color_R: 100% 0.73
-SKIN Skin_Color_G: 100% 0.48
-SKIN Skin_Color_B: 100% 0.33
+SKIN Eye_Color_A: 100% 1.0
+SKIN Skin_Color_R: 100% 0.83
+SKIN Skin_Color_G: 100% 0.62
+SKIN Skin_Color_B: 100% 0.53
 SKIN Skin_Color_A: 100% 1.0
-SKIN BHairColor_R: 100% 0.015
-SKIN BHairColor_G: 100% 0.003
+SKIN BHairColor_R: 100% 0.005
+SKIN BHairColor_G: 100% 0.001
 SKIN BHairColor_B: 100% 0.0
-SKIN BHairColor_A: 100% 0.8
-SKIN Skin_Roughness: 100% 0.496567
+SKIN BHairColor_A: 100% 0.85
+SKIN Skin_Roughness: 100% 0.651082
 SKIN Skin_Oil: 100% 0.25
-SKIN Skin_Fresnel: 100% 0.089145
-SKIN Skin_Age: 100% 0.043594
+SKIN Skin_Fresnel: 100% 0.505936
+SKIN Skin_Age: 100% 0.009805
 SKIN Skin_Sagging: 100% 0.0
 SKIN Muscle_Tone: 100% 0.0
-SKIN BHairThickness: 100% 0.634907
-SKIN BHairstyle: 100% Pubes02
+SKIN BHairThickness: 100% 0.07623
+SKIN BHairstyle: 100% JPBH78-TorsoNG-05
+SKIN FHairstyle: 100% NoHair
 
 // Stats
 STAT incest: 100% 0.0
-STAT age: 100% 28.309883
-STAT attractiveness: 100% 88.729515
-STAT cooking: 100% 26.548052
-STAT dance: 100% 7.977539
-STAT fitness: 100% 45.759453
-STAT intelligence: 100% 35.963013
-STAT interpersonal: 100% 55.430771
-STAT martial: 100% 74.599442
-STAT masochist: 100% 82.000183
-STAT muscle: 100% 50.297558
-STAT music: 100% 6.219672
-STAT perversion: 100% 6.98912
+STAT age: 100% 22.811762
+STAT attractiveness: 100% 41.239662
+STAT cooking: 100% 41.605885
+STAT dance: 100% 70.305489
+STAT fitness: 100% 60.399181
+STAT intelligence: 100% 14.838099
+STAT interpersonal: 100% 67.522202
+STAT martial: 100% 40.897854
+STAT masochist: 100% -23.630486
+STAT muscle: 100% 9.063997
+STAT music: 100% 13.22367
+STAT perversion: 100% 92.909637
 STAT pornfame: 100% 0.0
-STAT sneak: 100% 62.871181
-STAT attractiontoplayer: 100% -9.234306
-STAT rapportwithplayer: 100% 45.095432
-STAT arousal: 100% 42.146065
-STAT intoxication: 100% 29.432049
+STAT sneak: 100% 72.551651
+STAT attractiontoplayer: 100% -18.715401
+STAT rapportwithplayer: 100% 8.333806
+STAT arousal: 100% 56.285286
+STAT intoxication: 100% 82.363358

@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: home
 WHEN: 0 - 24
-WHO: Actor = getRelative(); Actor2 = getCreature(); If !Actor.isMale() && Actor.livesWithPlayer() && Random(50, 500) < Actor:perversion
+WHO: Actor = getRelative(); Actor2 = getCreature(); If Actor2.isCreatureType(Dog) && !Actor.isMale() && Actor.livesWithPlayer() && Random(30, 300) < Actor:perversion
 OTHER: isModEnabled(vin_NTR) && isModEnabled(vin_Incest) && isAtHome()
 
     SceneStart()

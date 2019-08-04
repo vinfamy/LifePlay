@@ -6,6 +6,6 @@ OTHER: none
 
     SceneStart()
     Player.strip()
-    Actor = getSpecific(Dating)
-    Sex(Player, Actor)    
+    Actor = getCreature()
+    Sex(Actor, Player)    
     SceneEnd()

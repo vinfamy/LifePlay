@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: all, -home, -work
 WHEN: 0-24
-WHO: Actor = getCompanionCreature(); If Random(50, 200) < Actor:martial
+WHO: Actor = getCompanionCreature(); If Actor.isCreatureType(Dog) && Random(50, 200) < Actor:martial
 OTHER: none
 
     SceneStart()

@@ -2,7 +2,7 @@ WHAT: all, -pickpocket, -go_to_the_bathroom
 WHERE: all, -fraternity, -work
 WHEN: 0-24
 WHO: none
-OTHER: isWithCompanionCreature(); If Random(0, 150) < Actor:attractiveness
+OTHER: isWithCompanionCreature(); If CurrentCompanion.isCreatureType(Dog) && Random(0, 150) < CurrentCompanion:attractiveness
 
 
     New_Person = generatePersonTemporary()

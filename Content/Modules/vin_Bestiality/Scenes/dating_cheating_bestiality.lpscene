@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: home
 WHEN: 0 - 24
-WHO: Dating = getSpecific(Dating); DatingAffair = getCreature(); If !Dating.isMale() && Random(0, 3000) < Dating:perversion - 2*Dating:attractiontoplayer
+WHO: Dating = getSpecific(Dating); DatingAffair = getCreature(); If DatingAffair.isCreatureType(Dog) && !Dating.isMale() && Random(0, 1500) < Dating:perversion - 2*Dating:attractiontoplayer
 OTHER: isModEnabled(vin_NTR) && isAtHome() && isAtDatingHome()
 
     SceneStart()

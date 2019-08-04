@@ -1,7 +1,7 @@
 WHAT: sleep, nap
 WHERE: home
 WHEN: 0-24
-WHO: Actor = getCreature(); If Random(0, 40) > Actor:sneak 
+WHO: Actor = getCreature(); If Actor.isCreatureType(Dog) && Random(0, 40) > Actor:sneak 
 OTHER: isAtHome()
 
     SceneStart()
