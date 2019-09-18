@@ -1,35 +1,50 @@
 // Information
 INFO Is_Male: 100% false
-INFO Interested_In_Men: 100% false
-INFO Interested_In_Women: 100% true
+INFO Interested_In_Men: 100% true
+INFO Interested_In_Women: 100% false
 INFO Interested_In_Transgender: 100% false
-INFO First_Name: 100% Hunter
-INFO Last_Name: 100% I
+INFO First_Name: 100% Samantha
+INFO Last_Name: 100% N
 INFO Race: 100% Daz
-INFO Genital: 100% Vagina
+INFO Genital: 100% Penis
 
 // Morphs
-MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.630268
-MORPH Genesis8Female__FBMHeavy: 100% 0.139998
-MORPH Genesis8Female__FBMBodyTone: 100% 0.006037
-MORPH Genesis8Female__FBMBodySize: 100% 0.165761
-MORPH LongHair_22341__CTRLFaceOlderHD: 100% 0.630268
-MORPH LongHair_22341__SCLNeckLength: 100% 0.7
-MORPH LongHair_22341__FBMHeavy: 100% 0.139998
-MORPH LongHair_22341__FBMBodyTone: 100% 0.006037
-MORPH LongHair_22341__FBMBodySize: 100% 0.165761
-MORPH LongHair_22341__BackFull: 100% 0.25
+MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.456434
+MORPH Genesis8Female__Rameesha Head: 100% 0.013913
+MORPH Genesis8Female__Olga Head: 100% 0.081731
+MORPH Genesis8Female__Nose Style Roman: 100% 0.798838
+MORPH Genesis8Female__Nose Style Asian B: 100% 0.351703
+MORPH Genesis8Female__Kareena Head: 100% 0.155518
+MORPH Genesis8Female__Diane Head: 100% 0.228385
+MORPH Genesis8Female__Cynthia Head: 100% 0.299249
+MORPH Genesis8Female__PBMNipplesDepth: 100% 0.927366
+MORPH Genesis8Female__PBMGlutesSize: 100% 0.789026
+MORPH Genesis8Female__PBMBreastsShape01: 100% 0.13065
+MORPH Genesis8Female__PBMBreastsDownwardSlope: 100% 0.334941
+MORPH Genesis8Female__FBMVoluptuous: 100% 0.386526
+MORPH Genesis8Female__FBMThin: 100% 0.717994
+MORPH Genesis8FemaleEyelashes__Rameesha Head: 100% 0.013913
+MORPH Genesis8FemaleEyelashes__Olga Head: 100% 0.081731
+MORPH Genesis8FemaleEyelashes__Kareena Head: 100% 0.155518
+MORPH Genesis8FemaleEyelashes__Diane Head: 100% 0.228385
+MORPH Genesis8FemaleEyelashes__Cynthia Head: 100% 0.299249
+MORPH EmiliaHair_94789__SCLPropagatingHead: 100% 0.05
+MORPH EmiliaHair_94789__CTRLFaceOlderHD: 100% 0.456434
+MORPH EmiliaHair_94789__FBMVoluptuous: 100% 0.386526
+MORPH EmiliaHair_94789__FBMThin: 100% 0.717994
 SCALE X: 100% 1.0
 SCALE Y: 100% 1.0
 SCALE Z: 100% 1.0
+PENIS TAB_Gen3F_27097__eroMeester 20: 100% 0.614795
+PENIS TAB_Gen3F_27097__Very Long: 100% -0.146635
 
 //Hair
-HAIR Hairstyle: 100% LongHair_22341
-HAIR Hair_Thickness: 100% 1.0
-HAIR Hair_Color_R: 100% 0.020833
-HAIR Hair_Color_G: 100% 0.007495
-HAIR Hair_Color_B: 100% 0.003094
-HAIR Hair_Color_A: 100% 1.0
+HAIR Hairstyle: 100% EmiliaHair_94789
+HAIR Hair_Thickness: 100% 0.902512
+HAIR Hair_Color_R: 100% 0.8
+HAIR Hair_Color_G: 100% 0.8
+HAIR Hair_Color_B: 100% 0.8
+HAIR Hair_Color_A: 100% 0.85
 
 HAIR Brow_Color_R: 100% 0.0
 HAIR Brow_Color_G: 100% 0.0
@@ -37,44 +52,44 @@ HAIR Brow_Color_B: 100% 0.0
 HAIR Brow_Color_A: 100% 1.0
 
 // Skin
-SKIN Eye_Color_R: 100% 0.078125
-SKIN Eye_Color_G: 100% 0.019379
-SKIN Eye_Color_B: 100% 0.002915
+SKIN Eye_Color_R: 100% 0.05
+SKIN Eye_Color_G: 100% 0.01
+SKIN Eye_Color_B: 100% 0.0
 SKIN Eye_Color_A: 100% 0.8
-SKIN Skin_Color_R: 100% 0.83
-SKIN Skin_Color_G: 100% 0.62
-SKIN Skin_Color_B: 100% 0.53
+SKIN Skin_Color_R: 100% 0.5
+SKIN Skin_Color_G: 100% 0.22
+SKIN Skin_Color_B: 100% 0.12
 SKIN Skin_Color_A: 100% 1.0
 SKIN BHairColor_R: 100% 0.015
 SKIN BHairColor_G: 100% 0.003
 SKIN BHairColor_B: 100% 0.0
-SKIN BHairColor_A: 100% 1.0
-SKIN Skin_Roughness: 100% 0.7
+SKIN BHairColor_A: 100% 0.85
+SKIN Skin_Roughness: 100% 0.170873
 SKIN Skin_Oil: 100% 0.25
-SKIN Skin_Fresnel: 100% 0.1
-SKIN Skin_Age: 100% 0.0
+SKIN Skin_Fresnel: 100% 0.360332
+SKIN Skin_Age: 100% 0.456434
 SKIN Skin_Sagging: 100% 0.0
 SKIN Muscle_Tone: 100% 0.0
-SKIN BHairThickness: 100% 0.25
+SKIN BHairThickness: 100% 0.341096
 SKIN BHairstyle: 100% NoHair
 
 // Stats
 STAT incest: 100% 0.0
-STAT age: 100% 77.695366
-STAT attractiveness: 100% 43.128757
-STAT cooking: 100% 11.560411
-STAT dance: 100% 11.890011
-STAT fitness: 100% 46.314888
-STAT intelligence: 100% 29.926449
-STAT interpersonal: 100% 89.110992
-STAT martial: 100% 19.528793
-STAT masochist: 100% -19.479965
-STAT muscle: 100% 84.438614
-STAT music: 100% 55.778683
-STAT perversion: 100% 12.138462
+STAT age: 100% 62.913906
+STAT attractiveness: 100% 68.886383
+STAT cooking: 100% 99.005096
+STAT dance: 100% 73.107086
+STAT fitness: 100% 39.036224
+STAT intelligence: 100% 81.752983
+STAT interpersonal: 100% 66.402176
+STAT martial: 100% 21.085239
+STAT masochist: 100% -19.846191
+STAT muscle: 100% 57.167274
+STAT music: 100% 64.12854
+STAT perversion: 100% 77.294228
 STAT pornfame: 100% 0.0
-STAT sneak: 100% 78.087708
+STAT sneak: 100% 26.779991
 STAT attractiontoplayer: 100% -100.0
-STAT rapportwithplayer: 100% 19.246267
-STAT arousal: 100% 0.0
-STAT intoxication: 100% 86.913666
+STAT rapportwithplayer: 100% 3.338188
+STAT arousal: 100% 99.072235
+STAT intoxication: 100% 28.064819

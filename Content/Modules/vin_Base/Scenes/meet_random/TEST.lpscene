@@ -5,7 +5,6 @@ WHO: none
 OTHER: none
 
     SceneStart()
-    Player.strip()
-    Actor = getCreature()
-    Sex(Actor, Player)    
+    Actor = getPerson(true)
+    Sex(Player, Actor)
     SceneEnd()
