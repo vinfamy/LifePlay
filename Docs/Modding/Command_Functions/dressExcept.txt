@@ -1,7 +1,7 @@
 Actor.dressExcept(Slot1, Slot2, ..., SlotN)
 
 USE: 
-Dress this person but leave the specified slots empty. Used for lingerie modelling.
+Dress this person but leave the specified slots unmodified. Used for lingerie modelling.
 
 TYPE: Command, Non-Ref
 RETURNS: /
