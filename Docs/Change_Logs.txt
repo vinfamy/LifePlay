@@ -1,4 +1,10 @@
-Version 1.2:
+Version 2.8:
+- Shadows, ambient occlusion and depth of field for the 3d bedroom sex scenes, plus Esc > Settings option to set DOF strength (set it to 0 to disable DOF entirely)
+- 15 new bed and wall sex animations that weren't possible before 3d environment for sex scenes was implemented
+- Light sources like windows and lamps will now light up the whole room better and more realistically, not so restricted to their own immediate radius like in v2.7
+- Adapt the lighting for the first person POV cameras to the new 3d sex scenes
+- Auto center the camera on the player at the start of each sex scene (i.e when the actors start playing the 'Embrace' animation)
+- Bug fixes and other improvements, with a public beta testing periodVersion 1.2:
 - Added toon shading as an optional setting, giving the game that Borderlands/ faux-2d visual novel look.
 - 30 new maps. Keep your requests coming!
 - 8 brand-new MF and lesbian animations and 49 re-adjusted animations for lesbian, gay and shemale-on-male sex scenes
@@ -15,6 +21,275 @@ Version 1.2:
 - Fixed: Hard to click on the building the player's in
 - Minor bugfixes and improvements
 
+Version 2.7:
+- Replace the 2d bedroom background with a proper 3d bedroom interior space
+- Allow the player to customize their own bedroom with furniture and different types of lights, the latter to lit the scenes the way they prefer 
+- 15 bedroom presets for both the lazy player and for NPCs' bedrooms, hotel rooms, etc
+- New controls for these new 'full 3d' sex scenes (hold/ release shift to switch between moving camera and moving the people)
+- Set up realistic lighting for these new 'full 3d' bedroom sex scenes
+- Add the option to 'head back home' for sex scenes that happen outside the bedroom, for those that can't stand any 2d backgrounds at all
+- Allow you to add clothes to the inventory of NPCs so that those who prefer a Sims-like approach can force each NPC to wear fixed outfits rather than wearing completely random clothes each time you meet them. Completely optional feature.
+- Bug fixes and other improvements, with a public beta testing period
+
+Version 2.6:
+This update covers the rest of the adult animation types not yet covered in v2.1, v2.2 and v2.3. After this update, with virtually all sex scenes you can trigger in game, you will be able to enjoy new, better-looking animations made specifically for the new Daz character models:
+34 new animations, made specifically for the new character models so that they look much better than the old converted ones, consisting of:
+- 10 shemale on female animations
+- 6 shemale on male animations (when you start a sex scene between a shemale and a man, the shemale will be bottom by default, you'll need to click anywhere > Swap roles to see these new animations)
+- 4 reverse gangbang animations
+- 10 gay animations
+- 2 tittyfuck and 2 footjob animations (male-female)
+
+Version 2.5:
+- Add horses to the game, with customizable coat colors and patterns
+- Some scenes about being a horse owner
+- 14 'interspecies' animations and scenes to trigger them for those that play with the Bestiality module enabled
+- Bug fixes and other improvements, with a public beta testing period
+
+Version 2.4:
+- Animated object system for sex animations: not only is this required for bondage content but it will also be crucial for when I implement stuffs like dildos and furniture in the future
+- Introduce the first few pieces of bondage gear: chastity strap, torso rope, collar, handcuffs, shin cuffs, thigh cuffs, mask, blindfold, foulard, tape and ball gag. More complex stuffs like furniture and full-body pieces to be introduced in future versions
+- Effects to go with the new bondage gear: no dirty talk or blowjob while gagged, no penetration with the strap, automatic sex animation adjustment to bound poses while wearing handcuffs & shin/thigh cuffs (the handcuff pose looks fine for most animatons, but the shin cuff pose is a bit hit and miss for now), 
+- Bug fixes and other improvements, with a public beta testing period
+
+Version 2.3:
+- 31 new animations, made specifically for the new character models so that they look much better than the old converted ones, covering:
+1/ 11 new aggressive male-female animations
+2/ 8 new aggressive female-male animations (i.e. Femdom)
+3/ 5 new gangbang (1 woman, 3 or 4 men) animations
+4/ 7 new solo / masturbation animations
+(Obviously even after this third animation update, not all types of sex scenes will have been covered yet. Don't worry, I haven't forgotten about reverse gangbang, gay, shemale and 'interspecies' animations - they will be covered in future updates, probably around v2.7, v2.8, etc)
+- Improve the optional first person POV cameras for sex scenes (accessed by right click anywhere > Switch camera), mostly importantly: eliminate the camera shakes
+- New Esc > Settings option for "New Animations Only" for those that prefer quality to quantity in their sex scenes or just can't stand the old converted animations.
+- More flexible animation filtering for shemales - they can now use the normal female animations (the new femdom animations work quite well with shemale-male scenes for example) in addition to the ones made specifically for shemales
+- Some new API functions requested by modders
+- Bug fixes and other improvements, with a public beta testing period
+
+Version 2.2:
+- 32 new sex animations made specifically for the new models, including:
+++ 7 Lesbian animations
+++ 9 Anal Male-Female animations
+++ 6 Male-Male-Female threesome animations
+++ 10 Male-Female-Female threesome animations
+- Hide the in-scene character generation and dressing process away from the player's view (so that you no longer have to see NPCs naked and in T-pose for a second before the clothes appear and the idle animation starts whenever they show up in a scene)
+- More fatal error crash preventions, tested by beta testers before release
+- Bug fixes and other improvements
+
+Version 2.1:
+- 20 new sex animations made specifically for the new models, using the new rigs. I think these look much better than the ones included so far in the game, which were initially made for the old 'Legacy' models then converted.
+- First implementation of physics in the game: boob jiggles during sex animations. They look pretty good with the new animations above IMHO (especially the new reverse cowgirl ones)
+- Average bust and penis size settings in the "Customize NPC Distribution" menu
+- Improve the 'Recommended Actions' feature and resolve its compatibility issues with some non-London maps
+- Bug fixes and other improvements, with a public beta testing period
+
+Version 2.0 Stable:
+This update wraps up the graphical overhaul the game underwent over the last 5 updates + make some improvements in term of user-friendliness and finally bring 2.0 out of beta:
+- New 'Recommended Actions' feature for those who prefer a bit of hand-holding, or simply can't be bothered to micro-manage your character's life (if you're super lazy, just keep pressing R after each action to go for the next recommendation) . Unfortunately it turns out this new feature causes freezes with some optional maps (will fix in 2.1), use the freeze fix above if you're playing outside the default Central London map.
+- Hairstyles and facial & body hairstyles for the new male model
+- Clothes for the new male model
+- Each morph slider now also come with a box where you can enter a specific value outside of the usual 0.0 - 1.0 range to really fine-tune your character. Do so wth caution though as anything outside the normal range might deform the character.
+- Some UI & control improvements, tooltips and other tweaks to make the game more user-friendly. People without a middle mouse button can now control the camera fine.
+- Split the assets for the old 'Legacy' character models into an optional download, so that everyone doesn't have to download hundreds of mb for an optional setting that's disabled by default
+- Bug fixes, performance optimizations and crash preventions
+There are no 'Update Only' downloads for 2.0 Stable (they would have been way too huge to be useful anyway), only the full downloads, because the base requirement for future 'Update Only' downloads is now reset to 2.0 Stable (just like it did back in v1.10) so that the 'Update Only' download packages for 2.1, 2.2, etc will stay under 100 mb or so.
+
+Version 2.0 Beta 4:
+- Introduce the Daz models for male characters
+- Convert / retareget all existing sex animations for the new male model
+- Add scale X, Y and Z options under Morphs > Scale. This may work better than the FBMHeight morph to create short characters
+- All male presets in vin_Base/Presets will now work with the new male model
+- 'Customize NPC Distribution' settings will now work with the new male model 
+- Bug fixes, including the rent calculation and everlasting pregnant belly bugs
+- Performance optimizations and reducing some file's sizes (thanks to this, you may notice that Beta 4's download package is actually smaller than Beta 3 despite the addition of male models)
+Basically, with this version, you can play the game normally, except all the guys will stay naked and have the same hairstyle with no facial hair (hair and clothes will be the focus of the next version)
+
+Version 2.0 Beta 3:
+This update completes the switch into Daz3d for the female models:
+- More hairstyles for the new female models
+- Clothes for the new female models
+- Expand the presets in Content\Modules\vin_Base\Presets so that they work with the new female models too
+- The Customize NPC Distribution percentages will now work with the new female models too
+- Enable a number of length/ scale morphs in the character creation menu (for example, to make a short character etc)
+- Bug fixes and other improvements
+
+Version 2.0 Beta 2:
+- Convert the rest of the adult animations for the new female models
+- Shemale support for the new female models, with a more detailed and customizable penis than before
+- 8 pubic hair styles (with the usual thickness and color customization options) for the new female models
+- Pregnancy support for the new female models
+- Cum effects for the new female models
+- An option in Esc > Customize NPC Distribution to specify a percentage of new NPCs that still use the old 'Legacy' models (default: 0%)
+- Unless you specifically set the setting above to higher than 0%, the old 'Legacy' female model will no longer be loaded by the game at startup, which improves performance
+- Bug fixes and performance optimizations
+Basically with this update, the game can be played normally now with the new female model and all the existing animations working with it, except they will still remain naked (clothes for the new female model coming in Beta 3)
+
+Version 2.0 Beta 1:
+First beta implementation of Daz3d female models into the game (full plans here). Basically the new models are now available for both the player character (select female gender, then Daz3d (Beta) race) and NPCs (all new female NPCs will use the new model, although those from your old save won't switch automatically, you will have to go into Contacts menu to Edit Appearance them manually). 
+Even though it's only the first beta for 2.0, you can play the game pretty much normally with the new models except:
+- All women using the new models will always be naked (who's complaining!) - clothes will be converted in Beta 3
+- Just 3 hairstyles (but the hairstyles now have customizable morphs) for the new ladies for now - more will come in Beta 3
+- Just 20 sex animations converted for now (the rest to be converted in the next version) covering only some MF, FF and Solo Female. Triggering more advanced sex scenes like threesome, gangbang etc won't give you any animations - you'll have to right click > skip scene in that case.
+- No trans characters using Daz3d models yet (to be available next version), all shemales use the old model for now - so if you see a new female NPC using the old model, she has a dick!
+New game is recommended for easy playtesting with the new models. Old saves are technically compatible but because I changed the default skin colors and adjust the lighting - the player and NPCs from your old save might look very red now - you will have to edit them and reselect a skin color (while you're at it, you might as well switch all the female NPCs from your old save to the new Daz3d race too)
+
+Version 1.22:
+- Female-on-male rough animations
+- Lesbian rough animations
+- Some gay rough animations
+- Expand the 'aggressive' scenes/ scenarios in the game to allow all gender combinations as aggressor / victim
+- Cum effects on female characters after sex
+- Bug fixes and other improvements
+
+Version 1.21:
+- Give ways for the player to proactively interact with family members and initiate 'forbidden' relationships (select your home > Spend time with family), rather than having to wait for randomly triggered scenes to grind the tension stat like previously
+- New dirty talks and erotic descriptions during sex scenes to reflect their 'forbidden' nature
+- New scenes (i.e. scenarios/ storylines) for 'forbidden' content
+- Sneaking mini-game for all sneaking / peeping situations in the game (skippable for those that don't like it)
+- Alternate start (a new option on the main menu under 'New Game') to play the game as a male-to-female transformation character
+- New API functions for modders: CountPregnancyDays(), isInterestedInMen(), isInterestedInWomen(), isInterestedinTrans(), isStraight(), isGay()
+- Bug fixes and improvements
+
+Version 1.20:
+- New bump maps for characters showing finer 3d details on the body and face
+- New textures for the eyes, giving the characters more 'life'
+- Improve the skin shaders
+- New apparel pieces made by bokonus on Discord
+- A few NTR-'interspecies' impregnation scenes requested by a patron
+- Bug fixes and improvements 
+
+Version 1.19:
+- 5 more dog breeds: Labrador, Australian Cattle Dog, Bulldog, Dobermann & Dalmatian
+- Skin/coat color customizations (Contacts menu > select the dog > Edit Appearance)
+- Threesome 'interspecies' animations with two girls + expand the  'interspecies' scenes to allow these animations to trigger
+-  'Interspecies' pregnancy (the offspring is just normal human for now)
+- Less formal pet names and fixing odd sentences for 'forbidden' relationships
+- Bug fixes and minor improvements
+
+Version 1.18:
+- Add a system for pets in the game, with innocent pet-owners actions and scenes. I started with just a single breed of dogs (whippets) for v1.18, but more breeds and other animals coming in future version.
+- Optional 'interspecies' module with a few animations. This is disabled by default so to turn it on, Ctrl + M to open the mod manager and tick the appropriate box
+- Update the API documentation for modders
+- Bug fixes and minor improvements
+
+Version 1.17:
+- Anal animations
+- 'Sleeping' animations (i.e. one partner remains still / appears unconscious) 
+- Scenes to trigger the new animations
+- A few unique scenes for bf / gf / spouse that used to be 'forbidden' to distinguish from the normal significant other scenes. Also, these will now be labelled properly during scenes and the Contacts menu. The player will also refer to these lovers with pet names referring to the forbidden relationship.
+- For modders: new function LoadPreset(), ShowTutorialTxt() function, using FText, now replaces ShowTutorial() for localization purposes 
+- Bug fixes and improvements 
+
+Version 1.16:
+- Gangbang (1F, 3M+) animations
+- Scenes and actions to trigger the new animations
+- All NPC-NPC sex scenes (no player involvement) now has 5% chance of leading to pregnancy
+- Home invasions as a criminal
+- Add a few more API functions requested by modders
+- Tweak the character lighting for less intense bloom
+- Bug fixes and improvements
+
+Version 1.15:
+- Reverse Gangbang (1M, 3F+) animations
+- Scenes and actions to trigger the new animations
+- A few new hairstyles
+- Add some 'aggressive' scenarios to the prison adult content
+- Bug fixes and improvements
+
+Version 1.14:
+- Add consequences for player actions and decisions: death (game over), prison, STD, etc (with cheat options for those who don't want to be bothered with these) 
+- Prison porn trope: sex between inmates, inmate-guard, conjugal visits, etc
+- Fix inconsistencies and oversights in many scenes' trigger conditions (for example: meeting someone randomly while you're masturbating, hanging out with an non-'forbidden' relative triggers corruption scenes) 
+- More scenes (non-sexual obviously, use the 'Childcare' action for these scenes to trigger more often) to take actions as a parent raising your kids which affect their stats when they eventually hit 18
+- 10 new maps: Beaverton MI, Winnipeg, Huelva, Taipei, Izmir, Leicester, Bradford, Nottingham, Brighton & Oxford. Keep your requests coming!
+- Optional (can be disabled in Esc > Settings) conditions for sex positions: for example, a low-perversion partner may turn down anal sex, or a low-fitness player cannot perform aggressive carry
+- Whatever undressing/ clothing changes happen during a scene, when the scene ends, your character will now always reequip whatever clothes they were wearing before
+- Models can now choose not to keep all the clothes they model in, as to avoid a messy inventory
+- Prevents the game from auto-unpausing when exiting out out of Contacts / action menu
+- % chance settings (all 0 by default) in the 'Customize NPC Distribution' menu that allows orcs, elves and vampires to appear among generated NPCs
+- You will now go back to the Contacts menu rather than to the map after editing an NPC's appearance or stats
+- You can now order food delivery proactively from your home
+- Bug fixes and other improvements
+
+Version 1.13:
+- UI overhaul that hopefully is both more visually appealing and user friendly
+- A title screen so that the player gets to choose exactly what to load, while retaining the ability to quickload/quickstart
+- Expand the sex worker career with brothels, stripclubs (use Edit Building on an existing/ unknown building on your map to make these) and the ability to actively seek out porn shoots rather than just waiting for the director to call you
+- Modeling career, with a path into the porn industry from nude modeling
+- Many scenes leading to sex will now trigger easily when hanging out with a high-peversion NPC, partly to balance out with the corruption update a few versions back that had many scenes leading to sex with low-perversion NPCs.
+- Ability to murder a specific NPC
+- Ability to headhunt existing contacts to hire as employees for your businesses
+- Ability to quit university, medical and criminal careers and leave fraternities
+- 11 new maps: Vilnius, Krakow, Richmond BC, Ulaanbaatar, Lincoln NE, El Paso, Oklahoma City, Louisville, Milwaukee, Albuquerque & Sacramento. Keep your requests coming!
+- If a building near an edge of the screen is selected, the action menu will now adjust its position to fit the screen
+- A simple confirmation to exit popup to help prevent you from unintentionally closing the game
+- A Frequenly Asked Questions menu in-game
+- Bug fixes and other improvements
+
+Version 1.12:
+- Business career path (start by finding a shop, restaurant, bar, etc and select 'Take over business'."
+- Criminal career path (start by right click anywhere > Organized crime > Report to boss)
+- Buy your own home, furniture and appliances, which have impact on your mood and energy recovery while spending time at home
+- Ability to pick specific NPCs in some applicable scenes (such as picking guests for your party + a new swinger party scene)
+- Some UI improvements, such as filtering contacts, actions and cities
+- 12 more maps ('Small Town Edition'): Benidorm, Mislata, Pre-Saint-Gervais, Saint-Mande, Monaco, Pateros, Macau, West New York, Maywood, Sunny Isles Beach, Cambridge (MA) and Central Falls. Keep your requests coming!
+- Bug fixes and other improvements
+
+Version 1.11:
+- Tweak the skin, hair and eye shaders for more realistic characters
+- Improve the game's subsurface scattering, to make skin look more realistic
+- Add more details to the skin texture
+- Add the 'Doctor' and 'Nurse' career paths
+- 15 new maps: Madrid, Valencia, Seville, Zaragoza, Towne Lake, Annapolis, Salisbury, Ocean City, Agen, Marseille, Lyon, Bordeaux, Nice, Biarritz & Aachen. Keep your map requests coming!
+- Reward the player for exploring the map and visiting more buildings with mood/ interpersonal bonus and your date getting bored of staying at the same place for too long
+- Aging reflected in the player's appearance subtly (use the wait console command to test this easily)
+- A few more NTR scenes, including 'forbidden' NTR
+- Make the pregnancy body changes available for modding
+- Improve the tutorials to make the game friendlier to beginners
+- Tone down some common facial expressions
+- The building type filter in the search menu will now also make all markers of this type persistent on the map
+- Bug fixes and other improvements
+
+Version 1.10.1:
+- Upgrade the game engine to Unreal Engine 4.20.2, resulting in many performance and stability improvements. Warning: Because of this, you'll need to redownload any additional maps that you use from here. Old saves work fine though.
+- Expand the system for jobs in the game to allow for more variety and complexity
+- Add the 'University Student' and 'University Lecturer' career paths, along with two new building types: universities and fraternities/sororities
+- Start supporting Linux
+- Add gender and sexual orientation to the 'NPC Distribution Customization' menu
+- Your children can now be named and will grow up (with a Esc > Settings option to speed this up) and become a full NPC once they reach 18
+- Vertical camera movement and Freeze button for the character customization menu
+- Ensure the action menu doesn't clash with other UI elements
+- Completed a few priority requests from my Patreon donors
+- Bug fixes and minor improvements 
+
+Version 1.9:
+- 33 new corruption-themed scenes (3 aspects: player corrupting NPC, player being corrupted by NPC, player witnessing / trying to prevent their (step)sibling/child being corrupted)
+- Another batch of 38 new maps: Oulu, Tampere, Melbourne, Invercargill, Freeport, Shanghai, Boston, Seattle, Portland, San Antonio, San Diego, Jacksonville, Columbus, Charlotte, Denver, Washington DC, Memphis, Baltimore, Minneapolis, Kansas, Omaha, Salt Lake, Leeds, Sheffield, Manchester, Liverpool, Glasgow, Edinburgh, Cardiff, Belfast, Hamburg, Munich, Frankfurt, Cologne, Bonn, Calgary, Edmonton, and Quebec City. Keep your requests coming!
+- Open and Polyamorous relationships/marriages - The scene to suggest an open relationship will trigger when you're hanging out with your partner, you have high perversion and your relationship is going well. Polyamory requires open relationship first and also requires the optional Polyamorous module to be enabled (Ctrl + M)
+- 'Forbidden' partner can now become boyfriend/girlfriend who you can then marry. This will trigger when incest tension is over 85 and you're hanging out with your 'forbidden' partner
+- In the Contacts menu, you can now click on the name of a contact's spouse/child/parent/sibling/boss, who you have been introduced to but haven't exchanged contacts with to trigger a scene where you stalk around on Facebook to find this person
+- A few more date-related scenes
+- Right click menu will now have to option to ask for sex from your significant other if you're living together
+- Added console command waituntil
+- The sliders for penis length, girth and ball size can now go 4 times the previous max. Generated NPCs will still have realistic penis size range though - edit them manually if you want them to have giant hentai dongs.
+- Setting option to disable all transgender content
+- Cheat option to get everyone's contacts instantly
+- Credit roll for my Patreon donors
+- Bug fixes and minor improvements
+
+Version 1.8:
+- Added a system for NPC-NPC relationships. One NPC can now be another NPC's spouse/boss/relative/etc - there are now scenes where the NPCs will introduce you to their related NPCs
+- Added an optional Netori module
+- Added 6 solo animations
+- Added 4 shower animations
+- Added a menu to allow the player to customize the distribution of body shapes among newly generated NPCs (Esc > Body Shape Distribution)
+- Added a 'Body changes based on stat' setting (Esc > Settings), which will change your character's bodyshape gradually based on the fitness and muscle stats. You can test this easily by typing "TEST_bodychange" in the ~# console.
+- Pregnancy events should now all trigger correctly
+- Added the 'Pregnancy Notifications' (Esc > Settings) cheat setting to give the player more info on whether and why a character is impregnated and then to give updates on the current pregnancies.
+- Added a 'Quick Dress' button to the right mouse click menu to auto-select clothes from your inventory and dress you according to the current building you're in
+- You can now delete an NPC entirely in the Contacts menu
+- Minor bug fixes and improvements
+
+...
 
 Version 1.1:
 - Added pregnancy and contraceptions for both the player and NPCs
