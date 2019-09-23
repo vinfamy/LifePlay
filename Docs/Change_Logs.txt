@@ -289,7 +289,56 @@ Version 1.8:
 - You can now delete an NPC entirely in the Contacts menu
 - Minor bug fixes and improvements
 
-...
+Version 1.7:
+- You can now marry your boyfriend/girlfriend
+- You can now ask your significant other to move in with you, not just the other way around
+- 4 new female hairstyles
+- In the Contacts menu, you can now add new NPCs and change NPC's relationship type with you (boss, colleague, bf/gf, spouse, ex, neighbor, etc)
+- Many new functions requested by modders (check the Docs/Modding folder)
+- Minor improvements and bugfixes
+
+v1.6:
+- You can now become a prostitute, a pornstar and/or a pimp/agent - just right click > Sex work or Ctrl + Right Click anywhere on the map to get started
+- 30 new maps: Ottawa, Copenhagen, Lisbon, Turku, Charleston, Salvador, Brno, Giza, Cleveland, Dallas, Bristol, Auckland, Nassau, Lubeck, Rosario, Buffalo, Phoenix, Stockholm, Bath, Austin, Anaheim, Grand Rapids, Thessaloniki, Wellington, Branson, Gloucester, Christchurch, Reykjavik, Bali, Zagreb
+- Minor improvements and bug fixes
+
+Version 1.5:
+- 28 threesome animations, covering MFF, MMF, MMM and FFF
+- Many scenes will now have options that lead to threesomes
+- (already included in v1.4.1 hotfix) Fixed a bug that makes triggering certain scenes very difficult
+- Fixed a bug where you remain drunk forever
+- Other improvement and bug fixes
+
+Vesion 1.4:
+- 10 new MF aggressive animations
+- New optional module with 40 scenes for non-consensual/ rape content
+- You can now buy a car at a car dealership
+- With the incest module on, you can now impregnate a family member
+- You can now invite a family member out
+- 2 new setting options: no action cooldown & auto-pause after each action
+
+Version 1.3:
+- Added family interactions (you can add family members in the Contacts menu - shortcut P) with 69 new scenes
+- Added a new optional module for incest with 61 new scenes
+- Added options to start a relationship, quit job and move out of your home anytime you wish
+- Minor improvements and bug fixes
+
+Version 1.2:
+- Added toon shading as an optional setting, giving the game that Borderlands/ faux-2d visual novel look.
+- 30 new maps. Keep your requests coming!
+- 8 brand-new MF and lesbian animations and 49 re-adjusted animations for lesbian, gay and shemale-on-male sex scenes
+- Added a RenPy-style skip button to scenes
+- Added a button to skip a sex scene
+- Added hover tooltips to show each action's duration, conditions and effects
+- Added text to clearly show a companion's reaction to your action
+- Added a Break up button in the Contacts menu
+- Added popup to warn of save loading failure and how to fix
+- Added the "wait n" console command to skip time instantly
+- Fixed: Search filter sometimes shows the wrong type of buildings
+- Fixed: Freeze during the 'night out without boyfriend' scene
+- Fixed: Moving cities mid-playthrough get you stuck with your old home
+- Fixed: Hard to click on the building the player's in
+- Minor bugfixes and improvements
 
 Version 1.1:
 - Added pregnancy and contraceptions for both the player and NPCs
