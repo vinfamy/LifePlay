@@ -51,7 +51,7 @@ OTHER: Random(0, 150)*Random(0, 1)*Random(0, 1) > intelligence + Actor:intellige
         Else
             "I don't have that much money. I have no choice but to call the cops."
             If Random(0, 100) < 50
-                "Luckily, the cops did their job and retrieve <Actor.name> and arrest the thief before he could do any harm to my horse."
+                "Luckily, the cops did their job and retrieved <Actor.name> and arrested the thief before he could do any harm to my horse."
                 "At least my tax money pays off ..."
             Else
                 "It turns out to be a disastrous decision. The cops were far from discreet in their investigation and the thief got wind of the fact I reported the incident to cops. <Actor.name>'s dead body was found a few days later and they never caught the thief who did it."

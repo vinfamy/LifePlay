@@ -42,7 +42,7 @@ OTHER: intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)
         Actor2:attractiontoplayer -= Random(0, 50)
         Actor2:rapportwithplayer -= Random(0, 50)
     Else
-        Player(Furious):: "You mess with the wrong <Player.guy_or_girl>! Take this."
+        Player(Furious):: "You messed with the wrong <Player.guy_or_girl>! Take this."
         Actor(Furious):: "You dare sucker-punch me? I'll teach you a lesson."
         "A fierce fight ensued ..."
         If martial > Actor:martial

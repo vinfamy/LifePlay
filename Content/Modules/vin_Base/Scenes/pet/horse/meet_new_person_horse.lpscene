@@ -19,7 +19,7 @@ OTHER: isWithCompanionCreature(); If CurrentCompanion.isCreatureType(Horse) && R
     Endif
 
     New_Person.show(2)
-    New_Person(Excited):: "That's a beautiful horse. Can I rub its neck for a bit?"
+    New_Person(Excited):: "That's a beautiful horse. Can I rub <CurrentCompanion.his_or_her> neck for a bit?"
     0:: "Of course"
     1:: "No, sorry"
     

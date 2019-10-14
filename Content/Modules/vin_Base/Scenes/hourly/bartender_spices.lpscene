@@ -23,6 +23,7 @@ OTHER: Random(0, 10000) < 1
     
     If 0
         "This might make me an accomplice in a horrible crime, but I can't turn down that much money ..."
+        karma -= 10
         money += Random(100, 1000)
         "I mixed in the mysterious powder with the gin and tonic and gave it to the <Actor.guy_or_girl>. I tried not to think about the consequences of my action ..."
     Elseif 1
@@ -31,6 +32,7 @@ OTHER: Random(0, 10000) < 1
         "My conscience didn't allow me to do it, but I didn't quite have the courage to expose this shady <Actor2.guy_or_girl> either. For all I care, <Actor2.he_or_she> could be dangerous."
         "I hope that another bartender won't be tempted by the money."
     Else
+        karma += 5
         Player(Furious):: "Everyone! We have a date rapist here! This <Actor2.guy_or_woman> tried to spike someone's drink."
         masochist -= Random(0, 0.5)
         "The crowd immediately surrounded the shady <Actor2.guy_or_girl>, before the cops arrived and arrested <Actor2.him_or_her>"

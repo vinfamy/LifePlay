@@ -20,6 +20,7 @@ Else
     Player(Angry):: "That's disgusting. If you can't handle alcohol, don't drink or you'll ruin everyone else's night!"
     masochist -= Random(0, 0.5)
     Actor:rapportwithplayer -= Random(0, 5)
+    karma -= 1
 Endif
 
 SceneEnd()

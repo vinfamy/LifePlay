@@ -15,6 +15,7 @@ OTHER: none
     If Random(0, 100) < sneak
         setBackground(home)
         "I found a way into the house without getting detected."
+        karma -= 1
         Actor = generatePersonTemporary()
         Actor.show(2)
         Actor.closeEyes(true)
@@ -50,6 +51,7 @@ OTHER: none
             1:: "Just grab some valuables quickly"
             
             If 0
+                karma -= 10
                 filter(Aggressive)
                 TalkNonConsensual()
                 SexNoAffair(Player, Actor)

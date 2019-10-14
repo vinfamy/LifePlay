@@ -15,6 +15,7 @@ OTHER: none
     If 0
         "I like it that <Dating.name> is such a career-oriented person. I'll be happy to see my <Dating.boyfriend_or_girlfriend> become successful thanks to <Dating.his_or_her> hard work."
         Dating:attractiontoplayer += Random(0, 2)
+        karma += 2.5
     Else
         "I complained about how little time <Dating.name> had been spending with me recently and accused <Dating.him_or_her> of priotizing <Dating.his_or_her> career over me."
         Dating:attractiontoplayer -= Random(0, 2)

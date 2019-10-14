@@ -24,6 +24,7 @@ OTHER: none
             If Random(0, 50) < Actor:attractiontoplayer + interpersonal + Actor:perversion
                 Actor(Flirty):: "My <Player.handsome_or_beautiful> <Player.boyfriend_or_girlfriend> is in need? Well, then I have no choice but fulfil my duty then ..."
                 Sex(Actor, Player)
+                karma += 1
                 perversion += Random(0, 0.05)
                 
                 If isModEnabled(vin_Bestiality)
@@ -33,7 +34,7 @@ OTHER: none
                         Actor2.show(3)
                         Actor2:: "Wuff! Wuff! Wuff!"
                         "We were deep in passion when our intimate moment was interrupted by the sound of my dog barking. Was <Actor2.he_or_she> watching us the whole time?"
-                        "And is that an erection that <Actor2.name> is spotting!?"
+                        "And is that an erection that <Actor2.name> is sporting!?"
                         0:: !Player.isMale():: "Fuck <Actor2.name> myself"
                         1:: !Actor.isMale():: "Convince <Actor.name> to fuck <Actor2.name>"
                         2:: "Tell the dog off"
@@ -90,6 +91,7 @@ OTHER: none
                     perversion += Random(0, 0.075)               
                 Endif           
             Endif
+            karma += 1
         Endif
     Endif
     

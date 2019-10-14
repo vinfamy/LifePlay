@@ -10,7 +10,7 @@ OTHER: Random(20, 100) < Actor:attractiontoplayer
     1:: "Play along a bit"
     
     If 0
-        "This is my sexual identity. <Actor.name> has to respect that. There are a million other straight <Player.guys_or_girls> out there for <Actor.him_or_her>."
+        "This is my sexual identity. <Actor.name> has to respect that. There are a million other people out there for <Actor.him_or_her>."
         "Whenever <Actor.he_or_she> tries to flirt with me, I shut <Actor.him_or_her> down right away and remind <Actor.name> that I'm not into <Actor.guys_or_girls>."
         Actor:attractiontoplayer -= Random(0, 2)
     Else
@@ -20,7 +20,7 @@ OTHER: Random(20, 100) < Actor:attractiontoplayer
         If Random(40, 200) < Actor:attractiontoplayer
             "<Actor.name> decided to invite me into <Actor.his_or_her> apartment for drinks tonight. <Actor.He_or_She>'s been extremely generous with the alcohol and I'm feeling quite tipsy already."
             setBackground(home)
-            Player(Pain):: "Thank you for inviting me into your apartment and for the drinks, but I think I'd gotta leave now. Would you mind calling me a taxi? I'm so drunk ..."
+            Player(Pain):: "Thank you for inviting me into your apartment and for the drinks, but I think I'd better leave now. Would you mind calling me a taxi? I'm so drunk ..."
             
             If Random(50, 250) > Actor:attractiontoplayer
                 Actor(Happy):: "Sure, I'll get you a cab right away. Should be here in ten minutes."
@@ -51,7 +51,7 @@ OTHER: Random(20, 100) < Actor:attractiontoplayer
                     
                     Actor:rapportwithplayer => -100
                     blockContact(Actor)
-                    "<Actor.name> was lucky to avoid jail time as I never reported <Actor.him_or_her> to the police, but I blocked <Actor.him_or_her> and never wanted to see <Actor.him_or_her> again. One thing for sure: <Actor.He_or_She> did nothing to convert me to become into <Actor.guys_or_girls>." 
+                    "<Actor.name> was lucky to avoid jail time as I never reported <Actor.him_or_her> to the police, but I blocked <Actor.him_or_her> and never wanted to see <Actor.him_or_her> again. One thing for sure: <Actor.He_or_She> did nothing to convert me to become interested in <Actor.guys_or_girls>." 
                 Endif
             Endif 
             

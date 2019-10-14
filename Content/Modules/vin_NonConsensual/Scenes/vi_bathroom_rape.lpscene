@@ -10,7 +10,7 @@ OTHER: !isWithCompanion() && Random(70, 1000) < attractiveness
     While !Player.isInterestedIn(Actor)
         Actor = generatePersonTemporary()
     Endwhile
-    "All of a sudden, a stranger force opened the cubible door and grabbed me."
+    "All of a sudden, a stranger force opened the cubicle door and grabbed me."
     Actor.show(2)
     If martial > Actor:martial
         Actor(Pain):: "Ah!"
@@ -18,7 +18,7 @@ OTHER: !isWithCompanion() && Random(70, 1000) < attractiveness
     Else
         "The element of surprise was too great. I was overwhelmed before I could even react to the assault."
         Player(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
-        "My cries for help went unheard in the locker room and I had no choice but endure it all at the hand of this vile <Actor.man_or_woman>."
+        "My cries for help went unheard in the bathroom and I had no choice but endure it all at the hand of this vile <Actor.man_or_woman>."
         Filter(Aggressive)
         TalkNonConsensual()
         SexNoAffair(Actor, Player)

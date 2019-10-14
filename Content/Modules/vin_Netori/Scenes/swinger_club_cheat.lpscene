@@ -39,7 +39,7 @@ OTHER: isWithCompanion() && !Player.isDating() && perversion > 70 && CurrentComp
             2:: "End the night"
             
             If 0
-                "I whispered into my pretend <CurrentCompanion.boyfriend_or_girlfriend>'s ear my approval of <MyFuck.name> and asking <CurrentCompanion.him_or_her> what <CurrentCompanion.he_or_she> thinks of <DatingFuck.name>."
+                "I whispered into my pretend <CurrentCompanion.husband_or_wife>'s ear my approval of <MyFuck.name> and asking <CurrentCompanion.him_or_her> what <CurrentCompanion.he_or_she> thinks of <DatingFuck.name>."
                 CurrentCompanion(Flirty):: "Alright, let's do this."
                 "We discussed our intention with the other couple, setting out a bunch of ground rules. Pretty soon, we swapped partners and started kissing. <CurrentCompanion.name> and <DatingFuck.name> got it on in no time at all."
                 SexNoAffair(CurrentCompanion, DatingFuck)

@@ -39,18 +39,18 @@ OTHER: Random(0, 100) < 1
         If 0
             Actor.makePermanent()
             Actor:attractiontoplayer += 10
-            "We chat for a while more before exchanging numbers. Seeing now that <Actor.name> will inevitably break up with <Actor.his_or_her> <Actor.boyfriend_or_girlfriend>, maybe there could be something between us."
+            "We chat for a while more before exchanging numbers. Seeing now that <Actor.name> will inevitably break up with <Actor.his_or_her> <Actor2.boyfriend_or_girlfriend>, maybe there could be something between us."
             exchangeContact(Actor)
         Elseif 1
             "I told <Actor.name> that I needed to get back to work and excused myself."
         Else
-            Player(Flirty):: "You know ... I just thought of a perfect way for you to get revenge on your <Actor2.girlfriend_or_boyfriend>."
+            Player(Flirty):: "You know ... I just thought of a perfect way for you to get revenge on your <Actor2.boyfriend_or_girlfriend>."
             perversion += Random(0, 1)
             If Random(0, 100) < Actor:perversion + Actor:attractiontoplayer
                 Actor(Flirty):: "I think I know what you're talking about ... You know what? Screw my <Actor2.boyfriend_or_girlfriend> - let's do it."
                 Sex(Player, Actor)
             Else
-                Actor(Angry):: "Yet I thought for a moment there that you were a nice <Actor.guy_or_girl>. I'm pissed at my <Actor2.boyfriend_or_girlfriend>, but that doesn't mean you can take advantage of me!"
+                Actor(Angry):: "Yet I thought for a moment there that you were a nice <Player.guy_or_girl>. I'm pissed at my <Actor2.boyfriend_or_girlfriend>, but that doesn't mean you can take advantage of me!"
             Endif
         Endif
     Else

@@ -2,7 +2,7 @@ WHAT: all
 WHERE: home
 WHEN: 0 - 24
 WHO: Dating = getSpecific(Dating); If Random(0, 5000) < Dating:perversion - 2*Dating:attractiontoplayer
-OTHER: isAtDatingHome()
+OTHER: isAtDatingHome() && [!isModEnabled(vin_Polyamorous) || !openRelationship()] 
 
     SceneStart()
     If DatingHasHome()
@@ -92,12 +92,12 @@ OTHER: isAtDatingHome()
             Sex(Player, Dating)
             Dating.show(2)
             DatingAffair.show(3)
-            "Clearly embarrased by the whole situation, my <Dating.boyfriend_or_girlfriend>'s <DatingAffair.lover_or_mistress> is hurriedly getting the hell out of the apartment."
+            "Clearly embarrassed by the whole situation, my <Dating.boyfriend_or_girlfriend>'s <DatingAffair.lover_or_mistress> is hurriedly getting the hell out of the apartment."
             0:: "Have a threesome"
             1:: "Let <DatingAffair.him_or_her> leave"
             
             If 0
-               Player(Flirty):: "<Dating.name>, you know what? I can forgive you if we can have a threesome with your fucktoy there right now ..."
+               Player(Flirty):: "<Dating.name>, you know what? I can forgive you if we can have a threesome with your fuck toy there right now ..."
                Dating(Flirty):: "Wow, darling, you're full of surprises!"
                Sex(Dating, Player, DatingAffair)
                perversion += Random(0, 1)

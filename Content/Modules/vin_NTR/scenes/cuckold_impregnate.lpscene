@@ -40,7 +40,7 @@ OTHER: !isWithCompanion() && masochist + perversion > Random(0, 200)
                 If Bull.isValid()
                     Bull.dress()
                     Bull.show(3)
-                    "After a while, <Dating.name> confesses that <Dating.he_or_she> has always had a crush on <Bull.name> and wouldn't mind 'our' child to share some of his good traits." 
+                    "After a while, <Dating.name> confesses that <Dating.he_or_she> has always had a crush on <Bull.name> and wouldn't mind 'our' child sharing some of his good traits." 
                     
                     "Do I also agree that <Bull.name> would be a good candidate? If not, we would need to put off this discussion to another day."
                     0:: "Ask <Bull.name> to knock <Dating.name> up"
@@ -69,11 +69,11 @@ OTHER: !isWithCompanion() && masochist + perversion > Random(0, 200)
                         timeout(100, cuckold_impregnate)
                     Endif
                 Else
-                    "Unfortunately, we couldn't quite agree on who <Dating.name> would want to fuck. Oh well, at least now I know <Dating.he_or_she> is interested in fulfiling this fantasy of mine."
+                    "Unfortunately, we couldn't quite agree on who <Dating.name> would want to fuck. Oh well, at least now I know <Dating.he_or_she> is interested in fulfilling this fantasy of mine."
                     timeout(200, cuckold_impregnate)
                 Endif
             Else
-                Dating(Angry):: "What? You want me to carry another man's child. That's digusting. How could you even consider it? Do you not love me anymore?"
+                Dating(Angry):: "What? You want me to carry another man's child. That's disgusting. How could you even consider it? Do you not love me anymore?"
                 Dating:attractiontoplayer -= Random(0, 2)
                 "There's no point pursuing this anymore. There's no way I can get <Dating.name> to agree to this."
                 timeout(1000, cuckold_impregnate)

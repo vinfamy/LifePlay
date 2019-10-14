@@ -19,7 +19,7 @@ OTHER: none
     
     If 0
         Player(Scared):: "Oh my god! I'm so sorry."
-        Player(Angry):: "Bad doggy! You'd better behave yourself before I put a mouth guard on you."
+        Player(Angry):: "Bad doggy! You'd better behave yourself before I put a muzzle on you."
         masochist += Random(0, 2)
         Actor:rapportwithplayer -= Random(0, 2)
         Actor:attractiontoplayer -= Random(0, 2)        

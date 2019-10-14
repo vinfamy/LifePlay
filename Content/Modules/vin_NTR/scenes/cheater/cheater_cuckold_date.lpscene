@@ -29,14 +29,14 @@ OTHER: !isWithCompanion()
             "With our plan in motion, I approached and managed to convince <Bull.name> to participate in our little perverted adventure."
             "The all important day is here ..."
             Player.dress()
-            Dating(Happy):: "Wow, you look beautiful, darling. I'm sure your date <Bull.name> will be delighted to see you like this."
+            Dating(Happy):: "Wow, you look wonderful, darling. I'm sure your date <Bull.name> will be delighted to see you like this."
             Player(Happy):: "Of course <Bull.he_or_she> will be. I only make this effort of dressing up for my lucky date, never for you ... Anyway, I'm heading out to see <Bull.name> now. You stay home and be a good <Dating.boyfriend_or_girlfriend>, okay?"
             Dating(Wink):: "Have fun, baby. Remember to tell me all the dirty details once you're back."
             Dating.hide()
             
             Bull.dress()
             Bull.show(2)
-            Bull(Happy):: "You look beautiful ... It's my pleasure to be your date tonight."
+            Bull(Happy):: "You look wonderful ... It's my pleasure to be your date tonight."
             "So just like that, <Bull.name> and I began our date ..."
             setBackground(restaurant)
             "<Bull.name> first took me to a fancy dinner at a fine restaurant."
@@ -45,7 +45,7 @@ OTHER: !isWithCompanion()
             setBackground(nightclub)
             "Then a whole lot of intimate dancing and making out in a nightclub."
             setBackground(home)
-            "<Bull.name> was such a <Bull.gentleman_or_lady> throughout the date, but once we got to the bedroom, <Bull.he_or_she> really showed that <Bull.he_or_she> knowed how to fuck."
+            "<Bull.name> was such a <Bull.gentleman_or_lady> throughout the date, but once we got to the bedroom, <Bull.he_or_she> really showed that <Bull.he_or_she> knew how to fuck."
             SexNoAffair(Bull, Player)
             Dating:masochist += Random(0, 2)
             Dating:perversion += Random(0, 1)
@@ -54,7 +54,7 @@ OTHER: !isWithCompanion()
             "Unfortunately, we couldn't quite agree on who I would want to fuck."
         Endif
     Else
-        Player(Angry):: "What? You want me to sleep with another <Dating.man_or_woman>. That's digusting. How could you even consider it? Do you not love me anymore?"
+        Player(Angry):: "What? You want me to sleep with another <Dating.man_or_woman>. That's disgusting. How could you even consider it? Do you not love me anymore?"
         Dating:attractiontoplayer -= Random(0, 2)
         timeout(500, cheater_cuckold_date)
     Endif

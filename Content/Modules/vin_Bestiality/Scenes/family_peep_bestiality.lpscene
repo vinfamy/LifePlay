@@ -20,13 +20,13 @@ OTHER: isModEnabled(vin_NTR) && isModEnabled(vin_Incest) && isAtHome()
     Else
         perversion += Random(0, 0.5)
         Actor:incest += Random(0, 1)
-        "My curiousity got the better of me and I just had to see this ..."
+        "My curiosity got the better of me and I just had to see this ..."
         Actor:incest += Random(0, 2)
         "Luckily, my <Actor.relationship> didn't quite close <Actor.his_or_her> door completely shut - probably too busy with fooling around with <Actor.his_or_her> partner to pay attention to the door. With my sneaking talent, I managed to get a pretty good view of what was going on ..."
         "Wait, what the fuck!?"
         Sex(Actor2, Actor)
         arousal += Random(0, 30)
-        "This is so wrong, I know. <Actor.He_or_She> is my <Actor.relationship> after all ... but for some reason, I'm getting so excited watching <Actor.he_or_she> getting it on with my own dog. I had no idea <Actor.he_or_she> is up to these sorts of stuff. I wonder how many times has <Actor2.name> already hummed the crap out of my <Actor.relationship>. Is this why <Actor2.name> needs so much feeding every day?"
+        "This is so wrong, I know. <Actor.He_or_She> is my <Actor.relationship> after all ... but for some reason, I'm getting so excited watching <Actor.he_or_she> getting it on with my own dog. I had no idea <Actor.he_or_she> is up to these sorts of things. I wonder how many times has <Actor2.name> already hummed the crap out of my <Actor.relationship>. Is this why <Actor2.name> needs so much feeding every day?"
         
         Actor.show(2)
         Actor2.show(3)
@@ -36,7 +36,7 @@ OTHER: isModEnabled(vin_NTR) && isModEnabled(vin_Incest) && isAtHome()
         1:: "Enough"
         
         If 0
-            Player(Flirty):: "Looks like you guys are having some fun there? As I'm the only who adopted the dog and raised him, I think I'm entitled to join in?"
+            Player(Flirty):: "Looks like you guys are having some fun there? As I'm the one who adopted the dog and raised him, I think I'm entitled to join in?"
             Actor(Flirty):: "I didn't realize how much of a pervert my <Actor.callplayer> is ... Come on and join me then, what are you waiting for?"
             Sex(Actor, Player)
             Actor:incest += Random(0, 50)

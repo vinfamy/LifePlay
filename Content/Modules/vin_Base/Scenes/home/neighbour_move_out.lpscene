@@ -35,7 +35,7 @@ OTHER: Random(0, 100) < 5
     InvitedHome = false
     If Quit
         Neighbour.removeNeighbour()
-        "<Neighbour.name> is moving out, having found a cheaper place to live! I was invited to <Neighbour.his_or_her> farewell party with closest neighbours, organized in a few days."
+        "<Neighbour.name> is moving out, having found a cheaper place to live! I was invited to <Neighbour.his_or_her> farewell party with our closest neighbours, planned for in a few days."
         "A few days later ..."
         setBackground(bar)
         "Of course I had to attend <Neighbour.name>'s farewell party. <Neighbour.He_or_She> is one of the most likable <Neighbour.guys_or_girls> in the apartment building. I'm feeling quite sad and downing a decent amount of booze to quell my sadness."

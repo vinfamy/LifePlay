@@ -17,7 +17,8 @@ OTHER: !Player.isAsexual()
         1:: "Stay professional"
         
         If 0
-            "I took advantage of the cancer screening to get more than my fair share of touchy-feely. <Actor.He_or_She> seemed embarassed and turned on by my touches, probably still assuming that this is part of the standard procedure."
+            "I took advantage of the cancer screening to get more than my fair share of touchy-feely. <Actor.He_or_She> seemed embarrassed and turned on by my touches, probably still assuming that this is part of the standard procedure."
+            karma -= 2.5
             perversion += Random(0, 0.25)
             arousal += Random(0, 20)
             Actor:attractiontoplayer += Random(0, 10)
@@ -53,11 +54,11 @@ OTHER: !Player.isAsexual()
                 exchangeContact(Actor)
             Else
                 Actor(Angry):: "<Player.Job>, what are you doing? I'm getting out of here. What a dodgy hospital this is!"
-                "Thankfully, the patient didn't report the incident to the hospital's management, or I would have get fired for unprofessional conduct."
+                "Thankfully, the patient didn't report the incident to the hospital's management, or I would have been fired for unprofessional conduct."
             Endif
         Endif
     Else
-        "Ew ... definitely not my type. Let's get this over and done with before I go blind from having to stare at this sloopy body for too long."
+        "Ew ... definitely not my type. Let's get this over and done with before I go blind from having to stare at this sloppy body for too long."
     Endif
     SceneEnd()
     timeout(100, crush_patient)

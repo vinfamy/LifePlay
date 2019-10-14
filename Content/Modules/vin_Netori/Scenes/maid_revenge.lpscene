@@ -35,7 +35,7 @@ OTHER: Random(0, 400) < attractiveness && perversion < Random(0, 100) && masochi
         masochist -= Random(0, 5)
     Else
         Actor.hide()
-        "I stormed off from the room. What a weird couple ..."
+        "I stormed out of the room. What a weird couple ..."
         masochist -= Random(0, 0.5)
     Endif
 

@@ -16,6 +16,7 @@ OTHER: intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)
     1:: "Attack"
     
     If 0
+        karma -= 10
         masochist += Random(0, 2)
         "I decided to make a run for it!"
         Actor.hide()
@@ -26,7 +27,7 @@ OTHER: intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)
         Actor2:attractiontoplayer -= Random(0, 50)
         Actor2:rapportwithplayer -= Random(0, 50)
     Else
-        Player(Furious):: "You mess with the wrong <Player.guy_or_girl>! Take this."
+        Player(Furious):: "You messed with the wrong <Player.guy_or_girl>! Take this."
         Actor(Furious):: "You dare sucker-punch me? I'll teach you a lesson."
         "A fierce fight ensued ..."
         If martial > Actor:martial || !isModEnabled(vin_NTR)
@@ -38,7 +39,7 @@ OTHER: intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)
         Else
             Rape = true
             Player(Pain):: "Ah!"
-            Actor(Evil):: "Ha! You really thought you could match me in a fight? I have to say - this just makes me want to fuck <Actor2.his_or_her> brain out even more and make you wannabe hero watch it all!"
+            Actor(Evil):: "Ha! You really thought you could match me in a fight? I have to say - this just makes me want to fuck <Actor2.his_or_her> brains out even more and make you watch it all, wannabe hero!"
             mood -= Random(0, 100)
         Endif
     Endif

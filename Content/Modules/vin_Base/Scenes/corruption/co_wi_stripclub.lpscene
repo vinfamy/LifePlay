@@ -24,6 +24,7 @@ OTHER: none
         Actor(Happy):: "Wow, that sounds nice. You should have just told me then, rather than acting all mysterious our whole trip here."
         Actor2(Embarassed):: "Oh well, it was supposed to be a surprise ... but your <Actor.callplayer> here clearly knows the town so well ..."
         Actor2:rapportwithplayer -= Random(0, 2)
+        karma += 1
     Else
         "It's their freedom to do whatever they want as a couple. Besides, I find <Actor.name> far too naive and innocent sometimes, opening up <Actor.his_or_her> mind a bit could only do some good for <Actor.him_or_her>."
         Actor:perversion += Random(0, 2)

@@ -14,7 +14,7 @@ OTHER: none
         Boss.show(2)
         Player(Happy):: "Boss, I'm here for the next heist."
         If isTimingOut(report_to_boss)
-            Boss(Angry):: "You have some <Player.balls_or_galls> coming back here so soon after screwing up so badly last time."
+            Boss(Angry):: "You have some <Player.balls_or_gall> coming back here so soon after screwing up so badly last time."
             Boss(Angry):: "I'm not sure I can continue to trust you."
             Boss(Angry):: "Fine ... come back in a few days and I might have something for you."
         Else
@@ -37,6 +37,7 @@ OTHER: none
                 Boss(Evil):: "You're going there and you're going to rob it, plain and simple."
                 Boss(Evil):: "Just scare them bank employees shitless and take the money. Beat them up if they're stubborn but I don't want to hear about any murders, okay?"
                 Player(Evil):: "Of course, Boss. I won't disappoint you."
+                karma -= 5
                 Boss.hide()
                 Actor.show(4)
                 Actor(Evil):: "Let's go, <Player.name>. No time to waste before the bank's management grows a brain and adds more security,"
@@ -63,6 +64,7 @@ OTHER: none
                         Actor2.hide()
                         "I shot the bank manager in the head in cold blood. The gunshot was followed by screams all around me"
                         Player(Furious):: "Who else wants to join the fool in Hell? Hand over the money, now!"
+                        karma -= 50
                         
                         Outcome = 2
                     Else
@@ -125,6 +127,7 @@ OTHER: none
                 Boss(Evil):: "You will go there and show that piece of shit how foolish it is to not honor an arrangement with our Family."
                 
                 Player(Evil):: "Of course, Boss. I won't disappoint you."
+                karma -= 5
                 Boss.hide()
                 Actor.show(4)
                 Actor(Evil):: "Let's go, <Player.name>. No time to waste for such an easy task"
@@ -188,6 +191,7 @@ OTHER: none
                 Boss(Evil):: "You will go find <Actor2.him_or_her> and kidnap <Actor2.him_or_her>. I bet the rich daddy would pay any price to have the spoit <Actor.brat_or_slut> back."
                 
                 Player(Evil):: "Of course, Boss. I won't disappoint you."
+                karma -= 5
                 Boss.hide()
                 Actor.show(4)
                 Actor(Evil):: "Let's go, <Player.name>. I've been tracking <Actor2.him_or_her> down for months. I know exactly where <Actor2.he_or_she>'s right now"
@@ -253,6 +257,7 @@ OTHER: none
                 Boss(Evil):: "You will go find and kill that piece of shit. Let them all remember that the Oath of the Family must never be broken."
                 
                 Player(Evil):: "Of course, Boss. I won't disappoint you."
+                karma -= 5
                 Boss.hide()
                 Actor.show(4)
                 Actor(Evil):: "Let's go, <Player.name>. I can't wait to see that traitor dead myself."
@@ -274,7 +279,8 @@ OTHER: none
                     setBackground(restaurant)
                     Boss.show(2)
                     Boss(Evil):: "A job well done. Here's your reward. That should serve as a warning to anyone thinking about betraying our Family."
-                    money += Random(500, 1000)                    
+                    money += Random(500, 1000)  
+                    karma -= 20                    
                 Else
                     Actor2(Furious):: "Help! Somebody help!"
                     Actor2.hide()
@@ -312,6 +318,7 @@ OTHER: none
                 Boss(Evil):: "You will break into the museum after hours, steal it and leave a note. I imagine the press coverage of this incident would give us the notoriety for a few new recruits."
                 
                 Player(Evil):: "Of course, Boss. I won't disappoint you."
+                karma -= 5
                 Boss.hide()
                 Actor.hide()
                 setBackground(art)
@@ -364,6 +371,7 @@ OTHER: none
                 Boss(Evil):: "If you were to take pictures of some of the steamy actions, we would be able to use them to blackmail the chief into looking the other way from our activities ..."
                 
                 Player(Evil):: "Of course, Boss. I won't disappoint you."
+                karma -= 5
                 Boss.hide()
                 Actor.show(4)
                 Actor(Evil):: "Let's go, <Player.name>. I know exactly where <Actor2.he_or_she> usually meets <Actor2.his_or_her> lover."
@@ -451,6 +459,7 @@ OTHER: none
                 Boss(Happy):: "Finally! Let's not waste any more time and get your initiation over and done with, shall we?"
                 "My initiation ritual first involves me being led into the presence of other Mafia members and presented by the Boss. The Family's strict rules were read out before my finger was pricked with a needle by the Bos. A few drops of my blood were spilled on a card bearing the Family's patron saint, which was then set on fire. The burning card is passed rapidly from hand to hand, while I took the oath of loyalty to the Family."
                 "Now that I'm officially a member of the family, let's introduce myself to the rest."
+                karma -= 5
                 Boss.hide()
                 exchangeContact(Boss)
                 

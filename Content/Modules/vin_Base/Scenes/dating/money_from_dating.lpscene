@@ -25,6 +25,7 @@ If 0
     Endif
 Else
     "No, I can't do that. I'm an indepedent <Player.man_or_woman>. I shouldn't have to rely on my <Dating.boyfriend_or_girlfriend> to survive."
+    karma += 2.5
 Endif
 
 timeout(500, money_from_dating)

@@ -74,6 +74,7 @@ OTHER: none
                 "<Actor.name> stormed off from the interview room. I really screwed up here."
                 If Random(50, 1000) < Actor:intelligence
                     "To make matters worse, <Actor.name> went straight to the press accusing me of sexual harassment. My company's reputation was damaged severely by this PR disaster."
+                    brand -= Random(0.5, 1)
                 Endif
             Endif
         Endif
@@ -125,6 +126,8 @@ OTHER: none
                 If 0 || Actor.isDating() || Random(0, 50) < bargain
                     If 1
                         Salary *= 0.8
+                    Else
+                        karma += 2.5
                     Endif
                     "<Actor.name> accepted the offer and started immediately."
                     Actor.addEmployee(Salary)

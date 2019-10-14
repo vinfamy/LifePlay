@@ -15,6 +15,7 @@ If 0
     If Random(0, 150) < interpersonal + attractiveness 
         "Motivated by my encouragements, <Dating.name> became a bit more fashionable and at least tries to look good in public."
         Dating:attractiveness += Random(0, 2)
+        karma += 2.5
     Else
         "Unfortunately, despite my encouragements, <Dating.name> still refused to wear decent clothes. <Dating.He_or_She> even accused me of being shallow."
         Dating:attractiontoplayer -= Random(0, 2)

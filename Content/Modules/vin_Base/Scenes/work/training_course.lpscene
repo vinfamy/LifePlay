@@ -38,7 +38,7 @@ Boss.hide()
 Colleague.hide()
 
 If Going
-    "I might have threated my relationship with <Colleague.name>, but in exchange, I was able to participate in a fantastic training course. The knowledge I acquired and the people I met there was quite a boost to my career."
+    "I might have threatened my relationship with <Colleague.name>, but in exchange, I was able to participate in a fantastic training course. The knowledge I acquired and the people I met there was quite a boost to my career."
     jobexperience += Random(0, 2)
     intelligence += Random(0, 1)
     timeout(800, training_course)

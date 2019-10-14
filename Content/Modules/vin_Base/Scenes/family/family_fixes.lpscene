@@ -19,6 +19,7 @@ OTHER: isAtHome() && intelligence > Random(0, 100)
         Actor(Sad):: "Thank you."
     Else
         Player(Happy):: "There's no need to take it to the repair shop. I know a thing or two about computers. I can have a look for you. Might be able to fix it right away."
+        karma += 2.5
         Actor(Excited):: "Oh really? That would be awesome. Let's go back to our apartment, I can show you what's wrong."
         "We went back to the apartment, and <Actor.He_or_She> switched the laptop on and showed me the issues."
         If Random(0, 100) < intelligence

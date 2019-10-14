@@ -18,12 +18,13 @@ OTHER: none
     If 0
         money -= Random(50, 200)
         masochist += Random(0, 0.25)
-        "Damn, this thing costs a mini fortune, but I just want to support my <Actor.relationship>."
+        "Damn, this thing costs a small fortune, but I just want to support my <Actor.relationship>."
     Elseif 1
         Player(Sad):: "That sounds amazing, but I'm a bit broke right now. I'll get back to you after my next paycheck."
         Actor:rapportwithplayer -= Random(0, 2)
     Else
         Player(Angry):: "<Actor.Relationship>! Please stop getting involved with these scams. You'll never make any money, and worse, you'll ruin all your personal relationships."
+        karma += 2.5
         If Random(0, 200) < interpersonal
             Actor(Sad):: "Maybe you're right. This isn't the first time that I have fallen victim to these pyramid schemes. I probably should just get a normal job."
             Actor:intelligence => 30

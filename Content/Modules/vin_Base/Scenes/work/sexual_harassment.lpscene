@@ -10,7 +10,7 @@ Harasser.dress()
 Harasser.show(2)
 
 Harasser(Flirty):: "Oh look at you! Aren't you an eye candy? You have no idea how much having you in the office brightens up my days, although I would much rather have you in a more private space, if you catch my meaning ..."
-"Oh there <Harasser.he_or_she> is again, getting all flirtatous and handsy."
+"Oh there <Harasser.he_or_she> is again, getting all flirtatious and handsy."
 0:: "It's sexual harassment"
 1:: "I enjoy the attention"
 

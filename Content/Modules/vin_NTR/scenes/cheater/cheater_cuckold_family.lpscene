@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: home
 WHEN: 17 - 23
-WHO: Dating = getSpecific(Dating); Bull = Dating.getRelatedPerson(ParentChild); If Dating:age > Bull:age && Dating:attractiontoplayer > 20 && Dating:masochist + Dating:perversion > Random(0, 200)
+WHO: Dating = getSpecific(Dating); Bull = Dating.getRelatedPerson(ParentChild); If Dating:age > Bull:age + 18 && Dating:attractiontoplayer > 20 && Dating:masochist + Dating:perversion > Random(0, 200)
 OTHER: !isWithCompanion() && isModEnabled(vin_Incest)
 
     SceneStart()
@@ -42,7 +42,7 @@ OTHER: !isWithCompanion() && isModEnabled(vin_Incest)
         Player.show(0)
         "After the sex, <Bull.name> got up and left without saying a word, as agreed beforehand. That was a sensual experience like no other making my <Dating.boyfriend_or_girlfriend> watch me being <Player.pleasured_or_defilled> by <Dating.his_or_her> own <Bull.son_or_daughter>."
     Else
-        Player(Angry):: "What? You want me to sleep with your own <Bull.son_or_daughter>? That's digusting. How could you even consider it? Do you not love me anymore?"
+        Player(Angry):: "What? You want me to sleep with your own <Bull.son_or_daughter>? That's disgusting. How could you even consider it? Do you not love me anymore?"
         Dating:attractiontoplayer -= Random(0, 2)
         timeout(1000, cheater_cuckold_family)
     Endif

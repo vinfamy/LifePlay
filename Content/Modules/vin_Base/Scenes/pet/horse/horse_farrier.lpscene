@@ -13,7 +13,7 @@ OTHER: none
     1:: "Nah, we can skip this once"
     
     If 0
-        "A farrier's visit is never cheap but <Actor.name>'s wellbeing is more important."
+        "A farrier's visit is never cheap but <Actor.name>'s well being is more important."
         Actor:fitness += Random(0, 2)
         Actor:attractiontoplayer += Random(0, 2)
         Actor:rapportwithplayer += Random(0, 2)
@@ -21,7 +21,7 @@ OTHER: none
         Actor2 = generatePersonTemporary()
         Actor2.dress()
         Actor2.show(2)
-        Actor2(Happy):: "That's it. Call me again in 4 to 6 weeks. Now that would be ..."
+        Actor2(Happy):: "That's it. Call me again in 4 to 6 weeks. Now that will be ..."
         "What the hell! That's insane! You can get manicures for 3 people with that money."
         0:: "Suck it up and pay"
         1:: "Suck the farrier instead"

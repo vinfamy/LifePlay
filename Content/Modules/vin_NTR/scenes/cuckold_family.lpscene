@@ -55,7 +55,7 @@ OTHER: !isWithCompanion() && masochist + perversion > Random(0, 200) && isModEna
                 Dating:attractiontoplayer += Random(0, 2)
                 timeout(500, cuckold_family)
             Else
-                Dating(Angry):: "What? You want me to sleep with another <Player.man_or_woman>. That's digusting. How could you even consider it? Do you not love me anymore?"
+                Dating(Angry):: "What? You want me to sleep with another <Player.man_or_woman>. That's disgusting. How could you even consider it? Do you not love me anymore?"
                 Dating:attractiontoplayer -= Random(0, 2)
                 "There's no point pursuing this anymore. There's no way I can get <Dating.name> to agree to this."
                 timeout(1000, cuckold_family)

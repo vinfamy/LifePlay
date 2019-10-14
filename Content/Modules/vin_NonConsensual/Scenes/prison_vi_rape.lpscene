@@ -28,7 +28,7 @@ OTHER: Random(0, 100) < perversion
         SexNoAffair(Actor, Player)
         
         Actor.hide()
-        "Despite the horrible incident that happened, I didn't have the gut to report the crime to the warden. I figure they'll just laugh at my face. Here in a prison, rape is the language of power."
+        "Despite the horrible incident that happened, I didn't have the guts to report the crime to the warden. I figure they'll just laugh at my face. Here in a prison, rape is the language of power."
     Endif
     SceneEnd()
     timeout(200, prison_vi_rape)

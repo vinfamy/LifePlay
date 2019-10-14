@@ -35,7 +35,7 @@ OTHER: IsAtHome() && perversion < Random(0, 30)*Random(0, 1)
         If 0
             "My <Actor.relationship> is such a <Actor.manwhore_or_whore>. I'm glad I'm a self-respecting <Player.guy_or_girl> and not sleeping with random <Player.girls_or_guys> like that."
         Else
-            "I must admit: I'm embarassed of my terrible skills in the bedroom and wish I could be as good as my <Actor.relationship>."
+            "I must admit: I'm embarrassed of my terrible skills in the bedroom and wish I could be as good as my <Actor.relationship>."
             0:: "Seek help from my <Actor.relationship>"
             1:: "Say nothing"
             
@@ -92,7 +92,7 @@ OTHER: IsAtHome() && perversion < Random(0, 30)*Random(0, 1)
                     Endif
                 Endif
             Else
-                "I'm too embarassed to say anything to my <Actor.relationship>."
+                "I'm too embarrassed to say anything to my <Actor.relationship>."
             Endif
         Endif
     Endif

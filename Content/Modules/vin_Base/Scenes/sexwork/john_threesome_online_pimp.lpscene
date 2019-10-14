@@ -13,10 +13,10 @@ OTHER: !isWithCompanion()
     Actor2.show(3)
     "Two Johns messaged me on Adultwork ..."
     Actor(Flirty):: "How much for <Actor3.name> to have fun with both of us?"
-    0:: "Turn <Actor.him_or_her> down"
-    1:: "Rip <Actor.him_or_her> off"
+    0:: "Turn them down"
+    1:: "Rip them off"
     2:: "Offer a fair price"
-    3:: "Give <Actor.him_or_her> a bargain"
+    3:: "Give them a bargain"
     
     If 0
         Player(Sad):: "Sorry, but <Actor3.he_or_she>'s not in town today ..."

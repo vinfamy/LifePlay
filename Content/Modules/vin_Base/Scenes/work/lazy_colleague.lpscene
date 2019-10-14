@@ -24,7 +24,7 @@ Elseif 1
         Colleague:rapportwithplayer += Random(0, 2)
         Colleague:intelligence => 51
     Else
-        Colleague(Angry):: "Who told you I were slacking off? Frankly, I work harder than anyone else here!"
+        Colleague(Angry):: "Who told you I was slacking off? Frankly, I work harder than anyone else here!"
         Colleague:rapportwithplayer -= Random(0, 2)
     Endif
 Elseif 2

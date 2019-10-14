@@ -17,7 +17,7 @@ OTHER: isModEnabled(vin_NTR) && isAtHome() && isAtDatingHome()
     1:: "I'm turned on"
 
     If 0
-        "That <Dating.bastard_or_bitch> betrayed my trust for <Dating.him_or_her> and it broke my heart. All this time, I didn't realize how much of a degenerate <Dating.he_or_she>, having sex with an animal no less. It didn't look like <Dating.his_or_her> first time tasting the bestial pleasure either ..."
+        "That <Dating.bastard_or_bitch> betrayed my trust for <Dating.him_or_her> and it broke my heart. All this time, I didn't realize how much of a degenerate <Dating.he_or_she> is, having sex with an animal no less. It didn't look like <Dating.his_or_her> first time tasting the bestial pleasure either ..."
         cuckold = false
         mood -= Random(50, 100)
     Else

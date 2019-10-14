@@ -29,7 +29,7 @@ OTHER: !isWithCompanion() && !Player.isMale() && !Player.isPregnant()
         If Bull.isValid()
             Bull.dress()
             Bull.show(3)
-            "After a while, I confess that I has always had a crush on <Bull.name> and wouldn't mind 'our' child to share some of <Bull.his_or_her> good traits." 
+            "After a while, I confess that I have always had a crush on <Bull.name> and wouldn't mind 'our' child sharing some of <Bull.his_or_her> good traits." 
             
             Bull.hide()
             "With our plan in motion, I approached and managed to convince <Bull.name> to participate in our little perverted adventure."
@@ -44,7 +44,7 @@ OTHER: !isWithCompanion() && !Player.isMale() && !Player.isPregnant()
             Bull.hide()
             Dating.show(2)
             Player.show(0)
-            "After the sex, <Bull.name> got up and left without saying a word, as agreed beforehand. That was a sensual experience like no other to  be <Dating.pleasured_or_defilled> and hopefully impregnated by another <Bull.man_or_woman> while my <Dating.boyfriend_or_girlfriend> watch."
+            "After the sex, <Bull.name> got up and left without saying a word, as agreed beforehand. That was a sensual experience like no other to be <Dating.pleasured_or_defilled> and hopefully impregnated by another <Bull.man_or_woman> while my <Dating.boyfriend_or_girlfriend> watch."
             Dating:attractiontoplayer += Random(0, 2)
             Player.impregnate()
             timeout(500, cheater_cuckold_impregnate)
@@ -53,7 +53,7 @@ OTHER: !isWithCompanion() && !Player.isMale() && !Player.isPregnant()
             timeout(200, cheater_cuckold_impregnate)
         Endif
     Else
-        Player(Angry):: "What? You want me to carry another man's child. That's digusting. How could you even consider it? Do you not love me anymore?"
+        Player(Angry):: "What? You want me to carry another man's child. That's disgusting. How could you even consider it? Do you not love me anymore?"
         Dating:attractiontoplayer -= Random(0, 2)
         timeout(1000, cheater_cuckold_impregnate)
     Endif

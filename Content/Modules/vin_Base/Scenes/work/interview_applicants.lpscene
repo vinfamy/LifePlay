@@ -54,7 +54,7 @@ If 0
             If Candidate:intelligence > Random(50, 100)
                 "And that wasn't even the end of it. The candidate was a smart cookie - <Candidate.he_or_she> filled a complaint to my company about my indecent proposal and threatened to leak it to the press and sue the company for discrimination and harassment. The company had to settle, losing quite a bit of money in the process."
                 If interpersonal > Random(50, 100)
-                    "Basically begging for forgiveness from my bosses, I managed to keep my job, but just about ..."
+                    "Basically begging for forgiveness from my bosses, I managed to keep my job, but just barely ..."
                     jobperformance -= Random(0, 100)
                 Else
                     "Needless to say, I was promptly fired over the incident. Also, my reputation in the industry was forever damaged."
@@ -70,7 +70,7 @@ If 0
         If 0
             "Having ended the interview, I suggested a rejection in my interview report to HR."
         Else
-            "Having ended the nterview, I recommended that <Candidate.name> be hired in my report to HR."
+            "Having ended the interview, I recommended that <Candidate.name> be hired in my report to HR."
             If Candidate:intelligence > Random(0, 100)
                 "Soon <Candidate.he_or_she> was hired and joined the company as one of my colleagues."
                 Candidate.addColleague()

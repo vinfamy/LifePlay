@@ -15,6 +15,7 @@ OTHER: intelligence > 70
         If Random(0, 150) < interpersonal + intelligence 
             "Motivated by my encouragements, my <Dating.relationship> developed somewhat of a habit of reading and has become more knowledgeable on many subjects as a result."
             Dating:intelligence += Random(0, 2)
+            karma += 2.5
         Else
             "Unfortunately, despite my encouragements, my <Dating.relationship> still refused to improve <Dating.his_or_her> general knowledge. <Dating.He_or_She> even accused me of intellectual snobbery."
             Dating:rapportwithplayer -= Random(0, 2)

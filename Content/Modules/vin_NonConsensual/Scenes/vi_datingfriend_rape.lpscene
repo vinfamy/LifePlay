@@ -38,7 +38,7 @@ OTHER: !isWithCompanion() && isAtDatingHome()
             Else
                 Actor(Furious):: "Nobody rejects me like that! Let's see if you can remain so loyal to your <Actor2.boyfriend_or_girlfriend> after a hard pounding!"
                 Player(Angry):: "Get your hands off me! Have you gone crazy? Help!"
-                Actor(Evil):: "Listen and stop screaming! You'd better be a good <Player.boy_or_girl> for me, or I'll tell <Actor2.name> that you tried to seduce me. How do you like your relationship in ruin? We both know that <Actor2.name> is going to trust me over you. We've been best friends since well before <Actor2.he_or_she> even met you."
+                Actor(Evil):: "Listen and stop screaming! You'd better be a good <Player.boy_or_girl> for me, or I'll tell <Actor2.name> that you tried to seduce me. How would you like your relationship in ruin? We both know that <Actor2.name> is going to trust me over you. We've been best friends since well before <Actor2.he_or_she> even met you."
                 "Maybe my decision making was affected by the alcohol. Or maybe, my relationship just means that much to me. Either way, my mind seemed to let go after what <Actor.he_or_she> said and I stopped struggling. Soon, <Actor.he_or_she> was ripping my clothes off and proceeded to force <Actor.himself_or_herself> upon me."
                 Player(Crying):: "No! Please stop ... What if <Actor2.name> comes home to find us like this ..."
                 Filter(Aggressive)

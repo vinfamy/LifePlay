@@ -30,7 +30,7 @@ OTHER: !isWithCompanion()
         
         If 0
             Actor1:attractiontoplayer += Random(0, 10)
-            "Looks like <Actor1.name> wants some sweet revenge by sleeping with one of <Actor1.his_or_her> ex <Actor0.boyfriend_or_girlfriend>'s neighbours, and I cannot help but be complicit. My neighbour only has <Actor0.himself_or_herself> to blame."
+            "Looks like <Actor1.name> wants some sweet revenge by sleeping with one of <Actor1.his_or_her> ex-<Actor0.boyfriend_or_girlfriend>'s neighbours, and I cannot help but be complicit. My neighbour only has <Actor0.himself_or_herself> to blame."
             Sex(Player, Actor1)
             perversion += Random(0, 1)
             masochist -= Random(0, 5)

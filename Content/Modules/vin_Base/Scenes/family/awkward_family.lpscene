@@ -15,6 +15,7 @@ OTHER: interpersonal > 70
         If Random(0, 75) < interpersonal
             "Motivated by my encouragements, my <Dating.relationship> decided to participate in more social events and has become more sociable and confident as a result. <Dating.He_or_She> is still far from a party animal, mind you."
             Dating:interpersonal += Random(0, 2)
+            karma += 2.5
         Else
             "Unfortunately, despite my encouragements, my <Dating.relationship> still refused to go out much. <Dating.He_or_She> even accused me of being a party animal."
             Dating:rapportwithplayer -= Random(0, 2)

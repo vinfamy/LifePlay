@@ -18,6 +18,7 @@ OTHER: isAtHome() && Random(0, 1000) < interpersonal
         interpersonal += Random(0, 0.5)
         mood += Random(0, 5)
         energy -= Random(0, 20)
+        karma += 2.5
     Else
         "Maybe another day. I'm far too busy right now."
         Actor:rapportwithplayer -= Random(0, 1)

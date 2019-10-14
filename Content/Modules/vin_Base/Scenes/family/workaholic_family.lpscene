@@ -16,7 +16,7 @@ OTHER: none
         "I'm happy to see that my <Dating.relationship> is such a career-oriented person. Hopefully, <Dating.he_or_she> will become successful thanks to <Dating.his_or_her> hard work."
         Dating:rapportwithplayer += Random(0, 2)
     Else
-        "I complained about how little time my <Dating.relationship> had been spending with the family recently and accused <Dating.him_or_her> of priotizing <Dating.his_or_her> career over family."
+        "I complained about how little time my <Dating.relationship> had been spending with the family recently and accused <Dating.him_or_her> of prioritizing <Dating.his_or_her> career over family."
         Dating:rapportwithplayer -= Random(0, 2)
     Endif
 

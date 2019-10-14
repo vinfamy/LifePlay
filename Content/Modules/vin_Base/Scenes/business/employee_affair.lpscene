@@ -10,7 +10,7 @@ OTHER: none
     Actor2.show(3)
     Actor.show(2)
 
-    "Wait, is that my employees <Actor2.name> and <Actor.name> walking together towards a storeroom?"
+    "Wait, are those my employees <Actor2.name> and <Actor.name> walking together towards a storeroom?"
     "What should I do?"
     0:: "Follow them"
     1:: "No big deal"

@@ -12,7 +12,7 @@ OTHER: !isWithCompanion() && Random(40, 500) < attractiveness
     Actor.dress()
     Actor.show(2)
     "I was just hanging out at the bar when a stranger approached me."
-    Actor(Happy):: "I'm sorry if this is all too sudden. But you're the most beautiful <Player.guy_or_girl> I've ever seen. I'd love nothing more than being able to buy you a drink."
+    Actor(Happy):: "I'm sorry if this is all too sudden. But you're the most <Player.handsome_or_beautiful> <Player.guy_or_girl> I've ever seen. I'd love nothing more than being able to buy you a drink."
     0:: "Yes"
     1:: "No"
 
@@ -26,7 +26,7 @@ OTHER: !isWithCompanion() && Random(40, 500) < attractiveness
         "A while later ..."
         setBackground(home)
         "Why am I in this disgusting hotel room? Oh no, that drink was spiked!"
-        Actor(Evil):: "You stupid bitches never learn. Show you some charm and you all drink the first thing given to you."
+        Actor(Evil):: "You stupid <Player.bastards_or_bitches> never learn. Show you some charm and you all drink the first thing given to you."
         Actor(Flirty):: "Now, let us have some fun, because you're gonna forget all about this in the morning!"
         "Part of my mind still wanted to resist but it's too weak compared to the strong drug in my system."
         Filter(Aggressive)

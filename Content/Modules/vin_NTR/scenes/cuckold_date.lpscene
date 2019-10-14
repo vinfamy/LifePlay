@@ -10,7 +10,7 @@ OTHER: !isWithCompanion() && masochist + perversion > Random(0, 200)
     1:: "No"
 
     If 0
-        "I must admit: the thought of watching <Dating.name> getting it on with another <Player.man_or_woman> without me there really turns me on."
+        "I must admit: the thought of <Dating.name> getting it on with another <Player.man_or_woman> without me there really turns me on."
         masochist += Random(0, 1)
         perversion += Random(0, 0.5)
         "But am I ready to do something about it?"
@@ -42,18 +42,18 @@ OTHER: !isWithCompanion() && masochist + perversion > Random(0, 200)
                     "With our plan in motion, I approached and managed to convince <Bull.name> to participate in our little perverted adventure."
                     "The all important day is here ..."
                     Dating.dress()
-                    Player(Happy):: "Wow, you look beautiful, darling. I'm sure your date <Bull.name> will be delighted to see you like this."
+                    Player(Happy):: "Wow, you look wonderful, darling. I'm sure your date <Bull.name> will be delighted to see you like this."
                     Dating(Happy):: "Of course <Bull.he_or_she> will be. I only make this effort of dressing up for my lucky date, never for you ... Anyway, I'm heading out to see <Bull.name> now. You stay home and be a good <Player.boyfriend_or_girlfriend>, okay?"
                     Player(Wink):: "Have fun, baby. Remember to tell me all the dirty details once you're back."
                     Dating.hide()
-                    "<Dating.name> headed off while I stayed back at home, for what seemed like centuries. I couldn't help but get turned out imagining what my <Dating.boyfriend_or_girlfriend>'s lucky date is getting from <Dating.name> right this moment, while I just sit here, 'helpless'."
+                    "<Dating.name> headed off while I stayed back at home, for what seemed like centuries. I couldn't help but get turned on imagining what my <Dating.boyfriend_or_girlfriend>'s lucky date is getting from <Dating.name> right this moment, while I just sit here, 'helpless'."
                     "A few hours later ..."
                     "Still no signs of <Dating.name> coming back ... <Dating.he_or_she> is probably already in <Bull.name>'s bed by now, making passionate love."
                     "A few more hours passed ..."
                     Dating.show(2)
                     masochist += Random(0, 2)
                     perversion += Random(0, 1)
-                    Dating(Flirty):: "Honey, I'm back. That was amazing. <Bull.name> was such a <Bull.gentleman_or_lady> throughout the date, but once we got to the bedroom, <Bull.he_or_she> really showed that <Bull.he_or_she> knowed how to fuck."
+                    Dating(Flirty):: "Honey, I'm back. That was amazing. <Bull.name> was such a <Bull.gentleman_or_lady> throughout the date, but once we got to the bedroom, <Bull.he_or_she> really showed that <Bull.he_or_she> knew how to fuck."
                     0:: "Tell me more ..."
                     1:: "You should take a shower"
                     
@@ -74,10 +74,10 @@ OTHER: !isWithCompanion() && masochist + perversion > Random(0, 200)
                     Dating:attractiontoplayer += Random(0, 2)
                     timeout(500, cuckold_date)
                 Else
-                    "Unfortunately, we couldn't quite agree on who <Dating.name> would want to fuck. Oh well, at least now I know <Dating.he_or_she> is interested in fulfiling this fantasy of mine."
+                    "Unfortunately, we couldn't quite agree on who <Dating.name> would want to fuck. Oh well, at least now I know <Dating.he_or_she> is interested in fulfilling this fantasy of mine."
                 Endif
             Else
-                Dating(Angry):: "What? You want me to sleep with another <Player.man_or_woman>. That's digusting. How could you even consider it? Do you not love me anymore?"
+                Dating(Angry):: "What? You want me to sleep with another <Player.man_or_woman>. That's disgusting. How could you even consider it? Do you not love me anymore?"
                 Dating:attractiontoplayer -= Random(0, 2)
                 "There's no point pursuing this anymore. There's no way I can get <Dating.name> to agree to this."
                 timeout(500, cuckold_date)

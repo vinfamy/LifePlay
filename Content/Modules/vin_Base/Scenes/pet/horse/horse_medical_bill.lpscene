@@ -23,7 +23,7 @@ OTHER: none
     1:: "Hope it goes away on its own"
     
     If 0
-        "This may be expensive but <Actor.name>'s wellbeing is more important."
+        "This may be expensive but <Actor.name>'s well being is more important."
         Actor:fitness += Random(0, 5)
         Actor:attractiontoplayer += Random(0, 10)
         Actor:rapportwithplayer += Random(0, 10)

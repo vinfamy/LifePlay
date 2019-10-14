@@ -58,7 +58,7 @@ OTHER: !isWithCompanion() && perversion < Random(0, 100)*Random(0, 1)
             "After everything we've been through together as a couple, I didn't quite have it to report what happened to the cops, sparing my ex and <Actor.his_or_her> friend jail time."             
         Else
             masochist += Random(0, 5)
-            "I don't know why, but even after what happened, I didn't quite have the heart to break up with <Actor.name> ... I just hope <Actor.he_or_she> doesn't see this weakness as consent for me to be a fucktoy on demand for all <Actor.his_or_her> friends."
+            "I don't know why, but even after what happened, I didn't quite have the heart to break up with <Actor.name> ... I just hope <Actor.he_or_she> doesn't see this weakness as consent for me to be a fuck toy on demand for all <Actor.his_or_her> friends."
         Endif
     Else
         Player(Angry):: "Honey, I've told you many times before: I'm not comfortable doing that for you."

@@ -12,8 +12,9 @@ OTHER: none
         1:: "No"
         
         If 0
-            "Let's move on and forget about my dark past. I'll just have to hope that my old boss would consider me too insignificant an loose end to hunt down."
+            "Let's move on and forget about my dark past. I'll just have to hope that my old boss would consider me too insignificant a loose end to hunt down."
             quitCrime()
+            karma += 10
         Endif
     Else
         "I haven't joined any criminal organizations. I have no crime career to retire from."

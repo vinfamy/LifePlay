@@ -11,6 +11,7 @@ OTHER: Random(0, 200) < perversion
     1:: "Forget it"
     
     If 0
+        karma += 5
         perversion += Random(0, 0.5)
         "Who is the first guy I should invite?"
         selectNPC()

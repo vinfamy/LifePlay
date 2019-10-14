@@ -15,6 +15,7 @@ If 0
     interpersonal += Random(0, 0.5)
     jobperformance -= Random(0, 1)
     Colleague:rapportwithplayer += Random(0, 5)
+    karma -= 2.5
 Else
     "I try my best to avoid gossiping and being gossiped about. I feel this is the best thing to do. I don't need such a distraction from actual work."
     jobperformance += Random(0, 2)

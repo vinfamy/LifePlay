@@ -26,13 +26,13 @@ OTHER: Random(0, 100) < 20
         "Good for them, I guess. They seem so into it."
         masochist += Random(0, 0.5)
     Elseif 1
-        "This is unacceptable. Me and everyone else is trying to watch a movie here. We're not here to watch them making out."
+        "This is unacceptable. Everyone is trying to watch a movie here. We're not here to watch them making out."
         Player(Angry):: "Could you please stop? Get a room already. Nobody wants to see all that PDA."
-        "The couple were visibly embarassed and soon made their way out of the cinema under the judgmental gazes of felllow cinema goers."
+        "The couple were visibly embarrassed and soon made their way out of the cinema under the judgmental gazes of fellow cinema goers."
         masochist -= Random(0, 0.5)
     Else
         "I'm actually quite enjoying the show ..."
-        "Soon enough, the couple's making out became more and more intense and it became increasingly clear that they had no shame to do it right here in the cinema."
+        "Soon enough, the couple's making out became more and more intense and it became increasingly clear that they were not ashamed to do it right here in the cinema."
         perversion += Random(0, 0.5)
         Sex(Actor, Actor2)
         Actor.show(2)
@@ -49,11 +49,11 @@ OTHER: Random(0, 100) < 20
                 Sex(Actor, Actor2, Player)
                 Player:perversion += Random(0, 1)
             Else
-                Actor(Angry):: "What the fuck are you doing here, peeping Tom? Get out or I'll call the police."
+                Actor(Angry):: "Not in your wildest dream!"
                 Actor:rapportwithplayer -= Random(0, 3)
             Endif
         Else
-            "I should get out of here before I get caught."
+            "I should just let them enjoy themselves."
         Endif
     Endif    
     timeout(96, cinema_couple)

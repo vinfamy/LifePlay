@@ -16,6 +16,7 @@ OTHER: isAtHome()
         "That <Actor2.sleazy_or_slutty> <Actor2.asshole_or_bitch> is trying to corrupt my innocent <Actor.relationship>? Not happening under my watch!"
         Player(Angry):: "Hey, it's <Actor.name>'s <Actor.callplayer> here! Stop sending my <Actor.relationship> these filthy pictures, will you? Or I'll beat you up!"
         Actor2:rapportwithplayer -= Random(0, 2)
+        karma += 1
     Else
         "Perverted gifts in a relationship are normal. Nothing to worry about."
         masochist += Random(0, 1)

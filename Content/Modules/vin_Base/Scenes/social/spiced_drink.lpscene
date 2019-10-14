@@ -16,6 +16,7 @@ If 0
     "Thankfully, the girl didn't end up drinking it and no-one was harmed - I would feel very guilty otherwise."
 Else
     Player(Furious):: "Hey! What the fuck do you think you're doing?"
+    karma += 5
     masochist -= Random(0, 0.5)
     "The guy ran away as soon as I shouted out and exposed his dirty trick - not fast enough for the security guards though ..."
     Actor = generatePerson()
@@ -34,6 +35,7 @@ Else
     1:: "Ask for her number"
     
     If 0
+        karma += 2.5
         Player(Happy):: "Don't worry about it. It's only the right thing to do."
     Else
         "I suggested that we exchange numbers and hang out another day. Of course, <Actor.name> didn't hesitate to give her number to her savior."

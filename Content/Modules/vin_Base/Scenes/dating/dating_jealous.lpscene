@@ -57,12 +57,14 @@ If 0
             Player(Anxious):: "Baby, are you okay? Are you hurt?"
             CurrentCompanion:attractiontoplayer += Random(0, 2)
         Elseif 1
+            karma -= 2.5
             "I must admit: seeing <Flirter.name> teach my weak-ass <CurrentCompanion.boyfriend_or_girlfriend> a lesson was a huge turn-on."
             "Without letting <CurrentCompanion.name> notice, I managed to slip my number to <Flirter.name>. <CurrentCompanion.name> would be furious if <CurrentCompanion.he_or_she> ever finds out ..."
             Player(Anxious):: "Baby, are you okay? Are you hurt?"
             "I then proceeded to pretend to be concerned about <CurrentCompanion.name>'s injuries ..."
             exchangeContact(Flirter)
         Else
+            karma -= 10
             "What a pathetic <CurrentCompanion.boyfriend_or_girlfriend> I have! I might as well humilate <CurrentCompanion.him_or_her>!"
             Player(Flirty):: "Maybe you're right, I deserve someone stronger. Come here you, claim your prey!"
             Flirter(Flirty):: "Much obliged, baby!"

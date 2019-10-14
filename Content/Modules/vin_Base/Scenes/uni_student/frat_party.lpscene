@@ -201,7 +201,7 @@ OTHER: none
                         If 0
                             KissBack = true
                         Else
-                            "I pulled myself away from <SitWith.him_or_her>. <SitWith.He_or_She> was visibly embarassed."
+                            "I pulled myself away from <SitWith.him_or_her>. <SitWith.He_or_She> was visibly embarrassed."
                             SitWith:attractiontoplayer -= Random(0, 1)
                         Endif
                     Else
@@ -217,10 +217,10 @@ OTHER: none
                                 "Wow, that's quite a pleasant surprise. <SitWith.name> was totally receptive to my advance. In fact, <SitWith.he_or_she> certainly showed that <SitWith.he_or_she> wanted something more ..."
                                 KissBack = true
                             Else
-                                "<SitWith.name> pulled away from my advances. Embarassed, I retreated, pretending for the rest of the party as if nothing happened ..."
+                                "<SitWith.name> pulled away from my advances. Embarrassed, I retreated, pretending for the rest of the party as if nothing happened ..."
                             Endif
                         Else
-                            "Perhaps not ... It would be extremely embarassing to be rejected in front of everyone."
+                            "Perhaps not ... It would be extremely embarrassing to be rejected in front of everyone."
                         Endif
                     Endif
                     

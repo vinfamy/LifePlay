@@ -18,6 +18,7 @@ OTHER: Random(0, 1000) < sneak
     
     If 0
         "My curiosity got the better of me. I couldn't help but stay there and get a sneaky eyeful of the action."
+        karma -= 1
         perversion += Random(0, 0.5)
         sneak += Random(0, 0.5)
         Sex(Actor, Actor2)

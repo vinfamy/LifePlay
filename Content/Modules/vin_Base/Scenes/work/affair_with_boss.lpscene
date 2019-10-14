@@ -18,6 +18,7 @@ OTHER: perversion > 20 && Random(0, 100) < 0.1*perversion
         
         If 0
             perversion += Random(0, 2)
+            karma -= 5
             "It's a competitive job market, I'll do whatever it takes to get ahead."
             "Late that evening, after everyone else has gone home ..."
             Boss(Flirty):: "You have no idea how much I have been waiting for you to offer me that since the day you started here!"
@@ -38,6 +39,7 @@ OTHER: perversion > 20 && Random(0, 100) < 0.1*perversion
         1:: "No"
         
         If 0
+            karma -= 1
             "I can't risk jeopardizing my career by breaking our secret arrangement ... Of course, I'll give <Boss.him_or_her> what <Boss.he_or_she> wants again."
             perversion += Random(0, 0.2)
             jobperformance += Random(0, 4)

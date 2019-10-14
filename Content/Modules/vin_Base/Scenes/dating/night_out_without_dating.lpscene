@@ -64,6 +64,7 @@ If 0
         2:: "A threesome should tempt <Bird.him_or_her>"
         
         If 0
+            karma -= 1
             "The peer pressure, coupled with the amount of alcohol I drank, was too much. I accepted the bet."
             Friend.show(4)            
             "<Friend.name> was the first one to try. <Friend.He_or_She> tried to flirt with the <Bird.handsome_or_pretty> stranger but got nowhere."
@@ -80,6 +81,7 @@ If 0
             Friend(Angry):: "You're no fun at all!"
             Friend:rapportwithplayer -= Random(0, 3)
         Else
+            karma -= 1
             Player(Happy):: "Forget about the bet! How about us both trying to seduce <Bird.him_or_her> at the same time? Surely no <Bird.man_or_girl> can turn down a threesome?"
             perversion += Random(0, 1)
             "As we expected, the cute <Bird.guy_or_girl> stood no chance of resisting the prospect of a steamy threesome with me and <Friend.name>. We ended up following <Bird.him_or_her> home."

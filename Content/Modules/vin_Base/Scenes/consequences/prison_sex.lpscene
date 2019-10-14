@@ -23,6 +23,7 @@ OTHER: none
         If 0
             "I found the right opportunity to make the offer to <Actor.name>. Eventually, <Actor.he_or_she> accepted."
             Sex(Actor, Player)
+            karma += 1
         Endif
     Endif
     SceneEnd()

@@ -25,6 +25,7 @@ Else
     Else
         Actor:rapportwithplayer += Random(0, 5)
         "<Actor.He_or_She> thanked me for pointing out <Actor.his_or_her> bad form and followed my advice."
+        karma += 2.5
     Endif
 Endif
 

@@ -15,11 +15,12 @@ OTHER: Random(0, 200) < intelligence
     If 0
         "It's none of my business. I'm sure a bank representative would be able to advise <Actor.him_or_her> depending on <Actor.his_or_her> needs and financial situation." 
     Else
-        "I've been there, done that, so why not give <Actor.him_or_her> some of my experience? After all, the bank advisors are only after money at the end of the day, which don't neccessarily mean they'll give an advice most beneficial for the customer."
+        "I've been there, done that, so why not give <Actor.him_or_her> some of my experience? After all, the bank advisors are only after money at the end of the day, which doesn't necessarily mean they'll give the advice most beneficial for the customer."
         "I started explaining to <Actor.him_or_her> the different saving account options and sharing my own experiences, tips and things to avoid."
         If Random(0, 100) < intelligence
+            karma += 2.5
             Actor(Happy):: "Thank you so much for the advice. I would have no idea if you didn't share with me your experience. I would have just listened blindly to whatever the bank advisor suggested."
-            Actor(Happy):: "You know what? Let's exchange numbers. I owe you a drink for the free impartial financial advice. Besides, I wouldn't mind having someone so smart to pick <Player.his_or_her> brain about complicated issues like this."
+            Actor(Happy):: "You know what? Let's exchange numbers. I owe you a drink for the free impartial financial advice. Besides, I wouldn't mind knowing someone so smart so I can pick <Player.his_or_her> brain about complicated issues like this."
             0:: "Yes"
             1:: "No"
             

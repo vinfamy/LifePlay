@@ -15,6 +15,7 @@ OTHER: Random(0, 100) < 0.1 || [Random(0, 100) < 5 && WHERE == nightclub]
         Else
             perversion += Random(0, 0.5)
             "Live pornography? Hell yeah, sign me up!"
+            karma -= 1
             "I stood up on top of the toilet seat cover and started peeping at them."
             Guy = generatePersonTemporary()
             Girl = generatePersonTemporary()

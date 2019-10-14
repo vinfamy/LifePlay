@@ -13,6 +13,7 @@ setBackground(office)
 If 0
     "How can I turn down money? What's life without risks?"
     "My clever exploits earned me quite a bit of cash from all the expenses I claimed that were never actually incurred."
+    karma -= 10
     If intelligence > Random(0, 100)*Random(0, 1)
         money += Random(200, 2000)
         "However, I didn't go overboard in order to avoid suspicions and got away with it."

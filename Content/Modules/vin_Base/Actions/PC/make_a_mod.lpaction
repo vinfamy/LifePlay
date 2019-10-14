@@ -5,7 +5,7 @@ WHEN: 0 - 24
 MINUTES: 60 - 180
 TIMEOUT_MINUTES: 60
 ALSO_TIMEOUT: 
-EFFECTS: intelligence +0.5 (END), mood +1 (DURATION), mood -5 (INTERRUPTED)
+EFFECTS: intelligence +0.5 (END), mood +1 (DURATION), mood -5 (INTERRUPTED), karma +1 (END)
 CONDITIONS:
 MOVE_FIRST: false
 SCENE_ALWAYS:

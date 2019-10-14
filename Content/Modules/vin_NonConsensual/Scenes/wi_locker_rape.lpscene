@@ -19,10 +19,11 @@ OTHER: Random(0, 1000) < sneak
         masochist += Random(0, 0.5)
         Rape = false
         "I shouldn't be foolish as to confront the rapist head-on. The <Actor.guy_or_girl> could be dangerous."
-        "I decided to run and call for help from the gym's staff. Eventually, they overwhelmed the rapist and rescued the poor <Actor2.guy_or_girl>. It was sorta too late though, as by the time help arrives, the rapist already came inside <Actor.his_or_her> poor victim."
+        "I decided to run and call for help from the gym's staff. Eventually, they overwhelmed the rapist and rescued the poor <Actor2.guy_or_girl>. It was sorta too late though, as by the time help arrives, the rapist had already came inside <Actor.his_or_her> poor victim."
     Elseif 1
+        karma += 5
         masochist -= Random(0, 2)
-        "I haven't got time to waste. The poor <Actor2.guy_or_girl> is being assaulted righ now. I must act quick!"
+        "I haven't got time to waste. The poor <Actor2.guy_or_girl> is being assaulted right now. I must act quick!"
         If martial > Actor:martial || !isModEnabled(vin_NTR)
             Rape = false
             Actor(Pain):: "Ah!"
@@ -45,9 +46,10 @@ OTHER: Random(0, 1000) < sneak
         Else
             Rape = true
             Player(Pain):: "Ah!"
-            Actor(Evil):: "Ha! You really thought you could match me in a fight? I have to say - this just makes me want to fuck <Actor2.his_or_her> brain out even more and make you wannabe hero watch it all!"  
+            Actor(Evil):: "Ha! You really thought you could match me in a fight? I have to say - this just makes me want to fuck <Actor2.his_or_her> brain out even more and make you watch it all, wannabe hero!"  
         Endif        
     Else
+        karma -= 2.5
         Rape = true
         "I really should do something to help, but for some reason, I couldn't help but be excited at the thought of watching some live forced porn living out in front of my eyes."
         masochist += Random(0, 2)

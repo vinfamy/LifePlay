@@ -14,7 +14,7 @@ OTHER: none
         setBackground(street)
         Player(Happy):: "Fine, I'll follow you. You'd better not bring me to anywhere dangerous!"
         "A few moments later ..."
-        "Hmm, what's this that <Actor.name>?"
+        "Hmm, what's this <Actor.name>?"
         Player(Happy):: "Ah, someone dropped their wallet. Good <Actor.boy_or_girl>!"
         0:: "Take the cash"
         1:: "Hand it in to a police station"
@@ -22,7 +22,7 @@ OTHER: none
         If 0
             "I feel slightly guilty, but I need the money."
             money += Random(20, 200)
-            Player(Evil):: "Well done, <Actor.boy_or_girl>. Keeping sniffing out lost wallets like this and we'll be fifthy rich in no time."
+            Player(Evil):: "Well done, <Actor.boy_or_girl>. Keeping sniffing out lost wallets like this and we'll be filthy rich in no time."
         Else
             "I feel good about doing this. It's the right thing to do."
             mood += Random(0, 40)

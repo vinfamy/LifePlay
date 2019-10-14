@@ -315,7 +315,7 @@ If PlayerHosting || Accepted
                             "<SitWith.name> pulled away from my advances. Embarassed, I retreated, pretending for the rest of the party as if nothing happened ..."
                         Endif
                     Else
-                        "Perhaps not ... It would be extremely embarassing to be rejected in front of everyone."
+                        "Perhaps not ... It would be extremely embarrassing to be rejected in front of everyone."
                     Endif
                 Endif
                 
@@ -333,7 +333,7 @@ If PlayerHosting || Accepted
                         perversion += Random(0, 0.2)
                         Sex(SitWith, Player)
                         SitWith.show(2)
-                        "The sex was amazing. We put our clothes back on and went back to rejoin the party. We must have made plenty of noises, the look on everyone else's faces suggested as much."
+                        "The sex was amazing. We put our clothes back on and went back to rejoin the party. We must have made plenty of noises, the look on everyone's faces suggested as much."
                     Elseif 1
                         "As much as I'd love to have <SitWith.him_or_her> right here. It was not my house and I didn't want to upset <Host.name>."
                         Player(Flirty):: "Hey, not here. Let's go back to my place ..."
@@ -344,7 +344,7 @@ If PlayerHosting || Accepted
                         passTime(0.2, 1)
                         moveTo(Home)
                         setBackground(home)
-                        "As soon as we were inside, our hands were all over each other and a passionate makeout started."
+                        "As soon as we were inside, our hands were all over each other and we started passionately making out."
                         perversion += Random(0, 0.2)
                         Sex(SitWith, Player)
                         SitWith.hide()

@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: all, -stripclub
 WHEN: 20-3
-WHO: Actor = getCompanion(); If !Actor.isRelative() && Player.isInterestedIn(Actor) && perversion - Actor:perversion > 40 && [Actor:attractiontoplayer > 10 || Actor:incest > 30]
+WHO: Actor = getCompanion(); If !Actor.isRelative() && Player.isInterestedIn(Actor) && perversion - Actor:perversion > 40 && Actor:attractiontoplayer > 10
 OTHER: none
 
     SceneStart()
@@ -62,7 +62,7 @@ OTHER: none
                         Actor.stripOne()
                     Endwhile
                     Actor(Angry):: "Happy now? Are you still doubting my ability?"
-                    Player(Flirty):: "Not anymore, darling. You didn't see that coming from you."
+                    Player(Flirty):: "Not anymore, darling. I didn't see that coming from you."
                     "Oh god, did I just manage to get <Actor.name> to do that? One minute <Actor.he_or_she> is a classy <Actor.gentleman_or_lady>, the next <Actor.he_or_she> becomes a stripper ... Was it <Actor.his_or_her> competitiveness and ego or was it <Actor.his_or_her> inner slut?"
                     Actor.dress()
                 Else

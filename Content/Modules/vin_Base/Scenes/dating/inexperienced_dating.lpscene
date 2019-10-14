@@ -13,6 +13,7 @@ Dating.show(2)
 
 If 0
     If Random(0, 150) < interpersonal + perversion 
+        karma += 2.5
         "Practice makes perfect! I managed to convince <Dating.name> to do the deed with me more often and try out new things. <Dating.He_or_She> has become more comfortable sexually as a result."
         setBackground(home)
         Sex(Player, Dating)

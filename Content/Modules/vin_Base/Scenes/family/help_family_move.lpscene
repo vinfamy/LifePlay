@@ -19,6 +19,7 @@ OTHER: Random(0, 100) < 1
         setBackground(home)
         Actor(Happy):: "Thank you so much for helping us out today. We have no idea how we would have managed without you."
         Player(Happy):: "Don't worry about it. It's only my duty as a <Actor.callplayer>."
+        karma += 2.5
     Else
         "Maybe not. I'm sure they'll be fine hiring a moving company to do it."
         Actor:rapportwithplayer -= Random(0, 3)

@@ -68,6 +68,7 @@ OTHER: Random(0, 100) < 10
         Else
             Victim.makePermanent()
             Player(Furious):: "Hey, stop right there!"
+            karma += 2.5
             masochist -= Random(0, 2)
             "I tackled the robber and we began an intense struggle."
             If martial > Actor:martial
@@ -75,7 +76,7 @@ OTHER: Random(0, 100) < 10
                 Actor.hide()
                 "A few minutes later, the police arrived and arrested the badly injured robber."
             Else
-                "Unfortunately for me, the robber was a far better fighter than I was. After a brief struggle, the robber managed to knock me off the ground and then proceeded to kick me mercilessly in the face."
+                "Unfortunately for me, the robber was a far better fighter than I was. After a brief struggle, the robber managed to knock me to the ground and then proceeded to kick me mercilessly in the face."
                 Actor.hide()
                 "Thankfully, eventually the police arrived and the robber had to flee the scene before <Actor.he_or_she> caused me more damage. I was quickly taken to the hospital."
                 attractiveness -= Random(0, 5)
@@ -98,6 +99,7 @@ OTHER: Random(0, 100) < 10
                 Player(Happy):: "That's okay. I only did what was right, not for any rewards."
                 Victim:attractiontoplayer += Random(0, 5)
                 Victim:rapportwithplayer += Random(0, 5)
+                karma += 2.5
             Elseif 1
                 Player(Happy):: "I would love nothing more than to get your number. I'd quite like to get to know you better."
                 Victim(Happy):: "Of course!"

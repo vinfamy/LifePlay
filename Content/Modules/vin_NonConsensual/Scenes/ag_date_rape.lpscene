@@ -30,6 +30,7 @@ OTHER: Random(50, 200) < Actor:attractiveness && Actor:attractiontoplayer < 10 &
         1:: "No way"
 
         If 0
+            karma -= 20
             money -= Random(200, 500)
             masochist -= Random(0, 2)
             perversion += Random(0, 2)
@@ -37,7 +38,7 @@ OTHER: Random(50, 200) < Actor:attractiveness && Actor:attractiontoplayer < 10 &
             Actor2.hide()
             "Soon enough, I was back with drinks for both of us. We enjoyed our drinks while having a pleasant conversation."
             "A while later ..."
-            "<Actor.His_or_Her> speech is becoming slurred now. It seems the drug is taking effect. Let's get her out of here and into the nearest hotel room."
+            "<Actor.His_or_Her> speech is becoming slurred now. It seems the drug is taking effect. Let's get <Actor.him_or_her> out of here and into the nearest hotel room."
             "A while later ..."
             setBackground(home)
             Player(Flirty):: "Now, let us have some fun, because you're gonna forget all about this in the morning!"

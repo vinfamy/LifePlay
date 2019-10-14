@@ -5,22 +5,23 @@ WHO: Actor2 = getPerson(); If !isWithCompanion() && Random(50, 1000) < perversio
 OTHER: none
 
     SceneStart()
-    "The gym is so empty today. Maybe I should peep on the female locker room?"
+    Actor = generatePersonTemporary()
+    While !Player.isInterestedIn(Actor)
+        Actor = generatePersonTemporary()
+    Endwhile
+    "The gym is so empty today. Maybe I should peep on the <Actor.male_or_female> locker room?"
     0:: "Yes"
     1:: "No"
     
     If 0
-        Actor = generatePersonTemporary()
-        While !Player.isInterestedIn(Actor)
-            Actor = generatePersonTemporary()
-        Endwhile
         Actor.show(2)
         "Oh wow, what a hottie taking a shower in the locker room! No-one else is around ... Perhaps I should take this chance."
         0:: "Force myself on <Actor.him_or_her>"
         1:: "Just watch <Actor.him_or_her> shower"
         
         If 0
-            "Taking <Actor.him_or_her> completely by surprise, I grabbed the beautiful <Actor.woman_or_man> by the <Actor.dick_or_pussy> from behind."
+            "Taking <Actor.him_or_her> completely by surprise, I grabbed the <Actor.handsome_or_beautiful> <Actor.man_or_woman> by the <Actor.dick_or_pussy> from behind."
+            karma -= 20
             If martial < Actor:martial
                 Player(Pain):: "Ah!"
                 Actor(Angry):: "That should teach you to not sexually assault people in locker rooms!"
@@ -34,6 +35,8 @@ OTHER: none
             Endif
         Else
             "Nah, let's not be rash. I may be a pervert, but no rapist."
+            Filter(Shower)
+            Sex(Actor)
         Endif
     Else
         "Nah, let's not be a creep here ..."

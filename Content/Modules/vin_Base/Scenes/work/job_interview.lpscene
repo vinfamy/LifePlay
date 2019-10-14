@@ -214,7 +214,7 @@ OTHER: none
                             If 1
                                 Player(Concerned):: "I'm afraid I'm busy tonight. Maybe next time ..."
                                 Performance -= Random(0, 10)
-                                "I'm not even sure why I did that. Why gave <Boss.him_or_her> my number only to turn <Boss.him_or_her> down now. This can't be good for my chance of getting the job ..."
+                                "I'm not even sure why I did that. Why I gave <Boss.him_or_her> my number only to turn <Boss.him_or_her> down now. This can't be good for my chance of getting the job ..."
                             Else
                                 Player(Wink):: "Of course, I can't wait to see you there!"
                                 Performance += Random(0, 5)
@@ -249,9 +249,9 @@ OTHER: none
                                         perversion += 0.2
                                         Performance += Random(0, 10)
                                         setBackground(home)
-                                        "Let's not kid ourselves here! We both knew how this night was going to end up. As soon as we were inside, our hands were all over each other and we started a long and passionate makeout session."
+                                        "Let's not kid ourselves here! We both knew how this night was going to end up. As soon as we were inside, our hands were all over each other and we started passionately making out."
                                         If TfGame() && Boss.isMale()
-                                            "When I was a man I used to hold the moral high ground and somewhat looked down on women who use their bodies to get advantages in life. Here I am, offering my body in exchange of a job offer. I'm such a hypocrite after all."
+                                            "When I was a man I used to hold the moral high ground and somewhat looked down on women who use their bodies to get advantages in life. Here I am, offering my body in exchange for a job offer. I'm such a hypocrite after all."
                                         Endif
                                         HadSex = true
                                         Sex(Boss, Player)
@@ -325,7 +325,7 @@ OTHER: none
             Player(Sad):: "Thank you for your time anyway. All the best with finding the right candidate."
             "Oh no! The HR department just called. My application was unsuccessful. I didn't even manage to secure an interview. I must now look for alternative positions elsewhere."
             If !LieOnCV
-                "On hindsight, maybe being so honest wasn't a good idea after all."
+                "In hindsight, maybe being so honest wasn't a good idea after all."
             endif
             mood -= Random(0, 10)
         Endif

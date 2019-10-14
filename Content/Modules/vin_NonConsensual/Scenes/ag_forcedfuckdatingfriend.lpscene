@@ -35,7 +35,8 @@ OTHER: none
             Actor2.hide()
             Actor.show(2)
             Player.show(0)
-            "<Actor.name> had to endure <Actor2.name>'s brutal pounding until it was all over. But is our relationship also over with this? Surely, <Actor.he_or_she> will never forgive me for this?"            
+            "<Actor.name> had to endure <Actor2.name>'s brutal pounding until it was all over. But is our relationship also over with this? Surely, <Actor.he_or_she> will never forgive me for this?"
+            karma -= 20            
             If Random(0, 100) < Actor:masochist
                 Actor:attractiontoplayer => -100
                 "Of course <Actor.name> said it was all over. <Actor.He_or_She> trusted me and I tricked <Actor.him_or_her> into getting violated by my best friend just to satisfy some perverse fantasy."
@@ -55,7 +56,7 @@ OTHER: none
                 blockContact(Actor)
                 "However, after everything we've been through together as a couple, <Actor.name> didn't quite have it to report what happened to the cops, sparing me and <Actor2.name> jail time."             
             Else
-                "I don't know how, but even after what happened, <Actor.name> didn't have the heart to break up with me ... I wonder if I should take this as consent for <Actor.him_or_her> to be a fucktoy on demand for all my friends."
+                "I don't know how, but even after what happened, <Actor.name> didn't have the heart to break up with me ... I wonder if I should take this as consent for <Actor.him_or_her> to be a fuck toy on demand for all my friends."
             Endif
         Else
             Actor(Angry):: "Honey, I've told you many times before: I'm not comfortable doing that for you."

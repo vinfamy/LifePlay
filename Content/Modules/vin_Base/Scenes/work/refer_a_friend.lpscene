@@ -14,7 +14,8 @@ OTHER: Random(0, 1000) < jobexperience
     1:: "No"
     
     If 0
-        "I decided to go ahead and wrote a letter recommend <Actor.name> for the company, which earned <Actor.him_or_her> an interview."
+        "I decided to go ahead and wrote a letter to recommend <Actor.name> for the company, which earned <Actor.him_or_her> an interview."
+        karma += 2.5
         "A few weeks later ..."
         If Random(0, 100) < Actor:intelligence
             "Great news! <Actor.name> has been successful in the interview and will join my company soon. We are now also colleagues. What's more: I received a small bonus for having recommended a new staff member."

@@ -16,6 +16,7 @@ SceneStart()
 If 0
     "How can I turn down making a small fortune? I sold the bombshell email to the news organization that bid the most, while remaining anonymous. It was a major scandal and the company immediately became the center of public anger."
     money += Random(50000, 500000)
+    karma -= 50
     "Of course, it was easy enough still for the company to track down the leaker and I was promptly fired. Also, most companies in  the industry wouldn't dare to hire me now after what I've done. But who cares? I now have more money than I know what to do with."
     loseJob()
     jobexperience => 0

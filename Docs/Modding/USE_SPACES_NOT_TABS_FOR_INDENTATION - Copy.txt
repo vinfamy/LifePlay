@@ -1,0 +1,1 @@
+The game can't read Tab characters at all.

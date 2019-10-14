@@ -16,7 +16,7 @@ OTHER: none
         Actor:attractiontoplayer += Random(0, 1)
         If !isContactExchanged() && Actor:attractiontoplayer > 35
             "After class ..."
-            "I was packing my stuffs up after class when <Actor.name> passed by and dropped a piece of paper on my table, winked at me and walked off."
+            "I was packing my supplies up after class when <Actor.name> passed by and dropped a piece of paper on my table, winked at me and walked off."
             "It's <Actor.his_or_her> number with the message 'Text me!'. It's my dream come true!"
             exchangeContact(Actor)
         Endif

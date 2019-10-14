@@ -26,7 +26,8 @@ OTHER: none
             "Pow!"
             Actor2.hide()
             Actor2.deletePerson()
-            "Perfect headshot ... the <Actor2.bastard_or_bitch> was sent straight to Hell. Now, let's get out of here before the cops arrive."                 
+            "Perfect headshot ... the <Actor2.bastard_or_bitch> was sent straight to Hell. Now, let's get out of here before the cops arrive."
+            karma -= 50
         Else
             Actor2(Furious):: "Help! Somebody help!"
             Actor2.hide()

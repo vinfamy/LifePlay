@@ -60,7 +60,7 @@ OTHER: Random(40, 100) < perversion
                 Dating.show(5)
                 DatingFriend.show(2)
                 FriendSO.show(3)
-                "After the amazing swingers' experience, we put our clothes back one. Exhausted, the four of us enjoyed chatting for a while more before. What a way to strengthen the bond of <Player.brotherhood_or_sisterhood>!"
+                "After the amazing swingers' experience, we put our clothes back one. Exhausted, the four of us enjoyed chatting for a while more. What a way to strengthen the bond of <Player.brotherhood_or_sisterhood>!"
                 DatingFriend:rapportwithplayer += Random(0, 5)
             Else
                 "Unfortunately, <DatingFriend.name> and <FriendSO.name> weren't so keen on the idea of swinging ..."

@@ -16,12 +16,12 @@ OTHER: none
         Actor:attractiontoplayer += Random(0, 2)
         If !isContactExchanged() && Actor:attractiontoplayer > 35
             "After class ..."
-            "I was packing my stuffs up after class when <Actor.name> passed by and dropped a piece of paper on my table, winked at me and walked off."
+            "I was packing my things up after class when <Actor.name> passed by and dropped a piece of paper on my table, winked at me and walked off."
             "It's <Actor.his_or_her> number with the message 'Text me!'. <Actor.He_or_She> isn't shy, is <Actor.he_or_she>?"
             exchangeContact(Actor)
         Endif
     Else
-        "<Actor.name> is probably just one of those college <Actor.chavs_or_sluts> that took a <Actor.fraternity_or_sorority> bet on banging a lecturer. Let's not fall for this."
+        "<Actor.name> is probably just one of those college <Actor.assholes_or_sluts> that took a <Actor.fraternity_or_sorority> bet on banging a lecturer. Let's not fall for this."
         Actor:attractiontoplayer -= Random(0, 2)
     Endif
     SceneEnd()

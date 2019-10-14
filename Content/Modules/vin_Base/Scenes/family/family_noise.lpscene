@@ -23,6 +23,7 @@ OTHER: isAtHome()
         Actor(Sad):: "Oh sorry, I'll adjust the volume right away."
         masochist -= Random(0, 0.5)
         Actor:rapportwithplayer -= Random(0, 5)
+        karma -= 0.5
     Else
         energy -= Random(0, 20)
         music += Random(0, 0.5)

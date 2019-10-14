@@ -14,7 +14,7 @@ OTHER: Random(0, 100)*Random(0, 1) > jobexperience
     setBackground(home)
     "I delivered the documents as required. I probably should start heading back to the office."
     0:: "Head back"
-    1:: "Make my move on my boss's <Actor1.husband_or_wife>"
+    1:: "Make a move on my boss's <Actor1.husband_or_wife>"
     
     If 1
         If Actor1.isInterestedIn(Player) && Random(0, 50) < Actor1:perversion + Actor1:attractiontoplayer
@@ -40,10 +40,10 @@ OTHER: Random(0, 100)*Random(0, 1) > jobexperience
                     Actor1:attractiontoplayer -= Random(0, 10)
                 Endif
             Else
-                "After a bit of flirting, I headed back to the office. Last thing I want is for the boss to suspect me for taking so long."
+                "After a bit of flirting, I headed back to the office. Last thing I want is for the boss to suspect me for taking too long."
             Endif
         Else
-            "Unfortunately, my boss's <Actor1.husband_or_wife> was having none of my flirting ... Let's just hope the boss won't hear about this ..."
+            "Unfortunately, my boss's <Actor1.husband_or_wife> was having none of my flirting ... Let's just hope the boss doesn't hear about this ..."
             jobperformance -= Random(0, 3)
             Actor:rapportwithplayer -= Random(0, 3)
         Endif

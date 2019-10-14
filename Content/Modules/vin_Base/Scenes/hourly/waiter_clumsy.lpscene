@@ -17,13 +17,14 @@ OTHER: Random(0, 1000) < 1
     1:: "Blame <Actor.him_or_her>"
     
     If 0
-        Player(Anxious):: "Oh my god, I'm no sorry. It was a horrible accident!"
+        Player(Anxious):: "Oh my god, I'm so sorry. It was a horrible accident!"
         masochist += Random(0, 0.5)
     Else
         Player(Angry):: "Maybe you shouldn't have left your leg hanging like that then ..."
         "Customer is always right - my ass! I'm not getting shouted at for doing nothing wrong!"
         "I argued back and made it clear to the entitled customer that I'm no pushover."
         masochist -= Random(0, 0.5)
+        karma -= 2.5
     Endif
     SceneEnd()
     timeout(72, waiter_clumsy)

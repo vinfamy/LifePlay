@@ -54,7 +54,7 @@ If 0
     Colleague5.show(5)
     
     Colleague1(Excited):: "<Player.name>! We're here. Come!"
-    Player(Happy):: "Sorry I'm late, had to finish a few stuffs first ..."
+    Player(Happy):: "Sorry I'm late, had to finish a few things first ..."
     "My other colleagues, <Colleague2.name>, <Colleague3.name>, <Colleague4.name> and <Colleague5.name>, are all here too! This will be a good way to get to know them better."
     
     Colleague1.hide()
@@ -87,7 +87,7 @@ If 0
             money -= Random(3, 10)
             "I got myself a drink from the bar and enjoyed it thoroughly."
         Elseif 6
-            Player(Happy):: "Sorry guys, I think it's about time that I go now. Don't want to have a hangover tomorrow's morning!"
+            Player(Happy):: "Sorry guys, I think it's about time that I go now. Don't want to have a hangover tomorrow morning!"
             Colleague1(Happy):: "Alright, have a safe journey home. Thanks for coming out with us!"
             PartyOngoing = false
         Else
@@ -122,7 +122,7 @@ If 0
                         exchangeContact(SitWith)
                         SitWith:rapportwithplayer += Random(0, 5)
                     Else
-                        Player(Sad):: "I'm afraid I don't know you well enough yet for that. I tend to keep work and life separate."
+                        Player(Sad):: "I'm afraid I don't know you well enough yet for that. I tend to keep work and personal life separate."
                         SitWith:rapportwithplayer -= Random(0, 3)
                     Endif
                 Else
@@ -189,7 +189,7 @@ If 0
                             "<SitWith.name> pulled away from my advances. Embarassed, I retreated, pretending for the rest of the drinks as if nothing happened ..."
                         Endif
                     Else
-                        "Perhaps not ... It would be extremely embarassing to be rejected in front of everyone from work. I wouldn't want to come in the office afterwards."
+                        "Perhaps not ... It would be extremely embarrassing to be rejected in front of everyone from work. I wouldn't want to come in the office afterwards."
                     Endif
                 Endif
                 
@@ -210,7 +210,7 @@ If 0
                         passTime(0.2, 1)
                         moveTo(Home)
                         setBackground(home)
-                        "As soon as we were inside, our hands were all over each other and a passionate makeout started."
+                        "As soon as we were inside, our hands were all over each other and we started passionately making out."
                         perversion += Random(0, 0.2)
                         Sex(SitWith, Player)
                         SitWith.hide()

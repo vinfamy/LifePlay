@@ -58,11 +58,11 @@ OTHER: !isWithCompanion() && perversion > Random(0, 100)
                         timeout(100, bestiality_impregnates_family)
                     Endif
                 Else
-                    "Unfortunately, we couldn't quite agree on who <Dating.name> would want to fuck. Oh well, at least now I know <Dating.he_or_she> is interested in fulfiling this fantasy of mine."
+                    "Unfortunately, we couldn't quite agree on who <Dating.name> would want to fuck. Oh well, at least now I know <Dating.he_or_she> is interested in fulfilling this fantasy of mine."
                     timeout(200, bestiality_impregnates_family)
                 Endif
             Else
-                Dating(Angry):: "What? You want me to carry another man's child. That's digusting. How could you even consider it? Do you not love me anymore?"
+                Dating(Angry):: "What? You want me to carry another man's child. That's disgusting. How could you even consider it? Do you not love me anymore?"
                 Dating:attractiontoplayer -= Random(0, 2)
                 "There's no point pursuing this anymore. There's no way I can get <Dating.name> to agree to this."
                 timeout(1000, bestiality_impregnates_family)

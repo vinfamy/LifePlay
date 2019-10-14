@@ -28,7 +28,7 @@ Elseif 1
     Endif
 Else
     "If you dare to cross me, you're going to suffer!"
-    "Whenever I can, I sneakily sabotaged <Colleague.his_or_her> work, making <Colleague.him_or_her> suffer from one setback and embarassment after another."
+    "Whenever I can, I sneakily sabotaged <Colleague.his_or_her> work, making <Colleague.him_or_her> suffer from one setback and embarrassment after another."
     Colleague:rapportwithplayer -= Random(0, 10)
     If Random(0, 100) < 0.05*intelligence
         "Incredibly, one of my sabotages worked better than I could ever dream of. <Colleague.name> screwed up a big project causing the company lots of money. As a result, <Colleague.He_or_She> was fired! Good riddance."

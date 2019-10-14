@@ -12,7 +12,7 @@ Colleague2.dress()
 Colleague1.show(2)
 Colleague2.show(3)
 
-"Two of my colleagues, <Colleague1.name> and <Colleague2.name>, recently had a major argument over a project. As a result, they stopped talking and are acting openly hostile to each other in the office."
+"Two of my colleagues, <Colleague1.name> and <Colleague2.name>, recently had a major argument over a project. As a result, they stopped talking and are acting openly hostile towards each other in the office."
 0:: "Try to mediate"
 1:: "Maybe not"
 

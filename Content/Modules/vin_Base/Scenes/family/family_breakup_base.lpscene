@@ -16,6 +16,7 @@ OTHER: none
     
     If 0
         Player(Sad):: "Oh no, that sucks. I'm so sorry to hear that ..."
+        karma += 2.5
     Else
         Actor:rapportwithplayer += Random(0, 20)
         setBackground(home)

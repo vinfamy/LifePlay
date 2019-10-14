@@ -12,7 +12,8 @@ OTHER: !isPlayerMarried()
     1:: "No"
     
     If 0
-        "This is a perfect opportunity to show how commited I am to the relationship."
+        "This is a perfect opportunity to show how committed I am to the relationship."
+        karma += 2.5
         setBackground(restaurant)
         "Later on ..."
         Actor2.dress()

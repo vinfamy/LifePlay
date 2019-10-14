@@ -15,6 +15,7 @@ OTHER: Random(0, 100) < 1
         masochist += Random(0, 0.5)
     Else
         Player(Furious):: "Hey! What the fuck do you think you're doing? Everyone, we have a credit card thief here!"
+        karma += 2.5
         masochist -= Random(0, 0.5)
         "The guy ran away as soon as I shouted out and exposed his dirty trick - not fast enough for the bank's security guards though ..."
         Actor = generatePerson()
@@ -30,6 +31,7 @@ OTHER: Random(0, 100) < 1
         1:: "Ask for <Actor.his_or_her> number"
         
         If 0
+            karma += 2.5
             Player(Happy):: "Don't worry about it. It's only the right thing to do."
         Else
             "I suggested that we exchange numbers and hang out another day. Of course, <Actor.name> didn't hesitate to give <Actor.his_or_her> number to <Actor.his_or_her> savior."

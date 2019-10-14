@@ -15,6 +15,7 @@ OTHER: !OpenRelationship() && Random(0, 100) < perversion
         If Random(50, 200) < CurrentCompanion:attractiontoplayer + CurrentCompanion:perversion + CurrentCompanion:masochist
             CurrentCompanion(Flirty):: "You know what, honey? I have been feeling the same. Let's just make sure we tell each other all the dirty details!"
             startOpenRelationship()
+            karma += 10
         Else
             CurrentCompanion(Angry):: "What on earth are you on about? Open up our relationship? No way! I can't bear the thought of you sleeping with other <CurrentCompanion.men_or_women> freely."
             CurrentCompanion:attractiontoplayer -= Random(0, 2)

@@ -1,0 +1,9 @@
+STAT_ID: karma
+STAT_NAME: Karma; Affects most random number generators in game, things tend to go your way if this is high
+PLAYER_ONLY: true
+HIGHER_BETTER: true
+STAT_MIN: 0
+STAT_MAX: 100
+DAILY_CHANGE: 0
+DEFAULT_VALUE: 50
+NPC_ONLY: false

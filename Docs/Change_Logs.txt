@@ -1,3 +1,21 @@
+Version 2.9:
+1/ New Karma system:
+- many actions and decisions you take will now increase (help a colleague, stop domestic violence, etc) or decrease (cheating, murder, etc) Karma
+- The higher your current Karma, the harder it is to continue increasing it (diminishing returns from the same act of kindness) but the easier it is for Karma to drop, and vice versa. This prevents you from maximizing Karma easily, but also prevents Karma from staying at rock bottom.
+- Karma works by affecting most RNG (random number generator) calculations in scenes. High Karma skews the RNG in your favour, and vice versa. For example: if your chance of getting laid depends on "If Random(0, 100) < HotChick:attractiontoplayer" , max Karma would turn it into Random(0, 50) and minimum Karma would turn it into Random(0, 150). There's a perk to remove negative impact of Karma.
+- The cheat options to 'undo' your Death, Imprisonment or STD will now, more immersively, consume a huge amount of Karma instead (as in: you already cheated Death, so it's only fair that you suffer a string of bad luck afterwards).
+2/ New Achievements system: first 36 Achievements
+- Tracks optional 'objectives' for the player to aim for, depending on play style and how you roleplay. Examples include having anal sex with n number of partners, become a millionaire, or keep mood above 90 for 30 consecutive days
+- Rewards the player with permanent stat boosts which would have been very difficult to achieve in normal gameplay, plus perks points that can be used to unlock new perks
+3/ New Perks system: first 13 perk trees
+- These are powerful benefits to gameplay that can be unlocked by spending perk points earned from Achievements.
+- Some are perk trees with multiple levels, some are unique single perks
+- Examples include: minimum attraction level for all new NPCs you meet, earn monthly % interest on your wealth, your date responds well to all activities you take her out on (instead of moaning about half of them)
+- Also includes a perk tree that softens (then eliminates at lvl 5) the impact of negative Karma - a good investment for those who want to play an evil character but don't want all the bad luck
+4/ New menu that shows the available actions at the player's current location, meant to save you some repetitive clicking and scrolling. Also, double-clicking on a building will now make the player character go there.
+5/ Fix some mistakes and inconsistencies in scene conditions. Special thanks to Lostlegends (who have also published a few mods for the game btw) for compiling the list for these.
+6/ Other bug fixes and minor improvements, with a public beta testing period
+
 Version 2.8:
 - Shadows, ambient occlusion and depth of field for the 3d bedroom sex scenes, plus Esc > Settings option to set DOF strength (set it to 0 to disable DOF entirely)
 - 15 new bed and wall sex animations that weren't possible before 3d environment for sex scenes was implemented

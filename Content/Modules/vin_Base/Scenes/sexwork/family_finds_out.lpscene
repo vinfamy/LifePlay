@@ -10,7 +10,7 @@ OTHER: Random(0, 1000) < pornfame/intelligence
     Actor(Angry):: "<Player.name>, can we talk please?"
     "Oh god, this doesn't sound good."
     "<Actor.name> showed me a printout with a screenshot on it ... It's my porn Twitter account ..."
-    Actor(Angry):: "How could I have guessed? My <Actor.callplayer> is a pornstar ... You humilated our family honour!"
+    Actor(Angry):: "How could I have guessed? My <Actor.callplayer> is a porn star ... You humiliated our family honour!"
     "I tried to apologize and get my <Actor.relationship>'s support for my porn career. Unfortunately, <Actor.he_or_she> was having none of it."
     mood -= Random(0, 50)
     Actor:rapportwithplayer -= Random(0, 50)

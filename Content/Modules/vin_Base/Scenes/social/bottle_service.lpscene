@@ -24,7 +24,7 @@ SceneStart()
         Actor = generatePerson()
         exchangeContact(Actor)        
     Else
-        "I'd better not show off too much or risk making an pretentious idiot of myself."
+        "I'd better not show off too much or risk making a pretentious idiot of myself."
     Endif
 
 SceneEnd()

@@ -19,13 +19,13 @@ Colleague.show(3)
 1:: "Leave them be"
 
 If 0
-    "Well, that certain piqued my curiousity. I had to follow them and investigate what's going on!"
+    "Well, that certain piqued my curiosity. I had to follow them and investigate what's going on!"
     SneakGame()
     If sneak > Random(0, 25)
         setBackground(bar)
         "I managed to follow them to a fancy bar downtown without getting detected. What on earth would my two married colleagues be doing together in a place like this at this time of the evening?"
         "Later on ..."
-        "Here they are, moving yet again, still together and very much intimate. Should I continue to follow them?"
+        "Here they are, moving yet again, still together and acting very intimate. Should I continue to follow them?"
         0:: "Yes"
         1:: "No"
         
@@ -41,7 +41,7 @@ If 0
                 If 0
                     SneakGame()
                     If sneak > Random(0, 50)
-                        "I managed to snap a shot of <Boss.name> and <Colleague.name> hand in hand walking inside the hotel's elevator. As soon as someone sees the picture, they'll know instantly what's going on."
+                        "I managed to snap a shot of <Boss.name> and <Colleague.name> hand in hand walking into the hotel's elevator. As soon as someone sees the picture, they'll know instantly what's going on."
                         Boss.hide()
                         Colleague.hide()
                         timeout(1500, boss_affair)
@@ -104,6 +104,7 @@ If 0
                             setBackground(work)
                             Boss.show(2)
                             Boss(Angry):: "Fine! You got us. I'll give you what you want. Just keep your mouth shut!"
+                            karma -= 5
                             Salary = getSalary()
                             NewSalary = Salary*Random(1.1, 1.4)
                             SalaryConverted = NewSalary.convertToLocalCurrency(true)

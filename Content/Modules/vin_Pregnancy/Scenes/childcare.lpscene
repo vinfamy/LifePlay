@@ -208,7 +208,7 @@ OTHER: Random(0, 100) < 15 || [WHAT == childcare && Random(0, 100) < 50]
             mood -= Random(0, 10)
         Endif        
     Elseif scene == 127 // parental control
-        "Since <Actor.name> is sometimes given my smartphone to play games on, maybe I should install some parental control app."
+        "Since <Actor.name> is sometimes given my smartphone to play games on, maybe I should install a parental control app."
         0:: "Of course"
         1:: "It's a waste of money"
         

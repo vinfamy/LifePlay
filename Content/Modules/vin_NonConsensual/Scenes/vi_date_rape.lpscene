@@ -1,12 +1,12 @@
 WHAT: all, -go_to_the_bathroom
 WHERE: bar, nightclub
 WHEN: 21 - 4
-WHO: Actor = getCompanion(); If !Actor.isRelative() && !Actor.isDating() && Random(30, 200) < Actor:perversion && Random(-100, -30) > Actor:masochist && Random(30, 100) < Actor:attractiontoplayer
+WHO: Actor = getCompanion(); If !Actor.isRelative() && Random(30, 200) < Actor:perversion && Random(-100, -30) > Actor:masochist && Random(30, 100) < Actor:attractiontoplayer
 OTHER: !Player.isDating()
 
     SceneStart()
     "It's been a decent date with <Actor.name> I guess. <Actor.He_or_She> is a bit handsy though, but I'm giving <Actor.him_or_her> none of it."
-    Actor(Happy):: "You're the most beautiful <Player.guy_or_girl> I've ever been on a date with. I'd love nothing more than being able to buy you a drink."
+    Actor(Happy):: "You're the most <Player.handsome_or_beautiful> <Player.guy_or_girl> I've ever been on a date with. I'd love nothing more than being able to buy you a drink."
     0:: "Yes"
     1:: "No"
 
@@ -21,7 +21,7 @@ OTHER: !Player.isDating()
             "A while later ..."
             setBackground(home)
             "Why am I in this disgusting hotel room? Oh no, that drink was spiked!"
-            Actor(Evil):: "You stupid bitches never learn. Show you some charm and you all drink the first thing given to you."
+            Actor(Evil):: "You stupid <Player.idiots_or_bitches> never learn. Show you some charm and you all drink the first thing given to you."
             Actor(Flirty):: "Now, let us have some fun, because you're gonna forget all about this in the morning!"
             "Part of my mind still wanted to resist but it's too weak compared to the strong drug in my system."
             Filter(Aggressive)

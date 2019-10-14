@@ -19,7 +19,7 @@ OTHER: isWithCompanionCreature(); If CurrentCompanion.isCreatureType(Dog) && Ran
     Endif
 
     New_Person.show(2)
-    New_Person(Excited):: "That's a cute dog. Can I pet it for a bit?"
+    New_Person(Excited):: "That's a cute dog. Can I pet <CurrentCompanion.him_or_her> for a bit?"
     0:: "Of course"
     1:: "No, sorry"
     

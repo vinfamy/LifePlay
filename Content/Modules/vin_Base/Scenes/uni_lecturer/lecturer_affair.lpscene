@@ -12,7 +12,7 @@ OTHER: none
     Actor.dress()
     Actor.show(2)
 
-    "Wait, is that my colleagues Dr <Actor2.name_last> and Dr <Actor.name_last> walking together back to <Actor.his_or_her> office?"
+    "Wait, aren't those my colleagues Dr <Actor2.name_last> and Dr <Actor.name_last> walking together back to <Actor.his_or_her> office?"
     "What should I do?"
     0:: "Follow them"
     1:: "No big deal"
@@ -44,6 +44,7 @@ OTHER: none
             "I decided to spread the rumour to the rest of the Department, which <Actor.name> firmly denied."        
             Actor:rapportwithplayer -= Random(0, 5)
             Actor2:rapportwithplayer -= Random(0, 10)
+            karma -= 10
         Else
             "Let's be honest: I would totally bang a fellow lecturer in the my office myself if I have the chance. I feel for <Actor2.name> here. Let's not destroy their career."
         Endif

@@ -13,5 +13,8 @@ OTHER: none
         1:: "I always fantasize about sex with a pregnant woman"
 
         "I suspected as much: her belly clearly got bigger in recent months."
+        If 1
+            perversion += Random(0,0.5)
+        Endif
         SceneEnd()
     Endif

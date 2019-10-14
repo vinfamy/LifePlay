@@ -18,6 +18,7 @@ OTHER: isWithCompanion() && CurrentCompanion.isDating()
         CurrentCompanion(Kiss):: "..."
         Actor:attractiontoplayer -= Random(0, 5)
         "As expected, <Actor.name> looked devastated seeing <Actor.his_or_her> ex being so intimate with another <CurrentCompanion.man_or_woman>." 
+        karma -= 2.5
     Else
         "This is too mean to <Actor.name>. We've had some good time together after all. I decided to let go of <CurrentCompanion.name>'s hand for a while until <Actor.name> has walked past us."
         Actor:attractiontoplayer += Random(0, 5)

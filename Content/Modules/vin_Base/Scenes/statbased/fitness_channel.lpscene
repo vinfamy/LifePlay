@@ -8,7 +8,7 @@ OTHER: Random(80, 200) < fitness
     ChannelStarted = fitness_channel.getGlobal()
     
     If ChannelStarted == 0
-        "I consider myself fitness nut who is also knowledable about nutrition and supplements. I reckon I might just have some success starting a fitness channel on YouTube. Should I?"
+        "I consider myself fitness nut who is also knowledgeable about nutrition and supplements. I reckon I might just have some success starting a fitness channel on YouTube. Should I?"
         0:: "Yes"
         1:: "No"
         

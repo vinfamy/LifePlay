@@ -60,7 +60,7 @@ OTHER: !isWithCompanion() && jobexperience < 40
         Elseif 1
             Player(Sad):: "I'm sorry, <Actor.Daddy_or_Mommy>. I can't do it tonight, but I miss you too and can't wait to see you soon."
         Else
-            "I don't know it was the right decision, but I felt like I was now in a stage of my life to move on from this pelicular arrangement. It's time to stand on my own two feet ... or find another <Actor.sugardaddy_or_sugarmommy>."
+            "I don't know it was the right decision, but I felt like I was now in a stage of my life to move on from this particular arrangement. It's time to stand on my own two feet ... or find another sugarparent."
             SugarParent.clearGlobal()
             timeout(500, sugarbabe)
         Endif    
@@ -97,7 +97,7 @@ OTHER: !isWithCompanion() && jobexperience < 40
                     setBackground(restaurant)
                     Actor.dress()
                     Player.dress()
-                    "<Actor.name> took me to a really fancy restaurant and wined and dined me like money was no object. Afterwards, <Actor.he_or_she> suggested that we went back to a suite <Actor.he_or_she> had booked at a 5-star hotel nearby."
+                    "<Actor.name> took me to a really fancy restaurant and wined and dined me like money was no object. Afterwards, <Actor.he_or_she> suggested that we go to a suite <Actor.he_or_she> had booked at a 5-star hotel nearby."
                     0:: "Yes"
                     1:: "No"
                     
@@ -125,7 +125,7 @@ OTHER: !isWithCompanion() && jobexperience < 40
                 timeout(500, sugarbabe)
             Endif
         Else
-            "No way. There are more self-respecting ways to make money than that. It's basically glorified prositution."
+            "No way. There are more self-respecting ways to make money than that. It's basically glorified prostitution."
             timeout(1000, sugarbabe)
         Endif
     Endif

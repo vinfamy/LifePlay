@@ -26,7 +26,7 @@ OTHER: none
         
         If 0
             "Some good old alcohol should do the trick in bringing <Actor.him_or_her> to <Actor.his_or_her> true attraction to me."
-            Player(Happy):: "Hang on. Are you sure you don't want a drink? I feel bad that you have to go all the way here yet <Actor2.name> isn't around."
+            Player(Happy):: "Hang on. Are you sure you don't want a drink? I feel bad that you had to come all the way here yet <Actor2.name> isn't around."
             Actor(Happy):: "I shouldn't ... Fine then, just one drink, okay?"
             setBackground(home)
             moveTo(Home)
@@ -39,6 +39,7 @@ OTHER: none
                 Actor:rapportwithplayer += Random(0, 2)
             Else
                 "<Actor.He_or_She> is out of it. It's time for my master plan."
+                karma -= 20
                 Player(Kiss):: "..."
                 Actor(Angry):: "<Player.name>! What the hell are you doing? You have a <Actor2.boyfriend_or_girlfriend>! And worse, <Actor2.he_or_she> is my best friend!"
                 Actor:rapportwithplayer -= Random(0, 10)
@@ -51,7 +52,7 @@ OTHER: none
                 Else
                     Player(Furious):: "Nobody rejects me like that! Let's see if you can remain so loyal to your friend after a hard pounding!"
                     Actor(Angry):: "Get your hands off me! Have you gone crazy? Help!"
-                    Player(Evil):: "Listen and stop screaming! You'd better be a good <Actor.boy_or_girl> for me, or I'll tell <Actor2.name> that you tried to seduce me. How do you like your friendship in ruin? We both know that <Actor2.name> is going to trust <Actor2.his_or_her> own <Player.boyfriend_or_girlfriend> over a friend like you."
+                    Player(Evil):: "Listen and stop screaming! You'd better be a good <Actor.boy_or_girl> for me, or I'll tell <Actor2.name> that you tried to seduce me. How would you like your friendship in ruin? We both know that <Actor2.name> is going to trust <Actor2.his_or_her> own <Player.boyfriend_or_girlfriend> over a friend like you."
                     "Maybe <Actor.name>'s decision making was affected by the alcohol. Or maybe, that friendship with <Actor2.name> just means that much to <Actor.him_or_her>. Either way, <Actor.he_or_she> seemed to let go after what I said. Soon, I was ripping <Actor.his_or_her> clothes off and proceeded to force myself upon <Actor.him_or_her>."
                     Actor(Crying):: "No! Please stop ... What if <Actor2.name> comes home to find us like this ..."
                     Filter(Aggressive)

@@ -21,6 +21,7 @@ OTHER: money < 100
     Else
         "I'd rather not rely on my family for any financial support."
         masochist -= Random(0, 0.25)
+        karma += 2.5
     Endif
     
     SceneEnd()

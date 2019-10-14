@@ -31,6 +31,7 @@ OTHER: IsAtHome()
         Actor(Sarcastic):: "Already asslicking <Actor.his_or_her> <Actor.callplayer>, I see?"
         masochist -= Random(0, 0.25)
         Actor:rapportwithplayer -= Random(0, 2)
+        karma -= 2.5
     Endif    
     
     SceneEnd()

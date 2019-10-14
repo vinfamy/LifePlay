@@ -15,7 +15,7 @@ OTHER: !isWithCompanion() && Random(0, 1000) < intelligence
         "What's the big deal? Who doesn't watch porn from time to time? In fact, I probably should take note of what <Dating.he_or_she> is into so that we can have more fun in bed!"
         perversion += Random(0, 0.5)
     Elseif 1
-        "I decided to take the moral high ground and be quite judgemental to <Dating.him_or_her> about his porn habits. I hope that being embarassed would stop <Dating.him_or_her> from watching so much porn all the time."
+        "I decided to take the moral high ground and be quite judgemental to <Dating.him_or_her> about his porn habits. I hope that being embarrassed would stop <Dating.him_or_her> from watching so much porn all the time."
         Dating:attractiontoplayer -= Random(0, 2)
     Else
         "It's clear <Dating.name> has a bad porn addiction. <Dating.He_or_She> needs professional help!"
@@ -23,6 +23,7 @@ OTHER: !isWithCompanion() && Random(0, 1000) < intelligence
         Dating.show(2)
         Dating(Sad):: "Okay baby, I'm willing to give counseling a try."
         "After a few sessions, <Dating.name>'s addiction seems to have reduced a bit and <Dating.he_or_she> thanked me for encouraging <Dating.him_or_her> to seek help in the first place."
+        karma += 2.5
         Dating:perversion -= Random(0, 2)
         Dating:attractiontoplayer += Random(0, 2)
     Endif

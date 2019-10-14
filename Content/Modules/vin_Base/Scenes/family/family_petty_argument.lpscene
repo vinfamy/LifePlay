@@ -15,6 +15,7 @@ OTHER: none
     If 0
         "I decided to just let it go and went easy on <Dating.him_or_her> this time."
         masochist += Random(0, 0.5)
+        karma += 2.5
     Else
         "No way I'm backing down. I made sure that my <Dating.relationship> knew that I was not a pushover of a <Dating.callplayer>."
         Dating:rapportwithplayer -= Random(0, 1)

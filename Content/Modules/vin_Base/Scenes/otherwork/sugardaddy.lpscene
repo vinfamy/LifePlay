@@ -33,7 +33,7 @@ OTHER: !isWithCompanion() && [jobexperience > 60 || money > 20000]
         Elseif 1
             "Not today. These dates can be quite expensive."
         Else
-            "To be honest, I'm getting bored of <Actor.name>, so I told <Actor.him_or_her> our arrangement was over. I have no doubt <Actor.he_or_she> will find another <Player.sugardaddy_or_sugarmommy> soon though."
+            "To be honest, I'm getting bored of <Actor.name>, so I told <Actor.him_or_her> our arrangement was over. I have no doubt <Actor.he_or_she> will find another sugarparent soon though."
             SugarParent.clearGlobal()
             timeout(500, sugardaddy)
         Endif    
@@ -43,7 +43,7 @@ OTHER: !isWithCompanion() && [jobexperience > 60 || money > 20000]
         1:: "No"
         
         If 0
-            "It's worth a try. It's not like I'm commiting to anything just from signing up."
+            "It's worth a try. It's not like I'm committing to anything just from signing up."
             If Random(0, 100) < jobexperience                
                 Actor = generatePersonTemporary()
                 While !Actor.isInterestedIn(Player) || !Player.isInterestedIn(Actor)
@@ -68,7 +68,7 @@ OTHER: !isWithCompanion() && [jobexperience > 60 || money > 20000]
                     setBackground(restaurant)
                     Actor.dress()
                     Player.dress()
-                    "I took <Actor.name> to a really fancy restaurant and wined and dined <Actor.him_or_her> like money was no object. Afterwards, I suggested that we went back to a suite I had booked at a 5-star hotel nearby."
+                    "I took <Actor.name> to a really fancy restaurant and wined and dined <Actor.him_or_her> like money was no object. Afterwards, I suggested that we head to a suite I had booked at a 5-star hotel nearby."
                     
                     setBackground(home)
                     Actor.makePermanent()

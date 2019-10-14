@@ -1,5 +1,5 @@
 WHAT: all
-WHERE: university:school
+WHERE: university:school, university:work
 WHEN: 0-24
 WHO: Actor = getSpecific(Lecturer); Actor2 = getSpecific(Coursemate); If !Actor.isDating() && !Actor2.isDating() && Actor2.isInterestedIn(Actor) && Actor.isInterestedIn(Actor2) && Actor:perversion + Actor2:perversion > Random(75, 150)
 OTHER: none
@@ -48,6 +48,7 @@ OTHER: none
         1:: "Stay silent"
         
         If 0
+            karma -= 10
             If WHERE == university:school
                 "I decided to spread the rumour to the rest of the course, which <Actor2.name> firmly denied."
             Else

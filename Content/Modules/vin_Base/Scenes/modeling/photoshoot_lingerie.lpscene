@@ -40,7 +40,7 @@ OTHER: Random(1, 150) < modelfame && Random(30, 100) < fitness
         modelfame += 0.25
         perversion += 0.25
         
-        "Aside from my agreed pay, they also offered to let me keep the lingerie I did the photoshoots in."
+        "Aside from my agreed pay, they also offered to let me keep the lingerie I did the photo shoot in."
         0:: "Keep the lingerie also"
         1:: "Just take the money"
         

@@ -5,7 +5,7 @@ WHO: Actor = getSpecific(Dating); If !Actor.isColleague() && !Actor.isBoss() && 
 OTHER: !isWithCompanion()
 
     SceneStart()
-    "I wonder what <Actor.boyfriend_or_girlfriend> is up to this evening. I should call <Actor.him_or_her>."
+    "I wonder what my <Actor.boyfriend_or_girlfriend> is up to this evening. I should call <Actor.him_or_her>."
     Player(Happy):: "Baby, where are you? When will you be back from work?"
     Actor:: "Work's already done, honey. But I'm having a few drinks with my colleagues at the bar next to my office. You can come join us if you want?"
     0:: "Join them"

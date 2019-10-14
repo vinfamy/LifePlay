@@ -11,7 +11,7 @@ OTHER: Random(0, 1000) < pornfame/intelligence
     "Oh god, this doesn't sound good."
     Actor(Sarcastic):: "So this is what you have been doing for a living? You hid the truth from me all this time."
     "<Actor.name> showed me a printout with a screenshot on it ... It's my porn Twitter account ..."
-    Actor(Angry):: "It's over! I'm breaking up with you. This is the biggest humiliation of my life, being with a pornstar unknowingly"
+    Actor(Angry):: "It's over! I'm breaking up with you. This is the biggest humiliation of my life, being with a porn star unknowingly"
     "No point trying to talk <Actor.him_or_her> out of it now ... it's no use. Not many people can tolerate their significant other sleeping with another person, let alone doing it for money and publishing it all over the internet."
     If isPlayerMarried()
         Actor(Sad):: "I'm afraid this marriage isn't working ..."

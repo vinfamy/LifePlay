@@ -14,7 +14,7 @@ OTHER: Random(65, 300) < perversion
     If 0
         money -= Random(30, 200)
         "Later that day ..."       
-        If Random(0, 200) < interpersonal + Actor:attractiontoplayer + Actor:incest + Actor:perversion + Actor:masochist
+        If Random(0, 150) < interpersonal + Actor:attractiontoplayer + Actor:perversion + Actor:masochist
             Actor:perversion += Random(0, 0.25)
             "<Actor.name> just texted me to thank me for the gift. Maybe <Actor.he_or_she> is not so innocent after all ..."           
             If Random(0, 250) < interpersonal + Actor:attractiontoplayer + Actor:incest + Actor:perversion + Actor:masochist

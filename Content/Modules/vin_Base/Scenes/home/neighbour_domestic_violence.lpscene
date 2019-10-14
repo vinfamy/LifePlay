@@ -39,6 +39,7 @@ OTHER: isAtHome()
     If 0
         "It's their business. Let's not risk getting caught in a crossfire."
         masochist += Random(0, 0.5)
+        karma -= 2.5
     Else
         If 1
             masochist -= Random(0, 1)
@@ -48,6 +49,7 @@ OTHER: isAtHome()
             Victim:attractiontoplayer += Random(0, 10)
 
             Player(Angry):: "<Perp.name>! Stop right there. This is domestic violence!"
+            karma += 2.5
             Perp(Angry):: "It's none of your business. Fuck off or I'll kick your ass too."
             Player(Angry):: "No way, if you want to harm <Victim.name> anymore, you'll have to step over my dead body."
             Perp(Furious):: "So be it! Take this!"
@@ -67,6 +69,7 @@ OTHER: isAtHome()
             Victim(Sad):: "That was so brave of you. I don't know how I could ever thank you for saving me."
         Else
             "I'm not so confident that I can stop <Perp.name> myself, but the least I could do is to call the cops."
+            karma += 2.5
 
             Perp:rapportwithplayer -= Random(0, 5)
             Perp:attractiontoplayer -= Random(0, 5)

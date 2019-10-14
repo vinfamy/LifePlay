@@ -7,18 +7,18 @@ OTHER: !isWithCompanion() && isAtHome()
     SceneStart()
     Actor.dress()
     Actor.show(2)
-    Actor(Angry):: "Open the door! Open the fucking door, you bitch!"
-    "Oh no, it's my ex <Actor.name> slamming at my apartment's door again. <Actor.He_or_She> was a violent and abusive partner - I'm glad I somehow managed to get away from <Actor.him_or_her> in the end."
+    Actor(Angry):: "Open the door! Open the fucking door, you <Player.asshole_or_bitch>!"
+    "Oh no, it's my ex <Actor.name> hammering on at my apartment's door again. <Actor.He_or_She> was a violent and abusive partner - I'm glad I somehow managed to get away from <Actor.him_or_her> in the end."
     0:: masochist > 0:: "Open the door"
     1:: masochist < 50:: "Hide in my room"
     
     If 0
         masochist += Random(0, 2)
         "I'm an idiot, I know. But something so ... dominant about <Actor.name> never fails to get my heart racing and my brain fucked up and eventually, that alpha dominance gets me to do whatever <Actor.he_or_she> wants. This psycho may not be my <Actor.boyfriend_or_girlfriend> anymore, but <Actor.he_or_she> never lost control of me."
-        Actor(Angry):: "What takes you so fucking long, you whore?"
+        Actor(Angry):: "What took you so fucking long, you whore?"
         "I know what's coming now ..."
         Actor(Angry):: "You deserve a punishment!"
-        "And just like that, <Actor.he_or_she> grabbed me and threw me into the bed without a care of whether that might hurt me. <Actor.name> proceeded to brutally rape me right there and then ..."
+        "And just like that, <Actor.he_or_she> grabbed me and threw me into the bed without a care as to whether that might hurt me. <Actor.name> proceeded to brutally rape me right there and then ..."
         "Or was it actually rape? I did open the door for him after all ... I must have known what I was getting."
         Filter(Aggressive)
         TalkNonConsensual()
@@ -26,7 +26,7 @@ OTHER: !isWithCompanion() && isAtHome()
         Actor.show(2)
         mood => 0        
     Else
-        "Maybe I should just stay silent and hide in my room, pretending that I'm not here, until <Actor.he_or_she> gets tired of slamming the door and leaves."
+        "Maybe I should just stay silent and hide in my room, pretending that I'm not here, until <Actor.he_or_she> gets tired of hammering on the door and leaves."
     Endif
     SceneEnd()
     timeout(500, vi_ex_rape)

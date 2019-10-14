@@ -21,6 +21,7 @@ OTHER: isWithCompanion() && CurrentCompanion.isDating()
         Actor2(Happy):: "Nice to meet you too, <CurrentCompanion.name>. You guys sure are a cute couple."
         CurrentCompanion:attractiontoplayer += Random(0, 3)
         Actor2:rapportwithplayer += Random(0, 2)
+        karma += 2.5
     Else
         Player(Happy):: "Don't worry about <CurrentCompanion.him_or_her>. <CurrentCompanion.He_or_She> is just a friend."
         "It's too early in the relationship to be 'official' in front of my family. We could break up anytime. How would I explain that to my <Actor2.relationship> then?"

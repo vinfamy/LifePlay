@@ -25,6 +25,7 @@ OTHER: isAtHome()
         Actor2:rapportwithplayer += Random(0, 5)
         Actor3:rapportwithplayer += Random(0, 5)
         interpersonal += Random(0, 0.5)
+        karma += 5
     Else
         "I'm too busy to do that today. Besides, it would cost me quite a bit of money."
     Endif

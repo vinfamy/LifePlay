@@ -18,6 +18,7 @@ OTHER: isAtHome()
         Actor:rapportwihplayer -= Random(0, 3)
         Actor:peversion -= Random(0, 1)
         masochist -= Random(0, 0.5)
+        karma += 2.5
     Else
         masochist += Random(0, 1)
         "I don't want to make a big deal of this. So my <Actor2.relationship> has an admirer? None of my business."

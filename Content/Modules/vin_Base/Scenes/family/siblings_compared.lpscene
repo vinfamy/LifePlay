@@ -23,6 +23,7 @@ OTHER: jobexperience < 40 && isAtHome()
         Player(Excited):: "Wow, congratulations, <Actor2.name>. I'm proud of you! You're definitely the smarter sibling in this family."
         Actor2:rapportwithplayer += Random(0, 2)
         masochist += Random(0, 0.25)
+        karma += 1
     Endif
     SceneEnd()
     timeout(200, siblings_compared)

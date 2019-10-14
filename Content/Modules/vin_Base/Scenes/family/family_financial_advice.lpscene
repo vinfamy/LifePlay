@@ -19,6 +19,7 @@ OTHER: Random(50, 200) < intelligence
         "I started explaining to <Actor.him_or_her> the different saving account options and sharing my own experiences, tips and things to avoid."
         Actor(Happy):: "Thank you so much for the advice. I would have no idea if you didn't share with me your experience. I would have just listened blindly to whatever the bank advisor suggested."
         Actor:rapportwithplayer += Random(0, 2)
+        karma += 2.5
     Endif
     
     SceneEnd()

@@ -6,4 +6,4 @@ Torso_BreastMass-BreastTone-Mass-Tone_max-min-min-max:0.2
 Genesis8Female__PBMPregnant:1.0
 Genesis8Female__PBMBreastsSize:0.4
 
-Maximum Fat Retention After Pregnancy:0.3
+Maximum Fat Retention After Pregnancy:0

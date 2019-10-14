@@ -17,11 +17,13 @@ OTHER: none
     If 0
         "I'll just pretend that I don't know <Actor.him_or_her> and it's none of my business. The staff will clean that up."
     Elseif 1
-        Player(Angry):: "That's disgusting. If you can't handle alcohol, don't drink! I'm embarassed to be your <Actor.callplayer>!"
+        Player(Angry):: "That's disgusting. If you can't handle alcohol, don't drink! I'm embarrassed to be your <Actor.callplayer>!"
+        karma -= 2.5
         masochist -= Random(0, 0.5)
         Actor:rapportwithplayer -= Random(0, 5)
     Else
         "As a <Actor.callplayer>, I can't really just leave <Actor.him_or_her> like that. I'll have to walk <Actor.him_or_her> home."
+        karma += 2.5
         Actor:rapportwithplayer += Random(0, 5)
     Endif
 

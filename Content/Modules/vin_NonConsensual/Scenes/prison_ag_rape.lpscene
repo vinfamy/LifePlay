@@ -13,9 +13,9 @@ OTHER: Random(20, 100) < perversion
     Actor.dress()
     Random
         "<Actor.name> is some Criminology student doing an internship in my prison. Weak and naive - an easy target."
-        "<Actor.name> is the new girl, serving time for some white-collar financial crimes. First time in prison - in fact, probably first time being out of a city - an easy target."
+        "<Actor.name> is the new <Actor.guy_or_girl>, serving time for some white-collar financial crimes. First time in prison - in fact, probably first time being out of a city - an easy target."
         "<Actor.name> is the new warden. Inexperienced and still far too kind-hearted - an easy target."
-        "<Actor.name> is the new girl, serving time for illegal prostitution. I'm sure being fucked hard is not anything new to this whore."
+        "<Actor.name> is the new <Actor.guy_or_girl>, serving time for illegal prostitution. I'm sure being fucked hard is not anything new to this whore."
     EndRandom
     "What should do with <Actor.him_or_her>
     0:: "Rape <Actor.him_or_her>"
@@ -23,7 +23,8 @@ OTHER: Random(20, 100) < perversion
     
     If 0
         "In prison, rape means power."
-        "Taking <Actor.him_or_her> completely by surprise, I grabbed the beautiful <Actor.woman_or_man> by the <Actor.dick_or_pussy> from behind."
+        "Taking <Actor.him_or_her> completely by surprise, I grabbed the <Actor.handsome_or_beautiful> <Actor.man_or_woman> by the <Actor.dick_or_pussy> from behind."
+        karma -= 20
         If martial < Actor:martial
             Player(Pain):: "Ah!"
             Actor(Angry):: "That should teach you!"
@@ -41,7 +42,7 @@ OTHER: Random(20, 100) < perversion
                 "I got some extra sentence ... was it really worth it?"
                 sentence *= 1.2
             Else
-                "Fortunately, the whore was probably too embarassed to admit that <Actor.he_or_she> has been raped. The assault went unreported and I got away with it."
+                "Fortunately, the whore was probably too embarrassed to admit that <Actor.he_or_she> had been raped. The assault went unreported and I got away with it."
             Endif
         Endif
     Else

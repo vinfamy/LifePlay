@@ -29,7 +29,7 @@ OTHER: Random(0, 200) < intelligence
                 Player(Sad):: "Sorry, but I don't normally exchange numbers with someone I just met."
             Endif
         Else
-            "Unfortunately, my knowledge of world affairs really wasn't deep enough to hold an intelligent conversation about it. From <Actor.his_or_her> facial expression, I could tell that <Actor.he_or_she> saw right through me as ignorant but pretentious."
+            "Unfortunately, my knowledge of world affairs really wasn't deep enough to hold an intelligent conversation about it. From <Actor.his_or_her> facial expression, I could tell that <Actor.he_or_she> saw right through me as ignorant and pretentious."
             Actor:attractiontoplayer -= Random(0, 20)
             Actor:rapportwithplayer -= Random(0, 20)
         Endif

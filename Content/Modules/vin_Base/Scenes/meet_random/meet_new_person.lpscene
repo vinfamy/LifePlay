@@ -27,7 +27,7 @@ CompanionIntroduced = isWithCompanion()
 If CompanionIntroduced
     Random
         CurrentCompanion(happy):: "Hey <Player.name>, meet <New_Person.name>! <New_Person.He_or_She> is my friend."
-        CurrentCompanion(happy):: "Here, let me introduce you two. <New_Person.name>, this is <Player.name>. <New_Person.name>, this is <Player.name>."
+        CurrentCompanion(happy):: "Here, let me introduce you two. <New_Person.name>, this is <Player.name>. <Player.name>, this is <New_Person.name>."
         CurrentCompanion(happy):: "<New_Person.name>! Is that you? Come here, let me introduce you to <Player.name>."
     endRandom
     If CurrentCompanion.IsDating()

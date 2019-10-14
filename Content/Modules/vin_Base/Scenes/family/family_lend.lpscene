@@ -17,6 +17,7 @@ OTHER: isAtHome() && money > 500
         "I happily lent my <Actor.relationship> some money."
         Actor:rapportwithplayer += Random(0, 5)
         masochist -= Random(0, 0.25)
+        karma += 2.5
     Else
         Player(Sad):: "Sorry, I'd love to help, but right now I'm broke myself."
         Actor:rapportwithplayer -= Random(0, 3)

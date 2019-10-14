@@ -58,6 +58,7 @@ OTHER: isAtHome()
                     Player(Kiss):: "..."
                     Actor(Kiss):: "..."
                     "We had a kiss, an awkward one at first, but soon moving towards a more passionate direction."
+                    karma -= 1
                     "Should I let this escalate further?"
                     0:: "Make out"
                     1:: "Stop"

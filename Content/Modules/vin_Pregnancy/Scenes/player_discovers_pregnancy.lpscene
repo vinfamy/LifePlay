@@ -15,7 +15,7 @@ OTHER: none
     If Actor.isCreature()
         "The DNA test results baffled all the doctors. While the child is expected to be born healthy and normal, it apparently shares some non-human DNA. The doctors didn't suspect much though, even apologizing for what must have been an error in their testing process."
         Actor.show(2)
-        "Of course, I know better: the baby is no doubt the result of my pleasurable bestial adventures with <Actor.name>. I've been thoroughly bred like a bitch in heat, filled up with thick animal cum and this swolen belly is the outcome." 
+        "Of course, I know better: the baby is no doubt the result of my pleasurable bestial adventures with <Actor.name>. I've been thoroughly bred like a bitch in heat, filled up with thick animal cum and this swollen belly is the outcome." 
     Else
         Actor.dress()
         Actor.show(2)

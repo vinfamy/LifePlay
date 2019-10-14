@@ -39,12 +39,12 @@ OTHER: perversion < Random(0, 100) && masochist < 0
         Endwhile
         Actor2.show(3)
         "Out of corner of my eye, I noticed some naked <Actor2.guy_or_girl> masturbating to us ..."
-        Actor(Flirty):: "Don't mind <Actor2.him_or_her>. It's my cuck <Actor2.husband_or_wife>. This is one of our biggest fantasies ... Thanks for fulfiling it."
+        Actor(Flirty):: "Don't mind <Actor2.him_or_her>. It's my cuck <Actor2.husband_or_wife>. This is one of our biggest fantasies ... Thanks for fulfilling it."
         Sex(Actor2)
         masochist -= Random(0, 5)
     Else
         Actor.hide()
-        "I stormed off from the pervert's room. Oh god, I really hate my job! Lousy money and creepy guests ..."
+        "I stormed out of the pervert's room. Oh god, I really hate my job! Lousy money and creepy guests ..."
         masochist -= Random(0, 0.5)
     Endif
     SceneEnd()

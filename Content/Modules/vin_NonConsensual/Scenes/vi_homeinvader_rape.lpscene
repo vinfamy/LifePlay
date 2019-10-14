@@ -17,8 +17,8 @@ OTHER: !isWithCompanion() && Random(60, 500) < attractiveness && intelligence < 
         Actor(Pain):: "Ah!"
         "Thankfully, I managed to react well to the situation and overpower the thug eventually. I then called the cops, who promptly arrested the wannabe rapist." 
     Else
-        Player(Crying):: "No, please stop ... Somebody helps."
-        "Unfortunately, the element of surprise was too much and my struggles against the home invader was futile. I have no choice now but to endure giving this vile creature pleasure against my will ..."
+        Player(Crying):: "No, please stop ... Somebody help!"
+        "Unfortunately, the element of surprise was too much and my struggles against the home invader were futile. I have no choice now but to endure giving this vile creature pleasure against my will ..."
         Filter(Aggressive)
         TalkNonConsensual()
         SexNoAffair(Actor, Player)

@@ -5,7 +5,7 @@ WHEN: 0 - 24
 MINUTES: 60 - 120
 TIMEOUT_MINUTES: 
 ALSO_TIMEOUT: 
-EFFECTS: cooking +0.1 (DURATION), intelligence +0.05 (DURATION), mood -2 (DURATION),  energy -5 (DURATION)
+EFFECTS: cooking +0.1 (DURATION), intelligence +0.05 (DURATION), mood -2 (DURATION),  energy -5 (DURATION), karma +1 (END)
 CONDITIONS: children > 0.99 (STAT_COMPARE)
 MOVE_FIRST: true
 SCENE_ALWAYS:

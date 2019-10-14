@@ -5,7 +5,7 @@ WHEN: 0 - 24
 MINUTES: 120 - 240
 TIMEOUT_MINUTES: 
 ALSO_TIMEOUT: 
-EFFECTS: jobperformance +0.5 (DURATION), interpersonal +0.2 (DURATION), jobexperience +0.1 (DURATION), intelligence +0.2 (DURATION), mood -1 (DURATION), jobperformance +0.5 (END)
+EFFECTS: jobperformance +0.5 (DURATION), interpersonal +0.2 (DURATION), jobexperience +0.1 (DURATION), intelligence +0.2 (DURATION), mood -1 (DURATION), jobperformance +0.5 (END), karma +0.25 (END)
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:

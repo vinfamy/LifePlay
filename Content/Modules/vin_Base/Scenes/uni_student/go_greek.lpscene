@@ -40,7 +40,7 @@ OTHER: none
                 Actor.dress()
                 Actor.show(2)
                 Actor(Evil):: "Well done, you definitely have the potential to become one of ours <Player.brothers_or_sisters>. But are you ready for one final challenge, pledge?" 
-                Player(Surprised):: "I'm already for anything, <Player.brother_or_sister>."
+                Player(Surprised):: "I'm ready for anything, <Player.brother_or_sister>."
                 Actor(Happy):: "Good attitude. So here's your challenge: There's an old ugly homeless crackhead who always sleeps at the bench behind our chapter house. Go out there and fuck <Player.her_or_him>!"
                 0:: "Fine ..."
                 1:: "Eww!"

@@ -5,7 +5,7 @@ WHO: Actor = getCompanion(); If Random(50, 200) < Actor:attractiveness
 OTHER: isModEnabled(vin_NTR) && intelligence < Random(0, 80)*Random(0, 1)
 
     SceneStart()
-    "Oh no, I have rotten lucky today. I have lost all my money."
+    "Oh no, I have rotten luck today. I have lost all my money."
     Actor2 = generatePersonTemporary()
     Actor2.dress()
     Actor2.show(2)

@@ -12,7 +12,7 @@ OTHER: masochist < 0 && !isWithCompanion()
     Actor0.show(2)
     Actor1.show(3)
     Player(Happy):: "Thank you for the wonderful dinner. You two are a cute couple."
-    Actor1(Wink):: "<Actor0.name>, what are still waiting for? You tell <Player.him_or_her> about our plan ..."
+    Actor1(Wink):: "<Actor0.name>, what are you still waiting for? You tell <Player.him_or_her> about our plan ..."
     "Hmm, I wonder what this is about now ... They acted strangely all evening."
     Actor0(Embarassed):: "Oh god ... I don't know how to start this. I know it's weird but ... as a couple, <Actor1.name> and I have long fantasized about having another <Player.guy_or_girl> fucking <Actor1.him_or_her> while I watch ..."
     Actor0(Embarassed):: "That fantasy becomes even more arousing when I think about my own <Actor0.callplayer> having fun with <Actor1.name> ..."

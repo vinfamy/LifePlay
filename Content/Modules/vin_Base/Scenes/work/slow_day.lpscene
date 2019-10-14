@@ -14,7 +14,8 @@ If 0
     mood -= Random(0, 10)
     jobperformance += Random(0, 0.5)
 Else
-    "I entertained myself by browing the web and watching YouTube videos, before going home early."
+    "I entertained myself by browsing the web and watching YouTube videos, before going home early."
+    karma -= 1
     mood += Random(0, 30)
     jobperformance -= Random(0, 0.5)
 Endif

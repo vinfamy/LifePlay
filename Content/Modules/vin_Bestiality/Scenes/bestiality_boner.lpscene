@@ -8,7 +8,7 @@ OTHER: !Player.isMale() && isAtHome()
     If Actor.isCreatureType(Horse)
         setBackgroundCustom(stable)
     Endif
-    "<Actor.name> has spotted an erection all day, which is getting quite worrying. <Actor.He_or_She> is clearly in some discomfort. They always say 'If your erection doesn't go away, go see a doctor'. This must apply to animals also."
+    "<Actor.name> has sported an erection all day, which is getting quite worrying. <Actor.He_or_She> is clearly in some discomfort. They always say 'If your erection doesn't go away, go see a doctor'. This must apply to animals also."
     0:: "Take <Actor.him_or_her> to the vet"
     1:: perversion > 50:: "Take care of the erection the 'traditional' way"
     

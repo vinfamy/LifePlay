@@ -12,7 +12,7 @@ OTHER: Random(0, 1000) < pornfame/intelligence
     Actor(Sarcastic):: "It seems you have a very interesting second job ..."
     "<Actor.name> showed me a printout with a screenshot on it ... It's my porn Twitter account ..."
     Actor(Angry):: "You're fired! Frankly, you should have known better."
-    "No point begging for my job now ... it's no use. No companies want to risk their reputation by keeping a pornstar employed."
+    "No point begging for my job now ... it's no use. No companies want to risk their reputation by keeping a porn star employed."
     "My chance of getting another job is rather low now. Surely, any HR department could easily find out about my porn career."
     loseJob()
     jobexperience -= Random(0, 100)

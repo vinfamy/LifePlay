@@ -17,6 +17,7 @@ OTHER: Random(20, 300) < perversion
         Else
             "My behaviour seems to make <Actor.name> uncomfortable and <Actor.he_or_she> didn't seem a tiny bit receptive to my advances." 
             Actor:rapportwithplayer -= Random(0, 1)
+            karma -= 1
         Endif
     Endif
     SceneEnd()

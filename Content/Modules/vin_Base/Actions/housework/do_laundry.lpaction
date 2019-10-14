@@ -5,7 +5,7 @@ WHEN: 0 - 24
 MINUTES: 40 - 80
 TIMEOUT_MINUTES: 10000
 ALSO_TIMEOUT: 
-EFFECTS:  money -2 (START), attractiveness +2.5 (BUFF:10000), mood -5 (DURATION), mood -5 (INTERRUPTED)
+EFFECTS:  money -2 (START), attractiveness +2.5 (BUFF:10000), mood -5 (DURATION), mood -5 (INTERRUPTED), karma +0.25 (END)
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:

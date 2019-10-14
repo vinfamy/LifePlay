@@ -5,7 +5,7 @@ WHEN: 0 - 24
 MINUTES: 30 - 60
 TIMEOUT_MINUTES: 10000
 ALSO_TIMEOUT: 
-EFFECTS: energy -3 (DURATION), mood -1 (INTERRUPTED), fitness +0.01 (END), intelligence +0.02 (END)
+EFFECTS: energy -3 (DURATION), mood -1 (INTERRUPTED), fitness +0.01 (END), intelligence +0.02 (END), karma +0.25 (END)
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:

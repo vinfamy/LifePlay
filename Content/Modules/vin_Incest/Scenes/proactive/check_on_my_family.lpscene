@@ -5,7 +5,9 @@ WHO: none
 OTHER: none
 
     SceneStart()
-    If isAtHome()
+    If isWithCompanion() && CurrentCompanion.isRelative()
+        "I'm already hanging out with a family member."
+    Elseif isAtHome()
         AssignResidents()
         Ongoing = true
         While Ongoing

@@ -20,6 +20,7 @@ OTHER: none
     2:: masochist < 0:: "Admit unapologetically"
 
     If 0
+        karma -= 2.5
         Player(Angry):: "Baby! You must trust me. Don't believe those baseless rumours. <Affair.name> and I - we didn't do anything!"
         If intelligence - Dating:intelligence > Random (0, 50)
             Dating(Sad):: "Maybe you're right. I'm sorry - I shouldn't have believed those lies ..."
@@ -29,6 +30,7 @@ OTHER: none
             breakup = true
         Endif
     Elseif 1
+        karma += 2.5
         Player(Crying):: "Baby! It was a terrible mistake. I didn't mean to hurt you. I have felt guilty about it everday since ... Please don't leave me - it will never happen again."
         If Dating:attractiontoplayer + interpersonal > Random(0, 200)
             Dating(Sad):: "... Fine. For everything we've done together, I might as well give you one final chance. I hope I won't regret this later."
@@ -38,6 +40,7 @@ OTHER: none
             breakup = true      
         Endif
     Else
+        karma -= 10
         Player(Evil):: "It's about time you find out ... So I fucked <Affair.him_or_her>. What's the matter? So what are you going to do? Break up with me? As if a loser like you could find someone better!"
         masochist -= Random(0, 2)
         If Dating:masochist > Random(30, 100)
@@ -53,7 +56,7 @@ OTHER: none
     death = false
 
     If breakup
-        If Dating:masochist < -85
+        If Dating:masochist + karma < -50
             Dating(Furious):: "You betrayed me, you humilated me ... now you die!"
             "Pow!"
             Player.hide()
@@ -122,6 +125,7 @@ OTHER: none
                     1:: "I should not"
                     
                     If 0
+                        karma -= 10
                         perversion += Random(0,1)
                         masochist -= Random(0,2)
                         "A while later ..."
@@ -142,6 +146,7 @@ OTHER: none
             1:: "I should not"
             
             If 0
+                karma -= 5
                 "I'll show that fool <Dating.name> that it's all <Dating.his_or_her> loss!"
                 "A while later ..."
                 Affair.dress()

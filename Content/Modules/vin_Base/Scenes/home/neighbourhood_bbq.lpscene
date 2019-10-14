@@ -52,8 +52,8 @@ If 0
     Actor5.show(5)
     
     Actor1(Excited):: "<Player.name>! We're here. Come!"
-    Player(Happy):: "Sorry I'm late, had to finish a few stuffs first ..."
-    "My other Actors, <Actor2.name>, <Actor3.name>, <Actor4.name> and <Actor5.name>, are all here too! This will be a good way to get to know them better."
+    Player(Happy):: "Sorry I'm late, had to finish a few things first ..."
+    "My other neighbours, <Actor2.name>, <Actor3.name>, <Actor4.name> and <Actor5.name>, are all here too! This will be a good way to get to know them better."
     
     Actor1.hide()
     Actor2.hide()
@@ -168,7 +168,7 @@ If 0
                     If 0
                         KissBack = true
                     Else
-                        "I pulled myself away from <SitWith.him_or_her>. <SitWith.He_or_She> was visibly embarassed."
+                        "I pulled myself away from <SitWith.him_or_her>. <SitWith.He_or_She> was visibly embarrassed."
                         SitWith:attractiontoplayer -= Random(0, 1)
                     Endif
                 Else
@@ -184,7 +184,7 @@ If 0
                             "Wow, that's quite a pleasant surprise. <SitWith.name> was totally receptive to my advance. In fact, <SitWith.he_or_she> certainly showed that <SitWith.he_or_she> wanted something more ..."
                             KissBack = true
                         Else
-                            "<SitWith.name> pulled away from my advances. Embarassed, I retreated, pretending for the rest of the drinks as if nothing happened ..."
+                            "<SitWith.name> pulled away from my advances. Embarrassed, I retreated, pretending for the rest of the drinks as if nothing happened ..."
                         Endif
                     Else
                         "Perhaps not ... It would be extremely embarassing to be rejected in front of all my neighbours."

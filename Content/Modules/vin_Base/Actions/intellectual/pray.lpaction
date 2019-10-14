@@ -5,7 +5,7 @@ WHEN: 0 - 24
 MINUTES: 5 - 20 
 TIMEOUT_MINUTES: 60
 ALSO_TIMEOUT: 
-EFFECTS: perversion -0.05 (DURATION), arousal -5 (DURATION), perversion +0.02 (INTERRUPTED), mood +1 (END)
+EFFECTS: perversion -0.05 (DURATION), arousal -5 (DURATION), perversion +0.02 (INTERRUPTED), mood +1 (END), karma +0.25 (END)
 CONDITIONS: perversion < 80 (STAT_COMPARE)
 MOVE_FIRST: true
 SCENE_ALWAYS:

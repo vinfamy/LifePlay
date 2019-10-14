@@ -40,6 +40,7 @@ OTHER: Player.isInterestedIn(Actor) && Random(70, 300) < Actor:attractiveness
                 If 0
                     Player(Embarassed):: "I'm sorry ... It was a moment of passion. I didn't know what I was doing ..."
                 Else
+                    karma -= 20
                     Player(Furious):: "Nobody rejects me like that! Let's see if I can't convert you after a hard pounding!"
                     Actor(Angry):: "Get your hands off me! Have you gone crazy? Help!"
                     If Actor:martial*0.5 > martial
@@ -57,7 +58,7 @@ OTHER: Player.isInterestedIn(Actor) && Random(70, 300) < Actor:attractiveness
                     blockContact(Actor)
                     
                     If Random(0, 100) < 85
-                        "I was lucky to avoid jail time as <Actor.name> never reported me to the police, but <Actor.he_or_she> blocked me and never wanted to see me again. One thing for sure: I did nothing to convert <Actor.name> to become into <Player.guys_or_girls>."
+                        "I was lucky to avoid jail time as <Actor.name> never reported me to the police, but <Actor.he_or_she> blocked me and never wanted to see me again. One thing for sure: I did nothing to convert <Actor.name> to become interested in <Player.guys_or_girls>."
                     Else
                         "Sure enough, the cops promptly arrived at the scene."
                         "'Hands in the air, now!'"

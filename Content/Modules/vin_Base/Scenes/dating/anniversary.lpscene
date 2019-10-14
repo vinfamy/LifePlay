@@ -7,6 +7,7 @@ OTHER: none
 SceneStart()
 
 "Today is the anniversary of me and <Dating.name>. We decided to go to a fancy restaurant together."
+karma += 10
 setBackground(restaurant)
 Dating.dress()
 Dating.show(2)
@@ -20,6 +21,7 @@ If 0
     Sex(Player, Dating)
     Dating.show(2)
     "Anniversary sex is the best! I feel like nothing can separate us right now. May our relationship continue forever ...."
+    karma += 2.5
 Else
     "I just don't feel like it today. After the dinner, we went back to our respective homes instead. <Dating.name> was clearly disappointed."
     Dating:attractiontoplayer -= Random(0, 10)

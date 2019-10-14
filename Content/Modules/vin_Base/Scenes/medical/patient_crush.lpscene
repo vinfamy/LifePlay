@@ -38,7 +38,7 @@ OTHER: !Player.isAsexual()
             perversion += Random(0, 0.5)
         Endif
     Else
-        "Ew ... definitely not my type. Let's get this over and done with before I go blind from having to stare at this sloopy body for too long."
+        "Ew ... definitely not my type. Let's get this over and done with before I go blind from having to stare at this sloppy body for too long."
     Endif
     SceneEnd()
     timeout(100, patient_crush)

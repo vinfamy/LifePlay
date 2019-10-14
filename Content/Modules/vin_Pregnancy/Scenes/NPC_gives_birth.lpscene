@@ -21,7 +21,11 @@ OTHER: none
             "We did something forbidden and extremely risky that led to this baby. Yet by some miracle, the baby turned out to be healthy both physically and mentally." 
         Elseif Actor.isExRelative()
             "<Actor.name> and I are related after all so I would be lying if I said I wasn't concerned. Thankfully, the baby turned out to be healthy both physically and mentally. Maybe God changes his mind about incest?"       
-        Endif   
+        Endif
+        If !Actor.isDating() && !Actor.isRelative()
+            "However, the fact that I impregnated someone I'm not in a committed relationship with could potentially leave the child growing up without a steady family unit. Maybe I should settle down with <Actor.name> for the sake of the baby."
+            karma -= 5
+        Endif
         children += 1
         Actor2 = Actor.generateRelativeMatchRace()
         Actor2.setRelativeType(Child)

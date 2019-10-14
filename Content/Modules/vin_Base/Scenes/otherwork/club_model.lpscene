@@ -25,7 +25,7 @@ OTHER: Random(0, 1000) < attractiveness
 
             interpersonal += Random(0, 0.5)
         Else
-            "I tried to hang out with them, but none of them paid any attention to me - some even smirked at me. Eventually, I got the message and left, embarassed. Maybe I didn't quite live up to their standards of attractiveness."
+            "I tried to hang out with them, but none of them paid any attention to me - some even smirked at me. Eventually, I got the message and left, embarrassed. Maybe I didn't quite live up to their standards of attractiveness."
             mood -= Random(0, 30)
         Endif
     Else

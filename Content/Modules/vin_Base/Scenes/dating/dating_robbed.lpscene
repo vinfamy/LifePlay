@@ -31,6 +31,7 @@ If CurrentCompanion:intelligence > CurrentCompanion:martial
         1:: "Go home"
         
         If 0
+            karma -= 10
             "That robber put <CurrentCompanion.name> back in <CurrentCompanion.his_or_her> place and made my <CurrentCompanion.boyfriend_or_girlfriend> <Thug.his_or_her> bitch. I just couldn't resist such strength and dominance!"
             "Leaving my pathetic <CurrentCompanion.boyfriend_or_girlfriend> behind, I ran after the robber."
             CurrentCompanion.hide()

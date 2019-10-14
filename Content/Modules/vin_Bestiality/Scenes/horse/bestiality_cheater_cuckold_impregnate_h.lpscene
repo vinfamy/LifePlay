@@ -28,7 +28,7 @@ OTHER: isModEnabled(vin_NTR) && !isWithCompanion() && !Player.isMale() && !Playe
             Bull.hide()
             Dating.show(2)
             Player.show(0)
-            "That was a sensual experience like no other to  be <Dating.pleasured_or_defilled> and hopefully impregnated by my own horse while my <Dating.boyfriend_or_girlfriend> watch."
+            "That was a sensual experience like no other to  be <Dating.pleasured_or_defilled> and hopefully impregnated by my own horse while my <Dating.boyfriend_or_girlfriend> watches."
             Dating:attractiontoplayer += Random(0, 2)
             fertility => 2
             timeout(500, bestiality_cheater_cuckold_impregnate_h)
@@ -37,7 +37,7 @@ OTHER: isModEnabled(vin_NTR) && !isWithCompanion() && !Player.isMale() && !Playe
             timeout(200, bestiality_cheater_cuckold_impregnate_h)
         Endif
     Else
-        Player(Angry):: "What? You want me to get pregnant by a horse? That's digusting. How could you even consider it? Do you not love me anymore?"
+        Player(Angry):: "What? You want me to get pregnant by a horse? That's disgusting. How could you even consider it? Do you not love me anymore?"
         Dating:attractiontoplayer -= Random(0, 2)
         timeout(1000, bestiality_cheater_cuckold_impregnate_h)
     Endif

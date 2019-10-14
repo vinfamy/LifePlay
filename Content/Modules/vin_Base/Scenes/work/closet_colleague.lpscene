@@ -18,6 +18,7 @@ If 0
     "Who cares? I'm here to work. I don't have time for bullshit office gossip."
 Elseif 1
     "Feeling sorry for <Colleague.name>, I decided to stand up for <Colleague.him_or_her> and explained to the gossipers that <Colleague.name> being gay or straight is none of their business and asked them to stop."
+    karma += 2.5
     If interpersonal > Random(0, 100)
         "Eventually, the gossipers promised to stop and agreed to respect <Colleague.name>'s personal life from now on."
         Colleague:rapportwithplayer += Random(0, 10)
@@ -34,7 +35,8 @@ Else
     interpersonal += Random(0, 0.5)
     jobperformance -= Random(0, 0.5)
     Colleague:rapportwithplayer -= Random(0, 10)
-    Colleague:attractiontoplayer -= Random(0, 5)   
+    Colleague:attractiontoplayer -= Random(0, 5)
+    karma -= 2.5    
 Endif
 
 SceneEnd()

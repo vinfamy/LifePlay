@@ -37,7 +37,7 @@ Expert(Happy):: "It's nice to put a face to the name too, <Player.name>."
 
 If 0 && intelligence > Random(50, 100)
     "It might have been a risky move to try to impress the expert this way, but it actually worked!"
-    Expert(Happy):: "It never ceases to amaze me how intellectually curious some young <Player.guys_or_gals> like yourself are. You have learned so much from so little time in the industry. You are much more knowledgeable than I was at your age. Well done!"
+    Expert(Happy):: "It never ceases to amaze me how intellectually curious some young <Player.guys_or_gals> like yourself are. You have learned so much in so little time in the industry. You are much more knowledgeable than I was at your age. Well done!"
     Success = true
 Elseif 1 && interpersonal > Random(0, 100)
     "No point trying to be a smartass here. Let's stay humble and focus on building rapport with the <Expert.guy_or_lady>."

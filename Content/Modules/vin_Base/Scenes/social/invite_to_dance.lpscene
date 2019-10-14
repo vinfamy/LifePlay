@@ -19,7 +19,7 @@ Actor = getCompanion()
     Endif    
 Actor.show(2)
     If Actor.isDominantSex(Player) && Random(0, 70) < Actor:interpersonal
-        "<Actor.name> invited me to the dancefloor. Should I?"
+        "<Actor.name> invited me to the dance floor. Should I?"
         0:: "Yes"
         1:: "No"
         
@@ -38,7 +38,7 @@ Actor.show(2)
         1:: "No"
         
         If 0
-            Player(Happy):: "Would you like to join me on the dancefloor?"
+            Player(Happy):: "Would you like to join me on the dance floor?"
             If Actor:attractiontoplayer > Random(0, 20) || Actor:rapportwithplayer > Random(0, 20) || Random(0, 200) < interpersonal
                 Actor(Happy):: "Of course, I'd love to!"
                 DanceAccepted = true
@@ -54,7 +54,7 @@ Actor.show(2)
 
     If DanceAccepted
         Actor.show(5)
-        "We walked towards the dancefloor and started dancing together."
+        "We walked towards the dance floor and started dancing together."
         If Actor.isInterestedIn(Player)
             Actor:attractiontoplayer += dance*Random(0, 0.05)
         Else
@@ -67,10 +67,10 @@ Actor.show(2)
         
         If 1
             If Actor:attractiontoplayer > Random(0, 30) || Random(30, 100) < Actor:perversion
-                "<Actor.name> kissed me back and we soon indulged ourselves in a passionate makeout, right there in the middle of the dancefloor. Our hands were all over each other and it was getting very heated indeed!"
+                "<Actor.name> kissed me back and we soon indulged ourselves, making out passionately, right there in the middle of the dance floor. Our hands were all over each other and it was getting very heated indeed!"
                 Kissed = true
             Else
-                "<Actor.name> moved <Actor.his_or_her> head away to avoid my advance. Embarassed, I had no choice but to go back to dancing normally."
+                "<Actor.name> moved <Actor.his_or_her> head away to avoid my advance. Embarrassed, I had no choice but to go back to dancing normally."
                 Kissed = false
             Endif
         Else
@@ -80,10 +80,10 @@ Actor.show(2)
                 1:: "Reject <Actor.him_or_her>"
                 
                 If 0
-                    "I kissed <Actor.him_or_her> back and we soon indulged ourselves in a passionate makeout, right there in the middle of the dancefloor. Our hands were all over each other and it was getting very heated indeed!"
+                    "I kissed <Actor.him_or_her> back and we soon indulged ourselves, making out passionately, right there in the middle of the dance floor. Our hands were all over each other and it was getting very heated indeed!"
                     Kissed = true
                 Else
-                    "I moved my head away to avoid <Actor.his_or_her> advance. Embarassed, <Actor.he_or_she> had no choice but to go back to dancing normally."
+                    "I moved my head away to avoid <Actor.his_or_her> advance. Embarrassed, <Actor.he_or_she> had no choice but to go back to dancing normally."
                     Kissed = false
                 Endif
             Else
@@ -106,7 +106,7 @@ Actor.show(2)
         Endif
         
         If 0
-            "We finished the rest of the dance without incidences."
+            "We finished the rest of the dance without incidents."
             If !isWithCompanion()
                 "Should I continue hanging out with <Actor.name>?"
                 0:: "Yes"

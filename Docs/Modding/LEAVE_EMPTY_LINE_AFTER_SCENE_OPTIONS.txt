@@ -1,0 +1,8 @@
+Like this:
+"How are you?"
+0:: "Good"
+1:: "Bad"
+
+If 0
+    mood +=1
+Endif

@@ -7,7 +7,7 @@ OTHER: music < Random(0, 60)
 SceneStart()
 Dating.dress()
 Dating.show(2)
-"I must admit: my <Dating.boyfriend_or_girlfriend> <Dating.name> is a much better musician than me. I'm a bit embarassed that <Dating.he_or_she> is always the one to serenade me in this relationship."
+"I must admit: my <Dating.boyfriend_or_girlfriend> <Dating.name> is a much better musician than me. I'm a bit embarrassed that <Dating.he_or_she> is always the one to serenade me in this relationship."
 0:: "Ask <Dating.name> for help"
 1:: "Do nothing"
 

@@ -22,7 +22,8 @@ If 0
         Colleague:attractiontoplayer += ( Random(0,3)*Colleague:masochist/100 )
     Endif
 Else
-    Player(Happy):: "I actually don't have too much on my plates right now. I can help you, if you want?"
+    Player(Happy):: "I actually don't have too much on my plate right now. I can help you, if you want?"
+    karma += 2.5
     Colleague(Excited):: "Oh thank you! Yes, I'll need all the help I can get ... Here, come, I'll update you on the project."
     Colleague:rapportwithplayer += Random(0, 5)
     If Colleague.isInterestedin(Player)

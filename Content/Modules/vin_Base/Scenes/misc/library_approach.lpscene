@@ -19,7 +19,7 @@ OTHER: Random(0, 1000) < interpersonal*actionDuration
     1:: "Maybe not"
     
     If 0
-        "I carefully slipped a piece of paper into <New_Person.him_or_her> hand, which wrote 'Text me back' along with my number. <New_Person.He_or_She> was confused for a few seconds before understanding my intention. <New_Person.He_or_She> said nothing though and continued being absorbed in <New_Person.his_or_her> books."
+        "I carefully slipped a piece of paper into <New_Person.him_or_her> hand, onto which I wrote 'Text me back' along with my number. <New_Person.He_or_She> was confused for a few seconds before understanding my intention. <New_Person.He_or_She> said nothing though and continued being absorbed in <New_Person.his_or_her> books."
         New_Person.hide()
         "A while later ..."
         setBackground(street)

@@ -12,6 +12,7 @@ OTHER: Random(0, 1000) < sneak
     
     If 0
         "Most people don't remember how much cash they have left in their wallet. Taking some won't hurt ..."
+        karma -= 2.5
         SneakGame()
         If Random(0, 100) < sneak*2
             sneak += Random(0, 0.5)

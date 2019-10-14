@@ -52,7 +52,7 @@ OTHER: isWithCompanion() && !CurrentCompanion.isRelative() && Random(30, 200) < 
         Else
             CurrentCompanion(Angry):: "<Player.name>! What do you think you're doing? This is so inappropriate!"
             CurrentCompanion.hide()
-            "And just like that, <CurrentCompanion.name> pushed me away and stormed off the cinema, leaving me behind feeling embarassed with all the other cinema goers now looking at me like I'm some sort of pervert."
+            "And just like that, <CurrentCompanion.name> pushed me away and stormed out of the cinema, leaving me behind feeling embarrassed with all the other cinema goers now looking at me like I'm some sort of pervert."
             mood -= 50
             CurrentCompanion:attractiontoplayer -= Random(0, 5)
             CurrentCompanion:rapportwithplayer -= Random(0, 5)

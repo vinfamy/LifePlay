@@ -15,8 +15,9 @@ OTHER: !isWithCompanion() && isAtHome() && Random(0, 1000) < intelligence
         "What's the big deal? Who doesn't watch porn from time to time?"
         perversion += Random(0, 0.5)
     Elseif 1
-        "I decided to take the moral high ground and be quite judgemental to <Dating.him_or_her> about <Dating.his_or_her> porn habits. I hope that being embarassed would stop <Dating.him_or_her> from watching so much porn all the time."
+        "I decided to take the moral high ground and be quite judgemental to <Dating.him_or_her> about <Dating.his_or_her> porn habits. I hope that being embarrassed would stop <Dating.him_or_her> from watching so much porn all the time."
         Dating:rapportwithplayer -= Random(0, 2)
+        karma -= 2.5
     Else
         "It's clear my <Dating.relationship> has a bad porn addiction. <Dating.He_or_She> needs professional help!"
         Dating.dress()
@@ -25,6 +26,7 @@ OTHER: !isWithCompanion() && isAtHome() && Random(0, 1000) < intelligence
         "After a few sessions, my <Dating.relationship>'s addiction seems to have reduced a bit and <Dating.he_or_she> thanked me for encouraging <Dating.him_or_her> to seek help in the first place."
         Dating:perversion -= Random(0, 2)
         Dating:rapportwithplayer += Random(0, 2)
+        karma += 2.5
     Endif
 
     timeout(200, family_pornaddiction)

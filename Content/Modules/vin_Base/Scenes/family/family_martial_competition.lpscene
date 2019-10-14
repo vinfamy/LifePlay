@@ -13,6 +13,7 @@ OTHER: !isWithCompanion() && Random(50, 200) < martial
     
     If 0
         "I decided to help <Actor.him_or_her> practice before the competition."
+        karma += 2.5
         If Random(50, 200) < martial*Random(0, 1)
             "Our efforts paid off. My <Actor.relationship> was crowned the winner of the competition."
             Actor:rapportwithplayer += Random(0, 5)

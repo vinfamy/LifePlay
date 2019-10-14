@@ -2,7 +2,7 @@ WHAT: all
 WHERE: all
 WHEN: 19 - 24
 WHO: Dating = getCreature(); If Dating.isCreatureType(Horse) && Dating.isMale()
-OTHER: Random(65, 100) < perversion
+OTHER: Random(65, 100) < perversion && !Player.isMale()
 
     SceneStart()
     Dating.show(4)

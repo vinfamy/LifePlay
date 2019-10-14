@@ -7,20 +7,21 @@ OTHER: none
     SceneStart()
     Actor.dress()
     Actor.show(2)
-    "I must admit: I'm still not over my ex <Actor.name>. <Actor.He_or_She> is a submissive bitch. Maybe I can pay <Actor.him_or_her> a visit and fuck <Actor.his_or_her> brain out. The whore wouldn't be able to resist opening the door for me."
+    "I must admit: I'm still not over my ex <Actor.name>. <Actor.He_or_She> is a submissive <Actor.bastard_or_bitch>. Maybe I can pay <Actor.him_or_her> a visit and fuck <Actor.his_or_her> brain out. The whore wouldn't be able to resist opening the door for me."
     0:: "Yes"
     1:: "No"
     
     If 0
         Actor:masochist += Random(0, 2)
-        Player(Angry):: "Open the door! Open the fucking door, you bitch!"
+        Player(Angry):: "Open the door! Open the fucking door, you <Actor.bastard_or_bitch>!"
         If Random(20, 100) < Actor:masochist
             masochist -= Random(0, 2)
             "And just like that, the doors open. I knew it. My dominance never fails to get <Actor.name>'s heart racing and <Actor.his_or_her> brain fucked up and eventually, that alpha dominance gets <Actor.him_or_her> to do whatever I want. I may not be <Actor.his_or_her> <Player.boyfriend_or_girlfriend> anymore, but I never lost control of <Actor.him_or_her>."
-            Player(Angry):: "What takes you so fucking long, you whore?"
+            karma -= 20
+            Player(Angry):: "What took you so fucking long, you whore?"
             "She must know what's coming now ..."
             Player(Angry):: "You deserve a punishment!"
-            "And just like that, I grabbed <Actor.name> and threw <Actor.him_or_her> into the bed without a care of whether that might hurt <Actor.him_or_her>. I proceeded to brutally fuck <Actor.him_or_her> right there and then ..."
+            "And just like that, I grabbed <Actor.name> and threw <Actor.him_or_her> into the bed without a care as to whether that might hurt <Actor.him_or_her>. I proceeded to brutally fuck <Actor.him_or_her> right there and then ..."
             "<Actor.He_or_She> did open the door for me after all ... Deep inside, <Actor.he_or_she> wanted this!"
             Filter(Aggressive)
             TalkNonConsensual()

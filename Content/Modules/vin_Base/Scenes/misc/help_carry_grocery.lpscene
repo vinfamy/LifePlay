@@ -15,6 +15,7 @@ OTHER: Random(0, 100) < 20
     If 0
         Actor.makePermanent()
         Player(Happy):: "Hey there, do you want some help carrying those bags? You looked like you were struggling."
+        karma += 2.5
         Actor(Happy):: "Yes, please. Oh thank God. I bought way too much today."
         "You helped the stranger carry <Actor.his_or_her> shopping back to <Actor.his_or_her> car."
         Actor(Happy):: "Thank you again for your help. I don't know how I could have managed without you."

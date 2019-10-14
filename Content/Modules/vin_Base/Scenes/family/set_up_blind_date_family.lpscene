@@ -20,6 +20,7 @@ OTHER: none
             Actor:rapportwithplayer += Random(0, 5)
             Actor2:rapportwithplayer += Random(0, 5)
             addNpcRelationship(Dating, Actor, Actor2)
+            karma += 2.5
         Else    
             "Despite my best efforts, I couldn't quite get them to agree to a blind date."
             mood -= 5

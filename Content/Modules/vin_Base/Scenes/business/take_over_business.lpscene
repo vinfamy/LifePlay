@@ -17,5 +17,6 @@ OTHER: none
         "What should I name this business?"
         enterBusinessName()
         startBusiness()
+        karma += 5
     Endif
     SceneEnd()

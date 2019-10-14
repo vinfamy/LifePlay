@@ -63,6 +63,6 @@ OTHER: none
             Actor.saveandDelete()        
             count += 1
         Endwhile
-        "Eventually, the event winded down. I'm glad to have met many of my coursemates and lecturers. I cannot wait for my first day tomorrow."
+        "Eventually, the event winded down. I'm glad to have met many of my students and faculty. I cannot wait for my first day tomorrow."
     Endif
     SceneEnd()

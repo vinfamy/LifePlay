@@ -40,7 +40,7 @@ If 0
             Boss.dress()
             Boss.show(2)
             Player(Crying):: "Please, <Boss.Sir_or_Madam>, it was a moment of stupidity. It will never happen again!"
-            Boss(Angry):: "You deserve this! You should have known better than posting things like that on social media and damaging the company's reputation! Your contract clearly stated this sort of stuffs wasn't tolerated."
+            Boss(Angry):: "You deserve this! You should have known better than posting things like that on social media and damaging the company's reputation! Your contract clearly stated this sort of things wasn't tolerated."
             "Oh no! Someone from HR found the sexy selfie on my social media profile and they fired me, citing the company's social media policy. Damn, this was a stupid way to lose my job."
             mood -= 50
             loseJob()

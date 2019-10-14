@@ -55,6 +55,7 @@ Else
     Else
         "What would be the point of digging deep into <Dating.his_or_her> past? It would just make me full of jealousy and make our relationship more difficult. I'd better stop thinking about this altogether."
         KnowPast = false
+        karma += 5
     Endif
     
     If KnowPast

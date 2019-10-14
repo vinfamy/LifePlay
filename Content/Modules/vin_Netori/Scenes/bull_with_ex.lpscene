@@ -6,7 +6,7 @@ OTHER: masochist < 0 && !isWithCompanion()
 
     SceneStart()
     "I was invited over for dinner this evening by my ex <Actor1.name>, of all people! <Actor1.His_or_Her> new <Actor0.boyfriend_or_girlfriend> will be there also. What a strange invitation ..."
-    0:: "Indulge my curiousity"
+    0:: "Indulge my curiosity"
     1:: "No way"
     
     If 0
@@ -16,10 +16,10 @@ OTHER: masochist < 0 && !isWithCompanion()
         Actor0.show(2)
         Actor1.show(3)
         Player(Happy):: "Thank you for the dinner, I guess ... but do you two want to say something to me? It's not usual for a couple to invite an ex over for dinner ..."
-        Actor1(Wink):: "<Actor0.name>, what are still waiting for? You tell <Player.him_or_her> about our plan ..."
+        Actor1(Wink):: "<Actor0.name>, what are you still waiting for? You tell <Player.him_or_her> about our plan ..."
         "Hmm, I wonder what this is about now ... They acted strangely all evening."
         Actor0(Embarassed):: "Oh god ... I don't know how to start this. I know it's weird but ... as a couple, <Actor1.name> and I have long fantasized about having another <Player.guy_or_girl> fucking <Actor1.him_or_her> while I watch ..."
-        Actor0(Embarassed):: "I know deep inside my <Actor1.boyfriend_or_girlfriend> still harbors a lot of old flame with you. I know sometimes <Actor1.name> still gets <Actor1.hard_or_wet> thinking about you. That thought gets me feeling jealous, but also so turned on ..."
+        Actor0(Embarassed):: "I know deep inside my <Actor1.boyfriend_or_girlfriend> still harbors a lot of residual interest in you. I know sometimes <Actor1.name> still gets <Actor1.hard_or_wet> thinking about you. That thought gets me feeling jealous, but also so turned on ..."
         "I think I know where this is going ..."
         0:: "Easy enough"
         1:: "No way!"
@@ -31,7 +31,7 @@ OTHER: masochist < 0 && !isWithCompanion()
             Actor1:attractiontoplayer += Random(0, 10)
             perversion += Random(0, 1)
             Player(Flirty):: "Say no more, I'm totally down. I'll show you newbie a thing or two about bringing <Actor1.name> to climax. Watch and learn, cuck!"
-            Player(Flirty):: "Now, <Actor1.name>, shall we go to the bedroom and 'recount old memories'?"
+            Player(Flirty):: "Now, <Actor1.name>, shall we go to the bedroom and 'recount old memories?'"
             setBackground(home)
             Sex(Player, Actor1)
             Actor1.hide()

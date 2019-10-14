@@ -1,7 +1,7 @@
 WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 0 - 24
-WHO: Dating = getRelative(); If Dating.isMale() && Dating.LivesWithPlayer() && Dating:perversion > Random(70, 100)
+WHO: Dating = getRelative(); If Dating.LivesWithPlayer() && Dating:perversion > Random(70, 100)
 OTHER: !isWithCompanion() && isAtHome() && Random(0, 1000) < intelligence
 
     SceneStart()

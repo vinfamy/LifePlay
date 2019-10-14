@@ -19,12 +19,12 @@ OTHER: !isWithCompanion() && Random(70, 1000) < attractiveness
     If 0
         Player(Angry):: "Wait, why do you need to inject anything into me? Aren't you supposed to take my blood samples?"
         Actor(Sad):: "Oh god, silly me. Sorry!"
-        "Damn, that's bizzare. I should go to another hospital for medical checkup next time."
+        "Damn, that's bizarre. I should go to another hospital for medical checkup next time."
     Else
         "Maybe for the blood to be ready for testing, it needs some drug first ..."
         "A while later ..."
         "What's happening to me? My head is already shaking and I'm feeling ... aroused? I'm losing control of my body. What drug was I injected with?"
-        Actor(Evil):: "You stupid bitches never question what gets injected into your body, do you?"
+        Actor(Evil):: "You stupid <Player.bastards_or_bitches> never question what gets injected into your body, do you?"
         Actor(Flirty):: "Now, let us have some fun, because you're gonna forget all about this once the drug's effects pass!"
         "Part of my mind still wanted to resist but it's too weak compared to the strong drug in my system."
         Filter(Aggressive)

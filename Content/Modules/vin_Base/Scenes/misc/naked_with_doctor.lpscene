@@ -14,7 +14,7 @@ OTHER: !isWithCompanion()
     Player.strip()
             
     If Actor:perversion + Actor:attractiontoplayer > Random(75, 125)
-        "The examination started professional, but <Actor.he_or_she> is now ligering there for much longer than I feel is needed. This doctor is clearly a pervert! Although maybe I do enjoy this a bit."
+        "The examination started professional, but <Actor.he_or_she> is now lingering there for much longer than I feel is needed. This doctor is clearly a pervert! Although maybe I do enjoy this a bit."
         0:: "Storm out"
         1:: "Give <Actor.him_or_her> my number"
         2:: isModEnabled(vin_VanillaPorn) && perversion > 50:: "Enjoy my 'happy ending'"
@@ -52,7 +52,7 @@ OTHER: !isWithCompanion()
                 Sex(Actor, Player, Actor2)
                 perversion += Random(0, 1)
             Else
-                "This is so embarassing. I should just get the hell out of here."
+                "This is so embarrassing. I should just get the hell out of here."
             Endif
         Endif
     Else

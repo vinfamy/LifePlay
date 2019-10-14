@@ -17,6 +17,7 @@ OTHER: none
         Player(Happy):: "There's nothing to worry about. I still have a spare bedroom in my apartment. Come and live with me until you get back on your feet."
         Actor(Surprised):: "You're being honest? Wow, that's a generous offer. I'm so glad I still have such a wonderful <Actor.callplayer> behind me during these difficult times."
         Actor.setLivingWithPlayer(true)
+        karma += 5
     Else
         Player(Sad):: "That's horrible to hear. But don't give up. Maybe you should look for a cheaper place while you're looking for a new job."
         Actor:rapportwithplayer -= Random(0, 2)

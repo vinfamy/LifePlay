@@ -21,6 +21,7 @@ OTHER: isAtHome()
         "Now, let's pretend it's nothing to do with me."
         Player(Angry):: "Damn it, power cut again! Looks like I'll have to wash these clothes by hand then."
         Actor2:rapportwithplayer -= Random(0, 2)
+        karma += 1
     Else
         "Nothing wrong with a couple watching porn together ..."
         masochist += Random(0, 1)

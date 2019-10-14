@@ -6,5 +6,6 @@ OTHER: none
 
     SceneStart()
     "I have closed down this business."
+    karma -= 5
     stopBusiness()
     SceneEnd()

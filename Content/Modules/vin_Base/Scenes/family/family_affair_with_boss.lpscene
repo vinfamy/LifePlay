@@ -25,7 +25,7 @@ OTHER: isAtHome()
             SleepingWithBoss.clearGlobal()
             jobperformance -= Random(0, 30)
         Else
-            Player(Angry):: "Why are you getting your nose in my life? You don't know what the business world works nowadays. I think I have the right to sleep with anyone to get ahead without you judging me."
+            Player(Angry):: "Why are you getting your nose in my life? You don't know how the business world works nowadays. I think I have the right to sleep with anyone to get ahead without you judging me."
             Actor:rapportwithplayer -= Random(0, 20)
             Actor(Sad):: "Little did I know my <Actor.callplayer> was such a opportunistic <Player.gigolo_or_whore> ... Fine then, whatever floats your boat."
         Endif

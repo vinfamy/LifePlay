@@ -15,20 +15,22 @@ OTHER: none
     Player.hide()
     "Maybe this emergency room is where I depart from this life."
     0:: "The surgeons tried in vain ..."
-    1:: "A miracle happened (cheat)"
+    1:: "A miracle happened (consume all karma)"
     
     If 0
         "The surgeons tried their best, but the operation was ultimately unsuccessful. My life was over ..."
         "GAME OVER!"
         0:: "Load last save"
-        1:: "Revive my character (cheat)"
+        1:: "Revive my character (consume all karma)"
         
         If 0
             sceneEndLoadLastSave()
         Else
+            karma -= 100
             sceneEnd()
         Endif
     Else
         "The heart stopped beating for minutes, but somehow I was revived. Even the doctors told me afterwards that it was a medical miracle."
+        karma -= 100
         SceneEnd()
     Endif

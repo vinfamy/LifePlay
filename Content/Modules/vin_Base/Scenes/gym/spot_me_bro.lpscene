@@ -26,6 +26,7 @@ If 0
     performance = 0
     Player(Happy):: "Of course!"
     "We walked together to the bench and <Lifter.name> got in position for a bench press."
+    karma += 1
     Lifter(Happy):: "I think I can do 6 reps!"
     Player(Happy):: "Okay."
     Lifter(Pain):: "Argh ..."

@@ -32,6 +32,7 @@ OTHER: Random(0, 500) < martial - masochist
         Actor2.dress()
         Actor2.show(3)
         Player(Angry):: "<Actor.name> told me everything! How dare you abuse my <Actor.relationship>!?"
+        karma += 2.5
         Actor2(Furious):: "Shut up and get your nose out of our relationship! <Actor.He_or_She>'s my <Actor.boyfriend_or_girlfriend>. I can do whatever I want with <Actor.him_or_her>."
         0:: interpersonal > 75:: "Intimidate <Actor2.name>"
         1:: martial > 60:: "Beat <Actor2.name> up"

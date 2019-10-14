@@ -35,6 +35,7 @@ OTHER: !Player.isDating() || [isModEnabled(vin_Polyamorous) && OpenRelationship(
                     CurrentCompanion(Surprised):: "<Player.name>! I ..."
                     
                     If CurrentCompanion:attractiontoplayer > Random(20, 60)
+                        karma += 10
                         CurrentCompanion(Happy):: "I like you a lot too, <Player.name>. Of course I'll be your <CurrentCompanion.boyfriend_or_girlfriend>!"
                         CurrentCompanion.setDating()
                         mood += 100
@@ -97,6 +98,7 @@ OTHER: !Player.isDating() || [isModEnabled(vin_Polyamorous) && OpenRelationship(
                 1:: "Reject <CurrentCompanion.him_or_her>"
                 
                 If 0
+                    karma += 10
                     Player(Happy):: "I like you a lot too, <CurrentCompanion.name>. Of course I'll be your <Player.boyfriend_or_girlfriend>!"
                     CurrentCompanion.setDating()
                     mood += 100

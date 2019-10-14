@@ -6,9 +6,9 @@ OTHER: Random(0, 100) < 3 && jobexperience > 20
 
 SceneStart()
 setBackground(work)
-"The company I work for has an unpaid internship programme that occasionally puts an undergraduate or postgraduate student in our department for a couple of weeks at a tine, before they are rotated off to another department."
+"The company I work for has an unpaid internship program that occasionally puts an undergraduate or postgraduate student in our department for a couple of weeks at a tine, before they are rotated off to another department."
 Intern = generatePerson()
-"I was notified by email to expect a new intern, <Intern.name> <Intern.last>, to join the department today. I was asked to be <Intern.his_or_her> mentor for the duration of <Intern.his_or_her> rotation and write <Intern.him_or_her> a performance evaluation after the internship ends."  
+"I was notified by email to expect a new intern, <Intern.name> <Intern.name_last>, to join the department today. I was asked to be <Intern.his_or_her> mentor for the duration of <Intern.his_or_her> rotation and write <Intern.him_or_her> a performance evaluation after the internship ends."  
 Intern.blendPreset(twenties)
 Intern.randomizeFace()
 Intern.randomizeHairs()
@@ -25,12 +25,13 @@ Interested = Intern.isInterestedIn(Player)
 3:: "Delegate important responsibilities and provide guidance"
 
 If 0
-    "I didn't care much for this internship programme. I'd rather just focus on keeping my own job and getting promotions."
+    "I didn't care much for this internship program. I'd rather just focus on keeping my own job and getting promotions."
     Success = false
     Intern:rapportwithplayer -= Random(0, 30)
     If Interested
         Intern:attractiontoplayer -= Random(0, 15)
     Endif
+    karma -= 2.5
 Elseif 1
     "My own manager bosses around all the time so why should I be any nicer to my own subordinates? I made sure <Intern.he_or_she> knew I was the boss here and ordered <Intern.him_or_her> around running my errands."
     Success = false
@@ -41,14 +42,15 @@ Elseif 1
 Elseif 2
     "Well, <Intern.he_or_she> looks good on paper. Let's throw <Intern.him_or_her> in there without any support and see if <Intern.he_or_she> can swim! It's survival of the fittest in this business."
     If Intern:intelligence + Intern:interpersonal > Random(0, 300)
-        "And <Intern.name> certainly rose up to the challenge and made some great contributions with almost no jobperformance += Random(0, 5)
+        "And <Intern.name> certainly rose up to the challenge and made some great contributions."
+        jobperformance += Random(0, 5)
         Intern:rapportwithplayer += Random(0, 20)
         If Interested
             Intern:attractiontoplayer += Random(0, 10)
         Endif
         Success = true
     Else
-        "Not that I should be too surprised but without proper mentorship, <Intern.name> failed miserably in virtually all tasks <Intern.he_or_she> was given. Well, it doesn't look like the <Intern.guy_or_girl> is going to make it in this business ..."
+        "Not that I should be too surprised but without proper mentoring, <Intern.name> failed miserably in virtually all tasks <Intern.he_or_she> was given. Well, it doesn't look like the <Intern.guy_or_girl> is going to make it in this business ..."
         Intern:rapportwithplayer -= Random(0, 20)
         If Interested
             Intern:attractiontoplayer -= Random(0, 10)
@@ -98,7 +100,7 @@ Elseif 1
     "No point sugar-coating <Intern.his_or_her> poor display. It is what it is. I wrote a review accordingly."
     Intern:rapportwithplayer -= Random(0, 15)
     If Interested
-        Intern:attractiontoplayer += Random(0, 10)*New_Person:masochist/100
+        Intern:attractiontoplayer += Random(0, 10)*Intern:masochist/100
     Endif
 Elseif 2
     "The poor intern decided to pay the bribe seeing how important this review is for his future career. From my point of view, some extra cash is always good!"

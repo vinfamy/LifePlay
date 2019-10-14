@@ -10,7 +10,7 @@ OTHER: Player.isDating() && Random(50, 100) < Actor:attractiontoplayer
     1:: "Play along a bit"
     
     If 0
-        "There are a million other straight <Player.guys_or_girls> out there for <Actor.name>, just not me."
+        "There are a million other <Player.guys_or_girls> out there for <Actor.name>, just not me."
         "Whenever <Actor.he_or_she> tries to flirt with me, I shut <Actor.him_or_her> down right away and remind <Actor.name> that we're only friends."
         Actor:attractiontoplayer -= Random(0, 2)
     Else
@@ -20,7 +20,7 @@ OTHER: Player.isDating() && Random(50, 100) < Actor:attractiontoplayer
         If Random(40, 200) < Actor:attractiontoplayer
             "<Actor.name> decided to invite me into <Actor.his_or_her> apartment for drinks tonight. <Actor.He_or_She>'s been extremely generous with the alcohol and I'm feeling quite tipsy already."
             setBackground(home)
-            Player(Pain):: "Thank you for inviting me into your apartment and for the drinks, but I think I'd gotta leave now. Would you mind calling me a taxi? I'm so drunk ..."
+            Player(Pain):: "Thank you for inviting me into your apartment and for the drinks, but I think I should leave now. Would you mind calling me a taxi? I'm so drunk ..."
             
             If Random(50, 250) > Actor:attractiontoplayer
                 Actor(Happy):: "Sure, I'll get you a cab right away. Should be here in ten minutes."

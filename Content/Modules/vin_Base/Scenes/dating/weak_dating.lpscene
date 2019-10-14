@@ -15,6 +15,7 @@ If 0
     If Random(0, 150) < interpersonal + fitness 
         "Motivated by my encouragements, <Dating.name> took up a few sports and adopted a healthier lifestyle."
         Dating:fitness += Random(0, 2)
+        karma += 2.5
     Else
         "Unfortunately, despite my encouragements, <Dating.name> still refused to exercise. <Dating.He_or_She> even accused me of being a gym nut."
         Dating:attractiontoplayer -= Random(0, 2)

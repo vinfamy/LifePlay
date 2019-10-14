@@ -16,6 +16,7 @@ OTHER: Random(50, 1000) < interpersonal
         "I decided to be a good trainer, passing on my experience to the newcomer. <Actor.name> got on very well thanks to my efforts."
         Actor:rapportwithplayer += 10
         Actor:attractiontoplayer += 5
+        karma += 2.5
     Else
         "In this service industry, turnover rate is high and people come and go easily. Who cares? Why should I waste much time training someone who might quit next week."
         Actor:rapportwithplayer -= 10

@@ -15,8 +15,9 @@ setBackground(fast_food)
 If 0
     "I'm no gold-digger. It doesn't matter how expensive the dates <CurrentCompanion.name> takes me on, what matters is the person. I thanked <CurrentCompanion.name> anyway for taking me out."
     CurrentCompanion:attractiontoplayer += Random(0, 2)
+    karma += 2.5
 Else
-    "This was unacceptable. I called <CurrentCompanion.him_or_her> out for being cheap and <CurrentCompanion.he_or_she> seemed visibly embarassed."
+    "This was unacceptable. I called <CurrentCompanion.him_or_her> out for being cheap and <CurrentCompanion.he_or_she> seemed visibly embarrassed."
     CurrentCompanion:attractiontoplayer -= Random(0, 1)
 Endif
 

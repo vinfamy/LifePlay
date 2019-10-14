@@ -13,6 +13,7 @@ Dating.show(2)
 
 If 0
     If Random(0, 75) < interpersonal
+        karma += 2.5
         "Motivated by my encouragements, <Dating.name> decided to participate in more social events and has become more sociable and confident as a result. <Dating.He_or_She> is still far from a party animal, mind you."
         Dating:interpersonal += Random(0, 2)
     Else

@@ -20,6 +20,7 @@ OTHER: isAtHome()
     Else
         perversion += Random(0, 0.5)
         "My curiousity got the better of me and I just had to see this ..."
+        karma -= 1
         SneakGame()
         If Random(0, 100) < sneak
             "Luckily, my neighbour didn't quite close <Actor.his_or_her> door completely shut - probably too busy with fooling around with <Actor.his_or_her> partner to pay attention to the door. With my sneaking talent, I managed to get a pretty good view of what was going on ..."
