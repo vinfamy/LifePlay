@@ -1,0 +1,84 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    If isWithCompanion()
+        endDate()
+    Endif
+    SceneStart()
+    "I went out looking for William M at one of the main spots along his jogging trail, but found neither the man himself nor anyone who have seen him."
+    karma += 2
+    currentBuilding.removeObjective(mpwill_search)
+    count = mpwill_stage.getGlobal()
+    count += 1
+    mpwill_stage.setGlobal(count)
+    If count == 5
+        "This is the last spot worth investigating on the jogging trail, yet William is nowhere to be found."
+    Else
+        "I should try another spot later."
+    Endif
+    
+    If count == 1
+        Taylor = generatePerson(mpwill_taylor)
+        TaylorA.setActorAlias(Taylor)
+        
+        Taylor.dress()
+        Taylor.show(2)
+        Taylor(Sad):: "Hi, my name is Taylor. I'm William's sister. I just want to say thank you for helping us finding him today."
+        Player(Sad):: "Don't worry about it. It's only the right thing to do. Hopefully, we'll find him soon."
+        "Taylor seems like a nice lady, but there's just something different and mysterious about her ... I don't know ... can't quite put my finger on it but my instinct seems to tell me she's hiding something."
+    Elseif count == 3
+        Denise = generatePerson(mpwill_denise)
+        DeniseA.setActorAlias(Denise)
+        
+        Dani = generatePerson(mpwill_dani)
+        DaniA.setActorAlias(Dani)
+        setBackground(marketplace)
+        
+        addNpcRelationship(ParentChild, Denise, Dani)
+        
+        Denise.dress()
+        Denise.show(2)
+        Denise(Sad):: "Excuse me Sir, have you seen this man? He's my husband."
+
+        Dani.dress()
+        Dani.show(3)
+        Dani(Sad):: "Excuse me Miss, would you mind if we hang this poster on your store window? We're looking for my Dad who's been missing?"
+
+        "Hmm, those two must be William's wife and daughter. They're splitting images of each other - he must have gotten married straight out of high school or something."
+        "Why would any man want to leave this lovely family behind? He must have been abducted against his will, surely!"
+    Elseif count == 4
+        Brian = generatePerson(mpwill_brian)
+        BrianA.setActorAlias(Brian)
+
+        Brian.dress()
+        Brian.show(2)
+        
+        "After another day of fruitless searching, I started chatting away to a fellow volunteer. Turns out he's Brian - William's best friend from childhood. Brian, William and William's wife Denise all went to the same high school. Brian was the best man at their wedding and godfather to their daughter Dani."
+        "Brian himself got divorced recently, and now his best friend went missing ... poor man. He looks utterly deflated. I feel so sorry for him."
+        0:: "Hang out with Brian a bit more"
+        1:: "I have other things to do right now"
+        
+        If 0
+            Brian.startDate()
+        Endif
+    Elseif count == 5
+        Taylor = TaylorA.getActorAlias()
+        
+        Taylor.dress()
+        Taylor.show(2)
+        
+        Player(Sad):: "Hi Taylor, have you found anything useful that can lead us to your brother?"
+        Taylor(Sad):: "No ... nothing ..."
+        Taylor(Sad):: "Thank you for sticking with the search though. So many other volunteers have already given up."
+        Player(Sad):: "Don't mention it. I'm sorry I haven't been of much help."
+        Taylor(Sad):: "Listen ... we shouldn't talk about this in public, but if you still want to help, meet me at my apartment. We'll talk more about this then. Here's my address."
+        
+        "Hmm, as always, Taylor is one mysterious figure. Maybe I should hear her out though."
+        TaylorH.generateBuildingAlias(home)
+        TaylorH.addObjective(mpwill_taylor)
+        mpwill_stage.setGlobal(10)
+    Endif
+    SceneEnd()

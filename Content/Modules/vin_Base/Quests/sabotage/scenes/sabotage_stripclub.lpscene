@@ -1,0 +1,76 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Actor = a1.getActorAlias()
+    Actor2 = a2.getActorAlias()
+    "I came up with an idea: I can invite either <Actor.name> or <Actor2.name> to go to the stripclub with me. I'll then 'accidentally' check in to the stripclub on Facebook tagging them so that the other finds out."
+    0:: "Good idea"
+    1:: "Let's think of something else"
+    
+    If 0
+        relation = sabotage_relation.getGlobal()
+        detection = sabotage_detection.getGlobal()
+        
+        "Who should I invite to the stripclub with me?"
+        0:: "<Actor.name>"
+        1:: "<Actor2.name>"
+        
+        If 0
+            Go = Actor
+            Stay = Actor2
+        Else
+            Go = Actor2
+            Stay = Actor
+        Endif
+        
+        If Random(0, 100) < Go:perversion
+            Go.dress()
+            Go.show(2)
+            "<Go.name> and I are at the stripclub."
+            Go:: "You're staying here right? I need to go to the bathroom real quick."
+            Go.hide()
+            "This is the perfect opportunity ..."
+            0:: "Check in on my phone, tagging <Go.him_or_her>"
+            1:: "Check in using <Go.his_or_her> phone"
+            
+            If 0
+                "Better safe than sorry ..."
+                setBackground(street)
+                Go.show(2)
+                Go(Sad):: "What the fuck! Why did you check in to that stripclub, tagging me? I'm in hot water right now with <Stay.name> because of it."
+                Player(Sad):: "Sorry ... It was an accident ..."
+                detection += 5
+                relation -= 0.1*(100 - Stay:perversion)                
+            Elseif 1
+                SneakGame()
+                If Random(0, 100) < sneak
+                    "Done!"
+                    setBackground(street)
+                    Go.show(2)
+                    Go(Sad):: "You won't believe what happened! Remember that night we went to the stripclub together? I accidentally checked in to the place. I'm in hot water right now with <Stay.name> because of it."
+                    "Oh ... I very much believe that ..."
+                    detection += 2
+                    relation -= 0.2*(100 - Stay:perversion)
+                Else
+                    Go.show(2)
+                    "Damn, why is <Go.name> back so soon?"
+                    Go(Angry):: "Why are you using my phone? Give it here!"
+                    Go(Angry):: "Were you trying to check in to the stripclub using my phone? Are you mad? You know I have a <Stay.boyfriend_or_girlfriend>, right?"
+                    detection += 20
+                Endif
+            Endif
+        Else
+            "Unfortunately, <Go.name> turned down my invitation."
+            detection += 2
+        Endif
+        
+        sabotage_relation.setGlobal(relation)
+        sabotage_detection.setGlobal(detection)
+        followUp(sabotage_progress)
+    Endif
+    SceneEnd()
+    

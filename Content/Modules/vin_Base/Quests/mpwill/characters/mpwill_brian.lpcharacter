@@ -1,0 +1,160 @@
+// Information
+INFO Is_Male: 100% true
+INFO Interested_In_Men: 100% false
+INFO Interested_In_Women: 100% true
+INFO Interested_In_Transgender: 100% false
+INFO First_Name: 100% Brian
+INFO Last_Name: 100% W
+INFO Race: 100% Daz
+INFO Genital: 100% Penis
+
+// Morphs
+MORPH Genesis8Female__Head Width: 100% 0.455676
+MORPH Genesis8Female__CTRLForeheadWrinkleHD: 100% 0.685248
+MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.574909
+MORPH Genesis8Female__CTRLFaceAngle: 100% -0.5
+MORPH Genesis8Female__CTRLFitness: 100% 0.186388
+MORPH Genesis8Female__CTRLBodybuilder: 100% 0.191834
+MORPH Genesis8Female__Mike: 100% 0.146375
+MORPH Genesis8Female__Matt: 100% 0.825226
+MORPH Genesis8Female__Face Angle Tilt: 100% -0.5
+MORPH Genesis8Female__David: 100% 0.259621
+MORPH Genesis8Female__Damien: 100% 0.276581
+MORPH Genesis8Female__Christopher: 100% 0.545158
+MORPH Genesis8Female__PHMFaceSquare: 100% 0.236734
+MORPH Genesis8Female__FBMStocky: 100% 0.093111
+MORPH Genesis8Female__FBMHeavy: 100% 0.076538
+MORPH Genesis8Female__FBMPortly: 100% 0.104064
+MORPH Genesis8FemaleEyelashes__CTRLFaceOlderHD: 100% 0.574909
+MORPH Genesis8FemaleEyelashes__Mike: 100% 0.146375
+MORPH Genesis8FemaleEyelashes__Matt: 100% 0.825226
+MORPH Genesis8FemaleEyelashes__Face Angle Tilt: 100% -0.5
+MORPH Genesis8FemaleEyelashes__David: 100% 0.259621
+MORPH Genesis8FemaleEyelashes__Damien: 100% 0.276581
+MORPH Genesis8FemaleEyelashes__Christopher: 100% 0.545158
+MORPH XY__CTRLFitness: 100% 0.186388
+MORPH XY__CTRLBodybuilder: 100% 0.191834
+MORPH XY__FBMStocky: 100% 0.093111
+MORPH XY__FBMHeavy: 100% 0.076538
+MORPH XY__FBMPortly: 100% 0.104064
+MORPH XY__Penis length: 100% -0.6
+MORPH XY__Plums size: 100% 0.140574
+MORPH XY__Penis size: 100% 0.25
+MORPH XY__Foreskin03: 100% 0.418938
+MORPH Landis__Head Width: 100% 0.455676
+MORPH Landis__CTRLForeheadWrinkleHD: 100% 0.685248
+MORPH Landis__CTRLFaceOlderHD: 100% 0.574909
+MORPH Landis__CTRLFaceAngle: 100% -0.5
+MORPH Landis__CTRLFitness: 100% 0.186388
+MORPH Landis__CTRLBodybuilder: 100% 0.191834
+MORPH Landis__Face Angle Tilt: 100% -0.5
+MORPH Landis__PHMFaceSquare: 100% 0.236734
+MORPH Landis__FBMStocky: 100% 0.093111
+MORPH Landis__FBMHeavy: 100% 0.076538
+MORPH Landis__FBMPortly: 100% 0.104064
+MORPH Landis__Sides Less Volume: 100% 2.0
+MORPH Landis__Sides Height: 100% 1.0
+MORPH Landis__Sideburns Smaller: 100% 3.0
+MORPH Landis__Part Height: 100% 1.0
+MORPH Landis__Loosen All: 100% -0.5
+MORPH Landis__Front Loosen: 100% 0.098409
+MORPH Landis__Bangs Swing Out: 100% -1.0
+MORPH Landis__Bangs Shape Flatten: 100% 1.0
+MORPH Landis__Bangs Forward: 100% -1.0
+MORPH Landis__Back Shorter: 100% 0.987449
+SCALE X: 100% 1.0
+SCALE Y: 100% 1.0
+SCALE Z: 100% 1.0
+
+//Hair
+HAIR Hairstyle: 100% Landis
+HAIR Hair_Thickness: 100% 1.0
+HAIR Hair_Color_R: 100% 0.6
+HAIR Hair_Color_G: 100% 0.2
+HAIR Hair_Color_B: 100% 0.0
+HAIR Hair_Color_A: 100% 0.85
+
+HAIR Brow_Color_R: 100% 0.0
+HAIR Brow_Color_G: 100% 0.0
+HAIR Brow_Color_B: 100% 0.0
+HAIR Brow_Color_A: 100% 1.0
+
+// Skin
+SKIN Eye_Color_R: 100% 0.0
+SKIN Eye_Color_G: 100% 0.1
+SKIN Eye_Color_B: 100% 0.0
+SKIN Eye_Color_A: 100% 0.8
+SKIN Skin_Color_R: 100% 0.73
+SKIN Skin_Color_G: 100% 0.52
+SKIN Skin_Color_B: 100% 0.43
+SKIN Skin_Color_A: 100% 1.0
+SKIN BHairColor_R: 100% 0.015
+SKIN BHairColor_G: 100% 0.003
+SKIN BHairColor_B: 100% 0.0
+SKIN BHairColor_A: 100% 1.0
+SKIN Skin_Roughness: 100% 0.0
+SKIN Skin_Oil: 100% 0.225522
+SKIN Skin_Fresnel: 100% 0.0
+SKIN Skin_Age: 100% 0.383804
+SKIN Skin_Sagging: 100% 0.0
+SKIN Muscle_Tone: 100% 0.0
+SKIN BHairThickness: 100% 0.226336
+SKIN BHairstyle: 100% JPBH78-TorsoNG-01
+SKIN FHairstyle: 100% Facial_Hair__23_
+
+// Stats
+STAT children: 100% 0.0
+STAT fertility: 100% 3.0
+STAT stock_condom: 100% 0.0
+STAT stock_pill: 100% 0.0
+STAT bargain: 100% 0.0
+STAT brand: 100% 0.0
+STAT sentence: 100% 0.0
+STAT modelfame: 100% 0.0
+STAT age: 100% 37.0
+STAT money: 100% 500.0
+STAT perks: 100% 7.0
+STAT attractiveness: 100% 60.0
+STAT cooking: 100% 10.0
+STAT dance: 100% 50.0
+STAT fitness: 100% 80.0
+STAT intelligence: 100% 70.0
+STAT interpersonal: 100% 70.0
+STAT jobexperience: 100% 40.0
+STAT jobperformance: 100% 0.0
+STAT karma: 100% 55.0
+STAT martial: 100% 80.0
+STAT masochist: 100% -75.0
+STAT muscle: 100% 50.0
+STAT music: 100% 9.99909
+STAT perversion: 100% 90.0
+STAT pornfame: 100% 0.0
+STAT sneak: 100% 90.0
+STAT arousal: 100% 100.0
+STAT energy: 100% 100.0
+STAT intoxication: 100% 0.0
+STAT mood: 100% 99.960091
+STAT appliance_value: 100% 0.0
+STAT car_value: 100% 0.0
+STAT furniture_value: 100% 0.0
+STAT stock_alcohol: 100% 0.0
+STAT stock_book: 100% 0.0
+STAT stock_coffee: 100% 0.0
+STAT stock_flower: 100% 0.0
+STAT stock_gift: 100% 0.0
+STAT stock_haircare: 100% 0.0
+STAT stock_ingredient: 100% 0.0
+STAT stock_juice: 100% 0.0
+STAT stock_makeup: 100% 0.0
+STAT stock_meal: 100% 0.0
+STAT stock_movie: 100% 0.0
+STAT stock_musicalinstrument: 100% 0.0
+STAT stock_petfood: 100% 0.0
+STAT stock_photo: 100% 0.0
+STAT stock_skincare: 100% 0.0
+STAT stock_snack: 100% 0.0
+STAT stock_soda: 100% 0.0
+STAT stock_supplement: 100% 0.0
+STAT stock_tea: 100% 0.0
+STAT stock_tobacco: 100% 0.0
+STAT stock_video: 100% 0.0

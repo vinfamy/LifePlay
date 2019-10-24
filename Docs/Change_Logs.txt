@@ -1,3 +1,10 @@
+Version 2.10:
+- New Quests system : Each quest is meant to tell a story and, in essence, consists of a collection of scenes linked with each other in a number different paths + a number of actions you can take with specific buildings depending on the current 'stage' of the quest to advance the story. Unlike normal scenes which trigger under certain conditions + RNG while the player is doing seemingly unrelated stuffs, quests are designed to involve the player more proactively - the story only starts and progresses if the player takes the needed action (with quest objective UI elements to make the next step(s) clear). Just like scenes though, quests are fully moddable simply using a text editor - early-adopting modders can start adding their own new quests right away after v2.10 is out.
+- First two quests: sabotage & missing person case. I chose to make these two first because they are structurally contrasting to each other:
+- The sabotage quest: this is an example of a 'radiant quest' that can repeated unlimited times with different NPCs each time. This quest involves the player trying to break up the relationship of a couple, with multiple options how to go about this and multiple endings. A lot of variables and very non-linear.
+- The missing person investigation quest: this is an example of a 'story quest' that can only be done once per playthrough. All the characters involved in the story are fixed in name, appearance (I 'designed' their faces and bodies myself) and attributes. It's a lot more linear than the radiant quest above and less variable, thus allowing for a longer story with more character development.
+- Bug fixes and other improvements, with a public beta testing period
+
 Version 2.9:
 1/ New Karma system:
 - many actions and decisions you take will now increase (help a colleague, stop domestic violence, etc) or decrease (cheating, murder, etc) Karma

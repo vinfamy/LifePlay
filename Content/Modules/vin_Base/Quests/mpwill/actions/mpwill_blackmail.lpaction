@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: mpwill_blackmail
+ACTION_NAME: Blackmail Denise and Brian
+WHERE: quest
+WHEN: 0 - 24
+MINUTES: 1 - 1
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: 
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: mpwill_blackmail
+ANIMATION:

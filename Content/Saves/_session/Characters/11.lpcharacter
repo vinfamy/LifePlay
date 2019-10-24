@@ -3,33 +3,38 @@ INFO Is_Male: 100% true
 INFO Interested_In_Men: 100% false
 INFO Interested_In_Women: 100% true
 INFO Interested_In_Transgender: 100% false
-INFO First_Name: 100% William
-INFO Last_Name: 100% F
+INFO First_Name: 100% Shaquille
+INFO Last_Name: 100% B
 INFO Race: 100% Daz
 INFO Genital: 100% Penis
 
 // Morphs
-MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.011097
-MORPH Genesis8Female__Nose Style Asian C: 100% 0.7875
-MORPH Genesis8Female__Matt: 100% 0.055756
-MORPH Genesis8Female__Brian: 100% 0.726829
-MORPH Genesis8FemaleEyelashes__Matt: 100% 0.055756
-MORPH Genesis8FemaleEyelashes__Brian: 100% 0.726829
-MORPH XY__Penis length: 100% 0.050919
-MORPH XY__Plums size: 100% -0.024689
-MORPH XY__Penis size: 100% 0.01206
-MORPH Landis__CTRLFaceOlderHD: 100% 0.011097
+MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.01711
+MORPH Genesis8Female__Ryu: 100% 0.670264
+MORPH Genesis8Female__Raj: 100% 0.658483
+MORPH Genesis8Female__Nose Style Greek: 100% 0.600459
+MORPH Genesis8Female__Nose Style Asian A: 100% 0.630518
+MORPH Genesis8Female__Damien: 100% 0.000044
+MORPH Genesis8Female__FBMHeavy: 100% 0.52421
+MORPH Genesis8FemaleEyelashes__Ryu: 100% 0.670264
+MORPH Genesis8FemaleEyelashes__Raj: 100% 0.658483
+MORPH Genesis8FemaleEyelashes__Damien: 100% 0.000044
+MORPH XY__Penis length: 100% 0.175642
+MORPH XY__Plums size: 100% -0.16651
+MORPH XY__Penis size: 100% -0.102887
+MORPH Osher__CTRLFaceOlderHD: 100% 0.01711
+MORPH Osher__FBMHeavy: 100% 0.52421
 SCALE X: 100% 1.0
 SCALE Y: 100% 1.0
 SCALE Z: 100% 1.0
 
 //Hair
-HAIR Hairstyle: 100% Landis
-HAIR Hair_Thickness: 100% 1.270418
-HAIR Hair_Color_R: 100% 0.4
+HAIR Hairstyle: 100% Osher
+HAIR Hair_Thickness: 100% 1.235701
+HAIR Hair_Color_R: 100% 0.3
 HAIR Hair_Color_G: 100% 0.1
 HAIR Hair_Color_B: 100% 0.0
-HAIR Hair_Color_A: 100% 0.8
+HAIR Hair_Color_A: 100% 0.85
 
 HAIR Brow_Color_R: 100% 0.0
 HAIR Brow_Color_G: 100% 0.0
@@ -41,41 +46,40 @@ SKIN Eye_Color_R: 100% 0.0
 SKIN Eye_Color_G: 100% 0.0
 SKIN Eye_Color_B: 100% 0.0
 SKIN Eye_Color_A: 100% 1.0
-SKIN Skin_Color_R: 100% 0.73
-SKIN Skin_Color_G: 100% 0.48
-SKIN Skin_Color_B: 100% 0.33
+SKIN Skin_Color_R: 100% 0.5
+SKIN Skin_Color_G: 100% 0.22
+SKIN Skin_Color_B: 100% 0.12
 SKIN Skin_Color_A: 100% 1.0
-SKIN BHairColor_R: 100% 0.026
-SKIN BHairColor_G: 100% 0.009
+SKIN BHairColor_R: 100% 0.015
+SKIN BHairColor_G: 100% 0.003
 SKIN BHairColor_B: 100% 0.0
-SKIN BHairColor_A: 100% 0.8
-SKIN Skin_Roughness: 100% 0.957305
+SKIN BHairColor_A: 100% 0.85
+SKIN Skin_Roughness: 100% 0.158361
 SKIN Skin_Oil: 100% 0.25
-SKIN Skin_Fresnel: 100% 0.037812
-SKIN Skin_Age: 100% 0.011097
+SKIN Skin_Fresnel: 100% 0.37373
+SKIN Skin_Age: 100% 0.01711
 SKIN Skin_Sagging: 100% 0.0
 SKIN Muscle_Tone: 100% 0.0
-SKIN BHairThickness: 100% 0.461301
-SKIN BHairstyle: 100% NoHair
-SKIN FHairstyle: 100% Facial_Hair__19_
+SKIN BHairThickness: 100% 0.733726
+SKIN BHairstyle: 100% JPBH78-TorsoNG-05
+SKIN FHairstyle: 100% Facial_Hair__15_
 
 // Stats
-STAT incest: 100% 0.0
-STAT age: 100% 34.69857
-STAT attractiveness: 100% 94.33271
-STAT cooking: 100% 46.046329
-STAT dance: 100% 66.637161
-STAT fitness: 100% 40.092167
-STAT intelligence: 100% 76.702171
-STAT interpersonal: 100% 58.015686
-STAT martial: 100% 4.470962
-STAT masochist: 100% 4.904327
-STAT muscle: 100% 20.831936
-STAT music: 100% 5.621509
-STAT perversion: 100% 39.31646
+STAT age: 100% 23.157017
+STAT attractiveness: 100% 86.169014
+STAT cooking: 100% 5.774102
+STAT dance: 100% 32.462536
+STAT fitness: 100% 5.377361
+STAT intelligence: 100% 49.131748
+STAT interpersonal: 100% 16.064943
+STAT martial: 100% 13.595995
+STAT masochist: 100% 94.512772
+STAT muscle: 100% 53.81329
+STAT music: 100% 2.691733
+STAT perversion: 100% 26.908171
 STAT pornfame: 100% 0.0
-STAT sneak: 100% 26.425978
-STAT attractiontoplayer: 100% -100.0
-STAT rapportwithplayer: 100% 13.807776
-STAT arousal: 100% 5.652028
-STAT intoxication: 100% 19.315165
+STAT sneak: 100% 21.317179
+STAT attractiontoplayer: 100% 37.830528
+STAT rapportwithplayer: 100% 20.940207
+STAT arousal: 100% 0.0
+STAT intoxication: 100% 0.139079

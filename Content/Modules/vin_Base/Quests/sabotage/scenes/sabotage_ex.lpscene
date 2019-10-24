@@ -1,0 +1,84 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Actor = a1.getActorAlias()
+    Actor2 = a2.getActorAlias()
+    "I came up with an idea: I can approach an ex of either <Actor.name> or <Actor2.name> and convince them to send a sensitive video of their past flame to the current partner. That could get some blood boiling!"
+    0:: "Good idea"
+    1:: "Let's think of something else"
+    
+    If 0
+        relation = sabotage_relation.getGlobal()
+        detection = sabotage_detection.getGlobal()
+        
+        "Whose ex should I approach?"
+        0:: "<Actor.name>'s ex"
+        1:: "<Actor2.name>'s ex"
+        
+        If 0
+            Filmed = Actor
+            Current = Actor2
+        Else
+            Filmed = Actor2
+            Current = Actor
+        Endif
+        Ex = generatePersonTemporary()
+        While !Filmed.isAsexual() && !Filmed.isInterestedIn(Ex)
+            Ex = generatePersonTemporary()
+        Endwhile
+        "I found a <Ex.man_or_woman> from <Filmed.name>'s past called <Ex.name>. I invited <Ex.him_or_her> for a coffee to discuss things."
+        Ex.dress()
+        Ex.show(2)
+        Accepted = false
+        Ex(Shocked):: "Let me get this straight: You want me to send <Filmed.his_or_her> current <Current.boyfriend_or_girlfriend> an intimate video of us together? Why the hell would I want to do that?"
+        0:: "Convince <Ex.him_or_her>"
+        1:: "Offer sexual favors"
+        2:: "Offer money"
+
+        If 0 && Random(0, 100) < interpersonal
+            Accepted = true
+        Elseif 1 && Random(0, 50) < Ex:attractiontoplayer
+            Accepted = true
+            Ex(Flirty):: "How can I say no to an eye candy like you? Let's go to my apartment!"
+            setBackground(home)
+            Sex(Ex, Player)
+            Ex.show(2)
+            Player.show(0)
+        Elseif 2 && Random(0, 100) < 75
+            Accepted = true
+            money -= 200
+        Else
+            Ex(Evil):: "Haha. You must think I'm some sort of sucker that can be used so easily. Forget it!"
+            Ex.hide()
+            If Random(0, 50) > Ex:perversion
+                "Not only did the ex walk away from my offer, <Ex.he_or_she> immediately told <Filmed.name> about what I was trying to do ..."
+                detection += 30
+            Endif
+        Endif
+        
+        If Accepted   
+            Ex(Evil):: "Haha, you convinced me. Now, let me search on my old laptop to see if I still keep any intimate videos with <Filmed.name> ..."
+            setBackground(home)
+            "An hour went by as I waited in <Ex.name>'s apartment ..."
+            Ex(Evil):: "There it is ... I knew I had it somewhere!"
+            Ex(Evil):: "Watch this ... is this good enough for you?"
+            Ex.strip()
+            Sex(Ex, Filmed)
+            Ex.hide()
+            Filmed.hide()
+            Player.show(0)
+            Player(Evil):: "That's just perfect! Send it. Here's <Filmed.his_or_her> current <Current.boyfriend_or_girlfriend>'s email address."
+            relation += 0.2*(Current:masochist - 50)
+            detection += 5
+        Endif
+        
+        sabotage_relation.setGlobal(relation)
+        sabotage_detection.setGlobal(detection)
+        followUp(sabotage_progress)
+    Endif
+    SceneEnd()
+    

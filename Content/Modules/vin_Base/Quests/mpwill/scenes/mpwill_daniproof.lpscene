@@ -1,0 +1,39 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Dani = DaniA.getActorAlias()
+    Dani.dress()
+    Dani.show(2)
+    Dani(Crying):: "No ... this can't be happening ... my biggest nighmare comes true ..."
+    Dani(Crying):: "Please ... we can't report this to the police!"
+    Player(Shocked):: "What? Why not?"
+    Dani(Crying):: "They would put my mom in jail for the rest of her life."
+    Player:: "Yes. And she would deserve it."
+    Dani(Crying):: "Please, I know Dad in Heaven would forgive her whatever horrible things she's done."
+    Dani(Crying):: "Maybe she didn't really want to do it, she was just being used by Brian."
+    Player:: "Well, from the tape, she sounds like a willing participant to me."
+    Dani(Crying):: "What about me? How can I live when everybody learns the truth about my parents."
+    "She does have a point here, Dani's already in crisis enough over her Dad missing. Her mom being jailed for her dad's murder would bring her to the edge."
+    Dani(Crying):: "Please, destroy the tape and just stay quiet ... let God judge her."
+    0:: "Destroy the tape, for Dani's sake"
+    1:: "Think about this some more"
+    
+    If 0
+        Player(Happy):: "Okay, I'll destroy the tape, not so that they can get away with murder, but for your future."
+        Dani(Crying):: "Thank you ... I'll never forget what you've done ..."
+        Dani(Crying):: "Knowing what she's done, I will never speak to my Mom again, but I know Dad wouldn't want her to suffer in prison."
+        Dani:attractiontoplayer => 100
+        Dani:rapportwithplayer => 100
+        exchangeContact(Dani)
+        QuestEnd()
+        
+        addNpcRelationship(Spouses, Brian, Denise)
+        "Dani became estranged from Denise, who didn't seem to care much and went on to marry Brian a few years later, enjoying a luxurious life with William's insurance payout."
+        "Now left without her family, Dani became very close to me. After all, I brought her the truth and agreed to keep it hidden for her sake."
+        "Friendship can be born out of strange circumstances ... or is this a bit more than friendship?"
+    Endif
+    SceneEnd()

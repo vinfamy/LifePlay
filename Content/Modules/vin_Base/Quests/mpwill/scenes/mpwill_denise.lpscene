@@ -1,0 +1,38 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Denise = DeniseA.getActorAlias()
+    Denise.dress()
+    Denise.show(2)
+    
+    Player:: "Hi Denise, can I ask you a few questions about your husband? I'm investigating his disappearance."
+    Denise:: "Sorry, but I don't know you. Are you with the police department?"
+    Player:: "No, just a stranger trying to help. Taylor said I should talk to you."
+    Denise(Angry):: "Taylor!? Taylor sent you? Is this some kind of joke?"
+    Player:: "What's the matter? Isn't she your husband's sister?"
+    Denise(Angry):: "We haven't been on speaking terms with her for years. Taylor is the black sheep of the family. You see ... our families are all religious people and Taylor chose a certain lifestyle that's against our faith."
+    0:: "Lifestyle?"
+    
+    Denise(Sarcastic):: "Let's just say she wasn't always a woman ..."
+    "Damn, I knew there was something different about her."
+    Denise(Sad):: "In fact, before William's disappearance, they were arguing over the inheritance from their mother, who passed away last year."
+    Denise(Sad):: "William didn't need the money - he was just trying to prevent her from insulting their mother's memory by using her share of the inheritance to get rid of her ... 'male parts'."
+    Denise:: "Listen, you seem like a nice <Player.guy_or_girl> and all. But don't you think it's a little strange that Taylor now suddenly cares so much about a brother she's been fighting with for years?"
+    Denise:: "Besides, if she cares so much, why doesn't she do the investigation herself? Or work with the police? Why ask an amateur investigator? Why hide the fact that she's a transgender who's had a rocky relationship with William? No offence, but doesn't all this sound a little fishy to you?"
+    Denise:: "Maybe SHE's the one that needs to be investigated ..."
+    Denise:: "I'm not trying to accuse anyone, but if she's done something to William, God forgives me, I'll .... her."
+    
+    Home.removeObjective(mpwill_denise)
+    stage = mpwill_stage.getGlobal()
+    stage += 1
+    mpwill_stage.setGlobal(stage)
+    If stage == 12
+        "The boss doesn't know anything and the wife has suspicion about the sister. Maybe she has a point. I should confront Taylor about this."
+        TaylorH.addObjective(mpwill_taylor)
+        mpwill_stage.setGlobal(20)
+    Endif
+    SceneEnd()

@@ -1,0 +1,69 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Actor = a1.getActorAlias()
+    Actor2 = a2.getActorAlias()
+    "I came up with an idea: I can invite either <Actor.name> or <Actor2.name> to gamble with me. I'll then outsmart them and force them to pay the debt with the body of their lover."
+    0:: "Good idea"
+    1:: "Let's think of something else"
+    
+    If 0
+        relation = sabotage_relation.getGlobal()
+        detection = sabotage_detection.getGlobal()
+        
+        "Who should I invite to gamble with me?"
+        0:: "<Actor.name>"
+        1:: "<Actor2.name>"
+        
+        If 0
+            Gambler = Actor
+            Payment = Actor2
+        Else
+            Gambler = Actor2
+            Payment = Actor
+        Endif
+        
+        Gambler.dress()
+        Gambler.show(2)
+        If intelligence > Gambler:intelligence
+            "I managed to outsmart <Gambler.name> consistently and in just one evening, <Gambler.he_or_she> racked up a mountain of debt."
+            "Then, I made my offer: one night with <Payment.name> and all the debt will be gone."
+            detection += 20
+            
+            If Gambler:masochist > 10
+                "<Gambler.name> reluctantly agreed and somehow managed to talk <Payment.name> into accepting the deal also. That no doubt damaged their relationship though."
+                relation -= 0.5*(100 - Payment:perversion)
+                "A few days later ..."
+                moveTo(home)
+                setBackground(home)
+                Gambler.hide()
+                Payment.dress()
+                Payment.show(2)
+                Payment(Sad):: "<Gambler.name> asked me to see you here ..."
+                0:: "Let's get to it then"
+                1:: "I only wanted to show you <Gambler.name>'s true nature"
+                
+                If 0
+                    Sex(Player, Payment)
+                Else
+                    Player::"No, you don't have to do anything. I only did this to show you that <Gambler.name> doesn't care about you and is ready to sell you to the highest bidder. You deserve better!"
+                    Payment:attractiontoplayer += 30
+                Endif
+            Else
+                "<Gambler.name> turned down the offer and decided to pay me the money instead."
+                money += 500
+            Endif           
+        Else
+            "Unfortunately, <Gambler.name> was no idiot and didn't end up losing to me too much."
+        Endif
+        
+        sabotage_relation.setGlobal(relation)
+        sabotage_detection.setGlobal(detection)
+        followUp(sabotage_progress)
+    Endif
+    SceneEnd()
+    

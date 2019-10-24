@@ -1,0 +1,72 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    If isWithCompanion()
+        endDate()
+    Endif
+    SceneStart()
+    "Whose relationship do I want to sabotage? Pick the first NPC?"
+    selectNPC()
+    Actor = getSelectedNPC()
+    
+    If !Actor.isValid() || Actor.isCreature()
+        "No NPC selected. Quest was not started."
+        QuestEnd()
+    Else
+        Actor.dress()
+        Actor.show(2)
+        "<Actor.name> is the first half of the couple you want to sabotage."
+        Actor2 = Actor.getRelatedPerson(Spouses, Dating)
+        If !Actor2.isValid()
+            "The game doesn't have record of a relationship between <Actor.name> and another NPC."
+            "Pick another NPC to be in a relationship with <Actor.name> for the sake of this quest."
+            selectNPC()
+            Actor2 = getSelectedNPC()
+            If !Actor2.isValid()
+                "No NPC selected. Generating a new NPC to be <Actor.name>'s lover ..."
+                Actor2 = generatePersonTemporary()
+                While !Actor.isAsexual() && !Actor.isInterestedIn(Actor2)
+                    Actor2 = generatePersonTemporary()
+                Endwhile
+                Actor2.makePermanent()
+                exchangeContact(Actor2)
+            Endif
+            addNpcRelationship(Dating, Actor, Actor2)
+        Endif
+        Actor2.dress()
+        Actor2.show(3)
+        "<Actor2.name> is <Actor.name>'s <Actor2.boyfriend_or_girlfriend>."
+        A1.setActorAlias(Actor)
+        A2.setActorAlias(Actor2)
+        
+        "Quest Started ..."
+        "<Actor.name> and <Actor2.name> always act like a perfect couple. Their photos together are all over social media."
+        "Well ... that's about to change as I, <Player.name> <Player.name_last>, the great saboteur, put my tricks to work."
+        "Maybe I'm doing this because I want to get with one of them myself, because of jealousy, out of revenge, or simply because I feel like being evil. It doesn't matter - I just know I'm going to suceed and this relationship is doomed!"
+        Player(Evil):: "Ha ha ha ha ha ha ha!"
+        
+        sabotage_relation.setGlobal(100)
+        sabotage_detection.setGlobal(0)
+        
+        ProstituteH.generateBuildingAlias(brothel)
+        ProstituteH.addObjective(sabotage_prostitute)
+        
+        SwingH.generateBuildingAlias(hotel)
+        SwingH.addObjective(sabotage_swinger)
+        
+        ExH.generateBuildingAlias(cafe)
+        ExH.addObjective(sabotage_ex)
+        
+        ThugH.generateBuildingAlias(community_centre)
+        ThugH.addObjective(sabotage_thug)
+        
+        StripH.generateBuildingAlias(stripclub)
+        StripH.addObjective(sabotage_stripclub)
+        
+        GambleH.generateBuildingAlias(pub)
+        GambleH.addObjective(sabotage_gamble)
+    Endif
+    SceneEnd()

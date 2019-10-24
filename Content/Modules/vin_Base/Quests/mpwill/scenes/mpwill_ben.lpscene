@@ -1,0 +1,47 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()    
+    Ben = generatePerson(mpwill_ben)
+    BenA.setActorAlias(Ben)
+    dressFormal()
+    Ben.dress()
+    Ben.show(2)
+    
+    stage = mpwill_stage.getGlobal()
+    If stage == 10 || stage == 11
+        stage += 1
+        mpwill_stage.setGlobal(stage)
+        Ben(Sad):: "William is a one of my best employees. Clients love him, colleagues love him. Can't think of anyone that may want to hurt the guy really."
+        Ben:: "Honestly, I don't think he even ever had any time to make enemies in the first place. All the time he had, he either was being a workaholic in the office or a dedicated husband and father at home."
+        Ben:: "Good luck with your investigation. It's the shame that the cops haven't done more. Hope he is found safe and sound. Everyone in the office misses him."
+        Ben:: "Here's my card. Call me if you need anything else for the investigation and I'll see what I can do."
+        exchangeContact(Ben)
+        "It doesn't seem like his boss knows anything that could be useful ... It's a dead end again."
+        If stage == 12
+            "The boss doesn't know anything and the wife has suspicion about the sister. Maybe she has a point. I should confront Taylor about this."
+            TaylorH.addObjective(mpwill_taylor)
+            mpwill_stage.setGlobal(20)
+        Endif
+        Office.removeObjective(mpwill_ben)
+    Elseif stage == 20
+        If WHEN > 8 && WHEN < 18
+            Ben(Sad):: "Sorry, I would love to help you investigate William's disappearance, but not like this. It's a serious breach of the company's data protection policy to let an outsider, especially one not with any law enforcement agencies, access data."
+            0:: "Try to convince Ben"
+            
+            If Ben:rapportwithplayer > 50 || Ben:attractiontoplayer > 50 || Random(70, 100) < interpersonal
+                Ben:: "Fine ... you convinced me. That's his workstation over there. Go ahead."
+                Office.removeObjective(mpwill_ben)
+                followUp(mpwill_PC)
+            Else
+                "No matter what I say, Ben wouldn't allow me access to William's computer. Maybe I should get to know him more before he trusts me."
+            Endif
+        Else
+            Ben.hide()
+            "It's outside business hours. Ben isn't in the office to talk to. I should come back later."
+        Endif
+    Endif  
+    SceneEnd()

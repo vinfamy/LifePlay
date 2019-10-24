@@ -1,0 +1,122 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Dani = DaniA.getActorAlias()
+    DaniH.removeObjective(mpwill_dani)
+    setBackground(fraternity)
+    "I'm at Dani's sorority house. Let's ask around for her."
+    Player:: "Excuse me, I'm looking for Dani M."
+    Actor = generatePersonTemporary(mpwill_sororitygirl)
+    Actor.dress()
+    Actor.show(2)
+    Actor:: "Dani? She's probably in her room, just over there."
+    Player:: "Thank you!"
+    Actor.hide()
+    "Hmm, her room door is wide open ..."
+    Player(Shocked):: "What the fuck!"
+    
+    setBackground(home)
+    
+    Actor1 = generatePersonTemporary(mpwill_gangbanger)
+    Actor2 = generatePersonTemporary(mpwill_gangbanger)
+    Actor3 = generatePersonTemporary(mpwill_gangbanger)
+    Actor4 = generatePersonTemporary(mpwill_gangbanger)
+    
+    Actor1.randomizeFace()
+    Actor1.randomizeHairs()
+
+    Actor2.randomizeFace()
+    Actor2.randomizeHairs()
+
+    Actor3.randomizeFace()
+    Actor3.randomizeHairs()
+
+    Actor4.randomizeFace()
+    Actor4.randomizeHairs()
+
+    Sex(Dani, Actor1, Actor2, Actor3, Actor4)
+    Actor1.hide()
+    Actor1.delete()
+    Actor2.hide()
+    Actor2.delete()
+    Actor3.hide()
+    Actor3.delete()
+    Actor4.hide()
+    Actor4.delete()
+    Dani.hide()
+    
+    setBackground(fraternity)
+    Player.show(0)
+    "I couldn't believe my eyes. Dani was getting gangbanged by four guys. She looks completely out of it - both drunk and stoned as fuck."
+    Actor.show(2)
+    Actor:: "You look shocked. Sorry I didn't warn you what she's up to in there. I just assumed you were here to join her little 'party'."
+    0:: "Has she always been this ... promiscuous"
+    
+    Actor:: "Not at all. If anything, she was a bit of a prude. Pretty sure she was a virgin until a few weeks ago. Didn't drink - didn't do drugs."
+    Actor:: "Then her Dad went missing ... I guess this is her coping mechanism: alcohol, drugs, dicks, pussies. Whatever she could get her hand on to distract her from the misery I suppose."
+    Actor.hide()
+    
+    setBackground(home)
+    Dani.show(2)
+    
+    "Dani still looks to be in no condition to talk about her father right now. She's clearly under the influence of drug. Besides, her body is painted with cum after the gangbang."
+    0:: "Just wait until she sobers up"
+    1:: "Take advantage of the situation (Sex)"
+    
+    If 1
+        "Well, she just fucked four college jocks at the same time. It's only fair that I get some reward for helping to find her Dad too. She won't mind - she may not even remember what happened once she sobers up."
+        Sex(Player, Dani)
+        "That was fun. Nothing like drug-fueled college sex. She's so high out of her mind that she won't remember anything tomorrow's morning."
+        Dani.show(2)
+    Endif
+    
+    Dani.hide()
+    setBackground(fraternity)
+    "Let's wait until the next morning for her to get sober before asking my questions"
+    "The next morning ..."
+    "I think Dani just woke up and went straight to the shower"
+    0:: "Wait for her"
+    1:: "Peep on her"
+    
+    If 1
+        "A little peek won't hurt ..."
+        setBackground(shower)
+        Sex(Dani)
+        Player.show(0)
+        Dani.show(2)
+        "Damn, I can't believe after that much sex last night, she still feels the need to masturbate in the shower."
+        "Maybe she just needs constant distractions from the pain of her Dad missing ... or she's just a horny girl deep inside."
+    Endif
+    
+    setBackground(home)
+    Dani.dress()
+    Dani.show(2)
+    "She's done showering and getting changed. Seems sober enough to talk to me now."
+    Player:: "Hi Dani, I'm <Player.name>. I'm investigating your father's disappearance ..."
+    Dani(Angry):: "I don't want to talk about it. Leave me alone!"
+    Player:: "Please, I know you're in pain. I just have some questions about your mother Denise."
+    Dani(Shocked):: "My mother? How do you ..."
+    Player:: "She extended your Dad's insurance policy without his knowledge, which is quite suspicious."
+    Dani(Shocked):: "What!? She did?"
+    Dani(Crying):: "Oh no ... it's my worst fear ..."
+    0:: "You have suspicions about her too?"
+    
+    Dani(Crying):: "No ... not Mom, she's not capable of hurting him ... but ..."
+    0:: "But what?"
+    
+    Dani(Crying):: "I think she's been having an affair with someone for the past few years ... She used to leave the house for long periods whenever my Dad was away on business trips or just working late. Whenever I asked her where she went, she got all angry and defensive."
+    Dani(Crying):: "I pray it's just a coincidence ... but I don't know, I just fear this has something to do with Dad's disappearance."
+    Dani(Crying):: "The insurance thing ... seems too much of a coincidence."
+    Dani(Crying):: "I'm sorry ... I can't say anymore."
+    Dani.hide()
+    setBackground(fraternity)
+    "Dani slammed her room door. I can still hear her crying though. Let's just leave the girl alone for now, it's a dramatic situation to be in. At least I have useful information to continue my investigation."
+    "Let's spy on Denise and figure out who she's been having an affair with, and whether this has anything to do with William's disappearance. After all, it might very well be an coincidence - lots of people have affairs, it doesn't mean they have something to do with their spouse disappearing."
+    
+    Home.addObjective(mpwill_spy)
+    mpwill_stage.setGlobal(30)
+    SceneEnd()

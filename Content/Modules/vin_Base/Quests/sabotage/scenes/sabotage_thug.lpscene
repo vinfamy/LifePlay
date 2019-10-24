@@ -1,0 +1,61 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Actor = a1.getActorAlias()
+    Actor2 = a2.getActorAlias()
+    "I came up with an idea: I can pay for a thug to rob <Actor.name> and <Actor2.name>. Let's see how strong their relationship stands in the face of mortal danger."
+    0:: "Good idea"
+    1:: "Let's think of something else"
+    
+    If 0
+        relation = sabotage_relation.getGlobal()
+        detection = sabotage_detection.getGlobal()
+        
+        If Actor.isDominantSex(Actor2)
+            Protector = Actor
+            Protected = Actor2
+        Else
+            Protector = Actor2
+            Protected = Actor
+        Endif
+        Thug = generatePersonTemporary(mpwill_gangbanger)
+        Thug.randomizeFace()
+        Thug.randomizeHairs()      
+        Thug:martial => Random(30, 100)
+        Thug.dress()
+        Thug.show(2)
+        "This thug looks intimidating enough."
+        money -= 300
+        Player(Happy):: "You understand what you need to do?"
+        Thug(Evil):: "All clear! I've done this before for actors trying to get some publicity as victims of hate crime actually."
+        setBackground(street)
+        "Action time ..."
+        Player.hide()
+        Protector.dress()
+        Protector.show(0)
+        Protected.dress()
+        Protected.show(4)
+        Thug(Angry):: "Hand over all your valuables, now! Or I'll beat you up."
+        If Protector:martial < Thug:martial
+            Protector(Scared):: "Please, just take all these and leave us alone."
+            Thug(Evil):: "Hahaha, what a pussy! Right in front of your <Protected.boyfriend_or_girlfriend> too ..."
+            detection += 5
+            relation -= 20
+        Else
+            Protector(Angry):: "Never! I'm not scared of you! Take this!"
+            Thug(Pain):: "Ahhhhhhhhhhhhhhhhhhhhh"
+            Thug(Crying):: "Please stop ... I was just trying to scare you ... <Player.name> <Player.name_last> paid me to do it ... to embarrass you in front of your <Protected.boyfriend_or_girlfriend>."
+            "Damn, I didn't know <Protector.name> can throw a punch so well. The thug even exposed me. I'm so screwed ..."        
+            detection += 30
+        Endif
+        
+        sabotage_relation.setGlobal(relation)
+        sabotage_detection.setGlobal(detection)
+        followUp(sabotage_progress)
+    Endif
+    SceneEnd()
+    

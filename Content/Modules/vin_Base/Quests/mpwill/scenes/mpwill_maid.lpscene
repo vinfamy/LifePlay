@@ -1,0 +1,71 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "Hmm, a housekeeper job shouldn't be too hard to get ..."
+    setBackground(work)
+    Manager = generatePersonTemporary()
+    dressFormal()
+    Manager.dress()
+    Manager.show(2)
+    Manager(Flirty):: "I'll be frank with you! Anyone I can do this job, so to really stand out, you'll have to do me certain 'favors'."
+    0:: "Okay ... (Sex)"
+    1:: "Give me the job or I'll report sexual harassment to HR"
+    
+    If 0
+        Sex(Manager, Player)
+    Elseif 1
+        Manager(Angry):: "Fuck you! Fine, you got me. But I'll remember this: I will make your life miserable. I will make you clean every single room for this hotel every time you go to work."
+        "Little does <Manager.he_or_she> know, that's kinda exactly what I want as to make sure I have access to Denise and Brian's room."
+    Endif
+    Manager.hide()
+    setBackground(hotel)
+    "I got the job as a housekeeper ... it's time for the next part of the plan."
+    "Let's check the hotel guest list every morning to see if a certain Denise M is checking in, and which room."
+    "A few days later ..."
+    "There it is: Denise M, two pax, Room 269."
+    "Let's volunteer to clean this room and set up my secret camera before they check in."
+    setbackground(home)
+    "All set up and ready to go! Let's head home and watch the action unfold from my laptop."
+    moveTo(home)
+    Hotel.removeObjective(mpwill_maid)
+    Player.hide()
+    "A few hours later ..."
+    
+    Denise = DeniseA.getActorAlias()
+    Denise.dress()
+    Denise.show(2)
+    
+    Brian = BrianA.getActorAlias()
+    Brian.dress()
+    Brian.show(3)
+
+    "There they are ..."
+    Brian(Kiss):: "Oh baby, I can't get enough of you ..."
+    Denise(Kiss):: "This is so wrong, but it feels so right ..."
+    Brian(Kiss):: "You know you want it, both of us do."
+    Sex(Brian, Denise)
+    
+    Brian.show(3)
+    Denise.show(2)
+    
+    Denise:: "So are we just going to continue meeting in secret forever? You promised you were going to marry me once William was gone."
+    Brian:: "We'll have to be patient, baby. He needs to be missing for a few years before they can declare him dead in absentia."
+    Brian:: "Only then, you can claim his life insurance money and we can get married."
+    Denise:: "But he IS dead ... can't you leave some hints so that the cops can find the body? I'm sick of playing the distressed wife with a MIA husband."
+    Brian:: "Are you crazy? Once the cops find the grave, they'll find my DNA all over that place. Besides, if we get married right away, everyone, especially the insurance company, will get suspicious and launch their own investigation. It may end up taking longer to claim the money."
+    Denise:: "Do you love me or not? Or all this is about the insurance money?"
+    Brian:: "Of course I love you. So much that I killed my best friend, remember? I'm just being realistic, okay? We need the money ... how else can I give you a life of luxury? My last wife already took the house and most of my money. And you haven't held a job since marrying William."
+    
+    "Poor William ... the two people he trusted the most ended up plotting to kill him."
+    "This tape should be plenty of evidence to prove Denise's and Brian's murder crime. The question is: what do I want to do with it?"
+    intelligence += 10
+    "I can take it to Taylor or Dani, so that we can go to the police together."
+    "Or ... now that I think about it, justice for William doesn't revive him or serve my self-interest. On the other hand, a share of his life insurance payout certainly would be lucrative."
+    Hotel.addObjective(mpwill_blackmail)
+    DaniH.addObjective(mpwill_daniproof)
+    TaylorH.addObjective(mpwill_taylorproof)
+    SceneEnd()

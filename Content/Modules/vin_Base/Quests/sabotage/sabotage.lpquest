@@ -1,0 +1,6 @@
+ID: sabotage
+NAME: Sabotage
+DESC: Try to break up a seemingly perfect relationship between two NPCs.    
+ONCE: false
+CONDITIONS: none
+START: sabotage_start

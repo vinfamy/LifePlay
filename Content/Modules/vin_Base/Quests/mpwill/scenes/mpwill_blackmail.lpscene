@@ -1,0 +1,48 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    setBackground(home)
+    Denise = DeniseA.getActorAlias()
+    Denise.show(2)
+    
+    Brian = BrianA.getActorAlias()
+    Brian.show(3)
+    
+    Player(Evil):: "Having fun?"
+    Brian(Angry):: "Who are you? What do you want?"
+    Player(Evil):: "You see that over there? That's a secret camera. I have your whole conversation recorded. Imagine if this finds its way to the police. You basically confessed everything in there!"
+    Denise(Crying):: "Oh no ... this can't be happening ... I didn't do anything."
+    Brian(Angry):: "Since you didn't go to the cops, you're obviously here for a reason. What do you want?"
+    Player(Evil):: "Ah, straight to the point, I like it. I want money, plain and simple. Aren't you two going to get your hand on that sweet insurance money? I want half of it!"
+    Brian(Angry):: "Are you mad? We don't have it. William hasn't even been declared dead yet ..."
+    Player(Evil):: "Well, even in this case, Denise here has access to William's bank account - even extended the life insurance without his knowledge. I'm sure being a high-flying accoutant, there are still a few bucks left in that account. I want all of it!"
+    Brian(Angry):: "You ..."
+    Denise(Crying):: "... Fine, take it, and leave us alone."
+    money += 200000
+    Brian:rapportwithplayer => -100
+    Denise:rapportwithplayer => -100
+    karma -= 10
+    Player(Evil):: "Consider this a price to get away with murder ..."
+    Player(Evil):: "Now, talking about prices to pay ..."
+    0:: "I also want to fuck Denise"
+    1:: "I also want to fuck Brian"
+    2:: "I also want a threesome"
+    3:: "That's all"
+    
+    If 0
+        Sex(Player, Denise)
+    Elseif 1
+        Sex(Player, Brian)
+    Elseif 2
+        Sex(Player, Brian, Denise)
+    Endif
+    Denise.show(2)
+    Brian.show(3)
+    Player(Evil):: "Pleasure doing business with you."
+    addNpcRelationship(Spouses, Brian, Denise)
+    QuestEnd()
+    SceneEnd()

@@ -1,0 +1,33 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "One of my Facebook friends shared a missing person poster for a certain William M. He went missing a few days ago after going for a morning jog. Accountant, religious, athletic, breadwinner for the family - seems like a decent enough guy."
+    0:: "Keep reading"
+    
+    "The cops are asking for local volunteers to aid in their effort to search for William. All they have is a portrait photo of him and a rough map of the route William usually takes when jogging."
+    0:: "Maybe I should lend a hand"
+    
+    "I suppose a few hours a day for a couple of days helping with the search wouldn't be too much hassle for me. Who knows what kind of danger the guy may be in?"
+    "Let's check out the main spots on that running trail and start asking around."
+    spot0.generateBuildingAlias(community_centre)
+    spot0.addObjective(mpwill_search)
+    
+    spot1.generateBuildingAlias(bar)
+    spot1.addObjective(mpwill_search)
+    
+    spot2.generateBuildingAlias(cafe)
+    spot2.addObjective(mpwill_search)
+    
+    spot3.generateBuildingAlias(garden_centre)
+    spot3.addObjective(mpwill_search)
+    
+    spot4.generateBuildingAlias(place_of_worship)
+    spot4.addObjective(mpwill_search)
+    karma += 5
+    
+    mpwill_stage.setGlobal(0)
+    SceneEnd()

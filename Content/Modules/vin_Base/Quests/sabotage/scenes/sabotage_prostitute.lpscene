@@ -1,0 +1,67 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Actor = a1.getActorAlias()
+    Actor2 = a2.getActorAlias()
+    "I came up with an idea: I can pay for a prostitute to approach and try to sleep with <Actor.name> or <Actor2.name>. Hard to turn down free sex."
+    "There's no free lunch of course, and the prostitute will film the whole encounter and send it to the poor soul that got cheated on."
+    0:: "Good idea"
+    1:: "Let's think of something else"
+    
+    If 0
+        relation = sabotage_relation.getGlobal()
+        detection = sabotage_detection.getGlobal()
+        
+        "For whom should I hire a prostitute?"
+        0:: "<Actor.name>"
+        1:: "<Actor2.name>"
+        
+        If 0
+            Cheater = Actor
+            Cheated = Actor2
+        Else
+            Cheater = Actor2
+            Cheated = Actor
+        Endif
+        Pros = generatePersonTemporary()
+        While !Cheater.isAsexual() && !Cheater.isInterestedIn(Pros)
+            Pros = generatePersonTemporary()
+        Endwhile
+        Pros.dress()
+        Pros.show(2)
+        "This <Pros.guy_or_girl> looks just like <Cheater.name>'s type."
+        money -= 300
+        Player(Happy):: "You understand what you need to do?"
+        Pros(Flirty):: "All clear! I've done this before for Charles Kushner actually."
+        setBackground(bar)
+        "Action time ..."
+        Player.hide()
+        Cheater.dress()
+        Cheater.show(0)
+        Pros(Flirty):: "You must be <Cheater.name>. I've been asked to attend to your needs tonight. It's a gift from a friend. Everything is already paid for."
+        If Random(0, 100) < Cheater:perversion
+            Cheater(Flirty):: "Dear, aren't you a good-looking one? And for free as well - what a wonderful gift from a mysterious friend ... Let's get out of here."
+            setBackground(home)
+            Sex(Cheater, Pros)
+            Cheater.show(0)
+            Pros.show(2)
+            "After sex, the prostitute I hired stuck to the plan and sent the secretly recorded tape straight to <Cheated.name>'s email address. A true professional!"
+            detection += 5
+            relation += 0.3*(Current:masochist - 50) 
+        Else
+            Cheater:: "Well, it's tempting but I can't do that, honey. You see, I'm taken ..."
+            Cheater:: "I'll tell you what though, you won't need to attend to my needs but I'll pay you double what you've been paid if you rat out the name of the person behind this 'gift'."
+            Pros(Shocked):: "Wow, that's a generous offer. Yes, <Player.his_or_her> name is <Player.name> <Player.name_last>. <Player.He_or_She> wanted me to film the whole thing and send it to your <Cheated.boyfriend_or_girlfriend> as well."
+            detection += 30
+        Endif
+        
+        sabotage_relation.setGlobal(relation)
+        sabotage_detection.setGlobal(detection)
+        followUp(sabotage_progress)
+    Endif
+    SceneEnd()
+    

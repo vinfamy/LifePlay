@@ -1,0 +1,103 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    If isWithCompanion()
+        endDate()
+    Endif
+    SceneStart()
+    Taylor = TaylorA.getActorAlias()
+    Taylor.dress()
+    Taylor.show(2)
+    Taylor(Crying):: "Wow, who could imagine this? William was a great man. He didn't deserve to go like this."
+    Taylor(Angry):: "We must seek justice for him. Let's take this evidence to the police."
+    setBackground(police)
+    "Taylor and I handed over the incriminating tape to the police, who promptly arrested the treacherous couple."
+    Taylor.hide()
+    Denise = DeniseA.getActorAlias()
+    Brian = BrianA.getActorAlias()
+    
+    dressFormal()
+    Denise.dress()
+    Brian.dress()
+    Denise.show(2)
+    Brian.show(3)
+    
+    "Both Brian and Denise were sentenced to life imprisonment for the murder of William M. This wasn't enough to bring William back to life but at least justice was served."
+    karma += 20
+    Denise.hide()
+    Brian.hide()
+    Denise.deletePerson()
+    Brian.deletePerson()
+    
+    Dani = DaniA.getActorAlias()
+    Dani.dress()
+    Dani.show(2)
+    
+    "Dani was present at court but refused to testify against her mother and godfather, not that it affected the outcome of the trial."
+    dressFormal()
+    
+    Dani:attractiontoplayer => -100
+    Dani:rapportwithplayer => - 100
+    Dani:perversion => 100
+    
+    setBackground(fraternity)
+    Dani.strip()
+    "Not being able to cope of the loss of both her parents and the fact that her mother and godfather killed her dad, Dani became even more unstable and indulged herself in more drugs, alcohol and sex."
+    "The fact that the sensational murder story made headline news around the world doesn't make life any easier for Dani."
+    setBackground(home)
+    "Eventually, she dropped out of college and to sustain her destructive drug habit, she became an escort and pornstar ..."
+    "Not just any pornstar ... the dirtiest, most hardcore pornstar ever: double anal, triple penetration, you name it - she does them all."
+    Actor1 = generatePersonTemporary(mpwill_gangbanger)
+    Actor2 = generatePersonTemporary(mpwill_gangbanger)
+    Actor3 = generatePersonTemporary(mpwill_gangbanger)
+    Actor4 = generatePersonTemporary(mpwill_gangbanger)
+    
+    Actor1.randomizeFace()
+    Actor1.randomizeHairs()
+
+    Actor2.randomizeFace()
+    Actor2.randomizeHairs()
+
+    Actor3.randomizeFace()
+    Actor3.randomizeHairs()
+
+    Actor4.randomizeFace()
+    Actor4.randomizeHairs()
+
+    Sex(Dani, Actor1, Actor2, Actor3, Actor4)
+    Actor1.hide()
+    Actor1.delete()
+    Actor2.hide()
+    Actor2.delete()
+    Actor3.hide()
+    Actor3.delete()
+    Actor4.hide()
+    Actor4.delete()
+    Dani.hide()
+    
+    setBackground(restaurant)
+    Player.show(0)
+    Taylor.show(2)
+    Taylor:: "I hope we did the right thing to seek justice for William. I always knew it would be hard for Dani, but could never imagine she would take to it so badly and completely throw away her life like that."
+    Player:: "Well, she's still young. Give her a few years to get over this trauma and she can still build her life back up."
+    Taylor:: "I hope you're right ..."
+    exchangeContact(Taylor)
+    Taylor:attractiontoplayer => 100
+    Taylor:rapportwithplayer => 100
+    Player:: "By the way ..."
+    0:: "Are you seeing anyone at the moment?"
+    1:: "We make a good detective team"
+    
+    If 0
+        Taylor(Happy):: "Ha! No ... but I don't think I'm ready for that yet after everything that happened recently."
+        Taylor(Happy):: "Although I'm open for a date or two."
+        Taylor.startDate()
+    Else
+        Taylor:: "We sure did!"
+    Endif
+    
+    QuestEnd()
+    SceneEnd()

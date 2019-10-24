@@ -1,0 +1,82 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    
+    SO = getSpecific(Dating)    
+    If SO.isValid()
+        Actor = a1.getActorAlias()
+        Actor2 = a2.getActorAlias()
+        "I came up with an idea: I can invite <Actor.name> or <Actor2.name> to swing with me and my <SO.boyfriend_or_girlfriend> <SO.name>."
+        "If one of them agrees but one declines, that's bound to cause some tension."
+        "If the swinging goes ahead, there could still be some 'morning after' regret afterwards. It could also go the other way though and the swinging experience may strengthen their relationship."
+        0:: "Good idea"
+        1:: "Let's think of something else"
+        
+        If 0
+            relation = sabotage_relation.getGlobal()
+            detection = sabotage_detection.getGlobal()
+            
+            Actor.dress()
+            Actor2.dress()
+            SO.dress()
+            Actor.show(2)
+            Actor2.show(3)
+            SO.show(4)
+            
+            detection += 3
+            
+            "What kind of swinging arrangement will I suggest?"
+            0:: "I fuck <Actor.name>, while <SO.name> fucks <Actor2.name>"
+            1:: "I fuck <Actor2.name>, while <SO.name> fucks <Actor.name>"
+            
+            If 0
+                FuckMe = Actor
+                FuckSO = Actor2
+            Else
+                FuckMe = Actor2
+                FuckSO = Actor
+            Endif
+            
+            If Random(0, 100) < FuckMe:attractiontoplayer + FuckMe:perversion
+                WantsMe = true
+                FuckMe(Happy):: "Yes, I would be very interested in spending the night with you, <Player.name>."
+            Else
+                WantsMe = false
+                FuckMe:: "Sorry, not interested."
+            Endif
+            
+            If FuckSO.isInterestedIn(SO) && Random(0, 110) < SO:attractiveness + FuckSO:perversion
+                WantsSO = true
+                FuckSO(Happy):: "Yes, I would be very interested in spending the night with you, <SO.name>."
+            Else
+                WantsSO = false
+                FuckSO:: "Sorry, not interested."
+            Endif
+            
+            If WantsMe && WantsSO
+                Player(Flirty):: "Let the swinging begin!"
+                setBackground(home)
+                Sex(FuckMe, Player)
+                Sex(FuckSO, SO)
+                relation += 0.1*(FuckMe:masochist + FuckSO:masochist)
+            Elseif WantsMe || WantsSO
+                Player(Sad):: "Sorry guys ... the swinging can't go ahead unless all parties agree to it."
+                FuckMe(Angry):: "How could you be so selfish?"
+                FuckSO(Angry):: "You accuse me of being selfish? Why don't you look in the mirror?"
+                relation -= 20
+            Else
+                FuckMe(Happy):: "Sorry, but neither of us are interested in this swinging thing ... I'm sure you'll find another couple though."
+            Endif
+            
+            sabotage_relation.setGlobal(relation)
+            sabotage_detection.setGlobal(detection)
+            followUp(sabotage_progress)
+        Endif
+    Else
+        "I'm not in a relationship with anyone right now. Can't suggest swinging without having a partner of my own."
+    Endif
+    SceneEnd()

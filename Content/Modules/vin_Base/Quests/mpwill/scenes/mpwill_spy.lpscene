@@ -1,0 +1,53 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    If isWithCompanion()
+        endDate()
+    Endif
+    SceneStart()
+    setBackground(street)
+    "I camp outside of William and Denise's house for hours at a time, ready to follow Denise whenever she heads outside."
+    count = mpwill_stage.getGlobal()
+    count += 1
+    mpwill_stage.setGlobal(count)
+    If count == 40
+        Home.removeObjective(mpwill_spy)
+        Denise = DeniseA.getActorAlias()
+        Denise.dress()
+        Denise.show(2)
+        "That's Denise heading out of the house. Let's follow her!"
+        setBackground(hotel)
+        Hotel.generateBuildingAlias(hotel)
+        "A hotel? Finally, something interesting."
+        
+        Brian = BrianA.getActorAlias()
+        Brian.dress()
+        Brian.show(3)
+        
+        Brian(Kiss):: "I miss you, baby."
+        Denise(Kiss):: "I miss you too."
+        Brian.hide()
+        Denise.hide()
+        "They quickly headed to their room."
+        "Damn, it's Brian, who is supposed to William's best friend, banging his wife ..."
+        "As much as this betrayal is disgusting on so many levels, I have no evidence that they have anything to do with William's disappearance."
+        "If they are indeed involved, they wouldn't be so stupid as to talk about it in public. I need to set up a secret camera in their room."
+        "How do I do that though ... hotels these days are very careful about security."
+        "Just as I was running out of options, a poster on the hotel's bulletin caught my attention. It's a job ad for a new housekeeper."
+        "Perfect! Once I get this job, the next time the adulterers rendez-vous at this hotel, I can easily find out which room they stay in from the hotel's database and set up a camera in the room while cleaning it."
+        Hotel.addObjective(mpwill_maid)
+    Elseif count == 33 || count == 37
+        Denise = DeniseA.getActorAlias()
+        Denise.dress()
+        Denise.show(2)
+        "That's Denise heading out of the house. Let's follow her!"
+        setBackground(supermarket)
+        "Damn, she was just heading to the supermarket to grab some grocery ... No extra-marital affairs to be found here ..."
+    Else
+        "Denise didn't even head out of the house at all the whole time I was here ... nothing to see here."
+    Endif
+    
+    SceneEnd()

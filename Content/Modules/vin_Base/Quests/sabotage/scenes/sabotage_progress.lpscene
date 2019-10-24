@@ -1,0 +1,47 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Actor = a1.getActorAlias()
+    Actor2 = a2.getActorAlias()
+    
+    relation = sabotage_relation.getGlobal()
+    detection = sabotage_detection.getGlobal()
+    
+    If relation <= 0
+        "Hmm, a new Facebook update ..."
+        Actor.dress()
+        Actor.show(2)
+        Actor2.dress()
+        Actor2.show(3)
+        "<Actor.name> <Actor.name_last> is now single."
+        "<Actor2.name> <Actor2.name_last> is now single."
+        removeNPCRelationship(Actor, Actor2)
+        "Haha! My sabotage effort worked out perfectly. Their relationship never stood a chance."
+        karma -= 10
+        intelligence += 5
+        QuestEnd()
+    Elseif detection >= 100
+        Actor.dress()
+        Actor.show(2)
+        Actor2.dress()
+        Actor2.show(3)
+        Actor(Angry):: "You really think we won't notice what you're trying to do?"
+        Actor2(Angry):: "Why are you trying to ruin our relationship? Are you jealous of us?"
+        Actor(Angry):: "And guess what: our relationship is still going strong. It's you who are not welcome in our life any longer!"
+        "Oh no, <Actor.name> and <Actor2.name> caught on to what I had been doing. My sabotage effort failed completely."
+        blockContact(Actor)
+        blockContact(Actor2)
+        Actor:rapportwithplayer => -100
+        Actor2:rapportwithplayer => -100
+        Actor:attractiontoplayer => -100
+        Actor2:attractiontoplayer => -100       
+        QuestEnd()
+    Else   
+        "The current relationship strength between <Actor.name> and <Actor2.name> is <relation>."
+        "The level of suspicion they have about my sabotaging attempt is <detection>."
+    Endif
+    SceneEnd()

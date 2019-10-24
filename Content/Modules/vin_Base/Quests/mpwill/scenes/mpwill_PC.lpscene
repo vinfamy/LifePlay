@@ -1,0 +1,28 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    Office.removeObjective(mpwill_ben)
+    Office.removeObjective(mpwill_officesneak)
+    SceneStart()
+    setBackground(work)
+    "So this is William's computer. Let's start digging for information."
+    "Two hours later ..."
+    "Hmm, finally something interesting."
+    "There was an email that William sent to an insurance company asking why his life insurance policy hadn't expired despite him deciding to stop paying the insurance premium now that his daughter reached 18."
+    "The insurance company confirmed that they had in fact still been receiving premium payments from his credit card and therefore had no reason to cancel the policy."
+    "Could this simply be a mistake by William in canceling a payment order? A mistake from the bank in processing the cancelation. Or is there something more cynical at play here?"
+    "Who else has access to his credit card to continue paying the insurance company against his will? A financial advisor? Or someone much closer to him. His wife? She's the sole beneficiary on this life insurance policy after all."
+    "Maybe Denise isn't quite the innocent housewife she comes across as. Or maybe she simply thought the life insurance was worth keeping when William disagreed."
+    "I don't have any evidence to prove either way, but I'll have to consider Denise a suspect. After all, right now, she stands to benefit the most if William dies."
+    "It would be silly to confront Denise directly about the life insurance. Perhaps her daughter Dani would be more receptive to my questions."
+
+    moveTo(Home)
+    setBackground(home)
+    
+    "After a bit of digging on Facebook, I find out that Dani is a college freshman and part of a sorority. That's perfect because I can just go to the sorority house to look for her."
+    DaniH.generateBuildingAlias(home)
+    DaniH.addObjective(mpwill_dani)
+    SceneEnd()

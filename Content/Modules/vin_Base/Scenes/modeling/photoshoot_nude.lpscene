@@ -41,7 +41,7 @@ OTHER: Random(1, 200) < modelfame
             If 0
                 Player(Happy):: "I guess ... since I'm already doing nude photoshoots ... might as well go further down the rabbit hole."
                 Actor(Happy):: "Excelent, I'll introduce you to my friend."
-                pornfame => modelfame
+                pornfame => 0.25*modelfame
             Else
                 Player(Angry):: "Who do you take me for? I'm a serious model, not some <Player.gigolo_or_whore>."
                 Actor(Sarcastic):: "Don't get upset. It was just a suggestion. I thought since you were already doing nudes, you might be interested."

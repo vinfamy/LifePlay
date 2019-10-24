@@ -1,0 +1,127 @@
+// Information
+INFO Is_Male: 100% false
+INFO Interested_In_Men: 100% true
+INFO Interested_In_Women: 100% true
+INFO Interested_In_Transgender: 100% true
+INFO First_Name: 100% Girl
+INFO Last_Name: 100% Sorority
+INFO Race: 100% Daz
+INFO Genital: 100% Vagina
+
+// Morphs
+MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.016455
+MORPH Genesis8Female__Shu Head: 100% 0.184356
+MORPH Genesis8Female__Kumiko Head: 100% 0.459384
+MORPH Genesis8Female__Jennifer Head: 100% 0.104157
+MORPH Genesis8Female__Estell Head: 100% 0.87932
+MORPH Genesis8Female__Diane Head: 100% 0.002734
+MORPH Genesis8Female__PBMGlutesSize: 100% 0.453719
+MORPH Genesis8Female__PBMBreastsUpwardSlope: 100% 0.59389
+MORPH Genesis8Female__PBMBreastsShape07: 100% 0.393872
+MORPH Genesis8Female__PBMAreolaeDiameter: 100% 0.981017
+MORPH Genesis8FemaleEyelashes__Shu Head: 100% 0.184356
+MORPH Genesis8FemaleEyelashes__Kumiko Head: 100% 0.459384
+MORPH Genesis8FemaleEyelashes__Jennifer Head: 100% 0.104157
+MORPH Genesis8FemaleEyelashes__Estell Head: 100% 0.87932
+MORPH Genesis8FemaleEyelashes__Diane Head: 100% 0.002734
+MORPH LongHair_22341__CTRLFaceOlderHD: 100% 0.035793
+MORPH LongHair_22341__SCLNeckLength: 100% 0.7
+MORPH LongHair_22341__PBMBreastsUpwardSlope: 100% 0.59389
+MORPH LongHair_22341__PBMBreastsShape07: 100% 0.393872
+MORPH LongHair_22341__PBMAreolaeDiameter: 100% 0.981017
+MORPH LongHair_22341__BackFull: 100% 0.25
+SCALE X: 100% 1.0
+SCALE Y: 100% 1.0
+SCALE Z: 100% 1.0
+
+//Hair
+HAIR Hairstyle: 100% LongHair_22341
+HAIR Hair_Thickness: 100% 1.263533
+HAIR Hair_Color_R: 100% 0.015
+HAIR Hair_Color_G: 100% 0.003
+HAIR Hair_Color_B: 100% 0.0
+HAIR Hair_Color_A: 100% 0.85
+
+HAIR Brow_Color_R: 100% 0.0
+HAIR Brow_Color_G: 100% 0.0
+HAIR Brow_Color_B: 100% 0.0
+HAIR Brow_Color_A: 100% 1.0
+
+// Skin
+SKIN Eye_Color_R: 100% 0.08
+SKIN Eye_Color_G: 100% 0.02
+SKIN Eye_Color_B: 100% 0.0
+SKIN Eye_Color_A: 100% 0.8
+SKIN Skin_Color_R: 100% 0.63
+SKIN Skin_Color_G: 100% 0.38
+SKIN Skin_Color_B: 100% 0.23
+SKIN Skin_Color_A: 100% 1.0
+SKIN BHairColor_R: 100% 0.015
+SKIN BHairColor_G: 100% 0.003
+SKIN BHairColor_B: 100% 0.0
+SKIN BHairColor_A: 100% 0.85
+SKIN Skin_Roughness: 100% 0.8905
+SKIN Skin_Oil: 100% 0.25
+SKIN Skin_Fresnel: 100% 0.967406
+SKIN Skin_Age: 100% 0.016455
+SKIN Skin_Sagging: 100% 0.0
+SKIN Muscle_Tone: 100% 0.0
+SKIN BHairThickness: 100% 0.600787
+SKIN BHairstyle: 100% Pubes06
+
+// Stats
+STAT children: 100% 0.0
+STAT fertility: 100% 3.0
+STAT stock_condom: 100% 0.0
+STAT stock_pill: 100% 0.0
+STAT bargain: 100% 0.0
+STAT brand: 100% 0.0
+STAT sentence: 100% 0.0
+STAT modelfame: 100% 0.0
+STAT age: 100% 33.0037
+STAT money: 100% 2062.621338
+STAT perks: 100% 7.0
+STAT attractiveness: 100% 99.993607
+STAT cooking: 100% 9.989385
+STAT dance: 100% 9.989385
+STAT fitness: 100% 49.978775
+STAT intelligence: 100% 99.990059
+STAT interpersonal: 100% 99.980148
+STAT jobexperience: 100% 9.989385
+STAT jobperformance: 100% 0.0
+STAT karma: 100% 67.5158
+STAT martial: 100% 9.989385
+STAT masochist: 100% 0.0
+STAT muscle: 100% 24.972715
+STAT music: 100% 9.986358
+STAT perversion: 100% 31.15744
+STAT pornfame: 100% 0.0
+STAT sneak: 100% 10.245919
+STAT arousal: 100% 11.439673
+STAT energy: 100% 72.878159
+STAT intoxication: 100% 0.0
+STAT mood: 100% 94.522774
+STAT appliance_value: 100% 0.0
+STAT car_value: 100% 0.0
+STAT furniture_value: 100% 0.0
+STAT stock_alcohol: 100% 0.0
+STAT stock_book: 100% 0.0
+STAT stock_coffee: 100% 0.0
+STAT stock_flower: 100% 0.0
+STAT stock_gift: 100% 0.0
+STAT stock_haircare: 100% 0.0
+STAT stock_ingredient: 100% 0.0
+STAT stock_juice: 100% 0.0
+STAT stock_makeup: 100% 0.0
+STAT stock_meal: 100% 0.0
+STAT stock_movie: 100% 0.0
+STAT stock_musicalinstrument: 100% 0.0
+STAT stock_petfood: 100% 0.0
+STAT stock_photo: 100% 0.0
+STAT stock_skincare: 100% 0.0
+STAT stock_snack: 100% 0.0
+STAT stock_soda: 100% 0.0
+STAT stock_supplement: 100% 0.0
+STAT stock_tea: 100% 0.0
+STAT stock_tobacco: 100% 0.0
+STAT stock_video: 100% 0.0

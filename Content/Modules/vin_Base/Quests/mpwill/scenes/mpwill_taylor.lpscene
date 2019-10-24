@@ -1,0 +1,53 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Taylor = TaylorA.getActorAlias()
+    Taylor.dress()
+    Taylor.show(2)
+    
+    stage = mpwill_stage.getGlobal()
+    If stage == 10
+        Taylor:: "Welcome, <Player.name>. Come in!"
+        Player:: "So, now that we are in a private space, what did you want to talk to me about?"
+        Taylor:: "The police department is overworked and overwhelmed. Besides, they don't seem too interested in this investigation. We need to do our own investigation."
+        Player:: "I agree that the cops have been useless so far. So, any leads?"
+        Taylor:: "Not really ... but William has been gone for too long - he wouldn't leave his family voluntarily. I think someone must have abducted him ... or worse."
+        Player:: "Some sort of enemy perhaps?"
+        Taylor:: "Exactly. Here's his home address where you can find his wife Denise. And this is the address for his accounting firm, talk to his boss Ben. Find out if they know anything that could help with our investigation."
+        Taylor:: "Please, I know I'm asking a lot from you. But I have a bit of savings. It's yours if we find William."
+        
+        TaylorH.removeObjective(mpwill_taylor)
+        
+        Home.generateBuildingAlias(home)
+        Home.addObjective(mpwill_denise)
+        
+        Office.generateBuildingAlias(work)
+        Office.addObjective(mpwill_ben)
+    Elseif stage == 20
+        TaylorH.removeObjective(mpwill_taylor)
+        
+        Player:: "You didn't tell me that you didn't get along with your brother and his wife."
+        Taylor:: "Well, I didn't think it was relevant. Yes, William doesn't accept me for who I am because of his religious beliefs. But that doesn't change the fact that I'm his sister and cares very much for his safe return."
+        0:: "Then why not do the investigation yourself?"
+        
+        Taylor:: "You saw how Denise reacts to finding out that I sent you to seek information. She wouldn't talk to me."
+        0:: "Denise said you were fighting with William over an inheritance?"
+        
+        Taylor:: "What? No, that's not true at all! There was no dispute. The inheritance was settled months ago according to our mother's will."
+        "I'm still not convinced by Taylor, but I decided to stop the questioning there. If this investigation is to continue, I shouldn't rule out Taylor as a suspect. Therefore, it's probably best not disclose any more information to her. I don't want to end up being used."
+        Taylor.hide()
+        
+        moveTo(Home)
+        setBackground(home)
+        "A few days later ..."
+        "I just came up with an idea: William is known to be a workaholic that spends a lot of time in the office, which means he probably has a lot of personal information stored in his PC. I know I would. Maybe I can ask Ben if I can have a look into William's work computer, just in case there's any evidence that can help the investigation. Ben was friendly enough last time, he even gave me his card for further contact."
+        "Alternatively, I can try to sneak into the office after business hours and get my hand on William's PC that way."
+        
+        Office.addObjective(mpwill_ben)
+        Office.addObjective(mpwill_officesneak)
+    Endif
+    SceneEnd()

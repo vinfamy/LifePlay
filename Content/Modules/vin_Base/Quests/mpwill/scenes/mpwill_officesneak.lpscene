@@ -1,0 +1,52 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    If WHEN < 6 || WHEN > 20
+        "This is a good time to try and sneak in ..."
+        Guard = generatePersonTemporary()
+        dressFormal()
+        Guard.dress()
+        Guard.show(2)
+        "Damn, there's still a security guard left in the building. What should I do?"
+        0:: "Try to sneak past <Guard.him_or_her>"
+        1:: "Convince <Guard.him_or_her> to let me in"
+        
+        If 0
+            SneakGame()
+            If Random(0, 100) < sneak
+                Guard.hide()
+                "Perfect. <Guard.He_or_She> didn't see a thing."
+                followUp(mpwill_PC)
+            Else
+                Guard(Angry):: "Hey, stop! What do you think you're doing?"
+                "Damn it, I got caught. Let's get out of here, fast."
+            Endif
+        Else
+            Player(Sad):: "Please ... I work here. I forgot some important document and have an early flight tomorrow. I don't have my employee ID with me."
+            Guard:: "Sorry, but I can't let you in just like that."
+            0:: "Try to persuade <Guard.him_or_her> further"
+            1:: "Maybe I can make it worth your while (Seduce)"
+            
+            If 0 && Random(50, 500) < interpersonal
+                Guard:: "Fine. Come in. But don't take too long or I'll get into trouble, okay?"
+                followUp(mpwill_PC)
+            Elseif 1
+                Guard:: "Well, I must say it's hard to get laid working night shifts all the time on a meager salary ..."
+                Sex(Guard, Player)
+                Guard.hide()
+                "Well, I hope that was worth it."
+                followUp(mpwill_PC)
+            Else
+                "The guard was having none of it ... No point wasting time here. Let's come back later."
+            Endif
+        Endif
+    Else
+        "There are too many people in the office right now. Let's wait until the night to sneak in."
+    Endif
+    SceneEnd()
+    
+    
