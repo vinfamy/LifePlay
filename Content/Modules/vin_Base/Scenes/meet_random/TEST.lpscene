@@ -5,27 +5,8 @@ WHO: none
 OTHER: none
 
     SceneStart()
-    "What do you want?"
-    0:: "Good"
-    1:: "Bad"
-    2:: "None"
-    3:: "Fuck"
-    
-    If 3
-        Actor = getSpecific(Dating)
-        Sex(Actor, Player)
-    Else
-        If 0
-            karma += 10
-        Elseif 1
-            karma -= 10
-        Endif
-        "Your action cannot be undone"
-        
-        If Random(50, 50) < intelligence
-            "Smart enough"
-        Else
-            "Not smart enough"
-        Endif
-    Endif
+    Actor = getSpecific(Dating)
+    Actor.show(2)
+    Actor.dress()
+    "Dressed"
     SceneEnd()

@@ -1,0 +1,64 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    setBackground(street)
+    Amy = generatePerson(tam_amy)
+    Meihui = generatePerson(tam_meihui)
+    AmyA.setActorAlias(Amy)
+    MeihuiA.setActorAlias(Meihui)
+    Kong = generatePerson(tam_kong)
+    KongA.setActorAlias(Kong)
+    
+    Amy.dress()
+    Amy.show(2)
+    Meihui.dress()
+    Meihui.show(3)
+    
+    Meihui(Angry):: "Ignore him, Amy. You're stronger than this! Don't let that psycho back into your life!"
+    Amy(Sad):: "I don't know ... I just can't say no to him."
+    Meihui(Angry):: "Why not? Remember all the horrible things that asshole put you through? You want to get back in that situation?"
+    "Hmm, is that Amy? She was an intern at a company I worked at nearly two years ago. We got along quite well but lost contact when she went abroad for a student exchange programme. I didn't realize she was back already. She seems to be with another girl - can't make out what they're saying but they don't seem too happy though. Let's come say hi at least."
+    Player(Happy):: "Hey Amy, is that you? Remember me? Didn't realize you were back in the country already."
+    Amy(Sad):: "Oh ... <Player.name>? Good to see you too ... This is my best friend, Meihui."
+    Meihui(Happy):: "Nice to meet you, <Player.name>."
+    Player(Surprised):: "What's the matter, Amy? You don't look so happy!"
+    "The Amy I remembered was always happy and lively and a joy to be around ... she looks like she aged 10 years since I last saw her."
+    "All of a sudden, Amy's phone started ringing ..."
+    Amy(Sad):: "It's Kong ..."
+    Meihui(Angry):: "I thought you blocked him? Don't pick up! Don't let him do this to you."
+    Amy(Sad):: "Sorry, I have to ..."
+    "Amy ignored Meihui's advice and picked up anyway ..."
+    "Whoever on the other line was so loud that I could hear what he was saying quite clearly even if the phone wasn't on speakerphone."
+    Kong:: "Tomorrow's night. House party. Wear something to show off your big ass."
+    "This Kong fellow didn't even wait for Amy's answer and just hung up. It was more of a command than a conversation."
+    Meihui(Angry):: "Please, don't go, Amy. I can't be doing this to yourself all over again ..."
+    Amy(Sad):: "Sorry, I have to ..."
+    Amy.hide()
+    "After that, Amy walked away, leaving her best friend with me ... it seems I picked the worst possible time to come say hi to an old acquaintance ..."
+    Player(Sad):: "So who is this Kong guy?"
+    Meihui(Sad):: "It's Amy's boyfriend .... well, her ex .... well, boyfriend. I don't even know anymore. She keeps getting back to him ..."
+    Meihui(Sad):: "He's a psycho basically ... abusive to her mentally and physically ... took away all her confidence ... even pimped her out to all his buddies while constantly cheating on her."
+    Meihui(Sad):: "I mean ... you can tell from the nickname he gave himself. Kong? Really? What a tough-acting punk ass bitch!"
+    Meihui(Sad):: "It's a shame Amy would be attracted to thugs like that."
+    Player(Sad):: "Yeah, even from a brief encounter, I could tell Amy has changed a lot ... and not for the better."
+    Meihui(Sad):: "Well, actually you can help ... if you're interested ..."
+    Player(Sad):: "Huh? I'm all ears ..."
+    Meihui:: "That house party tomorrow, it's open invite - they always are - the guy likes to be worshipped as a king by strangers. I know the address of his place. He already knows how much I hate him so would be suspicious if I show up. You, on the other hand, can still blend in."
+    Meihui:: "Kong claims to be a leader of an international gang, unfortunately something that makes some girls, Amy included, attracted to him. Quite frankly, I think he's full of shit. Try to find out the truth. If we can tear down this alpha male facade he's putting on and find ways to humiliate him, Amy's attraction to him won't be so strong anymore."
+    Player:: "Why bother trying to bring down an asshole like him? When they go low, we go high! Surely if we just treat Amy gently and with respect, she will get her confidence back and be strong enough to get rid of the guy for good."
+    Meihui:: "The <Player.gentleman_or_lady>'s way you meant? It's not going to work. Amy is a pretty girl with plenty of admirers. A lot of nice guys have tried to be gentlemen to win her heart. And in the end, she always came back to Kong."
+    Meihui(Sad):: "As much as she's my friend, it's pretty obvious by now she has a thing for tough-acting bad boys. Making Kong look not-so-tough in her eyes is the only way to break his control over her."
+    KongH.generateBuildingAlias(home)
+    KongH.addObjective(tam_pathhumiliate)
+    KongH.addObjective(tam_pathbreak)
+    
+    Nice1.generateBuildingAlias(restaurant)
+    Nice1.addObjective(tam_pathnice)
+    tam_stage.setGlobal(0)
+    tam_fuckedKong.setGlobal(0)
+    SceneEnd()
+    

@@ -1,0 +1,305 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Kong = KongA.getActorAlias()
+    Amy = AmyA.getActorAlias()
+    Meihui = MeihuiA.getActorAlias()
+    stage = tam_stage.getGlobal()
+    fuckedKong = tam_fuckedKong.getGlobal()
+    
+    If stage == 0
+        Nice1.removeObjective(tam_pathnice)
+        KongH.removeObjective(tam_pathhumiliate)
+        KongH.removeObjective(tam_pathbreak)        
+        setBackground(fraternity)
+        "I've got to say: Kong really does know how to throw a party. So many beautiful women here."
+        "Is he really sleeping with all of them? Do some women find him really that attractive? Maybe he can give me a few tips."
+        "The host himself hasn't showed up though. Wonder what he's up? And where's Amy?"
+        Player(Surprised):: "What the fuck!"
+        Kong.dress(Cool-Jacket_1)
+        Amy.dress(Cute-Leggings_1_F)
+        Kong.show(2)
+        Amy.show(3)
+        "That's Kong with his arm wrapped around Amy ... Amy is wearing only leggings, clearly pullling all the attention to her ass."
+        "Kong on the other hand is wearing nothing but a little jacket, as if he's entering some twisted nude boxing ring."
+        "To be fair, he does have a lot to show off ... the guy's definitely well endowed."
+        "Maybe that's part of the reason why so many girls fall for him."
+        Kong(Excited):: "LET THE PARTY BEGIN!"
+        "Suddenly, some of the hottest girls in the party stripped down and went join Kong and Amy for a big orgy ..."
+        Actor1 = generatePersonTemporary(mpwill_sororitygirl)
+        Actor2 = generatePersonTemporary(mpwill_dani)
+        Actor3 = generatePersonTemporary(mpwill_taylor)
+        
+        Actor1.randomizeFace()
+        Actor1.randomizeHairs()
+        
+        Actor2.randomizeFace()
+        Actor2.randomizeHairs()
+        
+        Actor3.randomizeFace()
+        Actor3.randomizeHairs()
+        
+        If !Player.isMale()
+            "Should I join them?"
+            0:: "Yes"
+            1:: "No"
+            
+            If 0
+                Actor3 = Player
+                fuckedKong = 1
+            Endif
+        Endif
+        
+        Sex(Kong, Amy, Actor1, Actor2, Actor3)
+        
+        Actor1.hide()
+        Actor2.hide()
+        Actor3.hide()
+        Kong.show(2)
+        Player.show(0)
+        Amy.hide()
+        
+        Player(Happy):: "..."
+        "Let's talk to him about Meihui's plot ..."
+        Kong(Evil):: "I knew that Chinese whore was up to something!"
+        Kong(Evil):: "Good, now that she seems to trust you, we could really use that to our advantage."
+        Kong(Evil):: "I've wanted to make her one of my bitches for a long time ..."
+        Kong(Evil):: "Amy was just too easy, this Meihui chick would be the ultimate challenge."
+        Kong(Evil):: "Would be so much fun breaking this 'strong independent woman' down and putting the feminist bitch back in her proper place - down on her knees in front of the Kong Dong."
+        0:: "How on earth can you break her?"
+        
+        Kong(Evil):: "Women are simple creatures. They might put on a brave facade but deep inside, they all crave being dominated by a real man, not those beta pussies that suck up to them."
+        Kong(Evil):: "All I have to do is to break that facade down ... some time locked up, starved and mentally tortured will do that ..."
+        0:: "You want to kidnap her?"
+        
+        Kong(Evil):: "You go back to her, find the right opportunity and report back. My wolf pack will take care of the rest."
+        Kong(Evil):: "You help me on this! I'll make sure you're well compensated."
+        Player(Evil):: "What if I want some down payment right now?"
+        Kong(Evil):: "Huh? What do you want?"
+        0:: !Player.isMale():: "I want you to fuck me"
+        1:: "I want to fuck Amy"
+        2:: "I want cash"
+        
+        If 0
+            Kong(Evil):: "Hahahaha! What a slut! Did you decide to betray Meihui the moment you saw my magnificent Kong Dong?"
+            setBackground(home)
+            Sex(Kong, Player)
+            fuckedKong = 1
+        Elseif 1
+            Kong(Evil):: "Go ahead and take her then. She's not worth much to me and I always share my bitches with those loyal to me."
+            Kong(Evil):: "You can have Meihui too once I'm done with her."
+            setBackground(home)
+            Sex(Player, Amy)
+        Else
+            Kong(Evil):: "Yes, of course, take it."
+            money += 1000
+        Endif
+        stage = 32
+        Break2.generateBuildingAlias(cafe)
+        Break2.addObjective(tam_break)
+    Elseif stage == 32
+        Break2.removeObjective(tam_break)
+        Meihui.dress()
+        Meihui.show(2)
+        "Before sending me off to investigate Kong, Meihui and I had agreed on meeting at a coffee shop to keep her updated on my progress."
+        "As promised, I went there every week to hand her fake information about my so called progress. She had no idea I had already betrayed her long ago."
+        "It took a while, but finally an opportunity opened up."
+        Meihui(Happy):: "Thank you for this information today."
+        Meihui(Happy):: "I will be out of the country for the next two weeks though, so we'll start meeting here again once I'm back, okay?"
+        Player(Happy):: "Oh really? Where are you going?"
+        Meihui(Happy):: "It's a surprise visit back home for my Dad's birthday. Nobody from my family back there knows about it."
+        Meihui(Sarcastic):: "Of course, I had to tell all my friends here about it, otherwise they might report me missing or something!"
+        "It's an innocent joke, but that certainly put some ideas into my head about Kong's plan ..."
+        Meihui.hide()
+        "As soon as Meihui left the coffee shop, I called Kong ..."
+        Kong:: "Great work. I'll make sure my wolf pack kidnap the bitch on the same day she's supposed to head to the airport. We'll then have two weeks to do whatever we want with her and no-one will even suspect she's missing."
+        stage = 33
+        KongH.addObjective(tam_break)
+    Elseif stage == 33
+        Meihui.show(2)
+        Kong.dress()
+        Kong.show(3)
+        Meihui(Angry):: "Give me my clothes back and release me now! Or I'll call the cops to arrest the whole lot of you scumbags."
+        Kong(Evil):: "How exactly are you going call the cops while getting locked up here, you stupid cow?"
+        Meihui(Angry):: "What do you want to do to me? I swear I'm going to kill you!"
+        Kong(Angry):: "Shut up or I'm going to kill YOU!"
+        Meihui(Angry):: "<Player.name>! You? You set me up for this. I trusted you!"
+        Kong(Sarcastic):: "Maybe you should have put your trust in someone else, bitch!"
+        stage = 34
+    Elseif stage == 34
+        Meihui.show(2)
+        Kong.dress(Cool-Jacket_1)
+        Kong.show(3)
+        Kong(Sarcastic):: "You're hungry, bitch?"
+        Meihui(Angry):: "..."
+        "Kong knows damn well she's starving, having not fed her for days."
+        Kong(Sarcastic):: "You want this?"
+        Meihui(Angry):: "..."
+        "Kong brought a plate of chicken nuggets. They don't even look all that appetizing but I can tell Meihui is desperate for them, even if she's trying not to say it out loud."
+        Kong(Evil):: "Hang on. You need some dipping sauce with that, don't you?"
+        If !Player.isMale()
+            Kong(Sarcastic):: "<Player.name>, my favorite whore, do you want to give me a hand squeezing this sauce bottle?"
+            0:: "Okay ... (Handjob)"
+            1:: "I'd rather not"
+            
+            If 0
+                Filter(Handjob)
+                Sex(Kong, Player)
+                fuckedKong = 1
+            Else
+                Filter(Solo)
+                Sex(Kong)            
+            Endif           
+        Else
+            Filter(Solo)
+            Sex(Kong) 
+        Endif
+
+        Player.show(0)
+        Kong.show(3)
+        Meihui.show(2)
+        "Kong spilled his cum all over the chicken nuggets before giving them to Meihui."
+        Meihui(Angry):: "You disgusting pig! I'd rather die than eat that!"
+        Kong(Sarcastic):: "Trust me, slut. In your situation right now, dying is easy enough. Living will be the difficult thing."
+        "It took another 20 hours, but eventually her hunger got the better of her and Meihui ate all the chicken nuggets soaked with Kong's cum. I guess she figured out that survival was more important than pride."
+        stage = 35
+    Elseif stage == 35
+        Meihui.show(2)
+        Kong.dress(Cool-Jacket_1)
+        Kong.show(3)
+        Amy.dress(Cute-Leggings_1_F)
+        Amy.show(4)
+        Kong(Sarcastic):: "Best friends' reunion time!"
+        Amy(Sad):: "..."
+        Meihui(Angry):: "Amy, you've got to call the cops! Don't let him control you."
+        Kong(Angry):: "Teach her what you taught you, Amy!"
+        Amy(Crying):: "Meihui, you're a whore ..."
+        Meihui(Crying):: "Amy ..."
+        Kong(Angry):: "Continue!"
+        Amy(Crying):: "... a slut, a worthless piece of trash ..."
+        Amy(Crying):: "... all you're good for is as a cum dump for countless men ..."
+        Amy(Crying):: "... stop resisting, you know you were born to be a fuck toy ..."
+        Kong(Angry):: "Got all that recorded. This is your new radio broadcast from now on, Meihui!"
+        "Meihui knows well that Amy is only saying these things under the influence of her abuser, but still, she seems devastated by the mean words coming out of her best friend's mouth."
+        Amy(Crying):: "... it's not too late to start being one, here, watch and learn ..."
+        Sex(Kong, Amy)
+        Player.show(0)
+        Meihui.show(2)
+        Kong.show(3)
+        Amy.show(4)
+        "Maybe I should join them in this 'lesson'?"
+        0:: "Join Kong & Amy to 'teach' Meihui"
+        1:: "Not now"
+        
+        If 0
+            Sex(Kong, Player, Amy)
+            fuckedKong = 1
+            Player.show(0)
+            Meihui.show(2)
+            Kong.show(3)
+            Amy.show(4)
+        Endif
+        Amy(Crying):: "... to be a good cum dump, you have to learn how to handle many cocks at once ... so pay attention!"
+        Kong(Sarcastic):: "Where are my wolf pack brothers?"
+        Actor1 = generatePersonTemporary(mpwill_gangbanger)
+        Actor2 = generatePersonTemporary(mpwill_gangbanger)
+        Actor3 = generatePersonTemporary(mpwill_gangbanger)
+        
+        Actor1.randomizeFace()
+        Actor1.randomizeHairs()
+
+        Actor2.randomizeFace()
+        Actor2.randomizeHairs()
+
+        Actor3.randomizeFace()
+        Actor3.randomizeHairs()
+        
+        If Player.isMale()
+            Actor3 = Player
+        Endif
+        Sex(Kong, Actor1, Actor2, Actor3, Amy)
+        stage = 36
+    Elseif stage == 36
+        Meihui.show(2)
+        Meihui(Sad):: "..."
+        "I came to the room Meihui was being kept in today, only to find Amy's mean words playing in the background and rather interesting video being played on the TV screen."
+        Player(Surprised):: "Is that ...?"
+        Actor1 = generatePersonTemporary(mpwill_gangbanger)
+        Actor2 = generatePersonTemporary(mpwill_gangbanger)
+        Actor3 = generatePersonTemporary(mpwill_gangbanger)
+        
+        Actor1.randomizeFace()
+        Actor1.randomizeHairs()
+
+        Actor2.randomizeFace()
+        Actor2.randomizeHairs()
+
+        Actor3.randomizeFace()
+        Actor3.randomizeHairs()
+        Sex(Actor1, Actor2, Actor3, Meihui)
+        
+        Meihui.show(2)
+        Actor1.hide()
+        Actor2.hide()
+        Actor3.hide()
+        Kong.dress()
+        Kong.show(3)
+        Player.show(0)
+        Meihui.hide()
+        Kong(Sarcastic):: "It's only a deepfake porn video, but to the tortured mind, the line between real and fake will start to blur especially if you're exposed to it 24/7 ..."
+        stage = 37
+    Elseif stage == 37
+        setBackground(street)
+        "I haven't visited Meihui in her 'prison' for a week. Today is long past the date she's supposed to be back in the country after a visit home. Is Kong still keeping her hostage?"
+        "He's throwing a house party again tonight, I should ask him then ..."
+        setBackground(fraternity)
+        Player(Surprised):: "What the fuck!"
+        Kong.dress(Cool-Jacket_1)
+        Amy.dress(Cute-Leggings_1_F)
+        Meihui.dress(Cute-Leggings_1_F)
+        Kong.show(3)
+        Amy.show(2)
+        Meihui.show(4)
+        "That's Kong with his arm wrapped around Amy and another hand wrapped around Meihui  ... Both are wearing only leggings. He did it! He broke Meihui, who is now as much of a submissive bitch to him as Amy."
+        Kong(Excited):: "LET THE PARTY BEGIN!"
+        setBackground(home)
+        Sex(Kong, Meihui, Amy)
+        
+        Kong.show(3)
+        Amy.show(2)
+        Meihui.show(4)
+        Player.show(0)
+        Player(Happy):: "You did it!"
+        Kong(Sarcastic):: "Stupid whore never stood a chance ..."
+        Kong(Sarcastic):: "But you did well ... I'm a man of my word, what do you want as reward?"
+        0:: !Player.isMale():: "I want you to fuck me"
+        1:: "I want to fuck Amy"
+        2:: "I want to fuck Meihui"
+        3:: "I want to fuck both girls"
+        4:: !Player.isMale(): "I want you to fuck me and the girls"
+        5:: "I want cash"
+        
+        If 0
+            Sex(Kong, Player)
+        Elseif 1
+            Sex(Player, Amy)
+        Elseif 2
+            Sex(Player, Meihui)
+        Elseif 3
+            Sex(Player, Meihui, Amy)
+        Elseif 4
+            Sex(Kong, Player, Amy, Meihui)
+        Else
+            money += 2000
+        Endif
+        QuestEnd()
+    Endif
+    
+    tam_stage.setGlobal(stage)
+    tam_fuckedKong.setGlobal(fuckedKong)
+    SceneEnd()
+    

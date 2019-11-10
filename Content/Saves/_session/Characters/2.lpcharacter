@@ -1,86 +1,50 @@
 // Information
-INFO Is_Male: 100% false
-INFO Interested_In_Men: 100% true
-INFO Interested_In_Women: 100% false
-INFO Interested_In_Transgender: 100% false
-INFO First_Name: 100% Denise
-INFO Last_Name: 100% M
+INFO Is_Male: 100% true
+INFO Interested_In_Men: 100% false
+INFO Interested_In_Women: 100% true
+INFO Interested_In_Transgender: 100% true
+INFO First_Name: 100% Max
+INFO Last_Name: 100% Q
 INFO Race: 100% Daz
-INFO Genital: 100% Vagina
+INFO Genital: 100% Penis
 
 // Morphs
-MORPH Genesis8Female__Head Width: 100% -1.0
-MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.48993
-MORPH Genesis8Female__CTRLFaceAngle: 100% 0.554425
-MORPH Genesis8Female__RFMC_Forehead Wrinkles: 100% 0.455766
-MORPH Genesis8Female__RFMC_Forehead Shape 02: 100% 0.241991
-MORPH Genesis8Female__RFMC_Forehead Shape 01: 100% 0.216415
-MORPH Genesis8Female__RFMC_Face Weighted: 100% 0.217637
-MORPH Genesis8Female__RFMC_Face Upper Width: 100% -0.25
-MORPH Genesis8Female__RFMC_Face Skinny: 100% 0.298937
-MORPH Genesis8Female__RFMC_Face Length: 100% 0.5
-MORPH Genesis8Female__RFMC_Face Angle (Alt): 100% 1.0
-MORPH Genesis8Female__RFMC_Cranium Heights: 100% 0.696496
-MORPH Genesis8Female__Olga Head: 100% 0.486485
-MORPH Genesis8Female__Faiza Head: 100% 0.265872
-MORPH Genesis8Female__Estell Head: 100% 0.66691
-MORPH Genesis8Female__Diane Head: 100% 0.571816
-MORPH Genesis8Female__Cynthia Head: 100% 0.01369
-MORPH Genesis8Female__Anya Head: 100% 0.753396
-MORPH Genesis8Female__PBMNipplesSize: 100% 0.158316
-MORPH Genesis8Female__PBMBreastsShape08: 100% 0.279012
-MORPH Genesis8Female__PBMBreastsHeavy: 100% 0.42281
-MORPH Genesis8Female__FBMHeavy: 100% 0.047928
-MORPH Genesis8Female__FBMVoluptuous: 100% 0.389398
-MORPH Genesis8FemaleEyelashes__CTRLFaceOlderHD: 100% 0.48993
-MORPH Genesis8FemaleEyelashes__RFMC_Face Weighted: 100% 0.217637
-MORPH Genesis8FemaleEyelashes__RFMC_Face Upper Width: 100% -0.25
-MORPH Genesis8FemaleEyelashes__RFMC_Face Length: 100% 0.5
-MORPH Genesis8FemaleEyelashes__RFMC_Face Angle (Alt): 100% 1.0
-MORPH Genesis8FemaleEyelashes__Olga Head: 100% 0.486485
-MORPH Genesis8FemaleEyelashes__Faiza Head: 100% 0.265872
-MORPH Genesis8FemaleEyelashes__Estell Head: 100% 0.66691
-MORPH Genesis8FemaleEyelashes__Diane Head: 100% 0.571816
-MORPH Genesis8FemaleEyelashes__Cynthia Head: 100% 0.01369
-MORPH Genesis8FemaleEyelashes__Anya Head: 100% 0.753396
-MORPH SassyBobHair_17966__Head Width: 100% -1.0
-MORPH SassyBobHair_17966__CTRLFaceOlderHD: 100% 0.48993
-MORPH SassyBobHair_17966__CTRLFaceAngle: 100% 0.554425
-MORPH SassyBobHair_17966__SCLNeckLength: 100% 0.55
-MORPH SassyBobHair_17966__RFMC_Forehead Wrinkles: 100% 0.455766
-MORPH SassyBobHair_17966__RFMC_Forehead Shape 02: 100% 0.241991
-MORPH SassyBobHair_17966__RFMC_Forehead Shape 01: 100% 0.216415
-MORPH SassyBobHair_17966__RFMC_Face Weighted: 100% 0.217637
-MORPH SassyBobHair_17966__RFMC_Face Upper Width: 100% -0.25
-MORPH SassyBobHair_17966__RFMC_Face Skinny: 100% 0.298937
-MORPH SassyBobHair_17966__RFMC_Face Length: 100% 0.5
-MORPH SassyBobHair_17966__RFMC_Face Angle (Alt): 100% 1.0
-MORPH SassyBobHair_17966__RFMC_Cranium Heights: 100% 0.696496
-MORPH SassyBobHair_17966__PBMBreastsShape08: 100% 0.279012
-MORPH SassyBobHair_17966__PBMBreastsHeavy: 100% 0.42281
-MORPH SassyBobHair_17966__FBMHeavy: 100% 0.047928
-MORPH SassyBobHair_17966__FBMVoluptuous: 100% 0.389398
-MORPH SassyBobHair_17966__RightOut: 100% 0.121589
-MORPH SassyBobHair_17966__Messy: 100% 0.517654
-MORPH SassyBobHair_17966__Longer: 100% 0.186439
-MORPH SassyBobHair_17966__LeftWind: 100% 0.164388
-MORPH SassyBobHair_17966__Fuller: 100% 0.469062
-MORPH SassyBobHair_17966__FrontWiden: 100% 0.280308
-MORPH SassyBobHair_17966__FrontForward: 100% 0.431218
-MORPH SassyBobHair_17966__BangsOut: 100% 0.5923
-MORPH SassyBobHair_17966__BackWiden: 100% 0.287804
-MORPH SassyBobHair_17966__BackTall: 100% 0.215304
+MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.081595
+MORPH Genesis8Female__Trey: 100% 0.233659
+MORPH Genesis8Female__Ryu: 100% 0.002335
+MORPH Genesis8Female__Raj: 100% 0.192877
+MORPH Genesis8Female__Nose Style Nordic: 100% 0.530805
+MORPH Genesis8Female__Nose Style Germanic: 100% 0.830934
+MORPH Genesis8Female__Mike: 100% 0.244986
+MORPH Genesis8Female__David: 100% 0.722545
+MORPH Genesis8Female__Damien: 100% 0.007023
+MORPH Genesis8Female__Christopher: 100% 0.002588
+MORPH Genesis8Female__Brian: 100% 0.042668
+MORPH Genesis8Female__FBMThin: 100% 0.668255
+MORPH Genesis8FemaleEyelashes__Trey: 100% 0.233659
+MORPH Genesis8FemaleEyelashes__Ryu: 100% 0.002335
+MORPH Genesis8FemaleEyelashes__Raj: 100% 0.192877
+MORPH Genesis8FemaleEyelashes__Mike: 100% 0.244986
+MORPH Genesis8FemaleEyelashes__David: 100% 0.722545
+MORPH Genesis8FemaleEyelashes__Damien: 100% 0.007023
+MORPH Genesis8FemaleEyelashes__Christopher: 100% 0.002588
+MORPH Genesis8FemaleEyelashes__Brian: 100% 0.042668
+MORPH XY__Penis length: 100% -0.165426
+MORPH XY__Plums size: 100% -0.247477
+MORPH XY__Penis size: 100% -0.227629
+MORPH Everyday__CTRLFaceOlderHD: 100% 0.081595
+MORPH Everyday__FBMThin: 100% 0.668255
 SCALE X: 100% 1.0
 SCALE Y: 100% 1.0
 SCALE Z: 100% 1.0
 
 //Hair
-HAIR Hairstyle: 100% SassyBobHair_17966
-HAIR Hair_Thickness: 100% 1.0
-HAIR Hair_Color_R: 100% 0.95
-HAIR Hair_Color_G: 100% 0.5
-HAIR Hair_Color_B: 100% 0.2
-HAIR Hair_Color_A: 100% 1.0
+HAIR Hairstyle: 100% Everyday
+HAIR Hair_Thickness: 100% 1.135624
+HAIR Hair_Color_R: 100% 0.005
+HAIR Hair_Color_G: 100% 0.001
+HAIR Hair_Color_B: 100% 0.0
+HAIR Hair_Color_A: 100% 0.85
 
 HAIR Brow_Color_R: 100% 0.0
 HAIR Brow_Color_G: 100% 0.0
@@ -89,42 +53,43 @@ HAIR Brow_Color_A: 100% 1.0
 
 // Skin
 SKIN Eye_Color_R: 100% 0.0
-SKIN Eye_Color_G: 100% 0.2
-SKIN Eye_Color_B: 100% 0.6
-SKIN Eye_Color_A: 100% 0.8
+SKIN Eye_Color_G: 100% 0.0
+SKIN Eye_Color_B: 100% 0.0
+SKIN Eye_Color_A: 100% 1.0
 SKIN Skin_Color_R: 100% 0.83
 SKIN Skin_Color_G: 100% 0.62
 SKIN Skin_Color_B: 100% 0.53
 SKIN Skin_Color_A: 100% 1.0
-SKIN BHairColor_R: 100% 0.015
-SKIN BHairColor_G: 100% 0.003
+SKIN BHairColor_R: 100% 0.005
+SKIN BHairColor_G: 100% 0.001
 SKIN BHairColor_B: 100% 0.0
 SKIN BHairColor_A: 100% 0.85
-SKIN Skin_Roughness: 100% 0.121568
+SKIN Skin_Roughness: 100% 0.511216
 SKIN Skin_Oil: 100% 0.25
-SKIN Skin_Fresnel: 100% 0.062263
-SKIN Skin_Age: 100% 0.537221
+SKIN Skin_Fresnel: 100% 0.578784
+SKIN Skin_Age: 100% 0.081595
 SKIN Skin_Sagging: 100% 0.0
 SKIN Muscle_Tone: 100% 0.0
-SKIN BHairThickness: 100% 0.25
-SKIN BHairstyle: 100% Pubes05
+SKIN BHairThickness: 100% 0.93617
+SKIN BHairstyle: 100% NoHair
+SKIN FHairstyle: 100% Facial_Hair__1_
 
 // Stats
-STAT age: 100% 37.0
-STAT attractiveness: 100% 80.0
-STAT cooking: 100% 60.0
-STAT dance: 100% 70.0
-STAT fitness: 100% 60.0
-STAT intelligence: 100% 60.0
-STAT interpersonal: 100% 75.0
-STAT martial: 100% 15.0
-STAT masochist: 100% -30.0
-STAT muscle: 100% 5.0
-STAT music: 100% 30.0
-STAT perversion: 100% 80.0
+STAT age: 100% 32.157932
+STAT attractiveness: 100% 46.784874
+STAT cooking: 100% 19.02524
+STAT dance: 100% 96.987823
+STAT fitness: 100% 80.187386
+STAT intelligence: 100% 25.992615
+STAT interpersonal: 100% 12.457655
+STAT martial: 100% 1.068148
+STAT masochist: 100% 64.372696
+STAT muscle: 100% 75.087738
+STAT music: 100% 6.338695
+STAT perversion: 100% 83.492264
 STAT pornfame: 100% 0.0
-STAT sneak: 100% 80.0
-STAT attractiontoplayer: 100% -38.786694
-STAT rapportwithplayer: 100% 29.542845
-STAT arousal: 100% 100.0
-STAT intoxication: 100% 0.0
+STAT sneak: 100% 61.839657
+STAT attractiontoplayer: 100% -100.0
+STAT rapportwithplayer: 100% -5.0
+STAT arousal: 100% 6.277658
+STAT intoxication: 100% 71.05014

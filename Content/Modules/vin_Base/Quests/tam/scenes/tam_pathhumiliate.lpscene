@@ -1,0 +1,296 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Kong = KongA.getActorAlias()
+    Amy = AmyA.getActorAlias()
+    Meihui = MeihuiA.getActorAlias()
+    stage = tam_stage.getGlobal()
+    fuckedKong = tam_fuckedKong.getGlobal()
+    If stage == 0
+        Nice1.removeObjective(tam_pathnice)
+        KongH.removeObjective(tam_pathhumiliate)
+        KongH.removeObjective(tam_pathbreak)        
+        setBackground(fraternity)
+        "I've got to say: this asshole really does know how to throw a party. So many beautiful women here."
+        "Is he really sleeping with all of them? Do some women find thugs like him really that attractive?"
+        "The host himself hasn't showed up though. Wonder what he's up? And where's Amy?"
+        Player(Surprised):: "What the fuck!"
+        Kong.dress(Cool-Jacket_1)
+        Amy.dress(Cute-Leggings_1_F)
+        Kong.show(2)
+        Amy.show(3)
+        "That's Kong with his arm wrapped around Amy ... Amy is wearing only leggings, clearly pullling all the attention to her ass."
+        "Kong on the other hand is wearing nothing but a little jacket, as if he's entering some twisted nude boxing ring."
+        "To be fair, he does have a lot to show off ... the guy's definitely well endowed."
+        "Maybe that's part of the reason why so many girls fall for this asshole."
+        Kong(Excited):: "LET THE PARTY BEGIN!"
+        "Suddenly, some of the hottest girls in the party stripped down and went join Kong and Amy for a big orgy ..."
+        Actor1 = generatePersonTemporary(mpwill_sororitygirl)
+        Actor2 = generatePersonTemporary(mpwill_dani)
+        Actor3 = generatePersonTemporary(mpwill_taylor)
+        
+        Actor1.randomizeFace()
+        Actor1.randomizeHairs()
+        
+        Actor2.randomizeFace()
+        Actor2.randomizeHairs()
+        
+        Actor3.randomizeFace()
+        Actor3.randomizeHairs()
+        
+        Sex(Kong, Amy, Actor1, Actor2, Actor3)
+        
+        Actor1.hide()
+        Actor2.hide()
+        Actor3.hide()
+        Kong.hide()
+        Amy.hide()
+        
+        Player(Sad):: "..."
+        Player.show(0)
+        "With Kong distracted, it's the perfect opportunity to sneak into his room to investigate this thug and see what he's hiding."
+        setBackground(home)
+        "Let's start looking around for evidence that Kong isn't quite the crime boss he claims to be."
+        "20 minutes later ..."
+        Player(Surprised):: "Hmm, what is this?"
+        "It's an old passport. Perfect. His real name is Kevin Butt! No wonder he needed a nickname to look tough. Birthdate 28 October 1979."
+        "I quickly took a picture of this passport. Hopefully I can dig out more information about this Kevin Butt at home."
+        "Let's sneak out of this room before anyone notices."
+        SneakGame()
+        If Random(0, 100) < sneak
+            "Perfect. Nobody saw a thing."
+        Elseif
+            Kong.show(2)
+            Kong(Angry):: "Stop right there!"
+            "Shit! I got caught!"
+            Kong(Angry):: "What are you doing in my room?"
+            0:: !Player.isMale():: "I'm here for the Kong Dong ... (Sex)"
+            1:: "Sorry, I got lost (Persuade)"
+            
+            If 0
+                Kong(Flirty):: "Got horny from watching me with the girls, didn't you? Fine, I'm always open to new sluts, especially those as easy as you."
+                "I had no other choice ... let's get this over and done with ..."
+                fuckedKong = 1
+                Sex(Kong, Player)
+            Elseif 1
+                If Random(0, 100) < interpersonal || !isModEnabled(vin_NonConsensual)
+                    Kong(Angry):: "Fine, then get the fuck out of my room, you idiot!"
+                Elseif Player.isMale()
+                    Kong(Angry):: "Do you take me for a fool? Take this!"
+                    Player(Pain):: "Ahhhhhhhhhhhh"
+                    energy -= 100
+                    "And just like that, Kong beat me up and threw me out of his house. At least I got the information I needed."
+                Else
+                    fuckedKong = 1
+                    Kong(Angry):: "Do you take me for a fool?"
+                    Kong(Flirty):: "You know, I really should beat you up. But since you're a bit of an eye candy. I'm just going to give you a good dicking instead."
+                    Player(Surprised):: "What? No!"
+                    "My struggle was futile. Kong was too strong ..."
+                    TalkNonConsensual()
+                    Filter(Aggressive)
+                    Sex(Kong, Player)
+                Endif
+            Endif
+        Endif
+        Kong.hide()
+        moveTo(home)
+        setBackground(home)
+        "A few days later ..."
+        If fuckedKong == 1
+            "I'll be honest: Kong fucked me real good. It was the best sex I've ever had. I still can't help but fantasize about that night. He has a huge dick and knows how to use it."
+            "It's a shame that it's an first-class asshole that owns such a dick and skill."
+            "At least now I get to experience first-hand why so many girls can't get enough of the guy."
+            "But I'm not one of them ... even if he fucked me, I'll still bring him down. If anything, what happened that night made this humiliation mission even more personal!"
+        Endif
+        "Let's do some internet searches for Kevin Butt born in 1979 ..."
+        "Very quickly, I came across his criminal record ..."
+        "Shoplifting, bike theft, trespassing, a few restraining orders for domestic abuse ..."
+        "Possession of 30 grams of marijuana - got a month in prison for that ..."
+        "30 grams of weed! Crime lord my ass. More like a small time neighbourhood wannabe thug ..."
+        "Just like Meihui suspected, a punk-ass bitch ..."
+        If fuckedKong == 1
+            "... who does know how to fuck a woman, to be fair .... Damn, why am I thinking about that night again?"
+            Player(Embrassed):: "Grrrr, can't believe this punk got to fuck me ..."
+            "It was amazing though ..."
+            "Anyway ..."
+        Endif
+        "Let's send this information to Meihui."
+        Meihui:: "Wow, great job! Kevin Butt? Hahahahaha."
+        Meihui:: "And such a petty criminal too acting like he's the big shot."
+        Meihui:: "I'll talk to Amy about this. Hopefully, this will destroy his alpha male image in her eyes."
+        Meihui:: "Thank you so much for your help!"
+        
+        tam_stage.setGlobal(22)
+        Humi2.generateBuildingAlias(cafe)
+        Humi2.addObjective(tam_pathhumiliate)
+    Elseif stage == 22 // Drug
+        Humi2.removeObjective(tam_pathhumiliate)
+        "Meihui asked to meet me at a cafe today. I wonder if she has good news about Amy. The evidence about Kong that I digged out was quite damning after all."
+        Meihui.dress()
+        Meihui.show(2)
+        Player(Surprised):: "You must be joking! She didn't believe you? The evidence was clear as day."
+        Meihui(Sad):: "You know what ... I think deep inside she long knew Kong wasn't the big shot he claimed to be ... she just makes herself believe his crap to live out a fantasy ..."
+        Player(Sad):: "Well, then we wasted our time then ..."
+        If fuckedKong == 1
+            "And I even had to fuck that asshole for nothing?"
+            "It was amazing though ..."
+            "Damn it, stop, get hold of yourself, <Player.name>!"
+        Endif
+        Meihui(Happy):: "Not necessarily, as much as the crime boss fantasy is attractive, Kong still has certain tools to keep Amy hooked."
+        Meihui(Embarassed):: "Well, one tool in particular ..."
+        0:: "You mean his dick?"
+        
+        Meihui(Embarassed):: "Yeah ... I never saw it myself, but the bastard is always boasting about his 'Kong Dong' ... I can kinda guess it's probably quite impressive."
+        Player(Sad):: "Yeah, he's well endowed and good in bed. I saw that at the party ..."
+        If fuckedKong == 1
+            "... and also experienced it personally ..."
+        Endif
+        Player(Surprised):: "But what about it? You're not suggesting that we should try to castrate him, are you?"
+        Meihui(Happy):: "Haha, I swear if I could do that, I would. But no, I have something more discreet."
+        Meihui(Evil):: "This powerful drug can make any man unable to get hard for a month. He won't be much of an alpha male if he has erectile dysfunction."
+        0:: "Damn that's evil ..."
+        
+        Meihui(Evil):: "He deserves it! There's one problem though: the drug takes a few hours to kill off all libido. Within those first hours, it would have the opposite effect. He would become a peak sex machine for a few hours before his libido jumping off the cliff."
+        Player(Evil):: "Well, that's rather convenient actually ... that way, he won't know he's been poisoned right away and whoever gives the drug to him will be able to make a safe escape ..."
+        Meihui(Sad):: "... or get fucked to death by him during the high."
+        Meihui.hide()
+        "Meihui handed me the drug. Considering the risk the person giving this to him is exposed to, it's probably best to hire a prostitute for the job."
+        "But can I really trust a prostitute to get it done?"
+        0:: "Hire a prostitute to do it"
+        1:: !Player.isMale():: "Do it myself"
+        
+        If 0
+            money -= 500
+            Seducer = generatePersonTemporary(mpwill_sororitygirl)
+            Seducer.randomizeFace()
+            Seducer.randomizeHairs()
+            Player.hide()
+            Seducer.show(0)
+        Else
+            "I can't take any risk ... What's the worst thing that I can happen?"
+            Seducer = Player
+            If fuckedKong == 1
+                "Maybe deep inside, I just want to fuck him again ... It was already amazing last time, this 'side effect' would make sex with him out of this world."
+            Else
+                fuckedKong = 1
+            Endif            
+        Endif
+        
+        setBackground(home)
+        Seducer.strip()
+        Kong.show(2)
+        Kong(Flirty):: "You're a pretty decent fuck ... give me five minutes. I'll reward you with a second round of the Kong Dong."
+        Seducer(Flirty):: "Actually, you don't have to wait. Take this, it will make you horny out of your mind and become a sex machine."
+        Kong(Flirty):: "Haha! What a horny bitch! Are you sure you can handle me as a 'sex machine'? Fine, let me give that a try."
+        "Kong drank the whole bottle of the drug in no time."
+        Kong(Flirty):: "Damn, you're right, slut. This thing is amazing. I feel so pumped up already! Let's go."
+        Sex(Kong, Seducer)
+        
+        Seducer.show(0)
+        Kong.show(2)
+        Kong(Flirty):: "I'm not done yet. Round 3!"
+        Sex(Kong, Seducer)
+        
+        Seducer.show(0)
+        Kong.show(2)
+        Kong(Flirty):: "Fuck, this drug is amazing. Round 4!"
+        Sex(Kong, Seducer)
+        
+        Seducer.show(0)
+        Kong.show(2)
+        Kong(Flirty):: "Damn, I can go on forever. Round 5!"
+        Sex(Kong, Seducer)
+        
+        tam_stage.setGlobal(23)
+        KongH.addObjective(tam_pathhumiliate)
+    Elseif stage == 23 // Femdom
+        setBackground(cafe)
+        Meihui.dress()
+        Meihui.show(2)
+        Meihui(Happy):: "It worked! Kong hasn't tried to find Amy for two weeks, probably too embarassed that he can't get it up to go see any women."
+        Player(Happy):: "Fantastic!"
+        If fuckedKong == 1
+            "So I didn't fuck him for nothing after all ..."
+            "Such a waste that tasty dick can no longer get hard though ... Jeez, what the hell am I thinking about again?"
+        Endif
+        Meihui(Evil):: "Thing is he's still throwing another house party tomorrow's night. I suppose hosting these is his bread and butter. Pretty sure he's in no condition to fuck any girl at that party though."
+        Meihui(Evil):: "Let's deal a knock-out blow to his ego at that party."
+        0:: "What do you have in mind?"
+        
+        Meihui(Evil):: "He's a misogynistic egomaniac. Nothing will humiliate him more than getting beaten up by a woman in front of his girlfriends and wolf pack brothers at his own house party."
+        Player(Surprised):: "Can any woman really do that though? He may not be a crime boss that he claims to be, but he's a big muscular guy nevertheless."
+        Meihui(Evil):: "Not many women can. But she can ..."
+        Meihui(Evil):: "This is Athena ..."
+        Athena = generatePerson(tam_athena)
+        Athena.dress(Sports-Bodysuit_1_F)
+        Athena.show(3)
+        Athena(Happy):: "Nice to meet you, <Player.name>. Meihui told me about how you gave that punk-ass bitch a permanent softie and I like it!"
+        Meihui(Happy):: "Athena is an MMA instructor ... she also worked as a dominatrix."
+        Player(Evil):: "Exactly the type to put Cannot-Get-Hard-Kevin back in his place!"
+        
+        Meihui.hide()
+        Athena.hide()
+        setBackground(fraternity)
+        Kong.dress(Mens-Boxershorts_1)
+        Kong.show(2)
+        "Kong isn't showing off his dong tonight, choosing to wear a pair of boxer shorts instead to show off his six pack but hide his soft dick. There's no orgy to start off the party either."
+        "The girls and his wolf pack buddies are all confused as to why ... Meanwhile, Athena and I know the reason very damn well."
+        Athena.show(3)
+        Athena(Sarcastic):: "Little punk ass bitch!"
+        Kong(Angry):: "What the fuck did you say?"
+        "Kong wasted no time and started throwing punches at Athena, not even a little consideration of 'Never Hit a Woman'. Well, that's not going to be a problem. This is no normal woman he's up against!"
+        Athena(Angry):: "Take this!"
+        Kong(Crying):: "Ahhhhhhhhhhhhhhhhhhh"
+        Athena(Angry):: "What a bitch!"
+        Kong(Crying):: "Ahhhhhhhhhhhhhhhhhhhhhh"
+        Athena(Angry):: "Go home to mommy!"
+        Kong(Crying):: "Stop ... please, I can't take it anymore."
+        "The shock on the face of the party goers was obvious. Their idol was absolutely destroyed by this amazonian woman amd is now begging for mercy."
+        Athena(Angry):: "Call me Mistress!"
+        Kong(Surprised):: "What?"
+        Athena(Angry):: "Call me Mistress now! Or I'll break your back in half."
+        Kong(Crying):: "Mistress ..."
+        Athena(Angry):: "Good ... now you shall walk on all fours back to your bedroom. There, you shall serve your Mistress, faithfully like a little puppy. That's all you're good for."
+        Kong(Crying):: "Yes, Mistress ..."
+        setBackground(home)
+        TalkNonConsensual()
+        Filter(AggressiveFM)      
+        Sex(Kong, Athena)
+        
+        Kong.hide()
+        Athena.hide()
+        setBackground(cafe)
+        "A few weeks later ..."
+        Player.show(0)
+        Meihui.show(2)
+        Kong.deletePerson()
+        Player(Happy):: "So Kong's gone?"
+        Meihui(Happy):: "Yeah, flew out of the country apparently. Didn't have many other options to be fair. His ego and bad boy reputation was forever ruined after that night. Maybe he'll have better luck with girls abroad."
+        Player(Happy):: "Good riddance!"
+        Player(Happy):: "What about Amy?"
+        Meihui(Happy):: "Much better ... I feel like I finally have my best friend back. It will take a while for her to regain her confidence after this painful episode, but she'll get there eventually."
+        Meihui(Happy):: "Thank you for everything. Without your help, we would have never got rid of Kong."
+        Player(Sarcastic):: "You mean Can't-Get-Hard-Kevin?"
+        Meihui(Evil):: "Hahahahahaha!"
+        
+        exchangeContact(Meihui)
+        exchangeContact(Athena)
+        exchangeContact(Amy)
+        
+        Athena:rapportwithplayer => 100
+        Meihui:rapportwithplayer => 100
+        Amy:rapportwithplayer => 100
+        
+        Meihui:attractiontoplayer += 50
+        Amy:attractiontoplayer += 50
+        karma += 35
+        intelligence += 5
+        sneak += 10
+        QuestEnd()
+    Endif
+    tam_fuckedKong.setGlobal(fuckedKong)
+    SceneEnd()

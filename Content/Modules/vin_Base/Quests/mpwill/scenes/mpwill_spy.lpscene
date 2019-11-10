@@ -46,8 +46,10 @@ OTHER: none
         "That's Denise heading out of the house. Let's follow her!"
         setBackground(supermarket)
         "Damn, she was just heading to the supermarket to grab some grocery ... No extra-marital affairs to be found here ..."
+        "I should try again."
     Else
         "Denise didn't even head out of the house at all the whole time I was here ... nothing to see here."
+        "I should try again."
     Endif
     
     SceneEnd()

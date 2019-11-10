@@ -1,0 +1,332 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    If isWithCompanion()
+        endDate()
+    Endif
+    Amy = AmyA.getActorAlias()
+    Kong = KongA.getActorAlias()
+    SceneStart()
+    stage = tam_stage.getGlobal()
+    If stage == 0
+        goahead = false
+        If isModEnabled(vin_NTR)
+            goahead = true
+        Else
+            "The NTR module is currently OFF. This particular path of the quest has optional netorare content if you have this module turned on. You can proceed, but this path will have about 50% less content, or you can exit this scene, then Ctrl + M > tick Official NTR Module > Confirm to enjoy all the content this path has to offer."
+            0:: "Proceed, without NTR"
+            1:: "Exit the scene for now"
+            
+            If 0
+                goahead = true
+            Endif
+        Endif
+        
+        If goahead
+            Nice1.removeObjective(tam_pathnice)
+            KongH.removeObjective(tam_pathhumiliate)
+            KongH.removeObjective(tam_pathbreak)
+            moveTo(home)
+            setBackground(home)
+            "A few days after coming across Amy and her friend, I managed to dig out Amy's contact from an old phone. Maybe I should ask her to hang out to cheer her up?"
+            Player(Happy):: "Hi Amy, it's a shame we didn't have a chance to talk much the other day. Do you want to catch up over dinner tomorrow? It's been a while."
+            Amy(Happy):: "I'd love to! Sorry I had to leave so suddenly the other day."
+            Player(Happy):: "Great, I know a great place!"
+            "The evening after ..."
+            setBackground(restaurant)
+            Amy.dress()
+            Amy.show(4)
+            Player(Happy):: "You look beautiful! Thank you so much for coming out with me tonight."
+            "After all the confidence she's lost coming out of her abusive relationship, I suppose any compliments would do wonders for her to be self-assured again."
+            Amy(Happy):: "This is a nice restaurant. You have a great taste, <Player.name>."
+            "The evening went wonderfully. We talked mostly about her six months abroad on the exchange programme and avoided talking about Kong at all."
+            "Then all of a sudden, a couple came into the same restaurant we were at ..."
+            Kong.dress()
+            Kong.show(2)
+            Girl = generatePersonTemporary(mpwill_sororitygirl)
+            Girl.randomizeFace()
+            Girl.randomizeHairs()
+            Girl.dress()
+            Girl.show(3)
+            "Judging from Amy's reaction, it's pretty clear who the guy is ... It's Kong, with another girl."
+            "He saw Amy immediately, then with a big smirk of his face, he shouted out:"
+            Kong(Evil):: "One man's trash is another <Player.man_or_woman>'s treasure!"
+            Player(Angry):: "..."
+            Amy(Crying):: "..."
+            "It doesn't take a rocket scientist to understand Kong's insult to us both. As soon as Kong finished his sentence, Amy began crying ..."
+            "As much as I want to punch the asshole, I'd rather avoid causing a scene at a classy restaurant. Instead, I placed my hand on Amy's hand and consoled her."
+            Kong.hide()
+            Girl.hide()
+            Player(Happy):: "Ignore him. He's just trying to provoke you. He's the trash. You deserve so much better."
+            Amy(Sad):: "Thank you ... that's very kind of you."
+            "We continued the dinner, trying to ignore Kong and his date. After a while though, I glanced back to his table and they were already gone. Maybe he just got wind of Amy being here and showed up deliberately to provoke her? When that didn't work, he was on his way. Good riddance I say!"
+            "Eventually, we finished our expensive three-course dinner with a bottle of fine wine. I felt like we really enjoyed each other's company this evening, despite Kong's little intrusion."
+            "When it came to the bill, of course I took care of it, even leaving a generous tip. It was a fortune for a meal for two, but it was worth it for Amy's company alone."
+            money -= 300
+            Player(Happy):: "Let me walk you back to your place. I just want to keep you safe."
+            Amy(Happy):: "Thank you, that's very kind of you!"
+            setBackground(street)
+            Amy(Happy):: "Here it is, thank you for walking me all the way back to my apartment building."
+            "She looked deep into my eyes as she thanked me ... I really feel like we're connecting."
+            0:: "Kiss her"
+            1:: "Say goodbye"
+            
+            If 0
+                Player(Kiss):: "..."
+                Amy(Kiss):: "..."
+                "We shared a little kiss, nothing too sexual, just a little proof of a first date that went well ..."
+            Endif
+            Player(Happy):: "Good night! We'll see each other soon, okay?"
+            Amy(Happy):: "Good night to you too. Thank you for a wonderful evening."
+            Amy.hide()
+            "Well, that wasn't so bad, was it? Her best friend underestimated Amy here, she's not some dumb bimbo attracted only to bad boys. She's a woman that likes to be treated with respect. Kong was just a mistake - nobody is perfect."
+            
+            If isModEnabled(vin_NTR)
+                Player.hide()
+                "Unbeknown to <Player.name> ..."
+                "Rewind to earlier that evening ................"
+                setBackground(restaurant)
+                Player.show(0)
+                Amy.show(4)
+                Player(Angry):: "..."
+                Amy(Crying):: "..."
+                Player(Happy):: "Ignore him. He's just trying to provoke you. He's the trash. You deserve so much better."
+                Amy(Sad):: "Thank you ... that's very kind of you."
+                "We continued the dinner, trying to ignore Kong and his date. After a while though, I glanced back to his table and they were already gone. Maybe he just got wind of Amy being here and showed up deliberately to provoke her? When that didn't work, he was on his way. Good riddance I say!"
+                Amy(Happy):: "I'll be back soon, okay?"
+                "Amy just got up for a bathroom break. Let's just wait for her here."
+                Player.hide()
+                setBackground(toilets)
+                Amy(Surprised):: "..."
+                Sex(Kong, Girl)
+                Girl.hide()
+                Kong.strip()
+                Kong.show(2)
+                Amy.show(4)
+                Kong(Evil):: "Look who's peeping?"
+                Kong(Evil):: "Jealous? You know damn well she's a better fuck than you!"
+                Kong(Evil):: "And what's with the doormat <Player.cuck_or_lesbo> you're with? I bet you were sitting there thinking about the Kong Dong the whole time while the idiot tries to charm you with <Player.his_or_her> boring chatter and fancy dinner?"
+                Kong(Evil):: "Fine, now that you're here, why don't you get on your knees and clean this up? This is a fancy restaurant that <Player.cuck_or_lesbo> took you to, don't want to stain their carpet with my leaking cum, do I?"
+                "It's an extremely degrading command, but deep inside, Amy is a mentally broken girl and somehow being dominated and being treated like trash has become irresistible for her. It's as if Kong pressed a button and Amy would simply drop to her knees in front of this asshole, with her nice and gentle companion waiting outside in the restaurant."
+                Filter(Blowjob)
+                Sex(Kong, Amy)
+                Kong.dress()
+                Amy.show(4)
+                Kong.show(2)
+                Kong(Evil):: "Good work! Thanks to your cleaning job, I even managed to save some tissues today. You're not good for much, but your tongue makes a good reusable dick cleaner for sure."
+                Kong(Evil):: "Now, fuck off back to your little date! And don't forget to give the doormat a kiss goodnight full of my cum afterwards!"
+                masochist += 5
+            Endif
+            
+            tam_stage.setGlobal(12)
+            Nice2.generateBuildingAlias(home)
+            Nice2.addObjective(tam_pathnice)
+        Endif
+    Elseif stage == 12
+        Meihui = MeihuiA.getActorAlias()
+        setBackground(street)
+        Amy:: "Hi <Player.name>, I'm thinking about of moving out of my current place. I am having a look at a new apartment tomorrow. Do you want to come? Meihui will be there too."
+        Player(Happy):: "Sure, I'd love to. I might be able to negotiate you a better deal with the landlord."
+        "The day after ..."
+        setBackground(home)
+        Amy.dress()
+        Amy.show(2)
+        exchangeContact(Meihui)
+        Meihui.dress()
+        Meihui.show(4)
+        Meihui(Happy):: "I'm so glad she listens to me for a change and actually does this?"
+        Player(Happy):: "Huh? You advised her to move houses? How come?"
+        Meihui(Happy):: "Think about it: a big factor of why Kong has such a strong hold on her is that he knows exactly where she lives and can just show up at her door anytime. If she moves somewhere else, he can't physically find her to harass her anymore."
+        Player(Happy):: "Fair point."
+        Amy(Happy):: "I think this apartment is just perfect ... but I can't afford the deposit the landlord is asking for right now ... maybe I should wait a few more months and save up some money first."
+        0:: "Offer to pay her deposit"
+        1:: "Stay silent"
+        
+        If 0
+            money -= 2000
+            Player(Happy):: "Don't worry. I'll be happy to pay that deposit for you."
+            Amy(Surprised):: "Really? But it's a lot of money ..."
+            Player(Happy):: "It will be my pleasure!"
+            Amy(Happy):: "Oh my god. That's so kind of you. What have I ever done to deserve this?"
+        Else
+            Meihui(Happy):: "You don't have to wait. I'll have access to that amount. I can lend you. Just pay me back when you have it."
+            Amy(Happy):: "Thank you so much, Meihui. I'm so lucky to have a friend like you."
+        Endif
+        
+        "With the deposit paid to the landlord, Amy scheduled a moving date. Of course, I volunteered to help her move."
+        Meihui.hide()
+        Player(Exhausted):: "Damn, this is heavy ..."
+        "It was a long and exhausting day, but I was glad I was able to help her, especially if this means Kong is out of her life for good."
+        "The bed was the worst though, not only was the package so heavy and hard to carry, it took me ages to figure out how to put the parts together."
+        Player(Exhausted):: "I need some water ..."
+        "Eventually though, I've finished moving all of Amy's belongings to the new apartment. It's almost bedtime."
+        Amy(Happy):: "Thank you so much for your help today. I wouldn't know what to do to move this much stuff without you, honestly!"
+        Player(Happy):: "Glad I could help. I've got to go though. See you again soon, okay?"
+        Amy(Happy):: "Good night!"
+        "As much as I wanted to stay, I was exhausted and sweating all over. I badly needed a shower."
+        energy => 0
+        Player(Happy):: "Good night, Amy!"
+        "Well, her night had better be good after all my sweat and tear moving that bloody bed!" 
+        If isModEnabled(vin_NTR)
+            Player.hide()
+            "Unbeknown to <Player.name> ..."
+            "Later that night ..."
+            Amy(Sad):: "Please stop calling me ..."
+            Kong:: "Shut up you whore! You're not the one to make demands, did you forget? I can call you whenever the fuck I feel like it. And you should be thankful for it."
+            Kong:: "I tried to find you at your apartment, where the fuck are you? Your roommates said you've moved elsewhere."
+            Kong:: "Are you trying to get away from me again, you stupid cunt? Didn't the last hundred times you tried to do that teach you something? Admit it, you can't stay away from the Kong Dong for long."
+            Kong:: "Now, send me your new address, I'd be happy to come and throw you a housewarming feast with my cum."
+            Amy(Sad):: "No way ... I don't know ... this is exactly what Meihui told me not to do ... I can't do it ..."
+            "Her mouth said no but her fingers are already starting to type out her new address in a text message intended for her abusive ex."
+            "It then only took Kong half an hour to arrive at Amy's new apartment."
+            Kong.dress()
+            Kong.show(0)
+            Kong(Sarcastic):: "Nice place you have here ... but I suspect a lightweight like you didn't move everything yourself, did you?"
+            Kong(Sarcastic):: "Did that sucker at the restaurant help you move? Did <Player.he_or_she> exhaust <Player.himself_or_herself> trying to move this bed for you. Must have been heavy! Are you sure <Player.he_or_she> didn't dislocate <Player.his_or_her> shoulder? All so that you can enjoy your sweet sleep."
+            Kong(Flirty):: "We shouldn't let all that effort go to waste, should we? Come, let me give you a good dicking and put you to sleep on this very bed."
+            Filter(Bed)
+            Sex(Kong, Amy)
+            masochist += 5
+        Endif
+        
+        tam_stage.setGlobal(13)        
+    Elseif stage == 13
+        setBackground(street)
+        Amy:: "Hi <Player.name>, thank you so much for helping me move last week. Do you want to come over my apartment for dinner this evening? My cooking might not be as good as the nice restaurant you took me to, but it's the least I could do to thank you."
+        Player(Happy):: "Sure, I'd love to. Can't wait to try out your cooking."
+        "Well, that was unexpected ... and it's this evening already. I'd better get ready."
+        "Later in the evening ..."
+        setBackgroundCustom(kitchen)
+        Amy.dress()
+        Amy.show(2)
+        Player(Happy):: "Wow, that was delicious. I had no idea you were such a good cook."
+        Player(Sarcastic):: "It's soooooo much food though, were you planning to feed me or an entire army?"
+        Player(Happy):: "I have a gift for you too ..."
+        "I took my guitar out of the bag I took with me to the dinner and started serenading Amy ..."
+        Player(Kiss):: "When I see your faceeeeeeeeeeeeeeeeee"
+        Player(Kiss):: "There's not a thing that I would changeeeeeeeeeeeeeeeeee"
+        Player(Kiss):: "'Cause you're amazinggggggggggggggggggg"
+        Player(Kiss):: "Just the way you areeeeeeeeeeeeee"
+        Amy(Surprised):: "Wow, I didn't know you're such a good singer. That's so sweet. I've never been serenaded like that before. Am I living in some fantasy world right now and you're my <Player.Prince_or_Princess> Charming?"
+        Amy(Flirty):: "Well, I do have another surprise for you: A special dessert. It's in my bedroom though."
+        Player(Surprised):: "Oh? Okay, let's go then."
+        setBackground(home)
+        Amy.strip()
+        Amy(Flirty):: "You like what you see?"
+        Amy(Flirty):: "Why don't you eat this?"
+        0:: "Eat her out"
+        1:: "Decline"
+        
+        If 0
+            Player(Flirty):: "Don't mind if I do!"
+            Filter(Licking)
+            Sex(Amy, Player)
+        Else
+            Player(Happy):: "You don't have to do this. I didn't do all of this for you in exchange for some sexual favour."
+            Amy(Embarassed):: "You're such a <Player.gentleman_or_lady> ... I don't know how else to thank you for everything you've done."
+            Player(Happy):: "Didn't you already thank me with that amazing dinner? Don't overthink it. I just want you to feel better, I need no other reward."
+            Amy(Happy):: "<Player.name>! You're such an amazing person honestly!"
+        Endif
+        
+        If isModEnabled(vin_NTR)
+            Player.hide()
+            Amy.hide()
+            "Unbeknown to <Player.name> ..."
+            "Earlier that day ..."
+            Actor1 = generatePersonTemporary(mpwill_gangbanger)
+            Actor2 = generatePersonTemporary(mpwill_gangbanger)
+            Actor3 = generatePersonTemporary(mpwill_gangbanger)
+            
+            Actor1.randomizeFace()
+            Actor1.randomizeHairs()
+
+            Actor2.randomizeFace()
+            Actor2.randomizeHairs()
+
+            Actor3.randomizeFace()
+            Actor3.randomizeHairs()
+            Sex(Kong, Actor1, Actor2, Actor3, Amy)
+            Actor1.hide()
+            Actor2.hide()
+            Actor3.hide()
+            Kong.show(0)
+            Amy.show(2)
+            Amy(Sad):: "..."
+            Kong(Flirty):: "You're getting better at handling dicks, still a long way off from some of my other side chicks though. Maybe next time I'll bring another two guys from my gang for you to fuck."
+            Kong(Evil):: "Anyway, we've been here all week. My buddies and I are a bit tired of fucking you everyday now"
+            Kong(Evil):: "Listen Wolf Pack: let's go hunting somewhere else."
+            Amy(Surprised):: "What? You're leaving? But I was planning to make dinner for you and your friends tonight. I already bought the ingredients ..."
+            Kong(Evil):: "Ha! Is that so? How thoughtful of you? You can't get enough of us, can you? So much for moving apartments to stay away from me."
+            Kong(Evil):: "It's a shame though, your mediocre cooking isn't going to tempt me to stay."
+            Kong(Evil):: "As for all the ingredients you already bought, you know what? Why don't you invite that cuck that helped you move instead?"
+            Kong(Evil):: "Here. I'll even be generous enough to leave <Player.him_or_her> some special Kong dessert. Sharing is caring and all that! Make sure <Player.he_or_she> eats it all up."
+            Filter(Vaginal)
+            Sex(Kong, Amy)
+            masochist += 5
+        Endif
+        
+        tam_stage.setGlobal(14)
+    Elseif stage ==  14
+        setBackground(bar)
+        exchangeContact(Amy)
+        Amy.dress()
+        Amy.show(2)
+        "I'm hanging out with Amy once again. We're at one of our favorite bars."
+        "Amy has been dropping hints that she wants to take our relationship to the next level. Maybe it's time to ask her to be my girlfriend?"
+        0:: "Start a relationship with Amy"
+        1:: "Actually, I only ever want to be friends with her. (End Quest)"
+        
+        If 0
+            Amy(Happy):: "Yes! Yes! Of course I will be your girlfriend."
+            Amy.setDating()
+            "Wow, I know she's been dropping hints recently but didn't quite expect her to react so excitedly. She must really have been waiting for this. Maybe I waited too long."
+            Amy(Flirty):: "Let's get out of here and celebrate our relationship!"
+            "That's quite forward actually! With Amy as my girlfriend, it seems I won't have to worry about not having my needs satisfied. We actually have never had proper sex until now, but the wait is worth it."
+            setBackground(home)
+            Sex(Player, Amy)
+            
+            Player.show(0)
+            Amy.show(2)
+            If !Player.isMale() && !Player.isTrans()
+                Amy(Flirty):: "Honey, that was amazing ... but I want a baby. I've been researching vitro fertilization recently ..."
+                Player(Surprised):: "Darling, isn't it too early for that? We literally became a couple two hours ago ..."
+                "But Amy insisted and eventually being a nice lady, I gave in. Maybe this has been her dream for a while now."
+                "I didn't get involved much with the process. It was decided it would be her egg with an anonymous sperm donor."
+                "Eventually, the procedure was successful and Amy got pregnant with our child!"
+            Else
+                "One month later ..."
+                "Amy just told me the biggest news of my life. She's pregnant with my baby! We didn't even have sex that often in our first month of the relationship but I guess it was enough."
+                "I was a bit stressed by the responsibility ahead but even more than that, I was overjoyed of the thought of becoming a <Player.father_or_mother>."
+            Endif
+            "We're so ready to start a new family!"
+            Amy.impregnate()
+            
+            If isModEnabled(vin_NTR)
+                Player.hide()
+                "Unbeknown to <Player.name> ..."
+                "Rewinding to the week before <Player.name> asked <Amy.name> to be <Player.his_or_her> girlfriend ..."
+                Amy.strip()
+                Kong.show(0)
+                Kong(Angry):: "Stupid bitch. I thought I told you to take the pill. Can't even do that properly and get knocked up!"
+                Kong(Angry):: "I'm done with you ... I have no use for a pregnant bitch."
+                Amy(Crying):: "Please, don't leave, it's your child ..."
+                Kong(Angry):: "Firstly, I don't give a fuck ..."
+                Kong(Angry):: "Secondly, even if I do give a fuck, how would I know it's mine? Could be me. Could be one of my buddies that I pimped you to."
+                Kong(Angry):: "Bye bye whore. Shame, you were finally getting better at fucking. But you're so dumb you got knocked up. The Kong Dong no longer requires your service."
+                If Player.isMale() || Player.isTrans()
+                    Kong(Sarcastic):: "About the baby: if you don't want to abort, why not tell that cuck that have been fawning over you that it's <Player.his_or_hers>?"
+                    Amy(Crying):: "<Player.He_or_She>'s never even been inside me ..."
+                    Kong(Sarcastic):: "Haha! Really? <Player.He_or_She> did all that for you without even getting some mediocre pussy to show for. What a loser!"
+                    Kong(Sarcastic):: "Well, then it's your problem, not mine!"
+                Endif
+                masochist += 5
+            Endif        
+        Elseif 1
+            "I never took the relationship anywhere and we simply remained friends. At least she seemed to have finally escaped Kong's control with my help."
+        Endif
+        QuestEnd()
+    Endif
+    SceneEnd()

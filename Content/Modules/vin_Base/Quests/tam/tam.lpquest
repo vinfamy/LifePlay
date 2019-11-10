@@ -1,0 +1,6 @@
+ID: tam
+NAME: The Alpha Male
+DESC: An naive girl with a thing for bad boys keeps getting back into an abusive relationship with a dangerous gangster, even against her more mature best friend's advice. Will you team up with the best friend to save the poor girl from his cycle of abuse or will you join the thug's 'wolf pack' and try to 'break' the best friend too?
+ONCE: true
+CONDITIONS: none
+START: tam_start
