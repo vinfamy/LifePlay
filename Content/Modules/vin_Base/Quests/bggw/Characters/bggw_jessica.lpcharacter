@@ -1,0 +1,157 @@
+// Information
+INFO Is_Male: 100% false
+INFO Interested_In_Men: 100% true
+INFO Interested_In_Women: 100% true
+INFO Interested_In_Transgender: 100% true
+INFO First_Name: 100% Jessica
+INFO Last_Name: 100% J
+INFO Race: 100% Daz
+INFO Genital: 100% Vagina
+
+// Morphs
+MORPH Genesis8Female__Mouth Depth In Out: 100% 0.393021
+MORPH Genesis8Female__CTRLFitness: 100% 0.343897
+MORPH Genesis8Female__RFMC_Face Overall Long: 100% 0.518223
+MORPH Genesis8Female__RFMC_Face Length: 100% 0.284198
+MORPH Genesis8Female__RFMC_Face Angle (Alt): 100% 0.139263
+MORPH Genesis8Female__RFMC_Eyes Rotate: 100% 0.291762
+MORPH Genesis8Female__RFMC_Brows Arch 05: 100% 0.544872
+MORPH Genesis8Female__Nose Scale: 100% 0.104185
+MORPH Genesis8Female__Mouth Height (Alt): 100% -0.25
+MORPH Genesis8Female__Lip Upper Enlarge: 100% 0.7
+MORPH Genesis8Female__Lip Lower Volume: 100% 0.7
+MORPH Genesis8Female__Kareena Head: 100% 0.104897
+MORPH Genesis8Female__Eyes Distance: 100% 0.20904
+MORPH Genesis8Female__Chin Rounded: 100% 0.563156
+MORPH Genesis8Female__Chin Depth: 100% 0.291993
+MORPH Genesis8Female__Cheeks Chubby: 100% 0.172019
+MORPH Genesis8Female__Brows Height: 100% -0.5
+MORPH Genesis8Female__Brows Distance: 100% -0.5
+MORPH Genesis8Female__Anya Head: 100% 0.854325
+MORPH Genesis8Female__PHMBrowWidth: 100% 1.0
+MORPH Genesis8Female__MCMCheekbonesSmall: 100% 0.218081
+MORPH Genesis8Female__PBMBreastsImplantsR: 100% 0.5
+MORPH Genesis8Female__PBMBreastsImplantsL: 100% 0.5
+MORPH Genesis8Female__FBMThin: 100% 0.077272
+MORPH Genesis8FemaleEyelashes__RFMC_Face Overall Long: 100% 0.518223
+MORPH Genesis8FemaleEyelashes__RFMC_Face Length: 100% 0.284198
+MORPH Genesis8FemaleEyelashes__RFMC_Face Angle (Alt): 100% 0.139263
+MORPH Genesis8FemaleEyelashes__RFMC_Eyes Rotate: 100% 0.291762
+MORPH Genesis8FemaleEyelashes__Kareena Head: 100% 0.104897
+MORPH Genesis8FemaleEyelashes__Eyes Distance: 100% 0.20904
+MORPH Genesis8FemaleEyelashes__Brows Height: 100% -0.5
+MORPH Genesis8FemaleEyelashes__Anya Head: 100% 0.854325
+MORPH FlashyHairG3_41761__SCLPropagatingHead: 100% 0.05
+MORPH FlashyHairG3_41761__CTRLFitness: 100% 0.343897
+MORPH FlashyHairG3_41761__RFMC_Face Overall Long: 100% 0.518223
+MORPH FlashyHairG3_41761__RFMC_Face Length: 100% 0.284198
+MORPH FlashyHairG3_41761__RFMC_Face Angle (Alt): 100% 0.139263
+MORPH FlashyHairG3_41761__FBMThin: 100% 0.077272
+MORPH FlashyHairG3_41761__WindRight: 100% -0.25
+MORPH FlashyHairG3_41761__WindLeft: 100% -0.25
+MORPH FlashyHairG3_41761__UpperWide: 100% -0.25
+MORPH FlashyHairG3_41761__SweepBangsL: 100% 1.0
+MORPH FlashyHairG3_41761__RMidOut: 100% 0.371497
+MORPH FlashyHairG3_41761__RightLong: 100% 4.0
+MORPH FlashyHairG3_41761__RFluffOut: 100% 0.352712
+MORPH FlashyHairG3_41761__RaiseUpper: 100% 1.5
+MORPH FlashyHairG3_41761__LMidOut: 100% -0.5
+MORPH FlashyHairG3_41761__LeftLong: 100% 4.0
+MORPH FlashyHairG3_41761__BangsWavy: 100% 1.0
+MORPH FlashyHairG3_41761__BangsForward: 100% -1.0
+MORPH FlashyHairG3_41761__FHMExpandAll: 100% 0.215112
+SCALE X: 100% 1.0
+SCALE Y: 100% 1.0
+SCALE Z: 100% 1.0
+
+//Hair
+HAIR Hairstyle: 100% FlashyHairG3_41761
+HAIR Hair_Thickness: 100% 1.0
+HAIR Hair_Color_R: 100% 1.0
+HAIR Hair_Color_G: 100% 1.0
+HAIR Hair_Color_B: 100% 0.6
+HAIR Hair_Color_A: 100% 1.0
+
+HAIR Brow_Color_R: 100% 0.0
+HAIR Brow_Color_G: 100% 0.0
+HAIR Brow_Color_B: 100% 0.0
+HAIR Brow_Color_A: 100% 1.0
+
+// Skin
+SKIN Eye_Color_R: 100% 0.0
+SKIN Eye_Color_G: 100% 0.04
+SKIN Eye_Color_B: 100% 0.11
+SKIN Eye_Color_A: 100% 0.8
+SKIN Skin_Color_R: 100% 0.73
+SKIN Skin_Color_G: 100% 0.52
+SKIN Skin_Color_B: 100% 0.43
+SKIN Skin_Color_A: 100% 1.0
+SKIN BHairColor_R: 100% 0.015
+SKIN BHairColor_G: 100% 0.003
+SKIN BHairColor_B: 100% 0.0
+SKIN BHairColor_A: 100% 1.0
+SKIN Skin_Roughness: 100% 0.503101
+SKIN Skin_Oil: 100% 0.25
+SKIN Skin_Fresnel: 100% 0.485386
+SKIN Skin_Age: 100% 0.0
+SKIN Skin_Sagging: 100% 0.0
+SKIN Muscle_Tone: 100% 0.0
+SKIN BHairThickness: 100% 0.25
+SKIN BHairstyle: 100% NoHair
+
+// Stats
+STAT children: 100% 0.0
+STAT fertility: 100% 3.0
+STAT stock_condom: 100% 0.0
+STAT stock_pill: 100% 0.0
+STAT bargain: 100% 0.0
+STAT brand: 100% 0.0
+STAT sentence: 100% 0.0
+STAT modelfame: 100% 0.0
+STAT age: 100% 22.0
+STAT money: 100% 3000.0
+STAT perks: 100% 8.0
+STAT attractiveness: 100% 80.0
+STAT cooking: 100% 10.0
+STAT dance: 100% 90.0
+STAT fitness: 100% 80.0
+STAT intelligence: 100% 30.0
+STAT interpersonal: 100% 90.0
+STAT jobexperience: 100% 0.0
+STAT jobperformance: 100% 0.0
+STAT karma: 100% 50.0
+STAT martial: 100% 30.0
+STAT masochist: 100% -30.0
+STAT muscle: 100% 50.0
+STAT music: 100% 80.0
+STAT perversion: 100% 100.0
+STAT pornfame: 100% 0.0
+STAT sneak: 100% 9.999767
+STAT arousal: 100% 0.205178
+STAT energy: 100% 99.533684
+STAT intoxication: 100% 0.0
+STAT mood: 100% 99.910233
+STAT appliance_value: 100% 0.0
+STAT car_value: 100% 0.0
+STAT furniture_value: 100% 0.0
+STAT stock_alcohol: 100% 0.0
+STAT stock_book: 100% 0.0
+STAT stock_coffee: 100% 0.0
+STAT stock_flower: 100% 0.0
+STAT stock_gift: 100% 0.0
+STAT stock_haircare: 100% 0.0
+STAT stock_ingredient: 100% 0.0
+STAT stock_juice: 100% 0.0
+STAT stock_makeup: 100% 0.0
+STAT stock_meal: 100% 0.0
+STAT stock_movie: 100% 0.0
+STAT stock_musicalinstrument: 100% 0.0
+STAT stock_petfood: 100% 0.0
+STAT stock_photo: 100% 0.0
+STAT stock_skincare: 100% 0.0
+STAT stock_snack: 100% 0.0
+STAT stock_soda: 100% 0.0
+STAT stock_supplement: 100% 0.0
+STAT stock_tea: 100% 0.0
+STAT stock_tobacco: 100% 0.0
+STAT stock_video: 100% 0.0

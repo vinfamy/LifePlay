@@ -1,0 +1,10 @@
+Ashley.dress(Evening-Dress_4_F)
+Jessica.dress(Cute-Leather-Skirt_1_F, Sports-Bra_1_F)
+Iris.dress(Nice-Cut-Jeans_1_F, Nice-Camisole_1_F)
+Nat.dress(Nice-Jeans_1_F, Cute-Croptop_2_F)
+
+Eva.dress(Sports-Bra_2_F, Sports-Pants_1_F)
+Eric.dress(Mens-Jeans_1, Cool-Jacket_1, Cool-Shirt_1)
+Damian.dress(Business-Shirt_1, Business-Pants_1)
+Tyrone.dress(Mens-Jeans_1, Mens-Tanktop_2, Business-Jacket_1)
+

@@ -1,0 +1,46 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    If isWithCompanion()
+        endDate()
+    Endif
+    Audition.removeObjective(bggw_audition)
+    "The audition started off with a series of interviews with the show's producers. They were nothing that I haven't expected so I thought I did quite well."
+    "One of the producer then instructed me to go to a room down the hall for the 'final test'. I wonder what's waiting for me there?"
+    "..."
+    Player:: "This must be the room ..."
+    Player(Shocked):: "Wow!"
+    setBackground(home)
+    Ashley = AshleyA.getActorAlias()
+    Jessica = JessicaA.getActorAlias()
+    Sex(Jessica, Ashley)
+    Jessica.show(2)
+    Ashley.show(3)
+    Player.show(0)
+    "That's Ashley and Jessica, two of the stars on the show, having some really hot lesbian fun. In front of dozens of cameras no less ..."
+    Jessica(Flirty):: "Hey new blood, what are you waiting for? Do you want to be on the show or not?"
+    0:: "Join them"
+    
+    If Player.isMale()
+        Sex(Player,Jessica, Ashley)
+    Else
+        Sex(Player, Jessica)
+        Sex(Player, Ashley)
+    Endif
+    Jessica.hide()
+    Ashley.hide()
+    moveTo(home)
+    setBackground(home)
+    "A few weeks later ..."
+    Player(Excited):: "Oh my God! I can't believe it! Thank you so much! I won't let you down. The second season will be a hit!"
+    "This is the greatest news of my life: I have been chosen out of thousands of applicants to be on Bad Girls Season 2 as the apprentice."
+    "Shooting begins soon. They promised to send me the script later today."
+    "I can't wait ..."
+    bggw_stage.setGlobal(1)
+    AshleyH.generateBuildingAlias(home)
+    AshleyH.addObjective(bggw_film)
+    SceneEnd()

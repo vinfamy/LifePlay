@@ -1,0 +1,6 @@
+ID: bggw
+NAME: Bad Girls Gone Worse
+DESC: A reality TV show about the debauchery of 4 sexually adventurous girls and their fuck-buddies is looking for a new rising star, male or female, to join its second season's cast. Is this your chance to join the rich and famous? This quest is my little fan fiction for Eva Kiss's Good Girl Gone Bad (which IMHO is the best adult visual novel out there! If you haven't played that game, check it out and consider supporting her! The final version of GGGB is currently in development).
+ONCE: true
+CONDITIONS: none
+START: bggw_start

@@ -1,0 +1,115 @@
+// Information
+INFO Is_Male: 100% true
+INFO Interested_In_Men: 100% false
+INFO Interested_In_Women: 100% true
+INFO Interested_In_Transgender: 100% true
+INFO First_Name: 100% Fan
+INFO Last_Name: 100% Fan
+INFO Race: 100% Daz
+INFO Genital: 100% Penis
+
+// Morphs
+MORPH Genesis8Female__FBMHeavy: 100% 0.384615=>0.65
+MORPH Genesis8Female__FBMPortly: 100% 0.192308=>0.325
+MORPH XY__FBMHeavy: 100% 0.384615=>0.65
+MORPH XY__FBMPortly: 100% 0.192308=>0.325
+MORPH XY__Penis length: 100% -0.769231=>0.0
+MORPH XY__Penis size: 100% -0.076923=>0.0
+MORPH Armani__FBMHeavy: 100% 0.384615=>0.65
+MORPH Armani__FBMPortly: 100% 0.192308=>0.325
+SCALE X: 100% 1.0
+SCALE Y: 100% 1.0
+SCALE Z: 100% 1.0
+
+//Hair
+HAIR Hairstyle: 100% Armani
+HAIR Hair_Thickness: 100% 0.769231=>1.3
+HAIR Hair_Color_R: 100% 0.016025=>0.027083
+HAIR Hair_Color_G: 100% 0.005765=>0.009743
+HAIR Hair_Color_B: 100% 0.00238=>0.004022
+HAIR Hair_Color_A: 100% 0.769231=>1.0
+
+HAIR Brow_Color_R: 100% 0.0=>0.0
+HAIR Brow_Color_G: 100% 0.0=>0.0
+HAIR Brow_Color_B: 100% 0.0=>0.0
+HAIR Brow_Color_A: 100% 0.769231=>1.0
+
+// Skin
+SKIN Eye_Color_R: 100% 0.0=>0.0
+SKIN Eye_Color_G: 100% 0.0=>0.0
+SKIN Eye_Color_B: 100% 0.0=>0.0
+SKIN Eye_Color_A: 100% 0.769231=>1.0
+SKIN Skin_Color_R: 100% 0.638462=>1.0
+SKIN Skin_Color_G: 100% 0.476923=>0.806
+SKIN Skin_Color_B: 100% 0.407692=>0.689
+SKIN Skin_Color_A: 100% 0.769231=>1.0
+SKIN BHairColor_R: 100% 0.011538=>0.0195
+SKIN BHairColor_G: 100% 0.002308=>0.0039
+SKIN BHairColor_B: 100% 0.0=>0.0
+SKIN BHairColor_A: 100% 0.769231=>1.0
+SKIN Skin_Roughness: 100% 0.0=>0.0
+SKIN Skin_Oil: 100% 0.192308=>0.325
+SKIN Skin_Fresnel: 100% 0.0=>0.0
+SKIN Skin_Age: 100% 0.0=>0.0
+SKIN Skin_Sagging: 100% 0.0=>0.0
+SKIN Muscle_Tone: 100% 0.0=>0.0
+SKIN BHairThickness: 100% 0.192308=>0.325
+SKIN BHairstyle: 100% NoHair
+SKIN FHairstyle: 100% NoHair
+
+// Stats
+STAT children: 100% 0.0=>0.0
+STAT fertility: 100% 2.307692=>3.9
+STAT stock_condom: 100% 0.0=>0.0
+STAT stock_pill: 100% 0.0=>0.0
+STAT bargain: 100% 0.0=>0.0
+STAT brand: 100% 0.0=>0.0
+STAT sentence: 100% 0.0=>0.0
+STAT modelfame: 100% 0.0=>0.0
+STAT age: 100% 25.38471=>42.900158
+STAT money: 100% 2307.692383=>3899.999756
+STAT perks: 100% 0.0=>0.0
+STAT attractiveness: 100% 38.461357=>64.999687
+STAT cooking: 100% 7.692033=>12.999535
+STAT dance: 100% 7.692033=>12.999535
+STAT fitness: 100% 38.460991=>64.999069
+STAT intelligence: 100% 38.461266=>64.999535
+STAT interpersonal: 100% 38.460991=>64.999069
+STAT jobexperience: 100% 7.692033=>12.999535
+STAT jobperformance: 100% 0.0=>0.0
+STAT karma: 100% 38.46154=>65.0
+STAT martial: 100% 7.692033=>12.999535
+STAT masochist: 100% 0.0=>0.0
+STAT muscle: 100% 19.230055=>32.498791
+STAT music: 100% 7.691951=>12.999395
+STAT perversion: 100% 23.076246=>38.998852
+STAT pornfame: 100% 0.0=>0.0
+STAT sneak: 100% 7.691951=>12.999395
+STAT arousal: 100% 0.214599=>0.362672
+STAT energy: 100% 76.20813=>100.0
+STAT intoxication: 100% 0.0=>0.0
+STAT mood: 100% 76.829056=>100.0
+STAT appliance_value: 100% 0.0=>0.0
+STAT car_value: 100% 0.0=>0.0
+STAT furniture_value: 100% 0.0=>0.0
+STAT stock_alcohol: 100% 0.0=>0.0
+STAT stock_book: 100% 0.0=>0.0
+STAT stock_coffee: 100% 0.0=>0.0
+STAT stock_flower: 100% 0.0=>0.0
+STAT stock_gift: 100% 0.0=>0.0
+STAT stock_haircare: 100% 0.0=>0.0
+STAT stock_ingredient: 100% 0.0=>0.0
+STAT stock_juice: 100% 0.0=>0.0
+STAT stock_makeup: 100% 0.0=>0.0
+STAT stock_meal: 100% 0.0=>0.0
+STAT stock_movie: 100% 0.0=>0.0
+STAT stock_musicalinstrument: 100% 0.0=>0.0
+STAT stock_petfood: 100% 0.0=>0.0
+STAT stock_photo: 100% 0.0=>0.0
+STAT stock_skincare: 100% 0.0=>0.0
+STAT stock_snack: 100% 0.0=>0.0
+STAT stock_soda: 100% 0.0=>0.0
+STAT stock_supplement: 100% 0.0=>0.0
+STAT stock_tea: 100% 0.0=>0.0
+STAT stock_tobacco: 100% 0.0=>0.0
+STAT stock_video: 100% 0.0=>0.0

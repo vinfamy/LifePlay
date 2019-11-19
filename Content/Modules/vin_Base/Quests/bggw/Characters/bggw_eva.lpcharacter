@@ -1,0 +1,179 @@
+// Information
+INFO Is_Male: 100% false
+INFO Interested_In_Men: 100% true
+INFO Interested_In_Women: 100% true
+INFO Interested_In_Transgender: 100% true
+INFO First_Name: 100% Eva
+INFO Last_Name: 100% K
+INFO Race: 100% Daz
+INFO Genital: 100% Vagina
+
+// Morphs
+MORPH Genesis8Female__CTRLEyesIrisSize: 100% 0.100295
+MORPH Genesis8Female__CTRLFitness: 100% 0.408822
+MORPH Genesis8Female__RFMC_Face Square: 100% 0.226533
+MORPH Genesis8Female__RFMC_Face Overall Diamond: 100% 0.386282
+MORPH Genesis8Female__RFMC_Face Angle (Alt): 100% 0.412261
+MORPH Genesis8Female__RFMC_Eyes Shape 09: 100% 0.847967
+MORPH Genesis8Female__RFMC_Ears Move Up and Down: 100% 0.437354
+MORPH Genesis8Female__RFMC_Ears Move Front and Back: 100% 0.411833
+MORPH Genesis8Female__RFMC_Ears Angle: 100% 0.29511
+MORPH Genesis8Female__RFMC_Chin Pointed: 100% 0.440347
+MORPH Genesis8Female__RFMC_Chin Length: 100% 0.443777
+MORPH Genesis8Female__RFMC_Brows Rotates: 100% 0.930218
+MORPH Genesis8Female__RFMC_Brows Broken: 100% 0.464435
+MORPH Genesis8Female__RFMC_Brows Arch 08: 100% 0.851991
+MORPH Genesis8Female__RFMC_Brows Arch 04: 100% 0.270097
+MORPH Genesis8Female__RFMC_Brows Arch 02: 100% 0.483538
+MORPH Genesis8Female__RFMC_Brows Arch 01: 100% 0.132562
+MORPH Genesis8Female__RFMC_Brows Angles: 100% 0.713127
+MORPH Genesis8Female__RFMC_Brow Inner Heights: 100% 0.453533
+MORPH Genesis8Female__Sabina Head: 100% 0.179134
+MORPH Genesis8Female__Nose Wing Width: 100% 0.281149
+MORPH Genesis8Female__Nose Wing Volume: 100% 0.17014
+MORPH Genesis8Female__Nose Width Center Line: 100% 0.433326
+MORPH Genesis8Female__Nose Style Nubian: 100% 0.119588
+MORPH Genesis8Female__Jaw Strength: 100% 0.184012
+MORPH Genesis8Female__Faiza Head: 100% 0.851698
+MORPH Genesis8Female__Face Length: 100% 0.184332
+MORPH Genesis8Female__Eyes Height A: 100% 0.463379
+MORPH Genesis8Female__Chin Valley Shape: 100% 0.678822
+MORPH Genesis8Female__Chin Valley Height: 100% 0.868573
+MORPH Genesis8Female__Chin Valley Depth: 100% 0.513023
+MORPH Genesis8Female__Chin Valley Abrupt: 100% 0.452674
+MORPH Genesis8Female__Cheeks Young: 100% 0.389637
+MORPH Genesis8Female__Cheeks Chubby: 100% 0.060337
+MORPH Genesis8Female__Brows Distance: 100% -0.5
+MORPH Genesis8Female__PHMNoseHeight: 100% 0.328684
+MORPH Genesis8Female__PHMMouthSize: 100% 0.198646
+MORPH Genesis8Female__PHMMouthHeight: 100% 0.744059
+MORPH Genesis8Female__PHMEyesHeight: 100% 0.07418
+MORPH Genesis8Female__PHMEyesAngledOuter: 100% 0.738425
+MORPH Genesis8Female__MCMCheekbonesSmall: 100% 0.376273
+MORPH Genesis8Female__PBMNipplesDiameter: 100% 0.165008
+MORPH Genesis8Female__PBMBreastsShape04: 100% 0.2
+MORPH Genesis8Female__PBMBreastsNaturalR: 100% 0.25
+MORPH Genesis8Female__PBMBreastsNaturalL: 100% 0.25
+MORPH Genesis8Female__PBMAreolaeDiameter: 100% 0.22103
+MORPH Genesis8Female__FBMVoluptuous: 100% 0.164232
+MORPH Genesis8Female__FBMThin: 100% 0.089824
+MORPH Genesis8Female__PHMEyelashesLengthUpper: 100% 1.0
+MORPH Genesis8Female__PHMEyelashesLengthLower: 100% 1.0
+MORPH Genesis8Female__PHMEyelashesCurl: 100% 0.659013
+MORPH Genesis8FemaleEyelashes__RFMC_Face Angle (Alt): 100% 0.412261
+MORPH Genesis8FemaleEyelashes__RFMC_Eyes Shape 09: 100% 0.847967
+MORPH Genesis8FemaleEyelashes__Sabina Head: 100% 0.179134
+MORPH Genesis8FemaleEyelashes__Faiza Head: 100% 0.851698
+MORPH Genesis8FemaleEyelashes__Face Length: 100% 0.184332
+MORPH Genesis8FemaleEyelashes__Eyes Height A: 100% 0.463379
+MORPH Genesis8FemaleEyelashes__PHMEyesHeight: 100% 0.07418
+MORPH Genesis8FemaleEyelashes__PHMEyesAngledOuter: 100% 0.738425
+MORPH Genesis8FemaleEyelashes__PHMEyelashesLengthUpper: 100% 1.0
+MORPH Genesis8FemaleEyelashes__PHMEyelashesLengthLower: 100% 1.0
+MORPH Genesis8FemaleEyelashes__PHMEyelashesCurl: 100% 0.659013
+MORPH ShavedSide__RFMC_Face Angle (Alt): 100% 0.412261
+MORPH ShavedSide__Face Length: 100% 0.184332
+MORPH ShavedSide__Widen: 100% 0.411906
+MORPH ShavedSide__RightMoveBack: 100% 0.80303
+MORPH ShavedSide__MidWiden: 100% 0.184935
+MORPH ShavedSide__Messy: 100% 0.043209
+MORPH ShavedSide__FrontLong: 100% -1.0
+MORPH ShavedSide__FrontIn: 100% 0.014699
+MORPH ShavedSide__FrontForward: 100% 0.437276
+MORPH ShavedSide__BackLong: 100% -1.0
+MORPH ShavedSide__AllFull: 100% 0.362922
+SCALE X: 100% 1.0
+SCALE Y: 100% 1.0
+SCALE Z: 100% 1.0
+
+//Hair
+HAIR Hairstyle: 100% ShavedSide
+HAIR Hair_Thickness: 100% 1.0
+HAIR Hair_Color_R: 100% 0.8
+HAIR Hair_Color_G: 100% 0.0
+HAIR Hair_Color_B: 100% 0.0
+HAIR Hair_Color_A: 100% 1.0
+
+HAIR Brow_Color_R: 100% 0.0
+HAIR Brow_Color_G: 100% 0.0
+HAIR Brow_Color_B: 100% 0.0
+HAIR Brow_Color_A: 100% 1.0
+
+// Skin
+SKIN Eye_Color_R: 100% 0.078125
+SKIN Eye_Color_G: 100% 0.019379
+SKIN Eye_Color_B: 100% 0.002915
+SKIN Eye_Color_A: 100% 0.8
+SKIN Skin_Color_R: 100% 0.63
+SKIN Skin_Color_G: 100% 0.38
+SKIN Skin_Color_B: 100% 0.23
+SKIN Skin_Color_A: 100% 1.0
+SKIN BHairColor_R: 100% 0.015
+SKIN BHairColor_G: 100% 0.003
+SKIN BHairColor_B: 100% 0.0
+SKIN BHairColor_A: 100% 1.0
+SKIN Skin_Roughness: 100% 0.757136
+SKIN Skin_Oil: 100% 0.25
+SKIN Skin_Fresnel: 100% 1.0
+SKIN Skin_Age: 100% 0.063181
+SKIN Skin_Sagging: 100% 0.0
+SKIN Muscle_Tone: 100% 0.0
+SKIN BHairThickness: 100% 0.25
+SKIN BHairstyle: 100% NoHair
+
+// Stats
+STAT children: 100% 0.0
+STAT fertility: 100% 3.0
+STAT stock_condom: 100% 0.0
+STAT stock_pill: 100% 0.0
+STAT bargain: 100% 0.0
+STAT brand: 100% 0.0
+STAT sentence: 100% 0.0
+STAT modelfame: 100% 0.0
+STAT age: 100% 21.0
+STAT money: 100% 3000.0
+STAT perks: 100% 8.0
+STAT attractiveness: 100% 70.0
+STAT cooking: 100% 30.0
+STAT dance: 100% 70.0
+STAT fitness: 100% 70.0
+STAT intelligence: 100% 60.0
+STAT interpersonal: 100% 50.0
+STAT jobexperience: 100% 15.0
+STAT jobperformance: 100% 0.0
+STAT karma: 100% 50.0
+STAT martial: 100% 60.0
+STAT masochist: 100% -50.0
+STAT muscle: 100% 24.999512
+STAT music: 100% 50.0
+STAT perversion: 100% 100.0
+STAT pornfame: 100% 0.0
+STAT sneak: 100% 90.0
+STAT arousal: 100% 0.214633
+STAT energy: 100% 99.512207
+STAT intoxication: 100% 0.0
+STAT mood: 100% 99.90609
+STAT appliance_value: 100% 0.0
+STAT car_value: 100% 0.0
+STAT furniture_value: 100% 0.0
+STAT stock_alcohol: 100% 0.0
+STAT stock_book: 100% 0.0
+STAT stock_coffee: 100% 0.0
+STAT stock_flower: 100% 0.0
+STAT stock_gift: 100% 0.0
+STAT stock_haircare: 100% 0.0
+STAT stock_ingredient: 100% 0.0
+STAT stock_juice: 100% 0.0
+STAT stock_makeup: 100% 0.0
+STAT stock_meal: 100% 0.0
+STAT stock_movie: 100% 0.0
+STAT stock_musicalinstrument: 100% 0.0
+STAT stock_petfood: 100% 0.0
+STAT stock_photo: 100% 0.0
+STAT stock_skincare: 100% 0.0
+STAT stock_snack: 100% 0.0
+STAT stock_soda: 100% 0.0
+STAT stock_supplement: 100% 0.0
+STAT stock_tea: 100% 0.0
+STAT stock_tobacco: 100% 0.0
+STAT stock_video: 100% 0.0

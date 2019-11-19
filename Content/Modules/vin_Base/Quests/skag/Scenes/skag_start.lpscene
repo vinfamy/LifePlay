@@ -1,0 +1,46 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    If isWithCompanion()
+        endDate()
+    Endif
+    skag_stage.setGlobal(0)
+    SceneStart()
+    "Whose lesbian side do I want to awaken?"
+    selectNPC()
+    Actor = getSelectedNPC()
+    
+    If !Actor.isValid() || Actor.isCreature() || Actor.isMale()
+        "No valid NPC selected. Quest was not started."
+        QuestEnd()
+    Else
+        Actor.dress()
+        Actor.show(2)
+        "I'm certain that <Actor.name> is in the closet and want to help her become honest with herself."
+        "Who should be the person to introduce <Actor.name> to her lesbian side?"
+        0:: !Player.isMale():: "Me!"
+        1:: "Someone I know"
+        
+        If 0
+            Actor2 = Player
+        Else
+            selectNPC()
+            Actor2 = getSelectedNPC()       
+        Endif
+        
+        If !Actor2.isValid() || Actor2.isCreature() || Actor2.isMale()
+            "Not a valid person to corrupt <Actor.name>. Quest was not started."
+            QuestEnd()
+        Else
+            AggA.setActorAlias(Actor2)
+            VicA.setActorAlias(Actor)
+            
+            B1.generateBuildingAlias(sports_centre)
+            B1.addObjective(skag_awaken)
+            skag_stage.setGlobal(1)
+        Endif        
+    Endif
+    SceneEnd()

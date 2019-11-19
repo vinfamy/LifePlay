@@ -61,7 +61,6 @@ OTHER: none
                             Guest1.show(2)
                             Guest2.show(3)
                             Loser:perversion += Random(0, 0.25)
-                            Actor.dress()
                         Else
                             Loser(Embarassed):: "Off this goes then ..."
                             Loser.stripOne()

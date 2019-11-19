@@ -1,0 +1,53 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    If isWithCompanion()
+        endDate()
+    Endif
+    Player.hide()
+    setBackground(fraternity)
+    "A reality TV show called 'Bad Girls' has just finished broadcasting its first season. It was a massive hit."
+    Ashley = generatePerson(bggw_ashley)
+    Jessica = generatePerson(bggw_jessica)
+    Iris = generatePerson(bggw_iris)
+    Nat = generatePerson(bggw_nat)
+    AshleyA.setActorAlias(Ashley)
+    JessicaA.setActorAlias(Jessica)
+    IrisA.setActorAlias(Iris)
+    NatA.setActorAlias(Nat)
+    Ashley.dress(Evening-Dress_4_F)
+    Jessica.dress(Cute-Leather-Skirt_1_F, Sports-Bra_1_F)
+    Iris.dress(Nice-Cut-Jeans_1_F, Nice-Camisole_1_F)
+    Nat.dress(Nice-Jeans_1_F, Cute-Croptop_2_F)
+    "'Bad Girls' are about the debauchery of 4 sexually adventurous girls and their fuck-buddies. Completely spontaneous and taboo. The girls, while equally sexual, all have different personalities and fetishes which really bring the show together"
+    Ashley.show(2)
+    "Ashley may look and act like intelligent good girl in a long-term relationship, but behind the facade, she's the queen of cuckolding. She likes to fuck while her cuck boyfriend Eric watches."
+    Jessica.show(3)
+    "Jessica also enjoys being watched ... but by thousands of strangers on the internet. She's the ultimate camgirl, doing the nastiest things in front of her webcam. She also throws the wildest drug-filled parties and has a long list of fuckbuddies that are always one call away."
+    Iris.show(4)
+    "Iris is the youngest member of the Bad Girls, fresh out of high school last year. She's actually Ashley's boyfriend's sister. Don't mistake young age for inexperience though, she has a thing for celebrities, interracial sex and gangbang - even better if all of these are combined. Her full uncensored sex tape with famous rapper Lil' Tyrone was 'leaked' online (it was obviously a publicity stunt by the show's producers) half-way through last season and almost broke the internet."
+    Nat.show(1)
+    "Finally, Nat and her boyfriend Damian are seasoned swingers, always looking out for hot couples to invite to a steamy dinner at their apartment. She's also the anal queen of the Bad Girls." 
+    "The success of the show made the girls huge national celebrities."
+    "They're about to start shooting for the second season, named 'Bad Girls Apprentice'. They're looking for applicants for this new apprentice character. Interestingly, they welcome both female and male applicants."
+    "They explain that a female apprentice would play a 'new pledge in a sorrority being corrupted' kind of role. Meanwhile, a male apprentice would be more of a boy toy for the bad girls, just like Jack from the first season, who has now gone on to become a movie star thanks to his memorable appearances on the show. They're keeping their options open for now, willing to adjust the script to suit the best candidate."
+    moveTo(home)
+    setBackground(home)
+    Ashley.hide()
+    Jessica.hide()
+    Iris.hide()
+    Nat.hide()
+    Player.show(0)
+    Player(Excited):: "Maybe this is my chance to become rich and famous?"
+    Player(Happy):: "What harm would filling an online applications and attaching a few photos do anyway? Let's do it!"
+    "A few weeks later ..."
+    Player(Happy):: "Thank you so much! Yes, I would be delighted to come to the auditions."
+    "Oh my god! I can't believe my application was successful and they invited me to an audition for the show."
+    "I should get ready to be my best on the day!"
+    Audition.generateBuildingAlias(work)
+    Audition.addObjective(bggw_audition)
+    SceneEnd()

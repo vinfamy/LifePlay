@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: bggw_audition
+ACTION_NAME: Come to the audition
+WHERE: quest
+WHEN: 0 - 24
+MINUTES: 1 - 1
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: 
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: bggw_audition
+ANIMATION:

@@ -5,8 +5,36 @@ WHO: none
 OTHER: none
 
     SceneStart()
-    Actor = getSpecific(Dating)
-    Actor.show(2)
-    Actor.dress()
-    "Dressed"
+    Actor  = getSpecific(Dating)
+    "What?"
+    0:: "Setting up"
+    1:: "Test after save/ load"
+    
+    If 0       
+        Player.setActorVar(Var1, 55)
+        float = Player.getActorVar(Var1)
+        "Test1: <float>"
+        
+        float += 60
+        
+        Actor.setActorVar(Var2, float)
+        float = Actor.getActorVar(var2)
+        "Test2: <float>"
+        
+        Actor.setActorVar(Var3, Actor:intelligence*Actor:attractiontoplayer)  /// quite flexible, but can't do Random(x, y) because the , makes it think it's another parameter
+        float = Actor.getActorVar(Var3)
+        "Test3: <float>"
+    Else
+        float = Player.getActorVar(Var1)
+        "Test1: <float>"
+        
+        float = Actor.getActorVar(var2)
+        "Test2: <float>"
+
+        float = Actor.getActorVar(Var3)
+        "Test3: <float>"
+
+        "Values saved properly?"
+    Endif
+    
     SceneEnd()

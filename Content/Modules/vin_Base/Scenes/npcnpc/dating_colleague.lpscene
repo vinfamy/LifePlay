@@ -39,4 +39,4 @@ OTHER: !isWithCompanion()
         Player(Happy):: "That's okay, baby. You guys have fun!"
     Endif
     SceneEnd()
-    timeout(200, dating_colleague, dating_boss)
+    timeout(300, dating_colleague, dating_boss)

@@ -1,0 +1,577 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    If isWithCompanion()
+        endDate()
+    Endif
+    Player.hide()
+    Ashley = AshleyA.getActorAlias()
+    Jessica = JessicaA.getActorAlias()
+    Iris = IrisA.getActorAlias()
+    Nat = NatA.getActorAlias()
+    stage = bggw_stage.getGlobal()
+    If stage == 1 // Ashley & Iris & Eric
+        stage += 1
+        AshleyH.removeObjective(bggw_film)
+        NatH.generateBuildingAlias(home)
+        NatH.addObjective(bggw_film)
+        
+        Ashley.dress(Evening-Dress_4_F)
+        Iris.dress(Nice-Cut-Jeans_1_F, Nice-Camisole_1_F)
+        Eric = generatePerson(bggw_eric)
+        addNpcRelationship(Dating, Eric, Ashley)
+        Eric.dress(Mens-Jeans_1, Cool-Jacket_1, Cool-Shirt_1)
+        EricA.setActorAlias(Eric)
+        
+        "Bad Girls Apprentice Week 1"
+        "'The Apprentice Helps Ashley Cuckold Her Boyfriend'"
+        
+        Ashley.show(0)
+        Eric.show(2)
+        
+        Ashley(Happy):: "That was such a delicious dinner you made me, Eric! You're such a sweet boyfriend ..."
+        Ashley(Flirty)):: "I bet you can't wait to see who I'm fucking tonight ..."
+        Eric(Flirty):: "Yes, I've been wondering who the lucky guy is all week ..."
+        Ashley(Flirty):: "Is that why you cooked me so much food? So that I have all the energy I need to ride another dick all night?"
+        Eric(Flirty):: "Yes ... I know you need all the calories to keep up with a real man ... You wouldn't need that dinner if it's just me and you ..."
+        Ashley(Flirty):: "Of course ... I could do it with you while half asleep and your tiny dick would still come within seconds ..."
+        Ashley(Flirty):: "What if I tell you ... I have a surprise for you tonight ..."
+        Ashley(Flirty):: "And our first guest of honor for the night isn't even a guy at all ..."
+        Eric(Flirty):: "Oh, is this the shemale masseuse you told me about?"
+        Ashley(Flirty):: "Haha, I like the way you think ... Have you fantasized about that for a long time? But no, it's not her. Maybe next time."
+        Ashley(Excited):: "Come out, Iris. He's ready for us!"
+        Iris.show(1)
+        Iris(Sarcastic):: "Hello, brother. You're still a pathetic placemat, I see."
+        Eric(Surprised):: "Iris? But I'm your bro ...."
+        Ashley(Angry):: "Are you objecting to this?"
+        Eric(Sad):: "No ... of course not ... I was just surprised."
+        Ashley(Flirty):: "Good ... then sit back and watch how your sister fucks me ... She doesn't even have a dick and she still fucks me better than you ever could."
+        Eric(Flirty):: "Yes ... I'll pay close attention."
+        Sex(Iris, Ashley)
+        Player.hide()
+        Ashley.show(0)
+        Iris.show(1)
+        Eric.show(2)
+        Iris(Sarcastic):: "Like what you see, brother?"
+        Ashley(Flirty):: "How comes your sister is so much better at sex than you? Aren't you guys supposed to share some genes?"
+        Ashley(Flirty):: "Your Dad was a great fuck. She must have got it from him."
+        Eric(Sad):: "Ashley ... you promised you wouldn't talk about that horrible man again ..."
+        Ashley(Flirty):: "Why not? Are you still upset that while you were away helping poor villagers in Somalia, your own Dad was enjoying your girlfriend's 'company'?"
+        Ashley(Flirty):: "He was a generous sugar daddy too, remember that new car I drove to pick you up from the airport when you returned? He bought it for me ... and we fucked in the backseat hundreds of times."
+        Eric(Flirty):: "But I was sitting in the backseat during that drive from the airport ..."
+        Ashley(Flirty):: "Exactly Eric ... You were sitting on all the stains from his cum oozing out of my pussy."
+        Eric(Sad):: "..."
+        Ashley(Flirty):: "Hey, don't look at me like that ... We agreed on an open relationship before you went off on your little humanitarian mission."
+        Ashley(Flirty):: "You never asked me to exclude your Dad ..."
+        Eric(Sad):: "No, I didn't ..."
+        Ashley(Flirty):: "Besides, the open relationship goes both ways too. You could have slept with another girl while you were in Somalia."
+        Eric(Sad):: "Well, there was someone ..."
+        Ashley(Flirty):: "Yes, a fellow volunteer. She was young and pretty too, wasn't she? And you guys got along really well. You even kissed her once ... but why didn't you take it further?"
+        Eric(Sad):: "She was a virgin, saving herself for someone special. I didn't want to take advantage of her because I already have a girlfriend ..."
+        Ashley(Flirty):: "How gentlemanly and thoughtful of you! But then what happened?"
+        Eric(Sad):: "We got kidnapped by pirates ..."
+        Eric(Sad):: "They threatened to kill me so she offered her virginity to the pirate chief in exchange for my release ..."
+        Eric(Sad):: "She's his eighth wife now ... and refuses all rescue efforts from our government and the UN."
+        Ashley(Flirty):: "So she wouldn't have minded someone who already had a girlfriend after all!"
+        Eric(Sad):: "Come on ... It's just Stockholm Syndrome."
+        Ashley(Flirty):: "Either that or she finally found a real man after being near a beta sucker like you for so long."
+        Ashley(Flirty):: "Trust me ... I would know!"
+        Ashley(Flirty):: "Talking about real men ... I think it's time to introduce our bull for the night ..."
+        If Player.isMale() || Player.isShemale()
+            Bull = Player
+        Else
+            Bull = generatePersonTemporary(mpwill_brian)
+            Bull.randomizeFace()
+            Bull.randomizeHairs()
+        Endif
+        Bull.strip()
+        Bull.show(3)
+        Ashley(Flirty):: "Look how much bigger <Bull.his_or_her> dick is, compared to yours!"
+        Eric(Flirty):: "Yes baby, just the right size for you ... Mine is always so loose in there ..."
+        Ashley(Flirty):: "Sit back and enjoy the show!"
+        Bull(Angry):: "Over there, cuck! Don't want to see your pathetic orgasm face while I fuck your girl."
+        Sex(Bull, Ashley)
+        
+        Bull.show(3)
+        Ashley.show(0)
+        Iris.show(1)
+        Eric.show(2)
+        
+        Iris(Flirty):: "Ashley! No fair! I want some of that too!"
+        Iris(Sarcastic):: "Pay attention, brother! Maybe you'll learn something for once."
+        
+        If Player.isMale() || Player.isShemale()
+            Sex(Player, Iris)
+            Dom = Ashley
+        Else
+            Sex(Bull, Iris, Ashley)
+            Dom = Player
+        Endif
+        
+        Bull.hide()
+        Iris.hide()
+        Player.hide()
+        Ashley.hide()
+        Dom.show(0)
+        Eric.show(2)
+        
+        Dom(Sarcastic):: "You're such a massive cuckold, Eric! Jerking off while watching your girlfriend and sister gets a good dicking."
+        Dom(Evil):: "Now, on your knees!"
+        TalkNonConsensual()
+        Filter(AggressiveFM)      
+        Sex(Eric, Dom)
+    Elseif stage == 2 // Nat & Damian & Dating
+        stage += 1
+        NatH.removeObjective(bggw_film)
+        JessicaH.generateBuildingAlias(home)
+        JessicaH.addObjective(bggw_film)
+        
+        setBackground(work)
+        Nat.dress(Nice-Jeans_1_F, Cute-Croptop_2_F)
+        Damian = generatePerson(bggw_damian)
+        addNpcRelationship(Dating, Damian, Nat)
+        Damian.dress(Business-Shirt_1, Business-Pants_1)
+        DamianA.setActorAlias(Damian)
+        Dating = getSpecific(Dating)
+        If Player.isMale()
+            FuckPlayer = Nat
+            FuckDating = Damian
+        Else
+            FuckPlayer = Damian
+            FuckDating = Nat            
+        Endif
+        "The script for this episode involves swinging and requires me to bring my significant other along. Should I?"
+        0:: Dating.isValid():: "Convince my <Dating.boyfriend_or_girlfriend> <Dating.name> to join me"
+        1:: "Convince the producer to just hire an actor for the role"
+        
+        If 1
+            "The producer wasn't delighted with my request but gave in to my insistence in the end. After all, it's just a TV show!"
+            Dating = generatePersonTemporary()
+            While FuckDating.isSameGender(Dating)
+                Dating = generatePersonTemporary()
+            Endwhile
+            Dating.dress()
+        Endif
+        setBackgroundCustom(kitchen)
+        "Bad Girls Apprentice Week 2"
+        "'The Apprentice Swings with Nat and Damian'"
+        Player.show(0)
+        Dating.show(5)       
+        Nat.show(2)
+        Damian.show(3)
+        
+        Player(Happy):: "Thank you so much for dinner. You guys are great hosts."
+        Dating(Happy):: "Absolutely! Next time, we should return the favour and invite you over for dinner instead!"
+        Nat(Flirty):: "Alright guys, shall we move over to the bedroom?"
+        setBackground(home)
+        Player.strip()
+        Dating.strip()
+        Nat.strip()
+        Damian.strip()
+        "As soon as we reached the bedroom, we all took off our clothes and Nat and her boyfriend Damian started kissing passionately ..."
+        Sex(Damian, Nat)
+        Player.show(0)
+        Dating.show(5)       
+        Nat.show(2)
+        Damian.show(3)
+        Damian(Flirty):: "What are you guys still looking at us for? Let's get comfortable."
+        "<Dating.name> and I followed the other couple's lead and started making out ..."
+        Sex(Player, Dating)
+        Player.show(0)
+        Dating.show(5)       
+        Nat.show(2)
+        Damian.show(3)        
+        Nat(Flirty):: "Alright, now that we're already warmed up! Let's swap, shall we?"
+        Dating(Flirty):: "Of course, this is what tonight is for."
+        Player.show(0)
+        FuckPlayer.show(5)
+        Dating.show(2)
+        FuckDating.show(3)
+        "As soon as we swapped seats, I could see <FuckDating.name> and <Dating.name> getting their hands all over each other."
+        Sex(FuckDating, Dating)
+        Player.show(0)
+        FuckPlayer.show(5)
+        Dating.show(2)
+        FuckDating.show(3)
+        "It was incredibly hot seeing <Dating.name> making love with another <FuckDating.man_or_woman>. But I have a lover to take care of myself ..."
+        Sex(FuckPlayer, Player)
+        Player.show(0)
+        FuckPlayer.show(5)
+        Dating.show(2)
+        FuckDating.show(3)
+        "The passionate night continues ..."
+        Sex(FuckDating, Dating, Player)
+        Sex(FuckPlayer, Player, Dating)
+        Sex(FuckPlayer, Player, FuckDating)
+    Elseif stage == 3 // Jessica & Sugar
+        stage += 1
+        JessicaH.removeObjective(bggw_film)
+        TyroneH.generateBuildingAlias(home)
+        TyroneH.addObjective(bggw_film)
+        
+        Jessica.dress(Cute-Leather-Skirt_1_F, Sports-Bra_1_F)
+        Sugar = generatePersonTemporary(mpwill_ben)
+        Sugar.randomizeFace()
+        Sugar.randomizeHairs()
+        Fan = generatePersonTemporary(bggw_fat)
+        "Bad Girls Apprentice Week 3"
+        "'The Apprentice Puts On a Camshow with Jessica'"
+        Jessica.show(0)
+        Jessica(Flirty):: "Hello guys, it's Jessica here. Thank you for joining my camshow tonight."
+        Jessica(Excited):: "Wow, 10,000 online viewers, you guys are amazing!"
+        Jessica(Excited):: "Remember to tip! Those that have tipped more than $100 will have a chance to win a place at the Fan Orgy of this season's Bad Girls Finale ..."
+        Jessica(Flirty):: "Now, any suggestions how we should start the show?"
+        Fan:: "Show us your body, Jessica!"
+        Jessica.strip()
+        Jessica(Flirty):: "You like what you see ... I shaved everything for you all ..."
+        Fan:: "You would look amazing with a bush!"
+        Fan:: "Eww, dude, what the fuck? This isn't the 80s. She looks amazing already with her bald pussy."
+        Jessica(Flirty):: "Guys, stop arguing! Maybe I'll start a GoFundMe for a bush - so bush lovers, make sure you put your money where your mouth is."
+        Fan:: "Play with yourself, Jessica!"
+        Jessica(Flirty):: "Anything to please my fans. I want you to stroke those hard dicks while I play with myself though."
+        Fan:: "Don't worry Jessica, I can never keep my fingers off my cock while watching your shows ..."
+        Fan:: "I already came when you first went online ... but now it's rock hard again ..."
+        "Jessica started playing with herself while giving her fans some sensual jerk-off instructions ..."
+        Filter(Solo)
+        Sex(Jessica)
+        Jessica.show(0)
+        Fan:: "That's so hot, Jessica ..."
+        Fan:: "I can't believe how many times I came just watching you."
+        Fan:: "Even sex with my wife can't live up to watching you masturbate."
+        Jessica(Flirty):: "Guys, say hi to my sugardaddy!"
+        Sugar.show(5)
+        Fan:: "He's a very lucky man!"
+        Fan:: "You have no idea how much I wish to be in his shoes right now ..."
+        Jessica(Flirty):: "Give it to me, Daddy!"
+        Sex(Sugar, Jessica)
+        Jessica.show(0)
+        Sugar.show(5)
+        Fan:: "Wow, you really got a good dicking there, Jessica!"
+        Fan:: "I was imagining it was me fucking you the whole time."
+        Jessica(Flirty):: "Wow, the tips are really rolling in guys, thank you so much!"
+        Jessica(Flirty):: "But you know what? I have yet another surprise for you guys tonight."
+        Fan:: "What is it, Jessica?"
+        Fan:: "I'm sure it's amazing."
+        Jessica(Flirty):: "It's my new apprentice <Player.name>, <Player.he_or_she> will be joining me and my sugardaddy for the show tonight."
+        Player.show(2)
+        Player(Flirty):: "Hello everyone, I'm <Player.name>. It will be part of the show tonight."
+        Fan:: "Wow, <Player.he_or_she> is hot!"
+        Fan:: "A threesome? That's definitely worthy of a big tip."
+        Sex(Sugar, Player, Jessica)
+        Jessica.show(0)
+        Sugar.show(5)
+        Player.show(2)
+        Jessica(Happy):: "That's all for tonight's show, guys. Thank you for tuning in and please don't stop tipping."
+        Jessica(Happy):: "Those that have tipped more than $100 will have a chance to win a place at the Fan Orgy of this season's Bad Girls Finale ..."
+        Fan:: "I've tipped a few thousands, you'd better put me on the list for that orgy."
+        Fan:: "Can I pay you 10k instead to get a guaranteed place?"
+        Fan:: "I just know I'll get lucky and be there. Then I'll make sure to fuck your and your friends' brains out."
+        Fan:: "Honestly, I fear I would embarrass myself by cumming instantly when I finally get to meet you in real life ..."
+        Jessica(Happy):: "Keep tipping, guys. Hope to see the luckiest of you on the night!"
+    Elseif stage == 4 // Iris & Tyrone
+        stage += 1
+        TyroneH.removeObjective(bggw_film)
+        AshleyH.addObjective(bggw_film)
+        
+        Iris.dress(Nice-Cut-Jeans_1_F, Nice-Camisole_1_F)
+        Tyrone = generatePerson(bggw_tyrone)
+        Tyrone.dress(Mens-Jeans_1, Mens-Tanktop_2, Business-Jacket_1)
+        TyroneA.setActorAlias(Tyrone)
+        R1 = generatePersonTemporary(bggw_rapper)
+        R1.randomizeFace()
+        R1.randomizeHairs()
+        R1.dress(Mens-Jeans_1)
+
+        R2 = generatePersonTemporary(bggw_rapper)
+        R2.randomizeFace()
+        R2.randomizeHairs()
+        R2.dress(Cool-Pants_1)
+        
+        setBackground(fraternity)
+        "Bad Girls Apprentice Week 4"
+        "'The Apprentice Gangbang'"
+        
+        Player.show(0)
+        Player(Happy):: "Wow, this is incredible!"
+        "Iris asked the Apprentice to come see her at rapper Lil' Tyrone's yacht, where he's throwing a huge party for his young rapper protégés."
+        Player(Happy):: "Excuse me, I'm looking for Iris?"
+        R1:: "Iris? She's probably in Tyrone's bedroom as always. Just over there down the hall!"
+        Player(Happy):: "This must be the room ..."
+        Player(Shocked):: "What the fuck!"
+        setBackground(home)
+        Sex(Tyrone, R1, R2, Iris)
+        R1.hide()
+        R2.hide()
+        Tyrone.strip()
+        Iris.strip()
+        R1.strip()
+        R2.strip()
+        Tyrone.show(2)
+        Iris.show(3)
+        Player.show(0)
+        Iris(Flirty):: "What are you waiting for? Join us! I already told Tyrone you were coming."
+        If !Player.isMale()
+            Player(Flirty):: "I don't know ... he's so huge ..."
+            Iris(Flirty):: "Don't worry. If I can take it, so can you!"
+        Endif
+        Sex(Tyrone, Player, Iris)
+        Player.strip()
+        Player.show(0)
+        Tyrone.show(2)
+        Iris.show(3)
+        Tyrone(Flirty):: "That was good, Iris. Your apprentice is learning ..."
+        R1.show(1)
+        R2.show(5)
+        R1(Flirty):: "Hey, you guys shouldn't leave us hanging there ..."
+        Tyrone(Flirty):: "Come join us, brothas!"
+        If Player.isMale()
+            Sex(Tyrone, Player, R1, R2, Iris)
+        Else
+            Sex(Tyrone, R1, R2, Player)
+            R1.hide()
+            R2.hide()
+            Tyrone.hide()
+            Iris.show(3)
+            Iris(Flirty):: "Good job, Apprentice. You learn quickly. Here, let me help you get cleaned up ..."
+            Sex(Player, Iris)
+        Endif       
+    Elseif stage == 5 // Ashley & Eva & Eric & Thug
+        stage += 1
+        AshleyH.removeObjective(bggw_film)
+        JessicaH.addObjective(bggw_film)
+        
+        Ashley.dress(Evening-Dress_4_F)
+        Eric = EricA.getActorAlias()
+        Eric.dress(Mens-Jeans_1, Cool-Jacket_1, Cool-Shirt_1)
+        Eva = generatePerson(bggw_eva)
+        Eva.dress(Sports-Bra_2_F, Sports-Pants_1_F)
+        EvaA.setActorAlias(Eva)
+        Thug = generatePersonTemporary(bggw_thug)
+        Thug.randomizeFace()
+        Thug.randomizeHairs()
+        
+        setBackground(street)
+        "Bad Girls Apprentice Week 5"
+        "'The Apprentice Visits Ashley's Old Friend'"
+        "Ashley asked the Apprentice to meet her in front of her house today."
+        Player.show(0)
+        Ashley.show(5)
+        Ashley(Angry):: "Eric, are you ready?"
+        Eric.show(2)
+        Eric(Sad):: "Sorry, the car had so much trouble starting for some reason. I will have to take it to the shop tomorrow."
+        Eric(Happy):: "But it looks like it's good to go for now. Hop in!"
+        Ashley(Sarcastic):: "What a useless soyboy! Real men know how to fix a car themselves ... Your Dad used to repair the engine while I was giving him a blowjob."
+        Eric(Sad):: "Ashley ... we agreed not to talk about him ..."
+        Ashley(Angry):: "Just shut up and drive, you micropenis cuck!"
+        Eric(Sad):: "Okay babe ..."
+        Player(Sad):: "Ashley, where are we going? Looks like we're heading towards a dodgy part of town."
+        Ashley(Flirty):: "To see an old friend, shoot some crack and have fun."
+        Player(Flirty):: "Sounds good."
+        "15 minutes later ..."
+        Eric(Sad):: "Here we are ..."
+        Ashley(Flirty):: "At least you would make for a decent taxi driver ... Good, wait here in the car. We'll be back in a few hours ..."
+        Eric(Sad):: "Can I come in? I'll just sit there quietly and won't say a thing ..."
+        Ashley(Flirty):: "Look at you! You just want to watch, don't you? Sorry, but the people in there aren't the kind that allow a beta like you in."
+        Eric(Sad):: "Okay ... I'll just wait in the car then ..."
+        Ashley(Flirty):: "Don't worry, I promise to tell you all the dirty details when I get back."
+        Ashley(Flirty):: "Let's go inside, Apprentice!"
+        Eric.hide()
+        setBackgroundCustom(livingroom)
+        "As soon as we entered the room, we could smell drugs and hear the familar sound of deepthroat ..."
+        Filter(Blowjob)
+        Sex(Thug, Eva)
+        setBackgroundCustom(livingroom)
+        Thug.hide()
+        Player.show(0)
+        Ashley.show(5)
+        Eva.show(2)
+        Eva(Flirty):: "Oh hello there, Ashley. Didn't see you standing there ..."
+        Ashley(Flirty):: "You never do, slut! I swear every time I see you, there's a cock down your throat."
+        "Well, it was quite obvious that Eva had a lot of experience with her mouth."
+        Eva(Flirty):: "Sorry, the gang is getting bigger everyday and I'm still the only girl around."
+        Ashley(Flirty):: "You crazy bitch ... Can't believe you actually joined a gang. You used to be such a good girl too ... How long was you with Dave before all of this? 5 years?"
+        Eva(Flirty):: "That's distant memory ... but you're the one to speak! Look at you! Reality TV star? Hanging out with that bitch Jessica ..."
+        Thug.show(3)
+        Thug(Angry):: "Yawn ... Enough of the history lesson. I'm about to fall asleep. So will this whore friend of yours fuck me or not, Eva? And what about that <Player.idiot_or_chick> standing there like a deer in the headlight?"
+        Ashley(Flirty):: "That's what I'm here for ... But before that, you wouldn't mind me snorting a line of coke first, would you?"
+        Thug(Flirty):: "Go ahead, bitch! But coke ain't free, you'd better make sure the sex is worth it."
+        If Player.isMale()
+            Eva(Flirty):: "You're Ashley's new boytoy? Let me give you a test drive while Ashley's getting occupied ..."
+            Sex(Thug, Ashley)
+            setBackgroundCustom(livingroom)
+            Sex(Player, Eva)
+            setBackgroundCustom(livingroom)
+        Else
+            Sex(Thug, Ashley, Eva, Player)
+            setBackgroundCustom(livingroom)
+        Endif
+        Player.show(0)
+        Ashley.show(5)
+        Eva.show(2)
+        Thug.show(3)
+        Thug(Angry):: "What's the sound? Someone's spying on us!"
+        Eric.show(1)
+        Eric(Scared):: "Oh shit!"
+        Thug(Angry):: "Who the fuck are you? An undercover cop?"
+        Ashley(Sarcastic):: "He wishes! It's just my cuck boyfriend. He's harmless .."
+        Ashley(Flirty):: "What's the matter, Eric? Couldn't even follow my simple instructions to stay in the car?"
+        Eric(Scared):: "I'm sorry ... I couldn't help myself ... I wanted to watch."
+        Thug(Angry):: "I don't care what you wanted. Nobody spies on the gang and gets away with it. Take off your clothes!"
+        Eric(Scared):: "What? Okay ..."
+        Eric.strip()
+        Thug(Evil):: "Hahaha, you call that a dick? How pathetic!"
+        Thug(Evil):: "Bend over so that I can show you what happens to beta losers like you in prison."
+        Ashley(Evil):: "Admit it and get out of the closet, Eric. Deep inside you want a real man's dick inside you dominating you ... that's the real reason why you enjoy watching me getting fucked so much ... you were imagining yourself in my place the whole time!"
+        0:: "Watch (Gay sex scene)"
+        1:: "Look away"
+        
+        If 0
+            Sex(Thug, Eric)
+            setBackgroundCustom(livingroom)
+        Else
+            "I'd rather not watch Eric getting 'punished' right now ..."
+        Endif
+        Player.show(0)
+        Ashley.show(5)
+        Eva.show(2)
+        Thug.show(3)
+        Eric.show(1)
+        Eric(Pain):: "Ahhhhhhhhhhhhhhhhhh ...."
+        "Eric was out of it after getting a good dicking from the thug."
+        Eric.hide()
+        Thug(Angry):: "Fuck! Wake up pretty boy! You haven't done cleaning me up yet!"
+        Ashley(Flirty):: "Don't mind him ... here, let me pick up where he left off and lick all of that clean."
+        Filter(Blowjob)
+        Sex(Thug, Ashley)
+        
+    Else // Fan Orgy
+        Player.strip()
+        Eva = EvaA.getActorAlias()
+        setBackground(fraternity)
+        "Bad Girls Apprentice Finale"
+        "The Fan Orgy"
+        "Today is the day of Jessica's massive fan orgy she's been promoting on her camshows. 100 lucky guys have been chosen to take part in the event and everyone's gotten naked."
+        "I've got to say ... the fans aren't exactly supermodel material ... just regular guys with regular bodies and regular dicks ..."
+        Player.show(0)
+        Eva.show(1)
+        Jessica.show(2)
+        Jessica(Sarcastic):: "Eva? What a pleasure! The thug queen blesses me with her presence at my party!"
+        Eva(Angry):: "Fuck off, Jessica! I'm only here because Eva asked me. You're still a bitch."
+        Ashley.show(3)
+        Ashley(Happy):: "Come on girls, let's put your grudge behind you and go have some fun. So many new dicks here for us to enjoy today. Great work, Jessica!"
+        Eva(Sarcastic):: "Let's just say I prefer quality over quantity ..."
+        Jessica(Flirty):: "Alright, Apprentice, I trust you know what to do. Go and direct a mind-blowing orgy!"
+        Ashley.hide()
+        Jessica.hide()
+        Eva.hide()
+        
+        While stage < 11
+            Actor1.hide()
+            Actor2.hide()
+            Actor3.hide()
+            Player.hide()
+            stage += 1
+            round = stage - 6
+            "Round <round>! Who should fuck who?"
+            count = 0
+            Actor1 = none
+            Actor2 = none
+            Actor3 = none
+            Enough = false
+            While count < 3 && !Enough
+                count += 1
+                "Pick a person for the next steamy session ..."
+                0:: !Actor1.isSameAs(Ashley) && !Actor2.isSameAs(Ashley) && !Actor3.isSameAs(Ashley)::"Ashley"
+                1:: !Actor1.isSameAs(Jessica) && !Actor2.isSameAs(Jessica) && !Actor3.isSameAs(Jessica)::"Jessica"
+                2:: !Actor1.isSameAs(Iris) && !Actor2.isSameAs(Iris) && !Actor3.isSameAs(Iris)::"Iris"
+                3:: !Actor1.isSameAs(Nat) && !Actor2.isSameAs(Nat) && !Actor3.isSameAs(Nat)::"Nat"
+                4:: !Actor1.isSameAs(Eva) && !Actor2.isSameAs(Eva) && !Actor3.isSameAs(Eva)::"Eva"
+                5:: !Actor1.isSameAs(Player) && !Actor2.isSameAs(Player) && !Actor3.isSameAs(Player):: "Me!"
+                6:: "A random fan"
+                7:: count > 0:: "Enough"
+                
+                If 0
+                    Picked = Ashley
+                Elseif 1
+                    Picked = Jessica
+                Elseif 2
+                    Picked = Iris
+                Elseif 3
+                    Picked = Nat
+                Elseif 4
+                    Picked = Eva
+                Elseif 5
+                    Picked = Player
+                Elseif 6
+                    Random
+                        Picked = generatePersonTemporary(bggw_fat)
+                        Picked = generatePersonTemporary(bggw_skinny)
+                    endRandom
+                    Picked:age => Random(20, 60)
+                    Picked.randomizeRace()
+                    Picked.randomizeFace()
+                    Picked.randomizeHairs()      
+                Else
+                    count -= 1
+                    Enough = true
+                Endif
+                
+                If !Enough
+                    If count == 1
+                        Actor1 = Picked
+                        Actor1.show(1)
+                    Elseif count == 2
+                        Actor2 = Picked
+                        Actor2.show(2)
+                    Elseif count == 3
+                        Actor3 = Picked
+                        Actor3.show(3)
+                    Endif
+                Endif
+            Endwhile
+            If count == 1
+                Sex(Actor1)
+            Elseif count == 2
+                Sex(Actor1, Actor2)
+            Elseif count == 3
+                Sex(Actor1, Actor2, Actor3)
+            Endif
+        Endwhile
+        Actor1.hide()
+        Actor2.hide()
+        Actor3.hide()
+        
+        Player.hide(0)
+        "The finale and the season on the whole was a huge success, making me famous all around the country. I also made a fortune out of my appearance on the show."
+        "The Bad Girls remain my close friends and fuckbuddies after the show finishes ... Even though they're still considered bigger stars than I am, they're never more than one call away."
+        money += 1000000
+        interpersonal += 20
+        perversion += 20
+        Ashley:attractiontoplayer => 100
+        Ashley:rapportwithplayer => 100
+        exchangeContact(Ashley)
+        
+        Jessica:attractiontoplayer => 100
+        Jessica:rapportwithplayer => 100
+        exchangeContact(Jessica)
+
+        Iris:attractiontoplayer => 100
+        Iris:rapportwithplayer => 100
+        exchangeContact(Iris)
+
+        Nat:attractiontoplayer => 100
+        Nat:rapportwithplayer => 100
+        exchangeContact(Nat)
+
+        Eva:attractiontoplayer => 100
+        Eva:rapportwithplayer => 100
+        exchangeContact(Eva)        
+        QuestEnd()
+    Endif
+    bggw_stage.setGlobal(stage)
+    
+    SceneEnd()

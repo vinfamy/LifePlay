@@ -1,0 +1,6 @@
+ID: skag
+NAME: She Kissed A Girl
+DESC: Help any straight female NPC awaken and explore her lesbian side (i.e. that NPC will have the 'Interested in Women' tag after the quest completes). If the player is female, she can do the 'teaching' herself. If you're playing a male character however, you can ask a significant other or family member you have to do it. 
+ONCE: false
+CONDITIONS: none
+START: skag_start

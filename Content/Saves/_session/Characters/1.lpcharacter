@@ -1,87 +1,70 @@
 // Information
-INFO Is_Male: 100% true
-INFO Interested_In_Men: 100% false
-INFO Interested_In_Women: 100% true
+INFO Is_Male: 100% false
+INFO Interested_In_Men: 100% true
+INFO Interested_In_Women: 100% false
 INFO Interested_In_Transgender: 100% false
-INFO First_Name: 100% Alexander
-INFO Last_Name: 100% C
+INFO First_Name: 100% Jasmine
+INFO Last_Name: 100% P
 INFO Race: 100% Daz
-INFO Genital: 100% Penis
+INFO Genital: 100% Vagina
 
 // Morphs
-MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.052089
-MORPH Genesis8Female__CTRLFitness: 100% 1.093625
-MORPH Genesis8Female__Tyler: 100% 0.004434
-MORPH Genesis8Female__Trey: 100% 0.826467
-MORPH Genesis8Female__Nose Style Indian A: 100% 0.553172
-MORPH Genesis8Female__Nose Style Greek: 100% 0.608097
-MORPH Genesis8Female__David: 100% 0.072228
-MORPH Genesis8Female__Brian: 100% 0.591588
-MORPH Genesis8FemaleEyelashes__Tyler: 100% 0.004434
-MORPH Genesis8FemaleEyelashes__Trey: 100% 0.826467
-MORPH Genesis8FemaleEyelashes__David: 100% 0.072228
-MORPH Genesis8FemaleEyelashes__Brian: 100% 0.591588
-MORPH XY__Penis length: 100% -0.044229
-MORPH XY__Plums size: 100% -0.223198
-MORPH XY__Penis size: 100% -0.15231
-MORPH Landis__CTRLFaceOlderHD: 100% 0.052089
-MORPH Landis__CTRLFitness: 100% 1.093625
+MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.240615
+MORPH Genesis8Female__Sabina Head: 100% 0.642946
+MORPH Genesis8Female__Nose Style Nordic: 100% 0.570348
+MORPH Genesis8Female__Nose Style Germanic: 100% 0.806366
+MORPH Genesis8Female__Faiza Head: 100% 0.014126
+MORPH Genesis8Female__Cynthia Head: 100% 0.015689
+MORPH Genesis8Female__PBMNipplesDiameter: 100% 0.75866
+MORPH Genesis8Female__PBMGlutesSize: 100% 0.981231
+MORPH Genesis8Female__PBMBreastsUnderCurve: 100% 0.520829
+MORPH Genesis8Female__PBMBreastsSmall: 100% 0.690848
+MORPH Genesis8Female__FBMHeavy: 100% 0.269659
+MORPH Genesis8Female__FBMBodyTone: 100% 0.056246
+MORPH Genesis8Female__FBMBodySize: 100% 0.2369
+MORPH Genesis8FemaleEyelashes__Sabina Head: 100% 0.642946
+MORPH Genesis8FemaleEyelashes__Faiza Head: 100% 0.014126
+MORPH Genesis8FemaleEyelashes__Cynthia Head: 100% 0.015689
+MORPH CerellaHR01_91257__SCLPropagatingHead: 100% 0.05
+MORPH CerellaHR01_91257__CTRLFaceOlderHD: 100% 0.240615
+MORPH CerellaHR01_91257__FBMHeavy: 100% 0.269659
+MORPH CerellaHR01_91257__FBMBodyTone: 100% 0.056246
+MORPH CerellaHR01_91257__FBMBodySize: 100% 0.2369
 SCALE X: 100% 1.0
 SCALE Y: 100% 1.0
 SCALE Z: 100% 1.0
 
 //Hair
-HAIR Hairstyle: 100% Landis
-HAIR Hair_Thickness: 100% 1.186016
-HAIR Hair_Color_R: 100% 1.0
-HAIR Hair_Color_G: 100% 0.2
+HAIR Hairstyle: 100% CerellaHR01_91257
+HAIR Hair_Thickness: 100% 0.948997
+HAIR Hair_Color_R: 100% 0.07
+HAIR Hair_Color_G: 100% 0.001
 HAIR Hair_Color_B: 100% 0.0
 HAIR Hair_Color_A: 100% 0.85
 
-HAIR Brow_Color_R: 100% 0.0
-HAIR Brow_Color_G: 100% 0.0
-HAIR Brow_Color_B: 100% 0.0
-HAIR Brow_Color_A: 100% 1.0
 
 // Skin
-SKIN Eye_Color_R: 100% 0.0
-SKIN Eye_Color_G: 100% 0.0
-SKIN Eye_Color_B: 100% 0.0
-SKIN Eye_Color_A: 100% 1.0
-SKIN Skin_Color_R: 100% 0.63
-SKIN Skin_Color_G: 100% 0.38
-SKIN Skin_Color_B: 100% 0.23
-SKIN Skin_Color_A: 100% 1.0
-SKIN BHairColor_R: 100% 0.015
-SKIN BHairColor_G: 100% 0.003
-SKIN BHairColor_B: 100% 0.0
-SKIN BHairColor_A: 100% 0.85
-SKIN Skin_Roughness: 100% 0.577532
-SKIN Skin_Oil: 100% 0.25
-SKIN Skin_Fresnel: 100% 0.195196
-SKIN Skin_Age: 100% 0.052089
-SKIN Skin_Sagging: 100% 0.0
-SKIN Muscle_Tone: 100% 0.0
-SKIN BHairThickness: 100% 0.696661
-SKIN BHairstyle: 100% JPBH78-TorsoNG-01
-SKIN FHairstyle: 100% Facial_Hair__27_
+SKIN Eye_Color_R: 100% 0.078125
+SKIN Eye_Color_G: 100% 0.019379
+SKIN Eye_Color_B: 100% 0.002915
+SKIN Eye_Color_A: 100% 0.8
 
 // Stats
-STAT age: 100% 30.50914
-STAT attractiveness: 100% 68.52626
-STAT cooking: 100% 7.901242
-STAT dance: 100% 71.993164
-STAT fitness: 100% 18.570513
-STAT intelligence: 100% 55.787838
-STAT interpersonal: 100% 82.747887
-STAT martial: 100% 27.597889
-STAT masochist: 100% -17.587814
-STAT muscle: 100% 29.850155
-STAT music: 100% 3.592028
-STAT perversion: 100% 31.748283
+STAT age: 100% 55.922421
+STAT attractiveness: 100% 88.113037
+STAT cooking: 100% 24.839016
+STAT dance: 100% 75.97583
+STAT fitness: 100% 46.574299
+STAT intelligence: 100% 88.885155
+STAT interpersonal: 100% 71.251564
+STAT martial: 100% 31.373028
+STAT masochist: 100% 48.069702
+STAT muscle: 100% 92.928864
+STAT music: 100% 97.714165
+STAT perversion: 100% 57.69186
 STAT pornfame: 100% 0.0
-STAT sneak: 100% 12.240973
-STAT attractiontoplayer: 100% -100.0
-STAT rapportwithplayer: 100% 17.211658
-STAT arousal: 100% 68.874176
-STAT intoxication: 100% 5.059968
+STAT sneak: 100% 0.683615
+STAT attractiontoplayer: 100% -18.791906
+STAT rapportwithplayer: 100% 33.991573
+STAT arousal: 100% 41.752373
+STAT intoxication: 100% 16.699728

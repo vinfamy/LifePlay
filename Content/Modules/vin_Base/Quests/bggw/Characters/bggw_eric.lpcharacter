@@ -1,0 +1,153 @@
+// Information
+INFO Is_Male: 100% true
+INFO Interested_In_Men: 100% false
+INFO Interested_In_Women: 100% true
+INFO Interested_In_Transgender: 100% false
+INFO First_Name: 100% Eric
+INFO Last_Name: 100% S
+INFO Race: 100% Daz
+INFO Genital: 100% Penis
+
+// Morphs
+MORPH Genesis8Female__Head Width: 100% -0.25
+MORPH Genesis8Female__RSM Chin Rounded: 100% 0.150593
+MORPH Genesis8Female__RSM Chin Heights: 100% 0.735663
+MORPH Genesis8Female__RSM Brow Thinner: 100% -1.0
+MORPH Genesis8Female__Ray: 100% 0.527839
+MORPH Genesis8Female__Nose Style Greek: 100% 0.317557
+MORPH Genesis8Female__Nose Angle Up: 100% 0.519615
+MORPH Genesis8Female__Mouth Height (Alt): 100% -1.0
+MORPH Genesis8Female__Lips Thin (Alt): 100% 0.666072
+MORPH Genesis8Female__Jin: 100% 0.547356
+MORPH Genesis8Female__Jaw Shape Ovall: 100% 0.305964
+MORPH Genesis8Female__Face Lower Narrow: 100% 0.532024
+MORPH Genesis8Female__Face Length: 100% 0.450541
+MORPH Genesis8Female__Eyes Height A: 100% 0.945175
+MORPH Genesis8Female__Ears Shape 5: 100% 0.067317
+MORPH Genesis8Female__Ears Scale: 100% 0.131048
+MORPH Genesis8Female__Ears Curl: 100% 0.056291
+MORPH Genesis8Female__Brows Height: 100% 0.826677
+MORPH Genesis8Female__FBMLithe: 100% 0.633442
+MORPH Genesis8Female__FBMHeavy: 100% 0.042089
+MORPH Genesis8Female__FBMPortly: 100% 0.264545
+MORPH Genesis8Female__FBMEmaciated: 100% 0.112709
+MORPH Genesis8FemaleEyelashes__Ray: 100% 0.527839
+MORPH Genesis8FemaleEyelashes__Jin: 100% 0.547356
+MORPH Genesis8FemaleEyelashes__Face Length: 100% 0.450541
+MORPH Genesis8FemaleEyelashes__Eyes Height A: 100% 0.945175
+MORPH Genesis8FemaleEyelashes__Brows Height: 100% 0.826677
+MORPH XY__FBMLithe: 100% 0.633442
+MORPH XY__FBMHeavy: 100% 0.042089
+MORPH XY__FBMPortly: 100% 0.264545
+MORPH XY__FBMEmaciated: 100% 0.112709
+MORPH XY__Penis length: 100% -0.3
+MORPH XY__Penis size: 100% -0.2
+MORPH Morley__Head Width: 100% -0.25
+MORPH Morley__Face Lower Narrow: 100% 0.532024
+MORPH Morley__Face Length: 100% 0.450541
+MORPH Morley__FBMHeavy: 100% 0.042089
+MORPH Morley__FBMPortly: 100% 0.264545
+MORPH Morley__FBMEmaciated: 100% 0.112709
+MORPH Morley__Top Up: 100% 1.0
+MORPH Morley__Top Long: 100% 1.0
+MORPH Morley__Top Forward: 100% 0.138851
+MORPH Morley__Fringe Down: 100% 1.0
+MORPH Morley__Adjust Hairline Height: 100% 1.0
+SCALE X: 100% 1.0
+SCALE Y: 100% 1.0
+SCALE Z: 100% 1.0
+PENIS TAB_Gen3F_27097__FBMEmaciated: 100% 0.112709
+PENIS TAB_Gen3F_27097__FBMHeavy: 100% 0.042089
+
+//Hair
+HAIR Hairstyle: 100% Morley
+HAIR Hair_Thickness: 100% 1.0
+HAIR Hair_Color_R: 100% 0.020833
+HAIR Hair_Color_G: 100% 0.007495
+HAIR Hair_Color_B: 100% 0.003094
+HAIR Hair_Color_A: 100% 1.0
+
+HAIR Brow_Color_R: 100% 0.0
+HAIR Brow_Color_G: 100% 0.0
+HAIR Brow_Color_B: 100% 0.0
+HAIR Brow_Color_A: 100% 1.0
+
+// Skin
+SKIN Eye_Color_R: 100% 0.0
+SKIN Eye_Color_G: 100% 0.0
+SKIN Eye_Color_B: 100% 0.0
+SKIN Eye_Color_A: 100% 1.0
+SKIN Skin_Color_R: 100% 0.83
+SKIN Skin_Color_G: 100% 0.58
+SKIN Skin_Color_B: 100% 0.43
+SKIN Skin_Color_A: 100% 1.0
+SKIN BHairColor_R: 100% 0.015
+SKIN BHairColor_G: 100% 0.003
+SKIN BHairColor_B: 100% 0.0
+SKIN BHairColor_A: 100% 1.0
+SKIN Skin_Roughness: 100% 0.0
+SKIN Skin_Oil: 100% 0.25
+SKIN Skin_Fresnel: 100% 0.0
+SKIN Skin_Age: 100% 0.0
+SKIN Skin_Sagging: 100% 0.0
+SKIN Muscle_Tone: 100% 0.0
+SKIN BHairThickness: 100% 0.128071
+SKIN BHairstyle: 100% JPBH78-TorsoNG-03
+SKIN FHairstyle: 100% NoHair
+
+// Stats
+STAT children: 100% 0.0
+STAT fertility: 100% 3.0
+STAT stock_condom: 100% 0.0
+STAT stock_pill: 100% 0.0
+STAT bargain: 100% 0.0
+STAT brand: 100% 0.0
+STAT sentence: 100% 0.0
+STAT modelfame: 100% 0.0
+STAT age: 100% 22.0
+STAT money: 100% 3000.0
+STAT perks: 100% 8.0
+STAT attractiveness: 100% 30.0
+STAT cooking: 100% 50.0
+STAT dance: 100% 10.0
+STAT fitness: 100% 30.0
+STAT intelligence: 100% 80.0
+STAT interpersonal: 100% 40.0
+STAT jobexperience: 100% 9.999821
+STAT jobperformance: 100% 0.0
+STAT karma: 100% 50.0
+STAT martial: 100% 0.0
+STAT masochist: 100% 80.0
+STAT muscle: 100% 5.0
+STAT music: 100% 20.0
+STAT perversion: 100% 70.0
+STAT pornfame: 100% 0.0
+STAT sneak: 100% 50.0
+STAT arousal: 100% 0.204344
+STAT energy: 100% 99.535576
+STAT intoxication: 100% 0.0
+STAT mood: 100% 99.910606
+STAT appliance_value: 100% 0.0
+STAT car_value: 100% 0.0
+STAT furniture_value: 100% 0.0
+STAT stock_alcohol: 100% 0.0
+STAT stock_book: 100% 0.0
+STAT stock_coffee: 100% 0.0
+STAT stock_flower: 100% 0.0
+STAT stock_gift: 100% 0.0
+STAT stock_haircare: 100% 0.0
+STAT stock_ingredient: 100% 0.0
+STAT stock_juice: 100% 0.0
+STAT stock_makeup: 100% 0.0
+STAT stock_meal: 100% 0.0
+STAT stock_movie: 100% 0.0
+STAT stock_musicalinstrument: 100% 0.0
+STAT stock_petfood: 100% 0.0
+STAT stock_photo: 100% 0.0
+STAT stock_skincare: 100% 0.0
+STAT stock_snack: 100% 0.0
+STAT stock_soda: 100% 0.0
+STAT stock_supplement: 100% 0.0
+STAT stock_tea: 100% 0.0
+STAT stock_tobacco: 100% 0.0
+STAT stock_video: 100% 0.0

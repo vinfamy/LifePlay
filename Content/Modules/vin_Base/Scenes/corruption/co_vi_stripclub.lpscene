@@ -62,9 +62,11 @@ OTHER: none
             Player(Angry):: "Of course I can! Do you think I'm not sexy enough?"
             "I might not be able to pole dance, but taking off my clothes and looking sexy doing it? Of course I can do that."
             perversion += Random(0, 1)
-            While !Player.isNaked()
+            count = 0
+            While !Player.isNaked() && count < 5
                 "Off this goes ..."
                 Player.stripOne()
+                count += 1
             Endwhile
             Player(Angry):: "Happy now? Are you still doubting my ability?"
             Actor(Flirty):: "Not anymore, darling. I didn't see that coming from you."

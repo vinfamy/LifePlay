@@ -1,0 +1,399 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    If isWithCompanion()
+        endDate()
+    Endif
+    SceneStart()
+    Player.hide()
+    Agg = AggA.getActorAlias()
+    Vic = VicA.getActorAlias()
+    
+    If !Agg.isSameAs(Player)
+        Agg.dress()
+    Endif
+    Vic.dress()
+    Agg.show(0)
+    Vic.show(2)
+    
+    stage = skag_stage.getGlobal()
+    
+    If stage == 1 // Gym Locker Room
+        B1.removeObjective(skag_awaken)
+        B2.generateBuildingAlias(stripclub)
+        B2.addObjective(skag_awaken)
+        
+        setBackground(street)
+        Vic.hide()
+        Agg(Happy):: "<Vic.name>, do you want to go to the gym with me?"
+        Vic(Happy):: "Of course, I really should work out more often."
+        setBackground(sports_centre)
+        Vic.show(5)
+        Vic(Happy):: "This is a nice gym! You work out here everyday?"
+        Agg(Happy):: "Not everyday, maybe three times a week or so. Yes, it's a nice gym ... very female-friendly too."
+        Vic(Surprised):: "Female-friendly?"
+        Agg(Happy):: "Not too many of the 'bros' on steriod grunting, screaming and offering unsolicited advice here ..."
+        Vic(Happy):: "Oh I see ... that sounds like a good criteria to choose a gym on."
+        "One hour later ..."
+        Vic(Tired):: "Wow, that was an intense workout session. I wouldn't have completed it without your help and motivation."
+        Agg(Happy):: "Let's head to the changing room ..."
+        Agg(Happy):: "Here it is. You come in first!"
+        Vic(Surprised):: "Oh my God!"
+        
+        Actor1 = generatePersonTemporary(skag_fitgirl)
+        Actor1.randomizeRace()
+        Actor1.randomizeSexy()
+        Actor1.randomizeFace()
+        Actor1.randomizeHairs()
+        
+        Actor2 = generatePersonTemporary(skag_fitgirl)
+        Actor2.randomizeRace()
+        Actor2.randomizeSexy()
+        Actor2.randomizeFace()
+        Actor2.randomizeHairs()
+
+        Actor1.show(2)
+        Actor2.show(3)
+        
+        "Two amazonian fitness girls are in the changing room, completely naked and sweaty."
+        Agg(Happy):: "Oh yeah, I forgot to warn you: since it's just us girls in here, people tend to act quite 'freely'."
+        Agg(Happy):: "Not that I would complain: look at those two hotties, I wish I have a body as fit as theirs. I can stare at those bodies all day."
+        Vic(Sad):: "Well ... I'm not too comfortable ... I'm not into girls ..."
+        Agg(Flirty):: "Come on, <Vic.name>. Don't be so uptight, nothing wrong with a little girl crush."
+        Actor1(Flirty):: "Let's shower together babe!"
+        Actor2(Flirty):: "I'm coming!"
+        Actor1.hide()
+        Actor2.hide()
+        Agg(Flirty):: "Damn, they're a couple too! I've got to watch this ... You coming?"
+        Vic(Sad):: "No way! Why would I want to watch two lesbians ... do it?"
+        Agg(Flirty):: "Come on. Stop lying to yourself. We all love a bit of lesbian porn, especially if it's live!"
+        Vic(Surprised):: "No ... wait, where are you dragging me to? No, I don't want to watch."
+        
+        setBackground(shower)
+        Sex(Actor1, Actor2)
+        Player.hide()
+        
+        Actor1.hide()
+        Actor2.hide()
+        
+        Agg.show(0)
+        Vic.show(5)
+        setBackground(sports_centre)
+        Agg(Flirty):: "Damn, that was hot, wasn't it?"
+        Vic(Angry):: "No ... not cool, <Agg.name>. Can't believe you forced me to watch it."
+        Agg(Flirty):: "You didn't resist that much ... I can tell you enjoyed it ..."
+        Vic(Sad):: "No, I didn't, at all!"
+        Vic(Sad):: "I'm taking a shower now ..."
+        Vic.hide()
+        Vic.strip()
+        Agg(Flirty):: "Hmm, <Vic.name> is taking a looong time in the shower. I wonder what's going on there?"
+        Agg(Flirty):: "Let's take a peek."
+        setBackground(shower)
+        Sex(Vic)
+        Player.hide()
+        Agg.show(0)
+        Vic.show(2)
+        Agg(Flirty):: "You're having quite a bit of fun in there. You did enjoy watching them after all, didn't you?"
+        Vic(Angry):: "Hey! Get out! I wasn't ... doing whatever you think I was doing."
+        Agg(Sarcastic):: "Oh sure, <Vic.name>, you definitely weren't playing with yourself thinking about hot steamy lesbian sex at all!"
+        Vic(Angry):: "That's not funny!"
+    Elseif stage == 2 // Stripclub
+        B2.removeObjective(skag_awaken)
+        B3.generateBuildingAlias(cinema)
+        B3.addObjective(skag_awaken)
+        setBackground(street)
+        Vic.hide()
+        Agg(Happy):: "<Vic.name>, are you going out tonight? They have a Ladies' Night promotion at one of the best nightclubs in town."
+        Vic(Happy):: "I haven't gone out in ages. Ladies' Night sounds good ..."
+        Vic(Happy):: "Okay then, see you tonight!"
+        setBackground(stripclub)
+        Vic.show(5)
+        Vic(Surprised):: "I thought you said it was Ladies' Night. This place is 99% men!"
+        Vic(Surprised):: "And what are all these poles for?"
+        "'Gentlemen, please welcome our featured dancer for tonight: Angel Salvadora!'"
+        Angel = generatePersonTemporary(skag_stripper)
+        Angel:age => 21
+        Angel.randomizeRace()
+        Angel.randomizeSexy()
+        Angel.randomizeFace()
+        Angel.randomizeHairs()
+
+        Vic(Angry):: "Featured dancer!? Damn you, <Agg.name>, you tricked me! This is a stripclub!"
+        Angel.show(2)
+        "Angel is an amazing dancer and extremely hot and sexual!"
+        Agg(Happy):: "Come on, <Vic.name>. I saw how much you enjoyed watching the two girls in the gym shower the other day and simply wanted to give you a surprise present."
+        Agg(Happy):: "And judging from the fact you haven't left yet, you're quite enjoying your present."
+        Vic(Embarrassed):: "No, I'm not enjoying anything ..."
+        Agg(Happy):: "Angel, would you mind giving my friend here a lapdance?"
+        Angel(Flirty):: "Of course, for a pretty lady like you, I will do it for free!"
+        Agg.show(2)
+        Angel.show(0)
+        "Angel started giving <Vic.name> a sensual lapdance, <Vic.name> tries her best to appear as uncomfortable as possible but she's fooling no-one: she's getting visually turned on."
+        Angel(Flirty):: "Here's a little bonus ..."
+        Angel(Kiss):: "..."
+        "Angel kissed <Vic.name>. She was so taken away by the whole situation unfolding in front of her that she had no reaction ... well, she didn't push Angel away either."
+        "Eventually though, <Vic.name> came to her senses just as Angel was finishing her dance ..."
+        Vic(Embarrased):: "Sorry, I've got to go ... I'm so confused ..."
+        Vic.hide()
+        "Confused? That's good. Maybe she's finally realizing how much into girls she really is."
+        Agg(Flirty):: "Great job, Angel. Just as we planned."
+        Angel(Flirty):: "Anything for a regular like you!"
+        Agg(Flirty):: "Now, should we go somewhere private?"
+        Angel(Flirty):: "Yes, I hope you remember the usual fee?"
+        Agg(Flirty):: "Of course."
+        setBackground(home)
+        Sex(Agg, Angel)
+    Elseif stage == 3 // Erotic Movie
+        B3.removeObjective(skag_awaken)
+        B4.generateBuildingAlias(home)
+        B4.addObjective(skag_awaken)
+        setBackground(street)
+        Vic.hide()
+        Agg(Happy):: "<Vic.name>, do you want to go to the movies today?"
+        Vic:: "Not after the last time you tricked me into going to that stripclub!"
+        Agg(Happy):: "Come on, you enjoyed it!"
+        Agg(Happy):: "Okay, I apologize! Consider it a little prank between friends ..."
+        Vic:: "Okay, fine. I forgive you this time - but don't try anything funny this time, okay?"
+        Agg(Happy):: "It's just a movie night. What 'funny' thing could I possibly try?"
+        Vic:: "Fine, I'll be there .."
+        Vic.show(5)
+        setBackground(cinema)
+        Vic(Surprised):: "Hmm, this is an interesting movie ... I wonder where this is going ..."
+        "Interesting indeed, without knowing about it, <Vic.name> was talked into watching a romantic comedy movie - a usual type of movie two female friends would go for, except this particular movie is about a lesbian couple ..."
+        "The steamy sex scene is coming soon ..."
+        Vic.hide()
+        Agg.hide()
+        setBackground(home)
+        Actor1 = generatePersonTemporary(skag_fitgirl)
+        Actor1.randomizeRace()
+        Actor1.randomizeSexy()
+        Actor1.randomizeFace()
+        Actor1.randomizeHairs()
+        
+        Actor2 = generatePersonTemporary(skag_stripper)
+        Actor2.randomizeRace()
+        Actor2.randomizeSexy()
+        Actor2.randomizeFace()
+        Actor2.randomizeHairs()
+
+        Actor1.show(2)
+        Actor2.show(3)
+        
+        Actor1.dress()
+        Actor2.dress()
+        
+        Actor1(Flirty):: "Baby, I love you! Let's run away together, to a town where they don't judge couples like us!"
+        Actor2(Flirty):: "I love you too. We can't hide our feelings anymore. I don't care what others think!"
+        
+        Sex(Actor1, Actor2)
+        Player.hide()
+        Actor1.hide()
+        Actor2.hide()
+        
+        setBackground(cinema)
+        Agg.show(0)
+        Vic.show(5)
+        Agg(Sad):: "Sorry, I didn't realize this romcom was about two girls ..."
+        Vic(Angry):: "Of course you did! I see what you've been trying to do here, <Agg.name>!"
+        Vic(Angry):: "I'm sorry, but I'M NOT A LESBIAN! I'm not into girls. I'm into guys!"
+        Agg(Flirty):: "Really? Are you sure you're not in the closet? When's the last time you even go on a date with a guy?"
+        Vic(Sad):: "I go on dates with guys all the time!"
+        Vic(Sad):: "Maybe I should introduce my boyfriend to you next time!"
+        Vic.hide()
+        "<Vic.name> stormed off ..."
+    Elseif stage == 4 // Shaving
+        B4.removeObjective(skag_awaken)
+        B5.generateBuildingAlias(beauty)
+        B5.addObjective(skag_awaken)
+        setbackground(street)
+        Vic.hide()
+        Agg.show(0)
+        Vic:: "<Agg.name>, can you come over my house this evening?"
+        Agg(Sarcastic):: "What's the matter? You're going to introduce me to your imaginary boyfriend who is definitely not a girl?"
+        Vic:: "I don't want to talk about it right now ... I'll see you later."
+        setBackgroundCustom(livingroom)
+        Vic.show(2)
+        Agg(Excited):: "So, you found this guy on Tinder and went on a date with him?"
+        Vic(Sad):: "We got down to business back in the hotel room, I took off my dress ..."
+        Agg(Excited):: "And he went right in there?"
+        Vic(Sad):: "No, he freaked out and got the fuck out of there!"
+        Agg(Surprised):: "What?"
+        Vic(Sad):: "I didn't shave my legs ..."
+        Agg(Surprised):: "That's it? What an asshole! Probably never been together with a woman for more than a week."
+        Vic(Sad):: "It's kinda my fault ... it's so hard to shave my legs on my own ..."
+        Agg(Flirty):: "I'll be happy to help!"
+        Vic(Sad):: "I don't know ... it's kinda weird."
+        Agg(Flirty):: "Come on, female friends do this for each other all the time. Nothing weird at all!"
+        "After some more convincing, <Vic.name> finally gave in ..."
+        Agg(Happy):: "Let's go to the bathroom"
+        setBackground(shower)
+        
+        Vic.strip()
+        Agg.show(3)
+        Agg:: "It's not all that hairy. That guy was an idiot!"
+        "A few minutes later ..."
+        Agg(Flirty):: "There you go ... all smooth and clean ..."
+        Vic:: "Thank you ..."
+        Vic(Surprised):: "What are you doing? Ahhhhhhhh"
+        Agg(Flirty):: "Sorry, your pussy looks so delicious now that everything is tidy and trimmed, I can't help but eating it."
+        Filter(Licking)
+        Sex(Vic, Agg)
+        Player.hide()
+        Vic.show(2)
+        Agg.show(3)
+        Vic(Angry):: "That's enough! Get out!"
+        Agg(Flirty):: "Oh come on, I know you just came from that! You loved getting eaten out by another girl! You need no man in your life."
+        Vic(Angry):: "Go! Just leave!"
+    Elseif stage == 5 // Massage
+        B5.removeObjective(skag_awaken)
+        B4.addObjective(skag_awaken)
+        Vic.hide()
+        Agg.show(0)
+        setBackground(street)
+        Agg:: "I'm sorry, okay? I couldn't help myself. I did help you shave, did I not? Let's just say I crossed the boundaries a bit while asking for my compensation."
+        Vic:: "A bit? You ate my ... Oh, forget it!"
+        Agg:: "Okay okay! How about this? I have this voucher for a full-body massage, why don't you go instead?"
+        Agg:: "Consider it my apology for the other night!"
+        Vic:: "Sigh ... Fine. I'll go. I wouldn't mind some pampering and relaxation after all the weird shit that happened recently."
+        
+        Agg.hide()
+        Mass = generatePersonTemporary(skag_fitgirl)
+        Mass.randomizeRace()
+        Mass.randomizeSexy()
+        Mass.randomizeFace()
+        Mass.randomizeHairs()
+        Mass.dress(Cute-Croptop_1_F, Sports-Pants_1_F)
+        Mass.show(2)
+        
+        setBackground(beauty)
+        
+        Vic.show(0)
+        Mass(Happy):: "Please get undressed and then we can begin."
+        Vic(Embarrassed):: "Is that really neccessary?"
+        Mass(Happy):: "Well, we don't want to ruin your clothes with the massage oil. Don't worry, we're professionals."
+        Vic(Sad):: "Okay ..."
+        Vic.strip()
+        Mass(Happy):: "Please lie down here and relax."
+        Vic.show(3)
+        "The masseuse started giving <Vic.name> a massage. Unbeknown to her, the masseuse has already been bribed by me to skip the 'professionalism' and turn this into a happy ending instead."
+        Vic.closeEyes(true)
+        Vic:: "Ahhhhhhhhhhhhhhh"
+        "The masseuse started coating <Vic.name>'s pussy with oil and rubbing it gently ... <Vic.name> didn't say a word, just moaning. Maybe she naively believed this was still part of the massage. Either that or she knew exactly what was going on but couldn't resist a woman's touch."
+        Vic.closeEyes(true)
+        Vic:: "Ahhhhhhhhhh. That's so good ... Keep going"
+        Mass.hide()
+        "Suddenly, the masseuse walked out of the room ..."
+        Agg.show(2)
+        "Replacing her was a more familiar face. Not that <Vic.name> would notice, with her eyes tightly shut in deep relaxation and pleasure."
+        Vic.closeEyes(true)
+        Filter(Fingering)
+        Sex(Vic, Agg)
+        Agg.show(2)
+        
+        Vic.closeEyes(true)
+        Vic.show(3)
+        "Once <Vic.name> reached orgasm, the masseuse returned to the room and finished the massage."
+        Agg.hide()
+        Mass.show(2)
+        "As far as <Vic.name> is concerned, it was the masseuse's magical touch this whole time."
+        Vic.closeEyes(false)
+        Mass(Happy):: "That's done!"
+        Vic(Happy):: "Wow, that was ... something else! I should go for a massage more often."
+    Else // Spin the bottle
+        setBackground(street)
+        Vic.hide()
+        Agg.show(0)
+        Agg(Flirty):: "So how was the massage?"
+        Vic:: "It was amazing. Thank you for the voucher."
+        Agg(Flirty):: "So I'm forgiven?"
+        Vic:: "Yeah, I suppose we're cool now ..."
+        Vic:: "By the way, I'm hosting a house party tonight at my place. Do you want to come?"
+        Agg(Flirty):: "I'd love to!"
+        
+        setBackgroundCustom(livingroom)
+        Actor1 = generatePersonTemporary()
+        Actor2 = generatePersonTemporary()
+        
+        Actor1.dress()
+        Actor2.dress()
+        
+        Vic.show(2)
+        Actor1.show(3)
+        Actor2.show(4)
+        
+        "This is a rather boring party. The guests are bored out of their mind."
+        Agg(Excited):: "Guys, let's play Spin the Bottle."
+        Actor1(Excited):: "Great idea!"
+        Vic(Sad):: "I don't know ..."
+        Actor2(Excited):: "Come on, <Vic.name>. Don't be a boring host!"
+        "After a bit more peer pressure, <Vic.name> gave in."
+        "..."
+        Vic:: "Well, I suppose it's my turn ..."
+        If Agg.isSameAs(Player)
+            "And sure enoug, the bottle landed in my direction."
+        Else
+            "And sure enough, the bottle landed in <Agg.name>'s direction."
+        Endif
+        Vic(Sad):: "I'm not sure about this ..."
+        Actor1(Excited):: "Come on. Rules are rules! Kiss her."
+        Actor2(Excited):: "<Vic.name>! <Vic.name>! <Vic.name>! <Vic.name>! <Vic.name>!"
+        Agg(Flirty):: "Come on, it's just a kiss. It's not like we haven't done much worse."
+        Vic(Sad):: "Oh ... shut up ..."
+        Vic.show(5)
+        Vic(Sad):: "Fine"
+        Vic(Kiss):: "..."
+        Agg(Kiss):: "..."
+        Actor1(Sarcastic):: "What the hell was that? I kiss my Mom with more passion!"
+        Actor2(Sarcastic):: "<Vic.name>! <Vic.name>! <Vic.name>! <Vic.name>! <Vic.name>!"
+        Vic(Sad):: "Urgggg ...."
+        Vic(Sad):: "Fine, how about this?"
+        Filter(Kissing)
+        Sex(Agg, Vic)
+        setBackgroundCustom(livingroom)
+        Agg.show(0)
+        Vic.show(5)
+        Actor1.show(3)
+        Actor2.show(4)
+        Actor1(Shocked):: "Wow, that was hot! Didn't see that comming from you, <Vic.name>! Are you sure you're not actually into girls?"
+        Actor2(Excited):: "<Vic.name>! <Vic.name>! <Vic.name>! <Vic.name>! <Vic.name>!"
+        "Eventually, the party winded down and the guests went home."
+        Actor1.hide()
+        Actor2.hide()
+        Agg(Flirty):: "Damn, I drank too much ... Don't think it would be able to make it home. You don't mind if I crash for the night, do you?"
+        Vic(Sad):: "Oh ... okay ... I don't mind ..."
+        setBackground(home)
+        Vic.show(0)
+        Agg.hide()
+        Vic.closeEyes(true)
+        "Later that night ..."
+        Agg.show(5)
+        Vic(Surprised):: "<Agg.name>, what are you doing here!? Why are you touching me like that?"
+        Agg(Flirty):: "It was me ..."
+        Vic(Surprised):: "What?"
+        Agg(Flirty):: "It was me at the massage salon, giving you the 'happy ending'."
+        Vic(Shocked):: "What!"
+        Agg(Flirty):: "And you loved it, you came so much ... You came too when I ate you out after I helped you shave."
+        Vic(Sad):: "Okay, maybe I did, but I'm not ..."
+        Vic.closeEyes(true)
+        Vic:: "Ahhhhhhhhhhhhhhhh ... that feels good."
+        Agg(Flirty):: "Be honest with yourself, <Vic.name>. You love girls!"
+        Agg(Flirty):: "Relax, just let the pleasure fly. I'll show you what you've been missing all your life."
+        Sex(Agg, Vic)
+        
+        Vic.makeInterested(Agg)
+        Actor = generatePersonTemporary(bggw_ashley)
+        Vic.makeInterested(Actor)        
+        If Vic.isInterestedIn(Player)
+            Vic:attractiontoplayer => 100
+        Endif
+        QuestEnd()
+    Endif
+    
+    
+    stage += 1
+    skag_stage.setGlobal(stage)
+    SceneEnd()
+    

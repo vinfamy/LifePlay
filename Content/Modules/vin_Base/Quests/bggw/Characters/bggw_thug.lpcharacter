@@ -1,0 +1,217 @@
+// Information
+INFO Is_Male: 100% true
+INFO Interested_In_Men: 100% false
+INFO Interested_In_Women: 100% true
+INFO Interested_In_Transgender: 100% true
+INFO First_Name: 100% Thug
+INFO Last_Name: 100% Thug
+INFO Race: 100% Daz
+INFO Genital: 100% Penis
+
+// Morphs
+MORPH Genesis8Female__Head Width: 100% 0.897914
+MORPH Genesis8Female__Face Asymmetry Left & Right: 100% 0.71584
+MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.343562
+MORPH Genesis8Female__CTRLFaceAngle: 100% -0.5
+MORPH Genesis8Female__CTRLEyesIrisSize: 100% 0.249314
+MORPH Genesis8Female__CTRLFitness: 100% 0.208319
+MORPH Genesis8Female__CTRLBodybuilder: 100% 0.560569
+MORPH Genesis8Female__RSM Forehead Width: 100% 0.849823
+MORPH Genesis8Female__RSM Forehead Slope: 100% 0.713806
+MORPH Genesis8Female__RSM Forehead Heights: 100% 0.714512
+MORPH Genesis8Female__RSM Face Starter Triangular: 100% 0.881749
+MORPH Genesis8Female__RSM Face Starter Rectangle: 100% 0.256233
+MORPH Genesis8Female__RSM Eyes Angle: 100% 0.680259
+MORPH Genesis8Female__RSM Brow Thinner: 100% 0.695096
+MORPH Genesis8Female__RSM Brow Shape 10: 100% 0.765371
+MORPH Genesis8Female__RSM Brow Shape 08: 100% 0.163841
+MORPH Genesis8Female__RSM Brow Shape 07: 100% 0.118125
+MORPH Genesis8Female__RSM Brow Shape 05: 100% 0.2264
+MORPH Genesis8Female__RSM Brow Shape 04: 100% 0.086845
+MORPH Genesis8Female__RSM Brow Rotate 02: 100% 0.239006
+MORPH Genesis8Female__RSM Brow Inner Rotate: 100% 0.550925
+MORPH Genesis8Female__RSM Brow Inner Heights: 100% -0.25
+MORPH Genesis8Female__RSM Brow Heights: 100% -0.5
+MORPH Genesis8Female__RSM Brow Enlarge: 100% 0.609458
+MORPH Genesis8Female__RSM Brow Broken Right: 100% 1.0
+MORPH Genesis8Female__Matt: 100% 0.595823
+MORPH Genesis8Female__ForeHead Width: 100% 0.783952
+MORPH Genesis8Female__Face Upper Widen: 100% 0.225414
+MORPH Genesis8Female__Face Upper Depth: 100% 0.148991
+MORPH Genesis8Female__Face Outer Depth: 100% 0.060395
+MORPH Genesis8Female__Face Middle Depth: 100% -0.5
+MORPH Genesis8Female__Face Lower Depth: 100% 0.17418
+MORPH Genesis8Female__Face Lower Define: 100% 0.02992
+MORPH Genesis8Female__Face Length: 100% 0.396499
+MORPH Genesis8Female__Face Angle Tilt: 100% 0.347853
+MORPH Genesis8Female__Eyes Upper Inner: 100% 0.442091
+MORPH Genesis8Female__Eyes Scale: 100% 0.205764
+MORPH Genesis8Female__Eyes Lower Inner: 100% 0.279211
+MORPH Genesis8Female__Eyes Height A: 100% 0.510761
+MORPH Genesis8Female__Damien: 100% 0.546876
+MORPH Genesis8Female__Cranium Height: 100% 0.232949
+MORPH Genesis8Female__Cranium Back Flatten: 100% 0.277457
+MORPH Genesis8Female__Brows Height: 100% 0.527256
+MORPH Genesis8Female__Brows Distance: 100% 0.646041
+MORPH Genesis8Female__PHMForeheadRound: 100% 1.0
+MORPH Genesis8Female__PHMFaceRound: 100% 0.462126
+MORPH Genesis8Female__PHMEyesPupilsDilate: 100% 0.148157
+MORPH Genesis8Female__PHMEyesPuffyUpper: 100% 1.0
+MORPH Genesis8Female__PHMEyesPuffyLower: 100% 1.0
+MORPH Genesis8Female__PHMEyesAngledOuter: 100% 0.052523
+MORPH Genesis8Female__PHMEyesAlmondInner: 100% 0.111458
+MORPH Genesis8Female__PHMEyelidsHeavy: 100% 0.314129
+MORPH Genesis8Female__PHMBrowWidth: 100% 0.108285
+MORPH Genesis8Female__MCMFaceAngleBack: 100% 0.464606
+MORPH Genesis8Female__PBMNipplesLarge: 100% 0.376112
+MORPH Genesis8Female__FBMStocky: 100% 0.248919
+MORPH Genesis8FemaleEyelashes__Face Asymmetry Left & Right: 100% 0.71584
+MORPH Genesis8FemaleEyelashes__CTRLFaceOlderHD: 100% 0.343562
+MORPH Genesis8FemaleEyelashes__RSM Eyes Angle: 100% 0.680259
+MORPH Genesis8FemaleEyelashes__Matt: 100% 0.595823
+MORPH Genesis8FemaleEyelashes__Face Upper Widen: 100% 0.225414
+MORPH Genesis8FemaleEyelashes__Face Upper Depth: 100% 0.148991
+MORPH Genesis8FemaleEyelashes__Face Middle Depth: 100% -0.5
+MORPH Genesis8FemaleEyelashes__Face Length: 100% 0.396499
+MORPH Genesis8FemaleEyelashes__Face Angle Tilt: 100% 0.347853
+MORPH Genesis8FemaleEyelashes__Eyes Upper Inner: 100% 0.442091
+MORPH Genesis8FemaleEyelashes__Eyes Scale: 100% 0.205764
+MORPH Genesis8FemaleEyelashes__Eyes Lower Inner: 100% 0.279211
+MORPH Genesis8FemaleEyelashes__Eyes Height A: 100% 0.510761
+MORPH Genesis8FemaleEyelashes__Damien: 100% 0.546876
+MORPH Genesis8FemaleEyelashes__Brows Height: 100% 0.527256
+MORPH Genesis8FemaleEyelashes__PHMEyesPuffyLower: 100% 1.0
+MORPH Genesis8FemaleEyelashes__PHMEyesAngledOuter: 100% 0.052523
+MORPH Genesis8FemaleEyelashes__PHMEyesAlmondInner: 100% 0.111458
+MORPH Genesis8FemaleEyelashes__PHMEyelidsHeavy: 100% 0.314129
+MORPH XY__CTRLFitness: 100% 0.208319
+MORPH XY__CTRLBodybuilder: 100% 0.560569
+MORPH XY__FBMStocky: 100% 0.248919
+MORPH XY__Plums size: 100% 0.298657
+MORPH XY__Penis size: 100% 0.284463
+MORPH XY__Foreskin03: 100% 0.997036
+MORPH Everyday__Head Width: 100% 0.897914
+MORPH Everyday__Face Asymmetry Left & Right: 100% 0.71584
+MORPH Everyday__CTRLFaceOlderHD: 100% 0.343562
+MORPH Everyday__CTRLFaceAngle: 100% -0.5
+MORPH Everyday__CTRLFitness: 100% 0.208319
+MORPH Everyday__CTRLBodybuilder: 100% 0.560569
+MORPH Everyday__RSM Forehead Width: 100% 0.849823
+MORPH Everyday__RSM Forehead Slope: 100% 0.713806
+MORPH Everyday__RSM Forehead Heights: 100% 0.714512
+MORPH Everyday__RSM Face Starter Triangular: 100% 0.881749
+MORPH Everyday__RSM Face Starter Rectangle: 100% 0.256233
+MORPH Everyday__ForeHead Width: 100% 0.783952
+MORPH Everyday__Face Upper Widen: 100% 0.225414
+MORPH Everyday__Face Upper Depth: 100% 0.148991
+MORPH Everyday__Face Outer Depth: 100% 0.060395
+MORPH Everyday__Face Length: 100% 0.396499
+MORPH Everyday__Face Angle Tilt: 100% 0.347853
+MORPH Everyday__Cranium Height: 100% 0.232949
+MORPH Everyday__Cranium Back Flatten: 100% 0.277457
+MORPH Everyday__PHMForeheadRound: 100% 1.0
+MORPH Everyday__PHMFaceRound: 100% 0.462126
+MORPH Everyday__MCMFaceAngleBack: 100% 0.464606
+MORPH Everyday__FBMStocky: 100% 0.248919
+MORPH Everyday__Wet 02: 100% 0.527719
+MORPH Everyday__Wet 01: 100% 0.141574
+MORPH Everyday__Top Size: 100% 1.0
+MORPH Everyday__Forehead Adjust 01: 100% 0.457314
+SCALE X: 100% 1.0
+SCALE Y: 100% 1.0
+SCALE Z: 100% 1.0
+PENIS TAB_Gen3F_27097__CTRLFitness: 100% 0.208319
+PENIS TAB_Gen3F_27097__CTRLBodybuilder: 100% 0.560569
+
+//Hair
+HAIR Hairstyle: 100% Everyday
+HAIR Hair_Thickness: 100% 1.0
+HAIR Hair_Color_R: 100% 0.026
+HAIR Hair_Color_G: 100% 0.009
+HAIR Hair_Color_B: 100% 0.0
+HAIR Hair_Color_A: 100% 0.85
+
+HAIR Brow_Color_R: 100% 0.0
+HAIR Brow_Color_G: 100% 0.0
+HAIR Brow_Color_B: 100% 0.0
+HAIR Brow_Color_A: 100% 1.0
+
+// Skin
+SKIN Eye_Color_R: 100% 0.078125
+SKIN Eye_Color_G: 100% 0.019379
+SKIN Eye_Color_B: 100% 0.002915
+SKIN Eye_Color_A: 100% 0.8
+SKIN Skin_Color_R: 100% 0.63
+SKIN Skin_Color_G: 100% 0.38
+SKIN Skin_Color_B: 100% 0.23
+SKIN Skin_Color_A: 100% 1.0
+SKIN BHairColor_R: 100% 0.026
+SKIN BHairColor_G: 100% 0.009
+SKIN BHairColor_B: 100% 0.0
+SKIN BHairColor_A: 100% 0.85
+SKIN Skin_Roughness: 100% 0.0
+SKIN Skin_Oil: 100% 0.158729
+SKIN Skin_Fresnel: 100% 0.0
+SKIN Skin_Age: 100% 0.101083
+SKIN Skin_Sagging: 100% 0.0
+SKIN Muscle_Tone: 100% 0.0
+SKIN BHairThickness: 100% 0.802028
+SKIN BHairstyle: 100% JPBH78-TorsoNG-05
+SKIN FHairstyle: 100% Facial_Hair__14_
+
+// Stats
+STAT children: 100% 0.0
+STAT fertility: 100% 3.0
+STAT stock_condom: 100% 0.0
+STAT stock_pill: 100% 0.0
+STAT bargain: 100% 0.0
+STAT brand: 100% 0.0
+STAT sentence: 100% 0.0
+STAT modelfame: 100% 0.0
+STAT age: 100% 40.0
+STAT money: 100% 30000.0
+STAT perks: 100% 0.0
+STAT attractiveness: 100% 70.0
+STAT cooking: 100% 0.0
+STAT dance: 100% 70.0
+STAT fitness: 100% 80.0
+STAT intelligence: 100% 80.0
+STAT interpersonal: 100% 90.0
+STAT jobexperience: 100% 0.0
+STAT jobperformance: 100% 0.0
+STAT karma: 100% 63.558437
+STAT martial: 100% 80.0
+STAT masochist: 100% -90.0
+STAT muscle: 100% 90.0
+STAT music: 100% 50.0
+STAT perversion: 100% 100.0
+STAT pornfame: 100% 0.0
+STAT sneak: 100% 60.0
+STAT arousal: 100% 50.0
+STAT energy: 100% 100.0
+STAT intoxication: 100% 0.0
+STAT mood: 100% 100.0
+STAT appliance_value: 100% 0.0
+STAT car_value: 100% 0.0
+STAT furniture_value: 100% 0.0
+STAT stock_alcohol: 100% 0.0
+STAT stock_book: 100% 0.0
+STAT stock_coffee: 100% 0.0
+STAT stock_flower: 100% 0.0
+STAT stock_gift: 100% 0.0
+STAT stock_haircare: 100% 0.0
+STAT stock_ingredient: 100% 0.0
+STAT stock_juice: 100% 0.0
+STAT stock_makeup: 100% 0.0
+STAT stock_meal: 100% 0.0
+STAT stock_movie: 100% 0.0
+STAT stock_musicalinstrument: 100% 0.0
+STAT stock_petfood: 100% 0.0
+STAT stock_photo: 100% 0.0
+STAT stock_skincare: 100% 0.0
+STAT stock_snack: 100% 0.0
+STAT stock_soda: 100% 0.0
+STAT stock_supplement: 100% 0.0
+STAT stock_tea: 100% 0.0
+STAT stock_tobacco: 100% 0.0
+STAT stock_video: 100% 0.0
