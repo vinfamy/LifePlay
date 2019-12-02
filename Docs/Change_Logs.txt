@@ -1,3 +1,11 @@
+Version 2.13:
+- Add strap-on to the game, which the female player or NPCs can use during sex scene. Any woman wearing a strap-on will be allowed to use any existing and future shemale / futa animations in addition to the normal ones for ciswomen.
+- 10 new shemale on female animations which can also be used for ciswomen wearing a strap-on, including some rough and anal animations.
+- 5 new shemale on male animations which can also be used for ciswomen wearing a strap-on, including some rough animations.
+- Allow the player to input custom tags for anyone in their Contacts, then filter down to these contacts easily by searching for the tag
+- Some new API functions for modders
+- Bug fixes and other improvements
+
 Version 2.12:
 - New Story Quest "Bad Girls Gone Worse": A reality TV show about the debauchery of 4 sexually adventurous girls and their fuck-buddies is looking for a new rising star, male or female, to join its second season's cast. Is this your chance to join the rich and famous? This quest is my little fan fiction for Eva Kiss's Good Girl Gone Bad (which IMHO is the best adult visual novel out there! If you haven't played that game, check it out and consider supporting her! The final version of GGGB is currently in development). The 'bad girls' from this quest are actually Ashley, Jessica, Iris and Natasha from GGGB (with Eva making an appearance at some point too in the story). 
 - New Radiant Quest "She Kissed A Girl": This is a repeatable quest where you help any straight female NPC awaken and explore her lesbian side (i.e. that NPC will have the 'Interested in Women' tag after the quest completes). If the player is female, she can do the 'teaching' herself. If you're playing a male character however, you can ask any bisexual girlfriend/ wife you have to do it.

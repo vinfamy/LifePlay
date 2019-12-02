@@ -1,5 +1,4 @@
 ﻿aderent
-mofunnyman
 Evo
 Mercurial
 Morte Jackson
@@ -13,10 +12,13 @@ Mobius
 Mr. Davis
 rbust0
 Robert Monotoli
+Unknown Player
+Dan0477
 Wolfman13
 Jixevra
 Luke
 Talas
+Fab0r
 AG
 Evilshadow
 Ineedmoney
@@ -56,7 +58,6 @@ Ian Bruchak
 J L
 jaffal
 hawkwolf22
-JAWXable
 John Quincy
 kaneeden
 kekistanmc
@@ -70,7 +71,6 @@ Matt Gorman
 Mert Akhan
 Metakon
 Mia Amyton
-Mihai Alexandru
 Mitchell Boyed
 Mithril-blade
 mutatiio
@@ -80,6 +80,7 @@ orderistruth
 Palhooka
 Qi
 RaeLeeH
+ECP
 RacoonBrainWorm
 Rakk
 randomwave
@@ -95,10 +96,11 @@ TC Vole
 Sescheraun
 Tim Bohnsack
 Troy Lacy
-UserPig
 Vanilladog
 Vertan Derhaler
 WildWest
+Icarus Videos
+Nesaren
 YNot Yannick
 Zack Flemming
 Aukasz

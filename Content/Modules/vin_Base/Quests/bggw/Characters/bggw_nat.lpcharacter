@@ -1,8 +1,8 @@
 // Information
 INFO Is_Male: 100% false
-INFO Interested_In_Men: 100% false
+INFO Interested_In_Men: 100% true
 INFO Interested_In_Women: 100% true
-INFO Interested_In_Transgender: 100% false
+INFO Interested_In_Transgender: 100% true
 INFO First_Name: 100% Natasha
 INFO Last_Name: 100% N
 INFO Race: 100% Daz

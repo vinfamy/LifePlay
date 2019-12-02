@@ -9,6 +9,11 @@ OTHER: none
     "What?"
     0:: "Setting up"
     1:: "Test after save/ load"
+    2:: "Version"
+    3:: "Lptalk"
+    4:: "string"
+    5:: "300 loop"
+    6:: "1100 loop"
     
     If 0       
         Player.setActorVar(Var1, 55)
@@ -24,7 +29,7 @@ OTHER: none
         Actor.setActorVar(Var3, Actor:intelligence*Actor:attractiontoplayer)  /// quite flexible, but can't do Random(x, y) because the , makes it think it's another parameter
         float = Actor.getActorVar(Var3)
         "Test3: <float>"
-    Else
+    Elseif 1
         float = Player.getActorVar(Var1)
         "Test1: <float>"
         
@@ -35,6 +40,55 @@ OTHER: none
         "Test3: <float>"
 
         "Values saved properly?"
+    Elseif 2
+        If version_main > 3
+            "Main more than 3"
+        Elseif version_main > 2
+            "Main less 2 more 1"
+        Elseif version_main > 1
+            "Main between 1 and 2"
+            If version_sub > 12
+                "Sub more than 12"
+                If version_sub < 14
+                    "Sub less than 14"
+                Endif
+            Endif
+        Else
+            "Main less than 1"
+        Endif
+        
+        "Version is <version_main>.<version_sub>."
+    Elseif 3
+        Actor = getPerson()
+        FilterTalk(test)
+        Sex(Player, Actor)
+    Elseif 4
+        test = "<CurrentCompanion.relationship>"
+        "<test>"
+        test2 = "mom"
+        If isSameString(test, test2)
+            "TRUE 1"
+        Endif
+        
+        If isSameString(test2, test, "mom")
+            "TRUE 2"
+        Endif
+    Elseif 5
+        "Hello"
+        count = 0
+        While count < 300
+            count += 1
+            Actor = getPerson()
+        Endwhile
+        "Bye"
+    Elseif 6
+        "Hello"
+        count = 0
+        While count < 1100
+            count += 1
+            Actor = getPerson()
+        Endwhile
+        "Bye"    
     Endif
     
     SceneEnd()

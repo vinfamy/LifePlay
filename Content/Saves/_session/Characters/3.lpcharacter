@@ -1,100 +1,93 @@
 // Information
-INFO Is_Male: 100% false
+INFO Is_Male: 100% true
 INFO Interested_In_Men: 100% true
 INFO Interested_In_Women: 100% true
 INFO Interested_In_Transgender: 100% true
-INFO First_Name: 100% Jessica
-INFO Last_Name: 100% J
+INFO First_Name: 100% Paul
+INFO Last_Name: 100% M
 INFO Race: 100% Daz
-INFO Genital: 100% Vagina
+INFO Genital: 100% Penis
 
 // Morphs
-MORPH Genesis8Female__Mouth Depth In Out: 100% 0.393021
-MORPH Genesis8Female__CTRLFitness: 100% 0.343897
-MORPH Genesis8Female__RFMC_Face Overall Long: 100% 0.518223
-MORPH Genesis8Female__RFMC_Face Length: 100% 0.284198
-MORPH Genesis8Female__RFMC_Face Angle (Alt): 100% 0.139263
-MORPH Genesis8Female__RFMC_Eyes Rotate: 100% 0.291762
-MORPH Genesis8Female__RFMC_Brows Arch 05: 100% 0.544872
-MORPH Genesis8Female__Nose Scale: 100% 0.104185
-MORPH Genesis8Female__Mouth Height (Alt): 100% -0.25
-MORPH Genesis8Female__Lip Upper Enlarge: 100% 0.7
-MORPH Genesis8Female__Lip Lower Volume: 100% 0.7
-MORPH Genesis8Female__Kareena Head: 100% 0.104897
-MORPH Genesis8Female__Eyes Distance: 100% 0.20904
-MORPH Genesis8Female__Chin Rounded: 100% 0.563156
-MORPH Genesis8Female__Chin Depth: 100% 0.291993
-MORPH Genesis8Female__Cheeks Chubby: 100% 0.172019
-MORPH Genesis8Female__Brows Height: 100% -0.5
-MORPH Genesis8Female__Brows Distance: 100% -0.5
-MORPH Genesis8Female__Anya Head: 100% 0.854325
-MORPH Genesis8Female__PHMBrowWidth: 100% 1.0
-MORPH Genesis8Female__MCMCheekbonesSmall: 100% 0.218081
-MORPH Genesis8Female__PBMBreastsImplantsR: 100% 0.5
-MORPH Genesis8Female__PBMBreastsImplantsL: 100% 0.5
-MORPH Genesis8Female__FBMThin: 100% 0.077272
-MORPH Genesis8FemaleEyelashes__RFMC_Face Overall Long: 100% 0.518223
-MORPH Genesis8FemaleEyelashes__RFMC_Face Length: 100% 0.284198
-MORPH Genesis8FemaleEyelashes__RFMC_Face Angle (Alt): 100% 0.139263
-MORPH Genesis8FemaleEyelashes__RFMC_Eyes Rotate: 100% 0.291762
-MORPH Genesis8FemaleEyelashes__Kareena Head: 100% 0.104897
-MORPH Genesis8FemaleEyelashes__Eyes Distance: 100% 0.20904
-MORPH Genesis8FemaleEyelashes__Brows Height: 100% -0.5
-MORPH Genesis8FemaleEyelashes__Anya Head: 100% 0.854325
-MORPH FlashyHairG3_41761__SCLPropagatingHead: 100% 0.05
-MORPH FlashyHairG3_41761__CTRLFitness: 100% 0.343897
-MORPH FlashyHairG3_41761__RFMC_Face Overall Long: 100% 0.518223
-MORPH FlashyHairG3_41761__RFMC_Face Length: 100% 0.284198
-MORPH FlashyHairG3_41761__RFMC_Face Angle (Alt): 100% 0.139263
-MORPH FlashyHairG3_41761__FBMThin: 100% 0.077272
-MORPH FlashyHairG3_41761__WindRight: 100% -0.25
-MORPH FlashyHairG3_41761__WindLeft: 100% -0.25
-MORPH FlashyHairG3_41761__UpperWide: 100% -0.25
-MORPH FlashyHairG3_41761__SweepBangsL: 100% 1.0
-MORPH FlashyHairG3_41761__RMidOut: 100% 0.371497
-MORPH FlashyHairG3_41761__RightLong: 100% 4.0
-MORPH FlashyHairG3_41761__RFluffOut: 100% 0.352712
-MORPH FlashyHairG3_41761__RaiseUpper: 100% 1.5
-MORPH FlashyHairG3_41761__LMidOut: 100% -0.5
-MORPH FlashyHairG3_41761__LeftLong: 100% 4.0
-MORPH FlashyHairG3_41761__BangsWavy: 100% 1.0
-MORPH FlashyHairG3_41761__BangsForward: 100% -1.0
-MORPH FlashyHairG3_41761__FHMExpandAll: 100% 0.215112
+MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.010067
+MORPH Genesis8Female__CTRLBodybuilder: 100% 0.19295
+MORPH Genesis8Female__Ryu: 100% 0.864613
+MORPH Genesis8Female__Ray: 100% 0.000943
+MORPH Genesis8Female__Raj: 100% 0.165439
+MORPH Genesis8Female__Nose Style Nubian: 100% 0.912241
+MORPH Genesis8Female__Nose Style Germanic: 100% 0.934181
+MORPH Genesis8Female__Mike: 100% 0.001966
+MORPH Genesis8Female__Matt: 100% 0.600667
+MORPH Genesis8Female__David: 100% 0.039487
+MORPH Genesis8Female__FBMHeavy: 100% 0.126609
+MORPH Genesis8FemaleEyelashes__Ryu: 100% 0.864613
+MORPH Genesis8FemaleEyelashes__Ray: 100% 0.000943
+MORPH Genesis8FemaleEyelashes__Raj: 100% 0.165439
+MORPH Genesis8FemaleEyelashes__Mike: 100% 0.001966
+MORPH Genesis8FemaleEyelashes__Matt: 100% 0.600667
+MORPH Genesis8FemaleEyelashes__David: 100% 0.039487
+MORPH XY__Penis length: 100% -0.195822
+MORPH XY__Plums size: 100% -0.248692
+MORPH XY__Penis size: 100% -0.231894
+MORPH Morley__CTRLFaceOlderHD: 100% 0.010067
+MORPH Morley__CTRLBodybuilder: 100% 0.19295
+MORPH Morley__FBMHeavy: 100% 0.126609
 SCALE X: 100% 1.0
 SCALE Y: 100% 1.0
 SCALE Z: 100% 1.0
 
 //Hair
-HAIR Hairstyle: 100% FlashyHairG3_41761
-HAIR Hair_Thickness: 100% 1.0
-HAIR Hair_Color_R: 100% 1.0
-HAIR Hair_Color_G: 100% 1.0
-HAIR Hair_Color_B: 100% 0.6
-HAIR Hair_Color_A: 100% 1.0
+HAIR Hairstyle: 100% Morley
+HAIR Hair_Thickness: 100% 1.584637
+HAIR Hair_Color_R: 100% 0.2
+HAIR Hair_Color_G: 100% 0.005
+HAIR Hair_Color_B: 100% 0.0
+HAIR Hair_Color_A: 100% 0.85
 
+HAIR Brow_Color_R: 100% 0.0
+HAIR Brow_Color_G: 100% 0.0
+HAIR Brow_Color_B: 100% 0.0
+HAIR Brow_Color_A: 100% 1.0
 
 // Skin
-SKIN Eye_Color_R: 100% 0.078125
-SKIN Eye_Color_G: 100% 0.019379
-SKIN Eye_Color_B: 100% 0.002915
-SKIN Eye_Color_A: 100% 0.8
+SKIN Eye_Color_R: 100% 0.0
+SKIN Eye_Color_G: 100% 0.0
+SKIN Eye_Color_B: 100% 0.0
+SKIN Eye_Color_A: 100% 1.0
+SKIN Skin_Color_R: 100% 0.5
+SKIN Skin_Color_G: 100% 0.22
+SKIN Skin_Color_B: 100% 0.12
+SKIN Skin_Color_A: 100% 1.0
+SKIN BHairColor_R: 100% 0.015
+SKIN BHairColor_G: 100% 0.003
+SKIN BHairColor_B: 100% 0.0
+SKIN BHairColor_A: 100% 0.85
+SKIN Skin_Roughness: 100% 0.077425
+SKIN Skin_Oil: 100% 0.25
+SKIN Skin_Fresnel: 100% 0.690786
+SKIN Skin_Age: 100% 0.010067
+SKIN Skin_Sagging: 100% 0.0
+SKIN Muscle_Tone: 100% 0.0
+SKIN BHairThickness: 100% 0.201084
+SKIN BHairstyle: 100% NoHair
+SKIN FHairstyle: 100% NoHair
 
 // Stats
-STAT age: 100% 22.0
-STAT attractiveness: 100% 80.0
-STAT cooking: 100% 10.0
-STAT dance: 100% 90.0
-STAT fitness: 100% 80.0
-STAT intelligence: 100% 30.0
-STAT interpersonal: 100% 90.0
-STAT martial: 100% 30.0
-STAT masochist: 100% -30.0
-STAT muscle: 100% 50.0
-STAT music: 100% 80.0
-STAT perversion: 100% 100.0
+STAT age: 100% 21.210424
+STAT attractiveness: 100% 63.328957
+STAT cooking: 100% 28.324228
+STAT dance: 100% 5.313272
+STAT fitness: 100% 7.56859
+STAT intelligence: 100% 3.619495
+STAT interpersonal: 100% 49.54985
+STAT martial: 100% 31.931517
+STAT masochist: 100% -85.924866
+STAT muscle: 100% 16.67226
+STAT music: 100% 27.765739
+STAT perversion: 100% 97.979248
 STAT pornfame: 100% 0.0
-STAT sneak: 100% 9.999767
-STAT attractiontoplayer: 100% 100.0
-STAT rapportwithplayer: 100% 100.0
-STAT arousal: 100% 39.677113
-STAT intoxication: 100% 0.046089
+STAT sneak: 100% 12.765892
+STAT attractiontoplayer: 100% -6.781704
+STAT rapportwithplayer: 100% 0.178821
+STAT arousal: 100% 96.575821
+STAT intoxication: 100% 27.942747

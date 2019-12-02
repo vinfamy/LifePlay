@@ -5,7 +5,13 @@ WHO: none
 OTHER: none
 
     SceneStart()
-    "I have closed down this business."
-    karma -= 5
-    stopBusiness()
+    "Are you sure you want to close down this business?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        "I have closed down this business."
+        karma -= 5
+        stopBusiness()
+    Endif
     SceneEnd()

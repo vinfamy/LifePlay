@@ -1,0 +1,5 @@
+If you're planning to continue your current save in a future version, do not delete this folder. Save data is stored in LifePlay/Content/Saves (it's an indie project, no fancy Cloud storage for the saves!) 
+Besides, by keeping this folder, the next time you try a newer version of the game, you will only need to download the 'Update Only' file, which is much lighter than the full download.
+If you're planning to start a new game when you get future update anyway, feel free to delete it.
+If you really must delete the folder to save HD space but want to continue your current save, at least backup the LifePlay/Content/Saves folder.
+All saves will be compatible with future versions as long as you follow these instructions.

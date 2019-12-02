@@ -3,44 +3,38 @@ INFO Is_Male: 100% true
 INFO Interested_In_Men: 100% false
 INFO Interested_In_Women: 100% true
 INFO Interested_In_Transgender: 100% false
-INFO First_Name: 100% Vinfamy
-INFO Last_Name: 100% Smith
+INFO First_Name: 100% Samuel
+INFO Last_Name: 100% R
 INFO Race: 100% Daz
 INFO Genital: 100% Penis
 
 // Morphs
-MORPH Genesis8Female__CTRLFitness: 100% 0.756359
-MORPH Genesis8Female__CTRLBodybuilder: 100% 0.446809
-MORPH Genesis8Female__Ray: 100% 1.0
-MORPH Genesis8Female__Nose Style Nubian: 100% 0.752919
-MORPH Genesis8Female__Mouth Width (Alt): 100% 0.592426
-MORPH Genesis8Female__Lip Upper Volume: 100% 1.0
-MORPH Genesis8Female__Lip Lower Volume: 100% 1.0
-MORPH Genesis8Female__Jaw Shape Angular: 100% 0.287194
-MORPH Genesis8Female__PHMJawSize: 100% 0.368586
-MORPH Genesis8Female__PHMFaceRound: 100% 0.328745
-MORPH Genesis8FemaleEyelashes__Ray: 100% 1.0
-MORPH XY__CTRLFitness: 100% 0.756359
-MORPH XY__CTRLBodybuilder: 100% 0.446809
-MORPH XY__Penis length: 100% -0.2
-MORPH XY__Penis size: 100% 0.144242
-MORPH Everyday__CTRLFitness: 100% 0.756359
-MORPH Everyday__CTRLBodybuilder: 100% 0.446809
-MORPH Everyday__PHMFaceRound: 100% 0.328745
-MORPH Everyday__Wet 02: 100% 1.0
-MORPH Everyday__Sides Bigger-Less: 100% 1.0
-MORPH Everyday__Forehead Adjust 01: 100% 2.0
+MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.032949
+MORPH Genesis8Female__Tyler: 100% 0.233624
+MORPH Genesis8Female__Raj: 100% 0.399308
+MORPH Genesis8Female__Nose Style Nordic: 100% 0.762722
+MORPH Genesis8Female__Nose Style Germanic: 100% 0.545567
+MORPH Genesis8Female__Mike: 100% 0.352604
+MORPH Genesis8Female__Jin: 100% 0.099565
+MORPH Genesis8FemaleEyelashes__Tyler: 100% 0.233624
+MORPH Genesis8FemaleEyelashes__Raj: 100% 0.399308
+MORPH Genesis8FemaleEyelashes__Mike: 100% 0.352604
+MORPH Genesis8FemaleEyelashes__Jin: 100% 0.099565
+MORPH XY__Penis length: 100% 0.030549
+MORPH XY__Plums size: 100% -0.199854
+MORPH XY__Penis size: 100% -0.115944
+MORPH Armani__CTRLFaceOlderHD: 100% 0.032949
 SCALE X: 100% 1.0
 SCALE Y: 100% 1.0
 SCALE Z: 100% 1.0
 
 //Hair
-HAIR Hairstyle: 100% Everyday
-HAIR Hair_Thickness: 100% 0.0
-HAIR Hair_Color_R: 100% 0.020833
-HAIR Hair_Color_G: 100% 0.007495
-HAIR Hair_Color_B: 100% 0.003094
-HAIR Hair_Color_A: 100% 1.0
+HAIR Hairstyle: 100% Armani
+HAIR Hair_Thickness: 100% 1.447914
+HAIR Hair_Color_R: 100% 0.005
+HAIR Hair_Color_G: 100% 0.001
+HAIR Hair_Color_B: 100% 0.0
+HAIR Hair_Color_A: 100% 0.85
 
 HAIR Brow_Color_R: 100% 0.0
 HAIR Brow_Color_G: 100% 0.0
@@ -52,40 +46,40 @@ SKIN Eye_Color_R: 100% 0.0
 SKIN Eye_Color_G: 100% 0.0
 SKIN Eye_Color_B: 100% 0.0
 SKIN Eye_Color_A: 100% 1.0
-SKIN Skin_Color_R: 100% 0.22
-SKIN Skin_Color_G: 100% 0.11
-SKIN Skin_Color_B: 100% 0.07
+SKIN Skin_Color_R: 100% 0.83
+SKIN Skin_Color_G: 100% 0.62
+SKIN Skin_Color_B: 100% 0.53
 SKIN Skin_Color_A: 100% 1.0
-SKIN BHairColor_R: 100% 0.005
-SKIN BHairColor_G: 100% 0.001
+SKIN BHairColor_R: 100% 0.015
+SKIN BHairColor_G: 100% 0.003
 SKIN BHairColor_B: 100% 0.0
 SKIN BHairColor_A: 100% 0.85
-SKIN Skin_Roughness: 100% 0.0
+SKIN Skin_Roughness: 100% 0.878079
 SKIN Skin_Oil: 100% 0.25
-SKIN Skin_Fresnel: 100% 0.0
-SKIN Skin_Age: 100% 0.0
+SKIN Skin_Fresnel: 100% 0.117527
+SKIN Skin_Age: 100% 0.032949
 SKIN Skin_Sagging: 100% 0.0
 SKIN Muscle_Tone: 100% 0.0
-SKIN BHairThickness: 100% 0.758546
-SKIN BHairstyle: 100% NoHair
-SKIN FHairstyle: 100% Facial_Hair__11_
+SKIN BHairThickness: 100% 0.441175
+SKIN BHairstyle: 100% JPBH78-TorsoNG-02
+SKIN FHairstyle: 100% Facial_Hair__22_
 
 // Stats
-STAT age: 100% 30.0
-STAT attractiveness: 100% 75.0
-STAT cooking: 100% 9.999816
-STAT dance: 100% 90.0
-STAT fitness: 100% 90.0
-STAT intelligence: 100% 50.0
-STAT interpersonal: 100% 90.0
-STAT martial: 100% 50.0
-STAT masochist: 100% -50.0
-STAT muscle: 100% 80.0
-STAT music: 100% 95.0
-STAT perversion: 100% 90.0
+STAT age: 100% 25.651997
+STAT attractiveness: 100% 89.446701
+STAT cooking: 100% 1.904355
+STAT dance: 100% 32.477798
+STAT fitness: 100% 71.230202
+STAT intelligence: 100% 10.577715
+STAT interpersonal: 100% 34.65987
+STAT martial: 100% 59.227268
+STAT masochist: 100% 50.999481
+STAT muscle: 100% 65.517136
+STAT music: 100% 2.740562
+STAT perversion: 100% 52.206367
 STAT pornfame: 100% 0.0
-STAT sneak: 100% 9.999763
-STAT attractiontoplayer: 100% -100.0
-STAT rapportwithplayer: 100% -5.0
-STAT arousal: 100% 0.0
-STAT intoxication: 100% 0.0
+STAT sneak: 100% 9.057894
+STAT attractiontoplayer: 100% -5.885948
+STAT rapportwithplayer: 100% 7.060527
+STAT arousal: 100% 42.585529
+STAT intoxication: 100% 42.100285

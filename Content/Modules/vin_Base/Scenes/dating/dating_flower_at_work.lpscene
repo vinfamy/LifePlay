@@ -4,29 +4,31 @@ WHEN: 9 - 15
 WHO: Dating = getSpecific(Dating); If Random(10, 200) < Dating:attractiontoplayer
 OTHER: Dating.isDominantSex(Player) || Random(0, 100) < 1
 
-SceneStart()
+    SceneStart()
 
-"I was in the middle of my workday when my personal mobile suddenly rang, from an unsaved number."
-Player(Happy):: "Hi, it's <Player.name> speaking. Who's calling?"
-"It's a call from a flower delivery company. My <Dating.boyfriend_or_girlfriend> <Dating.name> sent me flowers. Should I pick them up?"
-0:: "Yes"
-1:: "No"
+    "I was in the middle of my workday when my personal mobile suddenly rang, from an unsaved number."
+    Player(Happy):: "Hi, it's <Player.name> speaking. Who's calling?"
+    "It's a call from a flower delivery company. My <Dating.boyfriend_or_girlfriend> <Dating.name> sent me flowers. Should I pick them up?"
+    0:: "Yes"
+    1:: "No"
 
-If 0
-    "I might as well, the flower delivery guy is already here ..."
-    "After a few minutes, I returned to the office with a bouquet of flowers. With that, I became the center of office gossip for the day. Some <Player.guys_or_girls> were jealous that they never got any gifts sent to work from their significant others. Meanwhile, by sending me flowers at work, <Dating.name> also succeeded in 'sending out the message' to any potentially interested workmates that I'm taken."
-    Colleague = getSpecific(Colleague)
-    While Colleague.isValid()
-        If Colleague.isInterestedIn(Player)
-            Colleague:attractiontoplayer -= Random(0, 5)
-        Endif
+    If 0
+        "I might as well, the flower delivery guy is already here ..."
+        "After a few minutes, I returned to the office with a bouquet of flowers. With that, I became the center of office gossip for the day. Some <Player.guys_or_girls> were jealous that they never got any gifts sent to work from their significant others. Meanwhile, by sending me flowers at work, <Dating.name> also succeeded in 'sending out the message' to any potentially interested workmates that I'm taken."
         Colleague = getSpecific(Colleague)
-    Endwhile
-Else
-    "It's quite inappropriate to return to work with a bouquet of flowers. That would be like asking to be the center of gossip for the day. I decided not to pick the flowers up. This will no doubt upset <Dating.name>."
-    Dating:attractiontoplayer -= Random(0, 5)
-Endif
+        count = 0
+        While Colleague.isValid() && count < 10
+            count += 1
+            If Colleague.isInterestedIn(Player)
+                Colleague:attractiontoplayer -= Random(0, 5)
+            Endif
+            Colleague = getSpecific(Colleague)
+        Endwhile
+    Else
+        "It's quite inappropriate to return to work with a bouquet of flowers. That would be like asking to be the center of gossip for the day. I decided not to pick the flowers up. This will no doubt upset <Dating.name>."
+        Dating:attractiontoplayer -= Random(0, 5)
+    Endif
 
-timeout(200, dating_flower_at_work)
-SceneEnd()
+    timeout(200, dating_flower_at_work)
+    SceneEnd()
 
