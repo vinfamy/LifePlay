@@ -36,7 +36,7 @@ OTHER: none
                 Endif
             Elseif 1 || 2 || 3
                 If Flirts > 5
-                    "I think that's enough flirting for now. Even if <Actor.he_or_she>'s receptive to it, it must start to get pretty tiring for <Actor.him_or_her> by now."
+                    "I think that's enough flirting for now. Even if <Actor.he_or_she>'s receptive to it, it must be getting pretty tiring for <Actor.him_or_her> by now."
                 Else
                     If Random(0, 100)*choice < Actor:perversion + Actor:incest + interpersonal
                         "My <Actor.relationship> seems receptive to my advances."
@@ -57,10 +57,10 @@ OTHER: none
                     "But maybe we should stop ... this is so wrong ..."
                     "Yet it feels so right!"
                     0:: "Taste the forbidden fruit"
-                    1:: "Show some restrain"
+                    1:: "Show some restraint"
                     
                     If 0
-                        Player(Flirty):: "You have no idea how long I have wanted to have you ..."
+                        Player(Flirty):: "You have no idea how long I wanted you ..."
                         If Random(30, 80) < Actor:incest
                             Sex(Player, Actor)
                             Actor:incest += Random(0, 40)
@@ -85,7 +85,7 @@ OTHER: none
                     Actor(Happy):: "You know what? I'm feeling quite unwell actually, a massage might be worth a try."
                     Player(Happy):: "Why don't you go lie down on your bed?"
                     setBackground(home)
-                    "We finished up dinner and my <Actor.relationship> lied down on <Actor.his_or_her> bed, but <Actor.he_or_she> is fully clothed."
+                    "We finished up dinner and my <Actor.relationship> lay down on <Actor.his_or_her> bed, but <Actor.he_or_she> is fully clothed."
                     0:: "Convince <Actor.Relationship> to strip down"
                     1:: "Just give a massage like that"
                     
@@ -95,7 +95,7 @@ OTHER: none
                             Actor(Happy):: "I guess you're right."
                             Actor:incest += Random(0, 2)
                             Actor.strip()
-                            "My <Actor.relationship> took her clothes off and lied back onto the bed."
+                            "My <Actor.relationship> took her clothes off and lay back down on the bed."
                             Actor.passOn()
                             followUp(pro_massage_family)
                         Else

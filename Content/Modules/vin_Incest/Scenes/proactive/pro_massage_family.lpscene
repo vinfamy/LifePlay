@@ -6,7 +6,7 @@ OTHER: none
 
     SceneStart()
     Actor.show(2)
-    "Here I am with my <Actor.relationship> naked lying on <Actor.his_or_her> bed. I'm supposed to give <Actor.him_or_her> a relaxing massage but my own body is anything but relaxed right now."
+    "Here I am with my <Actor.relationship> lying naked on <Actor.his_or_her> bed. I'm supposed to give <Actor.him_or_her> a relaxing massage but my own body is anything but relaxed right now."
     0:: "Stay professional"
     1:: "Massage <Actor.his_or_her> private parts"
     
@@ -17,7 +17,7 @@ OTHER: none
             NormalEnding = true
             "My <Actor.relationship> moved my hand away from <Actor.his_or_her> private parts, clearly signalling that this was going too far."
         Else
-            "Despite me rubbing <Actor.his_or_her> hot spot vigorously and making it clear that this isn't part of the normal massage routine, <Actor.he_or_she> said nothing and received receptive to my advances."
+            "Despite me rubbing <Actor.his_or_her> hot spot vigorously and making it clear that this isn't part of the normal massage routine, <Actor.he_or_she> said nothing and remained receptive to my advances."
             0:: "Give <Actor.him_or_her> a happy ending"
             1:: "Stop it"
             

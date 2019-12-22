@@ -16,7 +16,7 @@ OTHER: !Player.isDating() && IsAtHome() && arousal > 30 && perversion > 70
         Sex(Player, Actor)
         perversion += Random(0, 0.5)
         Actor.hide()
-        "<Actor.name> satisfied my needs, I satisfied <Actor.his_or_hers>. It's a win-win for both sides!"
+        "<Actor.name> satisfied my needs, I satisfied <Actor.his_or_hers>. It's a win-win situation!"
     Else
         "No way. I'm not so desperate that I would just fuck anyone I know."
     Endif
@@ -36,7 +36,7 @@ OTHER: !Player.isDating() && IsAtHome() && arousal > 30 && perversion > 70
             Actor2:incest -= Random(0, 1)
         Else
             Player(Embarassed):: "That's okay ... I guess you were just being curious. Sorry for doing it so loud!"
-            Actor2(Embarassed):: "Compared to me, you are so much more experienced in bed. I have no idea what I'm doing. I'm embarassed of my terrible skills in the bedroom and wish I could be as good as you"
+            Actor2(Embarassed):: "Compared to me, you are so much more experienced in bed. I have no idea what I'm doing. I'm embarassed about my terrible skills in the bedroom and wish I could be as good as you"
             0:: "Give some advice"
             1:: "Suggest that <Actor2.he_or_she> practice with <Actor.name>"
             2:: "Suggest that <Actor2.he_or_she> practice with me"
@@ -61,10 +61,10 @@ OTHER: !Player.isDating() && IsAtHome() && arousal > 30 && perversion > 70
                     Player(Embarassed):: "No, that's too weird. I don't know the <Actor2.guy_or_girl> ... I guess I'll just find someone myself."
                 Endif
             Elseif 2
-                Player(Embarassed):: "You know ... You might be more comfortable practicing with me. I don't judge me like other lovers. And I don't want you to just sleep with random strangers you've just met."                    
+                Player(Embarassed):: "You know ... You might be more comfortable practicing with me. I won't judge you like your other lovers. And I don't want you to just sleep with random strangers you've just met."                    
                 If Random(125, 300) < interpersonal + Actor2:incest
-                    Actor2(Embarassed):: "This is so wrong ... but I guess you have a point. I don't want to risk getting STDs or getting in danger from casual hookups either. I can trust you more."
-                    "After a awkward conversation, we finally started making out. Despite <Actor2.him_or_her> being my own <Actor2.relationship>, I'm getting into my element again and starts to rise to the task of being my <Actor2.relationship> bedroom mentor."
+                    Actor2(Embarassed):: "This is so wrong ... but I guess you have a point. I don't want to risk getting STDs or the danger of casual hookups either. I can trust you more."
+                    "After an awkward conversation, we finally started making out. Despite <Actor2.him_or_her> being my own <Actor2.relationship>, I'm in my element again and start to rise to the task of being my <Actor2.relationship> bedroom mentor."
                     Actor2:incest += Random(0, 50)
                     Sex(Player, Actor2)
                 Else

@@ -7,12 +7,12 @@ OTHER: none
     SceneStart()
     Actor.dress()
     Actor.show(2)
-    "Baby, do you think society would ever accept people like us? Will the government legalize incest one day? So that we can show our love to each other in public without fearing about getting caught?"
+    "Baby, do you think society would ever accept people like us? Will the government legalize incest one day? So that we can show our love to each other in public without the fear of getting caught?"
     0:: "Yes, we must keep believing"
     1:: "Realistically, never"
     
     If 0
-        Player(Happy):: "Of course, <Actor2.name>. We must keep having faith in our future. One day, those judgemental people will realize just how wrong they are about us. One day, we can be together publicly and unashamedly like any other couples."
+        Player(Happy):: "Of course, <Actor2.name>. We must have faith in our future. One day, those judgemental people will realize just how wrong they are about us. One day, we can be together publicly and unashamedly like any other couple."
         Actor:attractiontoplayer += Random(0, 2)
     Else
         Player(Sad):: "As much as it's a nice dream: The majority will never understand our love for each other, and no politicians would risk votes over legalizing incest."

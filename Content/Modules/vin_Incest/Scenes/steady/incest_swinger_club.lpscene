@@ -7,20 +7,20 @@ OTHER: isWithCompanion() && CurrentCompanion.isDating() && CurrentCompanion.isEx
     SceneStart()
     
     "I opened my email inbox, only to be greeted by a message from an unknown contact. The email is titled 'You're not alone.'"
-    "Curiousity got the better of me and I opened the email. It turns out that there is a secret society of couples in the same boat as us: those who love each other but are also related by blood. They're inviting us to join one of their swingers' parties."
-    "Should I suggest to <CurrentCompanion.name> that we come to this special event to add some spice to our relationship?"
+    "Curiosity got the better of me and I opened the email. It turns out that there is a secret society of couples in the same boat as us: those who love each other but are also related by blood. They're inviting us to join one of their swingers' parties."
+    "Should I suggest to <CurrentCompanion.name> that we go to this special event to add some spice to our relationship?"
     0:: "Yes"
     1:: "No"
     
     If 0
-        CurrentCompanion(Flirty):: "Of course baby, that would be quite something different."
+        CurrentCompanion(Flirty):: "Of course baby, that would be something quite different."
         "So we agreed on some ground rules for the night, the most important of which is that we must both agree on which couple we would swing with."
         "A few days later ..."
         setBackground(nightclub)
         
         Player.strip()
         CurrentCompanion.strip()
-        "We're at the secret value and it's full of good-looking nude couples, some of whom clearly look related. So many choices for us."
+        "We're at the secret venue and it's full of good-looking nude couples, some of whom clearly look related. So many choices for us."
         
         HadSex = false
         While !HadSex

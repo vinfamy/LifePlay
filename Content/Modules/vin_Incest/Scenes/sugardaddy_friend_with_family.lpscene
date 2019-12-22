@@ -14,7 +14,7 @@ OTHER: none
         "I'm on another date with my <Sugar.sugardaddy_or_sugarmommy>."
         Sugar(Flirty):: "Darling, you know after everything I have given you, would you be a good <Player.boy_or_girl> and do something that pleases your <Sugar.Daddy_or_Momma>?"
         Player(Flirty):: "What is it, <Sugar.Daddy_or_Momma>?"
-        Sugar(Flirty):: "You know I love fucking your brain out ... but I also love to watch. I have one of my loyal staff members who I want you to pleasure in front of me ..."
+        Sugar(Flirty):: "You know I love fucking your brains out ... but I also love to watch. I have one of my loyal staff members who I want you to pleasure in front of me ..."
         0:: "Yes"
         1:: "No"
         
@@ -33,21 +33,21 @@ OTHER: none
             Actor(Shocked):: "My <Actor.callplayer>, you're the sugarbabe!? I didn't know you resorted to this to make money."
             Sugar(Surprised):: "What? You're <Player.his_or_her> <Actor.relationship>? I had no idea."
             Sugar(Flirty):: "Although it gives me some ideas ..."
-            "Oh god, why on earth does <Sugar.Daddy_or_Momma> want from this already messed-up situation?"
-            Sugar(Evil):: "Tell you what? I'll give you that promotion you've been eyeing and <Player.him_or_her> a big chunk of cash if you two still fuck. I've seen many incest porn, but never one live. Would be a sight to remember that even money could rarely buy!"
+            "Oh god, what on earth does <Sugar.Daddy_or_Momma> want from this already messed-up situation?"
+            Sugar(Evil):: "Tell you what? I'll give you that promotion you've been eyeing and <Player.him_or_her> a big chunk of cash if you two still fuck. I've seen lots of incest porn, but never live. Would be a sight to remember that even money could rarely buy!"
             0:: "Yes"
             1:: "No"
             
             If 0
                 "The lure of money is too great. After all, money is why I have a <Sugar.sugardaddy_or_sugarmomma> in the first place ..."
-                "It took some more convincing to get my <Actor.relationship> to accept, but eventually, the promotion is too great a prize."
+                "It took some more convincing to get my <Actor.relationship> to accept, but eventually, the promotion was too great a prize."
                 Sex(Actor, Player)
                 Sex(Actor, Player, Sugar)
                 Actor:incest += Random(0, 50)
                 money += Random(1000, 5000)
             Else
-                Player(Angry):: "No way! I'll do everything else for you, <Sugar.Daddy_or_Momma>. But not this ..."
-                Sugar(Angry):: "I'm disappointed in your choice, but fine."
+                Player(Angry):: "No way! I'll do anything else for you, <Sugar.Daddy_or_Momma>. But not this ..."
+                Sugar(Angry):: "I'm disappointed by your choice, but fine."
                 Sugar(Flirty):: "But I cannot just let this night go to waste, can I? I already paid for the hotel room. You must fuck me now, while your <Actor.relationship> watches ..."
                 Sugar(Evil):: "Or I'll end our little arrangement and fire your <Actor.relationship>!"
                 "We had no other choice ..."

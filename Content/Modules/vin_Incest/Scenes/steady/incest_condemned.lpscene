@@ -14,7 +14,7 @@ OTHER: none
     If 0
         Actor:attractiontoplayer += Random(0, 2.5)
         If Random(0, 100) < Actor:perversion
-            "To our pleasant surprise, <Actor2.name> seems open-minded enough not to mind our show of affection. Maybe one day we can just admit to <Actor2.him_or_her> about the incest relationship and <Actor2.he_or_she> would just accept it?"
+            "To our pleasant surprise, <Actor2.name> seems open-minded enough not to mind our show of affection. Maybe one day we can just admit our incestuous relationship to <Actor2.him_or_her> and <Actor2.he_or_she> might just accept it?"
             Actor2:attractiontoplayer += Random(0, 5)
             Actor2:rapportwithplayer += Random(0, 10)
         Else
@@ -24,7 +24,7 @@ OTHER: none
         Endif
     Else
         Actor:attractiontoplayer -= Random(0, 1)
-        "Let's be safe here: I love <Actor.name>, but it's not worth destroying all other relationships in my life for flaunting some PDA. Society judges incest harshly still."
+        "Let's be safe here: I love <Actor.name>, but it's not worth destroying all other relationships in my life by flaunting our public display of affection. Society judges incest harshly still."
     Endif
     
     SceneEnd()

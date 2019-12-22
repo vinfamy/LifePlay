@@ -14,7 +14,7 @@ OTHER: none
         "I'm on another date with my sugarbabe."
         Sugar(Flirty):: "Darling, you know after everything you have given me, I want to give a special gift that you'll never forget."
         Player(Flirty):: "That sounds good. What is it, love?"
-        Sugar(Flirty):: "You know I love it when you fuck my brain out ... but I also love to watch. I have a hot friend who I'd love for you to enjoy in front of me ..."
+        Sugar(Flirty):: "You know I love it when you fuck my brains out ... but I also love to watch. I have a hot friend who I'd love for you to enjoy in front of me ..."
         0:: "Yes"
         1:: "No"
 
@@ -33,8 +33,8 @@ OTHER: none
             Actor(Shocked):: "<Actor.Callplayer>, you're the <Player.sugardaddy_or_sugarmommy>!? I didn't know you resorted to this for sex."
             Sugar(Surprised):: "What? You're <Player.his_or_her> <Actor.relationship>? I had no idea. I'm so sorry, <Player.Daddy_or_Momma> ..."
             Player(Embarassed):: "I think I'll just leave. Oh god, this is so fucked up!"
-            Actor(Angry):: "What? You're just gonna leave? You've been fucking my best friend all this time but would not bother to even touch me. Am I not as sexy as <Actor.him_or_her>?"
-            Actor(Happy):: "I'll have to prove that I'm more important to you than just some random sugarbabe by fucking me harder than you ever fucked <Sugar.him_or_her>."
+            Actor(Angry):: "What? You're just gonna leave? You've been fucking my best friend all this time but won't even touch me. Am I not as sexy as <Actor.him_or_her>?"
+            Actor(Happy):: "You'll have to prove that I'm more important to you than just some random sugarbabe by fucking me harder than you ever fucked <Sugar.him_or_her>."
             0:: "Yes"
             1:: "No"
 

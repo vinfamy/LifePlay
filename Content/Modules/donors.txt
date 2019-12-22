@@ -1,6 +1,7 @@
 ﻿aderent
 Evo
 Mercurial
+Matt Gorman
 Morte Jackson
 Ryan Fox
 TipsyGypsy
@@ -12,6 +13,8 @@ Mobius
 Mr. Davis
 rbust0
 Robert Monotoli
+CelestialNightmare
+HowlerMonkee
 Unknown Player
 Dan0477
 Wolfman13
@@ -67,7 +70,6 @@ Koruya
 Lee Thompson
 Lys
 Maciek
-Matt Gorman
 Mert Akhan
 Metakon
 Mia Amyton
@@ -86,6 +88,9 @@ Rakk
 randomwave
 rbx3
 rhogleg
+Monte Nunn
+Mathias
+Kontine911
 RocketNow
 MaxWess
 Scott Wilinski
@@ -101,6 +106,8 @@ Vertan Derhaler
 WildWest
 Icarus Videos
 Nesaren
+Hekke
+KA
 YNot Yannick
 Zack Flemming
 Aukasz

@@ -17,12 +17,12 @@ OTHER: Random(0, 300) < perversion
     If 0
         "It's <Actor.his_or_her> career choice I guess. A bit unconventional and not my cup of tea - but who am I to judge?"
     Elseif 1
-        "I called <Actor.his_or_her> immediately, telling <Actor.his_or_her> about my discovery. I went on to call <Actor.him_or_her> a disgrace to our family."
+        "I called <Actor.him_or_her> immediately, telling <Actor.his_or_her> about my discovery. I went on to call <Actor.him_or_her> a disgrace to our family."
         Actor:rapportwithplayer -= Random(0, 30)
         Player:masochist -= Random(0, 1)
     Else
         "This is so wrong, but I couldn't help but be curious about watching my own <Actor.relationship> teasing random internet perverts on the webcam."
-        "I eventually decided to pay for one of <Actor.his_or_her> live show ... for research's purpose ... and to be honest, it's worth every penny, objectively speaking. I had no idea my own <Actor.relationship> was such a sex icon."
+        "I eventually decided to pay for one of <Actor.his_or_her> live shows ... for research's purpose ... and to be honest, it was worth every penny, objectively speaking. I had no idea my own <Actor.relationship> was such a sex icon."
         Actor:incest += Random(0, 10)
     Endif
     

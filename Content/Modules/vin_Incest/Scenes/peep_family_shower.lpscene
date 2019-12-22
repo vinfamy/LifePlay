@@ -12,7 +12,7 @@ OTHER: isAtHome() && Random(10, 300) < perversion
     If 0
         SneakGame()
         If Random(0, 150) < Actor:perversion + sneak
-            "Fortunately for me, <Actor.he_or_she> didn't lock the door, allowing to sneak behind it to get a decent view of <Actor.him_or_her> in all <Actor.his_or_her> glory."
+            "Fortunately for me, <Actor.he_or_she> didn't lock the door, allowing me to sneak behind it to get a decent view of <Actor.him_or_her> in all <Actor.his_or_her> glory."
             Actor.strip()
             Actor.show(2)
             setBackground(shower)
@@ -24,7 +24,7 @@ OTHER: isAtHome() && Random(10, 300) < perversion
                 "That's enough viewing for now. I should get out of there before I get caught."
                 arousal += Random(0, 20)
             Else
-                "Considering we're already having an incesturous relationship, I'm sure my <Actor.relationship> wouldn't mind too much if I joined <Actor.him_or_her>."
+                "Considering we're already having an incestuous relationship, I'm sure my <Actor.relationship> wouldn't mind too much if I joined <Actor.him_or_her>."
                 0:: "Join <Actor.him_or_her>"
                 1:: "Leave"
                 
@@ -34,7 +34,7 @@ OTHER: isAtHome() && Random(10, 300) < perversion
                 Endif
             Endif
         Else
-            "Unfortunately for me, my <Actor.relationship> locked the bathroom door. There's no way for me to have a look in."
+            "Unfortunately for me, my <Actor.relationship> locked the bathroom door. There's no way for me to have a look."
         Endif
         sneak += Random(0, 0.5)
         Actor:incest += Random(0, 0.25)

@@ -5,7 +5,7 @@ WHO: Actor = getRelative(); If Actor.isInterestedIn(Player) && Player.isInterest
 OTHER: isAtHome() && Random(50, 500) < perversion && [Actor.isMale() || Player.isMale()]
 
     SceneStart()
-    "I hate to admit this, but I do have a habit of going to sexshops and engaging in some anonymous gloryhole oral sex ..."
+    "I hate to admit this, but I have a habit of going to sexshops and engaging in some anonymous gloryhole oral sex ..."
     0:: "Go today"
     1:: "I should stop"
     

@@ -35,7 +35,7 @@ OTHER: IsAtHome() && perversion < Random(0, 30)*Random(0, 1)
         If 0
             "My <Actor.relationship> is such a <Actor.manwhore_or_whore>. I'm glad I'm a self-respecting <Player.guy_or_girl> and not sleeping with random <Player.girls_or_guys> like that."
         Else
-            "I must admit: I'm embarrassed of my terrible skills in the bedroom and wish I could be as good as my <Actor.relationship>."
+            "I must admit: I'm embarrassed about my terrible skills in the bedroom and wish I could be as good as my <Actor.relationship>."
             0:: "Seek help from my <Actor.relationship>"
             1:: "Say nothing"
             
@@ -61,7 +61,7 @@ OTHER: IsAtHome() && perversion < Random(0, 30)*Random(0, 1)
                             Player(Embarassed):: "I guess I can give that a try ..."
                             If 1
                                 Player(Embarassed):: "But I want you to be there to guide me and keep me safe. I don't know this <Actor2.guy_or_girl> at all."
-                                Actor(Embarassed):: "Isn't that a bit weird? I'm your <Actor.relationship> - I can't be watching you have sex ..."
+                                Actor(Embarassed):: "Isn't that a bit weird? I'm your <Actor.relationship> - I shouldn't be watching you have sex ..."
                                 Actor(Embarassed):: "... Alright, fine, if it makes you feel more confident then I can hang around while you two go at it."
                                 Actor:incest += Random(0, 5)
                             Endif
@@ -80,10 +80,10 @@ OTHER: IsAtHome() && perversion < Random(0, 30)*Random(0, 1)
                     1:: "Stay silent"
                     
                     If 0
-                        Player(Embarassed):: "You know ... I'm more comfortable to practice with you. You don't judge me like other lovers. And I don't want to just sleep with random strangers I've just met."
+                        Player(Embarassed):: "You know ... I would be more comfortable practicing with you. You don't judge me like other lovers. And I don't want to just sleep with random strangers I've just met."
                         If Random(75, 170) < interpersonal + Actor:incest
-                            Actor(Embarassed):: "This is so wrong ... but I guess you have a point. You're so inexperienced - I don't want you to risk getting STDs or getting in danger from casual hookups either."
-                            "After a awkward conversation, we finally started making out. Despite me being <Actor.his_or_her> own <Actor.callplayer>, I can tell my <Actor.relationship> is getting into <Actor.his_or_her> element again and starts to rise to the task of being my bedroom mentor."
+                            Actor(Embarassed):: "This is so wrong ... but I guess you have a point. You're so inexperienced - I don't want you to risk getting STDs or the danger of casual hookups either."
+                            "After an awkward conversation, we finally started making out. Despite me being <Actor.his_or_her> own <Actor.callplayer>, I can tell my <Actor.relationship> is getting into <Actor.his_or_her> element again and starts to rise to the task of being my bedroom mentor."
                             Actor:incest += Random(0, 50)
                             Sex(Actor, Player)
                         Else

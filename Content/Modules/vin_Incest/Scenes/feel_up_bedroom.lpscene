@@ -16,11 +16,11 @@ OTHER: isAtHome() && Random(30, 500) < perversion
     Else
         perversion += Random(0, 0.5)
         Actor:incest += Random(0, 0.5)
-        "My curiousity got the better of me ..."
+        "My curiosity got the better of me ..."
         Actor.strip()
         Actor.closeEyes(true)
         Actor.show(2)
-        "Wow, my <Actor.relationship> is sleeping naked ... <Actor.He_or_She> is my <Actor.relationship> so I really shouldn't feel like this but ... I'm getting very aroused myself ... In fact, as much as the thought is so wrong on so many different levels, I can't help but wish I have the courage to come join <Actor.him_or_her> in <Actor.his_or_her> bed ... or maybe I can touch <Actor.him_or_her> just a little bit."
+        "Wow, my <Actor.relationship> is sleeping naked ... <Actor.He_or_She> is my <Actor.relationship> so I really shouldn't feel like this but ... I'm getting very aroused myself ... In fact, as much as the thought is so wrong on so many different levels, I can't help but wish that I had the courage to join <Actor.him_or_her> in <Actor.his_or_her> bed ... or maybe I can touch <Actor.him_or_her> just a little bit."
         0:: "Feel <Actor.him_or_her> up"
         1:: "No way"
         

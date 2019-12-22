@@ -14,21 +14,21 @@ OTHER: isAtHome()
     1:: "Goodbye"
     
     If 0
-        Player(Happy):: "No, stay the night! You can go back tomorrow's morning."
+        Player(Happy):: "No, stay the night! You can go back tomorrow morning."
         Actor(Happy):: "I'd love to, but you don't have a spare bedroom, do you?"
         0:: "You're right"
-        1:: "We can share bed"
+        1:: "We can share the bed"
         
         If 0
             Player(Sad):: "Yeah, you're right. Alright, visit again soon, <Actor.Relationship>."
         Else
-            Player(Happy):: "We can share bed for the night. We used to do that when we were children."
+            Player(Happy):: "We can share a bed for the night. We used to do that when we were children."
             If Random(0, 200) < interpersonal + Actor:incest
                 Actor(Happy):: "Alright then, I'll stay. Let's go down memory lane together."
                 "Later that night ..."
                 Actor:incest += Random(0, 1)
                 Actor.closeEyes(true)
-                Player(Happy):: "Damn, <Actor.his_or_her> leg is touching my private part ... I'm so aroused. When has my <Actor.relationship> grown up to become such a <Actor.handsome_or_beautiful> <Actor.man_or_woman>."
+                Player(Happy):: "Damn, <Actor.his_or_her> leg is touching my private parts ... I'm so aroused. When did my <Actor.relationship> grow up to become such a <Actor.handsome_or_beautiful> <Actor.man_or_woman>."
                 0:: "Feel <Actor.him_or_her> up"
                 1:: "Maybe not"
                 

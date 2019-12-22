@@ -24,10 +24,10 @@ OTHER: none
             Endwhile
             Actor:incest += Random(0, 2)
             "Now naked, my <Actor.relationship> picked out an outfit to put on. Of course, I was hoping <Actor.he_or_she> would be debating fashion choices with <Actor.himself_or_herself> for as long as possible to allow me more time admire <Actor.him_or_her> in all <Actor.his_or_her> naked glory."
-            "First to come on is the underwear"
+            "First <Actor.he_or_she> put on <Actor.his_or_her> the underwear"
             Actor.dressExcept(Outerwear, Top, Bottom, Foot, Headwear, Eyewear, Top_Under)
             If !Actor.isMale()
-                "Next is the bra"
+                "Then her bra"
                 Actor.dressExcept(Outerwear, Top, Bottom, Foot, Headwear, Eyewear, Bottom_Under)
             Endif
             "<Actor.He_or_She> put on a nice top ..."
@@ -63,29 +63,29 @@ OTHER: none
                     If 0
                         Player(Happy):: "Surprise!"
                         Player.show(0)
-                        Player(Flirty):: "Looks like you guys are having some fun there? Mind if I join?"
+                        Player(Flirty):: "Looks like you guys are having some fun there? Mind if I join you?"
                         If Random(50, 125) < Actor:incest + Actor:perversion
                             Actor(Flirty):: "I didn't realize how much of a pervert my <Actor.callplayer> is ... Come on and join us then, what are you waiting for?"
                             Sex(Actor, Player, Actor2)
                             Actor:incest += Random(0, 50)
                         Else
-                            Actor(Angry):: "What are you doing here, peeping Tom? Were you spying on me from under that bed this whole time? You're my <Actor.callplayer>, for God's sake!"
+                            Actor(Angry):: "What are you doing here, peeping Tom? Were you spying on me from under the bed this whole time? You're my <Actor.callplayer>, for God's sake!"
                             Actor:rapportwithplayer -= Random(0, 3)
                         Endif                         
                     Endif
                 Else
                     masochist += Random(0, 4)
-                    "Not sure I signed up for this when I decided to hide under this bed. I think I'll keep my eyes closed for this... I don't need to see <Actor2.name> fucking my <Actor.relationship>."
-                    "With me having to endure listening to all their moaning, they eventually finished fucking and actually got ready. My <Actor.relationship> then walked out with <Actor.his_or_her> lover, still unaware of cuckold torture <Actor.he_or_she> just put me under."
+                    "Not sure I signed up for this when I decided to hide under the bed. I think I'll keep my eyes closed for this... I don't need to see <Actor2.name> fucking my <Actor.relationship>."
+                    "Unaware that I had to endure listening to all their moaning, they eventually finished fucking and actually got ready. My <Actor.relationship> then walked out with <Actor.his_or_her> lover, still unaware of the cuckold torture <Actor.he_or_she> just put me under."
                     "I took the opportunity to sneak out of the room. Never again! At least I got to see <Actor.name> get changed, but the second part of the show was anything but pleasurable."  
                 Endif                
             Else
-                "Having got ready, my <Actor.relationship> walked out of <Actor.his_or_her> room, still unaware of the show <Actor.he_or_she> just put on for me."
-                "I took the opportunity to sneak out of the room. Damn it was hard to breath under that bed, but that show was worth it!"
+                "Having finished dressing, my <Actor.relationship> walked out of <Actor.his_or_her> room, still unaware of the show <Actor.he_or_she> just put on for me."
+                "I took the opportunity to sneak out of the room. Damn it was hard to breath under that bed, but for that show it was worth it!"
             Endif
         Else
             "Why the hell am I hiding under <Actor.his_or_her> bed then?"
-            "After a while, having got ready, my <Actor.relationship> walked out of <Actor.his_or_her> room, still unaware of my presence."
+            "After a while, having finished dressing, my <Actor.relationship> walked out of <Actor.his_or_her> room, still unaware of my presence."
             "I took the opportunity to sneak out of the room. Never again!"
         Endif
     Endif

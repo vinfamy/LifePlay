@@ -20,19 +20,19 @@ OTHER: none
         "Hmm, let's check inside <Actor.his_or_her> drawers"
         "Wait, what's this book?"
         "'Forbidden Affairs with My <Actor.Callplayer>' the title says ..."
-        "Wow, I would never have imagined that my <Actor.relationship> reads incest erotica. Is <Actor.he_or_she> fantasizing about me while reading this book?"
+        "Wow, I would never have imagined that my <Actor.relationship> read incest erotica. Is <Actor.he_or_she> fantasizing about me while reading this book?"
         Actor:incest += Random(0, 4)
     Elseif Random(0, 10000) < 24*Actor:perversion
         "Hmm, what's this thing?"
         "I know what it is ... It's a <Actor.Fleshlight_or_dildo>!"
-        "Wow, I would never have imagined that my <Actor.relationship> uses sextoys. I won't deny that this discovery turns me on so much."
+        "Wow, I would never have imagined that my <Actor.relationship> used sextoys. I won't deny that this discovery turns me on so much."
         Actor:incest += Random(0, 4)
     Elseif Random(0, 10000) < 26*Actor:perversion   
         "Oh, this is the drawer for <Actor.his_or_her> underwear ... maybe I should ..."
         0:: "Take a pair of <Actor.boxers_or_panties>"
         1:: "Leave it"
 
-        "I couldn't help it. I have fantasized about my <Actor.relationship> before. I should take these for my next masturbation session. It's just harmless fantasy, right? <Actor.He_or_She> won't notice one pair gone missing ..."
+        "I couldn't help it. I have fantasized about my <Actor.relationship> before. I should take these for my next masturbation session. It's just harmless fantasy, right? <Actor.He_or_She> won't notice that one pair has gone missing ..."
         Actor:incest += Random(0, 4)       
     Else
         "Unfortunately I couldn't find anything interesting. Before long, I heard footsteps coming towards the room. I had to rush out of there before getting caught."

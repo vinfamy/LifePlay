@@ -16,9 +16,9 @@ OTHER: isAtHome()
     1:: "Goodbye"
     
     If 0
-        Player(Happy):: "No, stay the night! You can go back tomorrow's morning."
+        Player(Happy):: "No, stay the night! You can go back tomorrow morning."
         Actor(Happy):: "I'd love to, but you don't have a spare bedroom, do you?"
-        Actor2(Happy):: "We can share bed for the night. We used to do that when we were children."
+        Actor2(Happy):: "We can share a bed for the night. We used to do that when we were children."
         If Random(0, 100) < Actor2:interpersonal
             Actor(Happy):: "Alright then, I'll stay. Let's go down memory lane together tonight, <Actor2.name>."
             Actor.hide()
@@ -29,12 +29,12 @@ OTHER: isAtHome()
             1:: "Go back to sleep"
             
             If 0
-                "My curiousity got the better of me and I just had to check what's going on ..."
+                "My curiosity got the better of me and I just had to check what's going on ..."
                 SneakGame()
                 If Random(0, 100) < sneak
                     Actor:incest += Random(0, 2)
-                    "Luckily, my <Actor2.relationship> didn't quite close <Actor2.his_or_her> door completely shut. With my sneaking talent, I managed to get a pretty good view of what was going on ..."
-                    "What? Is <Actor2.name> kissing <Actor.name>!? What kind of incesturous relationship are them two having? No wonder <Actor2.name> was so keen for <Actor.name> to stay."
+                    "Luckily, my <Actor2.relationship> didn't quite shut <Actor2.his_or_her> door completely. With my sneaking talent, I managed to get a pretty good view of what was going on ..."
+                    "What? Is <Actor2.name> kissing <Actor.name>!? What kind of incestuous relationship are those two having? No wonder <Actor2.name> was so keen for <Actor.name> to stay."
                     Sex(Actor, Actor2)
                     Actor.hide()
                     Actor2.hide()
@@ -44,7 +44,7 @@ OTHER: isAtHome()
                     Actor:incest += Random(0, 25)
                     Actor2:incest += Random(0, 25)
                 Else
-                    "Unfortunately for me, their doors were fully closed and all the curtains were pulled down. There's no way I can get a look in ..."
+                    "Unfortunately for me, the door was fully closed and all the curtains were pulled down. There's no way I can get a look ..."
                 Endif
             Else
                 "I couldn't be bothered to get out of bed. Whatever ..."

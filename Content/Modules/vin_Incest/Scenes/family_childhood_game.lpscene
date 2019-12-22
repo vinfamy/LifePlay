@@ -7,7 +7,7 @@ OTHER: IsAtHome()
     SceneStart()
     Actor.dress()
     Actor.show(2)
-    "I was going down the memory lane with my <Actor.relationship>, who I was very close to during our childhood."
+    "I was going down memory lane with my <Actor.relationship>, who I was very close to during our childhood."
     Actor(Happy):: "I wish we could be children forever. Do you remember all the fun games we used to play together as children?"
     Player(Happy):: "Of course, I remember that time when we played ..."
     0:: "Hide and seek"

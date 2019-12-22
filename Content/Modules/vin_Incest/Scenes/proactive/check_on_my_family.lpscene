@@ -205,7 +205,7 @@ OTHER: none
                             1:: "Respect <Actor.his_or_her> privacy"
                             
                             If 0
-                                "My curiousity got the better out of me."
+                                "My curiosity got the better out of me."
                                 Ongoing = false
                                 If ActorWhat.isString("having sex")
                                     Actor.passOn()
@@ -251,7 +251,7 @@ OTHER: none
                     Else
                         "My <Actor.relationship> doesn't seem to be inside <Actor.his_or_her> room."
                         "<Actor.He_or_She> is probably <ActorWhat> in the <ActorWhere>."
-                        0:: "Snoop around <Actor.his_or_her> stuffs"
+                        0:: "Snoop around <Actor.his_or_her> stuff"
                         1:: "Set up secret camera"
                         2:: "Hide under <Actor.his_or_her> bed"
                         3:: "Leave"

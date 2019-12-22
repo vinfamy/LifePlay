@@ -12,7 +12,7 @@ OTHER: Random(0, 300) < intelligence
     1:: "No"
     
     If 0
-        Player(Happy):: "Sure, let's give it a try. Been a while since we last played a video game together. We used to do that everyday when we were younger."
+        Player(Happy):: "Sure, let's give it a try. Been a while since we last played a video game together. We used to do that every day when we were younger."
         "A while later ..."
         "It's a good game so far. I just dislike how many cutscenes there are ... Here's another one."
         "Oh god, it's getting steamy. It's a sex scene!"

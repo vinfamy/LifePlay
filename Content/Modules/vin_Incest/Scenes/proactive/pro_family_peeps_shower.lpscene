@@ -13,13 +13,13 @@ OTHER: none
     Player(Happy):: "Nothing feels better than a hot shower ..."
     If Peeping.isInterestedIn(Player) && Peeping.livesWithPlayer() && Random(20, 100) < Peeping:perversion
         Player(Embarassed):: "What? Who's there?"
-        "I was enjoying some relaxing time in the shower when suddenly I heard a noise. Someone must be peeping on me!"
+        "I was enjoying a relaxing time in the shower when suddenly I heard a noise. Someone must be peeping on me!"
         0:: "Get dressed"
         1:: "Continue showering"
         
         If 0 
             Player.dress()
-            "I quickly put some clothes on and went looking around but couldn't find anyone. Whoever the peeping Tom was must have some quick feet."
+            "I quickly put some clothes on and went looking around but couldn't find anyone. Whoever the peeping Tom was must have quick feet."
         Else
             perversion += Random(0, 0.1)        
             "I won't lie: The thought of someone watching me shower turned me on even further ... I might as well give my peeping Tom a show to remember"
@@ -27,7 +27,7 @@ OTHER: none
             If Peeping:incest > 85
                 Peeping.dress()
                 Peeping.show(2)
-                "As it turned out, it was no other than my <Peep.relationship>, who had the cheek to come inside and offer to join me in the shower. Well ... it's not like we haven't already crossed all sorts of incesturous boundaries ..."
+                "As it turned out, it was no other than my <Peep.relationship>, who had the cheek to come inside and offer to join me in the shower. Well ... it's not like we haven't already crossed all sorts of incestuous boundaries ..."
                 0:: "Have sex in the shower"
                 1:: "Turn <Peeping.him_or_her> down"
                 

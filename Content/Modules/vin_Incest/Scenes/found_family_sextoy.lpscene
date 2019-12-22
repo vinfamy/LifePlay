@@ -13,7 +13,7 @@ OTHER: isAtHome()
         "Might as well clean it properly ... I'll even clean inside the drawers"
         "Hmm, what's this thing?"
         "I know what it is ... It's a <Actor.Fleshlight_or_dildo>!"
-        "Wow, I would never have imagined that my <Actor.relationship> uses sextoys. I won't deny that this discovery turns me on so much."
+        "Wow, I would never have imagined that my <Actor.relationship> used sextoys. I won't deny that this discovery turns me on so much."
         Actor:incest += Random(0, 2)       
     Else
         "I haven't got time to waste here. Let's get this over and done with."

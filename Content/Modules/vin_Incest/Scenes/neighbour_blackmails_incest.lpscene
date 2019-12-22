@@ -9,8 +9,8 @@ OTHER: isAtHome() && intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)
     Actor.show(2)
     Actor(Evil):: "We need to talk, degenerate!"
     "It's my neighbour <Actor.name>. What the hell is going on?"
-    Player(Surprised):: "What happened? Why are you name-calling me?"
-    Actor(Evil):: "I saw everything! You scum was sleeping with your own <Actor2.relationship>!"
+    Player(Surprised):: "What happened? Why are you calling me names?"
+    Actor(Evil):: "I saw everything, scum! You were sleeping with your own <Actor2.relationship>!"
     "Oh no! We got caught ... There's no point making up any excuses..."
     Actor(Evil):: "Lucky for you ... I can be convinced to stay quiet about it."
     0:: "Bribe"
@@ -23,14 +23,14 @@ OTHER: isAtHome() && intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)
         Actor(Evil):: "Pleasure doing business with you ..."
         money -= Random(500, 3000)
     Elseif 1
-        "This incesturous affair cannot get out ... or it'll ruin our lives."
+        "This incestuous affair cannot get out ... or it'll ruin our lives."
         Player(Crying):: "I don't have enough money to meet your demands ... I can offer my body."
         Actor(Evil):: "Well, then that's an alternative that I can live with. Get on with it then!"
         Sex(Actor, Player)
     Else
         Player(Angry):: "No deal! You can't blackmail me ..."
-        Actor(Evil):: "Then be prepared for your life to get destroyed!"
-        "<Actor.name> kept <Actor.his_or_her> promise, telling everyone in the neighbourhood about our affair. Worse, rumours spread and eventually some of my colleagues catch wind of it. It will be much more difficult for me to make friends, get a promotion or get a new job now."
+        Actor(Evil):: "Then be prepared for your life to be destroyed!"
+        "<Actor.name> kept <Actor.his_or_her> promise, telling everyone in the neighbourhood about our affair. Worse, rumours spread and eventually some of my colleagues caught wind of it. Now it will be much more difficult for me to make friends, get a promotion or get a new job."
         interpersonal -= Random(0, 20)
         jobexperience -= Random(0, 20)
     Endif

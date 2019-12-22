@@ -1,46 +1,59 @@
 // Information
-INFO Is_Male: 100% true
+INFO Is_Male: 100% false
 INFO Interested_In_Men: 100% true
-INFO Interested_In_Women: 100% true
+INFO Interested_In_Women: 100% false
 INFO Interested_In_Transgender: 100% true
-INFO First_Name: 100% Paul
-INFO Last_Name: 100% M
+INFO First_Name: 100% Christina
+INFO Last_Name: 100% W
 INFO Race: 100% Daz
-INFO Genital: 100% Penis
+INFO Genital: 100% Vagina
 
 // Morphs
-MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.010067
-MORPH Genesis8Female__CTRLBodybuilder: 100% 0.19295
-MORPH Genesis8Female__Ryu: 100% 0.864613
-MORPH Genesis8Female__Ray: 100% 0.000943
-MORPH Genesis8Female__Raj: 100% 0.165439
-MORPH Genesis8Female__Nose Style Nubian: 100% 0.912241
-MORPH Genesis8Female__Nose Style Germanic: 100% 0.934181
-MORPH Genesis8Female__Mike: 100% 0.001966
-MORPH Genesis8Female__Matt: 100% 0.600667
-MORPH Genesis8Female__David: 100% 0.039487
-MORPH Genesis8Female__FBMHeavy: 100% 0.126609
-MORPH Genesis8FemaleEyelashes__Ryu: 100% 0.864613
-MORPH Genesis8FemaleEyelashes__Ray: 100% 0.000943
-MORPH Genesis8FemaleEyelashes__Raj: 100% 0.165439
-MORPH Genesis8FemaleEyelashes__Mike: 100% 0.001966
-MORPH Genesis8FemaleEyelashes__Matt: 100% 0.600667
-MORPH Genesis8FemaleEyelashes__David: 100% 0.039487
-MORPH XY__Penis length: 100% -0.195822
-MORPH XY__Plums size: 100% -0.248692
-MORPH XY__Penis size: 100% -0.231894
-MORPH Morley__CTRLFaceOlderHD: 100% 0.010067
-MORPH Morley__CTRLBodybuilder: 100% 0.19295
-MORPH Morley__FBMHeavy: 100% 0.126609
+MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.043781
+MORPH Genesis8Female__Shu Head: 100% 0.016907
+MORPH Genesis8Female__Rameesha Head: 100% 0.150335
+MORPH Genesis8Female__Olga Head: 100% 0.124168
+MORPH Genesis8Female__Nose Style Roman: 100% 0.384948
+MORPH Genesis8Female__Nose Style Asian A: 100% 0.726569
+MORPH Genesis8Female__Nhung Head: 100% 0.00626
+MORPH Genesis8Female__Natalie Head: 100% 0.307058
+MORPH Genesis8Female__Kumiko Head: 100% 0.282255
+MORPH Genesis8Female__Kareena Head: 100% 0.368934
+MORPH Genesis8Female__Julia Head: 100% 0.000053
+MORPH Genesis8Female__Jennifer Head: 100% 0.156579
+MORPH Genesis8Female__Faiza Head: 100% 0.0101
+MORPH Genesis8Female__Estell Head: 100% 0.358041
+MORPH Genesis8Female__Diane Head: 100% 0.5843
+MORPH Genesis8Female__Cynthia Head: 100% 0.10667
+MORPH Genesis8Female__PBMNipplesLarge: 100% 0.305163
+MORPH Genesis8Female__PBMGlutesSize: 100% 0.610431
+MORPH Genesis8Female__PBMBreastsUpwardSlope: 100% 0.215155
+MORPH Genesis8Female__PBMBreastsUnderCurve: 100% 0.882031
+MORPH Genesis8Female__PBMBreastsShape07: 100% 1.0
+MORPH Genesis8Female__PBMBreastsShape06: 100% 0.12891
+MORPH Genesis8Female__PBMAreolaeDepth: 100% 0.828974
+MORPH Genesis8Female__FBMHeavy: 100% 0.147328
+MORPH Genesis8Female__FBMBodyTone: 100% 0.165713
+MORPH Genesis8Female__FBMBodySize: 100% 0.170722
+MORPH Genesis8FemaleEyelashes__Shu Head: 100% 0.016907
+MORPH Genesis8FemaleEyelashes__Rameesha Head: 100% 0.150335
+MORPH Genesis8FemaleEyelashes__Olga Head: 100% 0.158637
+MORPH Genesis8FemaleEyelashes__Nhung Head: 100% 0.00626
+MORPH Genesis8FemaleEyelashes__Natalie Head: 100% 0.307058
+MORPH Genesis8FemaleEyelashes__Kumiko Head: 100% 0.282255
+MORPH Genesis8FemaleEyelashes__Kareena Head: 100% 0.368934
+MORPH Genesis8FemaleEyelashes__Julia Head: 100% 0.000053
+MORPH Genesis8FemaleEyelashes__Faiza Head: 100% 0.0101
+MORPH Genesis8FemaleEyelashes__Cynthia Head: 100% 0.10667
 SCALE X: 100% 1.0
 SCALE Y: 100% 1.0
 SCALE Z: 100% 1.0
 
 //Hair
-HAIR Hairstyle: 100% Morley
-HAIR Hair_Thickness: 100% 1.584637
-HAIR Hair_Color_R: 100% 0.2
-HAIR Hair_Color_G: 100% 0.005
+HAIR Hairstyle: 100% LongPonytail
+HAIR Hair_Thickness: 100% 1.31688
+HAIR Hair_Color_R: 100% 0.015
+HAIR Hair_Color_G: 100% 0.003
 HAIR Hair_Color_B: 100% 0.0
 HAIR Hair_Color_A: 100% 0.85
 
@@ -51,43 +64,44 @@ HAIR Brow_Color_A: 100% 1.0
 
 // Skin
 SKIN Eye_Color_R: 100% 0.0
-SKIN Eye_Color_G: 100% 0.0
-SKIN Eye_Color_B: 100% 0.0
-SKIN Eye_Color_A: 100% 1.0
+SKIN Eye_Color_G: 100% 0.04
+SKIN Eye_Color_B: 100% 0.11
+SKIN Eye_Color_A: 100% 0.8
+SKIN Face_Texture: 100% Marnie
 SKIN Skin_Color_R: 100% 0.5
 SKIN Skin_Color_G: 100% 0.22
 SKIN Skin_Color_B: 100% 0.12
 SKIN Skin_Color_A: 100% 1.0
-SKIN BHairColor_R: 100% 0.015
-SKIN BHairColor_G: 100% 0.003
+SKIN BHairColor_R: 100% 0.005
+SKIN BHairColor_G: 100% 0.001
 SKIN BHairColor_B: 100% 0.0
 SKIN BHairColor_A: 100% 0.85
-SKIN Skin_Roughness: 100% 0.077425
+SKIN Skin_Roughness: 100% 0.494736
 SKIN Skin_Oil: 100% 0.25
-SKIN Skin_Fresnel: 100% 0.690786
-SKIN Skin_Age: 100% 0.010067
+SKIN Skin_Fresnel: 100% 0.026582
+SKIN Skin_Age: 100% 0.043781
 SKIN Skin_Sagging: 100% 0.0
 SKIN Muscle_Tone: 100% 0.0
-SKIN BHairThickness: 100% 0.201084
+SKIN BHairThickness: 100% 0.820795
 SKIN BHairstyle: 100% NoHair
-SKIN FHairstyle: 100% NoHair
 
 // Stats
-STAT age: 100% 21.210424
-STAT attractiveness: 100% 63.328957
-STAT cooking: 100% 28.324228
-STAT dance: 100% 5.313272
-STAT fitness: 100% 7.56859
-STAT intelligence: 100% 3.619495
-STAT interpersonal: 100% 49.54985
-STAT martial: 100% 31.931517
-STAT masochist: 100% -85.924866
-STAT muscle: 100% 16.67226
-STAT music: 100% 27.765739
-STAT perversion: 100% 97.979248
+STAT incest: 100% 0.0
+STAT age: 100% 26.090916
+STAT attractiveness: 100% 81.66143
+STAT cooking: 100% 8.151494
+STAT dance: 100% 66.765343
+STAT fitness: 100% 54.164249
+STAT intelligence: 100% 19.76989
+STAT interpersonal: 100% 36.948757
+STAT martial: 100% 1.193274
+STAT masochist: 100% -24.34462
+STAT muscle: 100% 59.694206
+STAT music: 100% 89.175087
+STAT perversion: 100% 94.347969
 STAT pornfame: 100% 0.0
-STAT sneak: 100% 12.765892
-STAT attractiontoplayer: 100% -6.781704
-STAT rapportwithplayer: 100% 0.178821
-STAT arousal: 100% 96.575821
-STAT intoxication: 100% 27.942747
+STAT sneak: 100% 72.130493
+STAT attractiontoplayer: 100% -100.0
+STAT rapportwithplayer: 100% 11.932054
+STAT arousal: 100% 18.63155
+STAT intoxication: 100% 73.549614

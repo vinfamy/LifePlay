@@ -20,11 +20,11 @@ OTHER: isAtHome()
     Else
         perversion += Random(0, 0.5)
         Actor:incest += Random(0, 1)
-        "My curiousity got the better of me and I just had to see this ..."
+        "My curiosity got the better of me and I just had to see this ..."
         SneakGame()
         If Random(0, 100) < sneak
             Actor:incest += Random(0, 2)
-            "Luckily, my <Actor.relationship> didn't quite close <Actor.his_or_her> door completely shut - probably too busy with fooling around with <Actor.his_or_her> partner to pay attention to the door. With my sneaking talent, I managed to get a pretty good view of what was going on ..."
+            "Luckily, my <Actor.relationship> didn't quite shut <Actor.his_or_her> door completely - probably too busy with fooling around with <Actor.his_or_her> partner to pay attention to the door. With my sneaking talent, I managed to get a pretty good view of what was going on ..."
             Actor2 = Actor.getRelatedPerson(Dating, Spouses)
             If !Actor2.isValid()
                 Actor2 = generatePersonTemporary()
@@ -36,7 +36,7 @@ OTHER: isAtHome()
             Endif
             Sex(Actor, Actor2)
             arousal += Random(0, 30)
-            "This is so wrong, I know. <Actor.He_or_She> is my <Actor.relationship> after all ... but for some reason, I'm getting so excited watching <Actor.he_or_she> getting it on with <Actor.his_or_her> <Actor2.boyfriend_or_girlfriend>. In fact, as much as the thought is quite fucked up, I can't help but imagine myself in the place of the lucky <Actor2.guy_or_girl> ..."
+            "This is so wrong, I know. <Actor.He_or_She> is my <Actor.relationship> after all ... but for some reason, I'm getting so excited watching <Actor.him_or_her> getting it on with <Actor.his_or_her> <Actor2.boyfriend_or_girlfriend>. In fact, as much as the thought is quite fucked up, I can't help but imagine myself in the place of the lucky <Actor2.guy_or_girl> ..."
             
             Actor.show(2)
             Actor2.show(3)
@@ -46,7 +46,7 @@ OTHER: isAtHome()
             1:: "Enough"
             
             If 0
-                Player(Flirty):: "Looks like you guys are having some fun there? Mind if I join?"
+                Player(Flirty):: "Looks like you guys are having some fun there? Mind if I join you?"
                 If Random(50, 100) < Actor:incest
                     Actor(Flirty):: "I didn't realize how much of a pervert my <Actor.callplayer> is ... Come on and join us then, what are you waiting for?"
                     Sex(Actor, Player, Actor2)
@@ -59,7 +59,7 @@ OTHER: isAtHome()
                 "I should get out of here before I get caught."
             Endif
         Else
-            "Unfortunately for me, their doors were fully closed and all the curtains were pulled down. There's no way I can get a look in ..."
+            "Unfortunately for me, the door was fully closed and all the curtains were pulled down. There's no way I can get a look ..."
         Endif
     Endif
 

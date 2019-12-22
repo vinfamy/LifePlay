@@ -10,7 +10,7 @@ OTHER: isAtHome()
     Actor(Happy):: "Look, I saw a cute dog on the way back home today and took a snap of him."
     Player(Happy):: "Really? Let me see ..."
     Actor.hide()
-    "My <Actor.relationship> gave me <Actor.his_or_her> phone to show me the picture. What a cute dog indeed! I wonder if <Actor.he_or_she> took more than one snaps of the dog."
+    "My <Actor.relationship> gave me <Actor.his_or_her> phone to show me the picture. What a cute dog indeed! I wonder if <Actor.he_or_she> took more than one snap of the dog."
     0:: "Swipe for more"
     1:: "Return the phone"
     

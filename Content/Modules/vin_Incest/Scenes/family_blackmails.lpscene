@@ -52,7 +52,7 @@ OTHER: !isAtHome()
                 breakup = true
             Endif
         Elseif 1
-            Player(Crying):: "Baby! It was a terrible mistake. I didn't mean to hurt you. I have felt guilty about it everday since ... Please don't leave me - it will never happen again."
+            Player(Crying):: "Baby! It was a terrible mistake. I didn't mean to hurt you. I have felt guilty about it ever day since ... Please don't leave me - it will never happen again."
             If Dating:attractiontoplayer + interpersonal > Random(0, 200)
                 Dating(Sad):: "... Fine. For everything we've done together, I might as well give you one final chance. I hope I won't regret this later."
                 breakup = false
@@ -141,7 +141,7 @@ OTHER: !isAtHome()
                         Affair(Evil):: "Hah, what a placemat of a <Dating.boyfriend_or_girlfriend> you have! I would love to see <Dating.his_or_her> face if <Dating.he_or_she> knew that you went off to me right away after the loser forgave you ..."
                         Sex(Affair, Player)
                         Affair.hide()
-                        "I enjoyed that much more than usual. Maybe it was the blatant shamelessness of cheating on my <Dating.boyfriend_or_girlfriend> that added spices to the sex."
+                        "I enjoyed that much more than usual. Maybe it was the blatant shamelessness of cheating on my <Dating.boyfriend_or_girlfriend> that added spice to the sex."
                     Else
                         "That's fucked up. I shouldn't toy with my chances like that ... It's best if I avoid seeing <Affair.name> for a while at least."
                     Endif
@@ -160,7 +160,7 @@ OTHER: !isAtHome()
                 Affair(Evil):: "Hah, what a loser of a <Dating.boyfriend_or_girlfriend> you had - good riddance! I would love to see <Dating.his_or_her> face if <Dating.he_or_she> knew that you went off to me right away after the <Dating.idiot_or_bitch> broke up with you ..."
                 Sex(Affair, Player)
                 Affair.hide()
-                "I enjoyed that much more than usual. Sweet revenge certainly added spices to the sex."
+                "I enjoyed that much more than usual. Sweet revenge certainly added spice to the sex."
                 perversion += Random(0,1)
                 masochist -= Random(0,2)
             Else

@@ -15,7 +15,7 @@ OTHER: none
         
         If 0
             setBackground(electronics)
-            "I decided to go to the local electronics store and buy one. It cost quite a bit so I hope it would work. The salesperson did warn me though that this wireless camera still needs its battery, which must be replaced quite regularly."
+            "I decided to go to the local electronics store and buy one. It cost quite a bit so I hope it works. The salesperson warned me that this wireless camera still needs a battery, which must be replaced quite regularly."
             money -= Random(100, 300)
             CameraBought.setGlobal(1)
             "Let's head back to my <Actor.relationship>'s bedroom to set it all up now."
@@ -34,7 +34,7 @@ OTHER: none
             intelligence += Random(0, 0.5)
             "Nice, it's all set up and connected to my laptop. Let's return to my room and start spying!"
             setBackground(home)
-            "Voala, perfect view. All that is left to do is to wait for my <Actor.relationship> to come back to <Actor.his_or_her> room and do something 'interesting'."
+            "Voila, perfect view. All that is left to do is to wait for my <Actor.relationship> to come back to <Actor.his_or_her> room and do something 'interesting'."
             If Actor.isValid()
                 Actor.dress()
                 Actor.show(2)
@@ -51,10 +51,10 @@ OTHER: none
                     Endwhile
                     Actor:incest += Random(0, 2)
                     "Now naked, my <Actor.relationship> picked out an outfit to put on. Of course, I was hoping <Actor.he_or_she> would be debating fashion choices with <Actor.himself_or_herself> for as long as possible to allow me more time admire <Actor.him_or_her> in all <Actor.his_or_her> naked glory."
-                    "First to come on is the underwear"
+                    "First <Actor.he_or_she> put on <Actor.his_or_her> is the underwear"
                     Actor.dressExcept(Outerwear, Top, Bottom, Foot, Headwear, Eyewear, Top_Under)
                     If !Actor.isMale()
-                        "Next is the bra"
+                        "Then her bra"
                         Actor.dressExcept(Outerwear, Top, Bottom, Foot, Headwear, Eyewear, Bottom_Under)
                     Endif
                     "<Actor.He_or_She> put on a nice top ..."
@@ -84,7 +84,7 @@ OTHER: none
                             masochist -= Random(0, 1)
                         Endif
                     Else
-                        "Having got ready, my <Actor.relationship> walked out of <Actor.his_or_her> room, still unaware of the show <Actor.he_or_she> just put on for me."
+                        "Having finished dressing, my <Actor.relationship> walked out of <Actor.his_or_her> room, still unaware of the show <Actor.he_or_she> just put on for me."
                         Actor.hide()
                     Endif
                     "Wow, that was hot. I'm getting horny  ... I think I need to release."
@@ -103,9 +103,9 @@ OTHER: none
                     Endif
                 Endif
             Endif
-            "Eventually the camera's battery dies, I will need to replace the battery to continue spying. Anyway, I think that's enough high-tech peeping for now. I should also go retrieve the camera back to my room for now, or my <Actor.relationship> will notice it eventually." 
+            "Eventually the camera's battery dies, I will need to replace the battery to continue spying. Anyway, I think that's enough high-tech peeping for now. I should also go retrieve the camera and bring it back to my room for now, or my <Actor.relationship> will notice it eventually." 
         Else
-            "Before I could finish setting everything up, I heard footsteps coming towards the room. Damn it, I couldn't risk staying here too much longer or I'll get caught."
+            "Before I can finish setting everything up, I hear footsteps coming towards the room. Damn it, I can't risk staying here any longer or I'll get caught."
             "Let's just take the camera back to my room for now and wait for another opportunity to set this up."
         Endif
     Endif

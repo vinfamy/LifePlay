@@ -23,8 +23,8 @@ OTHER: isAtHome()
         SneakGame()
         If Random(0, 100) < sneak
             Actor:incest += Random(0, 2)
-            "Luckily, my <Actor.relationship> didn't quite close <Actor.his_or_her> door completely shut - probably too busy with fooling around with <Actor.his_or_her> partner to pay attention to the door. With my sneaking talent, I managed to get a pretty good view of what was going on ..."
-            "Wait, is that <Actor2.Relationship>!? What kind of incesturous relationship is my <Actor.relationship> and <Actor2.relationship> having?"
+            "Luckily, my <Actor.relationship> didn't shut <Actor.his_or_her> door completely - probably too busy with fooling around with <Actor.his_or_her> partner to pay attention to the door. With my sneaking talent, I managed to get a pretty good view of what was going on ..."
+            "Wait, is that <Actor2.Relationship>!? What kind of incestuous relationship is my <Actor.relationship> and <Actor2.relationship> having?"
             Sex(Actor, Actor2)
             Actor.hide()
             Actor2.hide()
@@ -41,7 +41,7 @@ OTHER: isAtHome()
             1:: "Enough"
             
             If 0
-                Player(Flirty):: "Looks like you guys are having some fun there? Mind if I join?"
+                Player(Flirty):: "Looks like you guys are having some fun there? Mind if I join you?"
                 If Random(50, 100) < Actor:incest || Random(50, 100) < Actor2:incest
                     Actor(Flirty):: "I didn't realize how much of a pervert my <Actor.callplayer> is ... Come on and join us then, what are you waiting for?"
                     Sex(Actor, Actor2, Player)
@@ -55,10 +55,10 @@ OTHER: isAtHome()
                 "I should get out of here before I get caught."
             Endif
         Else
-            "Unfortunately for me, their doors were fully closed and all the curtains were pulled down. There's no way I can get a look in ..."
+            "Unfortunately for me, the door was fully closed and all the curtains were pulled down. There's no way I can get a look ..."
         Endif
         Else
-            "Unfortunately for me, their doors were fully closed and all the curtains were pulled down. There's no way I can get a look in ..."
+            "Unfortunately for me, the door was fully closed and all the curtains were pulled down. There's no way I can get a look ..."
         Endif
     Endif
 

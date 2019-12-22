@@ -10,12 +10,12 @@ OTHER: none
     Actor:rapportwithplayer += Random(0, 2)
     "I'm visiting my <Actor.relationship> today."
     Player(Happy):: "That was a great day. Thanks for dinner. I think I should get going though before it gets too late."
-    Actor(Happy):: "No, stay the night! You can go back tomorrow's morning."
+    Actor(Happy):: "No, stay the night! You can go back tomorrow morning."
     Player(Happy):: "I'd love to, but you don't have a spare bedroom, do you?"    
     If Actor:rapportwithplayer + Actor:incest < Random(0, 70)*Random(0, 1)
         Actor(Sad):: "Yeah, you're right. Alright, visit again soon, <Actor.Callplayer>."
     Else
-        Actor(Happy):: "We can share bed for the night. We used to do that when we were children."
+        Actor(Happy):: "We can share the bed for the night. We used to do that when we were children."
         0:: "Yes"
         1:: "No"
         
@@ -24,7 +24,7 @@ OTHER: none
             "Later that night ..."
             Actor:incest += Random(0, 1)
             Actor.closeEyes(true)
-            Player(Happy):: "Damn, <Actor.his_or_her> leg is touching my private part ... I'm so aroused. When has my <Actor.relationship> grown up to become such a <Actor.handsome_or_beautiful> <Actor.man_or_woman>."
+            Player(Happy):: "Damn, <Actor.his_or_her> leg is touching my private parts ... I'm so aroused. When did my <Actor.relationship> grow up to become such a <Actor.handsome_or_beautiful> <Actor.man_or_woman>."
             0:: "Feel <Actor.him_or_her> up"
             1:: "Maybe not"
             

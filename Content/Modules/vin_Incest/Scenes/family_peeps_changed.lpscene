@@ -15,7 +15,7 @@ OTHER: isAtHome()
     
     If 0 
         Player.dress()
-        "I quickly put some clothes on and went looking around but couldn't find anyone. Whoever the peeping Tom was must have some quick feet."
+        "I quickly put some clothes on and went looking around but couldn't find anyone. Whoever the peeping Tom was must have quick feet."
     Else
         perversion += Random(0, 0.1)        
         "I won't lie: The thought of someone watching me getting changed turned me on ... I might as well take my time and give my peeping Tom a show to remember"

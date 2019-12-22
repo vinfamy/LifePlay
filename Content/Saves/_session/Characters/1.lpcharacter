@@ -71,7 +71,6 @@ SKIN BHairThickness: 100% 0.353921
 SKIN BHairstyle: 100% NoHair
 
 // Stats
-STAT incest: 100% 0.0
 STAT age: 100% 32.378948
 STAT attractiveness: 100% 29.746393
 STAT cooking: 100% 69.753105
@@ -88,5 +87,5 @@ STAT pornfame: 100% 0.0
 STAT sneak: 100% 80.565811
 STAT attractiontoplayer: 100% -2.249603
 STAT rapportwithplayer: 100% 34.276711
-STAT arousal: 100% 86.79464
-STAT intoxication: 100% 0.199707
+STAT arousal: 100% 76.485489
+STAT intoxication: 100% 50.700401

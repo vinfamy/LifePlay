@@ -10,7 +10,7 @@ OTHER: none
     0:: "Setting up"
     1:: "Test after save/ load"
     2:: "Version"
-    3:: "Lptalk"
+    3:: "FilterTalk, FilterDesc and DressBondage"
     4:: "string"
     5:: "300 loop"
     6:: "1100 loop"
@@ -59,9 +59,18 @@ OTHER: none
         
         "Version is <version_main>.<version_sub>."
     Elseif 3
-        Actor = getPerson()
-        FilterTalk(test)
+        Actor = getRelative()
+        FilterTalk(test_restricted) // the _restricted suffix prevents this file from being picked up in any other sex scenes without specifying FilterTalk()
+        FilterDesc(test_restricted)
+        Player.dressBondage(Bdg_Strapon)
+        Player.dressBondage(Bdg_Handcuffs)
+        
+        Actor.dressBondage(Bdg_Strapon)
+        Actor.dressBondage(Bdg_Handcuffs)
+        Actor.show(2)
+        "Bondage equipped"
         Sex(Player, Actor)
+        "Sex done!"
     Elseif 4
         test = "<CurrentCompanion.relationship>"
         "<test>"

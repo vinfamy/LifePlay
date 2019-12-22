@@ -13,12 +13,12 @@ OTHER: isAtHome() && Random(0, 100) < 3
     
     If 0
         Player(Happy):: "Hey, I just bought this movie on the DVD. Got really good reviews online. Movie night tonight?"
-        Actor(Happy):: "Sure, let's give it a try. Been a while since we last had a movie night. We used to do that everyday when we were younger."
+        Actor(Happy):: "Sure, let's give it a try. Been a while since we last had a movie night. We used to do that every day when we were younger."
         "A while later ..."
         Actor(Scared):: "Behind you!!!!!!"
         Actor(Crying):: "Ah!!!!!!!!!!!!!!!"
         Actor(Pain):: "Nooooooooooooooooooooo!"
-        "<Actor.name> has been screaming the whole movie. <Actor.He_or_She> is clearly not experienced in watching horror."
+        "<Actor.name> has been screaming the whole movie. <Actor.He_or_She> is clearly not used to watching horror."
         0:: "Hug <Actor.him_or_her>"
         1:: "Keep watching"
         
@@ -32,11 +32,11 @@ OTHER: isAtHome() && Random(0, 100) < 3
         1:: "No"
         
         If 0
-            Player(Happy):: "Alright then. We used to share bed as kids anyway."
+            Player(Happy):: "Alright then. We used to share a bed as kids anyway."
             "Later that night ..."
             Actor:incest += Random(0, 1)
             Actor.closeEyes(true)
-            Player(Happy):: "Damn, <Actor.his_or_her> leg is touching my private part ... I'm so aroused. When has my <Actor.relationship> grown up to become such a <Actor.handsome_or_beautiful> <Actor.man_or_woman>."
+            Player(Happy):: "Damn, <Actor.his_or_her> leg is touching my private parts ... I'm so aroused. When did my <Actor.relationship> grow up to become such a <Actor.handsome_or_beautiful> <Actor.man_or_woman>."
             0:: "Feel <Actor.him_or_her> up"
             1:: "Maybe not"
             
@@ -64,7 +64,7 @@ OTHER: isAtHome() && Random(0, 100) < 3
                 "I'd better not get too handsy. <Actor.He_or_She> is my <Actor.relationship> after all."
             Endif
         Else
-            Player(Happy):: "Isn't that a bit weird? I'm your <Actor.callplayer>. Just count sheeps or something and you'll fall asleep in no time."
+            Player(Happy):: "Isn't that a bit weird? I'm your <Actor.callplayer>. Just count sheep or something and you'll fall asleep in no time."
         Endif
     Else
         "I don't think <Actor.name> is into horror that much. I'll just watch it alone."

@@ -11,7 +11,7 @@ OTHER: none
     "I went to the living room only to find my <Actor.relationship> crying <Actor.his_or_her> eyes out while downing an excessive amount of alcohol."
     Actor(Crying):: "..."
     Player(Surprised):: "<Actor.name>, what is going on? Why are you crying?"
-    Actor(Crying):: "You know that <Actor.girl_or_guy> that I told you I had a crush on for years? I finally worked up the courage to admit my feeling for <Actor.her_or_him> ... and <Actor.she_or_he> rejected me. <Actor.She_or_He> said I was too ugly and boring for <Actor.her_or_him>."
+    Actor(Crying):: "You know that <Actor.girl_or_guy> that I told you I had a crush on for years? I finally worked up the courage to admit my feelings for <Actor.her_or_him> ... and <Actor.she_or_he> rejected me. <Actor.She_or_He> said I was too ugly and boring for <Actor.her_or_him>."
     0:: "<Actor.She_or_He> is just shallow"
     1:: "You're beautiful and interesting"
     
@@ -24,14 +24,14 @@ OTHER: none
         Player(Happy):: "Well, that <Actor.girl_or_guy> must be blind or retarded. Not only are you extremely beautiful, you're the coolest <Actor.guy_or_girl> on the planet too."
         Actor(Sad):: "You're just giving me compliments to cheer me up, aren't you? You don't actually believe a single word of that."
         0:: "It's an objective compliment"
-        1:: "If I weren't your <Actor.callplayer>, I would date you"
+        1:: "If I wasn't your <Actor.callplayer>, I would date you"
         
         If 0
-            Player(Happy):: "I swear: you're objectively attractiveness and interesting. That <Actor.girl_or_guy> is just a poor judge of character. I'm sure it won't be long before you find someone who appreciates you."
+            Player(Happy):: "I swear: you're objectively attractive and interesting. That <Actor.girl_or_guy> is just a poor judge of character. I'm sure it won't be long before you find someone who appreciates you."
             Actor(Happy):: "Alright then, I believe you, <Player.Callplayer>. Thank you for being there for me. I feel so much better now ..."
             Actor:rapportwithplayer += Random(0, 5)
         Else
-            Player(Flirty):: "Honestly, if I weren't your <Actor.callplayer>, I would totally date you myself!"
+            Player(Flirty):: "Honestly, if I wasn't your <Actor.callplayer>, I would totally date you myself!"
             If Actor:incest < 25 || !Actor.isInterestedIn(Player)
                 Actor(Embarassed):: "Ew, that's a really weird thing to say ... you're my <Actor.callplayer>!"
                 Player(Embarassed):: "I did say if ..."
@@ -61,7 +61,7 @@ OTHER: none
                         Sex(Player, Actor)
                         Actor:incest += Random(0, 50)
                         Actor.hide()
-                        "That's it. I had sex with my own <Actor.relationship>, an inexcusable act, yet as soon as it was over, I began justifying it in my mind that I was merely giving <Actor.him_or_her> the attention that <Actor.he_or_she> craved."
+                        "That's it. I had sex with my own <Actor.relationship>, an inexcusable act, yet as soon as it was over, I began justifying it in my own mind that I was merely giving <Actor.him_or_her> the attention that <Actor.he_or_she> craved."
                     Endif  
                 Endif
             Endif

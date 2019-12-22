@@ -10,11 +10,11 @@ OTHER: none
     "My curiousity got the better of me ..."
     SneakGame()
     If Random(0, 100) < sneak
-        "I managed to enter the room quietly enough that my <Actor.relationship> still stays asleep."
+        "I managed to enter the room quietly enough that my <Actor.relationship> was still asleep."
         Actor.strip()
         Actor.closeEyes(true)
         Actor.show(2)
-        "Wow, my <Actor.relationship> is sleeping naked ... <Actor.He_or_She> is my <Actor.relationship> so I really shouldn't feel like this but ... I'm getting very aroused myself ... In fact, as much as the thought is so wrong on so many different levels, I can't help but wish I have the courage to come join <Actor.him_or_her> in <Actor.his_or_her> bed ... or maybe I can touch <Actor.him_or_her> just a little bit."
+        "Wow, my <Actor.relationship> is sleeping naked ... <Actor.He_or_She> is my <Actor.relationship> so I really shouldn't feel like this but ... I'm getting very aroused ... In fact, as much as the thought is so wrong on so many different levels, I can't help but wish I had the courage to join <Actor.him_or_her> in <Actor.his_or_her> bed ... or maybe I can touch <Actor.him_or_her> just a little bit."
         0:: "Feel <Actor.him_or_her> up"
         1:: "No way"
         

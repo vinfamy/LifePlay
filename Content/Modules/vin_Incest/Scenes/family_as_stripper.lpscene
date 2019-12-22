@@ -25,7 +25,7 @@ OTHER: none
         Colleague.show(4)
         Colleague(Happy):: "Damn, do you see that stripper over there? <Actor.He_or_She> is smoking hot! I think I'm going to blow as much cash as it takes to fuck <Actor.his_or_her> brains out tonight."
         Actor.show(2)
-        "Hmm, the stripper that <Colleague.name> is having <Colleague.his_or_her> eyes on looks very familiar ..."
+        "Hmm, the stripper that <Colleague.name> is feasting <Colleague.his_or_her> eyes on looks very familiar ..."
         "Wait, that's my <Actor.relationship>! What the fuck! <Actor.He_or_She> hasn't seen me yet, thank God."
         0:: "Stay quiet"
         1:: "Peep on <Colleague.name> and <Actor.name>"
@@ -36,7 +36,7 @@ OTHER: none
             masochist += Random(0, 2)
             "<Colleague.name> went ahead and took <Actor.name> to a private room. I was humiliated but couldn't say a single word. At least <Actor.name> never saw me."
         Elseif 1
-            "I would become a butt of jokes at the office tomorrow if my colleague finds out my own <Actor.relationship> is a stripper. Looks like I have no choice but to stay silent and let <Colleague.name> fuck my <Actor.relationship>."
+            "I would become the butt of the jokes at the office tomorrow if my colleague finds out my own <Actor.relationship> is a stripper. Looks like I have no choice but to stay silent and let <Colleague.name> fuck my <Actor.relationship>."
             "In fact, I guess a little peek wouldn't hurt ..."
             Player.hide()
             Sex(Colleague, Actor)

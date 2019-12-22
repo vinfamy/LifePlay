@@ -8,7 +8,7 @@ OTHER: isAtHome() && money < 250 && & Random(0, 300) < attractiveness
     Actor.dress()
     Actor.show(2)
     Actor(Happy):: "What's the matter, <Player.name>? You look sad."
-    Player(Sad):: "I'm broke ... You know expensive clothes are my guilty pleasures. I have to wait for my next paycheck now for that."
+    Player(Sad):: "I'm broke ... You know expensive clothes are my guilty pleasure. I have to wait for my next paycheck now for that."
     Actor(Happy):: "You don't have to wait that long. I can take you shopping today."
     Player(Excited):: "Really? I'll go get changed then, we'll go right away. I'm warning you in advance though: I do spend a lot whenever I shop."
     setBackground(department_store)

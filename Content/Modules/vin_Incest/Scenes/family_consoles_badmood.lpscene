@@ -23,7 +23,7 @@ OTHER: isAtHome() && mood < Random(0, 50)*Random(0, 1)
         Else
             Actor(Wink):: "You know: you really need to find yourself a <Player.girlfriend_or_boyfriend> to share the stress with in life."
             Player(Sarcastic):: "Haha, who would ever date a <Player.guy_or_girl> like me?"
-            Actor(Happy):: "Don't say that ... you're an attractive and intelligent <Player.guy_or_girl>. If I weren't your <Actor.relationship>, I would totally be your <Actor.boyfriend_or_girlfriend>."
+            Actor(Happy):: "Don't say that ... you're an attractive and intelligent <Player.guy_or_girl>. If I wasn't your <Actor.relationship>, I would totally be your <Actor.boyfriend_or_girlfriend>."
             0:: "That's weird"
             1:: "I would date you too"
             
@@ -33,7 +33,7 @@ OTHER: isAtHome() && mood < Random(0, 50)*Random(0, 1)
                 Actor(Embarassed):: "Yeah ... now that I think about it, that was weird. Forget I said that"
             Else
                 Actor:incest += Random(0, 2)
-                Player(Flirty):: "I would date you too ... if I weren't your <Player.callplayer>."
+                Player(Flirty):: "I would date you too ... if I wasn't<Player.callplayer>."
                 If Actor:incest + Actor:perversion > Random(100, 200)
                     Actor(Flirty):: "I'm sure you would ..."
                     Actor(Kiss):: "..."
@@ -49,7 +49,7 @@ OTHER: isAtHome() && mood < Random(0, 50)*Random(0, 1)
                         Sex(Player, Actor)
                         Actor:incest += Random(0, 50)
                         Actor.hide()
-                        "That's it. I had sex with my own <Actor.relationship>, an inexcusable act, yet as soon as it was over, I began justifying it in my mind that I simply made a mistake under the influence of extreme stress and desperately needed to release."
+                        "That's it. I had sex with my own <Actor.relationship>, an inexcusable act, yet as soon as it was over, I began justifying it in my own mind that I simply made a mistake under the influence of extreme stress and desperately needed to release."
                     Endif  
                 Endif
             Endif

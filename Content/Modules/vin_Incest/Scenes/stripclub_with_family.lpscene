@@ -35,7 +35,7 @@ OTHER: none
         Stripper.strip()
         Stripper.show(2)
         arousal += Random(0, 30)
-        "The stripper gave me quite a lap dance. I really need to release now ..."
+        "The stripper gave me quite a lap dance. I really need some release ..."
         0:: "Pay for extra service"
         1:: "Just enjoy the show"
         2:: "Let's share"

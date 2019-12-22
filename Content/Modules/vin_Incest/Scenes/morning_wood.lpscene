@@ -12,7 +12,7 @@ OTHER: isAtHome() && Player.isMale() && Random(0, 500) < arousal
     "When I looked back at my <Actor.relationship>, <Actor.his_or_her> face was completely red."
     Actor(Embarassed):: "... Your ..."
     Actor:incest += Random(0, 1)
-    "<Actor.He_or_She> pointed at my crotch. I had a massive morning wood and it has fallen out of my pants. No wonder I slept so soundly, I was probably having some wet dreams. "
+    "<Actor.He_or_She> pointed at my crotch. I had a massive morning wood and it had fallen out of my pants. No wonder I slept so soundly, I was probably having wet dreams. "
     0:: "Sorry"
     1:: "Like what you see?"
     

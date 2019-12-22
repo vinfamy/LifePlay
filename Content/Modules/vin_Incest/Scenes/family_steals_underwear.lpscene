@@ -5,12 +5,12 @@ WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Actor.isInterestedIn(P
 OTHER: isAtHome()
 
     SceneStart()
-    "Hmm, I swear have another pair of <Player.boxers_or_panties> kept in this drawer ..."
+    "Hmm, I swear that I had another pair of <Player.boxers_or_panties> in this drawer ..."
     0:: "Lost in the laundry"
     1:: "Somebody stole them"
     
     If 0
-        "I must have forgotten it in the washing machine last time I did the laundry ... I keep doing this - it's so annoying."
+        "I must have forgotten them in the washing machine last time I did the laundry ... I keep doing this - it's so annoying."
     Else
         "Somebody must have stolen them. Who would have known that I have a pervert living with me? Who could it be?"
         "I remember now: my <Actor.relationship> cleaned the apartment yesterday. Could it be <Actor.him_or_her>?"
