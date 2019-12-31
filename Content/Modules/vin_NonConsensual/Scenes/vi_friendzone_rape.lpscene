@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: all
 WHEN: 0 - 24
-WHO: Actor = getCompanion(); If !Actor.isRelative() && !Actor.isDating()
+WHO: Actor = getCompanion(); If !Actor.isRelative() && !Actor.isDating() && !Actor.isProstitute()
 OTHER: Player.isDating() && Random(50, 100) < Actor:attractiontoplayer
 
     SceneStart()

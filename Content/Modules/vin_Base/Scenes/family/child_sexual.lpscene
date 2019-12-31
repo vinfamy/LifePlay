@@ -1,7 +1,7 @@
 WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 0 - 24
-WHO: Dating = getRelative(Sibling, StepSibling, Child, StepChild); If Dating:perversion > Random(70, 100)
+WHO: Dating = getRelative(Sibling, StepSibling, Child, StepChild); If Dating:perversion > Random(70, 100) && Actor:age > 18
 OTHER: !isWithCompanion() && isAtHome()
 
     SceneStart()

@@ -19,7 +19,7 @@ If 0
     If isDating
         Dating = getSpecific(Dating)
     Endif
-    "I've snapped a sexy selfie. Now, what do I do with it?
+    "I've snapped a sexy selfie. Now, what do I do with it?"
     0:: isDating:: "Send it to my babe"
     1:: perversion > 40:: "Post it on social media"
     2:: "Just keep it"

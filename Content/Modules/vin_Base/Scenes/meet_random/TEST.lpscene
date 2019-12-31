@@ -6,6 +6,7 @@ OTHER: none
 
     SceneStart()
     Actor  = getSpecific(Dating)
+    Actor2 = getSpecific(Boss)
     "What?"
     0:: "Setting up"
     1:: "Test after save/ load"
@@ -14,6 +15,9 @@ OTHER: none
     4:: "string"
     5:: "300 loop"
     6:: "1100 loop"
+    7:: "Sex"
+    8:: "Three"
+    9:: "LostLegends"
     
     If 0       
         Player.setActorVar(Var1, 55)
@@ -97,7 +101,18 @@ OTHER: none
             count += 1
             Actor = getPerson()
         Endwhile
-        "Bye"    
+        "Bye"
+    Elseif 7
+        TalkNonconsensual()
+        Sex(Actor)
+    Elseif 8
+        TalkNonconsensual()
+        Sex(Player, Actor, Actor2)
+    Elseif 9
+        passTime(13, 13)
+        setBackground3D(Modules/vin_Base/Bedrooms/15.lpworld)
+        "Room Loaded"
+        
     Endif
     
     SceneEnd()

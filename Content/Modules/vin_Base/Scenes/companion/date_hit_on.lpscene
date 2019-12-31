@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: all, -home
 WHEN: 0-24
-WHO: Actor = getCompanion(); If Random(50, 200) < Actor:attractiveness
+WHO: Actor = getCompanion(); If Random(50, 200) < Actor:attractiveness && !Actor.isProstitute()
 OTHER: none
 
     SceneStart()
