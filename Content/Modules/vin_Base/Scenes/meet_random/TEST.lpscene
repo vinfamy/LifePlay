@@ -18,6 +18,7 @@ OTHER: none
     7:: "Sex"
     8:: "Three"
     9:: "LostLegends"
+    10:: "NickNo"
     
     If 0       
         Player.setActorVar(Var1, 55)
@@ -112,7 +113,22 @@ OTHER: none
         passTime(13, 13)
         setBackground3D(Modules/vin_Base/Bedrooms/15.lpworld)
         "Room Loaded"
+    Elseif 10
+        last = lastSaved.getGlobal()
+        passed = HoursElapsed - last
+        passed = passed.round()
+        "<Passed> hours have passed since the last time this option was selected"
         
+        lastSaved.setGlobal(HoursElapsed) // HoursElapsed is a special float variable, like choice
+        
+        Actor = getPerson(true)
+        Actor.setActorVar(tag_LoveInterests, 1) // use this to tag a person via script
+        Actor.delete()
+        "Select NPC"
+        selectNPC(LoveInterests) // Actor above may not show up on 1st try because actors already called in a lpscene are automatically hidden from the npc selector
+        Actor = getselectedNPC()
+        Actor.show(2)
+        Actor(Happy):: "Hello"
     Endif
     
     SceneEnd()

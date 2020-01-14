@@ -1,3 +1,11 @@
+Version 2.16:
+- Sound effects (oral, penetration, male & female moans) for the sex scenes. Special thanks to Icarus Videos, who provided some of oral and penetration sound effects.
+- Background ambience sound loops for most location types in the game, for a more immersive experience
+- Sound effects for various UI elements, also highlighting when something positive or negative happens during gameplay
+- New customization option under Ctrl + E > Personal that allows you to select the moan voice pack for your PC and NPCs
+- Volume adjustment settings in Esc > Settings. Note that some UI sound effects are hard-coded for performance reasons and aren't affected by these settings.
+- Bug fixes and other improvements
+
 Version 2.15:
 - 20 new animations, consisting of:
 -- 5 male-female Cowgirl animations, including some femdom ones

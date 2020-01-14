@@ -2,7 +2,7 @@ WHAT: watch_a_movie_in
 WHERE: home
 WHEN: 16 - 22
 WHO: Actor = getRelative(Sibling, StepSibling, Cousin); If Actor.livesWithPlayer() && Actor:rapportwithplayer > 10
-OTHER: isAtHome() && Random(0, 100) < 1
+OTHER: isAtHome() && Random(0, 100) < 10
 
     SceneStart()
     Actor.dress()

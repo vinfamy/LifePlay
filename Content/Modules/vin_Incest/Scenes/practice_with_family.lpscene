@@ -87,7 +87,7 @@ OTHER: IsAtHome() && perversion < Random(0, 30)*Random(0, 1)
                             Actor:incest += Random(0, 50)
                             Sex(Actor, Player)
                         Else
-                            Actor(Surprised):: "What? Are you crazy?" I'm your <Actor.relationship>! We can't do that, no way ..."
+                            Actor(Surprised):: "What? Are you crazy? I'm your <Actor.relationship>! We can't do that, no way ..."
                         Endif                   
                     Endif
                 Endif

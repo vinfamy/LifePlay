@@ -1,7 +1,7 @@
 WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
 WHERE: all
 WHEN: 0 - 24
-WHO: Dating = getSpecific(Dating); If Dating:perversion > Random(70, 100)
+WHO: Dating = getSpecific(Dating); If Dating:perversion > Random(70, 100) && !Dating.isExRelative()
 OTHER: !isWithCompanion()
 
 SceneStart()

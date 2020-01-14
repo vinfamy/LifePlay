@@ -11,7 +11,7 @@ SceneStart()
 
     If 0
         "Why not? I'm proud of my singing ability and it's time to shine!"
-        If Random(0, 100) < dance
+        If Random(0, 100) < music
             "My effort paid off and the crowd cheered on and showed their appreciation for their local vocal superstar as I became the center of attention."
             music += Random(0, 0.5)
             Actor = generatePerson()

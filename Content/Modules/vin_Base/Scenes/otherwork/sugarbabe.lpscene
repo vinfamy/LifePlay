@@ -2,7 +2,7 @@ WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
 WHERE: home
 WHEN: 16 - 22
 WHO: none
-OTHER: !isWithCompanion() && jobexperience < 40
+OTHER: !isWithCompanion() && jobexperience < 40 && age < 30
 
     SceneStart()
     SugarParent = SugarParent.getGlobal()    

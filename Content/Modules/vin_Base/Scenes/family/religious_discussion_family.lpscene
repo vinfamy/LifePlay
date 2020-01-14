@@ -5,7 +5,6 @@ WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Actor:perversion < 30 
 OTHER: isAtHome() && Random(0, 200) < intelligence
 
     SceneStart()
-    Actor = generatePerson()
     Actor.dress()
     Actor.show(2)
     Actor(Excited):: "What do you think God would think about what society has become in the 21st century?"

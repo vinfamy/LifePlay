@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: home
 WHEN: 8 - 21
-WHO: Actor = getRelative(); Dating = getSpecific(Dating); If Actor.livesWithPlayer() && Actor.isInterestedIn(Player) && Random(10, 300) < Actor:rapportwithplayer
+WHO: Actor = getRelative(); Dating = getSpecific(Dating); If Actor.livesWithPlayer() && Actor.isInterestedIn(Player) && Random(10, 300) < Actor:rapportwithplayer &&  && !Dating.isExRelative()
 OTHER: isAtHome()
 
     SceneStart()

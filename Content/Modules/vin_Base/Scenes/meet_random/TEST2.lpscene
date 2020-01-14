@@ -1,17 +1,8 @@
 WHAT: none
 WHERE: none
 WHEN: 0-24
-WHO: Actor0 = getRelative()
+WHO: none
 OTHER: none
 
-	SceneStart()  
-    
-	"Hello"
-    Actor1 = Actor0.getRelatedPerson(Cousins, Siblings)
-    Actor0.dress()
-    Actor1.dress()
-    Actor0.show(2)
-    Actor1.show(3)
-    "<Actor0.name> and <Actor1.name> are cousins."
-    "Bye"
+	SceneStart()
 	SceneEnd()

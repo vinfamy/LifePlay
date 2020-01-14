@@ -2,7 +2,7 @@ WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
 WHERE: all
 WHEN: 16 - 22
 WHO: none
-OTHER: !isWithCompanion() && [jobexperience > 60 || money > 20000]
+OTHER: !isWithCompanion() && [jobexperience > 60 || money > 20000] && age > 30
 
     SceneStart()
     SugarBabe = SugarBabe.getGlobal()    

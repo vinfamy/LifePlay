@@ -276,7 +276,7 @@ OTHER: !isPlayerMarried()
             setBackground(biergarten)
             "The most important day of my life is here ..."
             If CurrentCompanion.isExRelative()
-                "Registering this marriage with the government is a no-goer - incest is illegal in this country so that would just send us straight to jail ... Still, we wanted to have a proper wedding, so we only invited guests who met us after we became a couple and had no idea we were related. The vow master also had no idea ..."
+                "Registering this marriage with the government is a no-goer - incest is illegal in this country so that would just send us straight to jail ... Still, we wanted to have a proper wedding, so we only only invited a few particularly open-minded family and friends, as well as guests who met us after we became a couple and had no idea we were related."
             Endif
             Player.show(0)
             CurrentCompanion.show(1)

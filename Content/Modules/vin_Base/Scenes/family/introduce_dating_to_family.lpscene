@@ -1,7 +1,7 @@
 WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
 WHERE: all
 WHEN: 0 - 24
-WHO: Actor = getSpecific(Dating); Actor2 = getRelative(); If !Actor.hasRelationship(Spouses) && Random(20, 500) < Actor:attractiontoplayer && Actor2:rapportwithplayer > -10
+WHO: Actor = getSpecific(Dating); Actor2 = getRelative(); If !Actor.hasRelationship(Spouses) && Random(20, 500) < Actor:attractiontoplayer && Actor2:rapportwithplayer > -10 && !Actor.isExRelative()
 OTHER: !isPlayerMarried()
 
     SceneStart()
