@@ -1,0 +1,23 @@
+{Actor}.getActorVar(name)
+
+USE: 
+Use this function to get the float value of a variable from a certain actor. 
+The actor can be the Player or any other actor.
+
+This function also allows testing it a certain TAG is assigned to an actors.
+
+If a tag / value was not assigned the function will return 0.
+
+
+TYPE: Command, Non-Ref (ref-like syntax)
+RETURNS: variable value
+THEME: Variables
+COMPARE: getActorVar, modifyActorVar
+
+EXAMPLE:
+    Player.setActorVar(tag_Player, 1) // Set the Tag 'Player' to the Player's character
+    Player.setActorVar(tag_Player, -1) // Remove the Tag 'Player' from the Player's character
+    
+    Player.setActorVar(SomeVariable, 42)     // Set the variable to 42
+    val = Player.getActorVar(SomeVariable)
+    "The value of SomeVariable is <val>."

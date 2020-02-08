@@ -6,7 +6,10 @@ OTHER: none
 
     SceneStart()
     Actor  = getSpecific(Dating)
-    Actor2 = getSpecific(Boss)
+    Actor2 = getSpecific(Colleague)
+    Actor3 = getSpecific(Colleague)
+    Actor4 = getSpecific(Colleague)
+    
     "What?"
     0:: "Setting up"
     1:: "Test after save/ load"
@@ -16,7 +19,7 @@ OTHER: none
     5:: "300 loop"
     6:: "1100 loop"
     7:: "Sex"
-    8:: "Three"
+    8:: "GB"
     9:: "LostLegends"
     10:: "NickNo"
     
@@ -105,10 +108,10 @@ OTHER: none
         "Bye"
     Elseif 7
         TalkNonconsensual()
-        Sex(Actor)
+        Sex(Actor, Player)
     Elseif 8
         TalkNonconsensual()
-        Sex(Player, Actor, Actor2)
+        Sex(Actor, Actor2, Actor3, Actor4, Player)
     Elseif 9
         passTime(13, 13)
         setBackground3D(Modules/vin_Base/Bedrooms/15.lpworld)
@@ -129,6 +132,15 @@ OTHER: none
         Actor = getselectedNPC()
         Actor.show(2)
         Actor(Happy):: "Hello"
+        
+        count = 0
+        change = -1
+        While count < 100
+            Actor.modifyActorVar(tag_LoveInterests, -1)   // OR Actor.modifyActorVar(tag_LoveInterests, change)
+            count += 1
+        Endwhile
+        
+        Actor = getPerson(LoveInterests); return a person that has the LoveInterests tag
     Endif
     
     SceneEnd()

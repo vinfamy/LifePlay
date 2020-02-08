@@ -1,0 +1,22 @@
+{Actor}.modifyActorVar(name, value)
+
+USE: 
+Use this function to modify the float value of a variable by a given value. 
+The actor can be the Player or any other actor.
+
+This function was introduced with LifePlay 2.18.
+
+TYPE: Command, Non-Ref (ref-like syntax)
+RETURNS: /
+THEME: Variables
+COMPARE: getActorVar, modifyActorVar
+
+EXAMPLE:
+    Player.setActorVar(SomeVariable, 42)     // Set the variable to 42
+    Player.modifyActorVar(SomeVariable, 1)
+    val = Player.getActorVar(SomeVariable)
+    "The value of SomeVariable is <val>."   // Will be 43
+    
+    Player.modifyActorVar(SomeVariable, -30)
+    val = Player.getActorVar(SomeVariable)
+    "The value of SomeVariable is <val>."   // Will be 13

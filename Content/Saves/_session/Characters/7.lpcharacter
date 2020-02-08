@@ -2,42 +2,40 @@
 INFO Is_Male: 100% false
 INFO Interested_In_Men: 100% true
 INFO Interested_In_Women: 100% false
-INFO Interested_In_Transgender: 100% false
-INFO First_Name: 100% Jaclyn
-INFO Last_Name: 100% O
+INFO Interested_In_Transgender: 100% true
+INFO First_Name: 100% Melissa
+INFO Last_Name: 100% W
 INFO Race: 100% Daz
 INFO Genital: 100% Vagina
 
 // Morphs
-MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.02377
-MORPH Genesis8Female__CTRLFitness: 100% 0.45945
-MORPH Genesis8Female__CTRLBodybuilder: 100% 0.567797
-MORPH Genesis8Female__Shu Head: 100% 0.845642
-MORPH Genesis8Female__Sabina Head: 100% 0.089153
-MORPH Genesis8Female__Nose Style Roman: 100% 0.79859
-MORPH Genesis8Female__Nose Style Nubian: 100% 0.380282
-MORPH Genesis8Female__Natalie Head: 100% 0.018866
-MORPH Genesis8Female__Kareena Head: 100% 0.068117
-MORPH Genesis8Female__PBMGlutesSize: 100% 0.584429
-MORPH Genesis8Female__PBMBreastsUnderCurve: 100% 0.023499
-MORPH Genesis8Female__PBMBreastsShape01: 100% 0.000336
-MORPH Genesis8FemaleEyelashes__Shu Head: 100% 0.845642
-MORPH Genesis8FemaleEyelashes__Sabina Head: 100% 0.089153
-MORPH Genesis8FemaleEyelashes__Natalie Head: 100% 0.018866
-MORPH Genesis8FemaleEyelashes__Kareena Head: 100% 0.068117
-MORPH CerellaHR01_91257__SCLPropagatingHead: 100% 0.05
-MORPH CerellaHR01_91257__CTRLFaceOlderHD: 100% 0.02377
-MORPH CerellaHR01_91257__CTRLFitness: 100% 0.45945
-MORPH CerellaHR01_91257__CTRLBodybuilder: 100% 0.567797
+MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.005374
+MORPH Genesis8Female__CTRLFitness: 100% 0.201703
+MORPH Genesis8Female__Shu Head: 100% 0.048081
+MORPH Genesis8Female__Nose Style Roman: 100% 0.27551
+MORPH Genesis8Female__Nose Style Asian C: 100% 0.536513
+MORPH Genesis8Female__Natalie Head: 100% 0.390438
+MORPH Genesis8Female__Kumiko Head: 100% 0.166213
+MORPH Genesis8Female__Kareena Head: 100% 0.237781
+MORPH Genesis8Female__PBMNipplesSize: 100% 0.040803
+MORPH Genesis8Female__PBMGlutesSize: 100% 0.790338
+MORPH Genesis8Female__PBMBreastsSmall: 100% 0.122044
+MORPH Genesis8Female__PBMBreastsPerkSide: 100% 0.478774
+MORPH Genesis8Female__PBMAreolaeDepth: 100% 0.267434
+MORPH Genesis8Female__FBMThin: 100% 0.527659
+MORPH Genesis8FemaleEyelashes__Shu Head: 100% 0.048081
+MORPH Genesis8FemaleEyelashes__Natalie Head: 100% 0.390438
+MORPH Genesis8FemaleEyelashes__Kumiko Head: 100% 0.166213
+MORPH Genesis8FemaleEyelashes__Kareena Head: 100% 0.237781
 SCALE X: 100% 1.0
 SCALE Y: 100% 1.0
 SCALE Z: 100% 1.0
 
 //Hair
-HAIR Hairstyle: 100% CerellaHR01_91257
-HAIR Hair_Thickness: 100% 0.834565
-HAIR Hair_Color_R: 100% 0.4
-HAIR Hair_Color_G: 100% 0.1
+HAIR Hairstyle: 100% DannyHair
+HAIR Hair_Thickness: 100% 1.489566
+HAIR Hair_Color_R: 100% 0.026
+HAIR Hair_Color_G: 100% 0.009
 HAIR Hair_Color_B: 100% 0.0
 HAIR Hair_Color_A: 100% 0.85
 
@@ -47,44 +45,44 @@ HAIR Brow_Color_B: 100% 0.0
 HAIR Brow_Color_A: 100% 1.0
 
 // Skin
-SKIN Eye_Color_R: 100% 0.08
-SKIN Eye_Color_G: 100% 0.02
+SKIN Eye_Color_R: 100% 0.02
+SKIN Eye_Color_G: 100% 0.0
 SKIN Eye_Color_B: 100% 0.0
 SKIN Eye_Color_A: 100% 0.8
-SKIN Face_Texture: 100% BellaBleu
+SKIN Face_Texture: 100% Marnie
 SKIN Skin_Color_R: 100% 0.5
 SKIN Skin_Color_G: 100% 0.22
 SKIN Skin_Color_B: 100% 0.12
 SKIN Skin_Color_A: 100% 1.0
-SKIN BHairColor_R: 100% 0.026
-SKIN BHairColor_G: 100% 0.009
+SKIN BHairColor_R: 100% 0.005
+SKIN BHairColor_G: 100% 0.001
 SKIN BHairColor_B: 100% 0.0
 SKIN BHairColor_A: 100% 0.85
-SKIN Skin_Roughness: 100% 0.957305
+SKIN Skin_Roughness: 100% 0.161626
 SKIN Skin_Oil: 100% 0.25
-SKIN Skin_Fresnel: 100% 0.128056
-SKIN Skin_Age: 100% 0.02377
+SKIN Skin_Fresnel: 100% 0.257241
+SKIN Skin_Age: 100% 0.005374
 SKIN Skin_Sagging: 100% 0.0
 SKIN Muscle_Tone: 100% 0.0
-SKIN BHairThickness: 100% 0.607624
-SKIN BHairstyle: 100% Pubes02
+SKIN BHairThickness: 100% 0.748024
+SKIN BHairstyle: 100% NoHair
 
 // Stats
-STAT age: 100% 41.615314
-STAT attractiveness: 100% 3.52794
-STAT cooking: 100% 24.170658
-STAT dance: 100% 70.741905
-STAT fitness: 100% 98.599205
-STAT intelligence: 100% 65.092926
-STAT interpersonal: 100% 71.167336
-STAT martial: 100% 21.91931
-STAT masochist: 100% 81.920837
-STAT muscle: 100% 0.081484
-STAT music: 100% 64.790794
-STAT perversion: 100% 1.421552
+STAT age: 100% 20.686941
+STAT attractiveness: 100% 25.135044
+STAT cooking: 100% 53.163242
+STAT dance: 100% 96.111938
+STAT fitness: 100% 50.978119
+STAT intelligence: 100% 90.844444
+STAT interpersonal: 100% 41.001617
+STAT martial: 100% 81.810966
+STAT masochist: 100% -32.139046
+STAT muscle: 100% 58.76339
+STAT music: 100% 76.189461
+STAT perversion: 100% 91.637924
 STAT pornfame: 100% 0.0
-STAT sneak: 100% 33.94574
-STAT attractiontoplayer: 100% -14.648273
-STAT rapportwithplayer: 100% -5.0
-STAT arousal: 100% 12.854396
-STAT intoxication: 100% 75.795769
+STAT sneak: 100% 94.393745
+STAT attractiontoplayer: 100% -36.573505
+STAT rapportwithplayer: 100% -2.370599
+STAT arousal: 100% 5.203406
+STAT intoxication: 100% 44.221321

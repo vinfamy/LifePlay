@@ -1,7 +1,18 @@
-selectNPC()
+selectNPC(optional tag)
 
 USE:
-Choose a person from your contacts by leaving the scene temporarily and opening the Contacts menu. Must be followed by getSelectedNPC(). Basically superior to chooseContact() unless you really don't want to take the player out of the scene even temporarily.
+Choose a person from your contacts by leaving the scene temporarily and 
+opening the Contacts menu. Must be followed by getSelectedNPC(). 
+Basically superior to chooseContact() unless you really don't want to take 
+the player out of the scene even temporarily.
+
+Optional parameter:
+
+Tag (any): to filter for persons that have the given tag assigned.
+The tag command was introduced with LifePlay 2.17 and can be used to filter the contact
+list by a certain tag. (The player can not modify this query, so you force him to pick a
+person that has this tag, or none.)
+
 
 TYPE: Command, Non-Ref
 RETURNS: /

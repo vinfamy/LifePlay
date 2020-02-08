@@ -1,0 +1,21 @@
+setBackground3D(relative/path/to/3d-scene.lpworld)
+
+USE:
+Set the background as a 3D room for the current scene.
+
+HINT: 
+Call "setBackground" before setBackground3D() to: 
+a) Handle non existing rooms
+b) Give the dress() function a clue, how to dress the actors!
+
+TYPE: Command, non-Ref
+RETURNS: /
+THEME: Scenes, Location
+COMPARE: sceneStart, dress, setBackground
+
+EXAMPLE:
+    
+    setBackground(work)
+    setBackground3D(Modules/nn_PornEmpire/Rooms/nn_pe_office_1.lpworld)
+    Player.dress()      // Player will be in a 3D room if PornEmpire mod is installed and wear office clothing
+    Player.show()

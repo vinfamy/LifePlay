@@ -1,0 +1,14 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: Actor = getCompanion()
+OTHER: none
+
+    If Actor.isValid()
+        "Force-ending <Actor.name>'s pregnancy ..."
+        Actor.endPregnancy()
+        "Done!"
+    Else
+        "No current companion detected. Please ask a pregnant person out first before using this console command again."
+    Endif
+    SceneEnd()

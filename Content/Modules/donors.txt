@@ -3,29 +3,35 @@ Mercurial
 Morte Jackson
 Robert Monotoli
 Evo
+Nick Nolte
+Rach
 Matt Gorman
 Ryan Fox
 TipsyGypsy
 Adam Nuwer
+Night0ps
+luca ballotta
 BrokenIce
 Caco
 CelestialNightmare
-Dan0477
 Daniel Matei
+Cilcium
+Leonxwerty
+tanman
+W. Green
 Whisperfen
 HowlerMonkee
 John
 Mobius
-Mr. Davis
 Pawel Stosio
 rbust0
-satanichaos
 Unknown Player
 Wolfman13
 Jixevra
-Luke
 Talas
 AG
+randomwave
+Francisco Morales
 Daniel Barrientos
 Ereshkigal
 Evilshadow
@@ -33,8 +39,11 @@ Fab0r
 Ineedmoney
 Raymond Leiden
 Summertimefan
+Iachdanan
+Niall
+Nerds with Cats
 Vernon Banks
-Whisky Priest
+Whiskey Priest
 Jerricho13
 Lawhorn
 M NZ
@@ -42,10 +51,8 @@ Paradox3164
 San
 Verden
 11Bravo Crunchie
-_Seathre
 Juggernaut
 Allen Kells F. Hackett
-Archie Black
 Arizona
 BitchyFairy2017
 BL4DE
@@ -57,7 +64,6 @@ ECP
 Gamenerd3
 GillaMonsta
 Gregory Johnson
-HaloBD
 Halstrom
 Hekke
 Ian
@@ -65,7 +71,6 @@ Ian Bruchak
 Icarus Videos
 Iscd
 J L
-jaffal
 hawkwolf22
 John Quincy
 KA
@@ -88,7 +93,6 @@ Monte Nunn
 mutatiio
 Nesaren
 Nick
-Nick Nolte
 orderistruth
 Palhooka
 Qi
@@ -96,23 +100,34 @@ QuirkyTurtle
 RaeLeeH
 RacoonBrainWorm
 Raffalski
-Rakk
-rbx3
 rhogleg
 RocketNow
+Raymond Truax
 Secondarian
 Tapi Shah
 TC Vole
 Sescheraun
+Greenjey
+Charlie Castle
 Tim Bohnsack
 Troy Lacy
 Vanilladog
+Luke
+Spectar79
+boris jaros
 Vertan Derhaler
 WildWest
 YNot Yannick
 Zack Flemming
+Victor Kozyrev
+Wanderlust
+Itsola
+Darkrai
+spicytuna
+larsenthedane
 Zuzakiin
 Aukasz
+ddd
 dronduleta
 leng
 jyeyitzou

@@ -1,0 +1,21 @@
+{Actor}.setActorVar(name, value)
+
+USE: 
+Use this function to set a float variable to a certain actor. 
+The actor can be the Player or any other actor.
+
+This function also allows setting TAGs to actors.
+
+TYPE: Command, Non-Ref (ref-like syntax)
+RETURNS: /
+THEME: Variables
+COMPARE: getActorVar, modifyActorVar
+
+EXAMPLE:
+    Player.setActorVar(tag_Player, 1) // Set the Tag 'Player' to the Player's character
+    Player.setActorVar(tag_Player, -1) // Remove the Tag 'Player' from the Player's character
+    
+    MainActor = getPerson(true)
+    MainActor.setActorVar(SomeVariable, 42)     // Set the variable to 42
+    val = MainActor.getActorVar(SomeVariable)
+    "The value of SomeVariable is <val>."

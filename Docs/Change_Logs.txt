@@ -1,3 +1,19 @@
+Version 2.18:
+- The city map will now show actual 3d textured buildings (4 variants of low-rise buildings and 7 variants of skyscrapers), some trees, pavement and some cars on the road. The 3d models for these are all low-poly (due to performance reasons) and still restricted by the lack of terrain data in the OpenStreetMap exports (i.e. can't generate hills or rivers) so they won't look as good as the city builder games made by professional studios for example but they're definitely still a big improvement on the old maps. The new system will also work instantly with all existing maps - no need to redownload anything from the Mega's optional map folder.
+- Rework the map lighting to better suit the new 3d models, enable them to drop shadows and make lighting more consistent (no more sudden jump of light level as soon as 6am is reached, weird lighting when a scene moves time forward, or random changes in the map's lighting when you move from one house to another). Incidentally, this also fixes the blue tint for the 3d bedrooms.
+- Optimize performance (i.e. minimize FPS loss from the old map to the new map) for the new maps with hierarchical instanced meshes, LODs and occlusion culling
+- Add a second default map that will be included with all releases of the game alongside Central London: Central Bath. It's recommended to tick 'Randomize Unknown Buildings' (25%, 25%, 25%, 25%) when using this map - it's small and compact (lots of buildings in a concentrated area to play with). Even at max randomization setting and with the new textured map system, it loads pretty much instantly. Good for quick testing and weaker PCs that don't get good FPS with the Central London map.
+- Update the game's start date to January 2020 (the old start date was 2 years ago). This will only affect 'New Game' and not your current saves.
+- Bug fixes, modders' requests and other improvements
+
+Version 2.17:
+- 20 new animations, consisting of:
+-- 5 male-female Foreplay animations
+-- 7 male-female Missionary animations
+-- 5 male-female Standing animations
+-- 3 gangbang animations, including MMMF and MMMMF variants for each 
+- Bug fixes and other improvements
+
 Version 2.16:
 - Sound effects (oral, penetration, male & female moans) for the sex scenes. Special thanks to Icarus Videos, who provided some of oral and penetration sound effects.
 - Background ambience sound loops for most location types in the game, for a more immersive experience

@@ -17,8 +17,6 @@ OTHER: none
         "Time flies. I have enjoyed spending time with <CurrentCompanion.name> but it's time to part."
         If CurrentCompanion.isRelative()
             "It has been good catching up with my <CurrentCompanion.relationship>."
-        Elseif Dating && isPlayerMarried()
-            "After our date, my <CurrentCompanion.husband_or_wife> and I headed home together."
         Elseif CurrentCompanion.IsDominantSex(Player)
             If  !isAtHome() && [Dating || CurrentCompanion:interpersonal + CurrentCompanion:attractiontoplayer > Random(0, 100)]
                 CurrentCompanion::"I'll be glad to walk you home safe. It's only my duty."
@@ -122,8 +120,8 @@ OTHER: none
                 4:: !hadSex:: "Kiss <CurrentCompanion.him_or_her>"
                 5:: MyHome:: "Politely ask <CurrentCompanion.him_or_her> to leave"
                 6:: !MyHome:: "Leave"
-                7:: Dating && masochist < 70 && !IsPlayerMarried():: "Break up!"
-                8:: Dating && masochist < 70 && IsPlayerMarried():: "Divorce!"
+                7:: Dating && !IsPlayerMarried():: "Break up!"
+                8:: Dating && IsPlayerMarried():: "Divorce!"
                 
                 If 5 || 6
                     "We said goodbye and went our ways."

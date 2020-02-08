@@ -9,6 +9,7 @@ OTHER: none
         setBackground(home)
         Actor.dress()
         Actor.show(2)
+        Actor.setActorVar(tag_Pregnant, 0)
         "<Actor.name> is going into labour. I need to take her to the hospital ..."
         0:: "Take <Actor.name> to a hospital"
         

@@ -1,0 +1,21 @@
+{float variable}.floor()
+
+USE: 
+Use this function to get the integer value of a float variable.
+Any value less than x.3 / x.5 / x.8 will be rounded down to "x".
+
+TYPE: Command, Non-Ref (ref-like syntax)
+RETURNS: float variable
+THEME: Math
+COMPARE: round()
+
+EXAMPLE:
+    val = 1.4
+    rv = val.round()
+    fv = val.floor()
+    "Val = <rv>, <fv>"  // Will output 'Val = 1, 1'
+    
+    val = 1.5
+    rv = val.round()
+    fv = val.floor()
+    "Val = <rv>, <fv>"  // Will output 'Val = 2, 1'

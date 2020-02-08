@@ -1,0 +1,22 @@
+{float variable}.round()
+
+USE: 
+Use this function mathematically round a float variable.
+Any value less than x.5 will be rounded down to "x" anything larger or equal to 
+x.5 will be rounded up to x+1.
+
+TYPE: Command, Non-Ref (ref-like syntax)
+RETURNS: float variable
+THEME: Math
+COMPARE: floor()
+
+EXAMPLE:
+    val = 1.4
+    rv = val.round()
+    fv = val.floor()
+    "Val = <rv>, <fv>"  // Will output 'Val = 1, 1'
+    
+    val = 1.5
+    rv = val.round()
+    fv = val.floor()
+    "Val = <rv>, <fv>"  // Will output 'Val = 2, 1'

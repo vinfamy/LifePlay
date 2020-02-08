@@ -1,7 +1,26 @@
-getPerson(optional bool)
+getPerson(optional bool/tag)
 
 USE:
-Get a random person in your current game (i.e. could be anyone that has been created with GeneratePerson() or GeneratePersonTemporary() then MakePermanent() ). Optional bool parameters to filter for whether their contact has been exchanged to you or not.
+
+Get a random person in your current game (i.e. could be anyone that has 
+been created with GeneratePerson() or GeneratePersonTemporary() then 
+MakePermanent() ). 
+
+Optional parameters:
+
+Boolean (true/false): to filter for whether their contact has been exchanged 
+to you or not.
+
+Tag (any): to filter for persons that have the given tag assigned.
+The tag command was introduced with LifePlay 2.18 and can be used to iterate over 
+all persons with a certain tag.
+
+getPerson() will only return a specific person once for a scene. So you can use it to 
+iterate though all persons in the game (omit the parameter), all you have in your 
+contacts (set parameter to true), all persons you don't have exchanged contacts 
+with (set to false) or all persons with a specific tag.
+
+
 
 TYPE: Command, Non-Ref
 RETURNS: Actor
@@ -10,5 +29,14 @@ COMPARE: getSpecific
 
 EXAMPLE:
     Actor = getPerson()  // get anyone
-    Actor = getPerson(true) // get someone who has exchanged numbers with me
-    Actor = getPerson(false)  // get someone whose number I don't have
+    Actor = getPerson(true) // get someone who has exchanged contacts with me
+    Actor = getPerson(false)  // get someone who is not in my contacts
+    Actor = getPersone(SomeTag) // get only persons with 'SomeTag' (in contacts or not)
+    
+    Actor = getPerson(TagModel)
+    While Actor.isValid()
+        // Do something with the model
+        
+        // Get the next one or an invalid actor if no more persons with this tag.
+        Actor = getPerson(TagModel)
+    EndWhile
