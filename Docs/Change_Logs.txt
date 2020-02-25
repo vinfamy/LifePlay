@@ -1,3 +1,12 @@
+Version 2.19:
+- Add dynamic animated facial expressions for all characters during sex scenes, especially focusing on movements of the eyes, brows, forehead and mouth.
+- The facial expressions will increase in intensity as the characters get closer to cum, finally resulting in their ‘orgasm faces’ (eyes rolled back etc)
+- Mouth movements will sync with the sex moans.
+- Improve the sex action menu and reduce scrolling by adding new quick access buttons for the major categories of sex positions. Also, split the undressing and bondage options (a major cause of the endless scrolling) into a side menu and make these options more visual.
+- Add auto scaling for the Mod Manager and Select City menus, so that thing no longer get cut out of the screen for less common screen dimensions like 4:3 and 16:10.
+- Fix some problems with the textured maps added in v2.18 (most importantly, the unneccessary and time-consuming map regeneration after every scene that includes sex). Also, add a checkbox in the Select City menu for “Classic Map Graphics” for people who prefer performance / more accurate building sizes.
+- Bug fixes, modders’ requests (ClearGetList) and other improvements
+
 Version 2.18:
 - The city map will now show actual 3d textured buildings (4 variants of low-rise buildings and 7 variants of skyscrapers), some trees, pavement and some cars on the road. The 3d models for these are all low-poly (due to performance reasons) and still restricted by the lack of terrain data in the OpenStreetMap exports (i.e. can't generate hills or rivers) so they won't look as good as the city builder games made by professional studios for example but they're definitely still a big improvement on the old maps. The new system will also work instantly with all existing maps - no need to redownload anything from the Mega's optional map folder.
 - Rework the map lighting to better suit the new 3d models, enable them to drop shadows and make lighting more consistent (no more sudden jump of light level as soon as 6am is reached, weird lighting when a scene moves time forward, or random changes in the map's lighting when you move from one house to another). Incidentally, this also fixes the blue tint for the 3d bedrooms.

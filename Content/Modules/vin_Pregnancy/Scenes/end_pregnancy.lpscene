@@ -1,10 +1,11 @@
 WHAT: none
 WHERE: none
 WHEN: 0 - 24
-WHO: Actor = getCompanion()
+WHO: none
 OTHER: none
 
-    If Actor.isValid()
+    SceneStart()
+    If currentCompanion.isValid()
         "Force-ending <Actor.name>'s pregnancy ..."
         Actor.endPregnancy()
         "Done!"
