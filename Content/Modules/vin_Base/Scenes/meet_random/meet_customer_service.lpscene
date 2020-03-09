@@ -55,4 +55,4 @@ OTHER: Random(0, 1000) < interpersonal*actionDuration
     Endif
     
     sceneEnd()
-    timeout(6, meet_customer_service)
+    timeout(60, meet_customer_service)

@@ -116,6 +116,17 @@ OTHER: none
         passTime(13, 13)
         setBackground3D(Modules/vin_Base/Bedrooms/15.lpworld)
         "Room Loaded"
+        "New string?"
+        0:: "Yes"
+        1:: "No"
+
+        If 0
+            "Enter a string to save"
+            String = enterString()
+            StringGlobal.setGlobalString(String)  // StringGlobal.setGlobalString(DirectlyTypedStringThatIsNotAVariable)
+        Endif
+        newString = StringGlobal.getGlobalString()
+        "The string saved was <newString>."
     Elseif 10
         last = lastSaved.getGlobal()
         passed = HoursElapsed - last

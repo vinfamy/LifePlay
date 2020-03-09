@@ -1,3 +1,13 @@
+Version 3.0 Beta 1:
+This is the first of the five updates involved in the v3.0 AI and Interaction Overhaul. It will lay the important foundations for the whole overhaul:
+- Add all 3d spaces for the rest of the location types  in game (~80 of them in total!). This is the foundation for the 'Interaction' aspect of the v3.0 overhaul because NPCs and the daily activity animations need proper 3d spaces for all location types to be placed in.
+- Add any 240+ new furniture and other objects required to make the 3d spaces above, since the current selection is only intended for bedrooms.
+- Add an 'auto-distribute presets' system so that modders can start making presets right away for the different location types, so that community-made presets will be picked up and used by the game in addition to the vanilla presets that I've made myself.
+- Implement a multi-threading system for the game. In general, multi-threading is an important back-end feature to optimize performance anyway, but specifically with regards to the v3.0 overhaul, multi-threading is pretty much required so that all our sophisticated AI calculations can take place completely 'behind the scenes' and not cause lags with 3d interactions and animations the player is seeing on screen. This is the foundation for the 'AI' aspect of the v3.0 overhaul. This is implemented mostly to prepare for what's coming in Beta 2 - 5 but for now though, you'll be able to notice the impact of this mainly with how much smoother checking scene conditions (this happens whenever you take an action) is, reducing lags (it no longer lags if you try to move the map camera around while your character is taking an action for example) and allow scenes to be triggered more consistently once their conditions are met.
+- In summary, v3.0 Beta 1 will still play a lot like v2.19 gameplay-wise (it's mostly just laying the foundation, Beta 3 and 4 will experience the most dramatic changes in gameplay), but all the 2d backgrounds for non-bedroom locations will have been replaced by full 3d areas. Also, you will also notice less lags while taking actions and more consistent scene triggering from multi-threading. 
+- About half of March commissions from patrons and contributors (all maps done, most animations done, scenes and the rest of the animations to come in v3.0 Beta 2)
+- Bug fixes, modders' requests and other improvements
+
 Version 2.19:
 - Add dynamic animated facial expressions for all characters during sex scenes, especially focusing on movements of the eyes, brows, forehead and mouth.
 - The facial expressions will increase in intensity as the characters get closer to cum, finally resulting in their ‘orgasm faces’ (eyes rolled back etc)

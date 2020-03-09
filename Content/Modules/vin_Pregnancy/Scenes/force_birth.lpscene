@@ -1,0 +1,42 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: Actor = getCompanion()
+OTHER: none
+
+    If Actor.isValid() && !Actor.isMale()
+        SceneStart()
+        setBackground(home)
+        Actor.dress()
+        Actor.show(2)
+        Actor.setActorVar(tag_Pregnant, 0)
+        "<Actor.name> is going into labour. I need to take her to the hospital ..."
+        0:: "Take <Actor.name> to a hospital"
+        
+        setBackground(hospital)
+        Actor.strip()
+        Actor.endPregnancy()
+        "Those were among the tensest hours in my life, but thankfully, everything went smoothly in the end. Both <Actor.name> and our child were in good condition. Nothing beats the feeling of being a new father."
+        If Actor.isRelative()
+            "Of course, nobody else knows that I'm the father. <Actor.name> is my own <Actor.relationship> after all ... We agreed to keep it a secret and made up a story about a sperm donor to the rest of the family and society."
+            "We did something forbidden and extremely risky that led to this baby. Yet by some miracle, the baby turned out to be healthy both physically and mentally." 
+        Elseif Actor.isExRelative()
+            "<Actor.name> and I are related after all so I would be lying if I said I wasn't concerned. Thankfully, the baby turned out to be healthy both physically and mentally. Maybe God changes his mind about incest?"       
+        Endif
+        If !Actor.isDating() && !Actor.isRelative()
+            "However, the fact that I impregnated someone I'm not in a committed relationship with could potentially leave the child growing up without a steady family unit. Maybe I should settle down with <Actor.name> for the sake of the baby."
+            karma -= 5
+        Endif
+        children += 1
+        Actor2 = Actor.generateRelativeMatchRace()
+        Actor2.setRelativeType(Child)
+        "It's a <Actor2.boy_or_girl>! What should I name my <Actor2.son_or_daughter>?"
+        Actor2.enterFirstName()
+        Actor2:age => 0
+        Player:children += 1
+        
+        mood += 100
+        SceneEnd()
+    Else
+        "Please ask a pregnant woman out first before using this console command again."
+    Endif

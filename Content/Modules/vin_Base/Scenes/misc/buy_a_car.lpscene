@@ -5,6 +5,7 @@ WHO: none
 OTHER: none
 
     SceneStart()
+    setBackground(car)
     PreciseModify()
     "What do I want to do?"
     0:: car_value == 0:: "Buy a new car"

@@ -21,18 +21,18 @@ OTHER: none
         If 0
             "A few touches wouldn't hurt."
             Actor:incest += Random(0, 3)
-            If !Player.isMale() && Actor.isMale()
-                "Damn it, now I want more ..."
-                0:: "Fuck my sleeping <Actor.relationship>"
-                1:: "Resist the urge"
-                
-                If 0
-                    TalkNonConsensual()
+            "Damn it, now I want more ..."
+            0:: "Fuck my sleeping <Actor.relationship>"
+            1:: "Resist the urge"
+            
+            If 0
+                TalkNonConsensual()
+                If !Player.isMale() && Actor.isMale()
                     Filter(Sleeping)
-                    Actor.closeEyes(true)
-                    Sex(Player, Actor)
-                    Actor:incest += Random(0, 20)
                 Endif
+                Actor.closeEyes(true)
+                Sex(Player, Actor)
+                Actor:incest += Random(0, 20)
             Endif
         Else
             "I should not. If <Actor.he_or_she> wakes up, everything would be so messed up."
