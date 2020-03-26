@@ -1,0 +1,58 @@
+WHAT: all
+WHERE: home
+WHEN: 0 - 24
+WHO: Dating = getSpecific(Dating); If Dating:attractiontoplayer < -20 && Dating:masochist < -75 && Dating:martial > 50
+OTHER: !isWithCompanion()
+
+    SceneStart()
+    Dating.dress()
+    Dating.show(2)
+
+    Dating(Angry):: "You stupid <Player.soyboy_or_bitch>! Take this!"
+    Player(Pain):: "Ahhhhhhhh"
+    "Here it goes again, <Dating.name> is beating me up for no rational reason. This relationship is becoming more and more abusive by the day ..."
+    0:: "Break up"
+    1:: "Endure"
+    2:: "I love being dominated like that ..."
+    
+    If 0
+        Player(Angry):: "That's enough. No-one is allowed to lay hands on me like that!"
+        Player(Angry):: "I'm not just going to take it. It's over. I'm walking out of this hell of a relationship!"
+        Player(Angry):: "And I'm getting a restraining order so don't even think about getting back into my life or trying to hurt me again."
+        loseDating()
+        blockContact(Dating)
+        masochist -= 10
+        Dating:attractiontoplayer => -100
+        Dating:rapportwithplayer => -100
+    Elseif 1
+        "Let's just endure this ... <Dating.He_or_She> is just in a bad mood ... All people in relationships go through this, right ..."
+        masochist += 2
+        Dating:masochist -= 2
+        
+        If isModEnabled(vin_NonConsensual)
+            Dating(Angry):: "It's time to fuck, little bitch!"
+            Player(Crying):: "No, please, you're hurting me!"
+            TalkNonConsensual()
+            If Dating.isMale() && !Player.isMale()
+                Filter(Aggressive)
+            Elseif !Dating.isMale() && Player.isMale()
+                Filter(AggressiveFM)
+            Endif
+            Sex(Dating, Player)        
+        Endif
+    Else
+        "It's strange but I love the way <Dating.name> completely dominated me and abused me. Other people may say I have Stockholm syndrome but pain can become a strange pleasure I suppose."
+        Player(Flirty):: "Yes! Punish me, <Dating.Daddy_or_Mama>. I deserve it. When you're done hitting me, fuck me hard afterwards."
+        Dating(Angry):: "As you wish, little bitch!"
+        If Dating.isMale() && !Player.isMale()
+            Filter(Aggressive)
+        Elseif !Dating.isMale() && Player.isMale()
+            Filter(AggressiveFM)
+        Endif
+        Sex(Dating, Player)
+        masochist += 5
+        Dating:masochist -= 5
+    Endif
+
+    timeout(250, partner_abuse_cms)
+    SceneEnd()

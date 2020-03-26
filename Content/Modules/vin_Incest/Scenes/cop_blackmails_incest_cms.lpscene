@@ -1,0 +1,44 @@
+WHAT: all, -sleep, -nap
+WHERE: home
+WHEN: 8 - 20
+WHO: Actor2 = getRelative(); If Actor2:incest > 50
+OTHER: intelligence < Random(0, 100)*Random(0, 1)
+
+    SceneStart()
+    dressFormal()
+    Actor = generatePersonTemporary()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Evil):: "We need to talk, degenerate!"
+    "It's a police investigator, a not very professional one it seems. What the hell is going on?"
+    Player(Surprised):: "What happened? Why are you calling me names?"
+    Actor(Evil):: "We received reports from neighbours about a potential incest situation going on between you and your <Actor2.relationship>! You were sleeping with your own <Actor2.relationship>!"
+    Actor(Evil):: "I know because I was assigned to monitor you for the past month and I saw everything with my own eyes."
+    "Oh no! We got caught ... There's no point making up any excuses..."
+    Actor(Evil):: "Lucky for you ... I can be convinced to stay quiet about it and not report back to my superiors."
+    Actor(Evil):: "You know ... incest is very much illegal still in this country. You would be put away for a long time."
+    0:: "Bribe"
+    1:: "Offer sex"
+    2:: "No deal"
+    
+    If 0
+        "This incesturous affair cannot be reported back to the cops ... or it'll send me to jail."
+        Player(Angry):: "Fine, is money what you want? Is this enough?"
+        Actor(Evil):: "Pleasure doing business with you ..."
+        money -= Random(500, 3000)
+    Elseif 1
+        "This incesturous affair cannot be reported back to the cops ... or it'll send me to jail."
+        Player(Crying):: "I don't have enough money to meet your demands ... I can offer my body."
+        Actor(Evil):: "Well, then that's an alternative that I can live with. Get on with it then!"
+        Sex(Actor, Player)
+    Else
+        Player(Angry):: "No deal! You can't blackmail me ..."
+        Actor(Evil):: "Then be prepared for prison, dear!"
+        "<Actor.name> kept <Actor.his_or_her> promise, immediately reporting back to <Actor.his_or_her> superiors at the police department. They soon got an arrest warrant ..."
+        interpersonal -= Random(0, 20)
+        jobexperience -= Random(0, 20)
+        sentence => Random(90, 365)
+        followUp(imprisoned)
+    Endif
+    SceneEnd()
+    timeout(2000, cop_blackmails_incest_cms)

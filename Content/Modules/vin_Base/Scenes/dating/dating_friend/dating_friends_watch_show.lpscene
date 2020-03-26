@@ -15,6 +15,7 @@ OTHER: isAtDatingHome()
         Actor:rapportwithplayer += Random(0, 2)
         Actor:attractiontoplayer += Random(0, 2)
         Player(Excited):: "I'd love to. It would be a good opportunity to get to know your friend better."
+        setBackgroundCustom(livingroom)
         "Later on ..."
         Actor.dress()
         Actor.show(3)
@@ -40,7 +41,7 @@ OTHER: isAtDatingHome()
             Dating.hide()
             Actor(Anxious):: "I told <Dating.him_or_her> that <Dating.he_or_she> shouldn't drink so much ... We didn't even finish the movie. Oh well, I guess I'll head off and leave you two to it then."
             0:: "Ask <Actor.name> to stay"
-            1:: "Say goodbye"
+            1:: "Go to bed"
             
             If 0
                 Player(Surprised):: "Please, don't leave. <Dating.name> might have passed out but <Dating.he_or_she> will be okay after a good night's sleep. I'm still here. Let's finish the movie at least."
@@ -114,6 +115,47 @@ OTHER: isAtDatingHome()
                 Endwhile        
             Else
                 Player(Happy):: "Alright then, good night. Thank you for hanging out with us. Sorry about <Dating.name> being such a drunken mess."
+                "I'm feeling quite drunk myself. I'd rather just kick <Actor.name> out and head to bed."
+                If isModEnabled(vin_NTR) && Actor.isInterestedIn(Dating) 
+                    Actor(Happy):: "Actually, on second thought, I hope you don't mind, but I think I'm too drunk to drive back home. Would you mind if I crash on the sofa for the night?"
+                    Player(Surprised):: "Oh ... sure, since you're <Dating.name>'s friend."
+                    "Whatever I guess ... don't want to be rude to <Dating.name>'s friend"
+                    setBackground(home)
+                    Actor.hide()
+                    Dating.hide()
+                    "Hmm, what's that strange noise coming out from the living room?"
+                    0:: "Check it out"
+                    1:: "Continue sleeping"
+                    
+                    If 0
+                        setBackgroundCustom(livingroom)
+                        Player(Shocked):: "What the fuck!"
+                        Sex(Actor, Dating)
+                        setBackgroundCustom(livingroom)
+                        Player.show(0)
+                        Actor.show(2)
+                        Dating.show(3)
+                        masochist += 2
+                        "I caught <Actor.name> and <Dating.name> having sex in the living room. They're more than buddies apparently."
+                        0:: "Get upset"
+                        1:: "Join"
+                        2:: "Continue watching"
+                        
+                        If 0
+                            Player(Surprised):: "What the fuck are you two doing? <Dating.name>, you cheating <Dating.asshole_or_bitch>!"
+                            Dating:attractiontoplayer -= 20
+                        Elseif 1
+                            Player(Flirty):: "Looks like you guys are having fun there. Mind if I join?"
+                            Sex(Actor, Dating, Player)
+                        Else
+                            "Let's continue hiding and enjoy the show."
+                            Sex(Dating, Actor)
+                            masochist += 2
+                        Endif
+                    Else
+                        "Probably nothing, I'm too drunk to get up right now."
+                    Endif
+                Endif
             Endif
         Endif
     Else

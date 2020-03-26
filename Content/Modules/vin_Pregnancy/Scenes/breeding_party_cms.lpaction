@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: breeding_party
+ACTION_NAME: Suggest Breeding Party
+WHERE: PC
+WHEN: 0 - 24
+MINUTES: 0 - 1
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:
+CONDITIONS:
+MOVE_FIRST: false
+SCENE_ALWAYS: breeding_party_cms
+ANIMATION:   

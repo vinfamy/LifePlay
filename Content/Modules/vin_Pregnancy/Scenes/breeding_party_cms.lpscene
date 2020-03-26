@@ -1,0 +1,613 @@
+WHAT: all, -go_to_the_bathroom
+WHERE: all, -toilets, -PC, -office
+WHEN: 17 - 23
+WHO: Companion = getCompanion(); If !CurrentCompanion.isRelative() && CurrentCompanion.isDating() 
+OTHER: Player.isDating() && !Player.isPregnant() && !Player.isMale() && isModEnabled(vin_NTR) && isModEnabled(sb_BetterPregnancy)
+
+    DebugLog = false
+    
+    SceneStart()
+    
+        Player.dress()
+        Player.show(0)
+        CurrentCompanion.dress()
+        CurrentCompanion.show(4)
+        
+        If Player.isPregnant()
+            Player():: "I'm already pregnant!"
+            BreedingPartyYES = false
+        Elseif Player.isMale()
+            Player():: "I can't get pregnant!"
+            BreedingPartyYES = false
+        Elseif !ForcedTrigger()
+            "Since <CurrentCompanion.name> has said that <CurrentCompanion.he_or_she> really wants a baby, should I suggest to <CurrentCompanion.him_or_her> that we arrange a breeding party for <CurrentCompanion.him_or_her>?"
+            0:: "Yes"
+            1:: "No"
+        
+            If 0
+                Player(Flirty):: "A breeding party sounds like a wonderful idea!"
+                BreedingPartyYES = true
+            Else
+                Player(Angry):: "Absolutely not! I refuse to be a cum-dumpster for random guys to impregnante!"
+                BreedingPartyYES = false
+            Endif
+        Else
+            "Since <CurrentCompanion.name> has said that <CurrentCompanion.he_or_she> really wants a baby, I asked <CurrentCompanion.him_or_her> if we should arrange a breeding party for <CurrentCompanion.him_or_her>."
+            BreedingPartyYES = true
+        Endif
+        
+        If DebugLog || BreedingPartyYES
+            "So we agreed to search for breeders for <CurrentCompanion.him_or_her>, but the most important part of which is that <CurrentCompanion.he_or_she> agreed to have sex without protection."
+            "Now it's time to pick guys to invite"
+            0:: "Pick the breeders myself."
+            1:: "Let <CurrentCompanion.name> pick my breeding studs."
+            2:: "Post nude pictures of <CurrentCompanion.name> online and advertise for a breeding party."
+
+            If 0
+                "Who should be the first guy I invite? (Pick an NPC from your contact list who your <CurrentCompanion.boyfriend_or_girlfriend> might want to get banged by)."
+                CurrentCompanion.hide()
+                Player.hide()
+                selectNPC()
+                Guest1 = getSelectedNPC()
+                If !Guest1.isValid()
+                    "I can't quite decide on who to invite."
+                Elseif !Guest1.isMale()
+                    "I should'nt invite woman."
+                    Guest1.delete()
+                Elseif Guest1:perversion > 20 && Guest1:rapportwithplayer > 0 && Guest1.isMale()
+                    Guest1.hide()
+                    "<Guest1.name> happily accepted my invitation."
+                Else
+                    Guest1.hide()
+                    "<Guest1.name> turned down my invitation. Oh well ..."
+                    Guest1.delete()
+                Endif
+
+                "Who should be the second to invite?"
+                Player.hide()
+                selectNPC()
+                Guest2 = getSelectedNPC()
+                If !Guest2.isValid()
+                    "I can't quite decide on who to invite."
+                Elseif !Guest2.isMale()
+                    "I should'nt invite woman."
+                    Guest2.delete()
+                Elseif Guest2:perversion > 20 && Guest2:rapportwithplayer > 0 && Guest2.isMale()
+                    Guest2.hide()
+                    "<Guest2.name> happily accepted my invitation."
+                Else
+                    Guest2.hide()
+                    "<Guest2.name> turned down my invitation. Oh well ..."
+                    Guest2.delete()
+                Endif
+
+                "Who should be the third to invite?"
+                Player.hide()
+                selectNPC()
+                Guest3 = getSelectedNPC()
+                If !Guest3.isValid()
+                    "I can't quite decide on who to invite."
+                Elseif !Guest3.isMale()
+                    "I should'nt invite woman."
+                    Guest3.delete()
+                Elseif Guest3:perversion > 20 && Guest3:rapportwithplayer > 0 && Guest3.isMale()
+                    Guest3.hide()
+                    "<Guest3.name> happily accepted my invitation."
+                Else
+                    Guest3.hide()
+                    "<Guest3.name> turned down my invitation. Oh well ..."
+                    Guest3.delete()
+                Endif
+
+                "Who should be the next to invite?"
+                Player.hide()
+                selectNPC()
+                Guest4 = getSelectedNPC()
+                If !Guest4.isValid()
+                    "I can't quite decide on who to invite."
+                Elseif !Guest4.isMale()
+                    "I should'nt invite woman."
+                    Guest4.delete()
+                Elseif Guest4:perversion > 20 && Guest4:rapportwithplayer > 0 && Guest4.isMale()
+                    Guest4.hide()
+                    "<Guest4.name> happily accepted my invitation."
+                Else
+                    Guest4.hide()
+                    "<Guest4.name> turned down my invitation. Oh well ..."
+                    Guest4.delete()
+                Endif
+
+                "Who should we also invite?"
+                Player.hide()
+                selectNPC()
+                Guest5 = getSelectedNPC()
+                If !Guest5.isValid()
+                    "I can't quite decide on who to invite."
+                Elseif !Guest5.isMale()
+                    "I should'nt invite woman."
+                    Guest5.delete()
+                Elseif Guest5:perversion > 20 && Guest5:rapportwithplayer > 0 && Guest5.isMale()
+                    Guest5.hide()
+                    "<Guest5.name> happily accepted my invitation."
+                Else
+                    Guest5.hide()
+                    "<Guest5.name> turned down my invitation. Oh well ..."
+                    Guest5.delete()
+                Endif
+
+                "Who should be the last one to invite?"
+                Player.hide()
+                selectNPC()
+                Guest6 = getSelectedNPC()
+                If !Guest6.isValid()
+                    "I can't quite decide on who to invite."
+                Elseif !Guest6.isMale()
+                    "I should'nt invite woman."
+                    Guest6.delete()
+                Elseif Guest6:perversion > 20 && Guest6:rapportwithplayer > 0 && Guest6.isMale()
+                    Guest6.hide()
+                    "<Guest6.name> happily accepted my invitation."
+                Else
+                    Guest6.hide()
+                    "<Guest6.name> turned down my invitation. Oh well ..."
+                    Guest6.delete()
+                Endif
+                
+                If !Guest1.isValid()
+                    Player.hide()
+                    CurrentCompanion.dress()
+                    CurrentCompanion.show(4)
+                    Guest1 = generatePersonTemporary()
+                    If isModEnabled(sb_PimpYourGirl)
+                        Guest1.blendPreset(sb_PYG_pornstar_M_african_daz)
+                    Endif
+                    Guest1.randomizeFace()
+                    Guest1.randomizeHairs()
+                    Guest1.show(2)
+                    Guest1.dress()
+                    "As I couldn't decide on anyone, <CurrentCompanion.name> went ahead and invited someone <CurrentCompanion.he_or_she> knew, called <Guest1.name>."
+                    Guest1.hide()
+                Endif
+
+                If !Guest2.isValid()
+                    Guest2 = generatePersonTemporary()
+                    If isModEnabled(sb_PimpYourGirl)
+                        Guest2.blendPreset(sb_PYG_pornstar_M_african_daz)
+                    Endif
+                    Guest2.randomizeFace()
+                    Guest2.randomizeHairs()
+                    Guest2.show(2)
+                    Guest2.dress()
+                    "As I couldn't find enough guys, <CurrentCompanion.name> made a call and invited someone <CurrentCompanion.he_or_she> knew, called <Guest2.name>."
+                    Guest2.hide()
+                Endif
+
+                If !Guest3.isValid()
+                    Guest3 = generatePersonTemporary()
+                    If isModEnabled(sb_PimpYourGirl)
+                        Guest3.blendPreset(sb_PYG_pornstar_M_african_daz)
+                    Endif
+                    Guest3.randomizeFace()
+                    Guest3.randomizeHairs()
+                    Guest3.show(2)
+                    Guest3.dress()
+                    "As I couldn't decide on anyone, <CurrentCompanion.name> went out and invited someone <CurrentCompanion.he_or_she> knew, called <Guest3.name>."
+                    Guest3.hide()
+                Endif
+
+                If !Guest4.isValid()
+                    Guest4 = generatePersonTemporary()
+                    If isModEnabled(sb_PimpYourGirl)
+                        Guest4.blendPreset(sb_PYG_pornstar_M_african_daz)
+                    Endif
+                    Guest4.randomizeFace()
+                    Guest4.randomizeHairs()
+                    Guest4.show(2)
+                    Guest4.dress()
+                    "As I couldn't find enough guys, <CurrentCompanion.name> asked <Guest4.name> and invited him."
+                    Guest4.hide()
+                Endif
+
+                If !Guest5.isValid()
+                    Guest5 = generatePersonTemporary()
+                    If isModEnabled(sb_PimpYourGirl)
+                        Guest5.blendPreset(sb_PYG_pornstar_M_african_daz)
+                    Endif
+                    Guest5.randomizeFace()
+                    Guest5.randomizeHairs()
+                    Guest5.show(2)
+                    Guest5.dress()
+                    "As I couldn't decide on anyone, <CurrentCompanion.name> checked her facebook and invited someone called <Guest5.name>."
+                    Guest5.hide()
+                Endif
+
+                If !Guest6.isValid()
+                    Guest6 = generatePersonTemporary()
+                    If isModEnabled(sb_PimpYourGirl)
+                        Guest6.blendPreset(sb_PYG_pornstar_M_african_daz)
+                    Endif
+                    Guest6.randomizeFace()
+                    Guest6.randomizeHairs()
+                    Guest6.show(2)
+                    Guest6.dress()
+                    "As I couldn't find enough guys, <CurrentCompanion.name> invited a friend <CurrentCompanion.he_or_she> knew from work, called <Guest6.name>."
+                    Guest6.hide()
+                Endif
+                
+            Elseif 1
+
+                CurrentCompanion(Flirty):: "Since it will be your baby, why don't you pick the lucky studs?"
+                Player:: "That's a great idea! I'll do it right now! Let's see ..."
+                If !Guest1.isValid()
+                    Guest1 = generatePersonTemporary()
+                    If isModEnabled(sb_PimpYourGirl)
+                        Guest1.blendPreset(sb_PYG_pornstar_M_african_daz)
+                    Endif
+                    Guest1.randomizeFace()
+                    Guest1.randomizeHairs()
+                    Guest1.dress()
+                    Guest1.show(2)
+                    "<CurrentCompanion.name> went ahead and invited someone <CurrentCompanion.he_or_she> knew, named <Guest1.name>."
+                    Guest1.hide()
+                Endif
+
+                If !Guest2.isValid()
+                    Guest2 = generatePersonTemporary()
+                    If isModEnabled(sb_PimpYourGirl)
+                        Guest2.blendPreset(sb_PYG_pornstar_M_african_daz)
+                    Endif
+                    Guest2.randomizeFace()
+                    Guest2.randomizeHairs()
+                    Guest2.dress()
+                    Guest2.show(2)
+                    "For Stud Number 2, <CurrentCompanion.name> invited <Guest2.name>."
+                    Guest2.hide()
+                Endif
+
+                If !Guest3.isValid()
+                    Guest3 = generatePersonTemporary()
+                    If isModEnabled(sb_PimpYourGirl)
+                        Guest3.blendPreset(sb_PYG_pornstar_M_african_daz)
+                    Endif
+                    Guest3.randomizeFace()
+                    Guest3.randomizeHairs()
+                    Guest3.dress()
+                    Guest3.show(2)
+                    "Lucky Number 3 is <CurrentCompanion.name>'s friend <Guest3.name>."
+                    Guest3.hide()
+                Endif
+
+                If !Guest4.isValid()
+                    Guest4 = generatePersonTemporary()
+                    If isModEnabled(sb_PimpYourGirl)
+                        Guest4.blendPreset(sb_PYG_pornstar_M_african_daz)
+                    Endif
+                    Guest4.randomizeFace()
+                    Guest4.randomizeHairs()
+                    Guest4.dress()
+                    Guest4.show(2)
+                    "Sperm Donor #4 is <Guest4.name>."
+                    Guest4.hide()
+                Endif
+
+                If !Guest5.isValid()
+                    Guest5 = generatePersonTemporary()
+                    If isModEnabled(sb_PimpYourGirl)
+                        Guest5.blendPreset(sb_PYG_pornstar_M_african_daz)
+                    Endif
+                    Guest5.randomizeFace()
+                    Guest5.randomizeHairs()
+                    Guest5.dress()
+                    Guest5.show(2)
+                    "Breeder No. 5: <Guest5.name>."
+                    Guest5.hide()
+                Endif
+
+                If !Guest6.isValid()
+                    Guest6 = generatePersonTemporary()
+                    If isModEnabled(sb_PimpYourGirl)
+                        Guest6.blendPreset(sb_PYG_pornstar_M_african_daz)
+                    Endif
+                    Guest6.randomizeFace()
+                    Guest6.randomizeHairs()
+                    Guest6.dress()
+                    Guest6.show(2)
+                    "And last, but not least, <CurrentCompanion.name> invited <Guest6.name>."
+                    Guest6.hide()
+                Endif
+                
+            Else
+                Player:: "<CurrentCompanion.name> let me take some nude pictures of you to intice some breeding studs."
+                CurrentCompanion(Flirty):: "Of course! Let them get a preview of the merchandise before they buy!"
+
+                CurrentCompanion(Flirty):: "What kind of pictures do you want to take of me?"
+                0:: "Let's take pictures of just your pussy."
+                1:: "I guess full body view would be nice. Without your face."
+                2:: "Let's show them everything. Be as sexy as possible!"
+                3:: "Let <CurrentCompanion.him_or_her> decide."
+                4:: "Suggest <CurrentCompanion.name> should take some selfies."
+
+                If 0
+                    Player.strip()
+                Elseif 1
+                    Player.strip()
+                Elseif 2
+                    Player.strip()
+                    pornfame += 1
+                Elseif 3
+                    Player.strip()
+                    If perversion > 70
+                        Player(Flirty):: "I'll play with myself and you take pictures! Show them everything!"
+                        Sex(Player)
+                        Player.show(4)
+                        CurrentCompanion(Flirty):: "That was great!"
+                        pornfame += Random(0, 15)
+                    Elseif perversion > 50
+                        Player(Flirty):: "Let's go with some full body shots!"
+                        Player(Flirty):: "Be sure to take some nice shots of me."
+                        pornfame += Random(0, 2)
+                    Else
+                        Player(Flirty):: "Let show some anonymous body parts!"
+                        Player(Flirty):: "Be sure to take some nice shots of me."
+                        pornfame += Random(0, 2)
+                    Endif
+                    pornfame += 1
+                    CurrentCompanion:masochist += Random(0, 5)
+                    CurrentCompanion:perversion += Random(0, 3)
+                    perversion += Random(0, 5)
+                    masochist -= Random(0, 5)
+                Elseif 4
+                    pornfame += 1
+                    CurrentCompanion:masochist += Random(0, 3)
+                    CurrentCompanion:perversion += Random(0, 1)
+                    perversion += Random(0, 3)
+                    masochist -= Random(0, 7)
+                Endif
+
+                If !Guest1.isValid()
+                    Guest1 = generatePersonTemporary()
+                    While !Guest1.isMale()
+                        Guest1 = generatePersonTemporary()
+                    endWhile
+                    Guest1.randomizeFace()
+                    Guest1.randomizeHairs()
+                Endif
+
+                If !Guest2.isValid()
+                    Guest2 = generatePersonTemporary()
+                    While !Guest2.isMale()
+                        Guest2 = generatePersonTemporary()
+                    endWhile
+                    Guest2.randomizeFace()
+                    Guest2.randomizeHairs()
+                Endif
+
+                If !Guest3.isValid()
+                    Guest3 = generatePersonTemporary()
+                    While !Guest3.isMale()
+                        Guest3 = generatePersonTemporary()
+                    endWhile
+                    Guest3.randomizeFace()
+                    Guest3.randomizeHairs()
+                Endif
+
+                If !Guest4.isValid()
+                    Guest4 = generatePersonTemporary()
+                    While !Guest4.isMale()
+                        Guest4 = generatePersonTemporary()
+                    endWhile
+                    Guest4.randomizeFace()
+                    Guest4.randomizeHairs()
+                Endif
+
+                If !Guest5.isValid()
+                    Guest5 = generatePersonTemporary()
+                    While !Guest5.isMale()
+                        Guest5 = generatePersonTemporary()
+                    endWhile
+                    Guest5.randomizeFace()
+                    Guest5.randomizeHairs()
+                Endif
+
+                If !Guest6.isValid()
+                    Guest6 = generatePersonTemporary()
+                    While !Guest6.isMale()
+                        Guest6 = generatePersonTemporary()
+                    endWhile
+                    Guest6.randomizeFace()
+                    Guest6.randomizeHairs()
+                Endif
+                
+                Player.dress()
+                Player.show()
+                
+                "After a while the posting was overflowing with responses and <CurrentCompanion.name> started to choose the best looking guys."
+                
+            Endif
+            Player.hide()
+            CurrentCompanion.hide()
+            
+            "The big day has arrived."
+            "If all goes well, <CurrentCompanion.name> will be going home with more than just a pussy full of cum."
+            
+            setBackground(home)
+            Player.show()
+            CurrentCompanion.show(4)
+
+            Guest1.dress()
+            Guest4.dress()
+            Guest2.dress()
+            Guest5.dress()
+            Guest3.dress()
+            Guest6.dress()
+            
+            "<Guest1.name> and <Guest4.name> were the first two to arrive."
+            Guest1.show(2)
+            Guest4.show(3)
+
+            "<Guest2.name> and <Guest5.name> arrived."
+            Guest1.hide()
+            Guest4.hide()
+            Guest2.show(2)
+            Guest5.show(3)
+
+            "<Guest3.name> and <Guest6.name> arrived."
+            Guest2.hide()
+            Guest5.hide()
+            Guest3.show(2)
+            Guest6.show(3)
+
+            "Everyone is here and we start to mingle."
+            Guest3.hide()
+            Guest6.hide()
+
+            "Here it is: <CurrentCompanion.name>'s breeding party and it's full of fertile studs we invited. So many cocks for <CurrentCompanion.name>."
+            "I made sure to remind the lucky six that <CurrentCompanion.name> will be going home full of cum and pregnant, so no condoms allowed, and all cum must go in her pussy."
+            
+            Guest1.strip()
+            Guest4.strip()
+            Guest2.strip()
+            Guest5.strip()
+            Guest3.strip()
+            Guest6.strip()
+            
+            "It's time to decide which guy should fuck me first."
+            0:: "<Guest1.name>"
+            1:: "<Guest2.name>"
+            2:: "<Guest3.name>" 
+            3:: "<Guest4.name>"
+            4:: "<Guest5.name>"
+            5:: "<Guest6.name>"
+
+            If 0
+                Breeder1 = Guest1
+                Breeder2 = Guest2
+                Breeder3 = Guest3
+                Breeder4 = Guest4
+                Breeder5 = Guest5
+                Breeder6 = Guest6
+            Elseif 1
+                Breeder1 = Guest2
+                Breeder2 = Guest1
+                Breeder3 = Guest3
+                Breeder4 = Guest4
+                Breeder5 = Guest5
+                Breeder6 = Guest6
+            Elseif 2
+                Breeder1 = Guest3
+                Breeder2 = Guest2
+                Breeder3 = Guest1
+                Breeder4 = Guest4
+                Breeder5 = Guest5
+                Breeder6 = Guest6
+            Elseif 3
+                Breeder1 = Guest4
+                Breeder2 = Guest2
+                Breeder3 = Guest3
+                Breeder4 = Guest1
+                Breeder5 = Guest5
+                Breeder6 = Guest6
+            Elseif 4
+                Breeder1 = Guest5
+                Breeder2 = Guest2
+                Breeder3 = Guest3
+                Breeder4 = Guest4
+                Breeder5 = Guest1
+                Breeder6 = Guest6
+            Elseif 5
+                Breeder1 = Guest6
+                Breeder2 = Guest2
+                Breeder3 = Guest3
+                Breeder4 = Guest4
+                Breeder5 = Guest5
+                Breeder6 = Guest1
+            Endif
+            
+            Player.show()
+            Player.strip()
+            
+            If !Player.isPregnant()
+                NotPregnantBefore = true
+            Else
+                NotPregnantBefore = false
+            Endif
+            
+            Filter(Vaginal)
+            Sex(Breeder1, Player)
+            Breeder1.hide()
+            
+            If Player.isPregnant() && NotPregnantBefore
+                Breeder1.makePermanent()
+                FatherID = Breeder1.getID()
+                Player.setActorVar(NTRChildFather, FatherID)
+                NotPregnantBefore = false
+            Endif
+            
+            Filter(Vaginal)
+            Sex(Breeder2, Player)
+            Breeder2.hide()
+            
+            If Player.isPregnant() && NotPregnantBefore
+                Breeder2.makePermanent()
+                FatherID = Breeder2.getID()
+                Player.setActorVar(NTRChildFather, FatherID)
+                NotPregnantBefore = false
+            Endif
+            
+            Filter(Vaginal)
+            Sex(Breeder3, Player)
+            Breeder3.hide()
+            
+            If Player.isPregnant() && NotPregnantBefore
+                Breeder3.makePermanent()
+                FatherID = Breeder3.getID()
+                Player.setActorVar(NTRChildFather, FatherID)
+                NotPregnantBefore = false
+            Endif
+            
+            Filter(Vaginal)
+            Sex(Breeder4, Player)
+            Breeder4.hide()
+            
+            If Player.isPregnant() && NotPregnantBefore
+                Breeder4.makePermanent()
+                FatherID = Breeder4.getID()
+                Player.setActorVar(NTRChildFather, FatherID)
+                NotPregnantBefore = false
+            Endif
+            
+            Filter(Vaginal)
+            Sex(Breeder5, Player)
+            Breeder5.hide()
+            
+            If Player.isPregnant() && NotPregnantBefore
+                Breeder5.makePermanent()
+                FatherID = Breeder5.getID()
+                Player.setActorVar(NTRChildFather, FatherID)
+                NotPregnantBefore = false
+            Endif
+            
+            Filter(Vaginal)
+            Sex(Breeder6, Player)
+            Breeder6.hide()
+            
+            If Player.isPregnant() && NotPregnantBefore
+                Breeder6.makePermanent()
+                FatherID = Breeder6.getID()
+                Player.setActorVar(NTRChildFather, FatherID)
+                NotPregnantBefore = false
+            Endif
+            
+            Player.strip()
+            Player.show()
+            CurrentCompanion.show(2)
+            
+            "Eventually, all guests used <CurrentCompanion.name> quiet well. <CurrentCompanion.He_or_She> seems to be walking a little bow-legged now. <CurrentCompanion.He_or_She>'s definitely going to be sore in the morning ..."
+            "The only one who didn't get any satisfaction in all this was me."
+            
+            If Player.isPregnant()
+                CurrentCompanion():: "I have a funny feeling that a baby was conceived tonight!"
+            Endif
+        Endif
+        
+    SceneEnd()

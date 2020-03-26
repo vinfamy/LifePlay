@@ -12,7 +12,7 @@ OTHER: !isWithCompanion()
     1:: "No thanks"
     
     If 0
-        setBackground(work)
+        dressFormal()
         Actor.dress()
         Actor2 = generatePerson()
         Actor2:age += Random(0, 40)
@@ -27,6 +27,56 @@ OTHER: !isWithCompanion()
         Actor2.show(3)
         Actor2(Happy):: "Nice to meet you finally, <Player.name>. <Actor.name> couldn't stop talking about you even at work."
         Player(Happy):: "Nice to meet you too."
+        
+        Actor.hide()
+        Actor2.hide()
+        "It's getting late, we should probably head home. But where is <Actor.name>?"
+        "<Actor.He_or_She> must have gone to the bathroom, let's go check it out."
+        "Hmm, there's strange noise coming out of the bathroom ..."
+        0:: "Peep"
+        1:: "Leave"
+        
+        If 0
+            setBackground(toilets)
+            If isModEnabled(vin_NTR) && Actor2.isInterestedIn(Actor) && [Random(50, 100) < Actor:perversion || openRelationship()]
+                Sex(Actor, Actor2)
+                Player.show(0)
+                Actor.show(2)
+                Actor.show(3)
+                "My <Actor.boyfriend_or_girlfriend> is fucking <Actor.his_or_her> boss! Not sure how I feel about this?"
+                0:: "Join them"
+                1:: "Continue watching"
+                2:: "Get angry"
+                
+                If 0
+                    Player(Flirty):: "Mind if I join?"
+                    Sex(Player, Actor2, Actor)
+                Elseif 1
+                    Sex(Actor, Actor2)
+                Else
+                    Player(Angry):: "How dare you! Did you invite me over here to make me watch you cheat on me? How long have you been fucking at work?"
+                    Actor:attractiontoplayer -= 20
+                Endif
+            Else
+                Ran = generatePersonTemporary()
+                Ran2 = generatePersonTemporary()
+                Sex(Ran, Ran2)
+                Ran.hide()
+                Ran2.hide()
+                Player.show(0)
+                "Thanks fuck for that, it's just a random couple. I thought it might be <Actor.boyfriend_or_girlfriend> cheating on me for a moment there."
+                setBackground(bar)
+                "A while later ..."
+                Actor.show(2)
+                Player(Happy):: "There you are, where did you go?"
+                Actor(Happy):: "I went out for a cigarette. Let's go?"                
+            Endif
+        Else
+            "A while later ..."
+            Actor.show(2)
+            Player(Happy):: "There you are, where did you go?"
+            Actor(Happy):: "I went out for a cigarette. Let's go?"
+        Endif
     Else
         Player(Happy):: "That's okay, baby. You guys have fun!"
     Endif

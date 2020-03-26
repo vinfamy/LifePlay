@@ -6,7 +6,6 @@ OTHER: fitness > 70 && Random(0, 100) < 0.01*fitness*ActionDuration
 
 
 SceneStart()
-setBackground(office)
 Colleague1.dress()
 Colleague2.dress()
 Colleague1.show(2)

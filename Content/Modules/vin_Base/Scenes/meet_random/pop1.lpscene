@@ -1,0 +1,16 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    Actor1 = generatePersonTemporary()
+    Actor2 = generatePersonTemporary()
+    Actor.show()
+    Actor1.show()
+    Actor2.show()
+    "Shown"
+    SceneEnd()
+ 

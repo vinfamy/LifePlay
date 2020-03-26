@@ -43,7 +43,23 @@ OTHER: Random(1, 150) < pornfame
             setBackground(theatre)
             setBackground(toilets)
         endRandom
-        Sex(Actor, Player)
+        "What should I do?"
+        0:: "Shoot the scene as agreed"
+        1:: "Invite the porn director to join for a threesome."
+        
+        If 0
+            Sex(Actor, Player)
+        Else
+            Actor2 = generatePersonTemporary()
+            Actor2:age => Random(35, 55)
+            Actor2.randomzeFace()
+            Actor2.randomizeHairs()
+            Actor2.dress()
+            Actor2.show(3)
+            Player(Flirty):: "I heard you were quite a star performer back in your day? Why don't you join us, make this a POV threesome video and teach us a thing or two about performing in this industry? It would be quite a honor to star alongside an industry legend."
+            Actor2(Flirty):: "It's been a long time since I last performed, but since you insist ..."
+            Sex(Actor, Actor2, Player)
+        Endif
         money += Random(500, 2000)/choice
         pornfame += 0.5
         perversion += 0.25

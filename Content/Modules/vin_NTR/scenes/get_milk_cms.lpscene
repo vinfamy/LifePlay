@@ -1,0 +1,91 @@
+WHAT: all
+WHERE: home
+WHEN: 8 - 20
+WHO: Actor = getSpecific(Dating); Actor2 = getSpecific(Dating_Friend); If Actor.isInterestedIn(Actor2)
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor2.dress()
+    Actor.show(2)
+    Actor2.show(3)
+    "<Actor.name>'s friend <Actor2.name> is coming over for a visit today."
+    Actor(Happy):: "Baby, didn't you say you were heading to the grocery store soon? Would you mind grabbing some milk? We ran out."
+    Player:: "Okay, I'll get some."
+    "Hmm, it seems a bit suspicious that <Actor.name> wants me to be out of the apartment and run errands while <Actor.his_or_her> friend is over."
+    setBackground(supermarket)
+    Actor.hide()
+    Actor2.hide()
+    "Here I am at the grocery store."
+    0:: "Shop as quickly as possible"
+    1:: "Take my time"
+    
+    If 0
+        "Let's do my shopping as quickly as I can and head back to see what <Actor.name> is up to. I'm feeling a bit uneasy."
+        If Actor.isInterestedIn(Actor2) && Actor2.isInterestedIn(Actor) && [Random(50, 100) < Actor:perversion || OpenRelationship()]
+            nothing = false
+            setBackgroundCustom(livingroom)
+            Actor.hide()
+            Actor2.hide()
+            "Hmm, no sight of either <Actor.name> or <Actor2.name> in the living room."
+            "But what's that sound coming out of the bedroom?"
+            Player(Surprised):: "What the fuck!"
+            setBackground(home)
+            Sex(Actor, Actor2)
+            Player.show(0)
+            Actor.show(2)
+            Actor2.show(3)
+            "I knew it! <Actor.name> was using the milk as an excuse to get me out of the house to get some alone time with <Actor.his_or_her> lover."
+            0:: "Continue watching"
+            1:: "Join them"
+            2:: "Get angry"
+            
+            If 0
+                Sex(Actor, Actor2)
+            Elseif 1
+                Player(Flirty):: "Looks like you guys started the party without me! I hope it's not too late to join?"
+                Sex(Player, Actor, Actor2)
+            Else
+                Player(Angry):: "I knew it! <Actor.name>, how could you? You just couldn't wait to get me out of the house to start fucking?"
+                Actor:attractiontoplayer -= 10
+            Endif
+        Else
+            nothing = true
+        Endif
+    Else
+        "Quite a lot of shopping to do today. Might take a while."
+        "It's still rather suspicious how keen <Actor.name> was to get me out of the house though ..."
+        0:: "Wonder what <Actor.name> and <Actor2.name> are up to"
+        1:: "Stop imagining things ..."
+        
+        If 0
+            If Random(0, 100) < perversion && [Random(0, 100) < masochist || openRelationship()]
+                setBackground(home)
+                SexNoAffair(Actor, Actor2)
+            Else
+                setBackgroundCustom(livingroom)
+                Player.hide()
+                Actor.show(2)
+                Actor2.show(3)
+                Actor2(Happy):: "Hey, I just bought this new movie. Wanna watch?"
+                Actor(Happy):: "Sure, but let's wait until <Player.name> is back before we start."
+            Endif
+        Endif
+        setBackground(supermarket)
+        Player.show(0)
+        "That's enough shopping for today, let's head back."
+        Actor.hide()
+        Actor2.hide()
+        nothing = true
+    Endif
+    
+    If nothing
+        setBackgroundCustom(livingroom)
+        Player.show(0)
+        Actor.show(2)
+        Actor2.show(3)
+        Actor(Happy):: "Ah, you're back! Did you get the milk? Come join us. The movie only just started."
+    Endif
+    
+    SceneEnd()
+    timeout(100, get_milk_cms)

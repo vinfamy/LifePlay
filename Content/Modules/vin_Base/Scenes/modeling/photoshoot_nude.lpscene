@@ -46,6 +46,33 @@ OTHER: Random(1, 200) < modelfame
                 Player(Angry):: "Who do you take me for? I'm a serious model, not some <Player.gigolo_or_whore>."
                 Actor(Sarcastic):: "Don't get upset. It was just a suggestion. I thought since you were already doing nudes, you might be interested."
             Endif
+        Else
+            If Actor.isInterestedIn(Player) && Actor:perversion > 50
+                "Throughout the shoot today, I can't help but notice how flirty the photographer has been."
+                Actor(Flirty):: "You know, to get far in this business, only look is not enough. We have to have a certain 'friendly' attitude."
+                Actor(Kiss):: "Mwah"
+                Actor(Flirty):: "You have great skin ... Oh look, where's my manner? I just couldn't help myself but touching you."
+                "Touching is an understatement, this perverted photographer was basically groping me."
+                0:: "Shut <Actor.him_or_her> down"
+                1:: "Flirt back"
+                2:: "Kiss <Actor.him_or_her>"
+                
+                If 0
+                    Player(Angry):: "Sorry, I'm not a 'casting couch' type of <Player.guy_or_girl>. Why don't you find yourself some other <Player.gigolo_or_whore>?"
+                    Actor(Angry):: "No need to get so serious! With that attitude, you're going nowhere!"
+                    modelfame -= 1
+                Elseif 1
+                    Player(Flirty):: "You're not bad looking yourself. I'm surprised you're always behind the camera because you look like you could be in front of it."
+                    "I guess some harmless flirting for career advancement is a good deal."
+                    modelfame += 1
+                Else
+                    Player(Flirty):: "Is this the sort of friendly attitude you're taking about?"
+                    "What's the harm in a kiss anyway? Especially if it gets me ahead of the competition."
+                    Filter(NonSexual)
+                    SexNoAffair(Actor, Player)
+                    modelfame += 3
+                Endif
+            Endif            
         Endif
     Else
         "Unfortunately, the magazine editor considered my rate too high and hired another model for the job instead."

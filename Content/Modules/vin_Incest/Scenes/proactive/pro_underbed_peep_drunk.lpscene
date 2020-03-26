@@ -87,6 +87,7 @@ OTHER: none
                 1:: "Wait for <Actor.him_or_her> to fall asleep and sneak out"
                 
                 If 0
+                    Player.show()
                     Player(Happy):: "Well, that <Player.guy_or_girl> must be blind or retarded. Not only are you extremely beautiful, you're the coolest <Actor.guy_or_girl> on the planet too."
                     Actor(Surprised):: "Oh <Actor.callplayer>, what the fuck? What are you doing hiding under my bed?"
                     Actor(Sad):: "You know what. It's been a crazy night. I don't care anymore."

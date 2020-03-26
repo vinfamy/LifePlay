@@ -5,7 +5,6 @@ WHO: none
 OTHER: Random(0, 100) < 0.01*intelligence*ActionDuration
 
 SceneStart()
-setBackground(office)
 "My company has a procedure for claiming out-of-pocket expenses on business trips and client entertainments. It didn't take long for me to realize that there were plenty of holes to exploit in that procedure that I can take advantage of to make some quick cash. I suspect some of my colleagues are already doing it. Should I take this risk?"
 0:: "Yes"
 1:: "No"

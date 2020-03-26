@@ -11,11 +11,24 @@ OTHER: Random(0, 100) > energy + mood
     "One of the guards is offering preferential treatment in exchange for sex with <Player.male_or_female> inmates like me. Some of the other inmates already took <Actor.him_or_her> up on the offer, getting much better food and much easier labour as the result."
     0:: "Accept the deal"
     1:: "Endure the harsh conditions"
+    2:: "Stand up against the guard"
     
     If 0
         mood += 25
         energy += 50
         Sex(Actor, Player)
+    Elseif 2
+        Player(Angry):: "This is not okay! You either back off and stop abusing your power against the other inmates. Or I'll make sure your superiors know what kind of fucked-up operation you're running here."
+        Actor(Scared):: "Okay, okay ... just keep your mouth shut."
+        Actor.hide()
+        Actor2 = generatePersonTemporary()
+        While !Actor2.isSameGender(Player)
+            Actor2 = generatePersonTemporary()
+        Endwhile
+        Actor2.show(2)
+        Actor2(Happy):: "Thank you for standing against the prison guard ... You're my hero! And I'm sure others feel the same too."
+        masochist -= 2
+        interpersonal += 2
     Endif
     SceneEnd()
     timeout(200, prison_sexguard)

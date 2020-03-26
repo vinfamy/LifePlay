@@ -7,6 +7,7 @@ OTHER: isAtHome() && Player.isMale() && Random(0, 500) < arousal
     SceneStart()
     Actor.dress()
     Actor.show(2)
+    Player.strip()
     Actor(Anxious):: "Wake up, <Actor.callplayer>! Aren't you late for work?"
     Player(Scared):: "Oh shit! I completely overslept. What time is it now?"
     "When I looked back at my <Actor.relationship>, <Actor.his_or_her> face was completely red."
@@ -22,6 +23,11 @@ OTHER: isAtHome() && Player.isMale() && Random(0, 500) < arousal
     Elseif Actor:incest > 25
         Actor(Flirty):: "Maybe just a little bit ..."
         Actor:incest += Random(0, 1)
+        If Actor:incest > 50
+            Player(Flirty):: "Then come on, why don't you touch it and feel how hard it is for you?"
+            Actor(Flirty):: "Okay ... I guess just a touch won't hurt."
+            Sex(Actor, Player)
+        Endif
     Else
         Actor(Embarassed):: "What the hell! That's so inappropriate. I'm your <Actor.relationship> for God's sake."
         Actor:incest -= Random(0, 0.5)

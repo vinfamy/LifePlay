@@ -1,0 +1,30 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    Actor1 = generatePersonTemporary()
+    Actor2 = generatePersonTemporary()
+    Actor3 = generatePersonTemporary()
+    Actor4 = generatePersonTemporary()
+
+    Player.dress()
+    Actor.dress()
+    Actor1.dress()
+    Actor2.dress()
+    Actor3.dress()
+    Actor4.dress()
+
+    "Dressed"
+    Player.show()
+    Actor.show()
+    Actor1.show()
+    Actor2.show()
+    Actor3.show()
+    Actor4.show()
+    "Populated the room"
+    "Bye bye"
+    SceneEnd()

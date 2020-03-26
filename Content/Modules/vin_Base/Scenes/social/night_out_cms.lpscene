@@ -1,0 +1,110 @@
+WHAT: all
+WHERE: all
+WHEN: 18 - 22
+WHO: Actor = getPerson(true); If Actor:rapportwithplayer > 30 && !Actor.isDating() && Random(50, 100) < Actor:interpersonal
+OTHER: !isWithCompanion()
+
+    SceneStart()
+    Actor.dress()
+    Actor.show(2)
+    Actor(Happy):: "Hey, let's go out tonight. There's a new nightclub in town - we should check it out."
+    0:: "Accept"
+    1:: "Decline"
+    
+    If 0
+        Player(Happy):: "Sounds good to me. See you tonight."
+        setBackground(nightclub)
+        Actor(Sad):: "Wow, this place is dead boring ... sorry about this, I'd never trust these social media ads again."
+        Player(Happy):: "It's new. Give it time."
+        Actor:: "I still kinda feel bad for dragging you along to this borefast ... You know what, why don't we head back to my place? I have plenty of alcohol left from the last house party."
+        Player(Happy):: "Sounds good to me."
+        
+        setBackgroundCustom(livingroom)
+        choice = -1    
+        ate = false
+        hadSex = false
+            
+        While choice < 5
+            Kissed = false
+            "What should I suggest to <Actor.name> that we do?"
+            0:: "Chat"
+            1:: !ate:: "Eat something together"
+            2:: "Watch a movie"
+            3:: "Drink alcohol"
+            4:: !hadSex:: "Kiss <Actor.him_or_her>"
+            5:: "Leave"
+            6:: "Ask to stay the night ..."
+            
+            If 5
+                "We said goodbye and went our ways."
+            Elseif 6
+                Player(Sad):: "Damn, I think I'm too drunk to drive back home now ... Would you mind if I stay over?"
+                Actor(Happy):: "Of course not ... I have a spare bedroom."
+                If Actor.isInterestedIn(Player) && [Actor.IsDominantSex(Player) || Actor:attractiontoplayer + Actor:perversion > Random(50, 150) || Actor:intoxication > 70]
+                    setBackground(home)
+                    "It's midnight and <Actor.name> just snuck into my bedroom and started groping me as if I wouldn't notice ... Is <Actor.he_or_she> just that drunk? Or is this the start of something more than friendship?"
+                    0:: "Let <Actor.him_or_her>"
+                    1:: "Stop <Actor.him_or_her>"
+                    
+                    If 0
+                        Sex(Actor, Player)
+                    Else
+                        Player(Anxious):: "Behave yourself, <Actor.name>. Let's not ruin our friendship."
+                        Actor(Sad):: "Oh my god, what am I doing? I'm so sorry ... I had too much to drink ..."
+                    Endif
+                    choice = 6
+                Endif
+            Else
+                Actor:rapportwithplayer += Random(0, 0.5)
+                Actor:attractiontoplayer += Random(0, 0.5)
+                If 0
+                    "We simply sat and chat for a while ..."
+                Elseif 1
+                    "We made some quick snacks and enjoyed them together ..."
+                    ate = true
+                Elseif 2
+                    "We watched a movie together ..."
+                Elseif 3
+                    "We had a drink together ..."
+                    Player:intoxication += Random(0,20)
+                    Actor:intoxication += Random(0,20)
+                Elseif 4
+                    Kissed = true
+                Endif
+
+                If Kissed || [!hadSex && Actor.isInterestedIn(Player) && Actor:attractiontoplayer > Random(30, 200)]
+                    Player(Kiss):: "..."
+                    Actor(Kiss):: "..."
+                    "We had a kiss, an awkward one at first, but soon moving towards a more passionate direction."
+                    karma -= 1
+                    "Should I let this escalate further?"
+                    0:: "Make out"
+                    1:: "Stop"
+                    
+                    If 0
+                        If Actor.isInterestedIn(Player) && [Actor.IsDominantSex(Player) || Actor:attractiontoplayer + Actor:perversion > Random(75, 200) || Actor:intoxication > 90]
+                            "Our kiss got more and more steamy and soon we were making out, our hands all over each other."
+                            hadSex = true
+                            Player:perversion += Random(0, 1)
+                            Sex(Player, Actor)
+                            Actor.show(2)
+                            "The sex was amazing, I guess we're more than friends now ..."
+                            choice = 5
+                        Else
+                            "Unfortunately for me, <Actor.name> didn't seem interested in letting things escalate any further and pulled away."
+                            Actor(Anxious):: "<Player.name>, you know we really shouldn't have done that. It would have ruined our friendship."
+                            choice = 5
+                        Endif
+                    Else
+                        "I decided to stop it there and not go any further."
+                    Endif
+                Elseif Random(0, 100) < 20
+                    Player(Happy):: "I've gotta go now. Thank you for the night out and for inviting me back to your place."
+                    "We parted ways."
+                    choice = 5            
+                Endif        
+            Endif
+        Endwhile        
+    Endif
+    SceneEnd()
+    timeout(200, night_out_cms)

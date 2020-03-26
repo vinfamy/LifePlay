@@ -5,7 +5,6 @@ WHO: none
 OTHER: jobexperience > 30 && intelligence > 60 && Random(0, 100) < 0.002*intelligence*ActionDuration
 
 SceneStart()
-setBackground(office)
 "I was working on a project with a client whose company is publicly traded. As a result, I was given access to some sensitive private information about the company. I quickly realized that the company's financial results this quarter were well below market expectations. I could take advantage of this and buy a lot of short options on the company. This is a clear violation of my employment contract and also illegal though ..."
 0:: "Yes"
 1:: "No"

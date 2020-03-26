@@ -5,9 +5,6 @@ WHO: none
 OTHER: none
 
     HadSex = false
-
-    setBackground(home)
-
     sceneStart()
 
     Difficulty = Random(0.25, 2)
@@ -39,9 +36,7 @@ OTHER: none
             Dice = Random(0, 1)
         Endif
         
-        "A couple of weeks later ..."
-        Player.dress()
-        
+        "A couple of weeks later ..."        
         If Dice*Difficulty < 0.005*(intelligence+interpersonal)
             Player(Happy):: "Thank you for your call. I'm looking forward to the upcoming interview." 
             "I received a call from the HR department, notifying me that my application was successful and inviting me for an interview. I must now prepare for the fateful day."

@@ -10,7 +10,6 @@ OTHER: isAtHome()
     1:: "Let <Actor.him_or_her> sleep"
     
     If 0
-        Actor.dress()
         Actor.show(2)
         Player(Anxious):: "Wake up, <Actor.Relationship>! Aren't you late for work?"
         Actor(Scared):: "Oh shit! I completely overslept. What time is it now?"
@@ -20,11 +19,34 @@ OTHER: isAtHome()
         1:: "Your thing is hard ..."
         
         If 1
-            Actor(Embarassed):: "Sorry. God, this is embarassing ... this sometimes happens in the morning ..."
-            Player(Embarassed):: "It's okay. It happens."
             Actor:incest += Random(0, 1)
-        Endif
-        Player(Happy):: "You should get dressed. You're late for work."
+            If Actor:incest > 25
+                Actor(Flirty):: "Like what you see?"
+                0:: "Yeah ..."
+                1:: "That's inappropriate!"
+                
+                If 0
+                    Player(Flirty):: "Maybe just a little bit ..."
+                    Actor:incest += Random(0, 2)
+                    If Actor:incest > 40
+                        Player(Flirty):: "Then come on, why don't you touch it and feel how hard it is for you?"
+                        0:: "Okay ..."
+                        1:: "That's going too far!"
+                        
+                        If 0
+                            Player(Flirty):: "Okay ... I guess just a touch won't hurt."
+                            Sex(Actor, Player)
+                        Else
+                            Player(Angry):: "Ew, what the fuck was that, <Actor.relationship>? I'm your <Actor.callplayer>!"
+                        Endif
+                    Endif
+                Else
+                    Player(Angry):: "Ew, what the fuck was that, <Actor.relationship>? I'm your <Actor.callplayer>!"
+                Endif
+            Else
+                Actor(Embarassed):: "Sorry. God, this is embarassing ... this sometimes happens in the morning ..."
+                Player(Embarassed):: "It's okay. It happens."                
+            Endif
     Else
         "Maybe <Actor.he_or_she> took the day off. <Actor.He_or_She> would have set the alarm otherwise. I'll just let <Actor.him_or_her> sleep."
     Endif

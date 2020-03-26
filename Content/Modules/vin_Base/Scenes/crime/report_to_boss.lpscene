@@ -30,6 +30,7 @@ OTHER: none
                 Job = 3 // Assassination
                 Job = 4 // Diamond
                 Job = 5 // Official Sex Tape
+                Job = 6 // Fuck
             endRandom
             
             If Job == 0 // BANK ROBBERY 
@@ -419,6 +420,52 @@ OTHER: none
                     Boss(Furious):: "Damn it, I should have known better than trusting you!"
                     timeout(200, report_to_boss)                 
                 Endif           
+            
+            
+            Elseif Job == 6 // FUCK CMS
+                Boss(Happy):: "This job is simple: I want to fuck you and show you who's the boss that needs to be served faithfully."
+                0:: "Yes boss ..."
+                1:: "Anything but that ..."
+                
+                If 0
+                    If Random(0, 100) < 50
+                        Boss(Happy):: "Let's do it in front of the rest of the family, right now, right here."
+                    Else
+                        Boss(Happy):: "Let's go somewhere private."
+                        setBackground(home)
+                    Endif
+                    Sex(Boss, Player)
+                    Sex(Boss, Player, Actor)
+                Else
+                    Boss(Furious):: "Then fuck off. If you can't even show your loyalty with such a simple service, you're not welcome here."
+                    timeout(200, report_to_boss)
+                Endif           
+            Endif
+            
+            If !isTimingOut(report_to_boss) && Job < 6
+                "That was a job well done. Perhaps, I should demand some other payment aside from money."
+                0:: "Demand sex as reward."
+                1:: "That's a surefire way to get myself killed."
+                
+                If 0
+                    If Boss:masochist > 50 || Boss:peversion > 70
+                        Boss(Flirty):: "I guess my best right hand <Player.man_or_woman> deserves some more 'personal' compensation ..."
+                        Sex
+                    Else
+                        Boss(Furious):: "Is this a joke? Who do you think you are to demand sex from me? Your recent little success has got to your head too much?"
+                        timeout(500, report_to_boss)
+                        If Random(0, 100) < 20
+                            Boss(Furious):: "You know what else will get to your head? My fucking bullet."
+                            "The boss pulled out <Boss.his_or_her> revolver ..."
+                            "Pow!"
+                            followUp(death)
+                        Else
+                            "Fuck off, you're not welcome here. Be thankful that I spared your life."
+                        Endif
+                    Endif
+                Else
+                    "Yeah, that's a very bad and dangerous idea ... Let's not try that."
+                Endif
             Endif
         Endif
     Else

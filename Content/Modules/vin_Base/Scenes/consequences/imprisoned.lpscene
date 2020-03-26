@@ -5,7 +5,7 @@ WHO: none
 OTHER: none
 
     SceneStart()
-    setBackground(office)
+    setBackground(prison)
     "I've been arrested, awaiting trial for my crimes."
     0:: "Accept my fate"
     1:: "Be represented by the world's best lawyer (consume all karma)"

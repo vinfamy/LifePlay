@@ -18,7 +18,7 @@ SceneStart()
             Actor.dress()
             Actor.show(2)
             Actor(Happy):: "Wow, you have the voice of an angel. Are you famous?"
-            "Impressed by my musical talent, <Actor.name> approached me and stroke up a conversation. <Actor.He_or_She> seemed okay, should I exchange contacts with <Actor.him_or_her>?"
+            "Impressed by my musical talent, <Actor.name> approached me and struck up a conversation. <Actor.He_or_She> seemed okay, should I exchange contacts with <Actor.him_or_her>?"
             0:: "Yes"
             1:: "No"
             
