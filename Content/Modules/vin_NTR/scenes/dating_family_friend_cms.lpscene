@@ -1,0 +1,42 @@
+WHAT: all
+WHERE: home
+WHEN: 6 - 18
+WHO: Actor = getSpecific(Dating); If Random(50, 100) < Actor:perversion - Actor:attractiontoplayer || OpenRelationship() 
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor.show()
+    
+    Actor:: "Baby, don't wait on me tonight, I'm visiting an old family friend who's getting on in years."
+    Player:: "Okay, that's very kind of you to care for the elderly."
+    0:: "Wonder what's happening"
+    1:: "<Actor.He_or_She> is just being nice"
+    
+    If 0
+        Player.hide()
+        "I couldn't help but let me dirty imagination do the worst."
+        masochist += 1
+        If Player.isMale()
+            Actor2 = generatePersonTemporary(underweight)
+        Else
+            Actor2 = generatePersonTemporary(underweight_F)
+        Endif
+        Actor2:age => Random(50, 80)
+        Actor2.randomizeFace()
+        Actor2.randomizeHairs()
+        Actor2.dress()
+        Actor2.show()
+
+        Sex(Actor2, Actor)
+        Actor2.hide()
+    Endif
+
+    Player.show()
+    Actor.show()
+    "The day after ..."
+    Player:: "Honey, you're back. How was that elderly family friend of yours doing?"
+    Actor:: "Despite <Player.his_or_her> age, <Player.he_or_she> is still full of energy."
+    
+    SceneEnd()
+    timeout(300, dating_family_friend_cms)

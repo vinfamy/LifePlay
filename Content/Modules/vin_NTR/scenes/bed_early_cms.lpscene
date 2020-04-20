@@ -1,0 +1,53 @@
+WHAT: all
+WHERE: home
+WHEN: 18 - 23
+WHO: Actor = getSpecific(Dating); Actor2 = getPerson(true); If Actor2.isMale() && Actor.isInterestedIn(Actor2) && Actor2.isInterestedIn(Actor) && Random(50, 100) < Actor:perversion - Actor:attractiontoplayer && Actor2:rapportwithplayer > 50 && Actor2:perversion > 50
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor2.dress()
+    Actor.show(2)
+    Actor2.show(3)
+    setBackgroundCustom(livingroom)
+    "One of my best friends <Actor2.name> is coming over to hang out today."
+    "An hour later ..."
+    Player:: "Damn, I completely forgot this. I need to be at work very early in the morning tomorrow. I probably should be heading to bed now."
+    Actor:: "<Player.name>, don't be so rude to your friend! <Actor2.He_or_She> hasn't been here that long - we can't force our guest to leave already."
+    Player:: "But I really need to get some sleep soon ..."
+    Actor:: "How about this? You head to bed early. <Actor2.name> and I can continue and hang out until late."
+    Actor:: "It's only good to get to know my <Player.boyfriend_or_girlfriend>'s friend better anyway."
+    "Hmm, it seems a bit suspicious that <Actor.name> is so eager for <Actor2.name> to stay."
+    Actor.hide()
+    Actor2.hide()
+    "Later that night"
+    setBackground(home)
+    Actor2:: "Don't worry he's still asleep ..."
+    Actor:: "Yours is so much bigger"   
+    "What's that low whisper coming out of the living room?"
+    Player(Surprised):: "What the fuck!"
+    setBackgroundCustom(livingroom)
+    Filter(LickPussy)
+    Sex(Actor, Actor2)
+    setBackgroundCustom(livingroom)
+    Actor:: "You're amazing, <Player.name> never eats me out like that."
+    Player.show(0)
+    Actor.show(2)
+    Actor2.show(3)
+    "I knew it! <Actor.name> was far too eager for me to go to sleep"
+    0:: "Continue watching"
+    1:: "Join them"
+    2:: "Get angry"
+    
+    If 0
+        Sex(Actor, Actor2)
+    Elseif 1
+        Player(Flirty):: "Looks like you guys started the party without me! I hope it's not too late to join?"
+        Sex(Player, Actor, Actor2)
+    Else
+        Player(Angry):: "I knew it! <Actor.name>, how could you? You seduced my friend?"
+        Actor:attractiontoplayer -= 10
+    Endif
+    
+    SceneEnd()
+    timeout(200, bed_early_cms)

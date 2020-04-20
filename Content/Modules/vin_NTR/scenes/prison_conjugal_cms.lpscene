@@ -1,0 +1,56 @@
+WHAT: all
+WHERE: prison
+WHEN: 8-22
+WHO: Actor = getSpecific(Dating)
+OTHER: Random(0, 100) < masochist
+
+    SceneStart()
+    "In prison, I'm only allowed the occasional conjugal visit from my <Actor.boyfriend_or_girlfriend> <Actor.name>."
+    "<Actor.name> promised to visit me today. Why isn't <Actor.he_or_she> here yet?"
+    Player.hide()
+    "Meanwhile, in another cell ..."
+    Actor.dress()
+    Actor.show(2)
+    
+    If Player.isMale()
+        Actor2 = generatePersonTemporary(athletic)
+    Else
+        Actor2 = generatePersonTemporary(athletic_F)
+    Endif
+    Actor2.randomizeFace()
+    Actor2.randomizeHairs()
+    Actor2.dress()
+    Actor2.show()
+    
+    Actor2(Happy):: "Baby, I miss you! I'm so happy you visited. I can't wait for the day you can come home."
+    Actor(Surprised):: "What? Who are you? Why did they send me here? There must have been a mistake. I'm here for <Player.name> <Player.name_last>."
+    Actor:: "Excuse me! Guard! There's a mistake."
+    Actor2(Flirty):: "There's no mistake, I already bribed the guard to send you here instead ... Serves <Player.name> right for always bragging about how much action <Player.he_or_she> still gets even in jail."
+    Actor2(Flirty):: "Why don't you give me some of that action instead?"
+    Actor2(Flirty):: "<Player.He_or_She>'s not going to know. Besides, think about it, if you don't let me fuck you, it will be a long time to go until the next conjugal visit ... Can you go that long without sex?"
+    
+    If Random(50, 100) < Actor:perversion - Actor:attractiontoplayer || OpenRelationship()
+        Actor:: "I guess you do have a point ..."
+        Sex(Actor2, Actor)
+        Actor:attractiontoplayer -= Random(0, 1)
+        masochist += 1
+        
+        If Random(0, 100) < 10
+            Player.hide()
+            Actor.show(2)
+            Actor2.show()
+            Actor3 = generatePersonTemporary()
+            Actor3.dressGuard()
+            Actor3.show(3)
+            Actor3(Evil):: "Having some fun there, I see?"
+            Actor3(Flirty):: "You two got me quite turned on, I need to release now ... on <Player.name>'s <Actor.boyfriend_or_girlfriend>. It's part of our agreement earlier, remember?"
+            Sex(Actor3, Actor2, Actor)
+        Endif
+    Else
+        Actor:: "In your wildest dream, <Actor2.bastard_or_bitch>! I'm faithful to my <Player.boyfriend_or_girlfriend>!"
+        Actor:: "Guard! Guard! Help me!"
+        followUp(prison_conjugal)
+    Endif    
+    
+    SceneEnd()
+    timeout(200, prison_conjugal_cms)

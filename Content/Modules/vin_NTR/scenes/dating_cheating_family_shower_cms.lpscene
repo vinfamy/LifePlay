@@ -1,0 +1,55 @@
+WHAT: all
+WHERE: home
+WHEN: 0 - 24
+WHO: Dating = getSpecific(Dating); DatingAffair = getRelative(); If DatingAffair.isInterested(Dating) && Dating.isInterestedIn(DatingAffair)
+OTHER: none
+
+    SceneStart()
+    "Hmm, what's that sound? My <DatingAffair.relationship> is getting intimate with a lover in the shower perhaps?"
+    0:: "Peep"
+    1:: "Ignore"
+    
+    If 0
+        setBackground(shower)
+        "Wait, is that ... ?"
+        If Random(0, 3000) < Dating:perversion - 2*Dating:attractiontoplayer && DatingAffair:rapportwithplayer < 0
+            Sex(Dating, DatingAffair)
+            "It's my <Dating.boyfriend_or_girlfriend> <Dating.name>! They're having an affair ..."
+            0:: "Make a fuss"
+            1:: "Stay hidden and continue watching"
+            2:: isModEnabled(vin_Incest):: "Join them"
+            
+            If 0
+                Player.show(0)
+                If Player:masochist > DatingAffair:masochist
+                    Player(Crying):: "How could you? You're my <DatingAffair.relationship>! How could you steal my <Dating.boyfriend_or_girlfriend> like that?"
+                    DatingAffair(Evil):: "I'll tell you why I could, <DatingAffair.callplayer>. Cause you're a pussy. You aren't gonna do anything! so cheers for letting me borrow your <Dating.boyfriend_or_girlfriend>. We're family after all right? We're supposed to share everything! Besides, it's only my responsibility as a <DatingAffair.relationship> to make sure to tend to the needs of my <DatingAffair.callplayer>'s <Dating.boyfriend_or_girlfriend> and make <Dating.him_or_her> feel welcome in our family."
+                    Dating(Flirty):: "That's right ... Your <DatingAffair.relationship> is making me feel very welcome indeed!"
+                    DatingAffair(Flirty):: "Shall we go for round 2?"
+                    Dating(Flirty):: "Of course. <Player.name>, why don't you just watch how well your <DatingAffair.relationship> fucks me and learn a thing or two."
+                    Sex(Dating, DatingAffair)
+                Else
+                    Player(Angry):: "Screw both of you! I trusted you. You'd better get the fuck out of my life!"
+                    Dating:attractiontoplayer -= 20
+                    DatingAffair:rapportwithplayer -= 20
+                Endif
+            Elseif 1
+                Sex(Dating, DatingAffair)
+                masochist += 2
+            Else
+                Player.show(0)
+                Player(Flirty):: "You're a bad <DatingAffair.relationship>, you know that? Well, I suppose we family should share everything."
+                Sex(Dating, DatingAffair, Player)
+                DatingAffair:incest += 20
+            Endif
+        Else
+            Actor = generatePersonTemporary()
+            While !Actor.isSameGender(Dating)
+                Actor = generatePersonTemporary()
+            Endwhile
+            Sex(DatingAffair, Actor)
+            "Phew, on a second look, it's just a random <Actor.guy_or_girl> I've never seen before. I thought it was <Dating.name> for a moment there."
+        Endif
+    Endif
+    timeout(500, dating_cheating_family_shower_cms)
+    SceneEnd()

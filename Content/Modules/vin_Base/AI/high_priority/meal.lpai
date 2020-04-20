@@ -1,0 +1,58 @@
+Don't
+Use
+First
+Five
+Lines
+
+    If [WHEN > 11.5 && WHEN < 13.5] || [WHEN > 17.5 && WHEN < 20]
+        Today = AI.getActorVar(meals_today)
+        Treats = AI.getActorVar(treats_thisweek)
+        If Today < 2
+            Today += 1
+            Current = AI.getBuilding(current)
+            Work = AI.getBuilding(work)
+            If WHEN < 14 && Current.isSameBuilding(Work)  // work lunch
+                If Random(0, 500)*Treats < AI:intelligence + AI:interpersonal
+                    Dest = Current.findNearbyBuilding(restaurant, hotel)
+                    Add = Random(1, 2.5)
+                    Treats += 1
+                Elseif Random(0, 200) < AI:intelligence + AI:interpersonal
+                    Dest = Current.findNearbyBuilding(fast_food, cafe, pub, convenience, bakery, marketplace, deli)
+                    Add = Random(0.5, 1.25)
+                Else
+                    Dest = AI.getBuilding(work)
+                    Add = Random(0.25, 1)
+                Endif
+            Elseif DayOfWeek == 6 || DayOfWeek == 7 || DayOfWeek == 0  // weekend
+                If Random(0, 300)*Treats < AI:intelligence + AI:interpersonal
+                    Dest = Current.findNearbyBuilding(restaurant, hotel)
+                    Add = Random(1.5, 3)
+                    Treats += 1
+                Elseif Random(0, 100) > AI:cooking
+                    Dest = Current.findNearbyBuilding(fast_food, cafe, pub, convenience, bakery, marketplace, deli)
+                    Add = Random(1, 2.5)
+                Else
+                    Dest = AI.getBuilding(home)
+                    Add = Random(0.5, 2)
+                Endif
+            Else
+                If Random(0, 500)*Treats < AI:intelligence + AI:interpersonal
+                    Dest = Current.findNearbyBuilding(restaurant, hotel)
+                    Add = Random(1.5, 2.5)
+                    Treats += 1
+                Elseif Random(0, 50) > AI:cooking
+                    Dest = Current.findNearbyBuilding(fast_food, cafe, pub, convenience, bakery, marketplace, deli)
+                    Add = Random(0.75, 2)
+                Else
+                    Dest = AI.getBuilding(home)
+                    Add = Random(0.25, 1.5)
+                Endif            
+            Endif
+            
+            Until = HoursElapsed + Add                     
+            AI.setCurrentLocation(Dest)
+            AI.setUntil(Until)            
+            AI.setActorVar(meals_today, Today)
+            AI.setActorVar(treats_today, Treats)
+        Endif
+    Endif

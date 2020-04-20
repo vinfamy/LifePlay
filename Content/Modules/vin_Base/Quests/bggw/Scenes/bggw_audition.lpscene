@@ -16,11 +16,13 @@ OTHER: none
     Player(Shocked):: "Wow!"
     setBackground(home)
     Ashley = AshleyA.getActorAlias()
-    Jessica = JessicaA.getActorAlias()
+    Jessica = JessicaA.getActorAlias()    
+    
     Sex(Jessica, Ashley)
     Jessica.show(2)
     Ashley.show(3)
     Player.show(0)
+        
     "That's Ashley and Jessica, two of the stars on the show, having some really hot lesbian fun. In front of dozens of cameras no less ..."
     Jessica(Flirty):: "Hey new blood, what are you waiting for? Do you want to be on the show or not?"
     0:: "Join them"

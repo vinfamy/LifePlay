@@ -5,8 +5,8 @@ WHO: none
 OTHER: none
 
     SceneStart()
+    Actor = generatePersonTemporary()
     FilterTalk(none)
     FilterDesc(none)
-    Actor  = getSpecific(Dating)
     Sex(Player, Actor)
     SceneEnd()

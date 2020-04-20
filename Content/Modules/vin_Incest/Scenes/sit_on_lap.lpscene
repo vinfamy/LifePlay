@@ -20,6 +20,23 @@ OTHER: isAtHome()
         "A while later ..."
         "I feel something moving underneath me ... Wait, is that a boner? Is my <Actor.relationship> getting hard because of me? Sitting on <Actor.his_or_her> lap wasn't the best idea after all ..."
         Actor:incest += Random(0, 2)
+        If Actor:incest > 30
+            "Suddenly, my <Actor.relationship> started whispering into my ear."
+            Actor(Flirty):: "You're doing this deliberately, aren't you?"
+            0:: "Apologize"
+            1:: "Lead <Actor.him_or_her> to the bedroom"
+            
+            If 0
+                Player(Embarrassed):: "I'm so sorry. I didn't mean to ..."
+                Actor:incest -= 1
+            Else
+                "I whispered back into <Actor.his_or_her> ear."
+                Player(Flirty):: "Let's sneak away from here, shall we?"
+                setBackground(home)
+                Sex(Actor, Player)
+                Actor:incest += 50
+            Endif
+        Endif
     Endif
     SceneEnd()
     timeout(200, sit_on_lap)

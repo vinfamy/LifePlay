@@ -1,0 +1,26 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "Should I try to convince <Actor.name> to enter the sex industry with me as <Actor.his_or_her> agent?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        If Random(0, 100) < interpersonal && Actor:perversion + Actor:masochist > 50 && [Actor:attractiontoplayer > 50 || Actor:rapportwithplayer > 70] && Actor:intelligence*2 + Actor:interpersonal < Random(0, 300)
+            Actor(Sad):: "I guess you're right. This is probably the easiest way that I can make money ..."
+            "<Actor.name> accepted my offer. I can now pimp <Actor.him_or_her> out or advertise <Actor.his_or_her> services to nude photographers and porn directors."
+            Actor.addProstitute()
+        Else
+            "Despite my best effort, <Actor.name> took offense to my suggestion. Our relationship has suffered as a result."
+            Actor:attractiontoplayer -= Random(0, 10)
+            Actor:rapportwithplayer -= Random(0, 10)
+        Endif
+    Else
+        "No, that's a crazy idea. There's no way <Actor.he_or_she> would agree to this."
+    Endif
+    
+    SceneEnd()

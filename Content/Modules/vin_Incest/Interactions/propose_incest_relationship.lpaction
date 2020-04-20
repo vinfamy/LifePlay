@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: propose_incest_relationship
+ACTION_NAME: Propose incest relationship
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 10 - 30
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: incest_relationship
+ANIMATION:
+WHO: Actor = getTarget(); If Actor.isRelative() & [Actor.hadSex() || Actor:incest > 50] && !Actor.hasRelationship(Spouses, Dating)

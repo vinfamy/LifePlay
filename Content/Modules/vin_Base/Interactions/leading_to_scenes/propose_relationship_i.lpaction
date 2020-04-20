@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: propose_relationship_i
+ACTION_NAME: Propose relationship
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 1 - 1
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: start_relationship
+ANIMATION:
+WHO: Companion = getTarget(); If Companion.isSameAs(CurrentCompanion) && !CurrentCompanion.isDating() && !CurrentCompanion.hasRelationship(Spouses, Dating) && [!Player.isDating() || [isModEnabled(vin_Polyamorous) && OpenRelationship()]]

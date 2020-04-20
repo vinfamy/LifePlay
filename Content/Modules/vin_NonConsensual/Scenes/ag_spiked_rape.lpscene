@@ -5,12 +5,14 @@ WHO: Actor2 = getPerson(); If !isWithCompanion() && Random(40, 500) < perversion
 OTHER: none
 
     SceneStart()
-    Actor = generatePersonTemporary()
-    While !Player.isInterestedIn(Actor)
+    If !Actor.isValid()
         Actor = generatePersonTemporary()
-    Endwhile
-    Actor.dress()
-    Actor.show(2)
+        While !Player.isInterestedIn(Actor)
+            Actor = generatePersonTemporary()
+        Endwhile
+        Actor.dress()
+        Actor.show(2)
+    Endif
     "Wow, what a <Actor.handsome_or_beautiful> <Actor.guy_or_girl> standing there at the bar. Should I perhaps approach <Actor.him_or_her> and offer <Actor.him_or_her> a drink?"
     0:: "Yes"
     1:: "No"

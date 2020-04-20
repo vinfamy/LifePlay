@@ -1,53 +1,37 @@
 // Information
 INFO Is_Male: 100% false
 INFO Interested_In_Men: 100% true
-INFO Interested_In_Women: 100% false
-INFO Interested_In_Transgender: 100% true
-INFO First_Name: 100% Megan
-INFO Last_Name: 100% L
+INFO Interested_In_Women: 100% true
+INFO Interested_In_Transgender: 100% false
+INFO First_Name: 100% Courtney
+INFO Last_Name: 100% J
 INFO Race: 100% Daz
 INFO Genital: 100% Vagina
 
 // Morphs
-MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.024249
-MORPH Genesis8Female__Shu Head: 100% 0.000201
-MORPH Genesis8Female__Olga Head: 100% 0.08797
-MORPH Genesis8Female__Nose Style Nordic: 100% 0.832002
-MORPH Genesis8Female__Nose Style Germanic: 100% 0.41254
-MORPH Genesis8Female__Nhung Head: 100% 0.253104
-MORPH Genesis8Female__Julia Head: 100% 0.707683
-MORPH Genesis8Female__Estell Head: 100% 0.036106
-MORPH Genesis8Female__Diane Head: 100% 0.155677
-MORPH Genesis8Female__FBMEmaciated: 100% 0.95717
-MORPH Genesis8Female__PBMNipplesDepth: 100% 0.017396
-MORPH Genesis8Female__PBMGlutesSize: 100% 0.382092
-MORPH Genesis8Female__PBMBreastsShape03: 100% 0.446883
-MORPH Genesis8Female__PBMBreastsDownwardSlope: 100% 0.631916
-MORPH Genesis8Female__FBMThin: 100% 0.341762
-MORPH Genesis8Female__FBMPearFigure: 100% 0.275811
-MORPH Genesis8FemaleEyelashes__Shu Head: 100% 0.000201
-MORPH Genesis8FemaleEyelashes__Olga Head: 100% 0.08797
-MORPH Genesis8FemaleEyelashes__Nhung Head: 100% 0.253104
-MORPH Genesis8FemaleEyelashes__Julia Head: 100% 0.707683
-MORPH Genesis8FemaleEyelashes__Estell Head: 100% 0.036106
-MORPH Genesis8FemaleEyelashes__Diane Head: 100% 0.155677
-MORPH EmiliaHair_94789__SCLPropagatingHead: 100% 0.05
-MORPH EmiliaHair_94789__CTRLFaceOlderHD: 100% 0.024249
-MORPH EmiliaHair_94789__FBMEmaciated: 100% 0.95717
-MORPH EmiliaHair_94789__PBMNipplesLarge: 100% 0.458296
-MORPH EmiliaHair_94789__PBMBreastsSmall: 100% 0.738334
-MORPH EmiliaHair_94789__PBMBreastsPerkSide: 100% 0.596973
-MORPH EmiliaHair_94789__FBMThin: 100% 0.341762
-MORPH EmiliaHair_94789__FBMPearFigure: 100% 0.275811
+MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.057789
+MORPH Genesis8Female__CTRLFitness: 100% 0.802417
+MORPH Genesis8Female__Shu Head: 100% 0.805521
+MORPH Genesis8Female__Nose Style Nordic: 100% 0.34341
+MORPH Genesis8Female__Nose Style Germanic: 100% 0.950438
+MORPH Genesis8Female__PBMNipplesSize: 100% 0.19541
+MORPH Genesis8Female__PBMGlutesSize: 100% 0.658681
+MORPH Genesis8Female__PBMBreastsUpwardSlope: 100% 0.183203
+MORPH Genesis8Female__PBMBreastsSmall: 100% 0.93469
+MORPH Genesis8Female__FBMHeavy: 100% 0.049486
+MORPH Genesis8Female__FBMBodyTone: 100% 0.125278
+MORPH Genesis8Female__FBMBodySize: 100% 0.129487
+MORPH Genesis8Female__FBMThin: 100% 0.750505
+MORPH Genesis8FemaleEyelashes__Shu Head: 100% 0.805521
 SCALE X: 100% 1.0
 SCALE Y: 100% 1.0
 SCALE Z: 100% 1.0
 
 //Hair
-HAIR Hairstyle: 100% EmiliaHair_94789
-HAIR Hair_Thickness: 100% 1.752171
-HAIR Hair_Color_R: 100% 0.3
-HAIR Hair_Color_G: 100% 0.1
+HAIR Hairstyle: 100% RazorHair
+HAIR Hair_Thickness: 100% 1.399133
+HAIR Hair_Color_R: 100% 0.07
+HAIR Hair_Color_G: 100% 0.001
 HAIR Hair_Color_B: 100% 0.0
 HAIR Hair_Color_A: 100% 0.85
 
@@ -58,43 +42,43 @@ HAIR Brow_Color_A: 100% 1.0
 
 // Skin
 SKIN Eye_Color_R: 100% 0.0
-SKIN Eye_Color_G: 100% 0.7
-SKIN Eye_Color_B: 100% 1.0
+SKIN Eye_Color_G: 100% 0.1
+SKIN Eye_Color_B: 100% 0.0
 SKIN Eye_Color_A: 100% 0.8
-SKIN Face_Texture: 100% Leda
+SKIN Face_Texture: 100% Sloane
 SKIN Skin_Color_R: 100% 0.83
 SKIN Skin_Color_G: 100% 0.62
 SKIN Skin_Color_B: 100% 0.53
 SKIN Skin_Color_A: 100% 1.0
-SKIN BHairColor_R: 100% 0.026
-SKIN BHairColor_G: 100% 0.009
+SKIN BHairColor_R: 100% 0.005
+SKIN BHairColor_G: 100% 0.001
 SKIN BHairColor_B: 100% 0.0
 SKIN BHairColor_A: 100% 0.85
-SKIN Skin_Roughness: 100% 0.51326
+SKIN Skin_Roughness: 100% 0.85931
 SKIN Skin_Oil: 100% 0.25
-SKIN Skin_Fresnel: 100% 0.121311
-SKIN Skin_Age: 100% 0.024249
+SKIN Skin_Fresnel: 100% 0.423109
+SKIN Skin_Age: 100% 0.057789
 SKIN Skin_Sagging: 100% 0.0
 SKIN Muscle_Tone: 100% 0.0
-SKIN BHairThickness: 100% 0.171597
-SKIN BHairstyle: 100% NoHair
+SKIN BHairThickness: 100% 0.768242
+SKIN BHairstyle: 100% Pubes04
 
 // Stats
-STAT age: 100% 22.002136
-STAT attractiveness: 100% 26.099428
-STAT cooking: 100% 64.568016
-STAT dance: 100% 58.56197
-STAT fitness: 100% 54.982151
-STAT intelligence: 100% 60.744041
-STAT interpersonal: 100% 17.700735
-STAT martial: 100% 96.11499
-STAT masochist: 100% -6.064026
-STAT muscle: 100% 84.316544
-STAT music: 100% 7.962279
-STAT perversion: 100% 69.404465
+STAT age: 100% 34.014252
+STAT attractiveness: 100% 12.576678
+STAT cooking: 100% 97.814873
+STAT dance: 100% 66.655472
+STAT fitness: 100% 99.523911
+STAT intelligence: 100% 93.649094
+STAT interpersonal: 100% 50.428783
+STAT martial: 100% 60.597549
+STAT masochist: 100% -10.867645
+STAT muscle: 100% 31.232643
+STAT music: 100% 59.566029
+STAT perversion: 100% 51.670799
 STAT pornfame: 100% 0.0
-STAT sneak: 100% 57.44804
-STAT attractiontoplayer: 100% -2.915558
-STAT rapportwithplayer: 100% 9.596837
-STAT arousal: 100% 54.737999
-STAT intoxication: 100% 64.943382
+STAT sneak: 100% 25.220495
+STAT attractiontoplayer: 100% -25.174896
+STAT rapportwithplayer: 100% 5.379778
+STAT arousal: 100% 46.75713
+STAT intoxication: 100% 0.045595

@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: approach_bar_i
+ACTION_NAME: Approach
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 1 - 1
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: approach_bar_i
+ANIMATION:
+WHO: Actor = getTarget(); If !Actor.isSameAs(CurrentCompanion) && !Actor.isDating() && !Actor.isRelative() && [WHERE == nightclub || WHERE == bar || WHERE == pub || WHERE == fraternity] 

@@ -1,0 +1,73 @@
+WHAT: all
+WHERE: sports_centre
+WHEN: 8 - 20
+WHO: Actor = getSpecific(Dating); If Random(50, 100) < Actor:perversion - Actor:attractiontoplayer || OpenRelationship()
+OTHER: none
+
+    // Add a scene where if in the gym you can sometimes trigger an event where your spouse or girlfriend/boyfriend is talking to a personal trainer and they go somewhere and you can peep, ignore or interrupt.
+    SceneStart()
+    Random
+        Actor2 = generatePersonTemporary(bodybuilder)
+        Actor2 = generatePersonTemporary(athletic_F)
+    endRandom
+    Actor.randomizeFace()
+    Actor.randomizeHairs()
+    
+    Actor.dress()
+    Actor2.dress()
+    Actor.show(2)
+    Actor2.show(3)
+    "I was working out in the gym when I found out that my <Actor.boyfriend_or_girlfriend> had been paying for sessions with a new personal trainer. How comes I never heard about this <Actor2.guy_or_girl> before?"
+    "After a while, they both seemed to disappear. I wonder where they are gone?"
+    Actor.hide()
+    Actor2.hide()
+    
+    "<Actor.He_or_She> must have finished <Actor.his_or_her> workout and gone to the locker room, let's go check it out."
+    "Hmm, there's strange noise coming out of the locker room ..."
+    0:: "Peep"
+    1:: "Leave"
+    
+    If 0
+        setBackground(toilets)
+        If Actor.isInterestedIn(Actor2)
+            Sex(Actor, Actor2)
+            Player.show(0)
+            Actor.show(2)
+            Actor.show(3)
+            "My <Actor.boyfriend_or_girlfriend> is fucking <Actor.his_or_her> personal trainer! Not sure how I feel about this?"
+            0:: "Join them"
+            1:: "Continue watching"
+            2:: "Get angry"
+            
+            If 0
+                Player(Flirty):: "Mind if I join?"
+                Sex(Player, Actor2, Actor)
+            Elseif 1
+                Sex(Actor, Actor2)
+            Else
+                Player(Angry):: "How dare you! You couldn't even wait to get far enough before you cheat on me? How long have you been fucking your personal trainer?"
+                Actor:attractiontoplayer -= 20
+            Endif
+        Else
+            Ran = generatePersonTemporary()
+            Ran2 = generatePersonTemporary()
+            Sex(Ran, Ran2)
+            Ran.hide()
+            Ran2.hide()
+            Player.show(0)
+            "Thanks fuck for that, it's just a random couple. I thought it might be <Actor.boyfriend_or_girlfriend> cheating on me for a moment there."
+            setBackground(sports_centre)
+            "A while later ..."
+            Actor.show(2)
+            Player(Happy):: "There you are, where did you go?"
+            Actor(Happy):: "I went to make a post-workout protein shake. Let's go?"                
+        Endif
+    Else
+        "A while later ..."
+        Actor.show(2)
+        Player(Happy):: "There you are, where did you go?"
+        Actor(Happy):: "I went to make a post-workout protein shake. Let's go?"
+    Endif
+    
+    SceneEnd()
+    timeout(100, dating_pt_cms)

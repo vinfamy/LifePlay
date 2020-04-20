@@ -1,0 +1,26 @@
+WHAT: sleep, masturbate
+WHERE: all
+WHEN: 0 - 24
+WHO: Actor = getRelative(Sibling); Actor1 = getRelative(Sibling); If !Actor.isMale() && Actor1.isMale()
+OTHER: Player.isMale()
+
+    SceneStart()
+    "My mind wandered and I started fantasizing about some forbidden stuff ..."
+    0:: "A gangbang involving my siblings"
+    1:: "Suppress that thought"
+    
+    If 0
+        Actor2 = getRelative(Sibling)
+        Actor3 = getRelative(Sibling)
+        If Actor2.isValid() && Actor2.isMale()
+            If Actor3.isValid() && Actor3.isMale()
+                SexNoAffair(Player, Actor1, Actor2, Actor3, Actor)
+            Else
+                SexNoAffair(Player, Actor1, Actor2, Actor)
+            Endif
+        Else
+            SexNoAffair(Player, Actor1, Actor)
+        Endif
+    Endif
+    SceneEnd()
+    timeout(200, siblings_gangbang_fantasize_cms)

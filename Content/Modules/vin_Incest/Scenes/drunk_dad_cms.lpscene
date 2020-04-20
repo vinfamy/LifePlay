@@ -1,0 +1,46 @@
+WHAT: all
+WHERE: home
+WHEN: 19 - 3
+WHO: Actor = getRelative(Parent); If Actor.isMale() && Actor.livesWithPlayer() && Player.isInterestedIn(Actor) && Actor:incest > 20
+OTHER: isAtHome() && Random(0, 100) < 5
+
+    SceneStart()
+    setBackgroundCustom(livingroom)
+    Actor.dress()
+    Actor.show()
+    "My dad came back late today, smelling of alcohol and barely able to walk. He's completely drunk."
+    "He must have had a very bad day."
+    0:: "Just let him rest"
+    1:: "Ask what happened"
+    
+    If 0
+        "It's best not to get involved."
+        "Dad went straight to his bedroom. Hopefully, he'll be fine and sober in the morning."
+    Else
+        "I decided to ask him what's going on and consoled him."
+        Actor(Crying):: "Am I that old and disgusting already?"
+        "Apparently, he was just trying to be friendly to a hot colleague today and ended up getting a sexual harassment warning from HR."
+        Actor(Angry):: "She was the office slut too! I know she's beeen sleeping with other guys in the office ..."
+        Actor(Sad):: "Younger ... more handsome guys."
+        0:: "Be careful next time, Dad!"
+        1:: "You're still very handsome yourself"
+        
+        If 0
+            Player:: "Stay away from her next time, Dad. Sexual harassment is no joke. You could get fired!"
+        Else
+            Player:: "What a stupid bimbo. She doesn't appreciate how good-looking you still are."
+            0:: "Just console him"
+            1:: "Prove it with my body"
+            
+            If 0
+                Actor:: "That's good to hear. I feel a lot better now."
+            Else
+                "I started caressing his thigh, clearly showing my admiration."
+                "Maybe he's just too drunk, or maybe he's always fantasized about this, but one thing leads to another really quickly after that."
+                Sex(Actor, Player)
+                Actor:incest += 50
+            Endif
+        Endif
+    Endif
+    SceneEnd()
+    timeout(300, drunk_dad_cms)

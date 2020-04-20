@@ -21,6 +21,23 @@ OTHER: isAtHome() && Player.isMale() && Random(30, 500) < perversion
         "A while later ..."
         "Oh no, I don't feel so good. My <Actor.relationship> sitting on my lap is strangely arousing and giving me a boner. Damn, I really need to calm myself down before <Actor.he_or_she> notices my hard rod underneath <Actor.him_or_her>."
         Actor:incest += Random(0, 2)
+        If Actor:incest > 30
+            "Suddenly, my <Actor.relationship> started whispering into my ear."
+            Actor(Flirty):: "I got you all excited, didn't I?"
+            0:: "Apologize"
+            1:: "Lead <Actor.him_or_her> to the bedroom"
+            
+            If 0
+                Player(Embarrassed):: "I'm so sorry. I didn't mean to ..."
+                Actor:incest -= 1
+            Else
+                "I whispered back into <Actor.his_or_her> ear."
+                Player(Flirty):: "Let's sneak away from here, shall we?"
+                setBackground(home)
+                Sex(Actor, Player)
+                Actor:incest += 50
+            Endif
+        Endif
     Endif
     SceneEnd()
     timeout(200, family_sit_on_lap)

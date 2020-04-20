@@ -17,7 +17,7 @@ OTHER: !isWithCompanion() && Random(0, 1000) < intelligence
     Else
         "I got very upset and quite frankly, I considered this 'cyber cheating'. I made it known to <Dating.name> that this is unacceptable and must stop immediately if <Dating.name> wants to stay in a relationship with me."
         Dating:attractiontoplayer -= Random(0, 2)
-        Dating:peversion -= Random(0, 1)
+        Dating:perversion -= Random(0, 1)
     Endif
 
     timeout(200, dating_webcamshow)

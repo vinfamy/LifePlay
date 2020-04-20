@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: practice_a_language
+ACTION_NAME: Practice a language
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 45 - 120
+TIMEOUT_MINUTES: 1000
+ALSO_TIMEOUT: 
+EFFECTS: mood +2 (DURATION), mood -1 (INTERRUPTED), intelligence +0.03 (DURATION), interpersonal +0.05 (DURATION), Interacting:rapportwithplayer +1 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:
+WHO: Actor = getTarget(); If !Actor.isTemporary() && Actor:rapportwithplayer > 20 && Actor:intelligence + Actor:interpersonal > 140   

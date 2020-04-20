@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: flirt
+ACTION_NAME: Flirt
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 10 - 30
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: perversion +0.1 (END), mood +1 (END), Interacting:attractiontoplayer +1 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:
+WHO: Actor = getTarget(); If !Actor.isTemporary()    

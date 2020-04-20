@@ -1,0 +1,53 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Dating = getSpecific(Dating)
+    If Bull.isInterestedIn(Dating) && Bull:perversion - Bull:masochist > 50
+        Bull(Flirty):: "Well, I suppose I can teach a <Player.cuckold_or_cuckqueen> like you a thing or two about pleasing a <Dating.man_or_woman>."
+        Dating.dress()
+        Dating.show()
+        "I must admit: the thought of watching <Dating.name> have sex with another <Player.man_or_woman> really turns me on."
+        masochist += Random(0, 1)
+        perversion += Random(0, 0.5)    
+        If Random(0, 70) < Dating:perversion
+            Dating(Flirty):: "You naughty <Player.boy_or_girl>! Fancy yourself as more of a voyeur, don't you? Fine then, if that's what turns you on, I can give it a try. Just make sure to find me a cutie to fuck, okay?"
+            Player(Flirty):: "What do you think about this <Bull.guy_or_girl>? <Bull.His_or_Her> name is <Bull.name>."            
+            If Dating.isInterestedIn(Bull)
+                "After a while, <Dating.name> confesses that <Dating.he_or_she> finds <Bull.name> hot."
+                "The all important day is here ..."
+                moveTo(home)
+                setBackgroundCustom(kitchen)
+                "<Dating.name>, <Bull.name> and I had dinner at my apartment, before <Dating.name> took <Bull.name>'s hand and led <Bull.him_or_her> into the bedroom"
+                setBackground(home)
+                Sex(Bull, Dating)
+                masochist += Random(0, 2)
+                perversion += Random(0, 1)
+                "That was hot. But it looks like both <Bull.name> and <Dating.name> could go for another round ... and I'm becoming quite aroused."
+                0:: "Have a threesome"
+                1:: "Nope"
+                
+                If 0
+                   Sex(Bull, Dating, Player)
+                   perversion += Random(0, 1)
+                Endif
+                Bull.hide()
+                Dating.show(2)
+                Player.show(0)
+                "After the sex, <Bull.name> got up and left without saying a word, as agreed beforehand. That was a sensual experience like no other to watch my <Dating.boyfriend_or_girlfriend> being <Dating.pleasured_or_defilled> by another <Bull.man_or_woman>."
+                Dating:attractiontoplayer += Random(0, 2)
+            Else
+                "<Dating.name> doesn't seem interested in someone like <Bull.name>. Let's think of someone else."
+            Endif
+        Else
+            Dating(Angry):: "What? You want me to sleep with another <Player.man_or_woman>. That's disgusting. How could you even consider it? Do you not love me anymore?"
+            Dating:attractiontoplayer -= Random(0, 2)
+            "There's no point pursuing this anymore. There's no way I can get <Dating.name> to agree to this."
+        Endif
+    Else
+        Bull(Angry):: "I'm not interested! Maybe you should put an ad on Craiglist or something!"
+    Endif
+    SceneEnd()

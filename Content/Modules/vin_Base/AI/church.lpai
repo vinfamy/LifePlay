@@ -1,0 +1,18 @@
+Don't
+Use
+First
+Five
+Lines
+
+    If WHEN > 7 && WHEN < 21 && AI:perversion < 70
+        ThisWeek = AI.getActorVar(church_thisweek)    
+        If ThisWeek*AI:perversion < Random(0, 100) || [DayOfWeek == 1 && WHEN < 12]
+            Current = AI.getBuilding(current)
+            Dest = Current.findNearbyBuilding(place_of_worship)
+            Until = HoursElapsed + Random(1, 3)                     
+            AI.setCurrentLocation(Dest)
+            AI.setUntil(Until)
+            ThisWeek += 1
+            AI.setActorVar(church_thisweek, ThisWeek)
+        Endif
+    Endif

@@ -1,0 +1,26 @@
+Don't
+Use
+First
+Five
+Lines
+
+    ThisWeek = AI.getActorVar(groceries_thisweek)
+    Today = AI.getActorVar(groceries_today)
+    If Today == 0 && ThisWeek < Actor:cooking*Random(0.04, 0.08)
+        Home = AI.getBuilding(home)
+        If Random(0, 100) < 50
+            Dest = Home.findNearbyBuilding(convenience, greengrocer, marketplace, supermarket, variety_store)
+            ThisWeek += 1
+            Add = Random(1, 2.5)
+        Else
+            Dest = Home.findNearbyBuilding(alcohol, bakery, beverages, butcher, confectionery, deli, florist, pet, seafood, tobacco)
+            ThisWeek += 0.5
+            Add = Random(0.5, 1.5)
+        Endif
+        Today += 1
+        AI.setActorVar(groceries_thisweek, ThisWeek)
+        AI.setActorVar(groceries_today, Today)
+        Until = HoursElapsed + Add                     
+        AI.setCurrentLocation(Dest)
+        AI.setUntil(Until)
+    Endif

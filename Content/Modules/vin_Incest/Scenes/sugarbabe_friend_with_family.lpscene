@@ -52,4 +52,6 @@ OTHER: none
         Endif
         SceneEnd()
         timeout(1000, sugarbabe_friend_with_family)
+    Else
+        Actor.delete()
     Endif

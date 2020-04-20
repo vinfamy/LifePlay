@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: work_with_colleague
+ACTION_NAME: Work together
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 90 - 180
+TIMEOUT_MINUTES: 
+ALSO_TIMEOUT: 
+EFFECTS: jobperformance +0.5 (DURATION), interpersonal +0.2 (DURATION), jobexperience +0.1 (DURATION), intelligence +0.2 (DURATION), mood -1 (DURATION), jobperformance +0.5 (END), karma +0.25 (END), Interacting:rapportwithplayer +2 (END) 
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:
+WHO: Actor = getTarget(); If WHERE == work && [Actor.isColleague() || Actor.isBoss()]      

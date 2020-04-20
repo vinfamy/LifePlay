@@ -1,0 +1,43 @@
+WHAT: attend_lectures
+WHERE: university:school
+WHEN: 0-24
+WHO: Actor = getSpecific(Lecturer)
+OTHER: none
+
+    SceneStart()
+    dressFormal()
+    Actor.dress()
+    Actor.show(2)
+    "It's every student's fantasy to fuck a lecturer but is Dr <Actor.name_last>, teaching <Actor.Major>, someone that I want to sleep with?"
+    0:: "Get close to Dr <Actor.name_last>"
+    1:: "Ew, not <Actor.him_or_her>"
+    
+    If 0
+        "I decided to come up to Dr <Actor.name_last> after class and showed my interest in more advanced reading materials about the subject matter."
+        Actor(Happy):: "I think these book recommendations should keep you occupied for a while. If you have any questions or fail to understand anything while reading these, you can come see me during my office hours and I'll be happy to help."
+        0:: "Flirt"
+        1:: "Thank you!"
+        
+        If 0
+            Actor:attractiontoplayer += 1
+            If Actor:attractiontoplayer > 50
+            Actor:: "I know what you want! I can't resist this temptation anymore. Let's fuck right here, right now."
+            0:: "Fuck <Actor.him_or_her> on university grounds"
+            1:: "Take <Actor.him_or_her> home first"
+            2:: "That's going too far"
+            
+            If 2
+                Player:: "Sorry, but you understand me wrong. I thought it was just some harmless flirting. I never intended this to go further than that."
+            Else
+                If 1
+                    moveTo(home)
+                    setBackground(home)
+                Endif
+                Sex(Player, Actor)
+            Endif
+        Endif     
+    Else
+        "Ew, I don't fancy <Actor.him_or_her> at all."
+    Endif
+    SceneEnd()
+    timeout(200, teacher_sex_cms)

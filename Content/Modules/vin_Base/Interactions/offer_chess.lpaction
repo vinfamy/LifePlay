@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: offer_chess
+ACTION_NAME: Play chess
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 30 - 60
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: mood +0.5 (END), interpersonal +0.05 (END), intelligence +0.2 (END), Interacting:rapportwithplayer +1 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:
+WHO: Actor = getTarget(); If !Actor.isTemporary() && [WHERE == home || WHERE == community_centre || WHERE == fraternity]   

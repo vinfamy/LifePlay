@@ -1,0 +1,14 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    If Actor.isDating() || Actor.isRelative() || [Random(0, 100) < interpersonal && [Actor:rapportwithplayer > 10 || Actor:attractiontoplayer > 10]] 
+        Actor(Happy):: "Of course, I'll follow your lead."
+        Actor.startDate()
+    Else
+        Actor(Sad):: "Sorry, I don't feel like hanging out with you today."
+    Endif
+    SceneEnd()

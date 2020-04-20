@@ -1,7 +1,7 @@
 WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 0-24
-WHO: Actor = getRelative(Child, StepChild); If Actor.livesWithPlayer() && Actor:rapportwithplayer < 80 && Actor:peversion < 50
+WHO: Actor = getRelative(Child, StepChild); If Actor.livesWithPlayer() && Actor:rapportwithplayer < 80 && Actor:perversion < 50
 OTHER: isAtHome()
 
     SugarBabe = SugarBabe.getGlobal()    
@@ -29,7 +29,9 @@ OTHER: isAtHome()
         Endif
         
         SceneEnd()
-        timeout(1000, family_sugarchild, child_sugarchild)        
+        timeout(1000, family_sugarchild, child_sugarchild)
+    Else
+        Actor.delete()
     Endif
     
 

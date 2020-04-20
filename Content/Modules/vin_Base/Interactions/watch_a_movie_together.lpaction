@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: watch_a_movie_together
+ACTION_NAME: Watch a movie together
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 90 - 150
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: stock_movie -1 (START), mood +3 (END), intelligence +0.01 (END), Interacting:rapportwithplayer +1.5 (END)
+CONDITIONS: stock_movie >= 0.8 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:
+WHO: Actor = getTarget(); If !Actor.isTemporary() && [WHERE == home || WHERE == fraternity]   

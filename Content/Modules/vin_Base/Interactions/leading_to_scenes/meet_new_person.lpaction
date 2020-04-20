@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: meet_new_person
+ACTION_NAME: Introduce myself
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 5 - 15
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: interpersonal +0.05 (END), mood +0.5 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: meet_new_person_i
+ANIMATION:
+WHO: New_Person = getTarget(); If New_Person.isTemporary() 

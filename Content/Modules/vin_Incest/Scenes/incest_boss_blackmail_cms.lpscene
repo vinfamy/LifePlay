@@ -1,0 +1,55 @@
+WHAT: all
+WHERE: work
+WHEN: 0-24
+WHO: Affair = getRelative(); Actor = getSpecific(Boss); If Affair.isMale() && Affair:incest > 50 && Actor.isMale() && Actor.isInterestedIn(Player) && Actor:perversion - Actor:masochist + masochist > Random(150, 400)
+OTHER: isModEnabled(vin_NonConsensual)
+
+    SceneStart()
+    "I was at work one day when I heard my boss call me into his office."
+    Actor.dress()
+    Actor.show()
+    Actor:: "<Player.name>, come in. I was just talking about you."
+    "My boss had a reputation for being brutish sometimes. I had heard him reduce more than a few colleagues to tears. As I stood there nervous he smiled at me and stepped around his desk to close the door, drawing the blinds closed on the windows."
+    "Turning to me he said,"
+    Actor:: "I've heard some disturbing reports, office gossip really, and usually I would ignore it. But someone in your department mentioned you had received a bunch of flowers the other day, roses. You know the policy on romance between staff..."
+    "Before I had a chance to say a word I could feel him standing behind me. With his hands on my shoulders he spoke into my ear..."
+    Actor:: "I know who those flowers were from. I know about you and your <Affair.relationship>."
+    "I felt his hands squeeze my shoulders. Startled I pulled away."
+    Player:: "That's sick! You're crazy! I don't know what you're talking about!"
+    "I started to leave his office."
+    "<Actor.name> stood before me, blocking my way. The smile on his face made me stomach drop."
+    Actor:: "I don't think so. I know the truth. Unlike the rest of this office..."
+    "He approached me and reached out. As he reached for me I turned away."
+    Actor:: "<Player.name>, don't bother with the act. I wouldn't say this if it were speculation. I know. Don't ask how I know, I just do. And unless you want everyone else here to know you're going to do exactly what I tell you, understand?"
+    "I stared at him. I was angry, defiant, but his confidence quickly had me looking away."
+    Player:: "What do you want me to do?"
+    "My boss pushed me backwards against the edge of his desk. His hand groped my <Player.dick_or_pussy>."
+    Actor:: "You're going to give me exactly what you give your dear <Affair.relationship>, unless you both want to be arrested?"
+    0:: "Go along with the blackmail"
+    1:: "Deny and take your chances"
+
+    If 1
+        If Actor:perversion - Actor:masochist + masochist < Random(150, 400)
+            "I laughed at him and pushed him away."
+            Player:: "What kind of a sick pervert are you? You have nothing on me!" 
+            "I pushed him off and stormed out of the office."
+            "I returned to my desk, shake, angry and afraid about what would happen."
+            "Luckily I didn't see my boss much after that and things eventually returned to normal."
+        Else
+            Actor:: "I warned you, <Player.name>. You're fired!"
+            loseJob()
+            "I was told to clear out my desk. As I did I could see my work colleagues whispering. Some were shaking their heads. Some looked down their nose at me."
+            Actor1 = getSpecific(Colleague)
+            Actor1:: "Disgusting!"
+            Actor2 = getSpecific(Colleague)
+            Actor2:: "With <Player.his_or_her> own <Affair.relationship>!"
+            "Humiliated and ashamed I left the office as quick as I could. To my relief I wasn't arrested."
+        Endif
+    Else
+        "Knowing there was nothing I could do I reluctantly agreed."
+        Actor(Evil):: "Perfect. Take off your clothes. I want to see what your <Affair.relationship> sees. You can pretend I'm him if it helps."
+        Sex(Actor, Player)
+        "When he was finished I put my clothes back on and left the office. In the bathroom I washed off as best as I could. Feeling uneasy I excused myself, left work and went home early."
+    Endif
+    SceneEnd()
+    timeout(500, incest_boss_blackmail_cms)

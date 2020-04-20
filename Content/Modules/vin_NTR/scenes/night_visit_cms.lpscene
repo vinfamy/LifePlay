@@ -1,0 +1,26 @@
+WHAT: sleep, nap
+WHERE: home
+WHEN: 22 - 4
+WHO: Actor2 = getSpecific(Dating); If Random(50, 200) < Actor2:perversion - Actor2:attractiontoplayer || OpenRelationship()
+OTHER: none
+
+    SceneStart()
+    If Player.isMale()
+        Actor = generatePersonTemporary(athletic)
+    Else
+        Actor = generatePersonTemporary(athletic_F)
+    Endif
+    Actor.randomizeFace()
+    Actor.randomizeHairs()
+    Actor.dress()
+    Actor.show()
+    
+    Actor2.show()
+
+    Actor(Flirty):: "Wake up, baby. I'm here for you!"
+    Actor2(Surprised):: "<Actor.name>!? What are you doing here? We agreed we would only meet in secret. My <Player.boyfriend_or_girlfriend> is right here!"
+    Actor(Flirty):: "Exactly, that makes it more exciting!"
+    Actor2:: "Alright then, you pervert. Let's do it slow and quiet and make sure <Player.he_or_she> doesn't wake up."
+    Sex(Actor, Actor2)      
+    SceneEnd()
+    timeout(400, night_visit_cms)

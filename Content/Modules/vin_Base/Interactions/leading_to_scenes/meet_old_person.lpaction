@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: meet_old_person
+ACTION_NAME: Exchange numbers
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 5 - 15
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: interpersonal +0.05 (END), mood +0.5 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: meet_old_person
+ANIMATION:
+WHO: New_Person = getTarget(); If !New_Person.isTemporary() && !New_Person.isContactExchanged()

@@ -1,0 +1,28 @@
+Don't
+Use
+First
+Five
+Lines
+
+    If WHEN > 8 && WHEN < 19 && DayOfWeek >= 2 && DayOfWeek <= 6
+        Today = AI.getActorVar(work_today)
+        If Today < 8
+            Work = AI.getBuilding(work)
+            Type = Work.getBuildingType()
+            If Type.isString("work") || Type.isString("post_office") || Type.isString("bank") || Type.isString("university")
+                AI.setCurrentLocation(Work)
+                Lunch = Random(11.5, 14)
+                If WHEN < Lunch
+                    Add = Lunch - WHEN
+                    Until = HoursElapsed + Add
+                Else
+                    Dinner = Random(17, 20)
+                    Add = Dinner - WHEN
+                    Until = HoursElapsed + Add
+                Endif
+                AI.setUntil(Until)
+                Today = Today + Add
+                AI.setActorVar(work_today, Today)
+            Endif
+        Endif
+    Endif

@@ -1,0 +1,12 @@
+Don't
+Use
+First
+Five
+Lines
+ 
+    If Random(0, 1)*AI:interpersonal < 10
+        Home = AI.getBuilding(home)
+        AI.setCurrentLocation(Home)
+        Until = HoursElapsed + Random(1, 3)
+        AI.setUntil(Until)
+    Endif

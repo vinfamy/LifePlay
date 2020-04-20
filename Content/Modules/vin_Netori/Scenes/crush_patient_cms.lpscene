@@ -1,0 +1,76 @@
+WHAT: all
+WHERE: hospital:work
+WHEN: 0-24
+WHO: none
+OTHER: !Player.isAsexual()
+
+    // Create a scene where if you are a doctor or nurse, a couple come into the hospital, one is very shy, naive and reluctant, the other is there to comfort them and provide confidence, maybe they don't like hospitals? or are very trusting of authority figures and settings? For whatever reason, they are now here for an appointment with you and when called there is a final 'You'll be fine dear' and then you can do an examination and or seduce them while their partner is in the waiting room.
+    
+    SceneStart()
+    Actor = generatePersonTemporary()
+    Actor.dress()
+    Actor.show(2)
+    Actor2 = generatePersonTemporary()
+    Actor2.dress()
+    Actor2.show()
+    "A couple come into the hospital, one is very shy, naive and reluctant, the other is there to comfort <Actor.him_or_her> and provide confidence"
+    "Maybe <Actor.he_or_she> doesn't like hospitals? Or <Actor.he_or_she> isn't very trusting of authority figures and settings."
+    "The <Actor.boyfriend_or_girlfriend> is here for a cancer screening, so <Actor.he_or_she> was asked to strip down. I know I should stay professional, but I can't help but look at the patient's naked body"
+    Actor.strip()
+    Actor2:: "It's okay, baby. I'd leave now and let the doctor do <Player.his_or_her> work."
+    Actor2.hide()
+    "The <Actor2.boyfriend_or_girlfriend> went back to the waiting room."
+    0:: "<Actor.He_or_She> is hot!"
+    1:: "Ew ..."
+    
+    If 0
+        "The patient is insanely hot. I wish I could touch <Actor.his_or_her> body right now ... Wait, I can! At least I have all the medical excuses to, and it's just me and <Actor.him_or_her> in this room right now, although I still need be wary of <Actor.his_or_her> <Actor2.boyfriend_or_girlfriend> who is just meters away in the waiting room"
+        0:: "Feel <Actor.him_or_her> up a bit"
+        1:: "Stay professional"
+        
+        If 0
+            "I took advantage of the cancer screening to get more than my fair share of touchy-feely. <Actor.He_or_She> seemed embarrassed and turned on by my touches, probably still assuming that this is part of the standard procedure."
+            karma -= 2.5
+            perversion += Random(0, 0.25)
+            arousal += Random(0, 20)
+            Actor:attractiontoplayer += Random(0, 10)
+        Endif
+        
+        "The examination is now done. I should ask the patient to put <Actor.his_or_her> clothes on ... or not."
+        0:: "Ask <Actor.name> to get dressed"
+        1:: "Make my move"
+        
+        If 0
+            Actor.dress()
+            "The patient put <Actor.his_or_her> clothes back on. I should wrap this up and welcome the next patient."
+            0:: "Ask for <Actor.his_or_her> number"
+            1:: "Just say goodbye"
+            
+            If 0
+                "I found an excuse to get the patient's number, promising to text <Actor.him_or_her> when the results are available, something that the hospital admin staff do. <Actor.He_or_She> believed it right away though and didn't think twice before handing over <Actor.his_or_her> number, even though <Actor.his_or_her> <Actor2.boyfriend_or_girlfriend> is just around the corner."
+                Actor.makePermanent()
+                exchangeContact(Actor)
+            Endif
+        Else
+            "I decided to make my move, grabbed <Actor.him_or_her> and started making out."
+            Player(Kiss):: "..."
+            If Random(0, 200) < Actor:attractiontoplayer + Actor:perversion
+                Actor(Kiss):: "..."
+                "The patient is clearly keen on getting down and dirty with <Actor.his_or_her> <Player.job>, despite <Actor.his_or_her> <Actor2.boyfriend_or_girlfriend> just meters away in the waiting room. Well, I'm certainly ready too."
+                Actor.makePermanent()
+                Sex(Player, Actor)
+                perversion += Random(0, 0.5)
+                Actor.show(2)
+                Player.show(0)
+                "After the sex, we exchanged numbers and I went back to work before any of my colleagues or <Actor.his_or_her> <Actor2.boyfriend_or_girlfriend> noticed."
+                exchangeContact(Actor)
+            Else
+                Actor(Angry):: "<Player.Job>, what are you doing? I'm getting out of here. What a dodgy hospital this is!"
+                "Thankfully, the patient didn't report the incident to the hospital's management, or I would have been fired for unprofessional conduct."
+            Endif
+        Endif
+    Else
+        "Ew ... definitely not my type. Let's get this over and done with before I go blind from having to stare at this sloppy body for too long."
+    Endif
+    SceneEnd()
+    timeout(100, crush_patient_cms)

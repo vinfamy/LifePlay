@@ -1,0 +1,24 @@
+Don't
+Use
+First
+Five
+Lines
+
+    Type == "brothel"
+    If isOpen(Type) && AI:perversion > 50
+        Today = AI.getActorVar(sexy_today)
+        Treats = AI.getActorVar(treats_thisweek)           
+        If Today == 0 && Random(30, 100)*Treats < AI:perversion
+            Current = AI.getBuilding(current)
+            Dest = Current.findNearbyBuilding(stripclub, brothel)
+            If Dest.isValid()
+                Until = HoursElapsed + Random(1, 3)                     
+                AI.setCurrentLocation(Dest)
+                AI.setUntil(Until)
+                Today += 1
+                AI.setActorVar(sexy_today, Today)
+                Treats += 2
+                AI.setActorVar(treats_thisweek, Treats)
+            Endif
+        Endif
+    Endif

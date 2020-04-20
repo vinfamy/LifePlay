@@ -1,0 +1,29 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Player.stripOne()
+    "I quickly flashed <Actor.name> my private parts."
+    perversion += 0.5
+    If Random(100, 200) < Actor:attractiontoplayer + perversion
+        Actor:attractiontoplayer += 0.5
+        Actor:perversion += 0.5
+        Actor(Flirty):: "I must say that's not a bad sight at all. Wanna show me what you can do with it?"
+        0:: "It's my lucky day!"
+        1:: "Actually, I didn't intend for this to get this far ..."
+        
+        If 0
+            Sex(Player, Actor)
+        Endif
+    Elseif Actor.hadSex() || Random(40, 100) < Actor:attractiontoplayer + perversion
+        "<Actor.name> didn't say a word but smiled at me. <Actor.He_or_She> definitely enjoyed what <Actor.he_or_she> saw."
+        Actor:attractiontoplayer += 0.5
+        Actor:perversion += 0.5
+    Else
+        Actor(Angry):: "What the fuck! That's so inappropriate! Cover up you perv!"
+        Actor:attractiontoplayer -= 1
+    Endif
+    SceneEnd()

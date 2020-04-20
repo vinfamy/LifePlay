@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: get_a_hooker_together
+ACTION_NAME: Get a hooker together
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 5 - 10
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: get_a_hooker_together
+ANIMATION:
+WHO: Actor2 = getTarget(); If !Actor2.isTemporary() && [Actor2.isContactExchanged() || Actor2.isRelative()] && [WHERE == home || WHERE == brothel || WHERE == hotel]     

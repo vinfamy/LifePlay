@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: cook_together
+ACTION_NAME: Cook together
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 20 - 60
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:  stock_ingredient -4 (START),  stock_meal +2 (END), cooking +0.2 (END), energy -2 (DURATION), mood +5 (DURATION), Interacting:rapportwithplayer +1 (END)
+CONDITIONS: stock_ingredient >= 3.6 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:
+WHO: Actor = getTarget(); If !Actor.isTemporary() && [WHERE == home || WHERE == fraternity]

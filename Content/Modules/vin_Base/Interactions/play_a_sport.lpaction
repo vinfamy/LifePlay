@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: play_a_sport
+ACTION_NAME: Play a sport together
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 60 - 120
+TIMEOUT_MINUTES: 1200
+ALSO_TIMEOUT: 
+EFFECTS: energy -10 (DURATION), fitness +0.03 (DURATION), mood +5 (END), interpersonal +0.05 (END), Interacting:rapportwithplayer +2 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:
+WHO: Actor = getTarget(); If WHERE == sports_centre        

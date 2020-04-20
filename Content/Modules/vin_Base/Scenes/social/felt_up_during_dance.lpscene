@@ -12,7 +12,7 @@ SceneStart()
     If 0
         "This is so inappropriate. I immediately stopped dancing and moved to another spot on the dancefloor, hopefully free of perverts."
     Else
-        peversion += Random(0, 0.25)
+        perversion += Random(0, 0.25)
         "Well, I won't lie: I'm kinda enjoying this. Ignoring the hand, I kept dancing like nothing was happening."
         Random
             Actor = getPerson()

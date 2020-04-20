@@ -1,12 +1,13 @@
 ACTION_UNIQUEID: train_customer_service
 ACTION_NAME: Train customer service
-WHERE: alcohol:business, bag:business, bakery:business, bar:business, beauty:business, beverages:business, bicycle:business, biergarten:business, books:business, butcher:business, cafe:business, car:business, chemist:business, cinema:business, clothes:business, coffee:business, computer:business, confectionery:business, convenience:business, copyshop:business, cosmestics:business, deli:business, doityourself:business, electronics:business, fast_food:business, florist:business, furniture:business, gift:business, greengrocer:business, hairdresser:business, hotel:business, ice_cream:business, jewellery:business, laundry:business, mobile_phone:business, motorcycle:business, musical_instrument:business, newsagent:business, nightclub:business, optician:business, outdoor:business, pet:business, pharmacy:business, photo:business, pub:business, restaurant:business, seafood:business, shoes:business, sports:business, sports_centre:business, stationery:business, supermarket:business, tea:business, theatre:business, tobacco:business, toys:business, variety_store:business, travel_agency:business, art:business, brothel:business, stripclub:business
+WHERE: alcohol:business, bag:business, bakery:business, bar:business, beauty:business, beverages:business, bicycle:business, biergarten:business, books:business, butcher:business, cafe:business, car:business, chemist:business, cinema:business, clothes:business, coffee:business, computer:business, confectionery:business, convenience:business, copyshop:business, cosmestics:business, deli:business, doityourself:business, electronics:business, fast_food:business, florist:business, furniture:business, gift:business, greengrocer:business, hairdresser:business, hotel:business, ice_cream:business, jewellery:business, laundry:business, mobile_phone:business, motorcycle:business, musical_instrument:business, newsagent:business, nightclub:business, optician:business, outdoor:business, pet:business, pharmacy:business, photo:business, pub:business, restaurant:business, seafood:business, shoes:business, sports:business, sports_centre:business, stationery:business, supermarket:business, tea:business, theatre:business, tobacco:business, toys:business, variety_store:business, travel_agency:business, art:business, brothel:business, stripclub:business, interaction
 WHEN: 0 - 24
 MINUTES: 120 - 240
 TIMEOUT_MINUTES: 0
 ALSO_TIMEOUT:
-EFFECTS: interpersonal +0.2 (END)
+EFFECTS: interpersonal +0.2 (END), Interacting:interpersonal +2
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION:
+WHO: Actor = getTarget(); If Actor.isEmployee() && Actor.isAt(work)   

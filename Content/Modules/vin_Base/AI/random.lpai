@@ -1,0 +1,16 @@
+Don't
+Use
+First
+Five
+Lines
+
+    Today = AI.getActorVar(random_today)    
+    If Today == 0 && Random(0, 100) < 5
+        Current = AI.getBuilding(current)
+        Dest = Current.findNearbyBuilding(alcohol, art, bag, bakery, bank, bar, beauty, beverages, bicycle, biergarten, books, butcher, cafe, car, chemist, cinema, clothes, coffee, community_centre, computer, confectionery, convenience, copyshop, cosmestics, deli, dentist, department_store, doctor, doityourself, electronics, fast_food, florist, furniture, garden_centre, gift, greengrocer, hairdresser, hotel, ice_cream, jewellery, laundry, library, marketplace, mobile_phone, motorcycle, musical_instrument, newsagent, nightclub, optician, outdoor, pet, pharmacy, photo, place_of_worship, post_office, pub, restaurant, seafood, shoes, sports, sports_centre, stationery, supermarket, tea, theatre, tobacco, toilets, toys, travel_agency, variety_store, veterinary)
+        Until = HoursElapsed + Random(0.5, 2)                     
+        AI.setCurrentLocation(Dest)
+        AI.setUntil(Until)
+        Today += 1
+        AI.setActorVar(random_today, Today)
+    Endif

@@ -61,15 +61,33 @@ OTHER: none
                     Actor.dressExcept(Outerwear, Bottom, Foot, Headwear, Eyewear, Bottom_Under, Top_Under)
                     "And finally ..."
                     Actor.dressExcept(Outerwear, Top, Foot, Headwear, Eyewear, Bottom_Under, Top_Under)   
-                    Actor2 = Actor.getRelatedPerson(Dating, Spouses)                    
+                    Actor2 = Actor.getRelatedPerson(Dating, Spouses)
+                    If !Actor2.isValid()
+                        Actor2 = getSpecific(Dating)
+                        If Actor2.isInterestedIn(Actor) && Actor.isInterestedIn(Actor2) && Random(50, 100) < Actor:perversion - Actor:attractiontoplayer
+                            "Wait, isn't that my <Actor2.boyfriend_or_girlfriend> <Actor2.name>? What the hell is <Actor2.he_or_she> doing turning up in my <Actor.relationship>'s room?"
+                        Else
+                            Actor2.delete()
+                        Endif
+                    Endif
                     If Actor2.isValid() && isModEnabled(vin_NTR) && Random(0, 100) < Actor:perversion
                         Actor2.dress()
                         Actor2.show(3)
                         Actor2(Flirty):: "You look so sexy dressed like that, baby. I don't think I can help it any longer. Let's have a quickie before we go, love!"
-                        Actor(Sad):: "I don't know ... You're in my apartment, you know. My <Actor.callplayer>'s bedroom is just across the hallway ... <Player.He_or_She> may hear us. Besides, aren't we in a hurry?"
-                        Actor2(Flirty):: "Come on baby, <Player.he_or_she> is an adult. What's the matter if <Player.he_or_she> hears us? And we still have plenty of time for some fun."
+                        If Actor2.isDating()
+                            Actor(Sad):: "I don't know ... we should be more discrete. My <Actor.callplayer>'s bedroom is just across the hallway ... <Player.He_or_She> may hear us. Did you forget that <Player.he_or_she> is your <Player.boyfriend_or_girlfriend> already?"
+                            Actor2(Flirty):: "Come on baby, <Player.he_or_she> is an idiot. <Player.He_or_She> is probably asleep like a pig already. And we shave plenty of time for some fun."                     
+                        Else
+                            Actor(Sad):: "I don't know ... You're in my apartment, you know. My <Actor.callplayer>'s bedroom is just across the hallway ... <Player.He_or_She> may hear us. Besides, aren't we in a hurry?"
+                            Actor2(Flirty):: "Come on baby, <Player.he_or_she> is an adult. What's the matter if <Player.he_or_she> hears us? And we still have plenty of time for some fun."
+                        Endif
                         Actor(Flirty):: "I guess you have a point ... Come here then."
-                        "Damn, it's my <Actor.relationship>'s <Actor2.boyfriend_or_girlfriend> who is joining <Actor.him_or_her> in <Actor.his_or_her> bedroom ... Not sure how I feel about this ..."
+                        If Actor2.isDating()
+                            "Are they having an affair behind my back!? How long has this been going on without me knowning?"                        
+                        Else
+                            "Damn, it's my <Actor.relationship>'s <Actor2.boyfriend_or_girlfriend> who is joining <Actor.him_or_her> in <Actor.his_or_her> bedroom"
+                        Endif
+                        "... Not sure how I feel about this ..."
                         0:: "Continue watching"
                         1:: "Enough ... I don't need to see this"
                         

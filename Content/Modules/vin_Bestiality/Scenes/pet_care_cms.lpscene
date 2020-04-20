@@ -1,0 +1,52 @@
+WHAT: all
+WHERE: home
+WHEN: 9 - 18
+WHO: Actor = getSpecific(Dating); Actor2 = getSpecific(Neighbour); If !Actor.isMale() && Random(50, 100) < Actor:perversion - Actor:attractiontoplayer || OpenRelationship() 
+OTHER: isModEnabled(vin_NTR)
+
+    // Have it so one of your neighbours comes round to ask you if you are free to look after their pet as they have to go out of town for the evening. You can accept and look after the pet yourself (innocently or not) or suggest your partner does and if so you can go over a visit with a chance that everything is innocent or stumble upon something not so innocent and then hide and peek.
+    SceneStart()
+    Actor3 = generateCreatureTemporary()
+    
+    Actor2.dress()
+    Actor2.show()
+    Actor3.show()
+    Actor2:: "I'm going away for a few days. Would you mind taking care of <Actor3.name>?"
+    "Animal care doesn't sound too appealing right now ..."
+    0:: "Yes"
+    1:: "Maybe <Actor.name> can help"
+    2:: "No"
+    
+    If 0 
+        Actor2.hide()
+        "I'm now taking care of <Actor3.name>. It's pretty boring"
+        0:: "Fuck <Actor3.name>"
+        1:: "Be responsible"
+        
+        If 0
+            Sex(Actor3, Player)
+        Endif
+        Actor2.show()
+        Actor2:: "Thank you for taking care of <Actor3.name> the last few days."
+    Elseif 1
+        Actor2.hide()
+        Actor.dress()
+        Actor.show()
+        "<Actor.name> seems a bit too excited about taking care of <Actor3.name> on <Actor2.name>'s behalf. I wonder what's going on?"
+        0:: "Go check"
+        1:: "Trust <Actor.him_or_her>"
+        
+        If 0 && Random(75, 150) < Actor:perversion - Actor:attractiontoplayer
+            Sex(Actor3, Actor)
+            masochist += 2
+        Else
+            "<Actor.name> is just taking care of <Actor3.name> innocently as agreed."
+        Endif
+        Actor2.show()
+        Actor2:: "Thank you for taking care of <Actor3.name> the last few days."
+    Else
+        Player:: "Sorry, I'm too busy for that right now. You should ask someone else."
+    Endif
+    
+    SceneEnd()
+    timeout(300, pet_care_cms)

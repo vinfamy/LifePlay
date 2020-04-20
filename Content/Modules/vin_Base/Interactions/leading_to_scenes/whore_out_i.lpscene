@@ -1,0 +1,35 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24 
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "I decided to approach someone who looks like <Actor.he_or_she> wouldn't mind paying for sex ..."
+    If Actor.isInterestedIn(Player) && [Actor:perversion - Actor:attractiveness > 50 || WHERE == brothel]
+        Actor(Flirty):: "How much?"
+        0:: "Turn <Actor.him_or_her> down"
+        1:: "Rip <Actor.him_or_her> off"
+        2:: "Offer a fair price"
+        3:: "Give <Actor.him_or_her> a bargain"
+        
+        If 0
+            Player(Sad):: "Sorry, but I'm not working right now ..."
+        Elseif choice*attractiveness > Actor:intelligence + Actor:interpersonal
+            Actor(Flirty):: "It looks like we have a deal, darling."
+            If WHERE == brothel
+                "Soon enough, I was following <Actor.him_or_her> to one of the brothel's rooms."
+            Else
+                "Soon enough, I was following <Actor.him_or_her> to a nearby motel room."
+                setBackground(home)
+            Endif
+            Sex(Actor, Player)
+            money += Random(100, 500)/choice
+        Else
+            Actor(Angry):: "No way, that's too expensive! You have too high an opinion of yourself, honey. I'll find myself another whore elsewhere."
+        Endif
+    Else
+        Actor(Angry):: "Do I look like someone desperate enough to pay for a prostitute? Get lost!"
+    Endif
+    
+    SceneEnd()

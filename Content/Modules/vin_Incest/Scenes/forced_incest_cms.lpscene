@@ -1,0 +1,59 @@
+WHAT: all
+WHERE: all
+WHEN: 0-24
+WHO: Actor = getCompanion(); If Actor.isRelative() && Actor:incest > 30 && Actor.isMale() && Actor.isInterestedIn(Player) && Actor:perversion - Actor:masochist + masochist > Random(150, 400)
+OTHER: isModEnabled(vin_NonConsensual)
+
+    SceneStart()
+    "My <Actor.relationship> wanted to talk to me about something. It seemed pretty important."
+    Actor(Angry):: "<Actor.callplayer>, I've been thinking. I don't like the way I see other <Actor.guys_or_girls> looking at you. I told you, the only person allowed to touch you is me. So I think it's time we took the next step."
+    Actor(Flirty):: "In public you'll still be my <Actor.callplayer>, but when we're alone you'll be all mine. Like a <Player.boyfriend_or_girlfriend>. Like a lover. You love me, don't you, <Player.prince_or_princess>?"
+    0:: "Agree to be his <Player.boyfriend_or_girlfriend>"
+    1:: "Turn him down"
+
+    If 0
+        "I knew it was wrong, and worse, illegal, but I also knew I couldn't say no to him."
+        Player:: "Of course I love you, <Actor.relationship>. Whatever you want."
+        Actor:incest += 100
+        "My <Actor.relationship> seemed happy with my decision. Smiling, he pulled me into his arms and hugged me, his hands squeezing my ass cheeks. I felt the bulge of his erection starting to grow against me."
+        "When he kissed me I felt his tongue on mine. It didn't last long. Since we were in public he let go reluctantly. He slid his arm around my shoulders. Leading me to a secluded area he whispered into my ear."
+        Actor(Flirty):: "I'm going to fuck you so hard, my girl/boy."
+        0:: "Agree to sex"
+        1:: "Distract him"
+
+        If 1
+            "Nervously I pointed out how many people were around."
+            Player:: "What if someone sees?" 
+            "My <Actor.relationship> didn't seem worried about that. I could see by the look in his eyes it was turning him on instead."
+            "I tried to distract him laughing like he had said something funny in case anyone was watching. Seeing someone I pointed them out and said."
+            Player(Surprised):: "Isn't that one of your friends from work, <Actor.relationship>?"
+            "My <Actor.relationship>'s face darkened but he played along."
+            Actor:: "Maybe. It's hard to tell from here"
+            "He smiled but I didn't like the look he wore. Making sure no one was watching he gave my ass another squeeze as he said in my ear."
+            Actor:: "Just wait until I get you home."
+        Else
+            "My <Actor.relationship> told me to take off their pants and bend over. My heart was hammering as I did. I turned around and gripped the wall. I gasped and closed my eyes as I felt his cock enter me. I was scared that any second someone would see what my <Actor.relationship> was doing to me."
+            Sex(Actor, Player)
+            "When my <Actor.relationship> pulled out of me he pulled his clothes back on. Shaking I did the same. My legs felt like jelly. Since we both smelled of sex he took me home quickly before anyone could notice."
+        Endif
+    Else
+        If Actor:perversion - Actor:masochist + masochist < Random(150, 400)
+            "I felt the blood drain from my face. I knew what he wanted and I knew how wrong it was. I also knew what it would mean for me if I agreed." 
+            "Thinking quickly I said"
+            Player:: "Of course I love you, you're my <Actor.relationship>, I just don't want anything bad to happen. I don't want us to get into trouble. I'll always be your <Player.prince_or_princess>, won't I? That won't ever change, will it?"
+            "My <Actor.relationship> didn't seem happy with what I said but he didn't say anything more about it."
+        Else
+            "My <Actor.relationship> smiled as he pulled me closer"
+            Actor:: "What made you think you had an option?"
+            "Before I could say anything else, my <Actor.relationship> dragged me over to a dark, secluded corner, pulled my pants down and forced himself on me."
+            Actor(Evil):: "It's time you learned how to be a good little slut. I told you, you belong to me."
+            Filter(Aggressive)
+            TalkNonConsensual()
+            Sex(Actor, Player)
+            Actor:incest += 50
+            "When my <Actor.relationship> pulled out of me he pulled his clothes back on. Shaking I did the same. My legs felt like jelly. He took me home quickly before anyone could notice."
+        Endif
+    Endif
+    SceneEnd()
+    timeout(500, forced_incest_cms)
+    

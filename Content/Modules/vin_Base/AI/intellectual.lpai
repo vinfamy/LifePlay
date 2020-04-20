@@ -1,0 +1,13 @@
+Don't
+Use
+First
+Five
+Lines
+
+    If Random(30, 500) < AI:intelligence && [WHEN > 9 || WHEN < 19]
+        Home = AI.getBuilding(home)
+        Dest = Home.findNearbyBuilding(books, library, university)
+        Until = HoursElapsed + Random(2, 4)                     
+        AI.setCurrentLocation(Dest)
+        AI.setUntil(Until)
+    Endif

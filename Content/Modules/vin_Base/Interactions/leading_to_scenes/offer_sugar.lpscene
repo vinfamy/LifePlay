@@ -1,0 +1,77 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "What kind of sugar dating arrangement with <Actor.name> do I have in mind?"
+    0:: "<Actor.name> as the <Actor.sugardaddy_or_sugarmomma>"
+    1:: "Me as the <Player.sugardaddy_or_sugarmomma>"
+    
+    If 0
+        SugarParent = SugarParent.getGlobal()
+        If SugarParent > 0
+            "I should keep in mind that I already have a sugar dating arrangement going on. If <Actor.name> ends up as my <Actor.sugardaddy_or_sugarmomma>, it's almost certain that <Actor.he_or_she> will want our arrangement to be exclusive and demand I get rid of the other arrangement. I can't have the cake and eat it too!"
+        Endif
+        If Actor.isInterestedIn(Player) && Actor:intelligence + Actor:interpersonal + Actor:perversion + attractiveness - Actor:attractiveness + Actor:age - age > 150
+            Actor(Flirty):: "Well, I'm no stranger to being a <Actor.sugardaddy_or_sugarmomma> and I like how direct you are to approach me."
+            Actor(Flirty):: "How about a first date to sort out our arrangement?"
+            0:: "Yes"
+            1:: "No"
+            
+            If 0
+                "Why not? I'm sure <Actor.he_or_she> will be extra generous on the first date."
+                setBackground(restaurant)
+                "<Actor.name> took me to a really fancy restaurant and wined and dined me like money was no object. Afterwards, <Actor.he_or_she> suggested that we go to a suite <Actor.he_or_she> had booked at a 5-star hotel nearby."
+                0:: "Yes"
+                1:: "No"
+                
+                If 0
+                    setBackground(home)
+                    Actor.makePermanent()
+                    "Wow, this is a nice hotel suite! Must have cost a fortune. And I know very well what <Actor.name> is expecting from me for <Actor.his_or_her> generousity."
+                    Sex(Actor, Player)
+                    perversion += Random(0, 0.5)
+                    Actor.show(2)
+                    "The sex wasn't too bad. We spent the night together. The morning after, <Actor.name> paid for breakfast, and before heading off to work, told me that <Actor.he_or_she> will call me soon and left me a generous envelope. Needless to say, <Actor.name> is now my <Actor.sugardaddy_or_sugarmommy>."
+                    money += Random(100, 500)
+                    SugarParent = Actor.getID()
+                    SugarParent.setGlobal(SugarParent)
+                Else
+                    "I turned down <Actor.name>'s offer to go back to the hotel. <Actor.He_or_She> was obviously disappointed and needless to say, never got in contact with me again."
+                Endif
+            Else
+                "Ew, on second thought, even for money, I can't sleep with someone that old and ugly."
+            Endif            
+        Else
+            Actor(Sarcastic):: "Sorry, but you must have mistaken me for some millionaire with cash to burn. I must say I'm a bit flattered though." 
+        Endif
+    Else
+        SugarBabe = SugarBabe.getGlobal()
+        If SugarBabe > 0
+            "I should keep in mind that I already have a sugar dating arrangement going on. If <Actor.name> ends up as my <Actor.sugardick_or_sugarbabe>, I'll probably need to get rid of the other arrangement. Two sugarbabes at the same time are just way out of my budget."
+        Endif
+        If Actor.isInterestedIn(Player) && Actor:perversion - Actor:intelligence + Actor:attractiontoplayer > 50
+            Actor(Flirty):: "Well, I've been broke for ... like ... forever! I like how direct you are to approach me."
+            Player(Flirty):: "How about a first date to sort out our arrangement?"
+            "I'll be sure to be extra generous on the first date."
+            setBackground(restaurant)
+            "I took <Actor.name> to a really fancy restaurant and wined and dined <Actor.him_or_her> like money was no object. Afterwards, I suggested that we head to a suite I had booked at a 5-star hotel nearby."
+            
+            setBackground(home)
+            Actor.makePermanent()
+            "This hotel suite cost me a fortune. And I hope that <Actor.name> knows what I'm expecting from <Actor.him_or_her> for my generousity."
+            Sex(Player, Actor)
+            perversion += Random(0, 0.5)
+            Actor.show(2)
+            "We spent the night together. The morning after, I paid for breakfast, and before heading off to work, I told <Actor.name> that I will call <Actor.him_or_her> soon and left <Actor.him_or_her> a generous envelope. Needless to say, <Actor.name> is now my sugarbabe."
+            money -= Random(100, 500)
+            SugarBabe = Actor.getID()
+            SugarBabe.setGlobal(SugarBabe)
+        Else
+            Actor(Angry):: "I'm not that cheap and love cannot be bought. Pretty sure there are websites you can go to for this kind of things - you don't need to approach random people so shamelessly showing off your money."
+            Actor:rapportwithplayer -= Random(0, 5)
+        Endif
+    Endif
+    SceneEnd()

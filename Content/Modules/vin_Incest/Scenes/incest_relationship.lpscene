@@ -1,35 +1,35 @@
 WHAT: all
 WHERE: all
 WHEN: 0-24
-WHO: Actor = getCompanion(); If CurrentCompanion.isRelative() && CurrentCompanion:incest > 85 && Player.isInterestedIn(Actor) && CurrentCompanion.isInterestedIn(Player) && !CurrentCompanion.hasRelationship(Spouses, Dating)
+WHO: Actor = getCompanion(); If Actor.isRelative() && Actor:incest > 85 && Player.isInterestedIn(Actor) && Actor.isInterestedIn(Player) && !Actor.hasRelationship(Spouses, Dating)
 OTHER: !Player.isDating() || [isModEnabled(vin_Polyamorous) && OpenRelationship()]
 
     SceneStart()
-    CurrentCompanion.show(2)
+    Actor.show(2)
 
     passTime(0.2, 0.5)
 
-    "I know <Actor.name> is my <Actor.relationship> but we already crossed all sort of boundaries and tasted all the forbidden fruit. I think I've fallen in love with my own <Actor.relationship>. However, have I ever imagined <CurrentCompanion.him_or_her> as my <CurrentCompanion.boyfriend_or_girlfriend>?"
+    "I know <Actor.name> is my <Actor.relationship> but we already crossed all sort of boundaries and tasted all the forbidden fruit. I think I've fallen in love with my own <Actor.relationship>. However, have I ever imagined <Actor.him_or_her> as my <Actor.boyfriend_or_girlfriend>?"
     0:: "Yes"
     1:: "No"
     
     If 0
-        "I have fallen in love with <CurrentCompanion.him_or_her> and I don't care that <Actor.he_or_she> is my <Actor.relationship> and I don't care what others think - they can call it incest if they want. But is this the right time when I should have the courage to ask <CurrentCompanion.him_or_her> to be my <CurrentCompanion.boyfriend_or_girlfriend>?"
+        "I have fallen in love with <Actor.him_or_her> and I don't care that <Actor.he_or_she> is my <Actor.relationship> and I don't care what others think - they can call it incest if they want. But is this the right time when I should have the courage to ask <Actor.him_or_her> to be my <Actor.boyfriend_or_girlfriend>?"
         0:: "Yes"
         1:: "No"
         
         If 0
             Player(Anxious):: "Listen, can we talk privately for a bit?"
-            CurrentCompanion(Curious):: "Of course, <Player.name>. What is it?"
+            Actor(Curious):: "Of course, <Player.name>. What is it?"
             
             If interpersonal < 50
                 "Alright, this is the moment. <Player.name>, you can do this! Be brave. Keep calm ... Keep calm ... Don't screw this up!"
             Endif
             
-            Player(Happy):: "You know, although you're my <CurrentCompanion.relationship>, my passion for you has crossed all forbidden boundaries and I hope you feel the same ..."
-            Player(Happy):: "If so, I would love nothing more than to take our relationship to the next level and be able to call you my <CurrentCompanion.boyfriend_or_girlfriend>."
-            CurrentCompanion(Surprised):: "<Player.name>! I ..."                
-            CurrentCompanion(Happy):: "You're my <Actor.callplayer> but I think I've fallen in love with you, <Player.name>. Of course I'll be your <CurrentCompanion.boyfriend_or_girlfriend>!"
+            Player(Happy):: "You know, although you're my <Actor.relationship>, my passion for you has crossed all forbidden boundaries and I hope you feel the same ..."
+            Player(Happy):: "If so, I would love nothing more than to take our relationship to the next level and be able to call you my <Actor.boyfriend_or_girlfriend>."
+            Actor(Surprised):: "<Player.name>! I ..."                
+            Actor(Happy):: "You're my <Actor.callplayer> but I think I've fallen in love with you, <Player.name>. Of course I'll be your <Actor.boyfriend_or_girlfriend>!"
             mood += 100
             
             "So we embraced and kissed, treasuring our first moment as a couple."
@@ -38,10 +38,10 @@ OTHER: !Player.isDating() || [isModEnabled(vin_Polyamorous) && OpenRelationship(
             
             If 0
                 Player(Wink):: "Baby, I just thought of the perfect way to celebrate the start of our romance!"
-                CurrentCompanion(Flirty):: "I think I know exactly what you mean!"
-                Sex(Player, CurrentCompanion)
+                Actor(Flirty):: "I think I know exactly what you mean!"
+                Sex(Player, Actor)
                 perversion += Random(0, 0.5)
-                CurrentCompanion.show(2)
+                Actor.show(2)
                 "After having sex, we continued our date, now as a new couple."
             Else
                 "We continued our date, now as a new couple."

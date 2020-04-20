@@ -448,7 +448,7 @@ OTHER: none
                 1:: "That's a surefire way to get myself killed."
                 
                 If 0
-                    If Boss:masochist > 50 || Boss:peversion > 70
+                    If Boss:masochist > 50 || Boss:perversion > 70
                         Boss(Flirty):: "I guess my best right hand <Player.man_or_woman> deserves some more 'personal' compensation ..."
                         Sex
                     Else

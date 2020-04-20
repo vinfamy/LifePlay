@@ -2,7 +2,7 @@ WHAT: all
 WHERE: home
 WHEN: 0 - 24
 WHO: Admirer = getPerson(true); If Admirer:attractiontoplayer > 10
-OTHER: isWithCompanion() && CurrentCompanion.isDating() && If Random(20, 400) < CurrentCompanion:attractiontoplayer + attractiveness - CurrentCompanion:attractiveness
+OTHER: isWithCompanion() && CurrentCompanion.isDating() && Random(20, 400) < CurrentCompanion:attractiontoplayer + attractiveness - CurrentCompanion:attractiveness
 
 SceneStart()
 

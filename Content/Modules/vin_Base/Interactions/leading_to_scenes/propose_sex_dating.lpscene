@@ -1,0 +1,26 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24 
+WHO: none
+OTHER: none
+
+    SceneStart()
+    If Actor.isDating()
+        "The best thing about being in a steady relationship is that sex is much easier to come by"
+    Else
+        "I had sex with <Actor.name> before. Maybe it wouldn't take much convincing to get it on again?"
+    Endif
+    "Should I be direct and suggest hooking up with <Actor.name> now?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        If Random(0, 50) < Actor:attractiontoplayer + interpersonal + Actor:perversion + Actor:incest
+            Actor(Flirty):: "Fine ... I'm quite horny myself actually."
+            Sex(Actor, Player)
+            perversion += Random(0, 0.05)
+        Else
+            Actor(Sad):: "Sorry, but I'm not in the mood right now ..."
+        Endif
+    Endif
+    SceneEnd()

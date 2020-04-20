@@ -1,0 +1,34 @@
+WHAT: all
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getRelative(Sibling); Actor1 = getRelative(Sibling); If !Actor.isMale() && Actor1.isMale() && Actor1:perversion - Actor1:masochist > 75
+OTHER: isModEnabled(vin_NonConsensual) && Player.isMale()
+
+    SceneStart()
+    Actor1.dress()
+    Actor1.show()
+    "I can't believe it: My brother <Actor1.name> is trying to get me into his cynical plan to get my sister <Actor.name> drunk and gangrape her!"
+    0:: "That sounds like a good plan"
+    1:: "That's disgusting!"
+    
+    If 0
+        "We're family after all. This forbidden fruit shall be shared among us brothers!"
+        Actor.dress()
+        Actor.show()
+        Actor:: "Oh my god, <Player.name>, stop already! I can't drink anymore ..."
+        "After getting <Actor.name> nice and drunk, us brothers immediately got to some quality family bonding time."
+        Actor:incest += 100
+        Actor2 = getRelative(Sibling)
+        Actor3 = getRelative(Sibling)
+        If Actor2.isValid() && Actor2.isMale()
+            If Actor3.isValid() && Actor3.isMale()
+                Sex(Player, Actor1, Actor2, Actor3, Actor)
+            Else
+                Sex(Player, Actor1, Actor2, Actor)
+            Endif
+        Else
+            Sex(Player, Actor1, Actor)
+        Endif
+    Endif
+    SceneEnd()
+    timeout(200, siblings_gangbang_rape_cms)

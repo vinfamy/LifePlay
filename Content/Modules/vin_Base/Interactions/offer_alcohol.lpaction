@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: offer_alcohol
+ACTION_NAME: Buy a drink
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 5 - 20
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: money -10 (START), intoxication +15 (END), mood +2.5 (END), energy +0.5 (END), Interacting:intoxication +15 (END), Interacting:rapportwithplayer +1 (END), Interacting:attractiontoplayer +1 (END) 
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION: 
+WHO: Actor = getTarget(); If !Actor.isTemporary() && [WHERE == nightclub || WHERE == bar || WHERE == pub || WHERE == hotel || WHERE == stripclub || WHERE == brothel]  

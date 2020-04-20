@@ -1,0 +1,19 @@
+Don't
+Use
+First
+Five
+Lines
+
+    If AI.hasRelationship(Spouses, Dating)
+        SO = getRelatedPersonQuick(Spouses, Dating)
+        Until = SO.getUntil()
+        If Until - HoursElapsed > 1
+            Dest = SO.getBuilding(current)
+            Work = SO.getBuilding(work)
+            If !Dest.isSameBuilding(Work)
+                AI.setCurrentLocation(Dest)
+                AI.setUntil(Until)
+            Endif
+            SO.delete()
+        Endif
+    Endif

@@ -1,0 +1,54 @@
+WHAT: sleep
+WHERE: home
+WHEN: 0-24
+WHO: Actor = getRelative(); If Actor.livesWithPlayer() && Actor.isMale() && Actor.isInterestedIn(Player) && Actor:perversion - Actor:masochist > Random(100, 300)
+OTHER: isModEnabled(vin_NonConsensual) && isAtHome() && Random(0, 100) < masochist
+
+    SceneStart()
+    "I was in bed asleep when suddenly, I felt the covers being pulled back."
+    "I regained some consciousness to see my <Actor.relationship> standing beside my bed."
+    Actor.show()
+    "I froze, feeling my <Actor.relationship>’s hand beneath the covers rubbing at my <Player.cock_or_pussy>. Maybe I could pretend to stay asleep and hope that my <Actor.relationship> gives up and leaves. Or maybe I should wake up and resists."
+    0:: "Pretend to stay asleep"
+    1:: "Resist"
+    
+    If 0
+        If Actor:perversion - Actor:masochist < Random(100, 300)
+            "The rubbing intensifies before my <Actor.relationship> eventually removes <Actor.his_or_her> hand and gives up, leaving the room disappointed."
+        Else
+            "The rubbing intensifies before my <Actor.relationship> removes hand, opens his pants and pushes his cock into my mouth"
+            0:: "Suck his cock"
+            1:: "Pretend to stay asleep"
+            
+            If 0
+                "I reluctantly open my mouth and take my <Actor.relationship>'s thick warm cock into my mouth."
+                Filter(Blowjob)
+                Sex(Actor, Player)
+                Actor:incest += 30
+            Else
+                 "My <Actor.relationship> tries to force me to engage in oral sex but eventually gives up and leaves."
+            Endif
+        Endif
+    Else
+        "The rubbing intensifies before my <Actor.relationship> removes hand, opens pants and pushes cock into my mouth."
+        0:: "Suck his cock"
+        1:: "Resist"
+        
+        If 0
+            "I reluctantly open my mouth and take my <Actor.relationship>'s thick warm cock into my mouth."
+            Filter(Blowjob)
+            Sex(Actor, Player)
+            Actor:incest += 30
+        Else
+             "I try to pull free but my <Actor.relationship> grabs me and demands me to open their mouth."
+             Actor(Evil):: "Suck you little <Player.bastard_or_bitch>!"
+             "I try to protest and pull away but my <Actor.relationship> pulls the covers back, pulls my pants off and climbs onto the bed, pinning me down."
+             Filter(Aggressive)
+             TalkNonConsensual()
+             Sex(Actor, Player)
+             "After he finished, my <Actor.relationship> pulled out of me, got dressed and left the room like nothing had happened. For a long time I lay there too sore and too scared to move. I can’t believe my own <Actor.relationship> could do this to me!"
+             Actor:incest += 50
+        Endif
+    Endif
+    SceneEnd()
+    timeout(500, incest_rape_cms)

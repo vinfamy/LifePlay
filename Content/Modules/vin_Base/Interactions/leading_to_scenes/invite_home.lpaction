@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: invite_home
+ACTION_NAME: Invite home
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 5 - 10
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: invite_home
+ANIMATION:
+WHO: Actor = getTarget(); If !Actor.isTemporary() && !isWithCompanion() && !isWithCompanionCreature() && WHERE != home

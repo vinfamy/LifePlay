@@ -2,7 +2,7 @@ WHAT: all
 WHERE: all, -home
 WHEN: 0 - 24
 WHO: none
-OTHER: isWithCompanion() && CurrentCompanion.isDating() && CurrentCompanion.isDominantSex(Player) && If Random(20, 1000) < CurrentCompanion:attractiontoplayer + attractiveness - CurrentCompanion:attractiveness
+OTHER: isWithCompanion() && CurrentCompanion.isDating() && CurrentCompanion.isDominantSex(Player); If Random(20, 1000) < CurrentCompanion:attractiontoplayer + attractiveness - CurrentCompanion:attractiveness
 
 SceneStart()
 "It was in a middle of a date with <CurrentCompanion.name> when someone approached me ..."

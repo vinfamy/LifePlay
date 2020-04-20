@@ -1,0 +1,18 @@
+Don't
+Use
+First
+Five
+Lines
+
+    If [WHEN > 6 && WHEN < 9] || [WHEN > 13 && WHEN < 17]
+        Today = AI.getActorVar(coffee_today)
+        If Today == 0 && Random(0, 100) < AI:interpersonal
+            Current = AI.getBuilding(current)
+            Dest = Current.findNearbyBuilding(cafe, coffee, tea, ice_cream)
+            Until = HoursElapsed + Random(1, 3)                     
+            AI.setCurrentLocation(Dest)
+            AI.setUntil(Until)
+            Today += 1
+            AI.setActorVar(coffee_today, Today)
+        Endif
+    Endif

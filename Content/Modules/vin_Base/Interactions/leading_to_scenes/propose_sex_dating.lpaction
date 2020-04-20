@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: propose_sex_dating
+ACTION_NAME: Hook up
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 1 - 1
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: propose_sex_dating
+ANIMATION:
+WHO: Actor = getTarget(); If Actor.hadSex() || Actor.isDating()

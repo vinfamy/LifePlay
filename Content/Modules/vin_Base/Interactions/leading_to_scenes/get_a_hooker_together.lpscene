@@ -1,0 +1,49 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24 
+WHO: none
+OTHER: none
+
+    SceneStart()   
+    If Actor2:perversion > 50 || [Actor2.hadSex() && Actor2:attractiontoplayer > 10]|| [Actor2.isDating() && OpenRelationship()] || [!Actor2.isInterestedIn(Player) && Actor2:rapportwithplayer > 30] || Actor2:incest > 50
+        Actor2(Flirty):: "Alright, let's share some fun."
+        Actor2:rapportwithplayer += 2
+        If WHERE == brothel
+            "After looking around, I found a hooker that is within our budget."
+        Else
+            "I did some digging on the internet and found a hooker that does outcalls and is within my budget."            
+        Endif
+        Actor = generatePersonTemporary()
+        While !Player.isInterestedIn(Actor)
+            Actor = generatePersonTemporary()       
+        Endwhile        
+        Random
+            Actor.blendPreset(twenties)
+            Actor.blendPreset(thirties)
+        EndRandom        
+        Actor.randomizeHairs()
+        Actor.randomizeFace()
+        
+        Actor.dress()
+        Actor.show(2)
+        "Should I arrange for both of us to have sex with this hooker?"
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            If WHERE == brothel
+                "I guided the hooker into one of the brothel's bedrooms and we got it on right away."
+            Else
+                "In no time at all, the hooker arrived and we got it on immediately."
+            Endif
+            Sex(Player, Actor2, Actor)
+            perversion += 1
+            money -= Random(100, 200)
+            Actor.show(2)
+            Actor2.show()
+            "I paid the hooker and we parted ways. Good service that was! Cheap too since the cost was shared between me and <Actor2.name>." 
+        Endif
+    Else
+        Actor2(Sad):: "Sorry, I'm not interested in sharing a hooker with you."
+    Endif
+    SceneEnd()

@@ -1,0 +1,24 @@
+Don't
+Use
+First
+Five
+Lines
+
+    WorkToday = AI.getActorVar(work_today) 
+    Today = AI.getActorVar(entertainment_today) 
+    If WHEN > 9 && WHEN < 19 && entertainment_today < 2
+        If WorkToday > 8 || [DayOfWeek == 7 || DayOfWeek == 1]
+            Today = AI.getActorVar(entertainment_today)    
+            If Today == 0
+                Current = AI.getBuilding(current)
+                Dest = Current.findNearbyBuilding(art, cinema, community_centre, department_store, theatre)
+                If Dest.isBuildingValid()
+                    Until = HoursElapsed + Random(1.5, 4)                     
+                    AI.setCurrentLocation(Dest)
+                    AI.setUntil(Until)
+                    Today += 1
+                    AI.setActorVar(entertainment_today, Today)
+                Endif
+            Endif
+        Endif
+    Endif

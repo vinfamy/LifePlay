@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: end_date_i
+ACTION_NAME: Say goodbye to companion
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 1 - 1
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: goodbye_companion
+ANIMATION:
+WHO: Companion = getTarget(); If Companion.isSameAs(CurrentCompanion)

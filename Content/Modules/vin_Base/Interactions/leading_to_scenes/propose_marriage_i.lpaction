@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: propose_marriage_i
+ACTION_NAME: Propose marriage
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 1 - 1
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: marriage_proposal
+ANIMATION:
+WHO: Companion = getTarget(); If Companion.isSameAs(CurrentCompanion) && CurrentCompanion.isDating() && !isPlayerMarried()

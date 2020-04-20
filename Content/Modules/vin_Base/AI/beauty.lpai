@@ -1,0 +1,21 @@
+Don't
+Use
+First
+Five
+Lines
+
+    If AI:attractiveness > 50 && [WHEN > 9 || WHEN < 19] 
+        ThisWeek = AI.getActorVar(beauty_thisweek)
+        Treats = AI.getActorVar(treats_thisweek)        
+        If ThisWeek < 2 && Random(0, 500)*Treats < AI:attractiveness
+            Current = AI.getBuilding(current)
+            Dest = Current.findNearbyBuilding(beauty, hairdresser, dentist)
+            Until = HoursElapsed + Random(1, 4)                     
+            AI.setCurrentLocation(Dest)
+            AI.setUntil(Until)
+            ThisWeek += 1
+            AI.setActorVar(beauty_thisweek, ThisWeek)
+            Treats += 1
+            AI.setActorVar(treats_thisweek, Treats)
+        Endif
+    Endif

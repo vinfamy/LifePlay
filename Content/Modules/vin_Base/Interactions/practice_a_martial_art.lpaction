@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: practice_a_martial_art
+ACTION_NAME: Practice a martial art
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 45 - 90
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: energy -10 (DURATION), martial +0.25 (DURATION), fitness +0.02 (DURATION), mood +2 (END), interpersonal +0.01 (END), attractiveness -0.01 (END), Interacting:rapportwithplayer +1 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:
+WHO: Actor = getTarget(); If WHERE == sports_centre || WHERE == prison

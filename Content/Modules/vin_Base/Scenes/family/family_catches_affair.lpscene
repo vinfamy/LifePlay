@@ -1,7 +1,7 @@
 WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 9 - 22
-WHO: Actor = getRelative(); Actor2 = getSpecific(Affair); Dating = getSpecific(Dating) && If Actor:rapportwithplayer > 20 && Actor:perversion < Random(0, 30)*Random(0, 1) && Actor.livesWithPlayer()
+WHO: Actor = getRelative(); Actor2 = getSpecific(Affair); Dating = getSpecific(Dating); If Actor:rapportwithplayer > 20 && Actor:perversion < Random(0, 30)*Random(0, 1) && Actor.livesWithPlayer()
 OTHER: isAtHome()
 
     SceneStart()

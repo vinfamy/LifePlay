@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: make_a_snack_together
+ACTION_NAME: Make a snack together
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 5 - 20
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:  stock_ingredient -2 (START),  stock_snack +2 (END), cooking +0.1 (END), energy -1 (DURATION), mood +2 (DURATION), Interacting:rapportwithplayer +0.5 (END)
+CONDITIONS: stock_ingredient >= 1.8 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:
+WHO: Actor = getTarget(); If !Actor.isTemporary() && [WHERE == home || WHERE == fraternity]

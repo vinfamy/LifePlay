@@ -5,4 +5,21 @@ WHO: none
 OTHER: none
 
 	SceneStart()
+    Actor = getPerson(tag_LLfamilyGen)
+    "What?"
+    0:: "Set"
+    1:: "Ask"
+    
+    If 0
+        Actor.setActorVar(tag_LLfamilyGen, 1)
+        "<Actor.name> has been set."
+    Else
+        FamilyGen = Actor.getActorVar(tag_LLfamilyGen)
+        If FamilyGen == 0
+            "FamilyGen is 0"
+        Elseif FamilyGen == 1
+            "Family Gen is 1"
+        Endif
+        "This value for <Actor.name> is <FamilyGen>"
+    Endif
 	SceneEnd()

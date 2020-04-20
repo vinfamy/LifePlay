@@ -9,4 +9,4 @@ EFFECTS:  money +20 (DURATION), sneak +0.25 (END), karma -1 (END)
 CONDITIONS:
 MOVE_FIRST: false
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION:    

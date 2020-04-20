@@ -16,7 +16,7 @@ OTHER: isAtHome()
         Actor(Embarassed):: "Easy there. I wasn't sneaking around, I swear ... I was just walking past your apartment. I'll be on my way then."
         Actor2:rapportwithplayer += Random(0, 3)
         Actor:rapportwihplayer -= Random(0, 3)
-        Actor:peversion -= Random(0, 1)
+        Actor:perversion -= Random(0, 1)
         masochist -= Random(0, 0.5)
         karma += 2.5
     Else

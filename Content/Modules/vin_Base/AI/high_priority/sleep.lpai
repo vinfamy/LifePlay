@@ -1,0 +1,19 @@
+Don't
+Use
+First
+Five
+Lines
+
+    If WHEN > 22 || WHEN < 8
+        If [WHEN > 2 && WHEN < 8] || [DayOfWeek >= 6 && DayOfWeek <= 7 && AI:interpersonal - AI:age < Random(0, 100)] || [DayOfWeek >= 1 && DayOfWeek <= 5 && AI:interpersonal - AI:age < Random(50, 500)]
+            If WHEN < 8
+                Add = Random(7, 9) - WHEN
+            Else
+                Add = Random(31, 33) - WHEN
+            Endif
+            Dest = AI.getBuilding(home)
+            Until = HoursElapsed + Add                     
+            AI.setCurrentLocation(Dest)
+            AI.setUntil(Until)
+        Endif
+    Endif

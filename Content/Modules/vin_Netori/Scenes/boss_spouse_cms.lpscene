@@ -1,0 +1,39 @@
+WHAT: all
+WHERE: work
+WHEN: 16 - 22
+WHO: Actor0 = getSpecific(Boss); Actor1 = Actor.getRelatedPerson(Spouses); If Random(20, 100) < Actor0:rapportwithplayer && Player.isInterestedIn(Actor1)
+OTHER: masochist < 0 && !isWithCompanion()
+
+    SceneStart()
+    "I was invited over for dinner at my boss <Actor0.name>'s place this evening. <Actor0.His_or_Her> <Actor1.boyfriend_or_girlfriend> <Actor1.name> will be there also. My boss must be trying to get to know <Actor0.his_or_her> employee better."
+    setBackgroundCustom(kitchen)
+    Actor0.dress()
+    Actor1.dress()
+    Actor0.show(2)
+    Actor1.show(3)
+    Player(Happy):: "Thank you for the wonderful dinner! You two are great hosts."
+    Actor0:: "Sorry, <Player.name>. The CEO called, must be something urgent. I need to run to the office now."
+    Actor0:: "My <Actor1.husband_or_wife> made dessert. You should stay and finish it though."
+    Actor0.hide()
+    Actor1:: "<Actor0.He_or_She> is such a workaholic as usual ..."
+    Actor1:: "You know ... <Actor0.He_or_She> has been neglecting me recently ..."
+    "I think I know where this is going ..."
+    0:: "Seduce my boss's <Actor1.husband_or_wife>"
+    1:: "Stay respectful"
+    
+    If 0
+        masochist -= Random(0, 5)
+        Actor0:masochist += Random(0, 5)
+        Actor1:attractiontoplayer += Random(0, 10)
+        perversion += Random(0, 1)
+        Player(Flirty):: "Say no more, I'm here to help. It's only a duty of a loyal employee to take care of the boss's family as well."
+        "A lonely and long-neglected <Actor1.husband_or_wife> like <Actor1.name> didn't take much convincing ... Pretty soon, we ended up in the bedroom."
+        setBackground(home)
+        Sex(Player, Actor1)
+    Else
+        Player:: "Please don't blame <Actor0.him_or_her>. It's just busy period for the company at the moment."
+        Player:: "Thank you for the dessert. I think I should head off now."
+    Endif
+    
+    SceneEnd()
+    timeout(500, boss_spouse_cms)

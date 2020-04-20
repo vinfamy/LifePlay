@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: watch_sport_together
+ACTION_NAME: Watch live sport together
+WHERE: interaction
+WHEN: 8 - 20
+MINUTES: 60 - 120
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: mood +1 (END), energy +5 (END), fitness +0.01 (END), Interacting:rapportwithplayer +1 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:
+WHO: Actor = getTarget(); If WHERE == home || WHERE == fraternity || WHERE == pub || WHERE == community_centre   

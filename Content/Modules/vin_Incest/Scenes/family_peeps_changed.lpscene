@@ -1,7 +1,7 @@
 WHAT: all, -sleep, -nap
 WHERE: home
 WHEN: 0-24
-WHO: Peeping = getRelative(); If Peeping.isInterestedIn(Player) && Peeping.livesWithPlayer() && Random(40, 500) < Peeping:perversion && Actor:incest < 90
+WHO: Peeping = getRelative(); If Peeping.isInterestedIn(Player) && Peeping.livesWithPlayer() && Random(40, 500) < Peeping:perversion && Peeping:incest < 90
 OTHER: isAtHome()
 
     SceneStart()

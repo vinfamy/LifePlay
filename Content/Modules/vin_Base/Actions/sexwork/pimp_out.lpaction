@@ -1,6 +1,6 @@
 ACTION_UNIQUEID: pimp_out
 ACTION_NAME: Pimp companion out
-WHERE: sexwork
+WHERE: sexwork, interaction
 WHEN: 0 - 24
 MINUTES: 30 - 60
 TIMEOUT_MINUTES: 0
@@ -9,4 +9,5 @@ EFFECTS:  mood -1 (END), energy -1 (END)
 CONDITIONS: companioniswhore == 1 (STAT_COMPARE)
 MOVE_FIRST: false
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION:
+WHO: Actor = getTarget(); If Actor.isSameAs(CurrentConpanion) && Actor.isProstitute()   

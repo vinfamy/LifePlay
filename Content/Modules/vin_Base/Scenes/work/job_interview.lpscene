@@ -98,7 +98,7 @@ OTHER: none
                 1:: "Focus on your interests and hobbies"
                 2:: perversion > 10:: "Flirt"
                 
-                If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)] || [2 && Interested && (Boss.peversion + attractiveness) > Random(0, 200)]
+                If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)] || [2 && Interested && (Boss:perversion + attractiveness) > Random(0, 200)]
                     "<Boss.He_or_She> seemed receptive to my answer."
                     Performance += Random(0, 2)
                     If 2
@@ -116,7 +116,7 @@ OTHER: none
                 1:: "Communication skills, teamwork and leadership"
                 2:: perversion > 10:: "Flirt"
                 
-                If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)] || [2 && Interested && (Boss.peversion + attractiveness) > Random(0, 200)]
+                If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)] || [2 && Interested && (Boss:perversion + attractiveness) > Random(0, 200)]
                     "<Boss.He_or_She> seemed receptive to my answer."
                     Performance += Random(0, 2)
                     If 2
@@ -134,7 +134,7 @@ OTHER: none
                 1:: "I can be too gentle and find it hard to criticize colleagues."
                 2:: perversion > 10:: "Flirt"
                 
-                If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)] || [2 && Interested && (Boss.peversion + attractiveness) > Random(0, 200)]
+                If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)] || [2 && Interested && (Boss:perversion + attractiveness) > Random(0, 200)]
                     "<Boss.He_or_She> seemed receptive to my answer."
                     Performance += Random(0, 2)
                     If 2
@@ -152,7 +152,7 @@ OTHER: none
                 1:: "What attracts me most to this company is its people"
                 2:: perversion > 10:: "Flirt"
                 
-                If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)] || [2 && Interested && (Boss.peversion + attractiveness) > Random(0, 200)]
+                If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)] || [2 && Interested && (Boss:perversion + attractiveness) > Random(0, 200)]
                     "<Boss.He_or_She> seemed receptive to my answer."
                     Performance += Random(0, 2)
                     If 2
@@ -170,7 +170,7 @@ OTHER: none
                 1:: "Supporting and mentoring new recruits"
                 2:: perversion > 10:: "Flirt"
                 
-                If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)] || [2 && Interested && (Boss.peversion + attractiveness) > Random(0, 200)]
+                If [0 && Diff_Intel*Difficulty < Random(0, 90)] || [1 && Diff_Inter*Difficulty < Random(0, 90)] || [2 && Interested && (Boss:perversion + attractiveness) > Random(0, 200)]
                     "<Boss.He_or_She> seemed receptive to my answer."
                     Performance += Random(0, 2)
                     If 2
@@ -192,7 +192,7 @@ OTHER: none
                 If 2
                     Player(Wink):: "Please, call me. I would love to meet in a more casual setting ... for your wise 'career advice' and get to know you in a more 'personal' level."
                     perversion += 0.05
-                    If Interested && Flirt*(Boss.peversion + attractiveness) > Random(0, 200)
+                    If Interested && Flirt*(Boss:perversion + attractiveness) > Random(0, 200)
                         "Making sure first that no-one else was around, <Boss.he_or_she> sneakily took my number."
                         exchangeContact(Boss)
                         Performance += Random(0, 5)
@@ -270,7 +270,7 @@ OTHER: none
                                 "When I was a man I used to hold the moral high ground and somewhat looked down on women who use their bodies to get advantages in life. Here I am, offering my body in exchange of a job offer. I'm such a hypocrite after all."
                             Endif
                             perversion += 0.5
-                            If Interested && Flirt*(Boss.peversion + attractiveness) > Random(0, 400)
+                            If Interested && Flirt*(Boss:perversion + attractiveness) > Random(0, 400)
                                 "Checking first that no-one else was around, <Boss.he_or_she> sneakily pulled down the window shades and locked the interview room's door. <Boss.He_or_She> then approached me full of lust in <Boss.his_or_her> eyes."
                                 Performance += Random(0, 20)
                                 HadSex = true

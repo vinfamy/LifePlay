@@ -1,0 +1,41 @@
+WHAT: all
+WHERE: prison
+WHEN: 0 - 24
+WHO: Actor = getSpecific(Dating); If Random(50, 100) < Actor:perversion - Actor:attractiontoplayer
+OTHER: none
+
+    SceneStart()
+    Actor.dress()
+    Actor.show()
+    If Player.isMale()
+        Actor2 = generatePersonTemporary(athletic)
+    Else
+        Actor2 = generatePersonTemporary(athletic_F)    
+    Endif
+    Actor2.randomizeFace()
+    Actor2.randomizeHairs()
+    "My <Actor.boyfriend_or_girlfriend> is volunteering at the prison I'm being held at. Good idea so that we get to see each other more often, outside of the conjugal visits."
+    Actor2.dress()
+    Actor2.show()
+    "Unfortunately, this idea seems to be backfiring because I can't help but notice how flirty <Actor.name> has been to <Actor2.name>, one of the prison guards that I hate."
+    
+    Actor2:: "<Actor.name>, I need some help getting something from the storage room. Do you mind?"
+    Actor:: "Of course not, <Actor2.name>. I'll follow you."
+    
+    setBackground(pharmacy)
+    Player.hide()
+    Actor2:: "Baby, you got me so hot and bothered."
+    Actor:: "Let's not be too loud or my <Player.boyfriend_or_girlfriend> might hear us."
+    Actor2:: "What can <Player.he_or_she> do if <Player.he_or_she> hears us? Cry? <Player.He_or_she> is in a cell."
+    Sex(Actor, Actor2)
+    Actor.hide()
+    Actor2.hide()
+    
+    setBackground(prison)
+    Player.show()
+    Actor:: "Yes baby! Give it to me!"
+    Actor2:: "This feels so good. I bet your <Player.boyfriend_or_girlfriend> isn't nearly as good as me, is <Player.he_or_she>?"
+    masochist += 2
+    "Not only is their loud moaning so painful for me to hear, they are so loud that all the other inmates know how much of a slut my <Actor.boyfriend_or_girlfriend> is. They all talk openly in front of me about what they'd do to her. I soon become the butt of a joke among the inmates."
+    SceneEnd()
+    timeout(200, dating_prison_guard_cms)

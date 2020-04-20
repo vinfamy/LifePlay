@@ -4,20 +4,24 @@ WHEN: 0 - 24
 WHO: Actor = getSpecific(Neighbour); If Actor:intelligence < Random(0, 60) 
 OTHER: isAtHome() && intelligence > Random(0, 100)
 
+    
     SceneStart()
     Actor.dress()
     Actor.show(2)
+    
+    Actor2 = getSpecific(Dating)
     
     "I was walking back to my apartment when I found my neighbour <Actor.name> hurriedly walking in the opposite direction, looking a bit annoyed."
     Player(Happy):: "<Actor.name>, what's the matter? You don't look too happy ..."
     Actor(Sad):: "My laptop just stopped working all of a sudden. You know I'm hopeless with technology so I'm taking it to a repair shop. Last time I did that, they took ages to fix it so I'll probably have to live without my laptop for a while."
     0:: "Wish <Actor.him_or_her> luck"
     1:: "Offer help"
+    2:: isModEnabled(vin_NTR) && Actor2.isValid():: "Maybe <Actor2.name> can help" 
     
     If 0
         Player(Sad):: "Oh, that sucks. Good luck with the laptop. Hopefully they won't take so long this time."
         Actor(Sad):: "Thank you."
-    Else
+    Elseif 1
         Player(Happy):: "There's no need to take it to the repair shop. I know a thing or two about computers. I can have a look for you. Might be able to fix it right away."
         karma += 2.5
         Actor(Excited):: "Oh really? That would be awesome. Come in my apartment, I can show you what's wrong."
@@ -103,6 +107,42 @@ OTHER: isAtHome() && intelligence > Random(0, 100)
             Endif
         Else
             "Unfortunately, I never managed to even figure out what the issue was and <Actor.name> had no choice but to take the laptop to a professional anyway."
+        Endif
+    Else        
+        Player:: "I'm no good with a computer but maybe my <Actor2.boyfriend_or_girlfriend> can help."
+        Actor:: "That's very kind of you two. I'll wait for <Actor2.name> to come over."
+        
+        "It's been a long time since <Actor2.name> came over to look into <Actor.name>'s computer. I wonder why it's taking so long, is the problem with the PC that serious?"
+        Actor.hide()
+        Actor2.hide()
+        
+        "I'm feeling a bit uneasy, maybe I should have a look?"
+        0:: "Check"
+        1:: "Just wait"
+        
+        If 0 && Actor.isInterestedIn(Actor2) && Actor2.isInterestedIn(Actor) && Random(50, 100) < Actor2:perversion - Actor2:attractiontoplayer
+            Sex(Actor, Actor2)
+            Player.show(0)
+            Actor.show(2)
+            Actor.show(3)
+            "Instead of fixing the computer, my <Actor2.boyfriend_or_girlfriend> is fucking the owner of the computer! Not sure how I feel about this?"
+            0:: "Join them"
+            1:: "Continue watching"
+            2:: "Get angry"
+            
+            If 0
+                Player(Flirty):: "Mind if I join?"
+                Sex(Player, Actor2, Actor)
+            Elseif 1
+                Sex(Actor, Actor2)
+            Else
+                Player(Angry):: "How dare you! You took advantage of my kindness to seduce my <Actor2.boyfriend_or_girlfriend>?"
+                Actor2:attractiontoplayer -= 20
+            Endif
+        Else
+            "A while later ..."
+            Actor.show(2)
+            Actor(Happy):: "Thank you so much. <Actor2.name> is very skilled with computers indeed. <Actor2.He_or_She> managed to fix the problem."
         Endif
     Endif
     

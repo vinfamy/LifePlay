@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: order_takeaway_together
+ACTION_NAME: Order takeaway together
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 10 - 20
+TIMEOUT_MINUTES: 120
+ALSO_TIMEOUT: 
+EFFECTS:  money -14 (START), mood +0.25 (END), stock_meal +1 (END), Interacting:rapportwithplayer +1 (END)
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: deliveryman
+ANIMATION:
+WHO: Actor = getTarget(); If !Actor.isTemporary() && WHERE == home   

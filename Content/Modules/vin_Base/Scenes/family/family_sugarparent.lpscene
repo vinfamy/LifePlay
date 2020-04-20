@@ -30,7 +30,9 @@ OTHER: isAtHome()
         Endif
         
         SceneEnd()
-        timeout(1000, family_sugarparent)        
+        timeout(1000, family_sugarparent)
+    Else
+        Actor.delete()
     Endif
     
 

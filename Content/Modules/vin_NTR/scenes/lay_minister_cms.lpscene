@@ -1,0 +1,42 @@
+WHAT: all
+WHERE: place_of_worship
+WHEN: 8 - 20
+WHO: Actor = getCompanion(); If Actor.isDating()
+OTHER: none
+
+    // if with partner/spouse, be approached by a lay minister of that place of worship depending if they are interested in your partner/spouses gender who will ask if you have received absolution/redemption. if not with you can find them there and eavesdrop on the conversation which will be the same, the priest or nun wants them to be in the office. if on your own your spouse/partner goes in and you can peep or not. If you are together, i.e. he/she is a companion and youve gone to the house of worship together you can accept or reject. Accept and the lay minister will first 'absolve' or 'redeem' your partner or spouse by saying "And now allow me the time with your (husband, wife, boyfriend, girlfriend) in order to fully absolve (her/him)" The they go into the office where you have the option to peek or wait. When they emerge from the office the conversation resumes with the lay minister saying "(he/she) has received absolution and is filled with/has revealed (depending on their genders, obviously a female cannot give the holy essence since she doesn't have a penis, unless...well you can factor that in I'm sure) the holy essence! Sadly...there is no more time for another absolution appointment, perhaps you can come another day?" and then the event finishes.
+    
+    SceneStart()
+    dressFormal()
+    Actor2 = generatePersonTemporary()
+    Actor2:age => Random(30, 60)
+    Actor2.randomizeFace()
+    Actor2.randomizeHairs()
+    Actor2.dress()
+    "I was at church with my <Actor.boyfriend_or_girlfriend> when we were approached by a lay minister."
+    Actor2.show()
+    Actor2:: "Have you received absolution?"
+    Actor2:: "And now allow me the time with your <Actor.boyfriend_or_girlfriend> in order to fully absolve <Actor.him_or_her>."
+    Player.hide()
+    "Unbeknown to me, inside the minister's office ..."
+    setBackground(community_centre)
+
+    If Random(75, 150) < Actor:perversion*2 - Actor:attractiontoplayer - Actor:intelligence || OpenRelationship()
+        Actor:: "I guess if that's what it takes to receive absolution ..."
+        Sex(Actor2, Actor)
+        Actor:attractiontoplayer -= Random(0, 1)
+        masochist += 1
+        
+        setBackground(place_of_worship)
+        Player.show()
+        "It took a while but eventually <Actor.name> and the minister emergeed from the office."
+        Actor2:: "<Actor.He_or_She> has received absolution and is filled with the holy essence! Sadly...there is no more time for another absolution appointment, perhaps you can come another day?"
+    Else
+        Actor:: "In your wildest dream! I'm faithful to my <Player.boyfriend_or_girlfriend>!"
+        Actor:: "You're a perverted minister. We'll never go to this church again!"
+        Actor:: "<Player.name>! Help me! There's a creep in here"
+    Endif
+    
+    SceneEnd()
+    timeout(500, lay_minister_cms)
+    

@@ -1,0 +1,16 @@
+Don't
+Use
+First
+Five
+Lines
+
+    Today = AI.getActorVar(gym_today)    
+    If Today == 0 && Random(30, 100) < AI:fitness
+        Home = AI.getBuilding(home)
+        Dest = Home.findNearbyBuilding(sports_centre)
+        Until = HoursElapsed + Random(1, 3)                     
+        AI.setCurrentLocation(Dest)
+        AI.setUntil(Until)
+        Today += 1
+        AI.setActorVar(gym_today, Today)
+    Endif

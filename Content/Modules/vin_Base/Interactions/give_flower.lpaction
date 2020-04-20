@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: give_flower
+ACTION_NAME: Give flower
+WHERE: interaction 
+WHEN: 0 - 24
+MINUTES: 5 - 15
+TIMEOUT_MINUTES: 60
+ALSO_TIMEOUT: 
+EFFECTS: mood +0.05 (END), stock_flower -1 (START), Interacting:attractiontoplayer +2 (END)
+CONDITIONS: stock_flower >= 1 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:
+WHO: Actor = getTarget(); If !Actor.isTemporary()    

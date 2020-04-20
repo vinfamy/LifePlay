@@ -34,7 +34,7 @@ OTHER: IsAtHome() && Random(0, 100) < ActionDuration
     Endif
 
     "My door bell rang ... I should go check who it is."
-    Delivery = generatePerson()
+    Delivery = generatePersonTemporary()
     Delivery.dress()
     Delivery.show(2)
 
@@ -61,6 +61,7 @@ OTHER: IsAtHome() && Random(0, 100) < ActionDuration
             Player(Happy):: "Wait ... Sorry if I'm being weird but I find you quite cute. Perhaps we could exchange numbers and hang out another day?"
             If Delivery.IsInterestedIn(Player) && [Delivery.IsDominantSex(Player) || Delivery:attractiontoplayer + Delivery:perversion > Random(0, 30)]
                 Delivery(Surprised):: "Of course! Let's exchange contacts. It's not often that I make a delivery to someone this nice ..."
+                Delivery.makePermanent()
                 exchangeContact(Delivery)
                 "Having given me <Delivery.his_or_her> number, the delivery <Delivery.guy_or_girl> begged <Delivery.his_or_her> leave."
             Else
@@ -76,8 +77,21 @@ OTHER: IsAtHome() && Random(0, 100) < ActionDuration
                 Sex(Delivery, Player)
                 passTime(0.2, 1)
                 Delivery.show(2)
-                Player(Flirty):: "Wow, that was something else! You certainly know how to 'deliver' an orgasm."
-                Delivery(Flirty):: "You flattered me. In all my time doing this job, I've never had this happen to me before. Let's see each other again, okay?"
+                If Actor.isValid()
+                    Actor.show()
+                    If Random(20, 100) < Actor:perversion && [Actor.isInterestedIn(Delivery) || Actor.isInterestedIn(Player)]
+                        Actor(Flirty):: "You guys are having fun, I see?"
+                        Actor(Flirty):: "But it's not fair to have all the fun to yourself, <Player.name>! We ordered the takeaway together after all!"
+                        Sex(Delivery, Player, Actor)
+                    Else
+                        Actor(Irritated):: "Damn it, <Player.name>. You didn't warn that ordering takeaway with you would involve being forced to watch you fuck the delivery <Delivery.guy_or_girl>!"
+                        Actor:rapportwithplayer -= 1
+                    Endif
+                Else
+                    Player(Flirty):: "Wow, that was something else! You certainly know how to 'deliver' an orgasm."
+                    Delivery(Flirty):: "You flattered me. In all my time doing this job, I've never had this happen to me before. Let's see each other again, okay?"
+                Endif
+                Delivery.makePermanent()
                 exchangeContact(Delivery)
                 "Once the sex was over, the delivery <Delivery.guy_or_girl> begged <Delivery.his_or_her> leave, but thankfully not before giving me <Delivery.his_or_her> number."
             Else

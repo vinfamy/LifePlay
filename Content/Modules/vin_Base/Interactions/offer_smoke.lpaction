@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: offer_smoke
+ACTION_NAME: Offer a cigarette
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 3 - 15
+TIMEOUT_MINUTES: 30
+ALSO_TIMEOUT: 
+EFFECTS: stock_tobacco -2 (START), mood +2 (END), energy +1 (END), fitness -0.02 (END), attractiveness -0.01 (END), Interacting:rapportwithplayer +1 (END)
+CONDITIONS: stock_tobacco >= 2 (STAT_COMPARE)
+MOVE_FIRST: true
+SCENE_ALWAYS:
+ANIMATION:
+WHO: Actor = getTarget(); If !Actor.isTemporary()      

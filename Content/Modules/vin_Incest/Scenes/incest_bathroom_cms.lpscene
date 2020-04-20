@@ -1,0 +1,44 @@
+WHAT: do_housework
+WHERE: home
+WHEN: 0-24
+WHO: Actor = getRelative(); If Actor.isMale() && Actor.livesWithPlayer() && Actor.isInterestedIn(Player) && Actor:perversion - Actor:masochist + masochist > Random(150, 400)
+OTHER: isModEnabled(vin_NonConsensual) && isAtHome()
+
+
+    SceneStart()
+    setBackground(shower)
+    "I was cleaning the bathroom when they find a mess on the toilet seat. It looks like ejaculate."
+    "I was about to wipe it off but stopped when I hear a noise behind me."
+    Actor.dress(Vacation-Shorts_1)
+    Actor.show()
+    "My <Actor.relationship> is standing in the doorway."
+    Player: "<Actor.relationship>, you scared me! I won't be a minute. I'm almost done and then you can use the bathroom."
+    "My <Actor.relationship> smiles and folds his arms. He makes a sound to stop me. Nodding to the mess on the toilet he smiles."
+    Actor:: "Clean it."
+    Player(Surprised): "I was just about to" 
+    "I lift the cloth in my hand. My <Actor.relationship> makes that sound again."
+    Actor:: "With your tongue"
+    0:: "Lick my <Actor.relationship>'s cum off the toilet seat"
+    1:: "Eww no! Gross! Clean with the cloth."
+
+    If 1 
+        "I laugh and quickly wipe the cum up with the cloth before my <Actor.relationship> has a chance to stop me. My <Actor.relationship>'s face darkens. He looks mad but leaves the room. I finish the rest of my cleaning and leave too."
+    Else
+        "I start to laugh but the look on my <Actor.relationship>s face tells me it's not a joke. I watch him walk into the room and close the door behind him."
+        "As I kneel there looking up, my <Actor.relationship> walks over to me, a smile on his face. His smile makes me feel uneasy."
+        Actor:: "I don't have to make you, do I?"
+        "Reluctantly I lean over the seat and drag my tongue across the cum, lapping it up."
+        Player: "Good <Player.boy_or_girl>. You know I was thinking of you when I left that..."
+        "As I licked his cum off the seat I heard him open his pants and groan as he pulled his cock out."
+        Actor.strip()
+        "Sinking back on my knees I wiped my mouth and looked away."
+        Actor:: "Now you've cleaned that you can clean this."
+        "He lifted my chin and pressed his cock to my lips. Though I resisted he forced me to suck him."
+        Filter(Blowjob)
+        Sex(Actor, Player)
+        Actor:: "Who knew my <Actor.callplayer> was such a good little cum slut?"
+        Actor:incest += 50
+    Endif
+
+    SceneEnd()
+    timeout(500, incest_bathroom_cms)

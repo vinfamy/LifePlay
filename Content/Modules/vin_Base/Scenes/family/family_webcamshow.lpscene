@@ -17,7 +17,7 @@ OTHER: !isWithCompanion() && isAtHome() && Random(0, 1000) < intelligence
     Else
         "I got very upset and made it known to my <Dating.relationship> that this is embarassing and unacceptable and must stop or <Dating.he_or_she> will have to move out."
         Dating:rapportwithplayer -= Random(0, 2)
-        Dating:peversion -= Random(0, 1)
+        Dating:perversion -= Random(0, 1)
     Endif
 
     timeout(200, family_webcamshow)

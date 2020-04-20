@@ -1,0 +1,102 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    
+    If Actor.isTemporary(()
+        Actor.makePermanent()
+    Else
+        Actor2 = Actor.getRelatedPerson(Spouses, Dating)
+    Endif
+    If !Actor2.isValid()
+        Actor2 = generatePersonTemporary()
+        While !Actor.isInterestedIn(Actor2)
+            Actor2 = generatePersonTemporary()
+        Endwhile
+        Actor2.makePermanent()
+        addNpcRelationship(Dating, Actor, Actor2)
+    Endif
+    Actor2.dress()    
+    Dating = getSpecific(Dating)
+    Dating.dress()
+        
+    "What kind of swinging do I have in mind?"
+    0:: "I fuck <Actor.name>, my <Dating.boyfriend_or_girlfriend> fucks <Actor.name>'s <Actor2.boyfriend_or_girlfriend> <Actor2.name>"
+    1:: "I fuck <Actor.name>'s <Actor2.boyfriend_or_girlfriend> <Actor2.name>, my <Dating.boyfriend_or_girlfriend> fucks <Actor.name>"
+    
+    If 0
+        DatingFriend = Actor
+        FriendSO = Actor2
+    Else
+        DatingFriend = Actor2
+        FriendSO = Actor    
+    Endif
+    
+    moveTo(home)
+    setBackgroundCustom(kitchen)
+    Actor2.show()
+    Dating.show()
+    "<Dating.name> and I decided to invite another couple over for a double dinner date."
+    DatingFriend:rapportwithplayer += Random(0, 5)
+    FriendSO:rapportwithplayer += Random(0, 5)
+    DatingFriend(Happy):: "Thank you so much for inviting us over for dinner, <Dating.name> and <Player.name>. That was very nice."
+    FriendSO(Happy):: "My <DatingFriend.boyfriend_or_girlfriend> is right. The food was delicious. You two were great hosts."
+    0:: "End the night"
+    1:: "Suggest swinging to <Dating.name>"
+
+    If 0
+        "The four of us enjoyed chatting for a while more before <DatingFriend.name> and <FriendSO.name> said goodbye and left. It was nice getting to know my <Dating.boyfriend_or_girlfriend>'s friend and <DatingFriend.his_or_her> partner."
+    Else
+        "I asked my <Dating.boyfriend_or_girlfriend> for a private chat and whispered into <Dating.his_or_her> ear the idea of swinging."
+        perversion += Random(0, 1)
+        If Dating:perversion > Random(0, 70)
+            Dating(Flirty):: "You naughty <Player.boy_or_girl>! I must admit I wouldn't mind banging <FriendSO.name> too much. Alright, if that's what you fancy, I'll ask <DatingFriend.name>."
+            "<Dating.name> then took <DatingFriend.name> aside and whispered something into <DatingFriend.his_or_her> ear."
+            If DatingFriend:perversion + FriendSO:perversion > Random(0, 100)
+                "It's a deal! <DatingFriend.name> and <FriendSO.name> gladly accepted our offer of swinging."
+                setBackground(home)
+                "In no time at all, <Dating.name> and <FriendSO.name> were all over each other, while <DatingFriend.name> and I gladly enjoyed the show ..."
+                // Player.hide()
+                // DatingFriend.hide()
+                SexNoAffair(Dating, FriendSO)
+                // Dating.hide()
+                // FriendSO.hide()
+                Player.show(0)
+                
+                "Watching my <Dating.boyfriend_or_girlfriend> have sex with another <FriendSO.man_or_woman> got me all hot and bothered. It's my turn now. I need to have <DatingFriend.name> right now!"
+                SexNoAffair(Player, DatingFriend)
+                Player.show(0)
+                Dating.show(5)
+                DatingFriend.show(2)
+                FriendSO.show(3)
+                "Wow that was amazing. But do we have the energy to go on for the whole night?"
+                0:: "Yes"
+                1:: "I'm exhausted already"
+                
+                If 0
+                    perversion += Random(0, 1)
+                    SexNoAffair(Player, Dating, DatingFriend)
+                    SexNoAffair(Dating, FriendSO, Player)
+                    SexNoAffair(Player, DatingFriend, FriendSO)
+                Endif
+                Player.show(0)
+                Dating.show(5)
+                DatingFriend.show(2)
+                FriendSO.show(3)
+                "After the amazing swingers' experience, we put our clothes back one. Exhausted, the four of us enjoyed chatting for a while more before <DatingFriend.name> and <FriendSO.name> said goodbye and left. It was nice getting to know them in such an intimate way!"
+                DatingFriend:rapportwithplayer += Random(0, 5)
+                FriendSO:rapportwithplayer += Random(0, 5)
+            Else
+                "Unfortunately, <DatingFriend.name> and <FriendSO.name> weren't so keen on the idea of swinging ..."
+                "The four of us enjoyed chatting for a while more before <DatingFriend.name> and <FriendSO.name> said goodbye and left. It was nice getting to know them, although I wished we got to do more ..."
+            Endif
+        Else
+            Dating(Angry):: "No way! I couldn't bear to see you with another <DatingFriend.man_or_woman>."
+            Dating:attractiontoplayer -= Random(0, 5)
+            "The four of us enjoyed chatting for a while more before <DatingFriend.name> and <FriendSO.name> said goodbye and left. It was nice getting to know them, although I wished we got to do more ..."
+        Endif
+    Endif
+    SceneEnd()

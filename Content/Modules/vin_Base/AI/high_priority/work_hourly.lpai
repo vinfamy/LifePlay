@@ -1,0 +1,19 @@
+Don't
+Use
+First
+Five
+Lines
+
+    Today = AI.getActorVar(work_today)
+    If Today < 8
+        Work = AI.getBuilding(work)
+        Type = Work.getBuildingType()
+        If isOpen(Type) && !Type.isString("work") && !Type.isString("post_office") && !Type.isString("bank") && !Type.isString("university")
+            AI.setCurrentLocation(Work)
+            Add = Random(2, 6)
+            Until = HoursElapsed + Add
+            AI.setUntil(Until)
+            Today = Today + Add
+            AI.setActorVar(work_today, Today)
+        Endif
+    Endif
