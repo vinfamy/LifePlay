@@ -5,6 +5,7 @@ WHO: Dating = getSpecific(Dating); If Dating:cooking > 70
 OTHER: cooking < Random(0, 60)
 
 SceneStart()
+secondScreenIfHidden(Dating)
 Dating.dress()
 Dating.show(2)
 "I must admit: my <Dating.boyfriend_or_girlfriend> <Dating.name> is a much better cook than me. I'm a bit embarrassed that <Dating.he_or_she> is always the one to cook for me in this relationship."

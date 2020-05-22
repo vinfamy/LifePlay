@@ -8,6 +8,7 @@ OTHER: !isWithCompanion() && [jobexperience > 60 || money > 20000] && age > 30
     SugarBabe = SugarBabe.getGlobal()    
     If SugarBabe > 0
         Actor = getSpecific(SugarBabe)
+        secondScreen(Actor)
         Actor.dress()
         Actor.show(2)
         "Should I call my sugarbabe tonight for a date?"
@@ -18,12 +19,13 @@ OTHER: !isWithCompanion() && [jobexperience > 60 || money > 20000] && age > 30
         If 0
             Player(Happy):: "Honey, I miss you. Let's meet tonight."
             Actor(Happy):: "I miss you too, <Player.Daddy_or_Mommy>. Let's meet."
-            Random
-                setBackground(restaurant)
-                setBackground(bar)
-                setBackground(nightclub)
-            endRandom
+            secondScreen()
+            Loc = findNearbyBuilding(restaurant, bar, nightclub)
+            moveTo(Loc)
+            Actor.show()
             "With that said, that evening, I took my sugarbabe to a nice expensive date and as usual, we ended up in luxury hotel suite afterwards."
+            Loc = findNearbyBuilding(hotel)
+            moveTo(Loc)
             setBackground(home)
             Sex(Player, Actor)
             Actor.show(2)
@@ -58,6 +60,7 @@ OTHER: !isWithCompanion() && [jobexperience > 60 || money > 20000] && age > 30
                 
                 "Eventually, I got approached by a potential sugarbabe."
                 Actor.dress()
+                secondScreen(Actor)
                 Actor.show(2)
                 "Should I invite <Actor.name> on a first date?"
                 0:: "Yes"
@@ -65,11 +68,16 @@ OTHER: !isWithCompanion() && [jobexperience > 60 || money > 20000] && age > 30
                 
                 If 0
                     "Why not? I'll be sure to be extra generous on the first date."
-                    setBackground(restaurant)
+                    secondScreen()
+                    Loc = findNearbyBuilding(restaurant)
+                    moveTo(Loc)
+                    Actor.show()
                     Actor.dress()
                     Player.dress()
                     "I took <Actor.name> to a really fancy restaurant and wined and dined <Actor.him_or_her> like money was no object. Afterwards, I suggested that we head to a suite I had booked at a 5-star hotel nearby."
                     
+                    Loc = findNearbyBuilding(hotel)
+                    moveTo(Loc)                    
                     setBackground(home)
                     Actor.makePermanent()
                     "This hotel suite cost me a fortune. And I hope that <Actor.name> knows what I'm expecting from <Actor.him_or_her> for my generousity."

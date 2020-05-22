@@ -85,10 +85,12 @@ If PlayerHosting
             Guest5.delete()
         Endif
     Endif
+    setBackgroundCustom(livingroom)
     "My preparations are all done. It's time to welcome the guests!"
     Player(Happy):: "Come in, everyone! Don't be shy. Everything's ready."
 Else
     "My phone rang! It's <Host.name>. I wonder what <Host.he_or_she> is calling me for?"
+    secondScreen(Host)
     Host.dress()
     Host.show(2)
     Host(Excited):: "Hey, <Player.name>. We're having a house party tonight. Do you want to come?"
@@ -100,10 +102,13 @@ Else
         Player(Excited):: "Of course. Count me in! I can't wait for the party to start ..."
         Host(Happy):: "Glad to hear. See you soon then!"
         "A while later ..."
-        setBackground(Home)
+        Loc = Host.getBuilding(home)
+        moveTo(Loc)
+        setBackgroundCustom(livingroom)
+        secondScreen()
+        Host.show()
         Player.dress()
         Host(Happy):: "Come in, everyone! Don't be shy. Everything's ready."
-        Host.hide()
     Else
         Accepted = false
         Player(Sad):: "I'm busy tonight I'm afraid. You guys have fun though ..."
@@ -178,12 +183,6 @@ If PlayerHosting || Accepted
     Guest5.show(5)
 
     "Everyone is here now. The party has started!"
-
-    Guest1.hide()
-    Guest2.hide()
-    Guest3.hide()
-    Guest4.hide()
-    Guest5.hide()
     
     PartyOngoing = true
     While PartyOngoing
@@ -229,7 +228,7 @@ If PlayerHosting || Accepted
                 SitWith = Host
             Endif
             
-            SitWith.show(2)
+            Player.moveToPerson(SitWith)
             "I spent some time chatting with <SitWith.name>"
             If SitWith.IsInterestedIn(Player) && Random(0, 100) < attractiveness
                 SitWith:attractiontoplayer += Random(-1, 2)
@@ -347,16 +346,13 @@ If PlayerHosting || Accepted
                         "As soon as we were inside, our hands were all over each other and we started passionately making out."
                         perversion += Random(0, 0.2)
                         Sex(SitWith, Player)
-                        SitWith.hide()
                         "The sex was amazing. <SitWith.name> excused <SitWith.himself_or_herself> after we were done and I went to bed ... At least we didn't do it in front of everyone."
                         PartyOngoing = false
                     Else
                         "I enjoyed the kiss but didn't feel like going any further ..."
                     Endif
                 Endif
-            Endif
-            
-            SitWith.hide()
+            Endif            
         Endif
     
         If PartyOngoing && timePassed > Random(2.5, 5)

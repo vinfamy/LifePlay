@@ -6,6 +6,7 @@ OTHER: !isWithCompanion()
 
 SceneStart()
 "My phone rang. It's my friend, <Friend.name>."
+secondScreen(Friend)
 Friend.dress()
 Friend.show(2)
 Friend(Excited):: "Hey <Player.name>, wanna come out with us tonight? Just a fun night out between friends so don't invite your <Dating.boyfriend_or_girlfriend>!"
@@ -15,8 +16,9 @@ Friend(Excited):: "Hey <Player.name>, wanna come out with us tonight? Just a fun
 If 0
     Player(Excited):: "I'd love to. We'll have so much fun."
     Friend(Excited):: "Excellent. See you soon then!"
+    secondScreen()
     Friend.hide()
-    setBackground(home)
+    moveTo(home)
     Dating.dress()
     Dating.show(2)
     "Later on, while I was getting ready for the night out, <Dating.name> paid me a surprise visit and was disappointed to hear about my plans for the night."
@@ -45,7 +47,8 @@ If 0
     
     If GoToParty
         "Later on that night ..."
-        setBackground(nightclub)
+        Loc = findNearbyBuilding(nightclub)
+        moveTo(Loc)        
         Friend.dress()
         Friend.show(5)
         "We were having a pretty wild night out. With no significant others being there to stop us, we all got pretty shit-faced. I could barely walk now ..."
@@ -70,7 +73,8 @@ If 0
             "<Friend.name> was the first one to try. <Friend.He_or_She> tried to flirt with the <Bird.handsome_or_pretty> stranger but got nowhere."
             Friend.hide()
             "Now it's my turn to try. The stranger was immediately smitten by my charm and I ended up following <Bird.him_or_her> home."
-            setBackground(home)
+            Loc = Bird.getBuilding(home)
+            moveTo(Loc)            
             perversion += Random(0, 0.5)
             Sex(Bird, Player)
             Bird.hide()
@@ -85,7 +89,8 @@ If 0
             Player(Happy):: "Forget about the bet! How about us both trying to seduce <Bird.him_or_her> at the same time? Surely no <Bird.man_or_girl> can turn down a threesome?"
             perversion += Random(0, 1)
             "As we expected, the cute <Bird.guy_or_girl> stood no chance of resisting the prospect of a steamy threesome with me and <Friend.name>. We ended up following <Bird.him_or_her> home."
-            setBackground(home)
+            Loc = Bird.getBuilding(home)
+            moveTo(Loc)
             Sex(Bird, Player, Friend)
             Bird.hide()
             Friend.hide()

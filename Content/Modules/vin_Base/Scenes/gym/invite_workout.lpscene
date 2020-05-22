@@ -8,6 +8,7 @@ sceneStart()
 Friend.dress()
 
 "My phone rang ... It's <Friend.name> calling."
+secondScreen(Friend)
 Friend.show(2)
 Friend(Happy):: "Hey <Player.name>, do you want to hit the gym today?"
 "Go to the gym with <Friend.name>?"
@@ -17,9 +18,13 @@ Friend(Happy):: "Hey <Player.name>, do you want to hit the gym today?"
 If 0
     Player(Happy):: "Of course. I'll see you in a bit!"
     Friend(Happy):: "See you soon!"
-    setBackground(sports_centre)
+    secondScreen()
+    Loc = findNearbyBuilding(sports_centre)
+    moveTo(Loc)
+    
     Friend.dress()
     Player.dress()
+    Friend.show()
     "We headed to the gym together and had a good workout."
     Friend:rapportwithplayer += Random(0, 2)
     fitness += Random(0, 0.25)

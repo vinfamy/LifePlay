@@ -1,0 +1,2 @@
+questEnd()
+Ends the current quest

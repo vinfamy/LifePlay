@@ -1,0 +1,2 @@
+FilterTalk(FilenameofLptalkfile)
+Filter Dirty talks, name the lptalk file with the suffix _restricted if you only want that file to be used specifically when FilterTalk calls for it

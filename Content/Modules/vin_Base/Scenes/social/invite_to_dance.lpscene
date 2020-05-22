@@ -122,7 +122,6 @@ Actor.show(2)
             Else
                 "We promptly left the nightclub and went back to my place. Once we were inside my bedroom, <Actor.name> practically jumped at me."
                 moveTo(Home)
-                setBackground(home)
             Endif
             Sex(Player, Actor)
             Actor:attractiontoplayer += Random(0, 5)

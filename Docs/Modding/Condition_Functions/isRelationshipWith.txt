@@ -1,0 +1,2 @@
+Actor1.isRelationshipWith(Actor2, RelationshipTypes)
+If Actor1 is this specific NPC-NPC relationshop with Actor2 (Siblings, Dating, Spouses, ParentChild etc)

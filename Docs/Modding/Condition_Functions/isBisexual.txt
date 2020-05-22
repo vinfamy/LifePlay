@@ -1,0 +1,2 @@
+Actor.isBisexual()
+If interested in both same gender and opposite gender

@@ -1,0 +1,2 @@
+clearGetList()
+So that GetSpecific() GetPerson() etc can return the same actor again if they're already called by a previous get functions in the same scene

@@ -5,6 +5,7 @@ WHO: Dating = getSpecific(Dating); If Dating:perversion > 70
 OTHER: perversion < Random(0, 60)
 
 SceneStart()
+secondScreenIfHidden(Dating)
 Dating.dress()
 Dating.show(2)
 "I must admit: my <Dating.boyfriend_or_girlfriend> <Dating.name> is far more experienced sexually than me and is rather adventurous in bed. I sometimes feel like the prude in the relationship."

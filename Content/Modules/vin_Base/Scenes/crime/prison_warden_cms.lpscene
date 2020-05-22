@@ -1,0 +1,530 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    setBackground(police)
+    Actor = getPerson(tag_warden)
+    If isTimingOut(prison_warden_cms)
+        "I'm currently suspended from my prison warden job. I will have to wait a bit more before returning to work."
+    Elseif Actor.isValid()
+        Fired = false
+        money += 100
+        If Actor:perversion > 50
+            If Random(0, 100) < 10 // Warden Prisoner relations 
+                "Whilst on my patrol rounds, I catch some moaning coming from a prisoners room"
+                0:: "Peek"
+                1:: "Ignore"
+                
+                If 0
+                    setBackground(prison)
+                    Actor2 = generatePersonTemporary()
+                    Sex(Actor, Actor2)
+                    "It's Warden <Actor.name> fucking a prisoner."
+                    0:: "Continue watching"
+                    1:: "Join them"
+                    2:: "Walk away"
+                    3:: "Report"
+                    
+                    If 0
+                        Sex(Actor, Actor2)
+                    Elseif 1
+                        Sex(Player, Actor, Actor2)
+                    Elseif 2
+                        "This happens all the time ... Let's just get on with my patrol."
+                    Else
+                        "<Actor.name> isn't my favorite colleague. This is the perfect opportunity to get <Actor.him_or_her> fired."
+
+                        If Random(0, 100) < Actor:interpersonal
+                            Fired = false
+                            "I didn't get <Actor.name> fired. Instead, <Actor.he_or_she> now knows I'm the whistleblower and basically declares me as an enemy."
+                            Actor:rapportwithplayer -= 50
+                        Else
+                            Fired = true
+                        Endif
+                    Endif
+                Endif
+            Elseif Random(0, 100) < 10 && WHEN > 18 // Night out
+                Colleague1 = Actor
+                Colleague1.dress()
+                Colleague1.Show(2)
+
+                Colleague1(Sarcastic):: "<Player.name>! What are you doing still in the prison office this late in the evening?"
+                Colleague1(Happy):: "Listen, a few of us are going to a bar nearby for a few drinks after work. Fancy coming? Work can wait till tomorrow - It's not like the boss is here to check on you."
+                0:: "Join them"
+                1:: "Decline"
+
+                If 0
+                    Player(Excited):: "Of course I'll join you. Sounds like fun. I'll just wrap up quickly and see you guys there."
+                    Colleague1(Excited):: "Excellent. I'll see you there then!"    
+                    Colleague1.hide()
+                    
+                    Colleague2 = getPerson(tag_warden)
+                    Colleague2.dress()
+                    
+                    Colleague3 = getPerson(tag_warden)
+                    Colleague3.dress()
+                    
+                    Colleague4 = getPerson(tag_warden)
+                    Colleague4.dress()
+                    
+                    Colleague5 = getPerson(tag_warden)
+                    Colleague5.dress()
+                    
+                    "A few minutes later ..."
+                    setBackground(bar)
+                    
+                    Colleague1.show(1)
+                    Colleague2.show(2)
+                    Colleague3.show(3)
+                    Colleague4.show(4)
+                    Colleague5.show(5)
+                    
+                    Colleague1(Excited):: "<Player.name>! We're here. Come!"
+                    Player(Happy):: "Sorry I'm late, had to finish a few things in the prison first ..."
+                    "The other wardens, <Colleague2.name>, <Colleague3.name>, <Colleague4.name> and <Colleague5.name>, are all here too! This will be a good way to get to know them better."
+                    
+                    PartyOngoing = true
+                    While PartyOngoing
+                        passTime(0.5, 1.5)
+                        Drank = false
+                        Colleague1:intoxication += Random(0, 10)
+                        Colleague2:intoxication += Random(0, 10)
+                        Colleague3:intoxication += Random(0, 10)
+                        Colleague4:intoxication += Random(0, 10)
+                        Colleague5:intoxication += Random(0, 10)
+                        
+                        "What should I do now?"
+                        0:: "Drink alcohol"
+                        1:: "Chat with <Colleague1.name>"
+                        2:: "Chat with <Colleague2.name>"
+                        3:: "Chat with <Colleague3.name>"
+                        4:: "Chat with <Colleague4.name>"
+                        5:: "Chat with <Colleague5.name>"
+                        6::timePassed > 1:: "Leave"
+                        
+                        If 0
+                            intoxication += Random(0, 15)
+                            money -= Random(3, 10)
+                            "I got myself a drink from the bar and enjoyed it thoroughly."
+                        Elseif 6
+                            Player(Happy):: "Sorry guys, I think it's about time that I go now. Don't want to have a hangover tomorrow morning!"
+                            Colleague1(Happy):: "Alright, have a safe journey home. Thanks for coming out with us!"
+                            PartyOngoing = false
+                        Else
+                            If 1
+                                SitWith = Colleague1
+                            Elseif 2
+                                SitWith = Colleague2
+                            Elseif 3
+                                SitWith = Colleague3
+                            Elseif 4
+                                SitWith = Colleague4
+                            Elseif 5
+                                SitWith = Colleague5
+                            Endif
+                            
+                            Player.moveToPerson(SitWith)
+                            "I spent some time chatting with <SitWith.name>"
+                            If SitWith.IsInterestedIn(Player) && Random(0, 100) < attractiveness
+                                SitWith:attractiontoplayer += Random(-1, 2)
+                            Else
+                                SitWith:rapportwithplayer += Random(-1, 2)
+                            Endif
+                            
+                            If !SitWith.isContactExchanged()
+                                If [SitWith.IsDominantSex(Player) || !SitWith.IsInterestedIn(Player)] && [SitWith:attractiontoplayer > Random(20, 60) || SitWith:rapportwithplayer > Random(20, 60)]
+                                    SitWith(Happy):: "Hey, I just realized I didn't have your personal number. Do you mind ..."
+                                    0:: "Exchange contacts"
+                                    1:: "Sorry but no"
+                                    
+                                    If 0
+                                        Player(Excited):: "Of course! Let's exchange numbers!"
+                                        exchangeContact(SitWith)
+                                        SitWith:rapportwithplayer += Random(0, 5)
+                                    Else
+                                        Player(Sad):: "I'm afraid I don't know you well enough yet for that. I tend to keep work and personal life separate."
+                                        SitWith:rapportwithplayer -= Random(0, 3)
+                                    Endif
+                                Else
+                                    "Should I ask <SitWith.name> for <SitWith.his_or_her> number?"
+                                    0:: "Ask for <SitWith.his_or_her> number"
+                                    1:: "Maybe not"
+                                    
+                                    If 0
+                                        Player(Happy):: "You know what? Let's exchange numbers so that we can hang out outside of work."
+                                        If SitWith:attractiontoplayer > Random(0, 30) || SitWith:rapportwithplayer > Random(0, 30) || SitWith:intoxication > Random(50, 100)
+                                            SitWith(Excited):: "Of course! Let's exchange numbers!"
+                                            exchangeContact(SitWith)
+                                        Else
+                                            SitWith(Sad):: "I'm afraid I don't know you well enough yet for that. Maybe next time."
+                                        Endif
+                                    Else
+                                        "Not yet. I want to get to know <SitWith.name> a bit better first ..."
+                                    Endif
+                                Endif
+                            Endif
+                            
+                            If Random(0, 100) < SitWith:perversion + SitWith:attractiontoplayer + SitWith:rapportwithplayer
+                                "<SitWith.name> offered me another drink. Shall I?"
+                            Else
+                                "Should I offer <SitWith.name> a drink?"
+                            Endif         
+                            "Have another drink?"
+                            0:: "Yes"
+                            1:: "No"
+                                
+                            If 0
+                                intoxication += Random(0, 15)
+                                SitWith:intoxication += Random(0, 15)
+                            Endif
+                            
+                            If SitWith.IsInterestedIn(Player) && Player.IsInterestedIn(SitWith) && [SitWith:attractiontoplayer > 70 || intoxication > 90]
+                                KissBack = false
+                                
+                                If SitWith.IsDominantSex(Player) && SitWith:perversion + SitWith:attractiontoplayer > Random(0, 200)
+                                    "All of a sudden, <SitWith.name> grabbed me and leaned in for a kiss"
+                                    SitWith(Kiss):: "..."
+                                    0:: "Kiss back"
+                                    1:: "Turn <SitWith.him_or_her> down"
+                                    
+                                    If 0
+                                        KissBack = true
+                                    Else
+                                        "I pulled myself away from <SitWith.him_or_her>. <SitWith.He_or_She> was visibly embarassed."
+                                        SitWith:attractiontoplayer -= Random(0, 1)
+                                    Endif
+                                Else
+                                    "From the way <SitWith.name> was checking me out, I could tell that <SitWith.he_or_she> was totally into me. Should I make my move now and kiss <SitWith.him_or_her>?"
+                                    
+                                    0:: "Kiss <SitWith.name>"
+                                    1:: "Maybe not"
+                                    
+                                    If 0
+                                        Player(Kiss):: "..."
+                                        If SitWith:intoxication > Random(70, 100) || [SitWith:attractiontoplayer > Random(30, 100) && SitWith:perversion > Random(30, 100)]
+                                            SitWith(Kiss):: "..."
+                                            "Wow, that's quite a pleasant surprise. <SitWith.name> was totally receptive to my advance. In fact, <SitWith.he_or_she> certainly showed that <SitWith.he_or_she> wanted something more ..."
+                                            KissBack = true
+                                        Else
+                                            "<SitWith.name> pulled away from my advances. Embarassed, I retreated, pretending for the rest of the drinks as if nothing happened ..."
+                                        Endif
+                                    Else
+                                        "Perhaps not ... It would be extremely embarrassing to be rejected in front of everyone from work. I wouldn't want to come in the office afterwards."
+                                    Endif
+                                Endif
+                                
+                                If KissBack
+                                    Player(Kiss):: "..."
+                                    "I responded in kind and we indulged ourselves in a passionate kiss."
+                                    SitWith:attractiontoplayer += Random(0, 1)
+                                    0:: "Invite <SitWith.him_or_her> home"
+                                    1:: "Stop it there"
+                                    
+                                    If 0 
+                                        "As much as I'd love to have <SitWith.him_or_her> right here, it would be extremely unprofessional and I don't want to be the center of office gossip tomorrow."
+                                        Player(Flirty):: "Let's go back to my place ..."
+                                        SitWith(Excited):: "Of course, let's go!"
+                                        "We excused ourselves from the party, trying to raise as little suspicions as possible that we were going home together, and started heading back to my apartment. Our feet were very eager indeed."
+                                        setBackground(street)
+                                        "A while later ..."
+                                        passTime(0.2, 1)
+                                        moveTo(Home)
+                                        setBackground(home)
+                                        "As soon as we were inside, our hands were all over each other and we started passionately making out."
+                                        perversion += Random(0, 0.2)
+                                        Sex(SitWith, Player)
+                                        SitWith.hide()
+                                        "The sex was amazing. <SitWith.name> excused <SitWith.himself_or_herself> after we were done and I went to bed ... At least we didn't do it in front of everyone."
+                                        PartyOngoing = false
+                                    Else
+                                        "I enjoyed the kiss but didn't feel like going any further ..."
+                                    Endif
+                                Endif
+                            Endif                           
+                        Endif
+                    
+                        If PartyOngoing && timePassed > Random(1, 4)
+                            "It was getting very late. Eventually, each person made their excuse to leave. It was a fun way to get to know my colleagues on a more personal level ..."
+                            PartyOngoing = false
+                        Endif
+                    endWhile    
+                Else
+                    Player(Sad):: "I still have another patrol round to finish tonight, I'm afraid. You guys go have fun though!"
+                Endif
+            Elseif Random(0, 100) < 10 && isModEnabled(vin_Bestiality)
+                Actor2 = generateCreatureTemporary(Dog)
+                "I was on my patrol when I noticed something unbelievable."
+                Player:: "What the fuck!"
+                setBackground(prison)
+                Sex(Actor, Actor2)
+                "It's <Actor.name>, one of the prison wardens, having sex with the prison dog, in one of the empty cells."
+                0:: "Continue watching"
+                1:: "Continue your patrol"
+                
+                If 0
+                    Sex(Actor, Actor2)
+                    Actor:: "Saw that huh? Meh it gets lonely on shift and gotta keep 'em motivated, helps that it's fun too"
+                Else
+                    "Well, some people have weird sexual tastes I suppose."
+                Endif
+            Else
+                "My shift in the prison today was quite uneventful."
+            Endif
+                
+            If Fired
+                Actor2.hide()
+                setBackground(police)
+                Actor.setActorVar(tag_warden, 0)
+                "Warden <Actor.name> was fired."
+                Actor = generatePerson()
+                Actor.setActorVar(tag_warden, 1)
+                "And replaced by a new warden called <Actor.name>."
+            Endif
+        Else
+            If Random(0, 100) < 10 // Prisoner Commisary Account
+                setBackground(prison)
+                Actor2 = generatePersonTemporary()
+                Actor2.dress()
+                Actor2.show()
+                Actor2:: "Please help me!"
+                Player:: "What's the matter?"
+                Actor2:: "My prison account has not been topped up. Can you authorise emergency funds so I can get essential supplies?"
+                Actor2:: "I'm willing to do anything ..."
+                0:: "No"
+                1:: "Yes"
+                2:: "Demand sex"
+                
+                If 0
+                    Player:: "I'm not paid enough to bother, sorry!"
+                Elseif 1
+                    "Empathy is something all wardens should have."
+                    Player:: "Okay, I'll do that for you. You don't have to do anything in exchange."
+                    Actor2:: "Oh my god, you're the nicest warden ever."
+                    karma += 2
+                Else
+                    Actor2:: "Okay ... I know the drill by now. It seems you're no different from the other corrupt wardens."
+                    Sex(Player, Actor2)
+                Endif
+                
+            Elseif Random(0, 100) < 10 && isModEnabled(vin_NonConsensual) && isModEnabled(vin_Bestiality) // Unruly Prisoner Scene
+                setBackground(prison)
+                Actor2 = generatePersonTemporary()
+                Actor2.dress()
+                Actor2.show()                 
+                "I was called to attend to a prisoner in <Actor.his_or_her> cell creating a scene, generally misbehaving, lotso of cursing, swearing and threats made to the other wardens and prisoners."
+                0:: "Talk <Actor2.him_or_her> down"
+                1:: "'Discipline' <Actor2.him_or_her> yourself"
+                2:: "'Discipline' <Actor2.him_or_her> with the rest of the wardens' gang"
+                3:: "Send a dog in"
+                
+                If 0
+                    "Didn't think that worked too well, but at least I tried to do my job properly."
+                    "Maybe I should be more tough next time."
+                Elseif 1
+                    "I enter the cell myself with fellow wardens covering the entrance and not allowing other prisoners to see what's happening, but they can probably still hear and guess though."
+                    Player:: "Maybe this will shut you up!"
+                    If Player.isFemale() && Actor2.IsMale()
+                        filter(AggressiveFM)
+                    Else
+                        filter(Aggressive)
+                    Endif
+                    TalkNonConsensual()
+                    Sex(Player, Actor2)
+                Elseif 2
+                    "Actually, this is the perfect opportunity to let the team blow off some steam."
+                    Player:: "Let's shut <Actor2.him_or_her> up together!"
+                    Actor.dress()
+                    Actor:: "Alright! Let's do it."
+                    Sex(Player, Actor, Actor2)
+                Else
+                    Player:: "Since you're making a fuss like a bitch, I know how to deal with the likes of you."
+                    Actor3 = generateCreatureTemporary(Dog)
+                    Sex(Actor3, Actor2)
+                Endif
+                
+            Elseif Random(0, 100) < 5 // Jail Bribe (Jail)
+                setBackground(prison)
+                Actor2 = generatePersonTemporary()
+                Actor2.dress()
+                Actor2.show()
+                Actor2:: "Listen, I'll offer you a lot of money. Just sneak in my package for me!"
+                Player:: "Let me guess, drugs?"
+                "The money would be nice but if I'm not careful, this could get me suspended." 
+                0:: "Yes"
+                1:: "No"
+                
+                If 0
+                    Player:: "Okay ... tell your people to give me the cash first though."
+                    Actor2:: "Deal! You're the most understanding warden. I'm sure you and me will have a great working relationship going forward."
+                    If Random(0, 125) < intelligence + sneak
+                        "I was perfectly discreet with the transaction and got the money promised."
+                        money += 1000
+                    Else
+                        "Unfortunately, I wasn't discreet enough and was caught red-handed by the boss. I was suspended from the job."
+                        timeout(840, prison_warden_cms)
+                    Endif
+                Else
+                    Player:: "You must have mistaken me for a currupt warden then."
+                    Player:: "This is your last warning. I will report you next time and you might get your sentence extended!"
+                Endif
+            Elseif Random(0, 100) < 1 // Performance Apprais
+                Actor2 = getPerson(tag_wardenboss)
+                Actor2.dress()
+                Actor2.show()
+                Actor2:: "<Player.name>, can we have a chat back in my office, please?"
+                "Damn, is this good news or bad news? Seems serious."
+                Actor2:: "We've reviewed your performance ..."
+                If performance > 70
+                    Actor2:: "Your performance has been very good. Congratulations!"
+                    Actor2:: "I hope that continues!"
+                    "That's it? No promotions, no bonuses?"
+                    0:: "Ask for a bonus"
+                    1:: "Stay silent"
+                    
+                    If 0
+                        Actor2:: "Sorry, the prison budget is thin and we can't manage to get a bonus for anyone right now."
+                        0:: "Accept"
+                        1:: "I don't mind boning you for it."
+                        
+                        If 0
+                            Player:: "I understand ..."
+                        Else
+                            Actor2:: "..."
+                            Actor2:: "Okay....that was corny...but I supposed you've earned it..."
+                            Sex(Actor2, Player)
+                            money += 1000
+                        Endif
+                    Endif
+                Else
+                    Actor2:: "Your performance has not been good enough."
+                    Actor2:: "If you continue like this, you'll get fired."
+                    0:: "Accept"
+                    1:: "Argue that you've been performing well"
+                    2:: "Make it up with sex"
+                    
+                    If 0
+                        Player:: "I understand ... I will try harder"
+                    Elseif 1
+                        If Random(0, 100) < interpersonal
+                            Actor2:: "Fine, now that you've made your arguments, your performance wasn't that bad. I've adjusted the review."
+                            jobperformance += 10
+                        Else
+                            Actor2:: "Sorry, you're making no sense."
+                        Endif
+                    Else
+                        Actor2:: "..."
+                        Actor2:: "Okay....that was corny...but I suppose I can wipe these bad performances off your record for some favour"
+                        Sex(Actor2, Player)
+                        jobperformance += 20
+                    Endif            
+                Endif
+            Elseif Random(0, 100) < 10 // JAIL NURSE
+                setBackground(prison)
+                Actor2 = generatePersonTemporary()
+                Actor2.dress()
+                Actor2.show()
+                Actor3 = generatePersonTemporary()
+                Actor3.dress()
+                Actor3.show()
+                "I was asked to stand guard as a jail nurse visits a prisoner for a health checkup."
+                "It was quite clear that there's some sexual tension between the prioner and the nurse."
+                Actor2(Flirty):: "You know how lonely it is in jail, and you're such a <Actor3.handsome_or_beautiful> thing."
+                Actor3(Flirty):: "Please stop, you're making me ..."
+                Actor2:: "Horny? I know respected professionals like you all secretly have a thing for a bad <Actor3.boy_or_girl> in prison."
+                0:: "Walk away and allow them some alone time"
+                1:: "Say nothing and watch"
+                2:: "Kick the prisoner out and fuck the nurse myself."
+                
+                If 2
+                    Actor2:: "What are you doing? Why do I have to leave the cell all of the sudden."
+                    Actor2.hide()
+                    Player(Evil):: "You're already pretty horny, aren't you? Why don't you let me finish the job?"
+                    Actor3:: "Okay ..."
+                    Sex(Player, Actor3)
+                    Actor3.hide()
+                    Actor2.show()
+                    Actor2:: "Fuck you, you're the worst warden here! That was so unfair! It was my checkup!"
+                    Player(Sarcastic):: "Don't worry, I finished <Actor3.him_or_her> off for you"
+                    Player:: "It's nice to get some release isn't it? well... for some of us anyway."
+                Else
+                    If 0
+                        "Who knows prison wardens can be matchmakers ..."
+                        "Let's go outside and allow these two lovebirds some alone time."
+                        karma += 2
+                    Else
+                        "They certainly take my silence for approval and pretty soon they were unashamedly undressing each other right in front of me."
+                        Sex(Actor2, Actor3)
+                    Endif
+                    Actor3.hide()
+                    Actor2:: "It feels so much better after this checkup."
+                    Actor2:: "Thank you for not interrupting. You're the most understanding warden I know."
+                Endif
+            Elseif Random(0, 100) < 10 // JAIL SEARCH
+                setBackground(prison)
+                Actor2 = generatePersonTemporary()
+                Actor2.dress()
+                Actor2.show()
+                Actor3 = generatePersonTemporary()
+                Actor3.dress()
+                Actor3.show()
+                "One of the prisoners is being visited by <Actor2.his_or_her> <Actor3.boyfriend_or_girlfriend> today."
+                0:: "Leave them be"
+                1:: "Take the <Actor3.boyfriend_or_girlfriend> somewhere private."
+                
+                If 1
+                    Player:: "Sorry, I must search you first!"
+                    Actor3:: "Okay ..."
+                    Actor.hide()
+                    Actor3: "I didn't even bring anything so not sure why you would want to search me, but fine, do your job then."
+                    0:: "Do my job professionally."
+                    1:: "Propose sex"
+                    
+                    If 0
+                        Player:: "Okay, you're all clear. You can go back to your <Actor2.boyfriend_or_girlfriend>'s cell now."
+                        Actor3:: "Thank you."
+                    Else
+                        Player:: "Actually, whether you're allowed to see your <Actor2.boyfriend_or_girlfriend> after the search doesn't depend on what you bring with you, but your own body ..."
+                        If Random(0, 100) < Actor3:peversion
+                            Actor3:: "Alright, I've had to do this before with another warden. It's one of those unwritten rules I suppose. My <Actor2.boyfriend_or_girlfriend> is in prison and I don't have another choice."
+                            Sex(Player, Actor3)
+                        Else
+                            Actor3:: "Get your hand off me, you perv. I'm telling your boss about this!"
+                            jobperformance -= 10
+                        Endif
+                    Endif
+                Endif
+            Else
+                "My shift in the prison today was quite uneventful."
+            Endif
+        Endif
+    Else   /// INTERVIEW
+        "Should I apply for a job as a prison warden?"
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            Actor2 = generatePerson()
+            Actor2.setActorVar(tag_wardenboss, 1)
+            Actor2.dress()
+            Actor2.show()
+            Actor2:: "I'm quite impressed with you today. When can you start?"
+            "The interview was pretty easy and I got the job, which pays per shift. After which I was introduced to my colleagues - fellow prison wardens."
+            jobperformance => 50
+            count = 0
+            While count < 5
+                count += 1
+                Actor = generatePerson()
+                Actor.setActorVar(tag_warden, 1)
+                Actor.dress()
+                Actor.show()
+                Actor.moveToPerson(Player)
+                Actor:: "Hi, I'm Warden <Actor.name> <Actor.name_last>. Nice to you meet you."
+                Player:: "Hi, I'm <Player.name> <Player.name_last>"
+                Actor.SaveAndDelete()
+            Endwhile
+        Endif
+    Endif
+    SceneEnd()

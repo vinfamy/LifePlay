@@ -1,0 +1,2 @@
+StringVariable.isString("DirectText")
+Check the value of a string, case insensitive

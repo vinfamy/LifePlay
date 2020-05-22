@@ -1,0 +1,3 @@
+Actor.getUntil() returns float
+Returns the time this person will stop being at their current location and AI would look for a new location again. The value returned isn't the time of the day, but total hours elapsed since the start of the current game, i.e. HoursElapsed + HoursStayed 
+HoursElapsed being a special variable

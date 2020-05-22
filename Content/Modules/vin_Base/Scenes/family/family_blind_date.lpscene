@@ -6,6 +6,7 @@ OTHER: !Player.isDating() && !isWithCompanion()
 
     SceneStart()
     "My phone is ringing. It's my <Actor.relationship>. I wonder what <Actor.he_or_she> is calling me for ..."
+    secondScreen(Actor)
     Actor.dress()  
     Actor.show(2)
     Date = generatePersonTemporary()
@@ -21,11 +22,13 @@ OTHER: !Player.isDating() && !isWithCompanion()
         Actor:rapportwithplayer += Random(0, 2)
         Date.makePermanent()
         Player(Embarassed):: "<Actor.Relationship>! You're trying to be a matchmaker? Oh well, I guess I'll give it a shot. But if it turns out to be the worst date in my life, I'm blaming you!"
+        secondScreen()
         Actor.hide()
         "Later on ..."
+        Loc = findNearbyBuilding(restaurant)
+        moveTo(Loc)
         Date.dress()
         Date.show(2)
-        setBackground(restaurant)
         "My blind date introduced <Date.himself_or_herself> as <Date.name> and my <Actor.relationship> set us up to meet each other at a restaurant nearby. <Date.He_or_She> seemed alright at first, although without knowing much about the <Date.guy_or_girl>, I didn't feel any instant connection either."
         "Now that we've finished dinner, should I exchange contacts with <Date.name>?"
         0:: "Yes"

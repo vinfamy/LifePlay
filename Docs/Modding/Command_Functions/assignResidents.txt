@@ -1,0 +1,2 @@
+assignResidents()
+Only used for the check_on_my_family scene

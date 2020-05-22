@@ -25,15 +25,13 @@ If 0
         Boss(Furious):: "Also, there are a few agents waiting for you ..."
         Boss.hide()
         loseJob()
-        
+        moveTo(home)
         If Random(0, 100) < 80
-            setBackground(street)
             "The extent of my crime wasn't enough to send me to prison, but that was the only saving grace. Not only did I lose my job, I was ordered by the court to pay back all the money I earned illegally from the trade. I also lost a lot of money in legal fees, and my reputation in the industy was forever damaged. It's a lot harder to get a decent job now ..."
             jobexperience -= Random(0, 50)
             money -= Random(1000, 20000)
             mood -= 100
         Else
-            setBackground(home)
             "Sure enough, the cops promptly arrived at my home to arrest me."
             "'Hands in the air, now!'"
             0:: "Run"

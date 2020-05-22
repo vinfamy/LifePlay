@@ -1,0 +1,50 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "The Contacts menu you just saw can be accessed anytime by pressing P (for People)."
+    "LifePlay is an adult game after all, so let's introduce you to the sex scene controls."
+    "I'm not using your character for the example as to not break any roleplay for you."
+    "Let's just pull out two random male and female characters and move into a random bedroom."
+    setBackground(home)
+    Man = generatePersonTemporary(normal)
+    Woman = generatePersonTemporary(normal_F)
+    
+    Man.randomizeHairs()
+    Woman.randomizeHairs()
+    
+    Man.dress()
+    Woman.dress()
+    
+    Man.show()
+    Woman.show()
+    
+    "Those two people are going to have sex soon."
+    "The camera controls for the sex scene will be the same as the controls you learn earlier, i.e. WASD and mouse."
+    "To control the sex itself, click anywhere for the sex action menu, where you can choose different positions as well as undressing characters or dresing them up with BDSM gear."
+    "Sex ends after the cum timer top right of your screen finishes."
+    "You can increase animation speed with + and - buttons on your keyboard."
+    "If you're too lazy to pick sex position, just press Space for a random one."
+    "Enjoy!"
+    
+    Sex(Man, Woman)
+    
+    "There are tons of different types of sex scenes in the game: group ones and those involving different sexual orientations. I simply triggered a straight couple one just as an example."
+    "Let's get rid of our pornstars now ..."
+    Man.hide()
+    Woman.hide()
+    
+    "The tutorial is coming towards the end, but the last bit is important so please read carefully."
+    "Once the remaining tutorial texts finish, you will be taken back to the main game's UI."
+    "From there, click on the map icon bottom-right of your screen, then start exploring the city. It's the same camera control again that you have been using in this tutorial."
+    "Double-clicking on any map marker to go to that building." 
+    "Provided that it's not closed, you will be given a list of possible actions there. Different actions increase or decrease attributes and they trigger scenes, some guaranteed while some depending on other conditions."
+    "There will be other NPCs in those locations too, whom you can click on and interact with. First interaction to do with a stranger would obviously be to introduce yourself. Then perhaps ask them to hang out / out on a date."
+    "LifePlay is a life simulation sandbox. You can do whatever you want - there's no structured 'go to X, do Y, unlock h-scene Z' - it's not a visual novel. Conditional and random events will happen naturally as you do things as part of your life, some will lead to sex."
+    "If you're not used to the freedom given in a life simulation game and feel a bit lost, it may be best to keep clicking the 'You should ...' recommendations top-left of your screen (hotkey R) until you get the hang of the game."
+    "Most likely, it will recommend you get a place to live first, then tell you to get a office job when Monday morning comes."
+    "If you prefer a story, press Q after you come out of this tutorial, then pick a Quest to start. All you have to do is to keep clicking on the quest objective."
+    SceneEnd()

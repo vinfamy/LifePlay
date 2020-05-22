@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: prison_warden_cms
+ACTION_NAME: Prison warden career
+WHERE: crime
+WHEN: 0 - 24
+MINUTES: 180 - 300
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS: 
+CONDITIONS:
+MOVE_FIRST: false
+SCENE_ALWAYS: prison_warden_cms
+ANIMATION:   

@@ -1,0 +1,2 @@
+BuildingVariable.findNearbyBuilding(Type) returns Building
+Find a building near to another building that is of a certain type. Used with setCurrentLocation()

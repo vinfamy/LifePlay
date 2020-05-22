@@ -5,6 +5,7 @@ WHO: Actor = getSpecific(Boss); Actor1 = Actor.getRelatedPerson(Spouses, Dating)
 OTHER: Random(0, 100)*Random(0, 1) > jobexperience
 
     SceneStart()
+    Actor.hide()
     "My boss sent me on an errand to deliver some documents to <Actor.his_or_her> private home. I couldn't really turn it down but to be honest, it's a pain in the ass ... I'm not paid to be someone's personal delivery <Player.boy_or_girl>."
     setBackground(street)
     Actor1.dress()

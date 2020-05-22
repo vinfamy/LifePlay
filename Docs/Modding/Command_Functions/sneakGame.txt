@@ -1,0 +1,6 @@
+SneakGame()
+If Random(0, 100) < sneak
+    "Perfect. Nobody saw a thing."
+Endif
+
+Show sneak game, if successful, the next sneak check will return 100

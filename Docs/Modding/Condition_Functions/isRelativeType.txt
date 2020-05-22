@@ -1,0 +1,2 @@
+Actor.isRelativeType(Type)
+Check if this actor is this specific relative relationship with the player

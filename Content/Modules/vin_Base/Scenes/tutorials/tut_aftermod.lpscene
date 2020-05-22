@@ -1,0 +1,29 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Player.hide()
+    "Those shown on the previous screen are official modules made by me. Due to the game's moddable nature, there are many third-party mods by other modders that you can download too, the list with links for them can be accessed from the main menu."
+    "Now, let me introduce you to the basic camera controls, now that I've sent you to this empty 3d interior space as an example."
+    "The camera is controlled by WASD keyboard buttons and the mouse. This control scheme applies to all parts of gameplay."
+    "First, press and hold W to move the camera forward."
+    "Now, press and hold S to move the camera backward."
+    "Then, press and hold A to move the camera to the left."
+    "Finally, press and hold D to move the camera to the right."
+    "Pretty self-explanatory I hope?"
+    "The mouse controls may take a bit more to get used to ..."
+    "Scroll your mousewheel (which is located between your two main mouse buttons) to move the camera up and down."
+    "Now HOLD the left mouse button, while moving you mouse towards a direction to rotate the camera."
+    "Holding middle mouse button works too in place of the left mouse button, in case you prefer this." 
+    "That's all there is in terms of camera controls."
+    
+    "Next, please choose which city your player lives in. By default, the game comes with the Central London map and Central Bath map only. You can download more maps from the Mega folder link that is posted with all forum OPs about the game."
+    "For now, let's just go with the setup for best performance .."
+    "In the next screen, tick 'Randomize Unknown Buildings' then type '25' in all four boxes that appear."
+    "Then click on Central Bath to select it."
+    SceneEnd()
+    OpenMenu(City)
+    followUp(tut_aftercity)

@@ -25,9 +25,9 @@ OTHER: none
             
                 If 0
                     "How can I decline such a nice offer? <CurrentCompanion.name> walked me back to my apartment."
+                    moveTo(Home)
                     setBackground(street)
                     passTime(0.1, 0.5)
-                    moveTo(Home)
                     "A while later ..."
                     CurrentCompanion(Happy)::"Here we are. I'll see you later then"
                     0:: "Invite <CurrentCompanion.him_or_her> inside"
@@ -62,9 +62,8 @@ OTHER: none
                 If Dating || CurrentCompanion:attractiontoplayer > Random(0, 100) || CurrentCompanion:rapportwithplayer > Random(0, 100)
                     CurrentCompanion(Happy)::"Oh, thank you! That's very nice of you."
                     "I chivalrously walked with <CurrentCompanion.name> back to <CurrentCompanion.his_or_her> place."
-                    If CurrentCompanion.IsDating()
-                        MoveTo(Home_Dating)
-                    Endif
+                    Loc = CurrentCompanion.getBuilding(home)
+                    moveTo(Loc)
                     setBackground(street)
                     passTime(0.1, 0.5)
                     "A while later ..."

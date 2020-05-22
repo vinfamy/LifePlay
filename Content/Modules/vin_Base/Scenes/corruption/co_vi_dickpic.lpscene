@@ -7,6 +7,7 @@ OTHER: none
     SceneStart()
     "It's my phone. I've got a new message."
     Player(Shocked):: "What the hell!?"
+    secondScreen(Actor)
     Actor.show(2)
     "<Actor.name> sent me <Actor.his_or_her> nude ..."
     0:: "Say nothing"
@@ -14,8 +15,10 @@ OTHER: none
     
     If 0
         perversion += Random(0, 0.25)
+        secondScreen()
         "That night ..."
-        setBackground(home)
+        moveTo(home)
+        Actor.hide()
         "I know it's not the classiest thing to do, but for some reasons, I couldn't help but think about <Actor.name>'s nude photo ..."
         0:: "Masturbate to it"
         1:: "Resist the temptation"

@@ -1,0 +1,2 @@
+BuildingAlias.addObjective(Lpactionfilename)
+Add objective to a building alias, objective is simply a lpaction file with SCENE_ALWAYS

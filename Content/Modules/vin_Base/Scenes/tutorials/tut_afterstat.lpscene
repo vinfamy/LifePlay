@@ -1,0 +1,13 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "Attributes aren't static but increase / decrease depending on what actions you take and what decisions you make during scenes."
+    "Also, attributes affect each other too. High perversion characters will have arousal rise faster for example."
+    "Now that your character is done, let's get dressed."
+    SceneEnd()
+    OpenMenu(Inventory)
+    followUp(tut_afterinventory)

@@ -38,7 +38,8 @@ If interpersonal + Colleague:rapportwithplayer > Random(0, 150) || Colleague:att
             Elseif Colleague:perversion > Random(50, 100) || Colleague.isDominantSex(Player)
                 Colleague(Flirty):: "You know what? Let's do it tonight after work. I'll show my stupid ex what <Colleague.she_or_he> is missing out on!"
                 "That night ..."
-                setbackground(Home)
+                Loc = Colleague.getBuilding(home)
+                moveTo(Loc)
                 Sex(Colleague, Player)
                 Colleague.show(2)
                 Colleague(Flirty):: "That was so satisfying. Revenge sex is the best. I wished we filmed the whole thing and sent it to my ex."

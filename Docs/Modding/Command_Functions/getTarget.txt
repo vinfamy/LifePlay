@@ -1,0 +1,2 @@
+getTarget() returns Actor
+Used for WHO: conditions for interactions, get the current interaction target (i.e. the actor the player just clicked on)

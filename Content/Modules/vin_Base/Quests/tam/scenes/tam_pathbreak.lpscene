@@ -116,6 +116,8 @@ OTHER: none
         "It's an innocent joke, but that certainly put some ideas into my head about Kong's plan ..."
         Meihui.hide()
         "As soon as Meihui left the coffee shop, I called Kong ..."
+        secondScreen(Kong)
+        Kong.show()
         Kong:: "Great work. I'll make sure my wolf pack kidnap the bitch on the same day she's supposed to head to the airport. We'll then have two weeks to do whatever we want with her and no-one will even suspect she's missing."
         stage = 33
         KongH.addObjective(tam_break)

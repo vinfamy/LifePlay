@@ -13,7 +13,8 @@ OTHER: none
         "<Actor.name> is going into labour. I need to take her to the hospital ..."
         0:: "Take <Actor.name> to a hospital"
         
-        setBackground(hospital)
+        Loc = findNearbyBuilding(hospital)
+        moveTo(Loc)        
         Actor.strip()
         Actor.endPregnancy()
         "Those were among the tensest hours in my life, but thankfully, everything went smoothly in the end. Both <Actor.name> and our child were in good condition. Nothing beats the feeling of being a new father."

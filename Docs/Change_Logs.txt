@@ -1,4 +1,24 @@
-Version 3.0 Beta 3:
+Version 3.1:
+- The action and interaction menus will now be dynamically sorted to minimize the need to scroll down / type in keyword - with your last action (if still applicable) shown first on the list, followed by the rest of the available actions sorted by how often you used them so far in your current save. I find this especially important for the interaction menu with NPCs, which involve a lot of scrolling right now.
+- 3d camera with free keyboard + mouse control for the character creation menu and the inventory menu, replacing the old static Zoom and Rotate buttons, so that you can always get the perfect angle while editing / dressing your character and don't have to constantly move your cursor back and forth between the main editor menu and the camera buttons.
+- Reduce the load time for maps (i.e. the long "Loading, Please Wait ..." thing after you select a city). The improvement is especially noticeable for the bigger maps.
+- Replace the top-left-corner tutorial popups you get at the beginning of the game (which are outdated anyway with so many gameplay changes in the last year) with a separate "New Game with Tutorial" mode accessible from the title screen, which guides new players step by step through the various aspects of the game. This way, experienced players don't get bothered by those popups and new players have their own 'handholding' new game mode that is very easy to follow.
+- The hotkeys to open the frequently used menus (namely Esc, Q, I & P) can now be simply pressed again to close such menus, instead of having to find the Finish / Resume button  to click on.
+- Reset the "Update Only" downloads' version requirement to v3.0 Stable to make the download size smaller and hence more useful. If you didn't play v3.0 Stable, you either need to use the Full v3.1 download for this update or need to apply the "Update From v2.x To v3.0 Stable" first before you apply the v3.1 Update Only file.
+- Update the Modding Docs with the new API functions that have been accumulating for the past year
+- About half of May commission work: all maps and all scenes, but the scenes haven't been tested. Animations and scene testing will come in v3.2 (30 May)
+- Bug fixes and other improvements
+
+Version 3.0:
+- Change the NPC spawning for scenes so that there can ever one copy of each specific NPC existing in the game at any point (For example, if a scene triggers involving your girlfriend and she's already in the bedroom with you - there shouldn't be a clone of hers being spawned in - but she should simply walk towards you to start the scene). This also ensures that any stat changes to NPCs, whether from scenes or interactions, actually get saved.
+- Add a system to prioritize triggering scenes that involve NPCs already in the same location as the player so that scenes feel more relevant and less random.
+- Add new API functions myself and modders can use, which allow more control over what characters do during scenes now that they're in a fully 3d space all the time and not in a 'visual novel' scene anymore.
+- Add some essential camera auto-adjustments so that you don't end up outside the interior space or in awkward angles (which can happen whenever you move from a big interior to a small interior for example)
+- Some further performance optimizations, especially with regards to loading furniture assets, and also in terms of reducing the (currently huge) jump in performance costs between a small map (like Central Bath) and a big map (like Central London)
+- Bug fixes and other improvements
+The AI and Interaction Overhaul is considered 'done' with this v3.0 Stable update, as all the systems and basic assets for them will have all been added and the game will be perfectly playable with the new AI and Interaction gameplay. However, there will continue be a few more future updates spread out in the v3.x versions that add more assets to work with the new systems like more daily activity animations (a bit lacking in variety right now because I only had one update, i.e. v3.0 Beta 2, so far for animating work), more AI packages, more interactions, more 3d location presets etc.
+
+Version 3.0 Beta 4:
 - Fix many bugs that have been accumulating over the past two beta updates, with emphasis on the game-breaking ones like that one where people in your contacts randomly changing gender or appearance.
 - Improve performance in terms of frames per second by optimizing the game's process of checking and applying AI packages happening in the background
 - Improve performance in terms of smoother / more seamless gameplay and less and shorter freezes while the game is loading assets (furniture and clothes) or generating characters into the world, by putting some of the loading processes in the background using the multi-threading system added in Beta 1. For the loading processes that aren't thread-safe and can't be put away in the background, I'll try to change them to occur when the player doesn't feel the impact of the freezes at all or as much.

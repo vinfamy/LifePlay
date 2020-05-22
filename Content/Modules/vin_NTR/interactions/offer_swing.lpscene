@@ -19,7 +19,7 @@ OTHER: none
         Actor2.makePermanent()
         addNpcRelationship(Dating, Actor, Actor2)
     Endif
-    Actor2.dress()    
+    Actor2.dress()
     Dating = getSpecific(Dating)
     Dating.dress()
         

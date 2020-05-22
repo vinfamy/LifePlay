@@ -1,0 +1,2 @@
+Actor.getRelatedPersonQuick(RelationshipTypes)
+Same as getRelatedPerson() but only load the necessary data for the actor needed for AI stuffs. Only meant for lpai files, actors gotten this way aren't meant to be shown to the player on screen.

@@ -39,7 +39,7 @@ OTHER: !isWithCompanion()
                     "To be honest, I have always fantasized about having a threesome with my <Dating.boyfriend_or_girlfriend> and <Friend.name> ... Besides, maybe a threesome would be just what needed to make them two friends."
                     If Random(50, 100) < Dating:perversion && Random(50, 100) < Friend:perversion
                         "Somehow I managed to convince them both to do it ... Sharing is caring after all."
-                        setBackground(home)
+                        moveTo(home)
                         Sex(Player, Dating, Friend)
                         perversion += Random(0, 1)
                         Dating:attractiontoplayer += Random(0, 2)

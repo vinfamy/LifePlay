@@ -1,0 +1,17 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "The Inventory menu you just saw can be accessed anytime by pressing I."
+    "You can buy more clothes by selecting 'Buy Apparel' at department stores and other relevant shops."
+    "Next, let's check out another menu that you'll access frequently: the Contacts menu."
+    "You know no-one yet in this city so the contacts menu will be empty."
+    "Instead, press 'Add Relative' to add a family member. By default, this will be a sibling that lives with you. You can change this relationship by clicking the 'Brother/Sister' text next to their name."
+    "You'll find you will also be able to change their appearance and stats, you can also invite them out etc."
+    "Relatives are the ones you have to set up manually (the game will not force a random family on you). Other characters, including potential love interests, you will naturally meet throughout gameplay so no need to add them manually."
+    SceneEnd()
+    OpenMenu(Contacts)
+    followUp(tut_aftercontacts)

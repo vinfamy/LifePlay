@@ -1,0 +1,2 @@
+isOpen(BuildingType)
+Check if a building type is open at the current hour

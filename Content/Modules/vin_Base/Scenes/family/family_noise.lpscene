@@ -5,7 +5,8 @@ WHO: Actor = getRelative(Cousin, Sibling, StepSibling); If Actor.livesWithPlayer
 OTHER: isAtHome()
 
     SceneStart()
-
+    secondScreen(Actor)
+    Actor.show()
     "<Actor.name>, my <Actor.relationship> is playing music loudly again tonight. I can't sleep ..."
     0:: "Ignore"
     1:: "Complain"
@@ -17,8 +18,6 @@ OTHER: isAtHome()
         energy -= Random(0, 20)
     Elseif 1
         "This is unacceptable. Does <Actor.name> realize how late it is?"
-        Actor.dress()
-        Actor.show(2)
         Player(Angry):: "Could you please turn down the music? I'm trying to get some sleep here."
         Actor(Sad):: "Oh sorry, I'll adjust the volume right away."
         masochist -= Random(0, 0.5)
@@ -28,8 +27,6 @@ OTHER: isAtHome()
         energy -= Random(0, 20)
         music += Random(0, 0.5)
         "I'm actually quite enjoying the music. Who needs sleep anyway?"
-        Actor.dress()
-        Actor.show(2)
         Player(Happy):: "You have great taste in music, <Actor.name>!"
         Actor(Happy):: "Oh, thank you!"
         Actor:rapportwithplayer += Random(0, 5)

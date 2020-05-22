@@ -1,0 +1,36 @@
+WHAT: play_a_team_sport
+WHERE: sports_centre
+WHEN: 0 - 24
+WHO: Actor = getCompanion(); If Actor.isFemale() && Actor.isInterestedIn(Player) && Actot:perversion > 50 
+OTHER: Player.isShemale() && Player.isInterestedIn(Actor)
+
+    SceneStart()
+    "I played some women's team sport today, with <Actor.name> as my teammate, obviously <Actor.name> is the only one who knows about the extra equipment I'm packing in my pants, otherwise I'm not sure the other ladies would be so accepting of me playing with them."
+    "I performed pretty poorly in the match because I just couldn't concentrate, being distracted by all the hot girls around."
+    "Things don't get better for me after the match either as I ended up in the locker room with those girls naked all around me."
+    Actor.moveToPerson(Player)
+    Actor(Flirty):: "What's the matter, <Player.name>? Having a hard time playing today, aren't you?"
+    Player(Embarassed):: "Uh-huh."
+    Actor(Flirty):: "Have you got over excited about your teammates again?"
+    Player:: "Oh please."
+    Actor(Flirty):: "Come on, who is it? I promise to keep it a secret."
+    0:: "It's you I got excited about ..."
+    1:: "One of the girls from the other team."
+    
+    If 0
+        Player.strip()
+        Player(Flirty):: "Well, I can give you a pointer."
+        "I pulled out my rock hard cock to show <Actor.name> the evidence of my excitement."
+        Actor:attractiontoplayer += 5
+        If Actor.hadSex() || Actor:attractiontoplayer > 30
+            Actor:: "Confident today, aren't you? Why don't you show me what you can do with it. Make sure you don't flop like your performance in the match today, okay?"
+            Sex(Player, Actor)
+        Else
+            Actor: "I must say I'm a bit flattered ..."
+            Actor:: "But you should put that away before the other girls notice, if you still want to keep this a secret and continue playing women's sports."
+        Endif
+    Else
+        Actor:: "Well, then you should go introduce yourself to her."
+    Endif
+    SceneEnd()
+    timeout(300, futa_hard_sport_cms)

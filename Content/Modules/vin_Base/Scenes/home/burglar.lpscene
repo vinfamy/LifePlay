@@ -33,7 +33,8 @@ OTHER: isAtHome() && intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)*Ran
                 "Unfortunately, the burglar was too strong for me and soon overcame my initial advantage of surprise and beat me up, before escaping."
                 Actor.hide()
                 "Badly injured, I barely managed to reach for the phone to call an ambulance for myself."
-                setBackground(hospital)
+                Loc = findNearbyBuilding(hospital)
+                moveTo(Loc)
                 mood -= 100
                 energy -= 100
                 fitness -= Random(0, 2)

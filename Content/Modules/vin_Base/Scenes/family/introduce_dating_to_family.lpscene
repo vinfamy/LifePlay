@@ -14,7 +14,8 @@ OTHER: !isPlayerMarried()
     If 0
         "This is a perfect opportunity to show how commited I am to the relationship."
         karma += 2.5
-        setBackground(home)
+        Loc = Actor2.getBuilding(home)
+        moveTo(Loc)
         "Later on ..."
         Actor2.dress()
         Actor2.show(3)        

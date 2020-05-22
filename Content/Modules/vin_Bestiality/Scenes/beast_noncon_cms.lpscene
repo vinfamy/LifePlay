@@ -1,0 +1,28 @@
+WHAT: all
+WHERE: home
+WHEN: 0-24
+WHO: Actor = getCreature(); If Actor.isMale() && Actor:perversion + Actor:masochist > 70
+OTHER: isModEnabled(vin_nonConsensual) && Player.isFemale() && Random(50, 100) < masochist
+
+    SceneStart()
+    Actor.show()
+    Player(Surprised):: "<Actor.name>, what are you doing, good boy? You seem a bit excited."
+    "Oh my god, his dick is rock hard."
+    Actor.moveToPerson(Player)
+    Player(Pain):: "Ah ...."
+    "<Actor.name> jumped on top of me and pressed me down with his full beastly force."
+    "Is he trying to ... rape me?"
+    0:: "Struggle"
+    1:: "Give up"
+    
+    If 1 || fitness < Actor:fitness
+        "I'm only human, and it was pointless to fight against such raw animalistic strength."
+        "I'll have endure this nightmare ..."
+        Player(Crying):: "No ... please stop ..."
+        Sex(Actor, Player)
+    Else
+        Player(Angry):: "Get the fuck off me, you animal!"
+        "Thankfully, I just about had enough strength to push the horny creature off me."
+    Endif
+    SceneEnd()
+    timeout(500, beast_noncon_cms)

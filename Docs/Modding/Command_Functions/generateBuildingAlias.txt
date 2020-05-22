@@ -1,0 +1,2 @@
+AliasName.generateBuildingAlias(buildingtype)
+Used for quest, building alias is a location that a quest obective can be at, used with addObjective()

@@ -6,6 +6,7 @@ OTHER: IsAtHome() && arousal > 50 && perversion > 30
 
     SceneStart()
     Actor.dress()
+    SecondScreen(Actor)
     Actor.show(2)
     Actor2 = getPerson(true)
     While Actor2.isValid() && [!Player.isInterestedIn(Actor2) || Actor2:perversion < 60 || Actor2:attractiontoplayer < 5 || Actor.isDating()]
@@ -17,6 +18,8 @@ OTHER: IsAtHome() && arousal > 50 && perversion > 30
     2:: Actor2.isValid():: "Call another fuckbuddy for a threesome"
     
     If 0
+        SecondScreen()
+        Actor.show()
         "In no time at all, <Actor.name> arrived and we didn't bother with any dating bullshit, but just got it on immediately."
         Sex(Player, Actor)
         perversion += Random(0, 0.5)
@@ -26,6 +29,8 @@ OTHER: IsAtHome() && arousal > 50 && perversion > 30
         "No way. I'm not so desperate that I would just fuck anyone I know."
     Else
         "Lucky me! <Actor.name> isn't the only one on my contact list that is a potential booty call. <Actor2.name> too I'm sure will be up for it."
+        SecondScreen()
+        Actor.show()
         Actor2.dress()
         Actor2.show(3)
         "In no time at all, <Actor.name> and <Actor2.name> arrived and we didn't bother with any dating bullshit, but just got it on immediately."

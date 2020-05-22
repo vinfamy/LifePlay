@@ -6,6 +6,7 @@ OTHER: perversion > 70
 
 SceneStart()
 Dating.dress()
+secondScreenIfHidden(Dating)
 Dating.show(2)
 "I must admit: my <Dating.boyfriend_or_girlfriend> <Dating.name> isn't the most experienced person in bed and is easily red-faced just by mere mentions of festishes. Worse, <Dating.he_or_she> seems to make no attempts to learn to be more comfortable about <Dating.his_or_her> body."
 0:: "Train <Dating.name>"

@@ -1,0 +1,3 @@
+Actor.setUntil(floatvariable)
+Set until what time this person will stay at their current location before AI searches for a new location for them again. The float variable isn't the time of the day, but total hours elapsed since the start of the current game, i.e. HoursElapsed + HoursToStay 
+HoursElapsed being a special variable and HoursToStay is up to you

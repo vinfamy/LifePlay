@@ -10,16 +10,16 @@ sceneStart()
 New_Person.dress()
 If WHERE == work
     New_Person.addColleague()
-    timeout(120, meet_new_person, meet_old_person)
+    timeout(60, meet_new_person, meet_old_person)
 Elseif WHERE == home
     If isAtHome()
         New_Person.addNeighbour()
         "Is that a new neighbour moving in?"
-        timeout(120, meet_new_person, meet_old_person)
+        timeout(60, meet_new_person, meet_old_person)
     Else
         New_Person.addDatingFriend()
         "Hmm, who's this? One of my boo's friends perhaps?"
-        timeout(120, meet_new_person, meet_old_person)
+        timeout(60, meet_new_person, meet_old_person)
     Endif
 Elseif WHERE == university:work || WHERE == university:school
     New_Person.setDifferentMajor()

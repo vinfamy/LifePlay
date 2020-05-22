@@ -1,0 +1,2 @@
+Actor1.makeInterested(Actor2)
+Change Actor1's sexual orientation so that they become interested in Actor2

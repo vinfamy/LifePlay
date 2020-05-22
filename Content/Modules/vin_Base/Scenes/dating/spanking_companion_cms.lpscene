@@ -1,0 +1,25 @@
+WHAT: all
+WHERE: all
+WHEN: 0-24
+WHO: Actor = getCompanion(); If martial - masochist + Actor:masochist - Actor:martial > Random(50, 200)
+OTHER: none
+
+    SceneStart()
+    "I'm much more dominant than my <Actor.name>. Maybe I should spank <Actor.him_or_her> to show who's the boss."
+    0:: "Spank <Actor.him_or_her>"
+    1:: "This is too silly"
+    
+    If 0
+        Player(Evil):: "You've been naughty. Prepare for a spanking!"       
+        If martial - masochist + Actor:masochist - Actor:martial > Random(50, 200)
+            Actor:: "I must admit I have become somewhat of a sub and have started enjoying it."
+            "I spanked <Actor.name> many times before letting me off."
+            Actor:masochist += 1
+        Else
+            Actor(Angry):: "This is going too far!"
+            Actor:masochist -= 1
+            Actor:attractiontoplayer -= 1
+        Endif
+    Endif
+    SceneEnd()
+    timeout(200, spanking_companion_cms)

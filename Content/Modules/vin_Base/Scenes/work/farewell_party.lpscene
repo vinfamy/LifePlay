@@ -85,7 +85,6 @@ Endif
 If InvitedHome
     "Little did the rest of my colleagues know, soon after they left, <Colleague.name> and I walked back to my place."
     moveTo(Home)
-    setBackground(home)
     "As soon as we were inside, we started kissing and undressing each other."
     Sex(Colleague, Player)
     Colleague.show(2)

@@ -1,0 +1,2 @@
+BuildingVariable1.isSameBuilding(BuildingVariable2)
+Check if two building variables refer to the same building

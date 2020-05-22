@@ -1,0 +1,2 @@
+GlobalVariable.getGlobalString() returns String
+Same as getGlobal(), just string instead of float

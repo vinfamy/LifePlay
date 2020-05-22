@@ -1,0 +1,2 @@
+Actor.hadSex()
+Check if this actor has had sex with the player at any point in this playthrough

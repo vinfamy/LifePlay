@@ -1,0 +1,2 @@
+Actor1.movetoPerson(Actor2)
+Actor1 moves towards Actor2 and headtracks Actor2

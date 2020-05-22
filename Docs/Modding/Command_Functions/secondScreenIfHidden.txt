@@ -1,0 +1,2 @@
+secondScreenIfHidden(Actor)
+Same as SecondScreen(), but does nothing if the actor is already currently seen in the environment (So that they don't disappear from the player's current location and get on the phone remotely instead).

@@ -1,0 +1,18 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Player.hide()
+    "That should have been a pretty quick load time, right? This is because Central Bath is a pretty tiny map, so even at max randomization settings (without which, there's just not enough data to play with in such a small map), it still loads very quickly."
+    "Bigger maps like Central London will take much longer to load and you can only keep the randomization settings at single digits (or not use randomization at all) or you'll have performance issues."
+    "Let's move on to the fun bit: creating your character!"
+    "The next menu afer this tutorial bit will allow you to customize your character. There are a lot of customization options - you can literally spend hours on this menu customizing every single details."
+    "But for now, let's just pick a Gender then use the various buttons on the Top-Left corner of your screen to randomize stuffs for a quick character."
+    "Then click on the 'Personal' tab (the last one), and choose the important details for your character, like Name, Sexual Orientation & Voice Pack."
+    "Remember the camera controls you learn earlier? Those apply to this character creation menu too."
+    SceneEnd()
+    OpenMenu(CharGen)
+    followUp(tut_afterchargen)

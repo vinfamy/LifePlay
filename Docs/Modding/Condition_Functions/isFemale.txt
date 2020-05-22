@@ -1,0 +1,2 @@
+Actor.isFemale()
+Check if an actor is ciswoman. False if trans.

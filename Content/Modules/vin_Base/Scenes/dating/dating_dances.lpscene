@@ -5,6 +5,7 @@ WHO: Dating = getSpecific(Dating); If Dating:dance > 70
 OTHER: dance < Random(0, 60)
 
 SceneStart()
+secondScreenIfHidden(Dating)
 Dating.dress()
 Dating.show(2)
 "I must admit: my <Dating.boyfriend_or_girlfriend> <Dating.name> is a much better dancer than me. I simply can't keep up with <Dating.him_or_her> whenever we dance together."

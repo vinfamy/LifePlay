@@ -6,6 +6,7 @@ OTHER: none
 
     SceneStart()
     "My phone is ringing. It's my <Actor.relationship>, <Actor.name>. I wonder what <Actor.he_or_she> is calling me for ..."
+    secondScreen(Actor)
     Actor.dress()
     Actor.show(2)
     livesWithMe = Actor.livesWithPlayer()
@@ -19,7 +20,10 @@ OTHER: none
         Player(Sad):: "Oh no, that sucks. I'm so sorry to hear that ..."
     Else
         Actor:rapportwithplayer += Random(0, 20)
-        setBackground(home)
+        secondScreen()
+        Actor.show()
+        Loc = Actor.getBuilding(home)
+        moveTo(Loc)
         Actor(Happy):: "Thank you for spending time with me in these difficult times. I feel so much better now with you here. You're the best <Actor.callplayer> ever!"
         If Actor:incest > 25
             Actor(Evil):: "You know what? My <Actor.girlfriend_or_boyfriend> always hated you. Let's teach <Actor.her_or_him> a lesson for breaking up with me ... Come, take my body!"

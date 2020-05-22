@@ -5,6 +5,7 @@ WHO: Dating = getRelative(); If Dating:rapportwithplayer > 0 && Dating:fitness <
 OTHER: fitness > 70
 
     SceneStart()
+    secondScreenIfHidden(Dating)
     Dating.dress()
     Dating.show(2)
     "My <Dating.relationship> isn't the healthiest person in the world and is rather unfit. Worse, <Dating.he_or_she> has very few athletic pursuits."

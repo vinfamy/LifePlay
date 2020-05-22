@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: pimp_comp_i
+ACTION_NAME: Pimp my companion
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 5 - 10
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: pimp_comp_i
+ANIMATION:
+WHO: Actor = getTarget(); If isWithCompanion() && CurrentCompanion.isProstitute()     

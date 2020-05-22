@@ -8,6 +8,7 @@ OTHER: !IsWithCompanion() && !isWithCompanionCreature() && perversion < 35
     Friend.dress()
 
     "My phone rang ... It's <Friend.name> calling."
+    SecondScreen(Friend)
     Friend.show(2)
     Dating = Friend.IsDating()
     Friend(Flirty):: "Hey <Player.beautiful_or_handsome>, are you missing me already? Listen, I've got to see that sexy <Player.body_or_ass> of yours again today! It's a shame you don't know what to do with it ... Maybe I can teach you a thing or two when we meet."
@@ -23,6 +24,7 @@ OTHER: !IsWithCompanion() && !isWithCompanionCreature() && perversion < 35
             Friend:: "See you soon!"
         Endif
         passTime(0.25, 1)
+        SecondScreen()
         Friend.StartDate()
         timeout(12, call_invite_co, call_invite)
         perversion += Random(0, 0.5)

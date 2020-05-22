@@ -22,7 +22,6 @@ Elseif 1
     If CurrentCompanion.isDating() || Random(0, 100) < CurrentCompanion:perversion + CurrentCompanion:attractiontoplayer
         CurrentCompanion(Flirty):: "Yes, I absolutely agree ..."
         moveTo(home)
-        setbackground(Home)
         "We went back to my place. As soon as we were there, I proceeded to give <CurrentCompanion.him_or_her> <CurrentCompanion.his_or_her> reward."
         Sex(Player, CurrentCompanion)
         CurrentCompanion.show(2)

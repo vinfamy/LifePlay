@@ -1,0 +1,61 @@
+WHAT: sleep
+WHERE: home
+WHEN: 22 - 4 
+WHO: none
+OTHER: Random(50, 100) < masochist && Random(0, 100) < 1 && [Player.isFemale() || Player.isShemale()]
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    While !Actor.isMale()
+        Actor = generatePersonTemporary()
+    Endwhile
+    Actor.dress()
+    Actor.show()
+    Actor:: "Go with me! Or you will die!"
+    "Oh no, I'm getting kidnapped by a stranger!"
+    0:: "Resist"
+    1:: "Give up"
+    
+    If 0
+        Player(Crying):: "Help! Help!"
+        If martial < Actor:martial
+            "My resistance was futile unfortunately and soon the kidnapper knocked me out."
+            Napped = true
+        Else
+            "The kidnapper was in for a surprise, I managed to break free of him and got away. The cops took him away soon after."
+            Napped = false
+        Endif
+    Else
+        "I don't want to get hurt. Let's just do whatever <Actor.he_or_she> wants me to do."
+        Napped = true
+    Endif
+    
+    If Napped
+        setBackground(street)
+        "Pretty soon, I was taken to an abandoned construction site in the middle of nowhere. Looks like it's the kidnapper's lair."
+        count = 0
+        While count > 0 && count < 10 && Random(0, 100) < 15
+            "Another day under hostage passed ..."
+            Actor(Evil):: "Wake up. It's time to fuck, sex slave!"
+            0:: "Resist"
+            1:: "Give in and satisfy <Actor.him_or_her> eagerly"
+            
+            If 0
+                filter(Aggressive)
+                TalkNonConsensual()
+            Endif
+            SexNoAffair(Actor, Player)
+            If Random(0, 100) < 15
+                Actor:: "You're my breeding slave. I'd better get pregnant soon or I'll deem you useless and kill you!"
+                Player.impregnate()
+            Endif
+            passTime(24, 24)
+            count += 1
+        Endwhile
+        "There's loud siren outside! Police sirens!"
+        "Freeze!"
+        "I saw my kidnapper raise my hand in the air surrendering to the cops"
+        "I'm finally saved, but not before enduring the horror under the hands of my kidnapper."
+    Endif
+    SceneEnd()
+    timeout(2000, pc_slave_cms)

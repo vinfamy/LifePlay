@@ -1,0 +1,2 @@
+FilterDesc(FilenameofLpdescfile)
+Filter erotic descruotuibs, name the lpdesc file with the suffix _restricted if you only want that file to be used specifically when FilterDesc calls for it

@@ -7,6 +7,7 @@ OTHER: isAtHome()
     SceneStart()
     "What's that sound? Ah, it's my <Actor.relationship> <Actor.name>'s phone. <Actor.He_or_She> must have forgotten it on the table ..."
     "Wait, is that a nude pic? Let me see ..."
+    secondScreen(Actor2)
     Actor2.show(2)
     "It is ... It's that <Actor2.sleazy_or_slutty> <Actor2.guy_or_girl> <Actor2.name> that <Actor.name> has been seeing ..."
     0:: "Text back to intimidate <Actor2.name>"

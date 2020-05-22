@@ -1,0 +1,2 @@
+setBackgroundCustom()
+Same as setBackground(), but some extra parameters like livingroom, kitchen

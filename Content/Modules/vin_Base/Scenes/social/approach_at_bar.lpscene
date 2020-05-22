@@ -124,7 +124,6 @@ Actor.show(2)
                         If Actor.isDominantSex(Player) || Random(50, 200) < Actor:attractiontoplayer + Actor:perversion || Actor:intoxication > 90
                             "I whispered into <Actor.his_or_her> ear about what I was really looking for tonight and <Actor.he_or_she> got the message right away. Soon, we were on our way back to my place."
                             moveTo(Home)
-                            setBackground(home)
                             "As soon as we were inside, we just couldn't wait any longer and started peeling each other's clothes off."
                             Sex(Player, Actor)
                             perversion += Random(0, 1)

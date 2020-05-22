@@ -9,6 +9,17 @@ OTHER: none
     New_Person.makePermanent()
     InterestedInPC = New_Person.isInterestedIn(Player)
     DominantToPC = New_Person.isDominantSex(Player)
+    If WHERE == work
+        New_Person.addColleague()
+    Elseif WHERE == home
+        If isAtHome()
+            New_Person.addNeighbour()
+        Else
+            New_Person.addDatingFriend()
+        Endif
+    Elseif WHERE == university:work || WHERE == university:school
+        New_Person.setDifferentMajor()
+    Endif
 
     If InterestedInPC && [DominantToPC || Random(0,1) < 0.2] && Random(0, 20) < (New_Person:attractiontoplayer + New_Person:interpersonal)
         "I found myself engaged in a small conversation with someone I just met - <New_Person.name>. Before leaving <New_Person.he_or_she> asked for my number. Should I accept <New_Person.his_or_her> request?"

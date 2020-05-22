@@ -1,0 +1,22 @@
+WHAT: all
+WHERE: all
+WHEN: 0-24
+WHO: Actor = getCompanion(); If Actor:martial - Actor:masochist + masochist - martial > Random(50, 200)
+OTHER: none
+
+    SceneStart()
+    Actor(Evil):: "You've been naughty. Prepare for a spanking!"
+    "It's no secret that <Actor.name> is a bit of a dom."
+    0:: "Take it"
+    1:: "Resist"
+    
+    If 0
+        "I must admit I have become somewhat of a sub and have started enjoying it."
+        "<Actor.name> spanked me many times before letting me off."
+        masochist += 1
+    Else
+        Player(Angry):: "This is going too far!"
+        masochist -= 1
+    Endif
+    SceneEnd()
+    timeout(200, spanking_vi_cms)

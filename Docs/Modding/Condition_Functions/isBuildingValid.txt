@@ -1,0 +1,2 @@
+BuildingVariable.isBuildingValid()
+Check if a building variable is valid at all (i.e. referring to an actual building on the map), used to check if things like FindNearbyBuilding were successful or not

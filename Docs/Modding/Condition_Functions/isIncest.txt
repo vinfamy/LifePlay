@@ -1,0 +1,2 @@
+isIncest()
+Only used for lptalk and lpdesc, check if the current sex scene is an incest one

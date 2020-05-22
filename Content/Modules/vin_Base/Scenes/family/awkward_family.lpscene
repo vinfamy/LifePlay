@@ -5,6 +5,7 @@ WHO: Dating = getRelative(); If Dating:rapportwithplayer > 0 && Dating:interpers
 OTHER: interpersonal > 70
 
     SceneStart()
+    secondScreenIfHidden(Dating)
     Dating.dress()
     Dating.show(2)
     "My <Dating.relationship> isn't the most outgoing person in the world and is rather awkward in dealing with social situations. Worse, <Dating.he_or_she> doesn't even like to go out and socialize."

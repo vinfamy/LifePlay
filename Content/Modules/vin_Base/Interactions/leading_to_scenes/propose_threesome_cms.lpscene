@@ -1,0 +1,37 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24 
+WHO: none
+OTHER: none
+
+    SceneStart()
+    If Actor.isDating()
+        "The best thing about being in a steady relationship is that sex is much easier to come by"
+    Else
+        "I had sex with <Actor.name> before. Maybe it wouldn't take much convincing to get it on again?"
+    Endif
+    "Should I be direct and suggest having a threesome with <Actor.name> and another person I know now?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        If Random(0, 50) < Actor:attractiontoplayer + interpersonal + Actor:perversion + Actor:incest
+            Actor(Flirty):: "Fine ... I'm quite horny myself actually. Who are you thinking about to join us?"
+            selectNPC()
+            Actor2 = getSelectedNPC()
+            If !Actor2.isValid()
+                "I couldn't decide on who to invite."
+            Elseif Actor2.hadSex() || Actor2.isInterestedIn(Actor)
+                Actor2.dress()
+                Actor2.show()
+                "We managed to convince <Actor2.name> to join our threesome. In no time at all, <Actor2.he_or_she> arrived."
+                Sex(Player, Actor, Actor2)
+                perversion += Random(0, 0.05)            
+            Else
+                "Unfortunately, <Actor2.name> turned down our invitation for a threesome. Maybe I should pick someone who I've already had sex with next time, or someone who's interested in <Actor.name>. A threesome is not usually a request made out of the blue." 
+            Endif
+        Else
+            Actor(Sad):: "Sorry, but I'm not in the mood for sex right now, let alone a threesome ..."
+        Endif
+    Endif
+    SceneEnd()

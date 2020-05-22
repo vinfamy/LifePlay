@@ -80,7 +80,6 @@ OTHER: Random(0, 100) < 5
     If InvitedHome
         "Little did the rest of my neighbours know, soon after they left, <Neighbour.name> and I walked back to my place."
         moveTo(Home)
-        setBackground(home)
         "As soon as we were inside, we started kissing and undressing each other."
         Sex(Neighbour, Player)
         Neighbour.show(2)

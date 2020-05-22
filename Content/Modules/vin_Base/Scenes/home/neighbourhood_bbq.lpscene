@@ -5,6 +5,7 @@ WHO: Actor1 = getSpecific(Neighbour); If Actor1:rapportwithplayer > Random(0, 30
 OTHER: !IsWithCompanion() && Random(0, 500) < interpersonal
 
 SceneStart()
+secondScreen(Actor1)
 Actor1.dress()
 Actor1.Show(2)
 
@@ -15,7 +16,7 @@ Actor1(Happy):: "<Player.name>, the weather is lovely today, isn't it? Listen, a
 If 0
     Player(Excited):: "Of course I'll join you. Sounds like fun. I'll see you guys downstairs."
     Actor1(Excited):: "Excellent. I'll see you soon then!"    
-    Actor1.hide()
+    secondScreen()
     
     Actor2 = getSpecific(Neighbour)
     If !Actor2.isValid()
@@ -43,7 +44,7 @@ If 0
     Actor5.dress()
     
     "A few minutes later ..."
-    setBackground(garden_centre)
+    setBackground(street)
     
     Actor1.show(1)
     Actor2.show(2)
@@ -54,12 +55,6 @@ If 0
     Actor1(Excited):: "<Player.name>! We're here. Come!"
     Player(Happy):: "Sorry I'm late, had to finish a few things first ..."
     "My other neighbours, <Actor2.name>, <Actor3.name>, <Actor4.name> and <Actor5.name>, are all here too! This will be a good way to get to know them better."
-    
-    Actor1.hide()
-    Actor2.hide()
-    Actor3.hide()
-    Actor4.hide()
-    Actor5.hide()
     
     PartyOngoing = true
     While PartyOngoing
@@ -101,7 +96,7 @@ If 0
                 SitWith = Actor5
             Endif
             
-            SitWith.show(2)
+            Player.moveToPerson(SitWith)
             "I spent some time chatting with <SitWith.name>, while enjoying some nice BBQ."
             If SitWith.IsInterestedIn(Player) && Random(0, 100) < attractiveness
                 SitWith:attractiontoplayer += Random(-1, 2)
@@ -215,7 +210,6 @@ If 0
                 Endif
             Endif
             
-            SitWith.hide()
         Endif
     
         If PartyOngoing && timePassed > Random(1, 4)

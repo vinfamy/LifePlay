@@ -58,7 +58,7 @@ If 0
                     If [Colleague.isDominantSex(Player) && Colleague:attractiontoplayer + Colleague:perversion > Random(0, 100)] || Colleague:attractiontoplayer + Colleague:perversion > Random(0, 200)
                         Colleague(Flirty):: "Of course. I would love to!"
                         "A while later ..."
-                        setBackground(home)
+                        moveTo(home)
                         "As soon as we were inside, I kissed <Colleague.him_or_her>. <Colleague.He_or_She> immediately understood what was going on and happily took <Colleague.his_or_her> reward for being such a good team player today ..."
                         Colleague:attractiontoplayer += Random(0, 5)
                         Sex(Colleague, Player)

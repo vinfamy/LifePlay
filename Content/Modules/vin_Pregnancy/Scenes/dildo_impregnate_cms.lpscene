@@ -1,0 +1,38 @@
+WHAT: all
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getRelative(); If !Actor.isMale() && Random(20, 100) < Actor:perversion && Actor:age < 45
+OTHER: isModEnabled(vin_NonConsensual) && isModEnabled(vin_Incest) && [Player.isMale() || Player.isShemale()]
+
+    SceneStart()
+    Actor.hide()
+    "I just discovered that my <Actor.relationship> <Actor.name> owns a squirting dildo ..."
+    0:: "Jack off into the dildo's fake cum container"
+    1:: "No way, that would make my <Actor.relationship> pregnant"
+    
+    If 0
+        Filter(Solo)
+        Sex(Player)
+        Actor.hide()
+        "That should do nicely."
+        "That night ..."
+        Player.hide()
+        Actor.show()
+        "I should spy on <Actor.name> and see if my dear <Actor.relationship> actually uses that squirting dildo with my cum."
+        If Random(20, 100) < Actor:perversion
+            "Looks like <Actor.he_or_she> is in a mood for some fun with the dildo, except this time it may carry some consequences."
+            Filter(Solo)
+            Sex(Actor)
+            If Random(0, 100) < 5
+                Actor.impregnate()
+                "Although my cum has been there for a few hours, I feel rather confident that it's still fertile."
+                "I'm half expecting her to announce a shock pregnancy soon ..."
+            Else
+                "Although she used the dildo, it's unlikely that the cum would work. It's been in there for too long."
+            Endif
+        Else
+            "Unfortunately, <Actor.name> wasn't in a mood to pleasure herself that night, so my cum went to waste."
+        Endif
+    Endif
+    SceneEnd()
+    timeout(500, dildo_impregnate_cms)

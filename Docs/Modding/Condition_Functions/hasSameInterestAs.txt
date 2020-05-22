@@ -1,0 +1,2 @@
+Actor1.hasSameInterestAs(Actor2)
+If two actors have identical sexual orientations

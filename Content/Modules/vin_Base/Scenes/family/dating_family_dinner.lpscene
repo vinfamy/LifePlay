@@ -5,6 +5,7 @@ WHO: Actor = getSpecific(Dating); Actor2 = getRelative(); If !Actor.hasRelations
 OTHER: !isPlayerMarried()
 
     SceneStart()
+    secondScreenIfHidden(Actor)
     Actor.dress()
     Actor.show(2)
     "I have been going out with <Actor.name> for a while and so far it looks like we might have a future together. Maybe I should start gradually introducing <Actor.him_or_her> to my family. We're having a family dinner soon, perhaps I should take <Actor.name> with me?"
@@ -14,8 +15,11 @@ OTHER: !isPlayerMarried()
     If 0
         "This is a perfect opportunity to show how committed I am to the relationship."
         karma += 2.5
-        setBackground(restaurant)
+        secondScreen()
+        Loc = findNearbyBuilding(restaurant)
+        moveTo(Loc)        
         "Later on ..."
+        Actor.show()
         Actor2.dress()
         Actor2.show(3)        
         Player(Embarassed):: "<Actor2.Relationship>, this is my <Actor.boyfriend_or_girlfriend>, <Actor.name>."

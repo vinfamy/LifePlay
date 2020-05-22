@@ -1,0 +1,2 @@
+Actor.setCurrentLocation(BuildingVariable)
+Change an actor's current location. Used with findNearbyBuilding or getBuilding(Home) or getBuilding(Work), mostly in lpai files.

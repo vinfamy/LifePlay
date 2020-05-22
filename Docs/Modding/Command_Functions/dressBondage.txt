@@ -1,0 +1,2 @@
+Actor.dressBondage(BondageGearID)
+Put a bdsm piece on an actor. List is in LifePlay\Content\Heavy\New2\BDSM\Clothes (the ones with the prefix Bdg_ )

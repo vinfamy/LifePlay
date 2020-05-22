@@ -71,6 +71,7 @@ OTHER: none
                     
                 Boss.dress()
                 Boss.show(2)
+                Boss.moveToPerson(Player)
                 
                 Boss(Happy):: "I'm the Managing Director, <Boss.name> <Boss.name_last>. It's a pleasure to meet you, <Player.Mr_or_Ms> <Player.name_last>."
                 Player(Happy):: "The pleasure is all mine, <Boss.Mr_or_Ms> <Boss.name_last>. Please, just <Player.name> is enough."
@@ -200,6 +201,8 @@ OTHER: none
                         If Random(0, 100) < Boss:attractiontoplayer + Boss:perversion
                             setBackground(home)
                             "The next morning ..."
+                            secondScreen(Boss)
+                            Boss.show()
                             Boss(Happy):: "Hi, it's me, <Boss.name>."
                             Player(Happy):: "Of course, <Boss.Mr_or_Ms> <Boss.name_last>. I was expecting your call."
                             Boss(Flirty):: "Please, just call me <Boss.name>. You know how you mentioned you wanted to meet outside of the office. I know this great bar downtown ..."
@@ -209,16 +212,18 @@ OTHER: none
                             If 1
                                 Player(Concerned):: "I'm afraid I'm busy tonight. Maybe next time ..."
                                 Performance -= Random(0, 10)
+                                secondScreen()
                                 "I'm not even sure why I did that. Why I gave <Boss.him_or_her> my number only to turn <Boss.him_or_her> down now. This can't be good for my chance of getting the job ..."
                             Else
                                 Player(Wink):: "Of course, I can't wait to see you there!"
                                 Performance += Random(0, 5)
-                                
+                                secondScreen()
                                 setBackground(bar)
                                 Player.dress()
                                 Boss.dress()
                                 
                                 "That night ..."
+                                Boss.show()
                                 Boss:attractiontoplayer += 5
                                 Player(Flirty):: "This is a fancy place in fact. You have a great taste, <Boss.name>!"
                                 Boss(Flirty):: "You flatter me ... How time flies! It's already 2am. Would you mind if I drive you home?"

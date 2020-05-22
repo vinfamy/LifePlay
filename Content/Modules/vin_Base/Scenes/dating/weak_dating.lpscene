@@ -5,6 +5,7 @@ WHO: Dating = getSpecific(Dating); If Dating:fitness < Random(0, 60)
 OTHER: fitness > 70
 
 SceneStart()
+secondScreenIfHidden(Dating)
 Dating.dress()
 Dating.show(2)
 "I must admit: my <Dating.boyfriend_or_girlfriend> <Dating.name> isn't the healthiest person in the world and is rather unfit. Worse, <Dating.he_or_she> has very few athletic pursuits."

@@ -1,0 +1,2 @@
+TfGame()
+Check if the current game was started with the TF New Game

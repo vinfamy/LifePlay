@@ -120,7 +120,7 @@ Elseif 3
     If Interested && [[!Dominant && Intern:attractiontoplayer + Intern:perversion > Random(0, 200)] || [Dominant && Intern:attractiontoplayer + Intern:perversion > Random(0, 100)]]
         Intern(Sad):: "I guess for the sake of my future, I have no other choice ..."
         Player(Flirty):: "Meet me outside after work ..."
-        setBackground(home)
+        moveTo(home)
         "Later that evening ..."
         perversion += Random(0, 2)
         Sex(Player, Intern)

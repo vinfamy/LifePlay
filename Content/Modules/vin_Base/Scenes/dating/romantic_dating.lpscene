@@ -5,6 +5,7 @@ WHO: Dating = getSpecific(Dating); If Dating:attractiontoplayer > Random(50, 100
 OTHER: none
 
     SceneStart()
+    secondScreenIfHidden(Dating)
     Dating.dress()
     Dating.show(2)
 

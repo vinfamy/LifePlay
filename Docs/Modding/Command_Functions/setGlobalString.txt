@@ -1,0 +1,2 @@
+GlobalVariable.setGlobalString(String)
+Same as setGlobal(), just string instead of float

@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: propose_threesome_cms
+ACTION_NAME: Suggest threesome
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 1 - 1
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: propose_threesome_cms
+ANIMATION:
+WHO: Actor = getTarget(); If Actor.hadSex() || Actor.isDating()

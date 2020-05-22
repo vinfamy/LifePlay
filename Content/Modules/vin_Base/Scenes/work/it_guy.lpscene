@@ -27,6 +27,7 @@ IT.dress()
 
 Player(Angry):: "Damn it. What's wrong with my computer today? I can't get anything done with all these crashes."
 "My computer at work has been causing me all sorts of troubles today. I need to call IT ..."
+secondScreen(IT)
 IT.show(2)
 IT(Happy):: "Hello, IT support."
 Player(Irritated):: "(Described the problem)"
@@ -39,6 +40,8 @@ Else
     Player(Irritated):: "Yes, I have. It didn't solve the problem."
     IT(Surprised):: "Alright, I'll be with you in 10 minutes to take a look at your computer."
     "A while later ..."
+    secondScreen()
+    IT.show()
     passTime(0.1, 0.2)
     IT(Happy):: "There you go. Your computer should now be working as intended. Give us a call if it doesn't."
     Player(Excited):: "Excellent. Thank you so much! You're a lifesaver."

@@ -6,6 +6,7 @@ OTHER: Random(0, 500) < martial - masochist
 
     SceneStart()
     "My phone is ringing. It's my <Actor.relationship>, <Actor.name>, who is at university. I wonder what <Actor.he_or_she> is calling me for ..."
+    secondScreen(Actor)
     Actor.dress()
     Actor.show(2)
     Actor2 = generatePersonTemporary()
@@ -18,11 +19,14 @@ OTHER: Random(0, 500) < martial - masochist
         Player(Sad):: "Oh no, that sucks. I'm so sorry to hear that ... Maybe you should call the cops or the university's security."
         masochist += Random(0, 1)
     Else
+        secondScreen()
+        Actor.show()
         Actor:rapportwithplayer += Random(0, 20)
-        setBackground(home)
+        setBackground(street)
         Actor2.dress()
         Actor2.show(3)
         Player(Angry):: "<Actor.name> told me everything! How dare you bully my <Actor.relationship>!?"
+        Player.moveToPerson(Actor2)
         karma += 2.5
         Actor2(Furious):: "Shut up and get your nose out of our business! Unless you want to get beat up too ..."
         0:: "Intimidate <Actor2.name>"

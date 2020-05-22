@@ -1,0 +1,114 @@
+WHAT: all
+WHERE: all, -home, -hotel
+WHEN: 22 - 4
+WHO: none
+OTHER: Random(0, 100) < 2 && intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)
+
+    SceneStart()
+    setBackground(street)
+    "Damn it's dark in here. I shouldn't have gone for that shortcut just to save a few minutes. Too late to regret now - I'll just walk fast and get the hell out of here - I don't feel safe."
+    Actor = generatePersonTemporary(wi_darkalley_rape_cms)
+    Actor.randomizeFace()
+    Actor.randomizeHairs()
+    Actor.dress()
+    Actor.show(2)
+    Known = false
+    If isModEnabled(vin_NTR) && Random(0, 100) < 50
+        If Random(0, 100) < 40
+            Random
+                Actor2 = getRelative()
+                Actor2 = getSpecific(Dating)
+            endRandom
+        Else
+            Actor2 = getPerson(true)
+        Endif
+        Known = true
+    Else
+        Actor2 = generatePersonTemporary()
+        Known = false
+    Endif
+    If !Actor2.isValid()
+        Known = false
+        Actor2 = generatePersonTemporary()
+    Endif
+    Actor2.dress()
+    Actor2.show(3)
+    
+    Actor(Evil):: "Alright, I'll make this quick: hand over your ...."
+    Actor(Flirty):: "... Oh, what a surprise to see a beauty like you alone here. It must be my lucky day. I think you can give me something a hell lot better than your money ..."
+    Actor2(Scared):: "Please, just take my money ... Don't harm me ..."
+    Actor(Evil):: "Thanks for handing over your money so obediently. But you're naive to think I'll let a hottie like you go just like that."
+
+    If Known
+        "Oh no, <Actor2.name> is getting mugged and threatened with rape ..."        
+    Else
+        "Oh no, that poor <Actor2.guy_or_girl> is getting mugged and threatened with rape ..."
+    Endif
+    "What should do?"
+    0:: "Call the cops"
+    1:: "Run"
+    2:: "Attack"
+    3:: "Peep"
+    
+    If 0
+        karma += 2.5
+        "It would be foolish trying to save the <Actor2.guy_or_girl> myself, but I can at least call the cops."
+        "A while later ..."
+        "It's the police siren! The thug was terrified and made a run for it."
+        Actor.hide()
+        "Three cops arrived at the scene, finding the poor <Actor2.guy_or_girl> in all state of undress but yet unharmed. The cops did their job and responded in time."
+        Rape = false
+    Elseif 1
+        karma -= 2.5
+        masochist += Random(0, 2)
+        "I'd better run away from here before the thug sees me! It's none of my business to try and save the <Actor2.guy_or_girl>."
+        Rape = false
+    Elseif 2
+        masochist -= Random(0, 2)
+        karma += 5
+        Player(Furious):: "You can't get away with this, rapist! Take this!"
+        Actor(Furious):: "You dare sucker-punch me? I'll teach you a lesson for being nosy."
+        "A fierce fight ensued ..."
+        If martial > Actor:martial || !isModEnabled(vin_NTR)
+            Rape = false
+            Actor(Pain):: "Ah!"
+            Player(Angry):: "That should teach you to never ambush innocent people in dark alleys anymore."
+            Actor.hide()
+            Actor2(Happy):: "My hero! You taught that thug a lesson. I don't know what I can do to thank you, honestly."
+            0:: "It's only the right thing to do"
+            1:: "Ask for <Actor2.his_or_her> number"
+            
+            If 0
+                Player(Happy):: "It's only my citizen's duty. I cannot let criminals like that get away with their horrendous acts of violence."
+            Else
+                Player(Happy):: "You know ... I'd love to get to know you more."
+                Actor2(Happy):: "Of course, here's my number. I'd love to get to know a strong <Player.gentleman_or_lady> like you better too."
+                Actor2.makePermanent()
+                Actor2:attractiontoplayer += Random(0, 50)
+                Actor2:rapportwithplayer += Random(0, 50)
+                exchangeContact(Actor2)
+            Endif
+        Else
+            money -= Random(30, 300)
+            Rape = true
+            Player(Pain):: "Ah!"
+            Actor(Evil):: "Ha! You really thought you could match me in a fight? I have to say - this just makes me want to fuck <Actor2.his_or_her> brain out even more and make you watch it all, wannabe hero!"            
+        Endif
+    Elseif 3
+        karma -= 2.5
+        "My curiosity got the better of me. I really should do something to help, but I decided not to. Instead, I got all excited wanting to watch some forced porn playing out live in front of my eyes."
+        "I hid in the corner, allowing me the perfect view of what was going on without being detected by the thug."
+        perversion += Random(0, 2)
+    Endif
+    
+    If Rape
+        "Soon, the thug was ripping the poor <Actor2.guy_or_girl>'s clothes off and proceeded to force <Actor.himself_or_herself> upon <Actor.his_or_her> victim."
+        Actor2(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
+        "<Actor2.His_or_Her> cries for help went unheard in the dark alley and <Actor2.he_or_she> had no choice but endure it all at the hand of this vile <Actor.man_or_woman>."
+        Filter(Aggressive)
+        TalkNonConsensual()
+        SexNoAffair(Actor, Actor2)
+        Actor2.impregnate()
+    Endif
+    SceneEnd()
+    timeout(500, wi_darkalley_rape_cms)

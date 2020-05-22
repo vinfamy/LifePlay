@@ -1,0 +1,2 @@
+Actor.isGay()
+Check if an actor is only interested in the same sex, i.e. false if bi

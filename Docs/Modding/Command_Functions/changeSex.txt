@@ -1,0 +1,2 @@
+Actor.changeSex()
+Change to the opposite sex, used for TF start

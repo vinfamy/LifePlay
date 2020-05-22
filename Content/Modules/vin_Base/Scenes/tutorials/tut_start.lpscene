@@ -1,0 +1,13 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Player.hide()
+    "Welcome to LifePlay, New Game with Tutorial mode. Click anywhere or press Space to continue to the next line of the tutorial script."
+    "First, please choose which fetishes you want to appear in your game by ticking / unticking the appropriate optional modules in the next screen. You will never be forced into seeing any content you're not interested in."
+    SceneEnd()
+    OpenMenu(ModManager)
+    followUp(tut_aftermod)

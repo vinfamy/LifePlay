@@ -1,0 +1,2 @@
+Actor.getBuilding(Type) returns Building
+Get a building related to this NPC AI-wise. Parameters are Home, Work and Current.

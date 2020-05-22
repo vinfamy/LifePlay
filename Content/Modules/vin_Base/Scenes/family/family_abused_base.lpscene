@@ -6,6 +6,7 @@ OTHER: Random(0, 500) < martial - masochist
 
     SceneStart()
     "My phone is ringing. It's my <Actor.relationship>, <Actor.name>. I wonder what <Actor.he_or_she> is calling me for ..."
+    secondScreen(Actor)
     Actor.dress()
     Actor.show(2)
     Actor2 = Actor.getRelatedPerson(Dating, Spouses)
@@ -28,10 +29,14 @@ OTHER: Random(0, 500) < martial - masochist
         masochist += Random(0, 1)
     Else
         Actor:rapportwithplayer += Random(0, 20)
-        setBackground(home)
+        secondScreen()
+        Loc = Actor.getBuilding(home)
+        moveTo(Loc)
+        Actor.show()
         Actor2.dress()
         Actor2.show(3)
         Player(Angry):: "<Actor.name> told me everything! How dare you abuse my <Actor.relationship>!?"
+        Player.moveToPerson(Actor2)
         karma += 2.5
         Actor2(Furious):: "Shut up and get your nose out of our relationship! <Actor.He_or_She>'s my <Actor.boyfriend_or_girlfriend>. I can do whatever I want with <Actor.him_or_her>."
         0:: interpersonal > 75:: "Intimidate <Actor2.name>"

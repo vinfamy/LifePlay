@@ -50,7 +50,6 @@ PT = getSpecific(PT)
                         If PT:attractiontoplayer + PT:perversion > Random(60, 200) || PT.isDominantSex(Player)
                             PT(Flirty):: "Of course, I'd love to."
                             moveTo(Home)
-                            setBackground(home)
                             "As soon as we were inside, we knew exactly what we wanted from each other ..."
                             Sex(PT, Player)
                             PT.show(2)

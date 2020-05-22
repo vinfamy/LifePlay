@@ -1,0 +1,2 @@
+Actor.getMorphValue(MorphName) returns float
+Morph list can be found in any lpcharacter file

@@ -6,6 +6,8 @@ OTHER: none
 
     SceneStart()
     "I received a text massasge, it's from <Actor.name>, my <Dating.boyfriend_or_girlfriend>'s friend. Hmm, what would <Actor.he_or_she> text me for? I barely know the <Actor.guy_or_girl>."
+    SecondScreen(Actor)
+    Actor.show()
     Actor:: "How are you, <Player.handsome_or_beautiful>. Thinking about you ..."
     "What a shameless flirter! And a terrible friend ..."
     0:: "Ignore"
@@ -22,6 +24,7 @@ OTHER: none
         Actor:attractiontoplayer += Random(0, 5)
     Else
         "What a shameless pervert! How could <Actor.he_or_she> flirt with <Actor.his_or_her> friend's <Player.man_or_woman>? I need to show <Dating.name> what a horrible 'friend' <Dating.he_or_she> has."
+        SecondScreen()
         Dating.dress()
         Dating.show(2)
         Dating(Angry):: "Unbelievable! How blind was I to ever consider that <Actor.asshole_or_bitch> a friend! Don't worry, babe, that so-called friendship is now over for good."

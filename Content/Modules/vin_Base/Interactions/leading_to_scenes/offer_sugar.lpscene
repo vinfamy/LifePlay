@@ -22,12 +22,15 @@ OTHER: none
             
             If 0
                 "Why not? I'm sure <Actor.he_or_she> will be extra generous on the first date."
-                setBackground(restaurant)
+                Loc = findNearbyBuilding(restaurant)
+                moveTo(Loc)
                 "<Actor.name> took me to a really fancy restaurant and wined and dined me like money was no object. Afterwards, <Actor.he_or_she> suggested that we go to a suite <Actor.he_or_she> had booked at a 5-star hotel nearby."
                 0:: "Yes"
                 1:: "No"
                 
                 If 0
+                    Loc = findNearbyBuilding(hotel)
+                    moveTo(Loc)
                     setBackground(home)
                     Actor.makePermanent()
                     "Wow, this is a nice hotel suite! Must have cost a fortune. And I know very well what <Actor.name> is expecting from me for <Actor.his_or_her> generousity."
@@ -56,9 +59,12 @@ OTHER: none
             Actor(Flirty):: "Well, I've been broke for ... like ... forever! I like how direct you are to approach me."
             Player(Flirty):: "How about a first date to sort out our arrangement?"
             "I'll be sure to be extra generous on the first date."
-            setBackground(restaurant)
+            Loc = findNearbyBuilding(restaurant)
+            moveTo(Loc)
             "I took <Actor.name> to a really fancy restaurant and wined and dined <Actor.him_or_her> like money was no object. Afterwards, I suggested that we head to a suite I had booked at a 5-star hotel nearby."
-            
+
+            Loc = findNearbyBuilding(hotel)
+            moveTo(Loc)         
             setBackground(home)
             Actor.makePermanent()
             "This hotel suite cost me a fortune. And I hope that <Actor.name> knows what I'm expecting from <Actor.him_or_her> for my generousity."

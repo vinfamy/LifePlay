@@ -5,6 +5,7 @@ WHO: Dating = getSpecific(Dating); If Dating:attractiontoplayer > Random(70, 100
 OTHER: !isPlayerMarried()
 
     SceneStart()
+    secondScreenIfHidden(Dating)
     Dating.dress()
     Dating.show(2)
 

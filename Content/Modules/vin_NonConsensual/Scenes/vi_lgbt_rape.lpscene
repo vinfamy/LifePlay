@@ -19,7 +19,8 @@ OTHER: Random(20, 100) < Actor:attractiontoplayer
         
         If Random(40, 200) < Actor:attractiontoplayer
             "<Actor.name> decided to invite me into <Actor.his_or_her> apartment for drinks tonight. <Actor.He_or_She>'s been extremely generous with the alcohol and I'm feeling quite tipsy already."
-            setBackground(home)
+            Loc = Actor.getBuilding(home)
+            moveTo(Loc)
             Player(Pain):: "Thank you for inviting me into your apartment and for the drinks, but I think I'd better leave now. Would you mind calling me a taxi? I'm so drunk ..."
             
             If Random(50, 250) > Actor:attractiontoplayer

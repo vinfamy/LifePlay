@@ -5,6 +5,7 @@ WHO: Dating = getSpecific(Dating); If Dating:intelligence < Random(0, 60)
 OTHER: intelligence > 70
 
 SceneStart()
+secondScreenIfHidden(Dating)
 Dating.dress()
 Dating.show(2)
 "I must admit: my <Dating.boyfriend_or_girlfriend> <Dating.name> isn't the most intelligent person in the world and is rather ignorant on many topics. Worse, <Dating.he_or_she> has very few intellectual pursuits."

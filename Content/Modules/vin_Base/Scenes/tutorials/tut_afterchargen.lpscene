@@ -1,0 +1,14 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Player.hide()
+    "Appearance isn't the only thing about a LifePlay character. They all have attributes too, which represent their skills and personality. These attribtes have a massive impact on gameplay from how other NPCs react to you to what random scenes get triggered."
+    "The next menu will allow you set the starting attributes for your character. If you're lazy, just click on the floppy disk with upwards arrow icon and select a preset that fits your character."
+    "Give your character high attractiveness, interpersonal and intelligence if you want to make everything (i.e. getting laid) easy. With those high, most NPCs will have decent starting rapport or attraction to you right away for example."
+    SceneEnd()
+    OpenMenu(Stat)
+    followUp(tut_afterstat)

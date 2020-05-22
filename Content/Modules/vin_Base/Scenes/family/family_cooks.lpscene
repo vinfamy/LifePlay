@@ -5,6 +5,7 @@ WHO: Dating = getRelative(); If Dating:cooking > 70
 OTHER: cooking < Random(0, 60)
 
     SceneStart()
+    secondScreenIfHidden(Dating)
     Dating.dress()
     Dating.show(2)
     "I must admit: my <Dating.relationship> is a much better cook than me. I'm a bit embarrassed that <Dating.he_or_she> is always the one to cook for me during family dinners."

@@ -5,6 +5,7 @@ WHO: Dating = getSpecific(Dating); If Dating.isDominantSex(Player) && Dating:per
 OTHER: attractiveness < Random(0, 80)
 
 SceneStart()
+secondScreenIfHidden(Dating)
 Dating.dress()
 Dating.show(2)
 
@@ -14,6 +15,8 @@ Dating.show(2)
 
 If 0
     "Free silicone! Yay!"
+    Loc = findNearbyBuilding(hospital)
+    moveTo(Loc)
     attractiveness += Random(0, 5)
     Dating:attractiontoplayer += Random(0, 10)
     fitness -= Random(0, 2.5)

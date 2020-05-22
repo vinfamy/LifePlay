@@ -1,0 +1,57 @@
+WHAT: work
+WHERE: work
+WHEN: 17 - 22
+WHO: Actor = getSpecific(Dating); Actor2 = getSpecific(Boss); If Actor2:perversion > 70 && Actor2:masochist < 0
+OTHER: none
+
+    SceneStart()
+    Actor2.dress()
+    Actor2.show()
+    "I'm working late today. Busy times at the work and the boss is here so I can't really go home yet."
+    Actor.dress()
+    Actor.show()
+    Player.hide()
+    Actor2:: "Can I help you?"
+    Actor:: "I'm <Player.name>'s <Actor.boyfriend_or_girlfriend>. I'm here to pick <Player.him_or_her> up. Is <Player.he_or_she> done yet?"
+    Actor2:: "I'm sorry, but <Player.he_or_she>'s finishing up a last minute report. Shouldn't be too much longer though, you're welcome to wait in my office."
+    Actor:: "Thank you. I'll wait then."
+    Actor.hide()
+    
+    If Actor2.hadSex()
+        "With me back at my desk, not knowing that <Actor.name> is just around the corner in boss's office."
+        Player.show()
+        Actor2(Flirty):: "My best employee, working so late! Maybe I should reward you by helping you relax."
+        "I already had sex with my boss, so <Actor2.he_or_she> is never shy about proposing me at work. Still, <Actor2.he_or_she> seems a little bit more excited than usual today."
+        0:: "Yes"
+        1:: "No"
+        
+        If 0
+            Sex(Actor2, Player)
+        Endif
+    Else
+        If Actor2.isInterestedIn(Actor)
+            "In my boss office, unbeknown to me ..."
+            Actor(Flirty):: "Please mind your manners ... my <Player.boyfriend_or_girlfriend> is just around the corner ..."
+            Actor2(Flirty):: "Come one now, I'm <Player.his_or_her> boss, if you can show a good time once, maybe I won't have to keep <Player.him_or_her> working late all the time in the future."
+            Actor2:: "Maybe I can even give <Player.him_or_her> a promotion or two."
+            If Actor:perversion - Actor:attractiontoplayer > 30 || openRelationship()
+                Actor:: "Fine ... But don't take it the wrong way. I'm only doing this for <Player.him_or_her> sake."
+                Sex(Actor2, Actor)
+            Else
+                Actor(Angry):: "No way, please leave me alone!"
+                Actor:: "I know <Player.name> needs this job so I won't tell anyone about what you were trying to propose. But please don't try this again!"
+                Actor:: "And you'd better stop giving <Player.him_or_her> so much overtime or I'll tell your HR department about this."
+                Actor2:: "Smart <Actor.boy_or_girl>, I see! Fine, you win!"
+            Endif
+        Endif
+    Endif
+    
+    "Half an hour later ..."
+    Actor.show()
+    Actor2.show()
+    Player.show()
+    Actor2:: "<Player.name>! What took you so long? I've been waiting for you."
+    Player(Surprised):: "Oh really? You didn't really have to come all the way to the office to pick me up."
+    
+    SceneEnd()
+    timeout(500, dating_visits_office_cms)

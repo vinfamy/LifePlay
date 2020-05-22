@@ -1,0 +1,2 @@
+Actor.isInterestedInTrans()
+Check if an actor is interested in trans women

@@ -1,0 +1,2 @@
+BuildingVariable.getBuildingType() returns string
+Used with getBuilding() and isString("") for lpai files

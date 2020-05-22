@@ -1,0 +1,5 @@
+secondScreen(Actor)
+Lock an actor onto a miniscreen, for telephone call and thought sequence. While being locked, every Show() called on the Actor will not move them into the environment but stuck at the miniscreen instead 
+
+secondScreen()
+Close the second screen and unlock the actor for normal Show() behaviour

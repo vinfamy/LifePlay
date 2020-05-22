@@ -5,9 +5,11 @@ WHO: Friend = getPerson(true); If Friend:rapportwithplayer > Random(0, 10) || [F
 OTHER: !IsWithCompanion() && !isWithCompanionCreature() && Random(0, 100) < interpersonal
 
 sceneStart()
+
 Friend.dress()
 
 "My phone rang ... It's <Friend.name> calling."
+SecondScreen(Friend)
 Friend.show(2)
 Dating = Friend.IsDating()
 If Dating
@@ -29,6 +31,7 @@ If 0
         Friend:: "See you soon!"
     Endif
     passTime(0.25, 1)
+    SecondScreen()
     Friend.StartDate()
     timeout(12, call_invite)
 Else

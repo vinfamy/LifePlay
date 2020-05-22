@@ -18,13 +18,13 @@ OTHER: none
             
         While choice < 5
             Kissed = false
-            "What should I suggest to <CurrentCompanion.name> that we do?"
+            "What should I suggest to <Actor.name> that we do?"
             0:: "Chat"
             1:: !ate:: "Eat something together"
             2:: "Watch a movie"
             3:: "Drink alcohol"
-            4:: !hadSex:: "Kiss <CurrentCompanion.him_or_her>"
-            5:: MyHome:: "Politely ask <CurrentCompanion.him_or_her> to leave"
+            4:: !hadSex:: "Kiss <Actor.him_or_her>"
+            5:: MyHome:: "Politely ask <Actor.him_or_her> to leave"
             
             If 5
                 "We said goodbye and went our ways."
@@ -43,14 +43,14 @@ OTHER: none
                     "We had a drink together ..."
                     passTime(0.1, 0.2)
                     Player:intoxication += Random(0,10)
-                    CurrentCompanion:intoxication += Random(0,10)
+                    Actor:intoxication += Random(0,10)
                 Elseif 4
                     Kissed = true
                 Endif
 
-                If Kissed || [CurrentCompanion.isInterestedIn(Player) && !hadSex && CurrentCompanion:attractiontoplayer > Random(0, 200)]
+                If Kissed || [Actor.isInterestedIn(Player) && !hadSex && Actor:attractiontoplayer > Random(0, 200)]
                     Player(Kiss):: "..."
-                    CurrentCompanion(Kiss):: "..."
+                    Actor(Kiss):: "..."
                     If Dating
                         "We kissed. It started slow but soon became more passionate. It was obvious what we both wanted ..."
                     Else
@@ -61,19 +61,19 @@ OTHER: none
                     1:: "Stop"
                     
                     If 0
-                        If CurrentCompanion.isDating() || [CurrentCompanion.isInterestedIn(Player) && [CurrentCompanion.IsDominantSex(Player) || CurrentCompanion:attractiontoplayer + CurrentCompanion:perversion > Random(50, 200) || CurrentCompanion:intoxication > 80]]
+                        If Actor.isDating() || [Actor.isInterestedIn(Player) && [Actor.IsDominantSex(Player) || Actor:attractiontoplayer + Actor:perversion > Random(50, 200) || Actor:intoxication > 80]]
                             "Our kiss got more and more steamy and soon we were making out, our hands all over each other."
-                            If TfGame() && CurrentCompanion.isMale()
+                            If TfGame() && Actor.isMale()
                                 "I'm a man trapped inside a woman's body. I don't think I'm gay, but here I am, about to hook up with my male date."
                             Endif
                             hadSex = true
                             Player:perversion += Random(0, 1)
-                            Sex(Player, CurrentCompanion)
-                            CurrentCompanion.show(2)
+                            Sex(Player, Actor)
+                            Actor.show(2)
                             "The sex was amazing. We put our clothes back on afterwards and continued our date."
                             passTime(0.2, 0.5)
                         Else
-                            "Unfortunately for me, <CurrentCompanion.name> didn't seem interested in letting things escalate any further and pulled away."
+                            "Unfortunately for me, <Actor.name> didn't seem interested in letting things escalate any further and pulled away."
                         Endif
                     Else
                         "I decided to stop it there and not go any further."
@@ -85,18 +85,18 @@ OTHER: none
                         energy += Random(50, 100)
                         "The next morning ..."
                         If MyHome
-                            CurrentCompanion(Happy):: "I've gotta go now, honey. Thanks for letting me stay the night. I can't wait to see you again soon!"
+                            Actor(Happy):: "I've gotta go now, honey. Thanks for letting me stay the night. I can't wait to see you again soon!"
                         Else
                             Player(Happy):: "I've gotta go now, honey. Thanks for letting me stay the night. I can't wait to see you again soon!"
                         Endif
-                        CurrentCompanion:attractiontoplayer += Random(0, 1)
+                        Actor:attractiontoplayer += Random(0, 1)
                     Else
                         If MyHome
-                            CurrentCompanion(Happy):: "I've gotta go now. Thank you for inviting me in."
+                            Actor(Happy):: "I've gotta go now. Thank you for inviting me in."
                             Player(Happy):: "Alright. Thank you for staying. Goodbye!"
                         Else
-                            CurrentCompanion(Happy):: "It has been a great day, but I'm getting quite tired now. Do you mind ..."
-                            "Getting the message from <CurrentCompanion.name>, I said goodbye."
+                            Actor(Happy):: "It has been a great day, but I'm getting quite tired now. Do you mind ..."
+                            "Getting the message from <Actor.name>, I said goodbye."
                         Endif
                         "We parted ways."
                     Endif

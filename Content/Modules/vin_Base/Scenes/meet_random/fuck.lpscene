@@ -5,8 +5,6 @@ WHO: none
 OTHER: none
 
     SceneStart()
-    Actor = generatePersonTemporary()
-    FilterTalk(none)
-    FilterDesc(none)
-    Sex(Player, Actor)
+    setBackground(shower)
+    "Toilets"
     SceneEnd()

@@ -5,6 +5,7 @@ WHO: Actor = getRelative(); If !Actor.livesWithPlayer()
 OTHER: Random(0, 100) < 1
 
     SceneStart()
+    secondScreen(Actor)
     Actor.dress()
     Actor.show(2)
     "My <Actor.relationship> is moving home soon. Should I offer <Actor.him_or_her> an extra hand?"
@@ -13,10 +14,13 @@ OTHER: Random(0, 100) < 1
     
     If 0
         "Why not? It feels good to help out my family. Besides, it will be a good way to exercise."
+        secondScreen()
         energy -= Random(0, 100)
         fitness += Random(0, 0.25)
         Actor:rapportwithplayer += Random(0, 5)
-        setBackground(home)
+        Loc = Actor.getBuilding(home)
+        moveTo(Loc)
+        Actor.show()
         Actor(Happy):: "Thank you so much for helping us out today. We have no idea how we would have managed without you."
         Player(Happy):: "Don't worry about it. It's only my duty as a <Actor.callplayer>."
         karma += 2.5

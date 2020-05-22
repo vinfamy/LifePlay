@@ -1,0 +1,2 @@
+AliasName.getActorAlias() returns Actor
+For quests. Return an actor from a previously set actor alias.

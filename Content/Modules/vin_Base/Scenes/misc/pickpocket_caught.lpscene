@@ -26,7 +26,8 @@ OTHER: sneak < Random(0, 100)*Random(0, 1)*Random(0, 1)*Random(0, 1)
         Elseif 1 && Actor:perversion + Actor:attractiontoplayer > Random(20, 100)
             Player(Flirty):: "Please, let's go somewhere private - I'll do anything ... anything."
             Actor(Flirty):: "You will. Good, then follow me back to my place. And don't even think about running away or trying to steal anything else."
-            setBackground(home)
+            Loc = findNearbyBuilding(home)
+            moveTo(Loc)
             Sex(Actor, Player)
         Else
             "<Actor.name> ignored everything I said and called the cops, who swiftly arrived and took me back to the police station."

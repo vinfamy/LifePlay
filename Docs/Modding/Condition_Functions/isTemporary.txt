@@ -1,0 +1,2 @@
+Actor.isTemporary()
+Check if this actor is temporary and to be removed as soon as this scene finishes / the player moves from this location. Used with makePermanent()

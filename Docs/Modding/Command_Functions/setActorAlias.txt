@@ -1,0 +1,2 @@
+AliasName.setActorAlias(Actor)
+For quests. Set an actor as quest actors so you can reference them whenever you want throughout the quest with getActorAlias()

@@ -7,11 +7,11 @@ OTHER: none
     SceneStart()
     "It's my phone. I've got a new message."
     Player(Shocked):: "What the hell!?"
+    Player.hide()
+    setBackground(home)
     Actor.show(2)
     Filter(Solo)
     Sex(Actor)
-    Actor.hide()
-    Player.show(0)
     "<Actor.name> sent me a video of <Actor.him_or_her> masturbating ..."
     0:: "Say nothing"
     1:: "Tell <Actor.him_or_her> off"
@@ -19,7 +19,8 @@ OTHER: none
     If 0
         perversion += Random(0, 0.25)
         "That night ..."
-        setBackground(home)
+        moveTo(home)
+        Actor.hide()
         "I know it's not the classiest thing to do, but for some reasons, I couldn't help but think about <Actor.name>'s masturbation video ..."
         0:: "Masturbate to it"
         1:: "Resist the temptation"

@@ -5,6 +5,7 @@ WHO: Dating = getRelative(); If Dating:dance > 70
 OTHER: dance < Random(0, 50)
 
     SceneStart()
+    secondScreenIfHidden(Dating)
     Dating.dress()
     Dating.show(2)
     "I must admit: my <Dating.relationship> is a much better dancer than me. I look like a fool trying to dance."

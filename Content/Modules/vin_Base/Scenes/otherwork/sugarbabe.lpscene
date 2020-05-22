@@ -9,6 +9,7 @@ OTHER: !isWithCompanion() && jobexperience < 40 && age < 30
     If SugarParent > 0
         Actor = getSpecific(SugarParent)
         "My phone is ringing. It's my <Actor.sugardaddy_or_sugarmommy> <Actor.name>."
+        secondScreen(Actor)
         Actor.dress()
         Actor.show(2)
         Actor(Happy):: "Honey, I miss you. Let's meet tonight."
@@ -18,25 +19,24 @@ OTHER: !isWithCompanion() && jobexperience < 40 && age < 30
         
         If 0
             Player(Happy):: "I miss you too, <Actor.Daddy_or_Mommy>. Let's meet."
+            secondScreen()
             If Random(0, 100) < 50
-                Random
-                    setBackground(restaurant)
-                    setBackground(bar)
-                    setBackground(nightclub)
-                endRandom
+                Loc = findNearbyBuilding(restaurant, bar, nightclub)
+                moveTo(Loc)
+                Actor.show()
                 "With that said, that evening, <Actor.Daddy_or_Mommy> took me to a nice expensive date and as usual, we ended up in luxury hotel suite afterwards."
             Else
-                Random
-                    setBackground(clothes)
-                    setBackground(shoes)
-                    setBackground(bag)
-                endRandom
+                Loc = findNearbyBuilding(clothes, shoes, bag)
+                moveTo(Loc)
+                Actor.show()
                 "With that said, that evening, <Actor.Daddy_or_Mommy> took me shopping at the finest designer brand on the high street."
                 Player(Sad):: "Damn, that looks so good ... but it's too expensive. <Actor.Daddy_or_Mommy>, would you be so kind as to ..."
                 Actor(Happy):: "No problem, baby. That price tag is really not much money for me at all and I would love nothing more than to be able to spoil a <Player.handsome_or_beautiful> <Player.prince_or_princess> like you ..."
                 "And just like that, <Actor.he_or_she> went ahead to buy me what I wanted, seemingly unmoved by a small fortune that thing cost. I guess expensive gifts like this are part and parcel of the sugardating scene."
                 "Of course, as usual, we ended up in luxury hotel suite afterwards."            
             Endif
+            Loc = findNearbyBuilding(hotel)
+            moveTo(Loc)
             setBackground(home)
             Threesome = false
             If Random(30, 200) < Actor:perversion
@@ -99,6 +99,7 @@ OTHER: !isWithCompanion() && jobexperience < 40 && age < 30
                 Actor.randomizeHairs()
                 
                 "Eventually, I got approached by a potential <Actor.sugardaddy_or_sugarmommy>, who invited me to a first date."
+                secondScreen(Actor)
                 Actor.dress()
                 Actor.show(2)
                 "Should I agree to go on a date with <Actor.name>?"
@@ -107,7 +108,10 @@ OTHER: !isWithCompanion() && jobexperience < 40 && age < 30
                 
                 If 0
                     "Why not? I'm sure <Actor.he_or_she> will be extra generous on the first date."
-                    setBackground(restaurant)
+                    secondScreen()
+                    Loc = findNearbyBuilding(restaurant)
+                    moveTo(Loc)
+                    Actor.show()
                     Actor.dress()
                     Player.dress()
                     "<Actor.name> took me to a really fancy restaurant and wined and dined me like money was no object. Afterwards, <Actor.he_or_she> suggested that we go to a suite <Actor.he_or_she> had booked at a 5-star hotel nearby."
@@ -115,6 +119,8 @@ OTHER: !isWithCompanion() && jobexperience < 40 && age < 30
                     1:: "No"
                     
                     If 0
+                        Loc = findNearbyBuilding(hotel)
+                        moveTo(Loc)
                         setBackground(home)
                         Actor.makePermanent()
                         "Wow, this is a nice hotel suite! Must have cost a fortune. And I know very well what <Actor.name> is expecting from me for <Actor.his_or_her> generousity."

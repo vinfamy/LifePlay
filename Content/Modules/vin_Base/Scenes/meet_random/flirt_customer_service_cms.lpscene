@@ -1,0 +1,56 @@
+WHAT: all, -work_hourly
+WHERE: restaurant, hairdresser
+WHEN: 0-24
+WHO: none
+OTHER: !Player.isAsexual() && Random(0, 100) < perversion
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    While !Player.isInterestedIn(Actor)
+        Actor = generatePersonTemporary()
+    Endwhile
+    Actor.dress()
+    Actor.show()
+    Actor.moveToPerson(Player)
+    
+    If WHERE == restaurant
+        "I find myself being served by a <Actor.handsome_or_beautiful> <Actor.waiter_or_waitress> called <Actor.name>."
+    Else
+        "While getting my hair done, I can't help but notice how hot my haidresser, <Actor.name> is."
+    Endif
+    "Should I make my interest known?"
+    0:: "Flirt"
+    1:: "Stay silent"
+    
+    If 0
+        "I decided to make clear my attraction to <Actor.name> and flirted non-stop with <Actor.him_or_her>."
+        If Actor:attractiontoplayer > 10
+            Actor(Embarrassed):: "You're flattering me ..."
+        Else
+            Actor(Angry):: "Please stop ... you're making me uncomfortable."
+        Endif
+        "Should I be even bolder with my advance?"
+        0:: "Propose sex"
+        1:: "Stop at harmless flirting"
+        
+        If 0
+            If Actor:attractiontoplayer + Actor:perversion > 50
+                Actor:: "You mean right now ... ? I'm at work. I could get fired."
+                0:: "Yes, right here, right now!"
+                1:: "We can find somewhere private first"
+                
+                If 0 && Actor:perversion > 70
+                    Actor:: "Fine then ... I must admit I'm a bit of an exhibitionist myself."
+                    Actor:: "I'd better compensate me if I end up losing my job over this though!"
+                Else
+                    Actor:: "We shoudn't do it here. Let's go to the bathroom first."
+                    setBackground(toilets)
+                Endif
+                Sex(Player, Actor)
+            Else
+                Actor:: "I'm sorry, but that's so inappropriate. I'll have to call the manager!"
+            Endif
+        Endif
+    Endif
+    SceneEnd()
+    timeout(100, flirt_customer_service_cms)

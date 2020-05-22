@@ -8,6 +8,7 @@ OTHER: !IsWithCompanion() && Random(0, 100) < fitness
     Friend.dress()
 
     "My phone rang ... It's my <Friend.relationship>, <Friend.name>, calling."
+    secondScreen(Friend)
     Friend.show(2)
     Friend(Happy):: "Hey <Player.name>, do you want to hit the gym today?"
     "Go to the gym with <Friend.name>?"
@@ -17,7 +18,10 @@ OTHER: !IsWithCompanion() && Random(0, 100) < fitness
     If 0
         Player(Happy):: "Of course. I'll see you in a bit!"
         Friend(Happy):: "See you soon!"
-        setBackground(sports_centre)
+        secondScreen()
+        Loc = findNearbyBuilding(sports_centre)
+        moveTo(Loc)        
+        Friend.show()
         Friend.dress()
         Player.dress()
         "We headed to the gym together and had a good workout."

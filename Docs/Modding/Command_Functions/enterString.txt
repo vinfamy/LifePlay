@@ -1,0 +1,2 @@
+StringVariable = enterString()
+Allow the player text input to make a new string variable which you can then use
