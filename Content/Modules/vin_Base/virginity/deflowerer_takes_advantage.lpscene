@@ -1,0 +1,29 @@
+WHAT: all
+WHERE: all
+WHEN: 21 - 5
+WHO: Actor = getPerson(true); If Actor.isDeflowerer() && Actor:perversion > 70 && Actor:masochist < -30 && Actor:attractiontoplayer > 10 && !Actor.isDating()
+OTHER: !isWithCompanion()
+
+    SceneStart()
+    SecondScreen(Actor)
+    Actor.dress()
+    Actor.show()
+    Actor:: "I'm horny. Come over. I want to fuck you!"
+    Actor:: "What's taking you so long? Don't pretend like you don't want it."
+    Actor:: "I know you fantasize about me every day. I'm your first after all."
+    "What kind of texts are these?  <Actor.He_or_She> is becoming bolder and bolder, but since <Actor.he_or_she> hasn't mentioned about actual romance once, am I really okay with letting <Actor.him_or_her> use me as a booty call that's always available."
+    0:: "Come over and let <Actor.him_or_her> fuck me"
+    1:: "Retain some dignity."
+    
+    If 0
+        masochist += 1
+        Dest = Actor.getBuilding(home)
+        moveTo(Dest)
+        Sex(Actor, Player)
+    Else
+        "I should just admit to myself that I made a mistake and give my virginity to an <Actor.asshole_or_bitch>. I should forget about <Actor.him_or_her> and not let myself be taken advantage of any longer."
+        masochist -= 1
+    Endif
+    
+    SceneEnd()
+    timeout(100, deflowerer_takes_advantage)

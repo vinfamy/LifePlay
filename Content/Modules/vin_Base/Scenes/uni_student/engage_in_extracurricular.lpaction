@@ -9,4 +9,4 @@ EFFECTS: interpersonal +0.025 (DURATION), fitness +0.01 (DURATION), mood +1 (DUR
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: groupdance

@@ -9,4 +9,4 @@ EFFECTS: modelfame +0.02 (END), karma += 0.25 (END)
 CONDITIONS: modelfame > 0 (STAT_COMPARE)
 MOVE_FIRST: false
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: browse

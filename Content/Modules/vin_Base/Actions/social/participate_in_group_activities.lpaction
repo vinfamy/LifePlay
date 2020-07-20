@@ -9,4 +9,4 @@ EFFECTS: money -5 (START), energy -3 (DURATION), mood +5 (END), interpersonal +0
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: groupdance

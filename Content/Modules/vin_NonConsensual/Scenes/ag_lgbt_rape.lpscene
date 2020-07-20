@@ -30,6 +30,7 @@ OTHER: Player.isInterestedIn(Actor) && Random(70, 300) < Actor:attractiveness
                 Actor:rapportwithplayer += Random(0, 2)
             Else
                 "<Actor.He_or_She> is out of it. It's time for my master plan."
+                AnimatePair(Player, Actor, Kissing)
                 Player(Kiss):: "..."
                 Actor(Angry):: "Eww <Player.name>! What the hell are you doing? You know I'm not into <Player.guys_or_girls>!"
                 Actor:rapportwithplayer -= Random(0, 10)
@@ -76,6 +77,7 @@ OTHER: Player.isInterestedIn(Actor) && Random(70, 300) < Actor:attractiveness
                                 followUp(death)
                             Endif
                         Else
+                            Player.animate(fightlost)
                             Player(Scared):: "Please, don't shoot!"
                             "I put my hands up and surrendered to the overwhelming number of cops."
                             sentence => 1825

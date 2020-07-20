@@ -50,6 +50,7 @@ OTHER: none
             Else
                 Player(Flirty):: "Please, I really wanted to be represented by your agency ... I'm willing to do whatever it takes ..."
                 perversion += Random(0, 0.5)
+                AnimatePair(Player, Actor, Kissing)
                 "I proceeded to eye-bang the agent while caressing <Actor.his_or_her> thigh, doing my best to seduce <Actor.him_or_her>."
                 If Random(50, 200) < Actor:perversion + Actor:attractiontoplayer
                     Actor(Flirty):: "Well you see ... this is one of the perks of being a model agent ... A perk that I'll gladly take full advantage of."

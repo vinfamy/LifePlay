@@ -25,6 +25,7 @@ OTHER: none
         "I must admit: the sex scenes are steamy ... I'm feeling so aroused now. And it doesn't help that all the couples around are already getting all intimate. Let's just make sure <Actor.name> doesn't notice my rising arousal or my classy image will be ruined."
         Actor(Flirty):: "You're sweating a lot, <Player.name>. This movie is turning you on, isn't it?"
         "Damn it! I couldn't hide it from <Actor.him_or_her>."
+        AnimatePair(Player, Actor, Kissing)
         Actor(Kiss):: "..."
         "<Actor.name> is trying to make out with me ... It's also clear that <Actor.he_or_she> is looking for more than a kiss."
         0:: perversion > 30:: "Let it happen"

@@ -9,5 +9,5 @@ EFFECTS: stock_tobacco -2 (START), mood +2 (END), energy +1 (END), fitness -0.02
 CONDITIONS: stock_tobacco >= 2 (STAT_COMPARE)
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:
+ANIMATION: smoke
 WHO: Actor = getTarget(); If !Actor.isTemporary()      

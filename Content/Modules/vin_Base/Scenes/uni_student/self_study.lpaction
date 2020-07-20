@@ -9,4 +9,4 @@ EFFECTS: jobexperience +0.01 (DURATION), intelligence +0.025 (DURATION), mood -0
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: write

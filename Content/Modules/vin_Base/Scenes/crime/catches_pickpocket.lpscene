@@ -1,0 +1,29 @@
+WHAT: all
+WHERE: all, -home
+WHEN: 0-24
+WHO: none
+OTHER: Random(0, 100) < 1 && Random(0, 100) < sneak
+
+    SceneStart()
+    "Hmm, what's that?"
+    Player(Angry):: "Stop, what are you doing!"
+    Actor = generatePersonTemporary()
+    Actor.dress()
+    Actor.show()
+    "I caught a pickpocket red-handed."
+    0:: "Let <Actor.him_or_her> go"
+    1:: "Blackmail <Actor.him_or_her> for sex"
+    2:: "Call the cops"
+    
+    If 0
+        Actor:: "Oh really? You're so kind, thank you. I only did this out of desperation ..."
+        karma += 2
+    Elseif 1
+        Actor:: "Okay ... I guess I have no other choice. I don't want to go to prison."
+        Sex(Player, Actor)
+    Else
+        "I called the cops to take the pickpocket away. Justice has been served!"
+    Endif
+    SceneEnd()
+    timeout(200, catches_pickpocket)
+    

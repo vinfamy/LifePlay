@@ -9,4 +9,4 @@ EFFECTS:
 CONDITIONS:
 MOVE_FIRST: false
 SCENE_ALWAYS: report_to_boss
-ANIMATION:   
+ANIMATION: call

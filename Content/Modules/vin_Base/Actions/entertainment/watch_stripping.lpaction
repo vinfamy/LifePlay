@@ -9,4 +9,4 @@ EFFECTS:  money -50 (START), mood +10 (END), mood -3 (INTERRUPTED), arousal +10 
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: receivelapdance

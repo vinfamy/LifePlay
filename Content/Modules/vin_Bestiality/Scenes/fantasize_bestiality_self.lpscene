@@ -1,7 +1,7 @@
 WHAT: masturbate, sleep, sleep_hotel, nap, nap_hotel
 WHERE: all
 WHEN: 0 - 24
-WHO: Actor2 = getCreature(); If Actor2.isMale()
+WHO: Actor2 = getCreature()
 OTHER: !Player.isMale() && Random(0, 75) < perversion
 
     SceneStart()

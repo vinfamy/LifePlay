@@ -9,4 +9,4 @@ EFFECTS: interpersonal +0.3 (END), mood +3 (END)
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: call

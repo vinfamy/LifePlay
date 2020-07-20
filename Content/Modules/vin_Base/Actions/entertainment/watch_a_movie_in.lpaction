@@ -9,4 +9,4 @@ EFFECTS: stock_movie -1 (START), mood +3 (END), intelligence +0.01 (END), mood -
 CONDITIONS: stock_movie >= 0.8 (STAT_COMPARE)
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: sofawatch

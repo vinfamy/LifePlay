@@ -8,5 +8,5 @@ ALSO_TIMEOUT:
 EFFECTS:  mood -1 (END), energy -1 (END)
 CONDITIONS: companioncount == 0 (STAT_COMPARE)
 MOVE_FIRST: false
-SCENE_ALWAYS:
+SCENE_ALWAYS: browse
 ANIMATION:   

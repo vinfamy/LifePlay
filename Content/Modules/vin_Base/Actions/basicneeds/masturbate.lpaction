@@ -9,4 +9,4 @@ EFFECTS: mood +1 (END), arousal -25 (END), fitness +0.003 (END), perversion +0.1
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: masturbate

@@ -48,6 +48,7 @@ If 0
                     followUp(death)
                 Endif
             Else
+                Player.animate(fightlost)
                 Player(Scared):: "Please, don't shoot!"
                 "I put my hands up and surrendered to the overwhelming number of cops."
                 sentence => 1825

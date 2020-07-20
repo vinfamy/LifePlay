@@ -9,4 +9,4 @@ EFFECTS: money -20 (START), mood +5 (END), mood -3 (INTERRUPTED), attractiveness
 CONDITIONS: 
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: haircut

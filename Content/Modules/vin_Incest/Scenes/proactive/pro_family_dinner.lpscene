@@ -49,6 +49,7 @@ OTHER: none
                 Endif
             Elseif 4
                 InRoom = false
+                AnimatePair(Player, Actor, Kissing)
                 Player(Kiss):: "..."
                 Actor:incest += Random(0, 5)
                 If Random(0, 50) < Actor:incest

@@ -106,9 +106,12 @@ OTHER: isAtDatingHome() && [!isModEnabled(vin_Polyamorous) || !openRelationship(
             Dating(Flirty):: "Oh baby, you're the best!"
         Else
             "I don't care about the consequences. I'm not getting humiliated like this without getting revenge."
+            Player.animate(gun)
+            Player.moveToPerson(Dating)
             Player(Furious):: "Die, <Dating.scum_or_slut>!"
             "Pow!"
             Dating.hide()
+            faceEachOther(DatingAffair, Player)
             Player(Furious):: "You fucked my <Dating.boyfriend_or_girlfriend>! Die!"
             "Pow!"
             DatingAffair.hide()

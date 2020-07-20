@@ -10,6 +10,9 @@ OTHER: none
     
     setBackground(hospital)
     "It's official: I'm pregnant! It's a strange feeling - I don't know if I should feel excited or terrified."
+    If TfGame()
+        "I stare at the test in blank incomprehension, the results of my test not quite making sense to my ears. I’m pregnant. I have life inside me now. It will grow into an entirely new person. I will be a mother. If there was any doubt remaining in the back of my mind that I was truly a woman, this just smashed it like a hammer. I am pregnant. This is real."
+    Endif
     Actor = getSpecific(CurrentBabyDaddy)
 
     If Actor.isCreature()

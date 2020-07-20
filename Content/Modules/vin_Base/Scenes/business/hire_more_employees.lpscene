@@ -59,6 +59,7 @@ OTHER: none
             Hired = false
         Else
             Player(Sad):: "I'm sorry but you didn't quite match the profile of the candidate we're looking for ..."
+            AnimatePair(Player, Actor, Kissing)
             Player(Flirty):: "But I could be convinced to change my mind ..."
             "I then proceeded to caress <Actor.his_or_her> thigh, making clear the deal being offered on the table."
             If Random(30, 90) < Actor:perversion

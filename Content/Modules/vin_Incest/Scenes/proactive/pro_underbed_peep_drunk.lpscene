@@ -109,6 +109,7 @@ OTHER: none
                             Player(Angry):: "No, what the hell! I said if. I'm your <Actor.callplayer>. We can't kiss. You're drunk - you need to stop drinking."
                             Actor(Crying):: "See? I'm ugly - nobody wants me. Now, get the fuck out of my room!"
                         Else
+                            AnimatePair(Player, Actor, Kissing)
                             Player(Kiss):: "..."
                             Actor(Kiss):: "..."
                             Actor:incest += Random(0, 5)

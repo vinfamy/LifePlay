@@ -22,6 +22,7 @@ OTHER: !isWithCompanion()
         "I felt sorry for the poor <Actor1.guy_or_girl>. My neighbour was probably in the wrong here."
         "After some soothing words, I managed to stop <Actor1.name>'s tears, but <Actor1.he_or_she> is now leaning on my shoulder - which isn't the sight I would want my neighbour to come back to ..."
         Actor1(Sad):: "You would be the perfect <Player.boyfriend_or_girlfriend>."
+        AnimatePair(Player, Actor1, Kissing)
         Actor1(Kiss):: "..."
         "Then all of a sudden, <Actor1.name> kissed me. Things are getting very heated ..."
         0:: "Let it happen"

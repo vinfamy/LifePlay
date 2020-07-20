@@ -1,8 +1,8 @@
 WHAT: masturbate
 WHERE: home
 WHEN: 0 - 24
-WHO: Actor = getCreature(); If Actor.isCreatureType(Dog) && Actor.isMale() && Random(20, 100) < Actor:perversion
-OTHER: !Player.isMale() && isAtHome()
+WHO: Actor = getCreature(); If Actor.isCreatureType(Dog) && Random(20, 100) < Actor:perversion
+OTHER: isAtHome()
 
     SceneStart()
     Player.strip()

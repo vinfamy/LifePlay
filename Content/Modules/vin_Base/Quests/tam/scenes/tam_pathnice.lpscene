@@ -75,6 +75,7 @@ OTHER: none
             1:: "Say goodbye"
             
             If 0
+                AnimatePair(Player, Amy, Kissing)
                 Player(Kiss):: "..."
                 Amy(Kiss):: "..."
                 "We shared a little kiss, nothing too sexual, just a little proof of a first date that went well ..."

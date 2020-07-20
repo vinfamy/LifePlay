@@ -31,6 +31,7 @@ SceneStart()
         1:: "Leave"
         
         If 0
+            AnimatePair(Player, Actor, Kissing)
             "<Actor.He_or_She> isn't too bad-looking I guess. I happily danced with <Actor.him_or_her>, very intimately, our bodies were practically caressing against each other."
             0:: "Fuck <Actor.him_or_her>"
             1:: "Stop it there"

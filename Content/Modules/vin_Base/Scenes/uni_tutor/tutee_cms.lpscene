@@ -1,0 +1,56 @@
+WHAT: all
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getPerson(tag_Tutee)
+OTHER: none
+
+    SceneStart()
+    "Should I have a private tutoring session with <Actor.name> today?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        Dest = Actor.getBuilding(Home)
+        moveTo(Dest)
+        setBackground(home)
+        Actor.dress()
+        Actor.show()
+        "I showed up at <Actor.name>'s place and we had a tutoring session."
+        intelligence += 0.1
+        Actor:intelligence += 0.25
+        
+        If isModEnabled(vin_Netori) && !Actor.isAsexual()
+            If Actor.hasRelationship(Spouses, Dating)
+                Actor2 = getRelatedPerson(Spouses, Dating)
+                Player:: "Let's have a short break."
+                Actor:: "Let me go out for a cigarette."
+                Actor2.dress()
+                Actor2.show()
+                Actor2:: "Oh, hello there, <Player.name>, you're here to tutor <Actor.name> again?"
+                "It's <Actor2.name>, <Actor.name>'s <Actor2.boyfriend_or_girlfriend>."
+                0:: "Make a move on <Actor2.him_or_her>"
+                1:: "Stay professional"
+                
+                If 0
+                    If Actor2:perversion + Actor2:attractiontoplayer > 100
+                        "<Actor2.name> is very receptive to my advances. Looks like it's my lucky day. What a nice bonus to my meagre tutoring wages."
+                        Sex(Player, Actor2)
+                    Else
+                        "<Actor2.name> rebuffed my advances unfortunately."
+                    Endif
+                Endif
+            Else
+                Actor2 = generatePersonTemporary()
+                While !Actor.isInterestedIn(Actor2)
+                    Actor2 = generatePersonTemporary()
+                Endwhile
+                Actor2.dress()
+                Actor2.show()
+                Actor:: "Let me introduce you to my <Actor2.boyfriend_or_girlfriend>, <Actor2.name>."
+                Actor2:: "Nice to meet you."
+                Player:: "Nice to meet you too."
+            Endif
+        Endif
+    Endif
+    SceneEnd()
+    timeout(168, tutee_cms)

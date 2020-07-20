@@ -9,4 +9,4 @@ EFFECTS:
 CONDITIONS: pornfame > 0 (STAT_COMPARE)
 MOVE_FIRST: false
 SCENE_ALWAYS: porn_shoot, porn_shoot_threesome, porn_shoot_foursome, porn_shoot_fivesome
-ANIMATION:   
+ANIMATION: call

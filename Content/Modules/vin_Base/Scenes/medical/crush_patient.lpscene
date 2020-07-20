@@ -40,6 +40,7 @@ OTHER: !Player.isAsexual()
                 exchangeContact(Actor)
             Endif
         Else
+            AnimatePair(Player, Actor, Kissing)
             "I decided to make my move, grabbed <Actor.him_or_her> and started making out."
             Player(Kiss):: "..."
             If Random(0, 200) < Actor:attractiontoplayer + Actor:perversion

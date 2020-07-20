@@ -9,4 +9,4 @@ EFFECTS: stock_meal -1 (START), mood +3 (END), energy +15 (DURATION), mood -1 (I
 CONDITIONS: stock_meal >= 0.8 (STAT_COMPARE)
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:
+ANIMATION: eat

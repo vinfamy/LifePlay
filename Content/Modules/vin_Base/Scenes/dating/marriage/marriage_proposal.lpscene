@@ -218,6 +218,7 @@ OTHER: !isPlayerMarried()
                         Endif
 
                         If Kissed || [!hadSex && Actor:attractiontoplayer > Random(30, 200)]
+                            AnimatePair(Player, Actor, Kissing)
                             Player(Kiss):: "..."
                             Actor(Kiss):: "..."
                             "We had a kiss, an awkward one at first, but soon moving towards a more passionate direction."
@@ -292,6 +293,7 @@ OTHER: !isPlayerMarried()
             Else
                 Master(Happy):: "You may now kiss your bride!"
             Endif
+            AnimatePair(Player, CurrentCompanion, Kissing)
             Player(Kiss):: "..."
             CurrentCompanion(Kiss):: "..."
             Master.hide()

@@ -9,4 +9,4 @@ EFFECTS: stock_haircare -0.05 (START), attractiveness +0.025 (DURATION), mood +1
 CONDITIONS: stock_haircare > 0 (STAT_COMPARE)
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: bathe

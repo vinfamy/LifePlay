@@ -9,5 +9,5 @@ EFFECTS:
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS: ag_spiked_rape
-ANIMATION:
+ANIMATION: drinkglass
 WHO: Actor = getTarget(); If !Actor.isDating() && !Actor.isRelative() && !Actor.hadSex() && [WHERE == nightclub || WHERE == bar || WHERE == pub || WHERE == fraternity] 

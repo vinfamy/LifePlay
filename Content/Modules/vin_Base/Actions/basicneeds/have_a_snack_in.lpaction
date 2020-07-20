@@ -9,4 +9,4 @@ EFFECTS: stock_snack -1 (START), mood +1 (END), energy +5 (DURATION)
 CONDITIONS: stock_snack >= 0.8 (STAT_COMPARE)
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:
+ANIMATION: eat

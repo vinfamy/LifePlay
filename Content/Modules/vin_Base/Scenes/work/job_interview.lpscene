@@ -241,6 +241,7 @@ OTHER: none
                                     Performance -= Random(0, 5)
                                 Else
                                     If 1
+                                        AnimatePair(Player, Boss, Kissing)
                                         Player(Kiss):: "..."
                                         Boss(Kiss):: "..."
                                         "I leaned in for a kiss, which should make <Boss.name> think twice before picking anyone else for the job. Afterwards, we parted ways."

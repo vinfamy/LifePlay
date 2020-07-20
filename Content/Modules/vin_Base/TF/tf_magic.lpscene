@@ -13,10 +13,17 @@ OTHER: none
         "Don't get me wrong: I'm not depressed or suicidal at all - I'm just a guy struggling to find the meaning of life."
         "Sometimes, I wonder what would happen if I wake up one morning as a completely different person ..."
         "As a woman perhaps ..."
-        "I try to stop that thought as soon as it pops up and start laughing at myself."
-        "No, I absolutely don't want to go through gender reassignment surgery, although I must confess I have done some research about it out of curiousity and have nothing but respect for the transwomen who endure all the physical and mental pain of transitioning."
-        "But I definitely don't think I'm one of them - I'm not a woman trapped in a man's body, just a man who's bored with his life enough to be curious about how different life would be as a woman."
-        "Of course, I would never admit that curiousity to anyone, for fear of being called a tranny or a sissy."
+        0:: "Entertain the thought"
+        1:: "Laugh it off"
+        
+        If 1
+            "I try to stop that thought as soon as it pops up and start laughing at myself."
+            "No, I absolutely don't want to go through gender reassignment surgery, although I must confess I have done some research about it out of curiousity and have nothing but respect for the transwomen who endure all the physical and mental pain of transitioning."
+            "But I definitely don't think I'm one of them - I'm not a woman trapped in a man's body, just a man who's bored with his life enough to be curious about how different life would be as a woman."
+            "Of course, I would never admit that curiousity to anyone, for fear of being called a tranny or a sissy."
+        Else
+            "I wonder what that would be like. To wake up, a totally different person, in a totally new body. I confess I’ve researched the subject and have nothing but respect for those who endure the physical and mental pain of transition. I’ve never considered it an option for me, but I wanted a new life. If magic could happen, how much newer could you get?"
+        Endif
         "Anyway ..."
         
         "That's enough silly thought for today. I'm pretty exhausted after a long day of running errands. Let's head to bed early."
@@ -30,9 +37,9 @@ OTHER: none
         "7 hours later ..."
         "Wow that was some restful sleep - I needed that."
         "Wait ... something feels different this morning."
-        "I moved my hand to wipe my eyes, only to notice something strange: My arms are a lot smaller, softer and completely hairless."
+        "I moved my hand to wipe my eyes, only to notice something strange: My arms are a lot smaller and softer."
         "What the hell!"
-        "I rushed to my bedroom's mirror and to my horror, a woman appears in front of my eyes."
+        "I rushed to my bedroom's mirror and to my shock, a woman appears in front of my eyes."
         "(What do you look like post-transformation? Remember to give yourself a female first name and tick the appropriate 'Interested In Gender' boxes you want your post-tf character to be into. You can choose to keep your penis or be fully female.)"
         SceneEnd()
         OpenMenu(Chargen)

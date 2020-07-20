@@ -1,0 +1,53 @@
+WHAT: all
+WHERE: home
+WHEN: 8-20
+WHO: Actor2 = getSpecific(Neighbour); Actor = Actor2.getRelatedPerson(Spouses); If Player.isInterestedIn(Actor) && Random(10, 100) < Actor2:rapportwithplayer
+OTHER: Random(0, 100) < martial
+
+    SceneStart()
+    Actor2.show()
+    Actor2.dress()
+    "It's my neighbour <Actor2.name>."
+    "<Actor2.He_or_She> asks for a favour. <Actor2.He_or_She> has to make a trip downtown for a few hours but after a recent spate of burglaries <Actor2.he_or_she> is afraid to leave <Actor2.his_or_her> house and <Actor.husband_or_wife> <Actor.name> unguarded so <Actor2.he_or_she> asks me to help looking after the apartment."
+    "Seems a bit paranoid to me, especially because <Actor.name> is already there. <Actor.He_or_She> is not a baby."
+    "At least that means that I would have some company and not bore myself to death there."
+    0:: "Agree to help"
+    1:: "Find an excuse not to"
+    
+    If 0
+        Actor2:rapportwithplayer += 2
+        setBackgroundCustom(livingroom)
+        Actor2.hide()
+        Actor.dress()
+        Actor.show()
+        Player.moveToPerson(Actor)
+        Caught = false
+        "I'm hanging out with <Actor.name> in their apartment while waiting for <Actor2.name> to return."
+        0:: "Make a move on <Actor.name>"
+        1:: "I'd better not"
+        
+        If 0
+            If Actor:perversion + Actor:attractiontoplayer > 100
+                "Looks like it's my lucky day. <Actor.name> is immediately receptive to my advances. Maybe having a paranoid and overly protective <Actor2.husband_or_wife> has something to do with it."
+                Sex(Player, Actor)
+            Else
+                "<Actor.name> turns me down. The rest of my stay was really awkward ..."
+                If Random(0, 100) > Actor:perversion
+                    Caught = true
+                Endif
+            Endif
+        Endif
+        
+        Actor2.show()
+        If Caught
+            "Unfortunately to me, <Actor.name> didn't let this little incident slide and immediately rat me out to <Actor2.name> when <Actor2.he_or_she> returned."
+            Actor2(Angry):: "Get the fuck out of my apartment, you perv"
+            Actor2(Angry):: "How could you? I trusted you!"
+            Actor2:rapportwithplayer -= 50
+        Else
+            "<Actor2.name> eventually comes back and thanks me for looking after <Actor2.his_or_her> apartment."
+            Player:: "No problem at all, <Actor.name> has been very accommodating."
+        Endif
+    Endif
+    SceneEnd()
+    timeout(200, neighbour_spouse_cms)

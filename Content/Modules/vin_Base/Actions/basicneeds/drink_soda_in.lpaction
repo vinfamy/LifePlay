@@ -9,4 +9,4 @@ EFFECTS: stock_soda -1 (START), mood +1 (END), fitness -0.02 (END), energy +0.5 
 CONDITIONS: stock_soda >= 0.8 (STAT_COMPARE)
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: drinkbottle

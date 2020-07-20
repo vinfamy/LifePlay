@@ -9,4 +9,4 @@ EFFECTS: money -2 (START), mood +1 (END), fitness -0.02 (END), energy +0.5 (DURA
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: drinkbottle

@@ -10,8 +10,15 @@ OTHER: none
         OldPlayer = getSpecific(OldPlayer)
         Player(Shocked):: "What the fuck? Who the hell is ..."
         "At that moment, it finally hit me: the woman in the mirror is ME!"
-        Player(Furious):: "Nooooooooooooooooooooooooooooooooooooooooooooooooooo!"
-        "I screamed out in complete shock and horror, only to get even more shocked and horrified at how high-pitched and feminine my voice has become. Not only do I look like a woman, I also sound like a woman."
+        0:: "What the fuck!"
+        1:: "It's like a dream!"
+        
+        If 0
+            Player(Furious):: "Nooooooooooooooooooooooooooooooooooooooooooooooooooo!"
+            "I screamed out in complete shock and horror, only to get even more shocked and horrified at how high-pitched and feminine my voice has become. Not only do I look like a woman, I also sound like a woman."
+        Else
+            "I don't believe what I'm seeing! I lean into the mirror, touching my face, blinking my eyes, unable to help the manic grin spreading across my face. A loud, high-pitched scream of delight passes from my throat. It’s real! It’s impossible, insane, but it’s real!"
+        Endif
         "It's 2019 so my reaction to everything is to of course take out my phone. I immediately clicked on Facebook."
         "And to add the shock, I'm logged in as some '<Player.name> <Player.name_last>'. My hometown, alma mater and friendlist all remains the same, but I couldn't find a single photo or even mention of <OldPlayer.name> <OldPlayer.name_last> ... I searched for that name on Facebook, then Google, but no matches. It's like I has been erased from the internet, which I didn't know was even possible."
         "Suddenly, I hear a knock on my door ..."

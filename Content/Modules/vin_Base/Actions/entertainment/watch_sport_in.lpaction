@@ -9,4 +9,4 @@ EFFECTS:  mood +1 (END), energy +5 (END), fitness +0.01 (END), mood -2 (INTERRUP
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: sofawatch

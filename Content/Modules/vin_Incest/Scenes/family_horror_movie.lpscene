@@ -46,6 +46,7 @@ OTHER: isAtHome() && Random(0, 100) < 3
                 If Actor:incest + Actor:perversion > 125
                     Actor.closeEyes(false)
                     Actor(Flirty):: "I see you're getting handsy ... Couldn't resist your own <Actor.relationship>, could you, bad <Player.boy_or_girl>? Is this the real reason why you tricked me into watching that horror movie?"
+                    AnimatePair(Player, Actor, Kissing)
                     Actor(Kiss):: "..."
                     Player(Kiss):: "..."
                     "Is this real life or a dream? I'm kissing my own <Actor.relationship> and I like it ..."

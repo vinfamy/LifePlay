@@ -1,7 +1,7 @@
 WHAT: all
 WHERE: home
 WHEN: 0 - 24
-WHO: Dating = getSpecific(Dating); DatingAffair = getCreature(); If DatingAffair.isCreatureType(Horse) && !Dating.isMale() && Random(0, 3000) < Dating:perversion - 2*Dating:attractiontoplayer
+WHO: Dating = getSpecific(Dating); DatingAffair = getCreature(); If DatingAffair.isCreatureType(Horse) && Random(0, 3000) < Dating:perversion - 2*Dating:attractiontoplayer
 OTHER: isModEnabled(vin_NTR) && isAtHome() && isAtDatingHome()
 
     SceneStart()
@@ -90,10 +90,15 @@ OTHER: isModEnabled(vin_NTR) && isAtHome() && isAtDatingHome()
             Player(Flirty):: "Wow, that was amazing, baby. I guess I could forgive you then if every night is like this ..."
             Dating(Flirty):: "Oh baby, you're the best!"
         Else
+            Player.animate(gun)
+            Player.moveToPerson(Dating)
             "I don't care about the consequences. I'm not getting humiliated by my own horse like this without getting revenge."
             Player(Furious):: "Die, <Dating.scum_or_slut>!"
             "Pow!"
             Dating.hide()
+            Player.animate(gun)
+            Player.moveToPerson(DatingAffair)
+
             Player(Furious):: "You fucked my <Dating.boyfriend_or_girlfriend>! I raised you. Die, animal!"
             "Pow!"
             DatingAffair.hide()

@@ -30,6 +30,7 @@ OTHER: !Player.isAsexual()
             Actor.dress()
             "The patient put <Actor.his_or_her> clothes back on, clearly disappointed. I then wrapped it up and welcomed the next patient."
         Else
+            AnimatePair(Player, Actor, Kissing)
             "Damn it, I can't take this anymore. I decided to give in, grabbed <Actor.him_or_her> and started making out."
             Player(Kiss):: "..."
             Actor(Kiss):: "..."

@@ -9,4 +9,4 @@ EFFECTS:  mood +2 (END), intelligence +0.01 (END), mood -1 (INTERRUPTED)
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: sofawatch

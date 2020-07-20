@@ -16,6 +16,7 @@ OTHER: isWithCompanion() && CurrentCompanion.isInterestedIn(Player) && [[!Curren
     If 0
         "I decided to respond in kind and get handsy with my date and started caressing <CurrentCompanion.his_or_her> thighs."
         "<CurrentCompanion.name> was clearly delighted by my receptive mood and increased <CurrentCompanion.his_or_her> intensity caressing me as well."
+        AnimatePair(Player, CurrentCompanion, Kissing)
         Player(Kiss):: "..."
         CurrentCompanion(Kiss):: "..."
         "Eventually, we started making out, right there in the theatre."

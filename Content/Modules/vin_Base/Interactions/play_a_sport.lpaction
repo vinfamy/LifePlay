@@ -9,5 +9,5 @@ EFFECTS: energy -10 (DURATION), fitness +0.03 (DURATION), mood +5 (END), interpe
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:
+ANIMATION: martialart
 WHO: Actor = getTarget(); If WHERE == sports_centre        

@@ -38,6 +38,7 @@ OTHER: none
             "Damn this thing does feel so good ..."
             Player(Pain):: "Ahhhhhh Ahhhhhh Ahhhhhh"
             "My moaning has attracted the attention all the other customers who now circle around me to enjoy the show ..."
+            AnimatePair(Player, Actor, Kissing)
             "As I was nearing orgasm, <Actor.name> came closer and started to caress my sensitive spot. It's clear <Actor.he_or_she> wants a grand finale for this little sexy show <Actor.he_or_she> somehow convinced me to put on."
             0:: "Let <Actor.him_or_her>"
             1:: "This is going too far ..."

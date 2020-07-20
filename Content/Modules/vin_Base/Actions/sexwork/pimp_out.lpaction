@@ -9,5 +9,5 @@ EFFECTS:  mood -1 (END), energy -1 (END)
 CONDITIONS: companioniswhore == 1 (STAT_COMPARE)
 MOVE_FIRST: false
 SCENE_ALWAYS:
-ANIMATION:
+ANIMATION: socialize
 WHO: Actor = getTarget(); If Actor.isSameAs(CurrentConpanion) && Actor.isProstitute()   

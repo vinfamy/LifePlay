@@ -10,7 +10,7 @@ OTHER: none
         OldPlayer = getSpecific(OldPlayer)
         "I struggled hard to put on the women's clothes."
         Player(Sad):: "I guess that has to do ..."
-        "No time to waste, let's head out to the hospital and hopefully end this nightmare right now..."
+        "Let's head to the hospital and hopefully figure out what's going on right now ..."
         setBackground(street)
         Actor = generatePersonTemporary()
         While !Actor.isMale()
@@ -19,7 +19,7 @@ OTHER: none
         Actor.dress()
         Actor.show(2)
         Actor(Flirty):: "..."
-        "Is that guy checking me out and eye-banging me? Ew ... this is so gay ..."
+        "Is that guy checking me out and eye-banging me? Ew ... that's creepy ..."
         "Although to be fair, I would probably check out <Player.name> myself as a guy." 
         "Let's learn from the girls that rejected me in the past and not give this guy any attention whatsover. I have more important things to do right now."
         Actor.hide()

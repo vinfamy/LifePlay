@@ -9,5 +9,5 @@ EFFECTS: energy -10 (DURATION), martial +0.25 (DURATION), fitness +0.02 (DURATIO
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:
+ANIMATION: martialart
 WHO: Actor = getTarget(); If WHERE == sports_centre || WHERE == prison

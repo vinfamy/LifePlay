@@ -1,8 +1,8 @@
 WHAT: all
 WHERE: home
 WHEN: 0 - 24
-WHO: Actor = getCreature(); If Actor.isMale()
-OTHER: !Player.isMale() && isAtHome() && Random(0, 80) < perversion && Random(10, 80) < arousal 
+WHO: Actor = getCreature()
+OTHER: isAtHome() && Random(0, 80) < perversion && Random(10, 80) < arousal 
 
     SceneStart()
     "Damn it, I'm so horny! I'm not getting any dick recently ..."

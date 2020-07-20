@@ -9,4 +9,4 @@ EFFECTS: interpersonal +0.1 (DURATION), jobexperience +0.1 (DURATION), intellige
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: lecture

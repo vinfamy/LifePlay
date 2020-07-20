@@ -28,6 +28,7 @@ OTHER: none
         Actor(Flirty):: "You wouldn't leave before finishing dessert, would you?"
         Player(Confused):: "What do you mean? We just had cake, didn't we?"
         Actor(Flirty):: "I mean this dessert ..."
+        AnimatePair(Player, Actor, Kissing)
         Actor(Kiss):: "..."
         "What the hell! <Actor.name> is trying to kiss me ... right in front of <Actor.his_or_her> <Actor2.boyfriend_or_girlfriend>."
         Player(Angry):: "<Actor.name>! What are you doing? Your <Actor2.boyfriend_or_girlfriend> is right here!"

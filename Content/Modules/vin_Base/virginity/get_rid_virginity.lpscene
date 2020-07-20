@@ -1,0 +1,55 @@
+WHAT: all
+WHERE: home
+WHEN: 0 - 24
+WHO: none
+OTHER: Player.isVirgin() && !isWithCompanion()
+
+
+    SceneStart()
+    "I'm still a virgin ..."
+    0:: "And I'm proud of it!"
+    1:: "And I'm getting sick of it!"
+    
+    If 0
+        "And it's completely by choice. I will continue to save myself for someone special."
+    Else
+        "To be honest, I just can't wait to get over this stupid hurdle, get rid of my virginity and live my life as confidently as the rest of my peers. But who would be a good candidate to be my first?"
+        0:: "Someone I know"
+        1:: "Random hookup"
+        2:: "Let's think about this some more"
+        
+        If 0
+            "Of course, I would be most comfortable having my first time with a friend that I can trust."
+            selectNPC()
+            Actor = getSelectedNPC()
+            
+            If Actor:rapportwithplayer > 20 && Actor:attractiontoplayer > 5 && Actor:perversion > 30 && !Actor.isVirgin()
+                Actor.dress()
+                Actor.show()
+                "Needless to say, the opportunity to pop someone's cherry doesn't come up too often in someone's lifetime so <Actor.name> jumped at the opportunity."
+                Sex(Player, Actor)
+            Else
+                "Unfortunatley, <Actor.name> turned down my offer ..."
+            Endif
+        Elseif 1
+            "A stranger is the smartest choice - no strings attached - no future troubles."
+            "I put up an ad on Craiglist offering up my virginity for free and I feel like I broke the internet. So many responses!"
+            Actor = generatePersonTemporary()
+            While !Player.isInterestedIn(Actor)
+                Actor = generatePersonTemporary()
+            Endwhile
+            SecondScreen(Actor)
+            Actor.dress()
+            Actor.show()
+            "Most are weirdos, mind you, but <Actor.name> seems like the candidate least likely be a psycho murderer."
+            0:: "Hook up with <Actor.him_or_her>"
+            1:: "Let's think about this some more"
+            
+            If 0
+                SecondScreen()
+                Sex(Player, Actor)
+            Endif
+        Endif    
+    Endif
+    SceneEnd()
+    timeout(200, get_rid_virginity)

@@ -26,18 +26,26 @@ OTHER: isModEnabled(vin_NTR) && intelligence < Random(0, 100)*Random(0, 1)
     Else
         karma += 2.5
         masochist -= Random(0, 2)
+        Player.animate(martialart)
+        Player.moveToPersonStand(Actor, 100)
         "No one will violate my <Actor2.boyfriend_or_girlfriend> in front of me. I'd rather die than let that happen. With that thought in mind, I bravely jumped on the invader."
         Player(Angry):: "Thug, take this!"
+        faceEachOther(Actor, Player)
+        Actor.animate(martialart)        
         Actor(Angry):: "How dare you sucker-punch me? I'll teach you a lesson."
         "A fierce fight ensued ..."
+        Player.animate()
+        Actor.animate()
         If martial > Actor:martial
             Rape = false
+            Actor.animate(fightlost)
             Actor(Pain):: "Ah!"
             Player(Angry):: "That should teach you to never invade people's home and sexually assault them anymore."
             Actor2:attractiontoplayer += Random(0, 10)
             "We called the cops, who promptly arrested the wannabe rapist."
         Else
             Rape = true
+            Player.animate(fightlost)
             Player(Pain):: "Ah!"
             Actor(Evil):: "Ha! You really thought you could match me in a fight? I have to say - this just makes me want to fuck your <Actor2.boyfriend_or_girlfriend> even more and make you watch it all, wannabe hero!"            
         Endif

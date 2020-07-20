@@ -17,9 +17,12 @@ OTHER: none
     If 0
         "I started planning for the murder ..."
         setBackground(street)
+        Player.animate(sneak)
         "That's <Actor2.name>, walking down a dark alley ... as if <Actor2.he_or_she> is asking to be an easy target. I just need to sneak behid <Actor2.him_or_her> and once within range, shoot the <Actor2.bastard_or_bitch> to death. Easy enough."
         "Alright, I must be very quiet here as to not alert <Actor2.him_or_her> ..."
         "Just a few more steps and it will be perfect range for a headshot ..."
+        Player.animate(gun)
+        Player.moveToPerson(Actor)
         SneakGame()
         If Random(0, 100) < sneak
             "Perfect ... It's time to end this."
@@ -53,6 +56,7 @@ OTHER: none
                         followUp(death)
                     Endif
                 Else
+                    Player.animate(fightlost)
                     Player(Scared):: "Please, don't shoot!"
                     "I put my hands up and surrendered to the overwhelming number of cops."
                     sentence => 1825

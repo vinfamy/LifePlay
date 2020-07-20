@@ -15,6 +15,7 @@ OTHER: none
         "I and a few other inmates were transported out of the prison's guards for some hard labour. This is the perfect opportunity. Today is the day I earn my freedom back."
         0:: "Sneak away"
         
+        Player.animate(sneak)
         "I took advantage of a careless moment of the guards to simply sneak away from the labour site."
         SneakGame()
         If Random(30, 1000) < sneak
@@ -24,6 +25,7 @@ OTHER: none
             endPrison()
         Else
             "'<Player.name_last> is escaping! Stop <Player.him_or_her>!'"
+            Player.animate()
             "Oh no, one of the prison guards noticed me and shouted out for help. One of them even pulled out his gun."
             0:: "Run!"
             1:: "Surrender"
@@ -42,6 +44,7 @@ OTHER: none
                     followup(death)
                 Endif
             Else
+                Player.animate(fightlost)
                 Player(Sad):: "Please, don't shoot. I surrender!"
                 "My prison escape was a complete failure. All it did was to add some time to my sentence. Oh well, at least I keep myself alive to try another day."
                 sentence *= 1.15

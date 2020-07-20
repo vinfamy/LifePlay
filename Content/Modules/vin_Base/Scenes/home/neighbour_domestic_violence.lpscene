@@ -51,14 +51,23 @@ OTHER: isAtHome()
             Player(Angry):: "<Perp.name>! Stop right there. This is domestic violence!"
             karma += 2.5
             Perp(Angry):: "It's none of your business. Fuck off or I'll kick your ass too."
+            Player.animate(martialart)
+            Player.moveToPersonStand(Perp, 100)
             Player(Angry):: "No way, if you want to harm <Victim.name> anymore, you'll have to step over my dead body."
+            faceEachOther(Perp, Player)
+            Perp.animate(martialart)
             Perp(Furious):: "So be it! Take this!"
+            Player.animate()
+            Perp.animate()
             If martial > Perp:martial
+                Perp.animate(fightlost)
                 "I dodged <Perp.name>'s punch easily and went in for a counter strike right on <Perp.his_or_her> face, which knocked <Perp.him_or_her> on the ground."
                 masochist -= Random(0, 1)
                 martial += Random(0, 1)
             Else
+                Player.animate(fightlost)
                 "Despite my best intention, <Perp.name> was more than a match in a fight and I eventually got knocked off my feet. Thankfully, at least I kept <Perp.him_or_her> busy long enough for others to arrive and eventually control the situation."
+                Player.animate()
                 setBackground(hospital)
                 fitness -= Random(0, 2)
                 attractiveness -= Random(0, 2)

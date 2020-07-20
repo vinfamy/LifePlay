@@ -9,4 +9,4 @@ EFFECTS: brand +0.25 (END), interpersonal +0.1 (END)
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: call

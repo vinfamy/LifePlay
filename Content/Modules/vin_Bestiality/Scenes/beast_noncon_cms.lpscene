@@ -1,8 +1,8 @@
 WHAT: all
 WHERE: home
 WHEN: 0-24
-WHO: Actor = getCreature(); If Actor.isMale() && Actor:perversion + Actor:masochist > 70
-OTHER: isModEnabled(vin_nonConsensual) && Player.isFemale() && Random(50, 100) < masochist
+WHO: Actor = getCreature(); If Actor:perversion + Actor:masochist > 70
+OTHER: isModEnabled(vin_nonConsensual) && Random(50, 100) < masochist
 
     SceneStart()
     Actor.show()

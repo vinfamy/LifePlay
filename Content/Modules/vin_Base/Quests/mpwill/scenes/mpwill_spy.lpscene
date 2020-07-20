@@ -27,6 +27,7 @@ OTHER: none
         Brian.dress()
         Brian.show(3)
         
+        AnimatePair(Brian, Denise, Kissing)
         Brian(Kiss):: "I miss you, baby."
         Denise(Kiss):: "I miss you too."
         Brian.hide()

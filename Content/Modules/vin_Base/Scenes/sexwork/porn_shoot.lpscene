@@ -6,6 +6,9 @@ OTHER: Random(1, 150) < pornfame
 
     SceneStart()
     Actor = generatePersonTemporary()
+    While !Player.isInterestedIn(Actor)
+        Actor = generatePersonTemporary()
+    Endwhile
     Actor.dress()
     Actor.show(2)
     "A porn director wants to book me for a scene with <Actor.name> ..."

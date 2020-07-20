@@ -35,6 +35,7 @@ OTHER: isAtHome() && Random(0, 100) < 5
             If 0
                 Actor:: "That's good to hear. I feel a lot better now."
             Else
+                AnimatePair(Player, Actor, Kissing)
                 "I started caressing his thigh, clearly showing my admiration."
                 "Maybe he's just too drunk, or maybe he's always fantasized about this, but one thing leads to another really quickly after that."
                 Sex(Actor, Player)

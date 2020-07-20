@@ -46,6 +46,7 @@ OTHER: none
                     Actor(Crying):: "See? I'm ugly - nobody wants me."
                 Else
                     Player(Embarassed):: "This is so wrong, but I guess it's the only way to make you feel better ... Just a quick kiss, okay?"
+                    AnimatePair(Player, Actor, Kissing)
                     Player(Kiss):: "..."
                     Actor(Kiss):: "..."
                     Actor:incest += Random(0, 5)

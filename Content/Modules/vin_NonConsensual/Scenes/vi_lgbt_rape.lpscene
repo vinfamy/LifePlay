@@ -27,6 +27,7 @@ OTHER: Random(20, 100) < Actor:attractiontoplayer
                 Actor(Happy):: "Sure, I'll get you a cab right away. Should be here in ten minutes."
                 Actor:rapportwithplayer += Random(0, 2)
             Else
+                AnimatePair(Player, Actor, Kissing)
                 "All of a sudden, <Actor.name> grabbed me ..."
                 Actor(Kiss):: "..."
                 Player(Angry):: "Eww <Actor.name>! What the hell are you doing? You know I'm not into <Actor.guys_or_girls>!"

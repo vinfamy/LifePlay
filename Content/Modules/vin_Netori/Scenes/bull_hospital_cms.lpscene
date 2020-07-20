@@ -1,0 +1,33 @@
+WHAT: all
+WHERE: hospital:work
+WHEN: 8-18
+WHO: none
+OTHER: Player.isMale() || Player.isTrans()
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    While !Actor.isFemale()
+        Actor = generatePersonTemporary()
+    endWhile
+    Actor:age => Random(18, 30)
+    Actor.randomizeFace()
+    Actor.randomizeHairs()
+    Actor.dress()
+    Actor.show()
+    
+    "A young woman comes into the hospital for a pregnancy test, which turns out negative."
+    "She gets upset and explains that her husband and she have been trying but nothing works and they really want a baby."
+    0:: perversion > 30:: "Offer to be a sperm donor, the 'traditional way'"
+    1:: "Encourage her to be more patient"
+    
+    If 0
+        If Random(0, 100) < Actor:perversion
+            Actor:: "That sounds like a good idea. As long as my husband doesn't find out, it's only the best thing to do for our marriage to finally have a child."
+            Sex(Player, Actor)
+        Else
+            Actor:: "What kind of offer is that? Do you do this to all your female patients? I want to speak to your boss, please."
+        Endif
+    Endif
+
+    SceneEnd()
+    timeout(200, bull_hospital_cms)

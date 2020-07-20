@@ -9,4 +9,4 @@ EFFECTS:  money -7 (START), mood +0.25 (END), stock_meal +1 (END)
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS: deliveryman
-ANIMATION:   
+ANIMATION: call

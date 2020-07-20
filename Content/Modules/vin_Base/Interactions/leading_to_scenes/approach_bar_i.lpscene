@@ -49,6 +49,7 @@ OTHER: none
                     Actor:attractiontoplayer -= Random(0, 20)
                 Endif
             Elseif 3
+                AnimatePair(Player, Actor, Kissing)
                 Player(Kiss):: "..."
                 If Actor:attractiontoplayer > Random(0, 20) || Actor:intoxication > 70
                     Actor(Kiss):: "..."
@@ -70,6 +71,7 @@ OTHER: none
             If ChatContinued && choice != 3
                 If !Kissed
                     If Actor.isInterestedIn(Player) && [Actor:perversion + Actor:attractiontoplayer > Random(150, 200) || Actor:intoxication == 100 || [Actor.isDominantSex(Player) && Actor:perversion + Actor:attractiontoplayer > Random(100, 200)]]
+                        AnimatePair(Player, Actor, Kissing)
                         Actor(Kiss):: "..."
                         "All of a sudden, <Actor.name> leaned in and kissed me on the lips."
                         0:: "Kiss <Actor.him_or_her> back"

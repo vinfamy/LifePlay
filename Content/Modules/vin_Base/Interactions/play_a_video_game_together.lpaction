@@ -9,5 +9,5 @@ EFFECTS: intelligence +0.2 (END), mood +3 (DURATION), Interacting:rapportwithpla
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:
+ANIMATION: browse
 WHO: Actor = getTarget(); If !Actor.isTemporary() && [WHERE == home || WHERE == fraternity]   

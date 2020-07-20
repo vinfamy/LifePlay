@@ -166,6 +166,7 @@ OTHER: none
                     Endif
 
                     If Kissed || [CurrentCompanion.isInterestedIn(Player) && !hadSex && CurrentCompanion:attractiontoplayer > Random(0, 200)]
+                        AnimatePair(Player, CurrentCompanion, Kissing)
                         Player(Kiss):: "..."
                         CurrentCompanion(Kiss):: "..."
                         If Dating

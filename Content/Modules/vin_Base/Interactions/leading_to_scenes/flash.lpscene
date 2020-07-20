@@ -25,5 +25,8 @@ OTHER: none
     Else
         Actor(Angry):: "What the fuck! That's so inappropriate! Cover up you perv!"
         Actor:attractiontoplayer -= 1
+        If WHERE != home && WHERE != fraternity && WHERE != brothel && WHERE != stripclub
+            followUp(public_indecency)
+        Endif
     Endif
     SceneEnd()

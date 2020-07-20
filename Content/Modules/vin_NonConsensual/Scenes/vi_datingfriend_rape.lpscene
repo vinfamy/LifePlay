@@ -27,6 +27,7 @@ OTHER: !isWithCompanion() && isAtDatingHome()
             "Oh well, if I'm going to get stuck with my <Actor2.boyfriend_or_girlfriend>'s unlikable friend, maybe some alcohol would help me tolerate the conversation."
             "A while later ..."
             "Damn it, the conversation was so awkward that I had nothing to do but drink. I'm now feeling quite tipsy."
+            AnimatePair(Player, Actor, Kissing)
             "All of a sudden, <Actor.name> grabbed me ..."
             Actor(Kiss):: "..."
             Player(Angry):: "<Actor.name>! What the hell are you doing? I have a <Actor2.boyfriend_or_girlfriend>! And worse, <Actor2.he_or_she> is your best friend!"

@@ -9,4 +9,4 @@ EFFECTS: jobperformance +0.5 (DURATION), interpersonal +0.2 (DURATION), jobexper
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: work

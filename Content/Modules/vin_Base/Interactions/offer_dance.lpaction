@@ -9,5 +9,5 @@ EFFECTS: energy -1 (DURATION), mood +1.5 (END), dance +0.05 (END), interpersonal
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:
+ANIMATION: dance
 WHO: Actor = getTarget(); If !Actor.isTemporary() && [WHERE == nightclub || WHERE == bar || WHERE == pub]

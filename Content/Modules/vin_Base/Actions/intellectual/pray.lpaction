@@ -9,4 +9,4 @@ EFFECTS: perversion -0.05 (DURATION), arousal -5 (DURATION), perversion +0.02 (I
 CONDITIONS: perversion < 80 (STAT_COMPARE)
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: pray

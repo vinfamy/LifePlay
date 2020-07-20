@@ -44,6 +44,7 @@ OTHER: none
     Brian.show(3)
 
     "There they are ..."
+    AnimatePair(Brian, Denise, Kissing)
     Brian(Kiss):: "Oh baby, I can't get enough of you ..."
     Denise(Kiss):: "This is so wrong, but it feels so right ..."
     Brian(Kiss):: "You know you want it, both of us do."

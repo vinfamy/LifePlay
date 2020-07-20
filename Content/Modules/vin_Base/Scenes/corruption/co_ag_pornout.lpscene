@@ -1,12 +1,16 @@
 WHAT: all
 WHERE: all
 WHEN: 8-24
-WHO: Actor = getCompanion(); If !Actor.isRelative() && Player.isInterestedIn(Actor) && perversion - Actor:perversion > 40 && Actor:attractiontoplayer > 10
+WHO: Actor = getCompanion(); If !Actor.isRelative() && Player.isInterestedIn(Actor) && [perversion - Actor:perversion > 40 || Actor.isVirgin()] && Actor:attractiontoplayer > 10
 OTHER: none
 
     SceneStart()
     setBackground(street)
     "<Actor.name> is such an innocent <Actor.guy_or_girl>. I reckon a little visit to my favorite X-rated cinema could help <Actor.him_or_her> open up a bit ..."
+    If Actor.isVirgin()
+        "Maybe this is my opportunity to seduce my way into deflowering this innocent virgin ..."
+    Endif
+    "Should I?"
     0:: "Take <Actor.him_or_her> to a porn cinema"
     1:: "Not a good idea"
     
@@ -25,6 +29,7 @@ OTHER: none
             
             If 0
                 Player(Flirty):: "You're sweating a lot, <Actor.name>. This movie is turning you on, isn't it?"
+                AnimatePair(Player, Actor, Kissing)
                 Player(Kiss):: "..."
                 If Random(100, 300) < interpersonal + Actor:attractiontoplayer + Actor:incest + Actor:perversion + Actor:masochist
                     Actor(Kiss):: "..."

@@ -9,4 +9,4 @@ EFFECTS: stock_alcohol -20 (START), money -100 (START), mood +20 (START), interp
 CONDITIONS: stock_alcohol >= 20 (STAT_COMPARE)
 MOVE_FIRST: true
 SCENE_ALWAYS: house_party
-ANIMATION:   
+ANIMATION: call

@@ -9,4 +9,4 @@ EFFECTS:
 CONDITIONS: modelfame > 0 (STAT_COMPARE)
 MOVE_FIRST: false
 SCENE_ALWAYS: photoshoot, photoshoot_lingerie, photoshoot_nude
-ANIMATION:   
+ANIMATION: call

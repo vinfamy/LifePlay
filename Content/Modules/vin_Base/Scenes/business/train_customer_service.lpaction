@@ -9,5 +9,5 @@ EFFECTS: interpersonal +0.2 (END), Interacting:interpersonal +2
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:
+ANIMATION: work
 WHO: Actor = getTarget(); If Actor.isEmployee() && Actor.isAt(work)   

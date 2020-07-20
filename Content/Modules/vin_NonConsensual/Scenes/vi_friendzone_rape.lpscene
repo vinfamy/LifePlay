@@ -28,6 +28,7 @@ OTHER: Player.isDating() && Random(50, 100) < Actor:attractiontoplayer
                 Actor:rapportwithplayer += Random(0, 2)
             Else
                 "All of a sudden, <Actor.name> grabbed me ..."
+                AnimatePair(Player, Actor, Kissing)
                 Actor(Kiss):: "..."
                 Player(Angry):: "<Actor.name>! What the hell are you doing? You know I'm not into you that way! We're only friends."
                 Actor:rapportwithplayer -= Random(0, 5)

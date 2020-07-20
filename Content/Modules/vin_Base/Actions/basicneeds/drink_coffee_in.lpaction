@@ -9,4 +9,4 @@ EFFECTS:  stock_coffee -1 (START), mood +2 (END), energy +10 (DURATION)
 CONDITIONS: stock_coffee >= 0.8 (STAT_COMPARE)
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: drinktea

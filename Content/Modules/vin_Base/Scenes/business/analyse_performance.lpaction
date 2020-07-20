@@ -9,4 +9,4 @@ EFFECTS: intelligence +0.2 (END)
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS: analyse_performance
-ANIMATION:   
+ANIMATION: write

@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: offer_sugar
+ACTION_NAME: Offer private tutoring
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 10 - 30
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: offer_tutor
+ANIMATION:
+WHO: Actor = getTarget(); If !Actor.isTemporary() && !Actor.isRelative() && [WHERE == university:work || WHERE == university:study || WHERE == university || WHERE == community_centre || WHERE == fraternity]

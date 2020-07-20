@@ -1,0 +1,33 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Actor = getSpecific(PassedOn)
+    Actor.dress()
+    Actor.show()
+    Actor.moveToPerson(Player)
+    Actor(Embarassed):: "<Player.name>, I have something important to tell you ..."
+    Player(Surprised):: "<Actor.name>, what is it?"
+    Actor(Embarassed):: "That was my first time ... You're my first ..."
+    0:: "I'm so happy!"
+    1:: "There's a first time for everything ..."
+    2:: "No wonder you were so shit at it!"
+    
+    If 0
+        Player(Happy):: "Oh, <Actor.name>, you have no idea how happy I am to hear that ..."
+        Player:: "I feel like the luckiest <Player.man_or_woman> alive to be your first ..."
+        Player:: "I hope I managed to make it feel as special to you as it was to me."
+        Actor::attractiontoplayer += 50
+        Actor:: "Oh, <Player.name>, you will forever be special in my heart ..."
+    Elseif 1
+        Player(Surprised):: "Oh really? There's a first time for everything, I suppose."
+        "<Actor.name> doesn't look too happy with my carefree response to such a personal revelation. Maybe <Actor.he_or_she> is regretting giving up <Actor.his_or_her> virginity to me already."
+    Else
+        Player:: "And it showed! You were like a dead fish the whole time! You clearly need more practice!"
+        "<Actor.name> is visibly upset with my insulting response to such a personal revelation. Maybe <Actor.he_or_she> is regretting giving up <Actor.his_or_her> virginity to me already."    
+    Endif
+    
+    SceneEnd()

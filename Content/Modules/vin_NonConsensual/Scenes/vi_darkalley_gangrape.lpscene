@@ -21,6 +21,7 @@ OTHER: intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)
     2:: "Attack"
     
     If 0
+        Player.animate(fightlost)
         Player(Scared):: "Please, just take my money ... Don't harm us ..."
         "I obediently handed over my money, hoping that it would be enough to keep the thug off us."
         money -= Random(30, 300)
@@ -42,11 +43,18 @@ OTHER: intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)
         Actor2:attractiontoplayer -= Random(0, 50)
         Actor2:rapportwithplayer -= Random(0, 50)
     Else
+        Player.animate(martialart)
+        Player.moveToPersonStand(Actor, 100)
         Player(Furious):: "You messed with the wrong <Player.guy_or_girl>! Take this."
+        faceEachOther(Actor, Player)
+        Actor.animate(martialart)        
         Actor(Furious):: "You dare sucker-punch me? I'll teach you a lesson."
         "A fierce fight ensued ..."
+        Player.animate()
+        Actor.animate()
         If martial > Actor:martial
             Rape = false
+            Actor.animate(fightlost)
             Actor(Pain):: "Ah!"
             Player(Angry):: "That should teach you to never ambush innocent people in dark alleys anymore."
             Actor2:attractiontoplayer += Random(0, 5)
@@ -54,14 +62,17 @@ OTHER: intelligence < Random(0, 100)*Random(0, 1)*Random(0, 1)
         Else
             money -= Random(30, 300)
             Rape = true
+            Player.animate(fightlost)
             Player(Pain):: "Ah!"
             Actor(Evil):: "Ha! You really thought you could match me in a fight? I have to say - this just makes me want to fuck you both even more and make you watch each other!"            
         Endif
     Endif
     
     If Rape
+        Player.animate(fightlost)
         "I was tied up in the corner, forced to watch."
         "Soon, the thug was ripping <Actor2.name>'s clothes off and proceeded to force <Actor.himself_or_herself> upon <Actor2.him_or_her>."
+        Actor2.animate(fightlost)
         Actor2(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
         "<Actor2.His_or_Her> cries for help went unheard in the dark alley and <Actor2.he_or_she> had no choice but endure it all at the hand of this vile <Actor.man_or_woman>."
         Filter(Aggressive)

@@ -2,7 +2,7 @@ WHAT: all
 WHERE: all, -work
 WHEN: 8 - 18
 WHO: none
-OTHER: !Player.isMale() && Random(1, 100) < pornfame
+OTHER: Random(1, 100) < pornfame
 
     SceneStart()
     Actor = generateCreatureTemporary()

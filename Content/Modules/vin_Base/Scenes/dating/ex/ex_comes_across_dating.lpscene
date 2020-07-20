@@ -14,6 +14,7 @@ OTHER: isWithCompanion() && CurrentCompanion.isDating()
     
     If 0
         "Let's rub it in a bit to make it clear to <Actor.name> that <Actor.he_or_she> has no hopes of getting back with me."
+        AnimatePair(Player, CurrentCompanion, Kissing)
         Player(Kiss):: "..."
         CurrentCompanion(Kiss):: "..."
         Actor:attractiontoplayer -= Random(0, 5)

@@ -9,4 +9,4 @@ EFFECTS: mood +5 (END), energy +1 (DURATION), mood -2 (INTERRUPTED), karma +0.25
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: bathe

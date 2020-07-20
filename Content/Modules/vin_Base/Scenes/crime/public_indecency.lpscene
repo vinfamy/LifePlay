@@ -1,0 +1,32 @@
+WHAT: none
+WHERE: none
+WHEN: 0-24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "That was rather risky doing that in public. I hope there weren't any cops around"
+    If Random(0, 50) > sneak
+    "Sure enough, the cops promptly arrived at the scene."
+    "'Hands in the air, now! You're under arrest of public indecency'"
+    0:: "Run"
+    1:: "Surrender"
+    
+    If 0
+        If Random(0, 30) < fitness
+            "I managed to lose the cops. Phew, that was close."
+        Else
+            Player(Angry):: "You're not taking me alive."
+            "Pow!"
+            Player.hide()
+            "A cop fired his gun. It was a perfect shot ..."
+            followUp(death)
+        Endif
+    Else
+        Player.animate(fightlost)
+        Player(Scared):: "Please, don't shoot!"
+        "I put my hands up and surrendered to the overwhelming number of cops."
+        sentence => Random(30, 90)
+        followUp(imprisoned)
+    Endif
+    SceneEnd()

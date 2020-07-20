@@ -9,4 +9,4 @@ EFFECTS: intelligence +0.05 (END), interpersonal +0.025 (END), mood +2 (DURATION
 CONDITIONS:
 MOVE_FIRST: false
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: browse

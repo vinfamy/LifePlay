@@ -1,0 +1,39 @@
+WHAT: watch_a_movie_in, watch_sport_in, watch_tv
+WHERE: home
+WHEN: 8 - 22
+WHO: Actor = getRelative(Parent); Actor2 = getRelative(Parent); If !Actor.isMale() && Actor2.isMale() && Actor:incest > 10
+OTHER: isModEnabled(vin_Netori) && [Player.isMale() || Player.isTrans()]
+
+    SceneStart()
+    setBackgroundCustom(livingroom)
+    Actor.dress()
+    Actor.show()
+    Actor2.dress()
+    Actor2.show()
+    "I'm gathering to watch TV with my Mom and Dad."
+    Actor: "I need to go get something in the kitchen."
+    Actor.hide()
+    "I have been having some forbidden thoughts for my Mom recently, maybe this is finally my chance to turn fantasy into reality."
+    "For good measures, we would be doing it right behind my Dad's back."
+    0:: "Go for it"
+    1:: "Too risky"
+    
+    If 0
+        setBackgroundCustom(kitchen)
+        Actor2.hide()
+        Actor.show()
+        Player.show()
+        If Random(30, 150) < Actor:incest + Actor:perversion
+            Actor:: "I didn't realize I gave birth to such a pervert <Player.son_or_daughter>. You're all grown up now and want to cuckold your own dad and fuck your own mom?"
+            Actor:incest += 50
+            Player:masochist -= 2
+            Actor2:masochist += 2
+            Sex(Player, Actor)
+        Else
+            Actor:: "<Player.name>, what are you doing? Get your hand off of me. Your father is right there in another room."
+            Actor:rapportwithplayer -= 10
+            Actor2:rapportwithplayer -= 10
+        Endif
+    Endif
+    SceneEnd()
+    timeout(200, cms_cuck_dad)

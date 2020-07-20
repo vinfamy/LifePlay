@@ -49,6 +49,7 @@ OTHER: none
                 Endif
 
                 If Kissed || [Actor.isInterestedIn(Player) && !hadSex && Actor:attractiontoplayer > Random(0, 200)]
+                    AnimatePair(Player, Actor, Kissing)
                     Player(Kiss):: "..."
                     Actor(Kiss):: "..."
                     If Dating

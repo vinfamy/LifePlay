@@ -51,6 +51,7 @@ OTHER: Random(1, 150) < modelfame && Random(30, 100) < fitness
         If Actor.isInterestedIn(Player) && Actor:perversion > 35
             "Throughout the shoot today, I can't help but notice how flirty the photographer has been."
             Actor(Flirty):: "You know, to get far in this business, only look is not enough. We have to have a certain 'friendly' attitude."
+            AnimatePair(Player, Actor, Kissing)
             Actor(Kiss):: "Mwah"
             Actor(Flirty):: "You have great skin ... Oh look, where's my manner? I just couldn't help myself but touching you."
             "Touching is an understatement, this perverted photographer was basically groping me."

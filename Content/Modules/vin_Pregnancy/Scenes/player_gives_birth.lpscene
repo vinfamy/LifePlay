@@ -11,7 +11,12 @@ OTHER: none
     setBackground(hospital)
     Player.strip()
     Player.endPregnancy()
-    "It was a painful experience, but thankfully, everything went smoothly in the end. Nothing beats the feeling of being a new mom."
+    If TfGame()
+        "Pain like I’ve never experienced, followed by exhaustion so deep it feels like my bones have melted; the end result of hours of labor. But when they lay the child back into my arms, it’s all swept away by exhilaration and an odd feeling of triumph. I did this. I made this little person. I’m a mom now. And I’m going to do everything I can to make sure this little person gets the best life I can possibly give them. I made a miracle happen; I feel like a God right now."
+        "No. A Goddess!"
+    Else
+        "It was a painful experience, but thankfully, everything went smoothly in the end. Nothing beats the feeling of being a new mom."
+    Endif
     energy -= 100
     mood += 100
     Actor = Player.generateRelativeMatchRace()

@@ -5,20 +5,54 @@ WHO: none
 OTHER: none
 
     SceneStart()
-    setBackground(prison)
-    "I've been arrested, awaiting trial for my crimes."
-    0:: "Accept my fate"
-    1:: "Be represented by the world's best lawyer (consume all karma)"
-
-    If 0
-        "The court-appointed lawyer didn't do me much good. I got the expected sentence and was sent on my way to jail."
-        imprison()
-        SceneEnd()
-        setBackground(prison)
+    Court = true
+    setBackground(police)
+    "I was taken back to the police station."
+    Actor = generatePersonTemporary()
+    Actor.dress()
+    "The officer in charge of my case is <Actor.name> <Actor.name_last>."
+    If Random(0, 150) < Actor:attractiontoplayer + Actor:perversion
+        "<Actor.name> didn't waste any time and offer to release me and clear my record if I just fuck <Actor.him_or_her>"
+        0:: "No way"
+        1:: "It's better than going to jail ..."
+        
+        If 1
+            Sex(Player, Actor)
+            Court = false
+        Endif
     Else
-        "My world-class lawyer turned everything around and I was eventually cleared of all charges. I'm a free <Player.man_or_woman> again!"
-        sentence => 0
-        karma -= 100
-        SceneEnd()
+        "Maybe I can try to seduce <Actor.him_or_her> to release me and clear my record?"
+        0:: "Yes"
+        1:: "I'd rather go to jail then lose my honour"
+        
+        If 0
+            If Random(0, 200) < Actor:attractiontoplayer + Actor:perversion
+                Actor:: "I suppose that's a fair deal!"
+                Sex(Player, Actor)
+                Court = false                
+            Else
+                Actor:: "I'm afraid you have been watching too much cop porn. I'm not one of those cops."
+            Endif
+        Endif
     Endif
     
+    If Court
+        setBackground(prison)
+        "I've been arrested, awaiting trial for my crimes."
+        0:: "Accept my fate"
+        1:: "Be represented by the world's best lawyer (consume all karma)"
+
+        If 0
+            "The court-appointed lawyer didn't do me much good. I got the expected sentence and was sent on my way to jail."
+            imprison()
+            SceneEnd()
+            setBackground(prison)
+        Else
+            "My world-class lawyer turned everything around and I was eventually cleared of all charges. I'm a free <Player.man_or_woman> again!"
+            sentence => 0
+            karma -= 100
+            SceneEnd()
+        Endif
+    Else
+        SceneEnd()    
+    Endif

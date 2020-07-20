@@ -9,4 +9,4 @@ EFFECTS: intelligence +0.2 (END), mood +3 (DURATION)
 CONDITIONS:
 MOVE_FIRST: false
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: browse

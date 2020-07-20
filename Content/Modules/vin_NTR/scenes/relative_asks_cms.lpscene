@@ -1,0 +1,39 @@
+WHAT: all
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getRelative(); Actor2 = getSpecific(Dating); If Actor.isInterestedIn(Actor2) && Actor2.isInterestedIn(Actor) && Actor:perversion > 50
+OTHER: openRelationship()
+
+    SceneStart()
+    Actor.dress()
+    Actor2.dress()
+    Actor.show()
+    Actor2.show()
+    "My <Actor.relationship> and my <Actor2.boyfriend_or_girlfriend> want to talk to me about something."
+    Actor:: "I know you and <Actor2.name> is in an open relationship and you allow <Actor2.him_or_her> to sleep with other <Actor.guys_or_girls>"
+    Actor:: "I'm having a dry spell recently. Would you be so kind in allowing me to borrow <Actor2.name> for a night?"
+    Actor2:: "This isn't breaking rules we set up for our open relationship arrangement, baby."
+    0:: "Okay"
+    1:: "No way"
+    
+    If 0
+        Actor:rapportwithplayer += 1
+        Actor2:attractiontoplayer += 1
+        Actor:: "Oh thanks, you're the best <Actor.callplayer> ever"
+        SexNoAffair(Actor, Actor2)
+        "Looks like they're ready for round 2"
+        0:: "Join them"
+        1:: "Just watch"
+        
+        If 0
+            SexNoAffair(Actor, Actor2, Player)       
+        Else
+            SexNoAffair(Actor, Actor2)       
+        Endif
+    Else
+        Player:: "Sorry, but this would make things too weird in the future."
+        Actor:rapportwithplayer -= 1
+        Actor2:attractiontoplayer -= 1
+    Endif
+    SceneEnd()
+    timeout(200, relative_asks_cms)

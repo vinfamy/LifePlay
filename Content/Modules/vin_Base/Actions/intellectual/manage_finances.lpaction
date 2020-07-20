@@ -9,4 +9,4 @@ EFFECTS: money +30 (END), mood -5 (DURATION), money -10 (INTERRUPTED), intellige
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: managefinances

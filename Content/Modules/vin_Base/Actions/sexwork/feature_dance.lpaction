@@ -9,4 +9,4 @@ EFFECTS: perversion +0.1 (END), mood -0.5 (DURATION), energy -5 (DURATION), mone
 CONDITIONS: pornfame > 30 (STAT_COMPARE)
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: strip

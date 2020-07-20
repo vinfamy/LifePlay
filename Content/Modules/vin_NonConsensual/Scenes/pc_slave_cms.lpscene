@@ -54,7 +54,8 @@ OTHER: Random(50, 100) < masochist && Random(0, 100) < 1 && [Player.isFemale() |
         Endwhile
         "There's loud siren outside! Police sirens!"
         "Freeze!"
-        "I saw my kidnapper raise my hand in the air surrendering to the cops"
+        Actor.animate(fightlost)
+        "I saw my kidnapper raise <Actor.his_or_her> hand in the air surrendering to the cops"
         "I'm finally saved, but not before enduring the horror under the hands of my kidnapper."
     Endif
     SceneEnd()

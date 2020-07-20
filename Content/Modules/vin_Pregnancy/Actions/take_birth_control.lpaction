@@ -9,4 +9,4 @@ EFFECTS: stock_pill -1 (START), mood +3 (END), fertility -99 (BUFF:1400)
 CONDITIONS: stock_pill > 0.99 (STAT_COMPARE), false (IS_MALE)
 MOVE_FIRST: false
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: drinkbottle

@@ -9,4 +9,4 @@ EFFECTS:
 CONDITIONS: modelfame == 0 (STAT_COMPARE)
 MOVE_FIRST: false
 SCENE_ALWAYS: find_a_modeling_agency
-ANIMATION:   
+ANIMATION: call

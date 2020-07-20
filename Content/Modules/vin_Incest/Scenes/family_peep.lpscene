@@ -41,22 +41,46 @@ OTHER: isAtHome()
             Actor.show(2)
             Actor2.show(3)
             Player.show(0)
-            "It looks like they're already ready for another round ..."
-            0:: "Offer to join them"
-            1:: "Enough"
             
-            If 0
-                Player(Flirty):: "Looks like you guys are having some fun there? Mind if I join you?"
-                If Random(50, 100) < Actor:incest
-                    Actor(Flirty):: "I didn't realize how much of a pervert my <Actor.callplayer> is ... Come on and join us then, what are you waiting for?"
-                    Sex(Actor, Player, Actor2)
-                    Actor:incest += Random(0, 50)
+            nothing = true
+            Actor:: "Baby, I'm exhausted. Let me get some water and we'll continue."
+            Actor.hide()
+            "My <Actor.relationship> went out, leaving <Actor.his_or_her> <Actor2.boyfriend_or_girlfriend> alone in the room. Maybe this is my opportunity?"
+            0:: "Wait for <Actor.name>'s return"
+            1:: "Go back to my room"
+            2:: "Try to seduce my <Actor.relationship>'s <Actor2.boyfriend_or_girlfriend>"
+            
+            If 1
+                nothing = false
+            Elseif 2
+                nothing = false
+                If Random(50, 150) < Actor2:attractiontoplayer + Actor2:perversion
+                    Actor2:: "Okay then, since <Actor.his_or_her> water break is taking too long and I don't see any Round 2 coming from <Actor.him_or_her> tonight."
+                    Sex(Player, Actor2)
+                    "Thankfully, we managed to finish the deed without my <Actor.relationship> ever noticing."
                 Else
-                    Actor(Angry):: "What are you doing here, peeping Tom? And what's up with that perverted proposal? You're my <Actor.callplayer>, for God's sake!"
-                    Actor:rapportwithplayer -= Random(0, 3)
+                    Actor2:: "What the hell are you trying to do? I had no idea <Actor.name> has such a disgusting <Actor.callplayer>. Get your hands off me or I'll tell <Actor.name>."
+                endif
+            Endif
+            
+            If nothing       
+                "It looks like they're already ready for another round ..."
+                0:: "Offer to join them"
+                1:: "Enough"
+                
+                If 0
+                    Player(Flirty):: "Looks like you guys are having some fun there? Mind if I join you?"
+                    If Random(50, 100) < Actor:incest
+                        Actor(Flirty):: "I didn't realize how much of a pervert my <Actor.callplayer> is ... Come on and join us then, what are you waiting for?"
+                        Sex(Actor, Player, Actor2)
+                        Actor:incest += Random(0, 50)
+                    Else
+                        Actor(Angry):: "What are you doing here, peeping Tom? And what's up with that perverted proposal? You're my <Actor.callplayer>, for God's sake!"
+                        Actor:rapportwithplayer -= Random(0, 3)
+                    Endif
+                Else
+                    "I should get out of here before I get caught."
                 Endif
-            Else
-                "I should get out of here before I get caught."
             Endif
         Else
             "Unfortunately for me, the door was fully closed and all the curtains were pulled down. There's no way I can get a look ..."

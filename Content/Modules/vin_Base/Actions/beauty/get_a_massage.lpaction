@@ -9,4 +9,4 @@ EFFECTS: money -50 (START),  mood +20 (DURATION), energy +10 (DURATION), fitness
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: beauty

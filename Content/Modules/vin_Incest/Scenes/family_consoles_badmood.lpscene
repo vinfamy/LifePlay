@@ -36,6 +36,7 @@ OTHER: isAtHome() && mood < Random(0, 50)*Random(0, 1)
                 Player(Flirty):: "I would date you too ... if I wasn't<Player.callplayer>."
                 If Actor:incest + Actor:perversion > Random(100, 200)
                     Actor(Flirty):: "I'm sure you would ..."
+                    AnimatePair(Player, Actor, Kissing)
                     Actor(Kiss):: "..."
                     Player(Kiss):: "..."
                     "This is so wrong: I'm kissing my own <Actor.relationship>! Worse, it's getting more and more heated."

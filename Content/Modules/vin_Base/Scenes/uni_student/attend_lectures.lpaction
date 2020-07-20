@@ -9,4 +9,4 @@ EFFECTS: interpersonal +0.05 (DURATION), jobexperience +0.025 (DURATION), intell
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: theatrewatch

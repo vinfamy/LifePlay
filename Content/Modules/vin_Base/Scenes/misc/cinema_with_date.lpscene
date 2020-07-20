@@ -13,6 +13,7 @@ OTHER: isWithCompanion() && !CurrentCompanion.isRelative() && Random(30, 200) < 
         "I decided to get handsy with my date and started caressing <CurrentCompanion.his_or_her> thighs."
         If CurrentCompanion.isDating() || Random(20, 75) < CurrentCompanion:attractiontoplayer + CurrentCompanion:perversion
             "<CurrentCompanion.name> responded in kind and started caressing me as well."
+            AnimatePair(Player, CurrentCompanion, Kissing)
             Player(Kiss):: "..."
             CurrentCompanion(Kiss):: "..."
             "Eventually, we started making out, right there in the theatre."

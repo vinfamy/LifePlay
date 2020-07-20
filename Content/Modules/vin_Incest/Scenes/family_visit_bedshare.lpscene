@@ -38,6 +38,7 @@ OTHER: isAtHome()
                     If Actor:incest + Actor:perversion > 125
                         Actor.closeEyes(false)
                         Actor(Flirty):: "I see you're getting handsy ... Couldn't resist your own <Actor.relationship>, could you, bad <Player.boy_or_girl>? Is this the real reason why you were so keen for me to stay the night?"
+                        AnimatePair(Player, Actor, Kissing)
                         Actor(Kiss):: "..."
                         Player(Kiss):: "..."
                         "Is this real life or a dream? I'm kissing my own <Actor.relationship> and I like it ..."

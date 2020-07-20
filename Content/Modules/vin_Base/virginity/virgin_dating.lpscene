@@ -1,0 +1,28 @@
+WHAT: all
+WHERE: home
+WHEN: 0 - 24
+WHO: Actor = getSpecific(Dating); If Actor.isVirgin()
+OTHER: none
+
+    SceneStart()
+    Actor.show()
+    Actor.dress()
+    "<Actor.name> and I have been dating for a while now. It's going pretty well but there's a pretty huge elephant in the room ..." "We haven't consummated this relationship yet ... In fact, <Actor.name> is still a virgin."
+    "Maybe I should try and put a bit more pressure on <Actor.him_or_her> to start having sex?"
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        If Random(50, 200) < Actor:attractiontoplayer + Actor:perversion
+            Actor(Sad):: "I guess you're right ... We have been together for a while now, it's unfair of me to expect me to continuing to wait for intimacy forever."
+            Sex(Player, Actor)
+        Else
+            Actor(Angry):: "<Player.name>, I told you I'm not ready ... Is a relationship nothing more than sex for you?"
+        Endif
+    Else
+        "I don't want to put pressure on my <Actor.boyfriend_or_girlfriend> for my own pleasure. <Actor.He_or_She> will be ready in <Actor.his_or_her> own time."
+        Player:masochist += 0.1
+        Actor:attractiontoplayer += 2
+    Endif
+    SceneEnd()
+    timeout(200, virgin_dating)

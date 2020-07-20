@@ -9,4 +9,4 @@ EFFECTS:
 CONDITIONS:
 MOVE_FIRST: false
 SCENE_ALWAYS: murder_someone
-ANIMATION:   
+ANIMATION: sneak

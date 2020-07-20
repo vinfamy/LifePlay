@@ -53,6 +53,7 @@ OTHER: !Player.isAsexual()
             Endif
         Else
             "I decided to make my move, grabbed <Actor.him_or_her> and started making out."
+            AnimatePair(Player, Actor, Kissing)
             Player(Kiss):: "..."
             If Random(0, 200) < Actor:attractiontoplayer + Actor:perversion
                 Actor(Kiss):: "..."

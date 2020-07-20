@@ -23,9 +23,14 @@ OTHER: Random(0, 1000) < sneak
     Elseif 1
         karma += 5
         masochist -= Random(0, 2)
+        Player.animate(martialart)
+        Player.moveToPersonStand(Actor, 100)
         "I haven't got time to waste. The poor <Actor2.guy_or_girl> is being assaulted right now. I must act quick!"
+        Player.animate()
+        Actor.animate()
         If martial > Actor:martial || !isModEnabled(vin_NTR)
             Rape = false
+            Actor.animate(fightlost)
             Actor(Pain):: "Ah!"
             Player(Angry):: "That should teach you to not sexually assault people in locker rooms!"
             Actor.hide()
@@ -45,6 +50,7 @@ OTHER: Random(0, 1000) < sneak
             Endif
         Else
             Rape = true
+            Player.animate(fightlost)
             Player(Pain):: "Ah!"
             Actor(Evil):: "Ha! You really thought you could match me in a fight? I have to say - this just makes me want to fuck <Actor2.his_or_her> brain out even more and make you watch it all, wannabe hero!"  
         Endif        
@@ -56,6 +62,7 @@ OTHER: Random(0, 1000) < sneak
     Endif
     
     If Rape
+        Actor2.animate(fightlost)
         Actor2(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
         "<Actor2.His_or_Her> cries for help went unheard in the locker room and <Actor2.he_or_she> had no choice but endure it all at the hand of this vile <Actor.man_or_woman>."
         Filter(Aggressive)

@@ -1,13 +1,17 @@
 WHAT: all, -sleep, -nap, -sleep_hotel, -nap_hotel
 WHERE: all
 WHEN: 8-20
-WHO: Actor = getPerson(true); If !Actor.isRelative() && Player.isInterestedIn(Actor) && perversion - Actor:perversion > 40 && Actor:attractiveness > 60
+WHO: Actor = getPerson(true); If !Actor.isRelative() && Player.isInterestedIn(Actor) && [perversion - Actor:perversion > 40 || Actor.isVirgin()] && Actor:attractiveness > 60
 OTHER: Random(65, 300) < perversion
 
     SceneStart()
     Actor.dress()
     Actor.show(2)
-    "<Actor.name> is a <Actor.handsome_or_beautiful> <Actor.guy_or_girl> yet <Actor.he_or_she> is so innocent. Maybe a perverted gift like an erotic book would encourage <Actor.him_or_her> to open up <Actor.his_or_her> mind a bit ..."
+    "<Actor.name> is a <Actor.handsome_or_beautiful> <Actor.guy_or_girl> yet <Actor.he_or_she> is so innocent."
+    If Actor.isVirgin()
+        "I'm pretty sure <Actor.he_or_she> is still a virgin too ..."
+    Endif
+    "Maybe a perverted gift like an erotic book would encourage <Actor.him_or_her> to open up <Actor.his_or_her> mind a bit ..."
     0:: "Send <Actor.name> this gift"
     1:: "That's a bad idea"
     

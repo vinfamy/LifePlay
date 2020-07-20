@@ -9,4 +9,4 @@ EFFECTS: mood +0.5 (END), attractiveness +0.01 (END), mood -0.5 (INTERRUPTED)
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: makeup

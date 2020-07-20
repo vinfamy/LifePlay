@@ -1,0 +1,28 @@
+WHAT: all
+WHERE: all
+WHEN: 0 - 24
+WHO: Actor = getPerson(true); Actor2 = getSpecific(Dating); If Actor.isDeflowerer() && !Actor.isDating() && Actor2:masochist < 0
+OTHER: !OpenRelationship()
+
+    SceneStart()
+    SecondScreenIfHidden(Actor)
+    Actor.dress()
+    Actor.show()
+    Actor2.dress()
+    Actor2.show()
+    "My <Actor2.boyfriend_or_girlfriend> <Actor2.name> is extremely insecure about the fact that <Actor2.he_or_she> wasn't the first <Actor2.guy_or_girl> I've slept with ..."
+    "Worse still, <Actor2.name> recently found out that I still keep in touch with my first, <Actor.name>, and wouldn't shut up about that."
+    "Finally today, <Actor2.name> demanded that I blocked <Actor.name> from my phone and social media, 'erasing' this 'bad past'"
+    0:: "No way!"
+    1:: "Okay ..."
+    
+    If 0
+        "This is ridiculous! What happened before we even met is none of <Actor2.name>'s business. <Actor.name> is a special person in my life no matter what."
+        Actor2:attractiontoplayer -= 10
+    Else
+        "Our relationship is really suffering because of this. Even though <Actor.he_or_she> was my first, right now, <Actor.name> isn't as important a person in my life as my <Actor2.boyfriend_or_girlfriend>."
+        blockContact(Actor)
+        Actor2:attractiontoplayer += 5
+    Endif
+    SceneEnd()
+    timeout(500, dating_insecure_about_deflowerer)

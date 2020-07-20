@@ -1,0 +1,30 @@
+WHAT: all
+WHERE: home
+WHEN: 21 - 5
+WHO: Actor = getPerson(true); If Actor.isDeflowered() && !Actor.isDating() && Actor:attractiontoplayer > 60
+OTHER: !isWithCompanion()
+
+    SceneStart()
+    SecondScreen(Actor)
+    Actor.dress()
+    Actor.show()
+    "I took <Actor.name>'s virginity and they say you never forget your first time."
+    "This is something I can really take advantage of."
+    0:: "Use <Actor.him_or_her> as an easy fuckbudy"
+    1:: "I'm not that terrible a person!"
+    
+    If 0
+        "Isn't it good to have a fuckbuddy that's always ready and eager to please you because <Actor.he_or_she> fantasizes about this fucking is gonna turn into 'love' one day."
+        "Besides, since <Actor.he_or_she> was a virgin not too long ago, the floodgate isn't wide open yet. Much less risk of STDs than your average fuckbuddies and random hookups."
+        Player:: "I'm horny. Come over. I want to fuck you!"
+        Player:: "What's taking you so long? Don't pretend like you don't want it."
+        Player:: "I know you fantasize about me every day. I'm your first after all."
+        SecondScreen()
+        Actor.show()
+        "As expected, <Actor.name> couldn't help but bear the humiliation and come to satisfy <Actor.his_or_her> 'special someone', aka me."
+        masochist -= 1
+        Sex(Player, Actor)
+    Endif
+        
+    SceneEnd()
+    timeout(100, take_advantage_deflowered)

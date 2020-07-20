@@ -9,4 +9,4 @@ EFFECTS: money -200 (START), mood +1 (END), fitness +0.2 (END), mood -5 (INTERRU
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: health

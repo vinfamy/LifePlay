@@ -1,8 +1,8 @@
 WHAT: all
 WHERE: home
 WHEN: 0 - 24
-WHO: Actor = getCreature(); Actor2 = getSpecific(ExDating); If Actor.isMale() && Actor2.isMale()
-OTHER: !Player.isMale() && isAtHome() && !Player.isDating() && Random(0, 30) < perversion && Random(0, 70) < arousal 
+WHO: Actor = getCreature(); Actor2 = getSpecific(ExDating)
+OTHER: isAtHome() && !Player.isDating() && Random(0, 30) < perversion && Random(0, 70) < arousal 
 
     SceneStart()
     Actor.show(2)

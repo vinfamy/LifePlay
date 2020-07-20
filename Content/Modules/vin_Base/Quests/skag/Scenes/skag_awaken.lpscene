@@ -133,6 +133,7 @@ OTHER: none
         Angel.show(0)
         "Angel started giving <Vic.name> a sensual lapdance, <Vic.name> tries her best to appear as uncomfortable as possible but she's fooling no-one: she's getting visually turned on."
         Angel(Flirty):: "Here's a little bonus ..."
+        AnimatePair(Angel, Vic, Kissing)
         Angel(Kiss):: "..."
         "Angel kissed <Vic.name>. She was so taken away by the whole situation unfolding in front of her that she had no reaction ... well, she didn't push Angel away either."
         "Eventually though, <Vic.name> came to her senses just as Angel was finishing her dance ..."

@@ -47,6 +47,8 @@ OTHER: none
                 Actor2.dress()
                 Actor2.show(2)
                 Actor(Evil):: "That must be the branch manager. Let's get this party started!"
+                Player.animate(gun)
+                Actor.animate(gun)
                 Player(Evil):: "Hands up! Everyone, hands up or I'll shoot each and everyone here."
                 Player(Evil):: "Now you, hand over all the cash! Or things are getting ugly right quick."
                 If Actor2:masochist > 0
@@ -55,6 +57,8 @@ OTHER: none
                     
                     Outcome = 1
                 Else
+                    Actor2.animate(martialart)
+                    Actor2.moveToPersonStand(Player, 100)
                     Actor2(Furious):: "I'm not giving up without a fight, thug!"
                     "The foolish bank manager threw <Actor2.himself_or_herself> forward and tried to tackle me."
                     0:: "Shoot <Actor2.him_or_her>"
@@ -69,15 +73,19 @@ OTHER: none
                         
                         Outcome = 2
                     Else
+                        faceEachOther(Actor2, Player)
+                        Player.animate(martialart)
+
                         If martial < Actor2:martial
+                            Player.animate(fightlost)
                             "Unfortunately, the branch manager turned out to be a handful and <Actor2.he_or_she> managed to knock me off my gun."
                             "Worse, there's now the sound of police siren coming. Someone must have taken advantage of the chaos of the brawl to call the cops."
                             Actor(Scared):: "Fuck! The cops are here. Let's get out of here!"
-                            
+                            Player.animate()
                             Outcome = 3
                         Else
+                            Actor2.animate(fightlost)
                             Player(Evil):: "Don't try to be the hero next time!"
-                            Actor2.hide()
                             "The branch manager was no match for me in a fight."
                             Player(Furious):: "Anybody else wants to be a hero? Hand over the money, now!"
                             
@@ -116,6 +124,7 @@ OTHER: none
                             followUp(death)
                         Endif
                     Else
+                        Player.animate(fightlost)
                         Player(Scared):: "Please, don't shoot!"
                         "I put my hands up and surrendered to the overwhelming number of cops."
                         sentence => 3650
@@ -143,11 +152,17 @@ OTHER: none
                 Actor2.show(2)
                 Actor(Evil):: "That must be the owner. I'll keep guard at the door to warn you of any cops! You go there and beat <Actor2.him_or_her> up."
                 Actor.hide()
+                Player.animate(martialart)
+                Player.moveToPersonStand(Actor2, 100)
                 Player(Furious):: "I'll teach you a lesson for not paying your dues on time!"
+                Player.animate()
+                Actor2.animate()
                 If martial > Actor2:martial
+                    Actor2.animate(fightlost)
                     Actor2(Crying):: "Enough! Enough! I'll pay. Tell <Boss.name> I'm sorry."
                     outcome = 1
                 Else
+                    Player.animate(fightlost)
                     "Unfortunately, the <Actor2.bastard_or_bitch> turned out to be a handful and <Actor2.he_or_she> managed to knock me out. Thankfully, <ACtor.name> was there to save my ass in the end."
                     outcome = 2
                 Endif
@@ -268,8 +283,10 @@ OTHER: none
                 Actor2.show(2)
                 Actor(Evil):: "That's the target, walking down a dark alley ... as if <Actor2.he_or_she> is asking to be an easy target. I'll keep guard here to warn you of any cops! You sneak behid <Actor2.him_or_her> and once within range, shoot the <Actor2.bastard_or_bitch> to death, okay?"
                 Actor.hide()
+                Player.animate(sneak)
                 "Alright, I must be very quiet here as to not alert <Actor2.him_or_her> ..."
                 "Just a few more steps and it will be perfect range for a headshot ..."
+                Player.animate(gun)
                 SneakGame()
                 If Random(0, 100) < sneak
                     "Perfect ... It's time to end this."
@@ -306,6 +323,7 @@ OTHER: none
                                 followUp(death)
                             Endif
                         Else
+                            Player.animate(fightlost)
                             Player(Scared):: "Please, don't shoot!"
                             "I put my hands up and surrendered to the overwhelming number of cops."
                             sentence => 1825
@@ -324,8 +342,10 @@ OTHER: none
                 Actor.hide()
                 setBackground(art)
                 "There's the jewel ... A guard is right nearby though."
+                Player.animate(sneak)
                 "Alright, I must be very quiet here as to not alert the guard ..."
                 "Just a few more steps and I can grab it ..."
+                Player.animate()
                 SneakGame()
                 If Random(0, 100) < sneak
                     "Gotcha!"
@@ -357,6 +377,7 @@ OTHER: none
                                 followUp(death)
                             Endif
                         Else
+                            Player.animate(fightlost)
                             Player(Scared):: "Please, don't shoot!"
                             "I put my hands up and surrendered to the overwhelming number of cops."
                             sentence => 365
@@ -385,6 +406,7 @@ OTHER: none
                 Actor3.show(3)
                 Actor(Evil):: "That's the district chief and <Actor2.his_or_her> lover ... not so discreet, eh? I'll keep guard here! You sneak behind them and follow them to their room and once they get down and dirty, snap a few lovely family photos, okay?"
                 Actor.hide()
+                Player.animate(sneak)
                 "Alright, I must be very quiet here as to not alert <Actor2.him_or_her> ..."
                 "Just a few more steps to their bedroom ..."
                 SneakGame()
@@ -403,6 +425,7 @@ OTHER: none
                     Actor2.hide()
                     Actor3.hide()
                     
+                    Player.animate()
                     setBackground(restaurant)
                     Boss.show(2)
                     Boss(Evil):: "A job well done. Here's your reward. These compromising photos should keep the <Actor2.bastard_or_bitch> off our asses for good."
@@ -412,6 +435,7 @@ OTHER: none
                     Actor2.hide()
                     Actor3.hide()
 
+                    Player.animate()
                     "Damn it, I wasn't sneaky enough. The target was alerted."
                     Actor.hide()
                     
@@ -455,6 +479,7 @@ OTHER: none
                         Boss(Furious):: "Is this a joke? Who do you think you are to demand sex from me? Your recent little success has got to your head too much?"
                         timeout(500, report_to_boss)
                         If Random(0, 100) < 20
+                            Boss.animate(gun)
                             Boss(Furious):: "You know what else will get to your head? My fucking bullet."
                             "The boss pulled out <Boss.his_or_her> revolver ..."
                             "Pow!"

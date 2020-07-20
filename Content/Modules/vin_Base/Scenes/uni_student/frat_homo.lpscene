@@ -12,6 +12,7 @@ OTHER: none
     1:: "We can't be <Player.gay_or_lesbians>"
     
     If 0
+        AnimatePair(Player, Actor, Kissing)
         Player(Kiss):: "..."
         Actor(Kiss):: "..."
         "Things are escalating very quickly ..."

@@ -1,11 +1,15 @@
 WHAT: watch_a_movie_in
 WHERE: home
 WHEN: 8-24
-WHO: Actor = getCompanion(); If !Actor.isRelative() && Player.isInterestedIn(Actor) && perversion - Actor:perversion > 40 && Actor:attractiontoplayer > 10
+WHO: Actor = getCompanion(); If !Actor.isRelative() && Player.isInterestedIn(Actor) && [perversion - Actor:perversion > 40 || Actor.isVirgin()] && Actor:attractiontoplayer > 10
 OTHER: isAtHome()
 
     SceneStart()
     "I've just finished watching a movie with <Actor.name>, which reminded me that I happened to have a porn dvd in my bag right now ..."
+    If Actor.isVirgin()
+        "Maybe this is my opportunity to seduce my way into deflowering this innocent virgin ..."
+    Endif
+    "Should I?"
     0:: "Trick <Actor.him_or_her> into watching it together"
     1:: "Maybe not"
     
@@ -25,6 +29,7 @@ OTHER: isAtHome()
             
             If 0
                 Player(Flirty):: "You're sweating a lot, <Actor.name>. This movie is turning you on, isn't it?"
+                AnimatePair(Player, Actor, Kissing)
                 Player(Kiss):: "..."
                 If Random(100, 300) < interpersonal + Actor:attractiontoplayer + Actor:incest + Actor:perversion + Actor:masochist
                     Actor(Kiss):: "..."

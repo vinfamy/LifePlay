@@ -1,0 +1,30 @@
+WHAT: all
+WHERE: all
+WHEN: 0 - 24
+WHO: Actor = getPerson(true); If Actor.isDeflowered() && Actor:attractionwithplayer > 50 && !Actor.isDating()
+OTHER:
+
+    SceneStart()
+    secondScreen(Actor)
+    Actor.show()
+    Actor:: "I love you ..."
+    Actor:: "I miss you ..."
+    Actor:: "I can't stop thinking about that night ..."
+    Actor:: "I can't live without you ..."
+    Actor:: "Why didn't you answer my text? I stayed up all night waiting for you ..."
+    "Bloody hell, ever since I popped <Actor.his_or_her> cherry, <Actor.name> has become extremely needy and annoyingly attached to me."
+    0:: "I enjoy the attention actually"
+    1:: "Be straight with <Actor.him_or_her>"
+    2:: "Block <Actor.him_or_her>"
+    
+    If 0
+        Actor:attractiontoplayer += 5
+    Elseif 1
+        "I need to be straight and honest with <Actor.him_or_her> that it would never work out romantically between us. Let <Actor.him_or_her> down easily, if you like."
+        Actor:attractiontoplayer -= 2
+    Else
+        "These constant texts in the middle of the night are becoming a nuissance. Let's just block <Actor.him_or_her>. Who cares if I took <Actor.his_or_her> virginity. What? Am I supposed to marry and live happily ever after with <Actor.him_or_her> now?"
+        blockContact(Actor)
+    Endif
+    SceneEnd()
+    timeout(100, deflowered_loves)

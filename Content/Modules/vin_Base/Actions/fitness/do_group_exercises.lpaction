@@ -9,4 +9,4 @@ EFFECTS: energy -5 (DURATION), fitness +0.02 (DURATION), mood +3 (END), interper
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:  
+ANIMATION: groupdance

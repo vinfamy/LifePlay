@@ -1,3 +1,37 @@
+Version 3.5:
+- Animations for working and being served at the different types of establishments in the game
+- AI behavior improvements so that NPCs play the correct animation with the correct objects depending on whether they're at the current location because they work there or simply are customers.
+- Animations for some common actions described in scenes (like fighting, shooting, messing around before sex, etc) to make scenes more lively, instead of relying so much on text and ask the player to imagine the action going on while the characters just stand there awkwardly.
+- Modify existing scene scripts to use these new scene-specific animations
+- Improve the character skin shader for more detailed and  realistic-looking skin, most noticeable when zoomed in. Special thanks to Semaj, another game dev who was kind enough to share with me their own experience working with Daz and Unreal Engine 4.
+- A few new erotic description lines written by EtB for the Transformation start
+- Bug fixes and other improvements
+
+Version 3.4:
+- Virginity flag for player and NPCs, with some new unique scenes relating to being a virgin, seducing a virgin, the first time and follow-up scenes involving the person who took your character's virginity / someone whose virginity your character took. In the future, virginity content will be further expanded for sure, probably in another update that's dedicated entirely to it, to allow the player and NPCs to pledge to save themselves for marriage etc but this needs to wait for an update where the sex scene system itself is expanded with some AI first (should be around August) since the current system that just allows you to pick whatever animation you want with no reaction or protest from your partner obviously doesn't work with an NPC saving for marriage too well. 
+- Eyeglasses for male and female characters, with a new checkbox in character creation for whether the person usually wears glasses (since it's not just a fashion item that can randomly be worn or not, like the rest of the clothes in the game).
+- The 'virgin' and 'needs glasses' flags for NPCs can be edited by the player at any time but will also be auto-assigned depending on some conditions (younger, low-perversion girls are more likely to be virgins for example)  when an NPC is first generated. When loading a previous save, existing NPCs will also be auto-assigned - so no need to go through each and every existing NPC to check the new boxes yourself, don't worry.
+- Some horse animations with male characters. The dogs, on the other hand, are from the pre-Daz era of this project and they now look pretty terrible compared to the rest of the game, so I wanted to change their models first in the next 'interspecies' update to bring them up to par graphically before adding new dog animations.
+- Improve the optional TF Start, most importantly now allowing you to roleplay as someone who actually reacts positively to the transformation, with suggestions written by my patron (and erotic writer) EtB
+- Bug fixes and other improvements
+
+Version 3.3:
+- Improve the system for animations with spawn objects, especially making sure that the items actually despawn after use
+- New solo and couple animations involving a dildo
+- New solo and couple animations involving a vibrator
+- New solo and couple animations involving a male masturbator, i.e Fleshlight
+- 3d mesh and texture assets for the dildo, vibrator and fleshlight
+- Half of June commissions
+- Bug fixes and other improvements
+
+Version 3.2:
+- More daily activity animations for the player character and NPCs. Specifically, v3.2 will first focus on basic needs and leisure activities (eat, drink, sleep, dance, sports, etc), while later on, v3.5 will most likely focus on business (working or being served at different types of establishments), and finally v3.8 will focus on paired and scene-specific animations (fighting, messing around before an actual sex scene, etc) 
+- A system for blending sitting poses and activity animations (for example, instead of making 20 different 'have a snack' animations for 20 different chairs, this system allows the game to just blend the top half of the body from the eating animation with each of the 20 sitting poses.)
+- A simple system for spawning additional objects to go with some animations (spawning cutlery and food for eating animation for example) and despawning them after the animation finishes
+- 3d meshes and textures for the animated objects above
+- The rest of May commissions (i.e. all the commissioned animations)
+- Bug fixes and other improvements
+
 Version 3.1:
 - The action and interaction menus will now be dynamically sorted to minimize the need to scroll down / type in keyword - with your last action (if still applicable) shown first on the list, followed by the rest of the available actions sorted by how often you used them so far in your current save. I find this especially important for the interaction menu with NPCs, which involve a lot of scrolling right now.
 - 3d camera with free keyboard + mouse control for the character creation menu and the inventory menu, replacing the old static Zoom and Rotate buttons, so that you can always get the perfect angle while editing / dressing your character and don't have to constantly move your cursor back and forth between the main editor menu and the camera buttons.

@@ -50,7 +50,11 @@ OTHER: Random(0, 500) < martial - masochist
             Actor2.hide()
             masochist -= Random(0, 1)
         Elseif 1
+            Player.animate(martialart)
+            Player.moveToPersonStand(Actor2, 100)            
             Player(Furious):: "I'll teach you a lesson. Take this!"
+            Player.animate()
+            Actor2.animate(fightlost)
             Actor2(Furious):: "Ah ..."
             "And just like that, I proceeded to beat the crap out of <Actor2.name>. That would teach <Actor2.him_or_her> for abusing my dear <Actor.relationship>!"
             Actor2(Crying):: "That's enough. Please stop hitting me. I wouldn't dare to harm <Actor.him_or_her> again."

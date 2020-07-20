@@ -9,4 +9,4 @@ EFFECTS: mood +3 (DURATION), mood -3 (INTERRUPTED), intelligence +0.03 (DURATION
 CONDITIONS: stock_comic > 0.8 (STAT_COMPARE)
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: write

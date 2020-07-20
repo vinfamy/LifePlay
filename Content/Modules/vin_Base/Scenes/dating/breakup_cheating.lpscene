@@ -57,7 +57,10 @@ OTHER: none
 
     If breakup
         If Dating:masochist + karma < -50
+            Dating.animate(gun)
+            Dating.moveToPerson(Player)
             Dating(Furious):: "You betrayed me, you humilated me ... now you die!"
+
             "Pow!"
             Player.hide()
             followUp(death)

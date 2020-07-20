@@ -27,6 +27,19 @@ OTHER: none
     Actor2.show(3)
     Actor2(Happy):: "Nice to meet you, <Player.name>."
     Player(Happy):: "Nice to meet you too."
+    
+    If Random(0, 100) > Actor:intelligence && isModEnabled(vin_Netori)
+        Actor:: "Oh shit! Actually, I forgot something in the office."
+        Actor:: "<Player.name>, would you mind keeping my <Actor2.husband_or_wife> company whie I go back to the office briefly."
+        Actor.hide()
+        Actor2(Angry):: "What the hell, <Actor.name>? I've been waiting for you a long time and now this!"
+        0:: "Try to seduce <Actor2.name> for a quickie"
+        1:: "Just chat with <Actor2.him_or_her>"
+        
+        If Random(50, 150) < Actor2:attractiontoplayer + Actor2:perversion
+            Sex(Player, Actor2)
+        Endif
+    Endif
 
     SceneEnd()
     timeout(250, colleague_spouse, colleague_dating)

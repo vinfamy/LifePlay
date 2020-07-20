@@ -6,7 +6,11 @@ OTHER: none
 
     SceneStart()
     setBackground(street)
-    "<Actor.name> is such an innocent <Actor.guy_or_girl>. I reckon a little visit to my favorite sex shop could help <Actor.him_or_her> open up a bit ..."
+    "<Actor.name> is such an innocent <Actor.guy_or_girl>."
+    If Actor.isVirgin()
+        "I'm pretty sure <Actor.he_or_she> is still a virgin too ..."
+    Endif
+    "I reckon a little visit to my favorite sex shop could help <Actor.him_or_her> open up a bit ..."
     0:: "Take <Actor.him_or_her> to a sex shop"
     1:: "Not a good idea"
 
@@ -39,6 +43,7 @@ OTHER: none
                     1:: "Let <Actor.him_or_her> enjoy <Actor.himself_or_herself>"
 
                     If 0
+                        AnimatePair(Player, Actor, Kissing)
                         "I came closer and started to caress <Actor.name>'s sensitive spot. I made it clear that I wanted a grand finale for this little sexy show I somehow convinced <Actor.him_or_her> to put on."
                         If Random(100, 300) < interpersonal + Actor:attractiontoplayer + Actor:incest + Actor:perversion + Actor:masochist
                             "The <Actor.Fleshlight_or_dildo> has got <Actor.name> all hot and bothered ... <Actor.He_or_She> signalled to me that <Actor.he_or_she> really needed a <Player.man_or_woman>'s touch now ..."

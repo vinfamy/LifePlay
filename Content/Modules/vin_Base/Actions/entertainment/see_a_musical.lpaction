@@ -9,4 +9,4 @@ EFFECTS:  money -75 (START), mood +5 (END), intelligence +0.01 (END), music +0.0
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: theatrewatch

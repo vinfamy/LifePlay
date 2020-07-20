@@ -9,4 +9,4 @@ EFFECTS: interpersonal +0.02 (END), jobexperience +0.01 (END), mood -0.2 (DURATI
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: work

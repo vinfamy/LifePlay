@@ -21,16 +21,24 @@ OTHER: !isAtHome()
        karma += 5
        "This is unacceptable. I'm <Actor2.name>'s <Actor2.callplayer>. It's my proud duty to protect <Actor2.him_or_her>."
        Player(Angry):: "<Actor2.name> doesn't have to open the door for you <Actor.asshole_or_bitch>! Get the fuck out of our sight, or else!"
+       Actor.animate(martialart)
+       Actor.moveToPersonStand(Player, 100)
        Actor(Furious):: "Ah you must be the nosy <Actor2.callplayer>? Take this!"
+       faceEachOther(Actor, Player)
+       Player.animate(martialart)
        Player(Furious):: "I'll teach you a lesson!"
+       Player.animate()
+       Actor.animate()
        If Actor:martial > martial && isModEnabled(vin_NTR)
             Raped = true
+            Player.animate(fightlost)
             Player(Pain):: "Ah!"
             Actor(Furious):: "Not so tough now, are you?"
             "I'm knocked out. I might have been brave but was no match in a fight with this psycho ..."
             Actor(Evil):: "<Actor2.name>, stop hiding. Get out and see me. You know you can't resist some alpha dominance! Your brain was programmed that way. Accept it!"
        Else
             Raped = false
+            Actor.animate(fightlost)
             Actor(Pain):: "Ah!"
             Player(Furious):: "That should teach you to leave my <Actor2.relationship> alone!"
             "Bravo me! I beat the living shit out of that psycho. Hopefully this would get rid of this nuisance for good and break the mental control this <Actor.asshole_or_bitch> has over my <Actor2.relationship>."

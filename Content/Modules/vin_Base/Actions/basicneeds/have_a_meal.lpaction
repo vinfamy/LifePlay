@@ -9,4 +9,4 @@ EFFECTS: money -9 (START), mood +3 (END), energy +15 (DURATION), mood -1 (INTERR
 CONDITIONS: 
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: eat

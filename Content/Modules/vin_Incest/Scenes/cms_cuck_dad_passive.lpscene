@@ -1,0 +1,38 @@
+WHAT: watch_a_movie_in, watch_sport_in, watch_tv
+WHERE: home
+WHEN: 8 - 22
+WHO: Actor = getRelative(Parent); Actor2 = getRelative(Parent); If !Actor.isMale() && Actor2.isMale() && Actor:incest > 30 && Actor:perversion > 70
+OTHER: isModEnabled(vin_Netori) && [Player.isMale() || Player.isTrans()]
+
+    SceneStart()
+    setBackgroundCustom(livingroom)
+    Actor.dress()
+    Actor.show()
+    Actor2.dress()
+    Actor2.show()
+    "I'm gathering to watch TV with my Mom and Dad."
+    Player: "I need to go get something in the kitchen."
+    setBackgroundCustom(kitchen)
+    Actor.hide()
+    Actor2.hide()
+    "Suddenly my Mom shows up, having followed me to the kitchen"
+    Actor.show()
+    "She tries to seduce me and asks me if I want to show how grown-up I am now and fancy cuckolding my own dad by fucking my mom behind his back."
+    "I've messed around with my mom before, it might actually be safer to just go along with the idea, turning her down now and making a rockus may actually lead to us being found out."
+    0:: "Yes"
+    1:: "No"
+    
+    If 0
+        Player(Sad):: "Okay Mom ... Let's be quiet though, or Did will find out about us."
+        Sex(Player, Actor)
+        Actor:incest += 50
+    Elseif Random(50, 1000) < Actor2:intelligence
+        "My Dad heard the argument and stormed into the kitchen, catching us red-handed."
+        "Disgusted, he divorced my Mom and refused to continue having any contact with the family."
+        Actor2.deletePerson()
+    Else
+        "I turned down my Mom. Thankfully, my Dad didn't hear any of our argument, the old man probably fell asleep on the couch."
+        Actor:incest -= 3
+    Endif
+    SceneEnd()
+    timeout(200, cms_cuck_dad_passive)

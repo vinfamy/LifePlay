@@ -9,5 +9,5 @@ EFFECTS: money -10 (START), intoxication +15 (END), mood +2.5 (END), energy +0.5
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION: 
+ANIMATION: drinkglass
 WHO: Actor = getTarget(); If !Actor.isTemporary() && [WHERE == nightclub || WHERE == bar || WHERE == pub || WHERE == hotel || WHERE == stripclub || WHERE == brothel]  

@@ -9,4 +9,4 @@ EFFECTS: interpersonal +0.1 (END), mood +1 (END)
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: socialize

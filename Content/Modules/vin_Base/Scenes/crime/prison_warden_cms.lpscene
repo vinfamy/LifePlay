@@ -185,6 +185,7 @@ OTHER: none
                                 KissBack = false
                                 
                                 If SitWith.IsDominantSex(Player) && SitWith:perversion + SitWith:attractiontoplayer > Random(0, 200)
+                                    AnimatePair(Player, SitWith, Kissing)
                                     "All of a sudden, <SitWith.name> grabbed me and leaned in for a kiss"
                                     SitWith(Kiss):: "..."
                                     0:: "Kiss back"
@@ -203,6 +204,7 @@ OTHER: none
                                     1:: "Maybe not"
                                     
                                     If 0
+                                        AnimatePair(Player, SitWith, Kissing)
                                         Player(Kiss):: "..."
                                         If SitWith:intoxication > Random(70, 100) || [SitWith:attractiontoplayer > Random(30, 100) && SitWith:perversion > Random(30, 100)]
                                             SitWith(Kiss):: "..."

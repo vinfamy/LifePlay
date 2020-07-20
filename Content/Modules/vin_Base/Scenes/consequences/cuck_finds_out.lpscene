@@ -19,6 +19,8 @@ OTHER: none
         Actor.show(2)
         Player(Surprised):: "What's the matter, <Actor.name>? You look angry."
         If Actor:masochist + karma < -50
+            Actor.animate(gun)
+            Actor.moveToPerson(Player)
             Actor(Furious):: "You fucked my <Actor2.boyfriend_or_girlfriend>! Now die, <Player.scum_or_bitch>!"
             "Pow!"
             followUp(death)

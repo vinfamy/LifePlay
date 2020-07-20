@@ -9,4 +9,4 @@ EFFECTS: money -5 (START), intoxication +15 (DURATION), mood -1 (INTERRUPTED), m
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: drinkglass

@@ -9,4 +9,4 @@ EFFECTS: mood +0.5 (END), stock_video +1 (END)
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: camera

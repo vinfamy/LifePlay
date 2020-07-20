@@ -57,6 +57,7 @@ OTHER: isAtDatingHome()
                     Endif
 
                     If Kissed || [!hadSex && Actor.isInterestedIn(Player) && Actor:attractiontoplayer > Random(30, 200)]
+                        AnimatePair(Player, Actor, Kissing)
                         Player(Kiss):: "..."
                         Actor(Kiss):: "..."
                         "We had a kiss, an awkward one at first, but soon moving towards a more passionate direction."

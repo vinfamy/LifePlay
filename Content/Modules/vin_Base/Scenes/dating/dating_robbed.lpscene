@@ -48,12 +48,16 @@ If CurrentCompanion:intelligence > CurrentCompanion:martial
         Endif
     Endif
 Else
+    CurrentCompanion.animate(martialart)
+    CurrentCompanion.moveToPersonStand(Thug, 100)
     CurrentCompanion(Furious):: "You think you can scare me, just like that? Take this!"
     Thug(Furious):: "So you chose to fight? It's your last mistake!"
     "<CurrentCompanion.name> bravely attacked the thug and a fight erupted."
+    Thug.animate()
+    CurrentCompanion.animate()
     If CurrentCompanion:martial > Thug:martial
+        Thug.animate(fightlost)
         "<CurrentCompanion.name> managed to disarm the robber and knock the thug down on the ground. We then called the cops, who promptly arrested the thug."
-        Thug.hide()
         "How should I react to <CurrentCompanion.name>'s action?"
         0:: "It was heroic"
         1:: "It was foolish"
@@ -73,8 +77,10 @@ Else
             CurrentCompanion:attractiontoplayer -= Random(0, 2)
         Endif
     Else
+        CurrentCompanion.animate(fightlost)
         "Unfortunately, despite <CurrentCompanion.name>'s best efforts, the knife gave the thug an unfair advantage that was easily capitalized on. <CurrentCompanion.name> was soon on the ground, stabbed several times and sent to a hospital. Of course, the robber didn't forget to take our money before disappearing into the darkness."
         Thug.hide()
+        CurrentCompanion.animate()
         setBackground(hospital)
         CurrentCompanion:attractiveness -= Random(0, 5)
         CurrentCompanion:fitness -= Random(0, 5)

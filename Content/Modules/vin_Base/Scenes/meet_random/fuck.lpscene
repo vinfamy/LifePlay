@@ -4,7 +4,17 @@ WHEN: 0-24
 WHO: none
 OTHER: none
 
-    SceneStart()
-    setBackground(shower)
-    "Toilets"
+    SceneStart() 
+    "How many?"
+    0:: "Solo"
+    1:: "Couple"
+    
+    If 0
+	setbackground(sports_centre)
+	Actor = getSpecific(Dating)
+        Sex(Actor)
+    Else
+	Actor = getSpecific(Dating)
+        Sex(Player, Actor)
+    Endif
     SceneEnd()

@@ -9,4 +9,4 @@ EFFECTS: energy -3 (DURATION), mood -1 (INTERRUPTED), fitness +0.01 (END), intel
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: sweep

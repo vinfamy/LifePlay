@@ -67,15 +67,20 @@ OTHER: Random(0, 100) < 10
             masochist += Random(0, 1)
         Else
             Victim.makePermanent()
+            Player.animate(martialart)
+            Player.moveToPersonStand(Actor, 100)
             Player(Furious):: "Hey, stop right there!"
             karma += 2.5
             masochist -= Random(0, 2)
             "I tackled the robber and we began an intense struggle."
+            Player.animate()
+            Actor.animate()
             If martial > Actor:martial
+                Actor.animate(fightlost)
                 "After a while, I managed to deliver the final blow to the robber. <Robber.He_or_She> couldn't take it anymore and fell unconscious."
-                Actor.hide()
                 "A few minutes later, the police arrived and arrested the badly injured robber."
             Else
+                Player.animate(fightlost)
                 "Unfortunately for me, the robber was a far better fighter than I was. After a brief struggle, the robber managed to knock me to the ground and then proceeded to kick me mercilessly in the face."
                 Actor.hide()
                 "Thankfully, eventually the police arrived and the robber had to flee the scene before <Actor.he_or_she> caused me more damage. I was quickly taken to the hospital."
@@ -84,6 +89,7 @@ OTHER: Random(0, 100) < 10
                 martial -= Random(0, 10)
                 mood -= 100
                 energy -= 100
+                Player.animate()
                 setBackground(hospital)
             Endif
             

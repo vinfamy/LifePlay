@@ -20,21 +20,31 @@ OTHER: isModEnabled(vin_NTR) && intelligence < Random(0, 100)*Random(0, 1)
         "The screams of my <Actor2.relationship> clearly showed what was going on over there, yet I stayed still, fearful for my own life."
         Rape = false
     Elseif 1
+        Actor.show(2)
         karma += 5
         masochist -= Random(0, 2)
+        Player.animate(martialart)
+        Player.moveToPersonStand(Actor, 100)
+
         "I rush to my <Actor2.relationship>'s room and jumped on the invader."
-        Actor.show(2)
+
         Player(Angry):: "Thug, take this!"
+        faceEachOther(Actor, Player)
+        Actor.animate(martialart)        
         Actor(Angry):: "How dare you sucker-punch me? I'll teach you a lesson."
         "A fierce fight ensued ..."
+        Player.animate()
+        Actor.animate()
         If martial > Actor:martial
             Rape = false
+            Actor.animate(fightlost)
             Actor(Pain):: "Ah!"
             Player(Angry):: "That should teach you to never invade people's home and sexually assault them anymore."
             Actor2:rapportwithplayer += Random(0, 10)
             "We called the cops, who promptly arrested the wannabe rapist."
         Else
             Rape = true
+            Player.animate(fightlost)
             Player(Pain):: "Ah!"
             Actor(Evil):: "Ha! You really thought you could match me in a fight? I have to say - this just makes me want to fuck your <Actor2.relationship> even more and make you watch it all, wannabe hero!"            
         Endif
@@ -49,6 +59,7 @@ OTHER: isModEnabled(vin_NTR) && intelligence < Random(0, 100)*Random(0, 1)
         Actor.show(2)
         Actor2.dress()
         Actor2.show(3)
+        Actor2.animate(fightLost)
         Actor2(Crying):: "No, please stop ... Somebody help!"
         "My <Actor2.relationship>'s struggles against the home invader were futile. <Actor2.He_or_She> had no choice but to endure giving this vile creature pleasure against <Actor2.his_or_her> will ..."
         Filter(Aggressive)

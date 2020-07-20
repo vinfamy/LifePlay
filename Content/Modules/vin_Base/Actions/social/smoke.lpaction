@@ -9,4 +9,4 @@ EFFECTS: stock_tobacco -1 (START), mood +2 (END), energy +1 (END), fitness -0.02
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: smoke

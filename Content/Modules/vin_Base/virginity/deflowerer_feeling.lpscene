@@ -1,0 +1,24 @@
+WHAT: all
+WHERE: all, -home
+WHEN: 0 - 24
+WHO: Actor = getPerson(false); If Actor.isDeflowerer()
+OTHER:
+
+    SceneStart()
+    "Wait, is that ...?"
+    Actor.dress()
+    Actor.show()
+    "It's <Actor.name>, the <Actor.man_or_woman> who took my virginity ..."
+    "I haven't seen <Actor.name> in a while and we lost contact but seeing <Actor.him_or_her>, I can't help but think back about that special passion we shared."
+    0:: "Get <Actor.his_or_her> number again"
+    1:: "Some things and people should stay in the past"
+    
+    If 0
+        "What's so wrong about at least keeping in touch with the person who was the main co-star in one of the most important events of my life anyway ..."
+        "I summoned the courage to approach <Actor.name> and exchanged numbers with <Actor.him_or_her>."
+        exchangeContact(Actor)
+    Else
+        
+    Endif
+    SceneEnd()
+    timeout(2000, deflowerer_feeling)

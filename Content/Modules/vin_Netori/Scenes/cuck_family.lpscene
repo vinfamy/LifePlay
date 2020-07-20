@@ -1,0 +1,62 @@
+WHAT: all
+WHERE: home
+WHEN: 9-20
+WHO: Actor2 = getRelative(); Actor = Actor2.getRelatedPerson(Dating); If Player.isInterestedIn(Actor)
+OTHER: Random(0, 100) < 1 && Random(0, 100) < sneak
+
+    SceneStart()
+    setBackgroundCustom(livingroom)
+    "The door bell rings."
+    Actor.dress()
+    Actor.show()
+    "It's my <Actor2.relationship>'s <Actor.boyfriend_or_girlfriend> <Actor.name>, here early for a date with <Actor2.him_or_her> later on."
+    Player:: "My <Actor2.relationship> isn't back yet, but please make yourself comfortable and wait in the living room."
+    Actor:: "Thank you!"
+    "It's me and my <Actor2.relationship>'s <Actor.boyfriend_or_girlfriend> alone in the apartment."
+    0:: "Make a move on <Actor.him_or_her>"
+    1:: "I respect <Actor2.name> too much for that"
+    
+    If 0
+        If Random(50, 150) < Actor:attractiontoplayer + Actor:perversion || Actor.hadSex()
+            Actor:: "Okay, I suppose this would serve <Actor2.name> right for making me wait for so long."
+            Sex(Player, Actor)
+            If Random(0, 100) < sneak - Actor2:sneak
+                "We managed to get the deed done all before my <Actor2.relationship> returned for the date with <Actor2.his_or_her> <Actor.boyfriend_or_girlfriend> as if nothing happened."
+            Else
+                Actor2.dress()
+                Actor2.show()
+                Actor2:: "<Actor.name> ... <Player.name> ..."
+                "Oh no, we were too busy fucking to notice that my <Actor2.relatonship> has returned to the apartment and caught us red-handed."
+                If Actor2:peversion > 70
+                    Actor2:: "You just couldn't wait for me, could you? You started without me, with my own <Actor2.callplayer> no less!"
+                    "To my surprise, <Actor2.name> seems totally cool with this. Maybe they're in an open relationship or into swinging and cuckolding?"
+                    Actor2:: "I need to have a go myself though before it's time to leave."
+                    0:: "Join them for a threesome"
+                    1:: "Just watch your <Actor2.relationship> get sloppy seconds"
+                    
+                    If 0
+                        Sex(Player, Actor, Actor2)
+                    Else
+                        Sex(Actor2, Actor)
+                    Endif
+                Elseif Actor2:masochist > 30
+                    Actor:: "Don't be upset, <Actor2.name>. You just haven't been satisfying me properly recently and <Player.name> here was just kind enough to do <Player.his_or_her> <Actor2.relationship> a favour by preventing this lack of sex from straining our relationship."
+                    Player:: "That's right, my <Actor2.relationship>. It's not cheating, it's just helping out family."
+                    Actor2:: "Oh well, in that case, thank you for being such a loving and considerate <Actor2.callplayer>."
+                    Actor2:rapportwithplayer += 10
+                Else
+                    Actor2:: "Fuck you both! How could you do this to me? My own <Actor2.callplayer> sleeping with own <Actor.boyfriend_or_girlfriend>?"
+                    Actor2:rapportwithplayer -= 50
+                    If Random(0, 100) < 30
+                        removeNpcRelationship(Actor, Actor2)
+                    Endif
+                Endif
+            Endif
+        Else
+            Actor:: "Get your hands off me, you pervert. I have no idea that <Actor2.name> has such a disgusting <Actor2.callplayer>."
+            Actor2:rapportwithplayer -= Random(0, 10)
+            Actor:rapportwithplayer -= Random(0, 10)
+        Endif
+    Endif
+    SceneEnd()
+    timeout(200, cuck_family)

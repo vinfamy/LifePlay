@@ -1,0 +1,68 @@
+WHAT: all
+WHERE: sports_centre
+WHEN: 0-24
+WHO: none
+OTHER: Random(50, 200) < fitness
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    While !Player.isInterestedIn(Actor)
+        Actor = generatePersonTemporary()
+    Endwhile
+    Actor.makeInterestedIn(Player)
+    Actor:perversion => Random(70, 100)
+    Actor:attractiontoplayer => Random(10, 70)
+    
+    Actor2 = generatePersonTemporary()
+    While !Actor2.isSameGender(Player)
+        Actor2 = generatePersonTemporary()
+    Endwhile
+    Actor2.makeInterestedIn(Actor)
+    Actor:fitness => Random(0, 50)
+    Actor2:fitness => Random(0, 50)
+    
+    Actor.dress()
+    Actor2.dress()
+    Actor.show()
+    Actor2.show()
+    Actor2.moveToPerson(Actor)
+    
+    "There's this couple who shows up today at my gym, completely clueless about what they are doing. They're doing all the exercises without correct form and will certainly get an injury or two if they keep this up."
+    "Maybe I should help them?"
+    0:: "Spot them"
+    1:: "None of my business"
+    
+    If 0
+        Player.moveToPerson(Actor)
+        "The couple was humble enough to accept my help. They introduced themselves as <Actor.name> and <Actor2.name>"
+        Player:: "Now we move onto Bench Press"
+        "I explained the bench press to them"
+        "They seemed interested in learning"
+
+        Player:: "Now we move onto Shoulder Press"
+        "I explained Shoulder Press to them"
+        "<Actor.name> started touching my arm"
+        Actor(Flirty):: "Oh wow you're really fit and knowledgeable about this"
+
+        Player:: "Now we move onto Squats"
+        "I explained Squats to them"
+        Actor2:: "Oh I think I got it"
+        Actor:: "I think I still need some help"
+        "It seems obvious that <Actor.name> is wanting something more from me than just gym lessons. <Actor.He_or_She> is flirting with me right in front of <Actor.his_or_her> <Actor2.boyfriend_or_girlfriend> too."
+        0:: "Offer <Actor.name> some 'private' tuition"
+        1:: "Say goodbye"
+        
+        If 0
+            Actor.makePermanent()
+            Actor2.makePermanent()
+            addNpcRelationship(Dating, Actor, Actor2)
+            setBackground(shower)
+            Actor2.hide()
+            "As soon as we found somewhere private, our hands were all over each other."
+            Sex(Player, Actor)
+            exchangeContact(Actor)
+        Endif
+    Endif
+    SceneEnd()
+    timeout(200, gym_spot_cms)
+    

@@ -9,4 +9,4 @@ EFFECTS:  money -2 (START), mood +2 (END), energy +10 (DURATION)
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: drinktea

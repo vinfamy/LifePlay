@@ -1,8 +1,8 @@
 WHAT: all
 WHERE: home
 WHEN: 0 - 24
-WHO: Actor = getCreature(); If Actor.isMale()
-OTHER: !Player.isMale() && isAtHome() && !Player.isDating() && Random(0, 70) > attractiveness && Random(0, 30) < arousal  && perversion > 10
+WHO: Actor = getCreature()
+OTHER: isAtHome() && !Player.isDating() && Random(0, 70) > attractiveness && Random(0, 30) < arousal  && perversion > 10
 
     SceneStart()
     "I must admit I'm not the most attractive woman on Earth, and men are hardly drooling over me."

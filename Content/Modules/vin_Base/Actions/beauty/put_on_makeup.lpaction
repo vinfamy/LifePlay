@@ -9,4 +9,4 @@ EFFECTS: stock_makeup -0.05 (START), mood +1 (END), mood -1 (INTERRUPTED), attra
 CONDITIONS: stock_makeup > 0 (STAT_COMPARE)
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: makeup

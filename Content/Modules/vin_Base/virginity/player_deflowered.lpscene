@@ -1,0 +1,36 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Actor = getSpecific(PassedOn)
+    Actor.dress()
+    Actor.show()
+    Player.moveToPerson(Actor)
+    "I just lost my virginity to <Actor.name>."
+    "They say you never forget your first time, but should I reveal the significance of what we did to <Actor.name>?"
+    0:: "Admit I've just lost my virginity to <Actor.him_or_her>"
+    1:: "Stay silent"
+    
+    If 0
+        Player(Embarassed):: "<Actor.name>, I have something important to tell you ..."
+        Actor(Surprised):: "<Player.name>, what is it?"
+        Actor(Embarassed):: "That was my first time ... You're my first ..."        
+        If Actor:attractiontoplayer > 10
+            Actor(Happy):: "Oh, <Player.name>, you have no idea how happy I am to hear that ..."
+            Actor:: "I feel like the luckiest <Actor.man_or_woman> alive to be your first ..."
+            Actor:: "I hope I managed to make it feel as special to you as it was to me."
+            Actor::attractiontoplayer += 50
+            Player:: "Oh, <Actor.name>, you will forever be special in my heart ..."
+        Elseif Actor:attractiontoplayer > -10
+            Actor(Surprised):: "Oh really? There's a first time for everything, I suppose."
+            "I'm not happy at all with <Actor.his_or_her> carefree response to such a personal revelation. Maybe I'm regretting giving up my virginity to <Actor.him_or_her> already."
+        Else
+            Actor:: "And it showed! You were like a dead fish the whole time! You clearly need more practice!"
+            "I'm not happy at all with <Actor.his_or_her> insulting response to such a personal revelation. Maybe I'm regretting giving up my virginity to <Actor.him_or_her> already."
+        Endif
+    Endif
+    
+    SceneEnd()

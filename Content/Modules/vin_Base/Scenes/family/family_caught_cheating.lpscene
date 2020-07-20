@@ -18,6 +18,7 @@ OTHER: !Actor.livesWithPlayer() || isAtHome()
     Actor2.dress()
     Actor2.show(3)
     "My <Actor.relationship> came out of the door, followed by a stranger."
+    AnimatePair(Actor, Actor2, Kissing)
     Actor(Kiss):: "..."
     Actor2(Kiss):: "..."
     Actor(Flirty):: "That was amazing as always. You have so much energy, <Actor2.name>, unlike that old cow of a <Actor.wife_or_husband> I have. I already can't wait for our next time."

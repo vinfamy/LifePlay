@@ -9,4 +9,4 @@ EFFECTS: money -75 (START),  mood +20 (DURATION), attractiveness +0.05 (END), mo
 CONDITIONS:
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: beauty

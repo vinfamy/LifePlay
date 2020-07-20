@@ -9,4 +9,4 @@ EFFECTS: intelligence +0.5 (END), mood +1 (DURATION), mood -5 (INTERRUPTED), kar
 CONDITIONS:
 MOVE_FIRST: false
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: browse

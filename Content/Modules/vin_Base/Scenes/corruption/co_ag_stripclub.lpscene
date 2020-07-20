@@ -1,12 +1,16 @@
 WHAT: all
 WHERE: all, -stripclub
 WHEN: 20-3
-WHO: Actor = getCompanion(); If !Actor.isRelative() && Player.isInterestedIn(Actor) && perversion - Actor:perversion > 40 && Actor:attractiontoplayer > 10
+WHO: Actor = getCompanion(); If !Actor.isRelative() && Player.isInterestedIn(Actor) && [perversion - Actor:perversion > 40 || Actor.isVirgin()] && Actor:attractiontoplayer > 10
 OTHER: none
 
     SceneStart()
     setBackground(street)
-    "<Actor.name> is such an innocent <Actor.guy_or_girl>. I reckon a little visit to my favorite stripclub could help <Actor.him_or_her> open up a bit ..."
+    "<Actor.name> is such an innocent <Actor.guy_or_girl>."
+    If Actor.isVirgin()
+        "I'm pretty sure <Actor.he_or_she> is still a virgin too ..."
+    Endif
+    "I reckon a little visit to my favorite stripclub could help <Actor.him_or_her> open up a bit ..."
     0:: "Take <Actor.him_or_her> to a stripclub"
     1:: "Not a good idea"
     

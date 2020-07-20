@@ -9,4 +9,4 @@ EFFECTS: stock_supplement -1 (START), fitness +0.02 (END), attractiveness +0.01 
 CONDITIONS: stock_supplement >= 0.8 (STAT_COMPARE)
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: drinkbottle

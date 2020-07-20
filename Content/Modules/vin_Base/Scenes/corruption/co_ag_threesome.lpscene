@@ -25,6 +25,7 @@ OTHER: OpenRelationship()
             Player(Flirty):: "You wouldn't leave before finishing dessert, would you?"
             Actor(Confused):: "What do you mean? We just had cake, didn't we?"
             Player(Flirty):: "I mean this dessert ..."
+            AnimatePair(Player, Actor, Kissing)
             Player(Kiss):: "..."
             Actor(Angry):: "<Player.name>! What are you doing? Your <Actor2.boyfriend_or_girlfriend> is right here!"
             Actor2(Kiss):: "..."

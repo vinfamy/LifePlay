@@ -9,4 +9,4 @@ EFFECTS:
 CONDITIONS:
 MOVE_FIRST: false
 SCENE_ALWAYS: invade_a_home
-ANIMATION:   
+ANIMATION: sneak

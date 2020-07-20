@@ -1,0 +1,24 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    Tutor = Actor.getActorVar(tag_Tutor)
+    Tutee = Actor.getActorVar(tag_Tutee)
+    If Tutor + Tutee > 0
+        "A tutoring arrangement is already in place with this person"
+    Else
+        "What kind of tutoring arrangement with <Actor.name> do I have in mind?"
+        0:: "<Actor.name> as the tutor"
+        1:: "Me as the tutor"
+
+        If 0
+            Actor.setActorVar(tag_Tutor, 1)
+        Else
+            Actor.setActorVar(tag_Tutee, 1)
+        Endif
+        "<Actor.name> accepted my offer."
+    Endif
+    SceneEnd()

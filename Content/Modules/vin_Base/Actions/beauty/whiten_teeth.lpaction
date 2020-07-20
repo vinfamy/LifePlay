@@ -9,4 +9,4 @@ EFFECTS: money -400 (START), mood +10 (END), mood -5 (INTERRUPTED), attractivene
 CONDITIONS: 
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: dental

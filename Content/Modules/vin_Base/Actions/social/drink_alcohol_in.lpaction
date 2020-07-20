@@ -9,4 +9,4 @@ EFFECTS: stock_alcohol -1 (START), intoxication +15 (DURATION), mood -1 (INTERRU
 CONDITIONS: stock_alcohol >= 0.8 (STAT_COMPARE)
 MOVE_FIRST: true
 SCENE_ALWAYS:
-ANIMATION:   
+ANIMATION: drinkglass

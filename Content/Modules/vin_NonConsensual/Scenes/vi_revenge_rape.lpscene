@@ -27,15 +27,23 @@ OTHER: !isWithCompanion() && Random(50, 300) < attractiveness && intelligence < 
             Rape = true
         Endif    
     Else
+        Player.animate(martialart)
+        Player.moveToPersonStand(Actor, 100)
         Player(Furious):: "You messed with the wrong <Player.guy_or_girl>! Take this."
+        faceEachOther(Actor, Player)
+        Actor.animate(martialart)
         Actor(Furious):: "You dare sucker-punch me? I'll teach you a lesson."
         "A fierce fight ensued ..."
+        Player.animate()
+        Actor.animate()
         If martial > Actor:martial
             Rape = false
+            Actor.animate(fightlost)
             Actor(Pain):: "Ah!"
             Player(Angry):: "That should teach you!"
         Else
             Rape = true
+            Player.animate(fightlost)
             Player(Pain):: "Ah!"
             Actor(Evil):: "Ha! You really thought you could match me in a fight? I have to say - this just makes me want to fuck your brains out even more, you'll see how I conquer this wild bitch tonight!"            
         Endif
@@ -43,6 +51,7 @@ OTHER: !isWithCompanion() && Random(50, 300) < attractiveness && intelligence < 
     
     If Rape
         "Soon, <Actor.he_or_she> was ripping my clothes off and proceeded to force <Actor.himself_or_herself> upon me."
+        Player.animate(fightlost)
         Player(Crying):: "No! Please stop ... I beg you ... Somebody help ..."
         If Random(0, 100) < 30
             "All of a sudden, I heard police sirens. <Actor.name> was terrified and made a run for it."

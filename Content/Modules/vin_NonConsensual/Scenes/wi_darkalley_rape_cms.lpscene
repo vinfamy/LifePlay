@@ -66,11 +66,18 @@ OTHER: Random(0, 100) < 2 && intelligence < Random(0, 100)*Random(0, 1)*Random(0
     Elseif 2
         masochist -= Random(0, 2)
         karma += 5
+        Player.animate(martialart)
+        Player.moveToPersonStand(Actor, 100)        
         Player(Furious):: "You can't get away with this, rapist! Take this!"
+        faceEachOther(Actor, Player)
+        Actor.animate(martialart)
         Actor(Furious):: "You dare sucker-punch me? I'll teach you a lesson for being nosy."
         "A fierce fight ensued ..."
+        Player.animate()
+        Actor.animate()
         If martial > Actor:martial || !isModEnabled(vin_NTR)
             Rape = false
+            Actor.animate(fightlost)
             Actor(Pain):: "Ah!"
             Player(Angry):: "That should teach you to never ambush innocent people in dark alleys anymore."
             Actor.hide()
@@ -91,6 +98,7 @@ OTHER: Random(0, 100) < 2 && intelligence < Random(0, 100)*Random(0, 1)*Random(0
         Else
             money -= Random(30, 300)
             Rape = true
+            Player.animate(fightlost)
             Player(Pain):: "Ah!"
             Actor(Evil):: "Ha! You really thought you could match me in a fight? I have to say - this just makes me want to fuck <Actor2.his_or_her> brain out even more and make you watch it all, wannabe hero!"            
         Endif
