@@ -51,7 +51,7 @@ OTHER: isModEnabled(vin_NTR) && !isWithCompanion() && masochist + perversion > R
                         Player.show(0)
                         "That was a sensual experience like no other to watch my <Dating.boyfriend_or_girlfriend> being <Dating.pleasured_or_defilled> and hopefully impregnated by my own horse."
                         Dating:attractiontoplayer += Random(0, 2)
-                        Dating.impregnate()
+                        Dating.impregnate(Bull)
                         timeout(500, bestiality_cuckold_impregnate_h)
                     Else
                         "<Bull.name> won't be a good candidate. Let's come back to this discussion on another day, and hopefully we can come to an agreement in a more suitable father for the child."

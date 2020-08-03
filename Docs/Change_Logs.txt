@@ -1,3 +1,18 @@
+Version 3.6:
+- Add basic period cycle for female player and NPCs, with safe and 'dangerous' days so it's not just a flat 2.5% per creampie anymore
+- Expand contraception content: some NPCs will now ask you to put condom on or pull out (how strict they are with that request depends on their submissiveness stat). Condoms can break and you can fail to pull out, accidentally or otherwise. 
+- Enable impregnation of and by temporary actors (like hookers etc)
+- Allow impregnation as a result of threesome and other group sex scenes
+- Expand NPC-NPC pregnancy so that any NPC-NPC scenes you actually witness in the game may result in pregnancy as well, not just as a random event
+- Some scenes about figuring out the baby daddy if you've been having multiple partners. You can then lie or tell the truth, and the potential baby daddies can react in different ways 
+- Some relationship scenes about wanting a child, then either succeeding or failing and having to find an alternative like surrogate mother or sperm donor - and some drama scenes out of that
+- Some impact on mood, energy and arousal while being pregnant + some scenes relating to this 
+- Can start or stop fertility treatment (basically an immersive way to get to pregnancy content quickly without having to 'cheat' and edit the fertility stat)
+- Chance to have twins or triplets
+- Many backend improvements / expansions to the pregnancy system (much more data relating to impregnation is stored basically) to support all the above
+- All commissions from patrons for July
+- Bug fixes and other improvements
+
 Version 3.5:
 - Animations for working and being served at the different types of establishments in the game
 - AI behavior improvements so that NPCs play the correct animation with the correct objects depending on whether they're at the current location because they work there or simply are customers.

@@ -24,7 +24,7 @@ OTHER: isModEnabled(vin_NonConsensual) && isModEnabled(vin_Incest) && [Player.is
             Filter(Solo)
             Sex(Actor)
             If Random(0, 100) < 5
-                Actor.impregnate()
+                Actor.impregnate(Player)
                 "Although my cum has been there for a few hours, I feel rather confident that it's still fertile."
                 "I'm half expecting her to announce a shock pregnancy soon ..."
             Else

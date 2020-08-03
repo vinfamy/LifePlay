@@ -1,43 +1,42 @@
 // Information
-INFO Is_Male: 100% false
-INFO Interested_In_Men: 100% true
-INFO Interested_In_Women: 100% false
+INFO Is_Male: 100% true
+INFO Interested_In_Men: 100% false
+INFO Interested_In_Women: 100% true
 INFO Interested_In_Transgender: 100% false
-INFO First_Name: 100% Emma
-INFO Last_Name: 100% Y
+INFO First_Name: 100% Craig
+INFO Last_Name: 100% I
 INFO Race: 100% Daz
 INFO Genital: 100% Penis
 
 // Morphs
-MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.131055
-MORPH Genesis8Female__CTRLFitness: 100% 0.836988
-MORPH Genesis8Female__Rameesha Head: 100% 0.117631
-MORPH Genesis8Female__Nose Style Nordic: 100% 0.425166
-MORPH Genesis8Female__Nose Style Germanic: 100% 0.496496
-MORPH Genesis8Female__Kareena Head: 100% 0.186828
-MORPH Genesis8Female__Julia Head: 100% 0.861459
-MORPH Genesis8Female__Faiza Head: 100% 0.020818
-MORPH Genesis8Female__Diane Head: 100% 0.00552
-MORPH Genesis8Female__PBMGlutesSize: 100% 0.44499
-MORPH Genesis8Female__PBMBreastsDownwardSlope: 100% 0.847743
-MORPH Genesis8Female__PBMBreastsDiameter: 100% 0.941038
-MORPH Genesis8Female__PBMAreolaeDiameter: 100% 0.924711
-MORPH Genesis8FemaleEyelashes__Rameesha Head: 100% 0.117631
-MORPH Genesis8FemaleEyelashes__Kareena Head: 100% 0.186828
-MORPH Genesis8FemaleEyelashes__Julia Head: 100% 0.861459
-MORPH Genesis8FemaleEyelashes__Faiza Head: 100% 0.020818
-MORPH Genesis8FemaleEyelashes__Diane Head: 100% 0.00552
+MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.064795
+MORPH Genesis8Female__Tyler: 100% 0.022628
+MORPH Genesis8Female__Ray: 100% 0.020398
+MORPH Genesis8Female__Nose Style Nordic: 100% 0.413459
+MORPH Genesis8Female__Nose Style Germanic: 100% 0.890323
+MORPH Genesis8Female__Matt: 100% 0.064871
+MORPH Genesis8Female__Christopher: 100% 0.902376
+MORPH Genesis8Female__Brian: 100% 0.553097
+MORPH Genesis8Female__FBMHeavy: 100% 0.02515
+MORPH Genesis8Female__FBMBodyTone: 100% 0.12504
+MORPH Genesis8Female__FBMBodySize: 100% 0.232441
+MORPH Genesis8FemaleEyelashes__Tyler: 100% 0.022628
+MORPH Genesis8FemaleEyelashes__Ray: 100% 0.020398
+MORPH Genesis8FemaleEyelashes__Matt: 100% 0.064871
+MORPH Genesis8FemaleEyelashes__Christopher: 100% 0.902376
+MORPH Genesis8FemaleEyelashes__Brian: 100% 0.553097
+MORPH XY__Penis length: 100% -0.001111
+MORPH XY__Plums size: 100% -0.165146
+MORPH XY__Penis size: 100% -0.130674
 SCALE X: 100% 1.0
 SCALE Y: 100% 1.0
 SCALE Z: 100% 1.0
-PENIS TAB_Gen3F_27097__eroMeester 16: 100% 0.632237
-PENIS TAB_Gen3F_27097__Very Long: 100% -0.111451
 
 //Hair
-HAIR Hairstyle: 100% LongPonytail
-HAIR Hair_Thickness: 100% 0.923862
-HAIR Hair_Color_R: 100% 0.2
-HAIR Hair_Color_G: 100% 0.005
+HAIR Hairstyle: 100% WavyHair
+HAIR Hair_Thickness: 100% 1.303745
+HAIR Hair_Color_R: 100% 0.3
+HAIR Hair_Color_G: 100% 0.1
 HAIR Hair_Color_B: 100% 0.0
 HAIR Hair_Color_A: 100% 0.85
 
@@ -47,45 +46,45 @@ HAIR Brow_Color_B: 100% 0.0
 HAIR Brow_Color_A: 100% 1.0
 
 // Skin
-SKIN Eye_Color_R: 100% 0.02
+SKIN Eye_Color_R: 100% 0.0
 SKIN Eye_Color_G: 100% 0.0
 SKIN Eye_Color_B: 100% 0.0
-SKIN Eye_Color_A: 100% 0.8
-SKIN Face_Texture: 100% Bridget8Face01D_1001
+SKIN Eye_Color_A: 100% 1.0
 SKIN Skin_Color_R: 100% 0.83
 SKIN Skin_Color_G: 100% 0.62
 SKIN Skin_Color_B: 100% 0.53
 SKIN Skin_Color_A: 100% 1.0
-SKIN BHairColor_R: 100% 0.026
-SKIN BHairColor_G: 100% 0.009
+SKIN BHairColor_R: 100% 0.005
+SKIN BHairColor_G: 100% 0.001
 SKIN BHairColor_B: 100% 0.0
 SKIN BHairColor_A: 100% 0.85
-SKIN Skin_Roughness: 100% 0.878048
+SKIN Skin_Roughness: 100% 0.409223
 SKIN Skin_Oil: 100% 0.25
-SKIN Skin_Fresnel: 100% 0.127415
-SKIN Skin_Age: 100% 0.131055
+SKIN Skin_Fresnel: 100% 0.737815
+SKIN Skin_Age: 100% 0.064795
 SKIN Skin_Sagging: 100% 0.0
 SKIN Muscle_Tone: 100% 0.0
-SKIN BHairThickness: 100% 0.622501
-SKIN BHairstyle: 100% NoHair
+SKIN BHairThickness: 100% 0.492301
+SKIN BHairstyle: 100% JPBH78-TorsoNG-02
+SKIN FHairstyle: 100% Facial_Hair__25_
 
 // Stats
 STAT incest: 100% 0.0
-STAT age: 100% 47.615681
-STAT attractiveness: 100% 76.250496
-STAT cooking: 100% 19.237648
-STAT dance: 100% 20.091862
-STAT fitness: 100% 25.122837
-STAT intelligence: 100% 98.524124
-STAT interpersonal: 100% 74.121521
-STAT martial: 100% 53.605759
-STAT masochist: 100% -92.126228
-STAT muscle: 100% 14.379711
-STAT music: 100% 63.67992
-STAT perversion: 100% 2.059389
+STAT age: 100% 31.581532
+STAT attractiveness: 100% 99.520859
+STAT cooking: 100% 20.505386
+STAT dance: 100% 1.452681
+STAT fitness: 100% 26.230659
+STAT intelligence: 100% 0.946074
+STAT interpersonal: 100% 23.950926
+STAT martial: 100% 80.605492
+STAT masochist: 100% 64.476456
+STAT muscle: 100% 66.820274
+STAT music: 100% 81.896416
+STAT perversion: 100% 74.593826
 STAT pornfame: 100% 0.0
-STAT sneak: 100% 14.593951
-STAT attractiontoplayer: 100% -100.0
+STAT sneak: 100% 31.757561
+STAT attractiontoplayer: 100% 100.0
 STAT rapportwithplayer: 100% -5.0
-STAT arousal: 100% 29.096348
-STAT intoxication: 100% 35.645618
+STAT arousal: 100% 65.382858
+STAT intoxication: 100% 3.167821

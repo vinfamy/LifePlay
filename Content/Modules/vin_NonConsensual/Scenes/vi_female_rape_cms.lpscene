@@ -1,0 +1,62 @@
+WHAT: all
+WHERE: all
+WHEN: 0 - 24
+WHO: Actor = getCompanion(); If !CurrentCompanion.isMale() && CurrentCompanion:masochist < -50 && CurrentCompanion:perversion > 70 && !CurrentCompanion.isDating()
+OTHER: none
+
+    SceneStart()
+    "<Actor.name> is not your ordinary lady. She's been making so many jokes about raping me recently that I've started to think those are more threats than jokes and she has some sort of a rape fetish."
+    0:: "Be more careful"
+    1:: "It's just a weird sense of humour"
+    
+    If 0
+        "I decided to be more careful around <Actor.name> so even if those dark desires are there, there are no oppotunities to act upon them."
+    Else
+        If Random(40, 200) < Actor:attractiontoplayer
+            "<Actor.name> decided to invite me into <Actor.his_or_her> apartment for drinks tonight. <Actor.He_or_She>'s been extremely generous with the alcohol and I'm feeling quite tipsy already."
+            Loc = Actor.getBuilding(home)
+            moveTo(Loc)
+            Player(Pain):: "Thank you for inviting me into your apartment and for the drinks, but I think I should leave now. Would you mind calling me a taxi? I'm so drunk ..."
+            
+            If Random(50, 250) > Actor:attractiontoplayer
+                Actor(Happy):: "Sure, I'll get you a cab right away. Should be here in ten minutes."
+                Actor:rapportwithplayer += Random(0, 2)
+            Else
+                "All of a sudden, <Actor.name> grabbed me ..."
+                AnimatePair(Player, Actor, Kissing)
+                Actor(Kiss):: "..."
+                Player(Angry):: "<Actor.name>! What the hell are you doing? You know I'm not into you that way! We're only friends."
+                Actor:rapportwithplayer -= Random(0, 5)
+                Player(Angry):: "I'm leaving! I can't believe you just forced a kiss on me like that!"
+                
+                If Random(-100, 0) < masochist
+                    Actor(Embarassed):: "I'm sorry ... It was a moment of passion. I didn't know what I was doing ..."
+                Else
+                    Actor(Furious):: "Nobody rejects me like that! Let's see if I can't change your mind after a hard pounding!"
+                    Player(Angry):: "Get your hands off me! Have you gone crazy? Help!"
+                    If martial*0.5 > Actor:martial
+                        "Unfortunately for <Actor.name>, even drunk, I was more than a handful for <Actor.him_or_her> to subdue. After a brief struggle, I managed to get away from <Actor.him_or_her> and escaped <Actor.his_or_her> apartment."  
+                    Else
+                        "Affected by the alcohol, I never stood a chance and <Actor.name> managed to overcome my struggles easily. Soon, <Actor.he_or_she> was ripping my clothes off and proceeded to force <Actor.himself_or_herself> upon me."
+                        Player(Crying):: "No! Please stop ... I trusted you ... Somebody help ..."
+                        If Player.isMale()
+                            Filter(AggressiveFM)
+                        Else
+                            Filter(Aggressive)
+                        Endif
+                        TalkNonConsensual()
+                        SexNoAffair(Actor, Player)
+                        Actor.hide()
+                        mood => 0
+                    Endif
+                    
+                    Actor:rapportwithplayer => -100
+                    blockContact(Actor)
+                    "<Actor.name> was lucky to avoid jail time as I never reported <Actor.him_or_her> to the police, perhaps not willing to see my old friend in jail, but I blocked <Actor.him_or_her> and never wanted to see <Actor.him_or_her> again. One thing for sure: <Actor.He_or_She> did nothing to make me fall in love with <Actor.him_or_her>." 
+                Endif
+            Endif 
+            endDate()
+        Endif        
+    Endif
+    SceneEnd()
+    timeout(200, vi_female_rape_cms)

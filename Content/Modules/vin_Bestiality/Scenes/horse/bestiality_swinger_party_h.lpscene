@@ -192,7 +192,7 @@ OTHER: Random(65, 100) < perversion && !Player.isMale()
         
         If Impreg
             FuckDating.makePermanent()
-            FuckDating.impregnate()
+            FuckDating.impregnate(Dating)
             If !Reject1.isCreature() && !Reject1.isMale()
                 Reject1.makePermanent()
                 Reject1.impregnate()

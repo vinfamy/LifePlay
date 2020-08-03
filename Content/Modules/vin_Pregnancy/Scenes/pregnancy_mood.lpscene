@@ -1,0 +1,25 @@
+WHAT: all
+WHERE: all
+WHEN: 0 - 24
+WHO: none
+OTHER: Player.isPregnant()
+
+    SceneStart()
+    "Being pregnant is hard. I've been having some crazy mood swings recently."
+    mood -= 10
+    Actor = getSpecific(Dating)
+    If Actor.isValid()
+        "Being my <Actor.boyfriend_or_girlfriend>, <Actor.name> has become the prime victim of my bad mood swings of late."
+        0:: "Try my best to not unload on <Actor.name>"
+        1:: "I feel better after ranting to <Actor.name>"
+        
+        If 0
+            "Even though trying to keep my bad mood to myself makes me feel worse, it's better than giving my <Actor.boyfriend_or_girlfriend> bad mood too."
+            mood -= 10
+        Else
+            "<Actor.He_or_She> can take this! The stress would be a lot worse if I try to keep it to myself. It's good to unload once in a while."
+            Actor:attractiontoplayer -= 1            
+        Endif
+    Endif
+    SceneEnd()
+    timeout(pregnancy_mood, 168)

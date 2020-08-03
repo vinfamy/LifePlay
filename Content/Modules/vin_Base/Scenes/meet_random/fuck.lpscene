@@ -5,16 +5,13 @@ WHO: none
 OTHER: none
 
     SceneStart() 
-    "How many?"
-    0:: "Solo"
-    1:: "Couple"
-    
-    If 0
-	setbackground(sports_centre)
-	Actor = getSpecific(Dating)
-        Sex(Actor)
-    Else
-	Actor = getSpecific(Dating)
-        Sex(Player, Actor)
-    Endif
+    Actor = generatePersonTemporary()
+    Actor2 = generatePersonTemporary()
+    While Actor2.isSameGender(Actor)
+        Actor2 = generatePersonTemporary()
+    Endwhile
+    Actor:fitness => 25
+    Actor2:fitness => 25
+    Sex(Actor, Actor2)
+    "Done"
     SceneEnd()

@@ -1,0 +1,27 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    If !Actor.isMale() && [Player.isMale() || Player.isTrans()]
+        Player:: "Baby, maybe it's time we should start trying for a baby together."
+        If Actor:attractiontoplayer > 40
+            Actor:: "Oh baby, I've been thinking the same thing ... Yes, let's have a baby together."
+        Else
+            Actor:: "We're still so young, isn't it a bit too soon for that? I'm not sure I'm ready for the reponsibility right now."
+        Endif
+        Actor.setWantsBabies()
+    Elseif !Player.isMale() && [Actor.isMale() || Actor.isTrans()]
+        Player:: "Baby, maybe it's time we should start trying for a baby together."
+        If Actor:attractiontoplayer > 40
+            Actor:: "Oh baby, I've been thinking the same thing ... Yes, let's have a baby together."
+        Else
+            Actor:: "We're still so young, isn't it a bit too soon for that? I'm not sure I'm ready for the reponsibility right now."
+        Endif
+        Player.setWantsBabies()    
+    Else
+        "Lack of dick or pussy to have a baby ..."
+    Endif
+    SceneEnd()

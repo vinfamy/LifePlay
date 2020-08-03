@@ -1,0 +1,68 @@
+WHAT: all
+WHERE: work
+WHEN: 0 - 24
+WHO: Actor = getSpecific(Boss); Actor2 = getSpecific(Dating); If Actor.isInterestedIn(Actor2) && Actor2.isInterestedIn(Actor) && Actor:perversion > 50
+OTHER: openRelationship()
+
+    SceneStart()
+    Actor.dress()
+    Actor2.dress()
+    Actor.show()
+    Actor2.show()
+    sharedfamily = Actor2.getActorVar(tag_sharedboss)
+    If sharedfamily == 0
+        "My <Actor2.boyfriend_or_girlfriend> <Actor2.name> came visit me at the office today. I noticed <Actor2.him_or_her> flirting with my boss recently. It's all cool. We're in an open relationship after all and <Actor2.he_or_she> already admits that <Actor2.he_or_she> finds my boss quite hot."
+        "My boss and my <Actor2.boyfriend_or_girlfriend> want to talk to me about something."
+        Actor:: "I know you and <Actor2.name> is in an open relationship and you allow <Actor2.him_or_her> to sleep with other <Actor.guys_or_girls>"
+        Actor:: "I'm having a dry spell recently. Would you be so kind in allowing me to borrow <Actor2.name> for a night?"
+        Actor2:: "This isn't breaking rules we set up for our open relationship arrangement, baby."
+        0:: "Okay"
+        1:: "No way"
+        
+        If 0
+            Actor:rapportwithplayer += 1
+            Actor2:attractiontoplayer += 1
+            Actor:: "Oh thanks, you're the best employee ever."
+            jobperformance += 10
+            SexNoAffair(Actor, Actor2)
+            "Looks like they're ready for round 2"
+            0:: "Join them"
+            1:: "Just watch"
+            
+            If 0
+                SexNoAffair(Actor, Actor2, Player)       
+            Else
+                SexNoAffair(Actor, Actor2)       
+            Endif
+            Actor:: "That's incredible! Would you be so generous to keep this arrangement ongoing and share your <Actor2.boyfriend_or_girlfriend> with me from now on?"
+            0:: "Share <Actor2.boyfriend_or_girlfriend> with my boss from now on"
+            1:: "No, this is just a one-off"
+            
+            If 0
+                Actor2:: "You're employee of the year! Expect that promotion in your next performance review."
+                jobperformance += 100
+                Actor2.setActorVar(tag_sharedboss, 1)
+            Endif
+        Else
+            Player:: "Sorry, but this would make things too weird in the future."
+            Actor:rapportwithplayer -= 1
+            Actor2:attractiontoplayer -= 1
+        Endif
+    Else
+        AnimatePair(Actor, Actor2, Kissing)
+        jobperformance += 5
+        "I opened the door to my boss's office only to find my boss and my <Actor2.boyfriend_or_girlfriend> <Actor2.name> making out with each other passionately."
+        "Most people in this situation would lose their mind ... but not me ... it's all part of our open relationship and an arrangement to share my <Actor2.boyfriend_or_girlfriend> with my boss."
+        SexNoAffair(Actor, Actor2)
+        "Looks like they're ready for round 2"
+        0:: "Join them"
+        1:: "Just watch"
+        
+        If 0
+            SexNoAffair(Actor, Actor2, Player)       
+        Else
+            SexNoAffair(Actor, Actor2)       
+        Endif        
+    Endif
+    SceneEnd()
+    timeout(200, boss_asks_cms)

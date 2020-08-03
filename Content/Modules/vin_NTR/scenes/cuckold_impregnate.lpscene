@@ -62,7 +62,7 @@ OTHER: !isWithCompanion() && masochist + perversion > Random(0, 200)
                         Player.show(0)
                         "After the sex, <Bull.name> got up and left without saying a word, as agreed beforehand. That was a sensual experience like no other to watch my <Dating.boyfriend_or_girlfriend> being <Dating.pleasured_or_defilled> and hopefully impregnated by another <Bull.man_or_woman>."
                         Dating:attractiontoplayer += Random(0, 2)
-                        Dating.impregnate()
+                        Dating.impregnate(Bull)
                         timeout(500, cuckold_impregnate)
                     Else
                         "<Bull.name> won't be a good candidate. Let's come back to this discussion on another day, and hopefully we can come to an agreement in a more suitable father for the child."

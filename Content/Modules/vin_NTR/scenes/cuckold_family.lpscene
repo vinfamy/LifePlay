@@ -38,7 +38,7 @@ OTHER: !isWithCompanion() && masochist + perversion > Random(0, 200) && isModEna
                 masochist += Random(0, 2)
                 perversion += Random(0, 1)
                 If !Dating.isMale() && [Bull.isMale() || Bull.isTrans()] && !Dating.isPregnant() && Random(0, 100) < 30
-                    Dating.impregnate()
+                    Dating.impregnate(Bull)
                 Endif
                 "That was hot. But it looks like both <Bull.name> and <Dating.name> could go for another round ... and I'm becoming quite aroused."
                 0:: "Have a threesome"

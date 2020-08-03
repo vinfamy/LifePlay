@@ -1,0 +1,13 @@
+ACTION_UNIQUEID: make_baby
+ACTION_NAME: Try for a baby
+WHERE: interaction
+WHEN: 0 - 24
+MINUTES: 1 - 1
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: make_baby
+ANIMATION:
+WHO: Actor = getTarget(); If Actor.isDating() && !Actor.isPregnant() && !Player.isPregnant() && [Actor.wantsBabies() || Player.wantsBabies()] && !isTimingOut(make_baby)

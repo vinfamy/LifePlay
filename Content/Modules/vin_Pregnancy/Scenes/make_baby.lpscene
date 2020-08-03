@@ -1,0 +1,115 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "As a couple, <Actor.name> and I have agreed to have a child together. Is now a good time to try for a baby?"
+    0:: "Yes"
+    1:: "Not today"
+    2:: "This isn't working ..."
+    
+    If 0
+        "It's a numbers game. The more intimate time we spend with each other, the more likely we are to conceive a child."
+        Sex(Player, Actor)
+    Elseif 1
+        "I'm not in the mood today."
+    Elseif
+        "We've been trying for a child for a while, with no success. Maybe there's something wrong with one of us."
+        "Maybe we should look into alternatives?"
+        0:: Actor.wantsBabies():: "Surrogate mother"
+        1:: Player.wantsBabies():: "Sperm donor"
+        2:: "Let's be a bit more patient for now"
+        
+        If 0
+            Actor(Sad):: "I guess you're right ... maybe it's my fault."
+            setBackground(hospital)
+            Actor2 = generatePersonTemporary()
+            While !Actor2.isFemale()
+                Actor2 = generatePersonTemporary()
+            Endwhile
+            Actor2:age => Random(20, 30)
+            Actor2.randomizeFace()
+            Actor2.randomizeHairs()
+            Actor2.dress()
+            Actor2.show()
+            "Our doctor introduced us to <Actor2.name>, who is willing to be our baby's surrogate mother."
+            0:: "Pick her"
+            1:: "Come back later for another candidate"
+            
+            If 0
+                "We agreed to the procedure with <Actor2.name>."
+                Actor2.makePermanent()
+                exchangeContact(Actor2)
+                Actor.hide()
+                "A couple of weeks later on, <Actor2.name> and I went back to the hospital for artificial insemination. The doctor said everything went according to plans."
+                Actor.setWantsBabies(false)
+                Actor2.impregnate(Player)
+                Actor2.setActorVar(tag_surrogate, 1)
+                "This is a particularly boring way to become a father though ..."
+                0:: "Convince <Actor2.name> to do it the 'traditional way' too, just to be sure"
+                1:: "Just thank her and say goodbye"
+                
+                If 0
+                    If Random(50, 100) < Actor2:perversion + Actor2:attractiontoplayer
+                        Actor2:: "Okay ... but are you sure that your <Actor.boyfriend_or_girlfriend> won't mind?"
+                        Player:: "Don't worry, we already discussed this possibility. She's okay with me doing whatever it takes to have the baby."
+                        setBackground(home)
+                        Sex(Player, Actor2)
+                    Else
+                        Actor2:: "I'm sorry, but that's not part of our agreement."
+                    Endif
+                Endif
+                "Now, it's just a waiting game. Let's hope for some good news from <Actor2.name> and the doctor."
+            Else
+                "She doesn't seem too suitable ... Let's wait for a better candidate to present herself."
+            Endif
+        Elseif 1
+            Actor(Sad):: "I guess you're right ... maybe it's my fault."
+            setBackground(hospital)
+            Actor2 = generatePersonTemporary()
+            While !Actor2.isMale()
+                Actor2 = generatePersonTemporary()
+            Endwhile
+            Actor2:age => Random(20, 40)
+            Actor2.randomizeFace()
+            Actor2.randomizeHairs()
+            Actor2.dress()
+            Actor2.show()
+            "Our doctor introduced us to <Actor2.name>, who is willing to be our baby's sperm donor."
+            0:: "Pick him"
+            1:: "Come back later for another candidate"
+            
+            If 0
+                "We agreed to the procedure with <Actor2.name>."
+                Actor2.makePermanent()
+                exchangeContact(Actor2)
+                Actor.hide()
+                "A couple of weeks later on, <Actor2.name> and I went back to the hospital for artificial insemination. The doctor said everything went according to plans."
+                Player.impregnate(Actor2)
+                Actor2.setActorVar(tag_surrogate, 1)
+                "This is a particularly boring way to become a mother though ..."
+                0:: "Convince <Actor2.name> to do it the 'traditional way' too, just to be sure"
+                1:: "Just thank him and say goodbye"
+                
+                If 0
+                    If Random(50, 100) < Actor2:perversion + Actor2:attractiontoplayer
+                        Actor2:: "Okay ... but are you sure that your <Actor.boyfriend_or_girlfriend> won't mind?"
+                        Player:: "Don't worry, we already discussed this possibility. <Actor.He_or_She>'s okay with me doing whatever it takes to have the baby."
+                        setBackground(home)
+                        Sex(Actor2, Player)
+                    Else
+                        Actor2:: "I'm sorry, but that's not part of our agreement."
+                    Endif
+                Endif
+                "Now, it's just a waiting game. Let's hope for some good news from <Actor2.name> and the doctor."
+            Else
+                "She doesn't seem too suitable ... Let's wait for a better candidate to present himself."
+            Endif        
+        Else
+            "Let's be a bit more patient and try the traditional way a bit more."
+        Endif
+    Endif
+    SceneEnd()
+    timeout(24, make_baby)

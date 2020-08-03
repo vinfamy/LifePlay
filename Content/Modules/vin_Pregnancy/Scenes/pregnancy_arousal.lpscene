@@ -1,0 +1,32 @@
+WHAT: all
+WHERE: home
+WHEN: 0 - 24
+WHO: none
+OTHER: Player.isPregnant()
+
+    SceneStart()
+    "Being pregnant is hard. My sex drive fluctuates like crazy. One day I'm super horny and the next, I want nothing to do with sex."
+    arousal += 50
+    Actor = getSpecific(Dating)
+    If Actor.isValid()
+        "To make matters worse, my sex drive never seems to match my <Actor.boyfriend_or_girlfriend> these days ... It seems whenever I want sex, <Actor.he_or_she> isn't in the mood, and vice versa."
+        0:: "Try to understand <Actor.his_or_her> needs"
+        1:: "My need comes first!"
+        
+        If 0
+            "My widely fluctuating sex drive isn't <Actor.his_or_her> fault. Let's try to keep our relationship strong and not argue over sex"
+            Actor:attractiontoplayer += 1  
+        Else
+            "<Actor.He_or_She> can take this! I'm pregnant for god's sake, is it too much to ask for my <Actor.boyfriend_or_girlfriend> to adjust to my sex drive for a few month?"
+            Actor:attractiontoplayer -= 1
+            Actor.dress()
+            Actors.show()
+            Player:: "Baby, I'm so horny today. I need sex now!"
+            Actor:: "But honey, I'm really tired and not in the mood today ... Can we do it tomorrow?"
+            Player:: "No! I need it now ..."
+            Actor:: "Okay, fine ..."
+            Sex(Actor, Player)
+        Endif
+    Endif
+    SceneEnd()
+    timeout(pregnancy_arousal, 168)

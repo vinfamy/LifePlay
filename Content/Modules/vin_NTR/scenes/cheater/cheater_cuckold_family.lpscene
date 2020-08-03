@@ -25,7 +25,7 @@ OTHER: !isWithCompanion() && isModEnabled(vin_Incest)
         Dating:masochist += Random(0, 2)
         Dating:perversion += Random(0, 1)
         If !Player.isMale() && [Bull.isMale() || Bull.isTrans()] && !Player.isPregnant() && Random(0, 100) < 30
-            Player.impregnate()
+            Player.impregnate(Bull)
         Endif
         perversion += Random(0, 1)
         Bull.show(2)

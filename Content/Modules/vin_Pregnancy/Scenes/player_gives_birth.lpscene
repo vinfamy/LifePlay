@@ -17,13 +17,59 @@ OTHER: none
     Else
         "It was a painful experience, but thankfully, everything went smoothly in the end. Nothing beats the feeling of being a new mom."
     Endif
+    Actor2 = getPerson(tag_DaddyKnows)
+    DaddyKnows = Actor2.getActorVar(tag_DaddyKnows)
+    Actor2.setActorVar(tag_DaddyKnows, 0)
     energy -= 100
     mood += 100
     Actor = Player.generateRelativeMatchRace()
     Actor.setRelativeType(Child)
+    If Actor2.isValid()
+        addNpcRelationship(ParentChild, Actor2, Actor)
+    Endif
     "It's a <Actor.boy_or_girl>! What should I name my <Actor.son_or_daughter>?"
     Actor.enterFirstName()
     Actor:age => 0
     Player:children += 1
+    
+    If Random(0, 200) < fertility
+        "I'm having twins!"
+        Actor3 = Player.generateRelativeMatchRace()
+        Actor3.setRelativeType(Child)
+        If Actor2.isValid()
+            addNpcRelationship(ParentChild, Actor2, Actor3)
+        Endif
+        "It's a <Actor3.boy_or_girl>! What should I name my <Actor3.son_or_daughter>?"
+        Actor3.enterFirstName()
+        Actor3:age => 0
+        Player:children += 1
+        If Random(0, 200) < fertility
+            "I'm having triplets!"
+            Actor4 = Player.generateRelativeMatchRace()
+            Actor4.setRelativeType(Child)
+            If Actor2.isValid()
+                addNpcRelationship(ParentChild, Actor2, Actor4)
+            Endif
+            "It's a <Actor4.boy_or_girl>! What should I name my <Actor3.son_or_daughter>?"
+            Actor4.enterFirstName()
+            Actor4:age => 0
+            Player:children += 1
+        Endif        
+    Endif
+    
+    If Actor2.isValid()
+        If Actor2.isContactExchanged()
+            Actor2.dress()
+            Actor2.show()
+            "Of course, <Actor2.name> was there with me in the hospital, welcoming his new born child into the world."
+            If DaddyKnows == 2
+                "Little did he know, the baby might not even be his ... let's hope it's a secret that never comes out."
+            Endif
+        Else
+            "<Actor2.name>, who was told that he was the father of the baby, didn't even bother to show up at the hospital ... Looks like I have no choice but to raise this child on my own."
+        Endif
+    Else
+        "It's a shame that my baby was born without me even knowing who the father is. But after all, it was my choice not to try and find that out. I'm more than capable of raising the child on my own."
+    Endif
 
     SceneEnd()

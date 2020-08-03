@@ -1,0 +1,15 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    If fertility == 100
+        "I decided to stop my fertility treatment. My fertility should go back to normal now."
+        fertility => 3
+    Else
+        "I decided to go on an experimental fertility treatment, which greatly enhances pregnancy chances."
+        fertility => 100
+    Endif
+    SceneEnd()

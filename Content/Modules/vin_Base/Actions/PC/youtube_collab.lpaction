@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: youtube_collab
+ACTION_NAME: Collaborate with another YouTube creator
+WHERE: PC
+WHEN: 0 - 24
+MINUTES: 60 - 180
+TIMEOUT_MINUTES: 1140
+ALSO_TIMEOUT: 
+EFFECTS:
+CONDITIONS:
+MOVE_FIRST: false
+SCENE_ALWAYS: youtube_collab_cms
+ANIMATION: browse

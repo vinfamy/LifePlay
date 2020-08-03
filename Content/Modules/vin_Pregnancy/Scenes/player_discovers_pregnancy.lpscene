@@ -9,7 +9,13 @@ OTHER: none
     0:: "Test for pregnancy"
     
     setBackground(hospital)
-    "It's official: I'm pregnant! It's a strange feeling - I don't know if I should feel excited or terrified."
+    "It's official: I'm pregnant!"
+    If Player.wantsBabies()
+        "I've been trying for a baby for a while, and I finally succeeded! I can't wait to become a mother."
+        Player.setwantsBabies(false)
+    Else
+        "It's a strange feeling - I don't know if I should feel excited or terrified."
+    Endif
     If TfGame()
         "I stare at the test in blank incomprehension, the results of my test not quite making sense to my ears. I’m pregnant. I have life inside me now. It will grow into an entirely new person. I will be a mother. If there was any doubt remaining in the back of my mind that I was truly a woman, this just smashed it like a hammer. I am pregnant. This is real."
     Endif
@@ -20,16 +26,136 @@ OTHER: none
         Actor.show(2)
         "Of course, I know better: the baby is no doubt the result of my pleasurable bestial adventures with <Actor.name>. I've been thoroughly bred like a bitch in heat, filled up with thick animal cum and this swollen belly is the outcome." 
     Else
-        Actor.dress()
-        Actor.show(2)
-        "The DNA test shows that <Actor.name> is the father of the baby inside me."
-        
-        If Actor.isRelative()
-            "Or more precisely ... my own <Actor.relationship> is the father of the growing soul inside me!"
-            "We did something forbidden and extremely risky that led to this baby. We can now only hope that the truth will never come out and the baby will somehow turn out to be healthy physically and mentally."
-        Elseif Actor.isExRelative()
-            "As much as I'm happy to carry <Actor.name>'s child, <Actor.he_or_she> and I are biologically related after all ... Let's hope the baby will turn out to be healthy physically and mentally."        
-        Endif   
+        Surrogate = Actor.getActorVar(tag_Surrogate)
+        Actor2 = getSpecific(PotentialBabyDaddy)
+        Actor3 = getSpecific(PotentialBabyDaddy)
+        Actor4 = getSpecific(PotentialBabyDaddy)
+        Actor5 = getSpecific(PotentialBabyDaddy)
+        If Actor2.isValid() && Surrogate == 0
+            "This also put me in a dilemma: I've had more than one sexual partner recently who could all potentially be the father of the baby inside me ..."
+            0:: "Discreetly ask each lover to take a paternity test"
+            1:: "Just tell one of them the baby is his"
+            2:: "Who cares? The baby is mine!"
+            
+            If 0
+                "I asked each of them to take a paternity test. It's the only way to figure out for sure, although it's kind of humiliating basically admitting I was sleeping around and not even sure who knocked me up."
+                "At least I was discreet enough to ask them to come to take the test on different days so none of them actually found out who the others were and how many."
+                "At the end, the results came back. <Actor.name> is the father of the baby inside me."
+                0:: "Tell <Actor.name> the truth"
+                1:: "Bribe a nurse to falsify the result papers"
+                
+                
+                If 0
+                    Told = Actor
+                    Told.dress()
+                    Told.show(2)
+                    Player:: "<Told.name>, the baby is yours ..."
+                    Told.setActorVar(tag_DaddyKnows, 1)
+                    If Told.isDating() && !OpenRelationship() && Actor:attractiontoplayer + Actor:masochist < 0
+                        Told(Angry):: "So what? It could have been anyone!"
+                        Told(Angry):: "You think I'm an idiot? Why did you need me to take a paternity test to figure that out?"
+                        Told(Angry):: "Because you've been cheating on me, that's why!"
+                        Told:attractiontoplayer =-100
+                        Told(Angry):: "Good luck with the baby, because I don't want anything to do with it ... or you!"
+                        Told(Angry):: "Bye, bitch!"
+                        loseDating()
+                        blockContact(Told)
+                        "And just like that, <Told.name> left me and baby growing inside my belly behind ..."
+                    Else
+                        Told:: "I'm happy to hear that ... although I'd have preferred that it didn't take a DNA test for you to figure that out to be honest."
+                        exchangeContact(Actor)
+                    Endif
+                Else
+                    karma -= 10
+                    "To my surprise, the nurse smiled back at me and told me not to worry - she's done this a lot of times already, it's her main source of income in fact. The paternity fraud victim never finds out."
+                    money -= 1000
+                    "The question is, who's the poor guy that will find his name falsely on the DNA test results?"
+                    0:: "<Actor2.name>"
+                    1:: Actor3.isValid():: "<Actor3.name>"
+                    2:: Actor4.isValid():: "<Actor4.name>"
+                    3:: Actor5.isValid():: "<Actor5.name>"
+                    
+                    If 0
+                        Told = Actor2
+                    Elseif 1
+                        Told = Actor3
+                    Elseif 2
+                        Told = Actor4
+                    Else
+                        Told = Actor5
+                    Endif
+                    "I reckon <Told.name> would make the best father out of the bunch, even though he's not actually the real father. But he doesn't need to know that."
+                    Told.dress()
+                    Told.show(2)
+                    Player:: "<Told.name>, the baby is yours ..."
+                    Told.setActorVar(tag_DaddyKnows, 2)
+                    If Told.isDating() && !OpenRelationship() && Actor:attractiontoplayer + Actor:masochist < 0
+                        Told(Angry):: "So what? It could have been anyone!"
+                        Told(Angry):: "You think I'm an idiot? Why did you need me to take a paternity test to figure that out?"
+                        Told(Angry):: "Because you've been cheating on me, that's why!"
+                        Told:attractiontoplayer =-100
+                        Told(Angry):: "Good luck with the baby, because I don't want anything to do with it ... or you!"
+                        Told(Angry):: "Bye, bitch!"
+                        loseDating()
+                        blockContact(Told)
+                        "And just like that, <Told.name> left me and baby growing inside my belly behind ..."
+                    Else
+                        Told:: "I'm happy to hear that ... although I'd have preferred that it didn't take a DNA test for you to figure that out to be honest."
+                        exchangeContact(Told)
+                    Endif
+                Endif
+            Elseif 1
+                karma -= 5
+                "I might have slept around a bit, but no-one else needs to know about that. To the outside world, I could just be a faithful partner who's having a child with the love of her life."
+                "The question is: who should I 'choose' as the baby daddy?"
+                0:: "<Actor2.name>"
+                1:: Actor3.isValid():: "<Actor3.name>"
+                2:: Actor4.isValid():: "<Actor4.name>"
+                3:: Actor5.isValid():: "<Actor5.name>"
+                4:: "<Actor.name>"
+                
+                If 0
+                    Told = Actor2
+                Elseif 1
+                    Told = Actor3
+                Elseif 2
+                    Told = Actor4
+                Elseif 3
+                    Told = Actor5
+                Else
+                    Told = Actor
+                Endif
+                "I reckon <Told.name> would make the best father out of the bunch. Of course, I have no idea if he's even the real father, but he doesn't have to have any doubt. As far as he's concerned, he's the only person I've slept with recently."
+                Told.dress()
+                Told.show(2)
+                Player:: "<Told.name>, the baby is yours ..."
+                Told.setActorVar(tag_DaddyKnows, 2)
+                exchangeContact(Told)
+            Else
+                "It's not an ideal situation but I think I'm capable of raising the kid on my own and not having to deal with the drama of multiple potential baby daddies."
+            Endif
+        Elseif Surrogate == 1
+            "Looks like the procedure with our baby's sperm donor <Actor.name> was a success."
+            Actor.setActorVar(tag_Surrogate, 0)
+            Told = getSpecific(Dating)
+            Told.setActorVar(tag_DaddyKnows, 1)
+        Else
+            Actor.dress()
+            Actor.show(2)
+            "There's no doubt that <Actor.name> is the father of the baby inside me. I only had one partner recently, no need for any paternity tests here."
+            
+            If Actor.isRelative()
+                "Or more precisely ... my own <Actor.relationship> is the father of the growing soul inside me!"
+                "We did something forbidden and extremely risky that led to this baby. We can now only hope that the truth will never come out and the baby will somehow turn out to be healthy physically and mentally."
+            Elseif Actor.isExRelative()
+                "As much as I'm happy to carry <Actor.name>'s child, <Actor.he_or_she> and I are biologically related after all ... Let's hope the baby will turn out to be healthy physically and mentally."        
+            Endif
+            
+            Told = Actor
+            Player:: "<Told.name>, the baby is yours ..."
+            Told.setActorVar(tag_DaddyKnows, 1)
+            exchangeContact(Told)
+        Endif
     Endif
  
     SceneEnd()

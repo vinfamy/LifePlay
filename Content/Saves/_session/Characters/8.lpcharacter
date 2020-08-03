@@ -3,48 +3,39 @@ INFO Is_Male: 100% true
 INFO Interested_In_Men: 100% false
 INFO Interested_In_Women: 100% true
 INFO Interested_In_Transgender: 100% false
-INFO First_Name: 100% Nathan
-INFO Last_Name: 100% R
+INFO First_Name: 100% Derrick
+INFO Last_Name: 100% F
 INFO Race: 100% Daz
 INFO Genital: 100% Penis
 
 // Morphs
-MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.00994
-MORPH Genesis8Female__CTRLFitness: 100% 0.299969
-MORPH Genesis8Female__Tyler: 100% 0.000064
-MORPH Genesis8Female__Trey: 100% 0.020282
-MORPH Genesis8Female__Raj: 100% 0.055383
-MORPH Genesis8Female__Nose Style Nordic: 100% 0.569024
-MORPH Genesis8Female__Nose Style Germanic: 100% 0.740461
-MORPH Genesis8Female__Mike: 100% 0.174512
-MORPH Genesis8Female__Matt: 100% 0.421708
-MORPH Genesis8Female__Jin: 100% 0.003907
-MORPH Genesis8Female__David: 100% 0.000052
-MORPH Genesis8Female__Damien: 100% 0.062463
-MORPH Genesis8Female__Christopher: 100% 0.000012
-MORPH Genesis8Female__FBMThin: 100% 0.778994
-MORPH Genesis8FemaleEyelashes__Tyler: 100% 0.000064
-MORPH Genesis8FemaleEyelashes__Trey: 100% 0.020282
-MORPH Genesis8FemaleEyelashes__Raj: 100% 0.055383
-MORPH Genesis8FemaleEyelashes__Mike: 100% 0.174512
-MORPH Genesis8FemaleEyelashes__Matt: 100% 0.421708
-MORPH Genesis8FemaleEyelashes__Jin: 100% 0.003907
-MORPH Genesis8FemaleEyelashes__David: 100% 0.000052
-MORPH Genesis8FemaleEyelashes__Damien: 100% 0.062463
-MORPH Genesis8FemaleEyelashes__Christopher: 100% 0.000012
-MORPH XY__Penis length: 100% 0.286882
-MORPH XY__Plums size: 100% -0.070551
-MORPH XY__Penis size: 100% 0.000682
+MORPH Genesis8Female__CTRLFaceOlderHD: 100% 0.735252
+MORPH Genesis8Female__Trey: 100% 0.987963
+MORPH Genesis8Female__Raj: 100% 0.576936
+MORPH Genesis8Female__Nose Style Nordic: 100% 0.631446
+MORPH Genesis8Female__Nose Style Germanic: 100% 0.881158
+MORPH Genesis8Female__Matt: 100% 0.079189
+MORPH Genesis8Female__Damien: 100% 0.135622
+MORPH Genesis8Female__FBMHeavy: 100% 0.199133
+MORPH Genesis8Female__FBMBodyTone: 100% 0.100876
+MORPH Genesis8Female__FBMBodySize: 100% 0.201001
+MORPH Genesis8FemaleEyelashes__Trey: 100% 0.987963
+MORPH Genesis8FemaleEyelashes__Raj: 100% 0.576936
+MORPH Genesis8FemaleEyelashes__Matt: 100% 0.079189
+MORPH Genesis8FemaleEyelashes__Damien: 100% 0.135622
+MORPH XY__Penis length: 100% 0.093666
+MORPH XY__Plums size: 100% 0.204537
+MORPH XY__Penis size: 100% 0.212914
 SCALE X: 100% 1.0
 SCALE Y: 100% 1.0
 SCALE Z: 100% 1.0
 
 //Hair
-HAIR Hairstyle: 100% WavyHair
-HAIR Hair_Thickness: 100% 1.649702
-HAIR Hair_Color_R: 100% 0.7
-HAIR Hair_Color_G: 100% 0.6
-HAIR Hair_Color_B: 100% 0.4
+HAIR Hairstyle: 100% ColinHair
+HAIR Hair_Thickness: 100% 0.992291
+HAIR Hair_Color_R: 100% 0.8
+HAIR Hair_Color_G: 100% 0.8
+HAIR Hair_Color_B: 100% 0.8
 HAIR Hair_Color_A: 100% 0.85
 
 HAIR Brow_Color_R: 100% 0.0
@@ -61,37 +52,37 @@ SKIN Skin_Color_R: 100% 0.83
 SKIN Skin_Color_G: 100% 0.62
 SKIN Skin_Color_B: 100% 0.53
 SKIN Skin_Color_A: 100% 1.0
-SKIN BHairColor_R: 100% 0.015
-SKIN BHairColor_G: 100% 0.003
+SKIN BHairColor_R: 100% 0.026
+SKIN BHairColor_G: 100% 0.009
 SKIN BHairColor_B: 100% 0.0
 SKIN BHairColor_A: 100% 0.85
-SKIN Skin_Roughness: 100% 0.635334
+SKIN Skin_Roughness: 100% 0.740776
 SKIN Skin_Oil: 100% 0.25
-SKIN Skin_Fresnel: 100% 0.451125
-SKIN Skin_Age: 100% 0.00994
+SKIN Skin_Fresnel: 100% 0.530534
+SKIN Skin_Age: 100% 0.735252
 SKIN Skin_Sagging: 100% 0.0
 SKIN Muscle_Tone: 100% 0.0
-SKIN BHairThickness: 100% 0.806772
-SKIN BHairstyle: 100% JPBH78-TorsoNG-03
-SKIN FHairstyle: 100% Facial_Hair__15_
+SKIN BHairThickness: 100% 0.211438
+SKIN BHairstyle: 100% JPBH78-TorsoNG-01
+SKIN FHairstyle: 100% Facial_Hair__9_
 
 // Stats
 STAT incest: 100% 0.0
-STAT age: 100% 28.641926
-STAT attractiveness: 100% 7.56859
-STAT cooking: 100% 65.160072
-STAT dance: 100% 99.020355
-STAT fitness: 100% 75.176247
-STAT intelligence: 100% 70.668663
-STAT interpersonal: 100% 90.74984
-STAT martial: 100% 25.437176
-STAT masochist: 100% -14.407791
-STAT muscle: 100% 57.838676
-STAT music: 100% 67.155983
-STAT perversion: 100% 63.712791
+STAT age: 100% 76.297066
+STAT attractiveness: 100% 43.211155
+STAT cooking: 100% 87.743767
+STAT dance: 100% 34.885708
+STAT fitness: 100% 30.301826
+STAT intelligence: 100% 46.357616
+STAT interpersonal: 100% 2.746666
+STAT martial: 100% 35.486923
+STAT masochist: 100% -30.39949
+STAT muscle: 100% 84.459976
+STAT music: 100% 22.125919
+STAT perversion: 100% 10.870693
 STAT pornfame: 100% 0.0
-STAT sneak: 100% 26.615194
-STAT attractiontoplayer: 100% -32.191162
-STAT rapportwithplayer: 100% -5.0
-STAT arousal: 100% 53.102207
-STAT intoxication: 100% 47.441025
+STAT sneak: 100% 99.560532
+STAT attractiontoplayer: 100% -100.0
+STAT rapportwithplayer: 100% 8.544845
+STAT arousal: 100% 58.088928
+STAT intoxication: 100% 80.617699

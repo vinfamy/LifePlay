@@ -46,7 +46,7 @@ OTHER: !isWithCompanion() && !Player.isMale() && !Player.isPregnant()
             Player.show(0)
             "After the sex, <Bull.name> got up and left without saying a word, as agreed beforehand. That was a sensual experience like no other to be <Dating.pleasured_or_defilled> and hopefully impregnated by another <Bull.man_or_woman> while my <Dating.boyfriend_or_girlfriend> watch."
             Dating:attractiontoplayer += Random(0, 2)
-            Player.impregnate()
+            Player.impregnate(Bull)
             timeout(500, cheater_cuckold_impregnate)
         Else
             "Unfortunately, we couldn't quite agree on whose child I would want to carry."

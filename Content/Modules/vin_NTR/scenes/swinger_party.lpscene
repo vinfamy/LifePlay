@@ -199,15 +199,15 @@ OTHER: none
         
         If Impreg
             If !Player.isMale() && [FuckMe.isMale() || FuckMe.isTrans()]
-                Player.impregnate()
+                Player.impregnate(FuckMe)
             Elseif !FuckMe.isMale() && [Player.isMale() || Player.isTrans()]
                 FuckDating.makePermanent()
                 FuckMe.makePermanent()
-                FuckMe.impregnate()
+                FuckMe.impregnate(Player)
             Endif
             
             If !Dating.isMale() && [FuckDating.isMale() || FuckDating.isTrans()]
-                Dating.impregnate()
+                Dating.impregnate(FuckDating)
             Endif
         Endif
         

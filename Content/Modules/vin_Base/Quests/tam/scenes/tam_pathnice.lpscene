@@ -303,7 +303,7 @@ OTHER: none
                 "I was a bit stressed by the responsibility ahead but even more than that, I was overjoyed of the thought of becoming a <Player.father_or_mother>."
             Endif
             "We're so ready to start a new family!"
-            Amy.impregnate()
+            Amy.impregnate(Player)
             
             If isModEnabled(vin_NTR)
                 Player.hide()

@@ -9,17 +9,46 @@ OTHER: openRelationship()
     Actor2.dress()
     Actor.show()
     Actor2.show()
-    "My <Actor.relationship> and my <Actor2.boyfriend_or_girlfriend> want to talk to me about something."
-    Actor:: "I know you and <Actor2.name> is in an open relationship and you allow <Actor2.him_or_her> to sleep with other <Actor.guys_or_girls>"
-    Actor:: "I'm having a dry spell recently. Would you be so kind in allowing me to borrow <Actor2.name> for a night?"
-    Actor2:: "This isn't breaking rules we set up for our open relationship arrangement, baby."
-    0:: "Okay"
-    1:: "No way"
-    
-    If 0
-        Actor:rapportwithplayer += 1
-        Actor2:attractiontoplayer += 1
-        Actor:: "Oh thanks, you're the best <Actor.callplayer> ever"
+    sharedfamily = Actor2.getActorVar(tag_sharedfamily)
+    If sharedfamily == 0
+        "My <Actor.relationship> and my <Actor2.boyfriend_or_girlfriend> want to talk to me about something."
+        Actor:: "I know you and <Actor2.name> is in an open relationship and you allow <Actor2.him_or_her> to sleep with other <Actor.guys_or_girls>"
+        Actor:: "I'm having a dry spell recently. Would you be so kind in allowing me to borrow <Actor2.name> for a night?"
+        Actor2:: "This isn't breaking rules we set up for our open relationship arrangement, baby."
+        0:: "Okay"
+        1:: "No way"
+        
+        If 0
+            Actor:rapportwithplayer += 1
+            Actor2:attractiontoplayer += 1
+            Actor:: "Oh thanks, you're the best <Actor.callplayer> ever"
+            SexNoAffair(Actor, Actor2)
+            "Looks like they're ready for round 2"
+            0:: "Join them"
+            1:: "Just watch"
+            
+            If 0
+                SexNoAffair(Actor, Actor2, Player)       
+            Else
+                SexNoAffair(Actor, Actor2)       
+            Endif
+            Actor:: "That's incredible! Would you be so generous to keep this arrangement ongoing and share your <Actor2.boyfriend_or_girlfriend> with the rest of the family that might be interested?"
+            0:: "Share <Actor2.boyfriend_or_girlfriend> with family from now on"
+            1:: "No, this is just a one-off"
+            
+            If 0
+                Actor2:: "You're the most open-minded <Player.boyfriend_or_girlfriend> in the world!"
+                Actor2.setActorVar(tag_sharedfamily, 1)
+            Endif
+        Else
+            Player:: "Sorry, but this would make things too weird in the future."
+            Actor:rapportwithplayer -= 1
+            Actor2:attractiontoplayer -= 1
+        Endif
+    Else
+        AnimatePair(Actor, Actor2, Kissing)
+        "I came home to find my <Actor.relationship> and my <Actor2.boyfriend_or_girlfriend> <Actor2.name> making out with each other passionately."
+        "Most people in this situation would lose their mind ... but not me ... it's all part of our open relationship and an arrangement to share my <Actor2.boyfriend_or_girlfriend> with the rest of my family, whoever interested."
         SexNoAffair(Actor, Actor2)
         "Looks like they're ready for round 2"
         0:: "Join them"
@@ -29,11 +58,7 @@ OTHER: openRelationship()
             SexNoAffair(Actor, Actor2, Player)       
         Else
             SexNoAffair(Actor, Actor2)       
-        Endif
-    Else
-        Player:: "Sorry, but this would make things too weird in the future."
-        Actor:rapportwithplayer -= 1
-        Actor2:attractiontoplayer -= 1
+        Endif        
     Endif
     SceneEnd()
     timeout(200, relative_asks_cms)

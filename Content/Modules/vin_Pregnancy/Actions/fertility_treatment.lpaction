@@ -1,0 +1,12 @@
+ACTION_UNIQUEID: fertility_treatment
+ACTION_NAME: Start or stop fertility treatment
+WHERE: hospital, doctor
+WHEN: 0 - 24
+MINUTES: 1 - 2
+TIMEOUT_MINUTES: 0
+ALSO_TIMEOUT: 
+EFFECTS:
+CONDITIONS:
+MOVE_FIRST: true
+SCENE_ALWAYS: fertility_treatment
+ANIMATION:   

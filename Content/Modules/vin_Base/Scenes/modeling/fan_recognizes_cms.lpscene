@@ -1,0 +1,30 @@
+WHAT: all
+WHERE: all, -home, -work, -prison
+WHEN: 0 - 24
+WHO: none
+OTHER: Random(1, 100) < modelfame || Random(1, 100) < pornfame
+
+    SceneStart()
+    Actor = generatePersonTemporary()
+    Actor.dress()
+    Actor.show()
+    Actor:attractiontoplayer += 50
+    Actor:rapportwithplayer += 50
+    
+    "I was stopped by a fan and asked for a picture. <Actor.He_or_She> introduced <Actor.himself_or_herself> as <Actor.name>"
+    0:: "Take a photo with the fan"
+    1:: "Ignore and walk away quickly"
+    
+    If 0
+        "It's the fans that keep my career going after all so it's not too much to ask to take the occasional selfies with them."
+        0:: "Ask for the fan's number"
+        1:: "Say goodbye"
+        
+        If 0
+            "The fan was absolutely star-struck that I asked for <Actor.his_or_her> number and of course gave it to me without hesitation."
+            Actor.makePermanent()
+            exchangeContact(Actor)
+        Endif
+    Endif
+    SceneEnd()
+    timeout(200, fan_recognizes_cms)

@@ -6,21 +6,31 @@ OTHER: none
 
     If !Actor.isMale()
         SceneStart()
-        setBackground(home)
-        Actor.dress()
-        Actor.show(2)
-        Actor(Sad):: "<Player.name>, we need to talk ..."
-        Player(Happy):: "Sure, what is it?"
-        Actor(Sad):: "<Player.name>, I'm pregnant ..."  
-        Actor.setActorVar(tag_Pregnant, 1)        
-        Actor:attractiontoplayer += 50
-        If Actor.isRelative()
-            "The evidence from the paternity test is undeniable. I'm the father of <Actor.name>'s unborn baby."
-            "Or more precisely ... of my own <Actor.relationship>'s unborn baby!"
-            "We did something forbidden and extremely risky that led to this baby. We can now only hope that the truth will never come out and the baby will somehow turn out to be healthy physically and mentally." 
-        Elseif Actor.isExRelative()
-            "The evidence from the paternity test is undeniable. I'm the father of <Actor.name>'s unborn baby."
-            "As much as I'm happy about the news, <Actor.name> and I are biologically related after all ... Let's hope the baby will turn out to be healthy physically and mentally."
-        Endif    
+        Surrogate = Actor.getActorVar(tag_Surrogate)
+        If Surrogate == 0
+            setBackground(home)
+            Actor.dress()
+            Actor.show(2)
+            Actor(Sad):: "<Player.name>, we need to talk ..."
+            Player(Happy):: "Sure, what is it?"
+            Actor(Sad):: "<Player.name>, I'm pregnant ..."  
+            Actor.setActorVar(tag_Pregnant, 1)        
+            Actor:attractiontoplayer += 50
+            If Actor.isRelative()
+                "The evidence from the paternity test is undeniable. I'm the father of <Actor.name>'s unborn baby."
+                "Or more precisely ... of my own <Actor.relationship>'s unborn baby!"
+                "We did something forbidden and extremely risky that led to this baby. We can now only hope that the truth will never come out and the baby will somehow turn out to be healthy physically and mentally." 
+            Elseif Actor.isExRelative()
+                "The evidence from the paternity test is undeniable. I'm the father of <Actor.name>'s unborn baby."
+                "As much as I'm happy about the news, <Actor.name> and I are biologically related after all ... Let's hope the baby will turn out to be healthy physically and mentally."
+            Endif
+            If Actor.wantsBabies()
+                "<Actor.name> and I have been trying for a baby for a while, so this is long-awaited news."
+                Actor.setwantsBabies(false)
+            Endif
+        Else
+            "<Actor.name>, the surrogate mother I had a procedure with, just called to announce that she was pregnant."
+            "As a couple, we've been trying in vain for a baby so this is a great news."
+        Endif
         SceneEnd()
     Endif

@@ -116,7 +116,7 @@ OTHER: Random(0, 100) < 2 && intelligence < Random(0, 100)*Random(0, 1)*Random(0
         Filter(Aggressive)
         TalkNonConsensual()
         SexNoAffair(Actor, Actor2)
-        Actor2.impregnate()
+        Actor2.impregnate(Actor)
     Endif
     SceneEnd()
     timeout(500, wi_darkalley_rape_cms)

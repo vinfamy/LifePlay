@@ -1,0 +1,85 @@
+WHAT: none
+WHERE: none
+WHEN: 0 - 24
+WHO: none
+OTHER: none
+
+    SceneStart()
+    "I have a channel on YouTube. In order to become popular on YouTube, it's a good idea to collaborate with other creators."
+    0:: "Online collab"
+    1:: "Invite someone on your show"
+    2:: "Offer to be invited onto someone else's show"
+    
+    If 0
+        Actor = generatePerson()
+        exchangeContact(Actor)
+        Actor.dress()
+        secondScreen(Actor)
+        Actor.show()
+        "After contacting a few creators, <Actor.name> responded and said that <Actor.he_or_she> would be interested in collaborating with me on a video."
+        
+        If Random(0, 100) < Actor:interpersonal
+            "Thanks in no smart part to <Actor.name>'s existing fan base, the new video turned out to be a success, earning a decent amount of views and a bit of money for myself and <Actor.name>."
+            money += Random(0.5, 5)*fitness
+            mood += 10
+        Else
+            "Unfortunately, neither of us are that popular to attract the views so the new video was a miss, not earning many views at all and even less money."
+            mood -= 10
+        Endif
+    Elseif 1
+        Actor = generatePerson()
+        exchangeContact(Actor)
+        Actor.dress()
+        Actor.show()
+        "After contacting a few creators, <Actor.name> responded and I decided to invite <Actor.him_or_her> to join me at my home studio to shoot the video"
+        
+        moveTo(home)
+        
+        If Random(0, 100) < Actor:interpersonal
+            "Thanks in no smart part to <Actor.name>'s existing fan base, the new video turned out to be a success, earning a decent amount of views and a bit of money for myself and <Actor.name>."
+            money += Random(0.5, 5)*fitness
+            mood += 10
+        Else
+            "Unfortunately, neither of us are that popular to attract the views so the new video was a miss, not earning many views at all and even less money."
+            mood -= 10
+        Endif
+        
+        If !isWithCompanion()
+            "Anyway, since I've already met <Actor.name> in person, should I take this opportunity and ask <Actor.him_or_her> to hang out after the shoot."
+            0:: "Yes"
+            1:: "No"
+            
+            If 0
+                Actor.startDate()
+            Endif
+        Endif
+    Else
+        Actor = generatePerson()
+        exchangeContact(Actor)
+        Actor.dress()
+        Actor.show()
+        "After contacting a few creators, <Actor.name> responded and invited me to join <Actor.him_or_her> at <Actor.his_or_her> home studio to shoot the video"
+        
+        dest = Actor.getBuilding(home)
+        moveTo(dest)
+        
+        If Random(0, 100) < Actor:interpersonal
+            "Thanks in no smart part to <Actor.name>'s existing fan base, the new video turned out to be a success, earning a decent amount of views and a bit of money for myself and <Actor.name>."
+            money += Random(0.5, 5)*fitness
+            mood += 10
+        Else
+            "Unfortunately, neither of us are that popular to attract the views so the new video was a miss, not earning many views at all and even less money."
+            mood -= 10
+        Endif
+        
+        If !isWithCompanion()
+            "Anyway, since I've already met <Actor.name> in person, should I take this opportunity and ask <Actor.him_or_her> to hang out after the shoot."
+            0:: "Yes"
+            1:: "No"
+            
+            If 0
+                Actor.startDate()
+            Endif
+        Endif    
+    Endif
+    SceneEnd()
