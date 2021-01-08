@@ -21,7 +21,7 @@ OTHER: isAtHome() && !isWithCompanion()
         Actor3:age => Actor:age - Random(20, 40)
         Actor3:age += 1
         Actor3.randomizeHairs()
-        Actor3.randomizeFace(
+        Actor3.randomizeFace()
         Actor3.dress()
         addNpcRelationship(ParentChild, Actor, Actor3)    
     Endif

@@ -43,7 +43,7 @@ Else
         1:: "No"
             
         If 0
-            If [New_Person:attractiontoplayer < 40 && InterestedInPC] || [!InterestedInPC && New_Person:rapportwithplayer < 0)]
+            If [New_Person:attractiontoplayer < 40 && InterestedInPC] || [!InterestedInPC && New_Person:rapportwithplayer < 0]
                 Random
                     New_Person(Happy):: "Sorry, but I still don't feel like I know you well enough to share such personal information just yet."
                     New_Person(Happy):: "It's still gonna be a no, I'm afraid. Another day perhaps."
